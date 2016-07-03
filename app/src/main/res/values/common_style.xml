@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="text">
+        <item name="fontPath">@string/font_iran_medium</item>
+
+    </style>
+
+    <style name="text.normal">
+        <item name="android:textSize">14dp</item>
+        <item name="android:textColor">@color/text_gray_1</item>
+
+    </style>
+
+    <style name="text.normal.white">
+        <!--<item name="android:textSize">14dp</item>-->
+        <item name="android:textColor">@color/white</item>
+
+    </style>
+
+
+
+    <style name="text_light">
+        <item name="fontPath">@string/font_iran_light</item>
+
+    </style>
+    <style name="text_bold">
+        <item name="fontPath">@string/font_iran_bold</item>
+
+    </style>
+
+    <style name="text.info_text">
+        <item name="android:textSize">14dp</item>
+        <!--<item name="fontPath">@string/font_iran_light</item>-->
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="text_ionic">
+        <item name="fontPath">@string/font_ionic</item>
+    </style>
+
+    <style name="text_ionic.btn">
+        <item name="android:textSize">40dp</item>
+        <item name="android:textColor">@color/blue_primary_1</item>
+    </style>
+
+    <style name="text_ionic.large">
+        <item name="android:textSize">40dp</item>
+        <item name="android:textColor">@color/blue_primary_1</item>
+    </style>
+    <style name="text_ionic.large.white">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="text.tabs">
+        <item name="android:textSize">16dp</item>
+        <item name="android:textColor">@color/blue_primary_1</item>
+    </style>
+
+    <style name="back_nav_btn" parent="text_ionic.btn">
+        <item name="android:minWidth">50dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:text">\uf3d1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:paddingLeft">20dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:id">@id/back_btn</item>
+        <!--<item name="android:textSize">40dp</item>-->
+        <!--<item name="android:textColor">@color/blue_primary</item>-->
+    </style>
+    <style name="back_nav_btn.white">
+        <item name="android:textColor">@color/white</item>
+    </style>
+</resources>

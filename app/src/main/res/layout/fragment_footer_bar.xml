@@ -1,0 +1,51 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="54dp"
+    android:orientation="horizontal"
+    tools:context=".ui.fragments.FooterBarFragment"
+    android:background="@color/navbar_background"
+
+    >
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:text="\uf47d"
+        style="@style/foot_bar_cell"
+        android:id="@+id/profile"
+        />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:text="\uf3e5"
+        style="@style/foot_bar_cell"
+        android:id="@+id/activity"/>
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:text="\uf4a5"
+        style="@style/foot_bar_cell"
+        android:id="@+id/search"/>
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:text="\uf447"
+        style="@style/foot_bar_cell"
+        android:id="@+id/home"/>
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:text="\uf3f9"
+        style="@style/foot_bar_cell"
+        android:id="@+id/chat"/>
+</LinearLayout>

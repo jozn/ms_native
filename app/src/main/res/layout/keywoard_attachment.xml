@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/transparent_black_light">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:id="@+id/attachment_top"
+        android:orientation="vertical"
+        >
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="bottom"
+        android:id="@+id/attachment_main"
+        android:background="@color/white"
+        >
+        <!--<com.jess.ui.TwoWayGridView-->
+            <!--android:id="@+id/gridview"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="70dp"-->
+            <!--android:layout_marginLeft="7dp"-->
+            <!--android:layout_marginTop="7dp"-->
+            <!--android:background="@color/white"-->
+            <!--app:cacheColorHint="#E8E8E8"-->
+            <!--app:columnWidth="80dp"-->
+            <!--app:gravity="center"-->
+            <!--app:horizontalSpacing="7dp"-->
+            <!--app:numColumns="auto_fit"-->
+            <!--app:numRows="1"-->
+            <!--app:rowHeight="70dp"-->
+            <!--app:scrollDirectionLandscape="horizontal"-->
+            <!--app:scrollDirectionPortrait="horizontal"-->
+            <!--app:stretchMode="spacingWidthUniform"-->
+            <!--app:verticalSpacing="7dp"-->
+            <!--/>-->
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="85dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:id="@+id/frame_layout"
+            >
+
+        </FrameLayout>
+
+        <LinearLayout
+            style="@style/attachment_cells_row_holder"
+            >
+
+            <!-- Cells first column -->
+            <LinearLayout
+                style="@style/attachment_cell_holder"
+                android:id="@+id/attach_video"
+                >
+                <TextView
+                    android:text="\uf4cd"
+                    style="@style/attachment_cell_icon"
+                    android:textColor="#ff3e48"
+                    />
+                <TextView
+                    style="@style/attachment_cell_text"
+                    android:text="1ویدیو"
+                    />
+            </LinearLayout>
+
+
+            <LinearLayout
+                style="@style/attachment_cell_holder"
+                android:id="@+id/attach_gallery"
+                >
+                <TextView
+                    style="@style/attachment_cell_icon"
+                    android:text="\uf148"
+                    android:textColor="@color/btn_backgrounds"
+                    />
+                <TextView
+                    style="@style/attachment_cell_text"
+                    android:text="گالری"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/attachment_cell_holder"
+                android:id="@+id/attach_camera"
+                >
+                <TextView
+                    style="@style/attachment_cell_icon"
+                    android:text="\uf3f6"
+                    android:textColor="#00a400"
+                    />
+
+                <TextView
+                    style="@style/attachment_cell_text"
+                    android:text="دوربین"
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
+        <!--end of cells row 1-->
+
+        <!-- Cells sceond column-->
+        <LinearLayout
+            style="@style/attachment_cells_row_holder"
+            >
+
+            <!-- Cells first column -->
+            <LinearLayout
+                style="@style/attachment_cell_holder"
+                android:id="@+id/attach_location"
+                >
+                <TextView
+                    android:text="\uf4cd"
+                    style="@style/attachment_cell_icon"
+                    android:textColor="#00ffff"
+                    />
+                <TextView
+                    style="@style/attachment_cell_text"
+                    android:text="file 2"
+                    />
+            </LinearLayout>
+
+
+            <LinearLayout
+                style="@style/attachment_cell_holder"
+                android:id="@+id/attach_file"
+                >
+                <TextView
+                    style="@style/attachment_cell_icon"
+                    android:text="\uf3ef"
+                    android:textColor="#c101c1"
+                    />
+                <TextView
+                    style="@style/attachment_cell_text"
+                    android:text="فایل"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/attachment_cell_holder"
+                android:id="@+id/close_send_btn"
+                >
+                <TextView
+                    style="@style/attachment_cell_icon"
+                    android:text="\uf404"
+                    android:textColor="#d28808"
+                    android:id="@+id/close_icon"
+                    />
+
+                <TextView
+                    style="@style/attachment_cell_text"
+                    android:text=""
+                    android:id="@+id/close_text"
+                    android:maxLines="1"
+
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
+
+

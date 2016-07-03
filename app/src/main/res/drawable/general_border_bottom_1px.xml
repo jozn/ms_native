@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape android:shape="line"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:thickness="1px"
+    >
+
+    <stroke android:color="@color/text_gray_3" android:width="1px" />
+
+</shape>
+<!--<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    &lt;!&ndash;<item android:bottom="0dp" android:left="0dp" android:right="0dp">&ndash;&gt;
+        &lt;!&ndash;<shape android:shape="rectangle" >&ndash;&gt;
+            &lt;!&ndash;<solid android:color="@color/transparent_4"/>&ndash;&gt;
+        &lt;!&ndash;</shape>&ndash;&gt;
+        &lt;!&ndash;&lt;!&ndash;<shape android:shape="line" >&ndash;&gt;&ndash;&gt;
+            &lt;!&ndash;&lt;!&ndash;<size android:width="1px"/>&ndash;&gt;&ndash;&gt;
+            &lt;!&ndash;&lt;!&ndash;<stroke android:color="@color/text_gray_2" android:width="1px"/>&ndash;&gt;&ndash;&gt;
+        &lt;!&ndash;&lt;!&ndash;</shape>&ndash;&gt;&ndash;&gt;
+    &lt;!&ndash;</item>&ndash;&gt;
+    <item android:bottom="1px" android:height="1px" android:left="10dp" android:right="10dp"  >
+        <shape android:shape="line" >
+            <size android:width="1px"/>
+            <stroke android:color="@color/text_gray_2" android:width="1px" />
+        </shape>
+    </item>
+</layer-list>-->
+
+
+<!--
+    <?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+
+<solid android:color="@color/transparent_0" />
+
+<stroke android:width="1px" android:color="@color/text_gray_3" />
+</shape>
+
+-->

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.mardomsara.social.play.FontsScrollingActivity"
+    tools:showIn="@layout/play_activity_fonts_scrolling">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="سلام من به تو و ایران and then all suden broked"
+            android:textSize="16dp"
+            fontPath="fonts/IRAN_Sans_Medium.ttf"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="سلام من به تو و ایران and then all suden broked"
+            android:textSize="16dp"
+
+            fontPath="fonts/IRAN_Sans_Light.ttf"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="سلام من به تو و ایران and then all suden broked"
+            android:textSize="16dp"
+            fontPath="fonts/Roboto-Medium.ttf"
+            />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="سلام من به تو و ایران and then all suden broked"
+            android:textSize="16dp"
+            fontPath="fonts/RobotoCondensed-Regular.ttf"
+            />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="سلام من به تو و ایران and then all suden broked"
+            fontPath="fonts/notoserif.ttf"
+            />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="سلام من به تو و ایران and then all suden broked"
+            fontPath="fonts/Roboto-Light.ttf"
+            />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="سلام من به تو و ایران and then all suden broked"
+            fontPath="fonts/Roboto-Light.ttf"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="0xe802"
+            fontPath="fonts/icons.ttf"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="U+e81c"
+            fontPath="fonts/icons.ttf"
+            />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:textSize="36dp"
+            android:layout_height="wrap_content"
+            android:text="\ue81c"
+            fontPath="fonts/icons.ttf"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="36dp"
+            android:text="\ue81c"
+            fontPath="fonts/icons.ttf"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="36dp"
+            android:textColor="#55c"
+            android:text="\ue820"
+            fontPath="fonts/icons.ttf"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="36dp"
+            android:textColor="#55c"
+            android:text="\ue83f"
+            fontPath="fonts/icons.ttf"
+            />
+<TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="36dp"
+            android:textColor="#55c"
+            android:text="\ue840"
+    fontPath="@string/linear_font"
+
+    />
+<TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="46dp"
+            android:textColor="#55c"
+            android:text="\ue840"
+            fontPath="@string/linear_font"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="46dp"
+            android:textColor="#55c"
+            android:text="\uf447"
+            fontPath="@string/ionic_font"
+
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="46dp"
+            android:textColor="#55c"
+            android:text="\uf3f9"
+            fontPath="@string/ionic_font"
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ADD"
+            android:id="@+id/btn"/>
+
+    </LinearLayout>
+
+</ScrollView>

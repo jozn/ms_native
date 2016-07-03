@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/msg_row"
+    >
+    <LinearLayout
+        android:id="@+id/msg_content_holder"
+        style="@style/msg.content_holder.peer"
+        >
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+
+            android:id="@+id/msg_image"
+            />
+
+        <com.mardomsara.emojicon.EmojiconTextView
+            style="@style/msg_text.peer"
+
+            />
+
+        <include layout="@layout/msg_shared_time_status"/>
+
+
+    </LinearLayout>
+
+</LinearLayout>

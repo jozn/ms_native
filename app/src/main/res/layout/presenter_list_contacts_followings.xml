@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingRight="10dp"
+    android:paddingLeft="10dp"
+    android:background="@color/white"
+    >
+
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        >
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/followings_btn"
+            android:text="دنبال شدگان"
+            style="@style/minitab_cell"
+            android:background="@drawable/minitab_cell_left"
+            />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/contacts_btn"
+            android:text="مخاطبین"
+            style="@style/minitab_cell"
+            android:background="@drawable/minitab_cell_right"
+
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/layout1"
+        android:visibility="invisible"
+        android:background="@drawable/minitab_container_background"
+        style="@style/minitab_container"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/empty_contacts_msg"
+            style="@style/minitab_container_empty_msg"
+            android:text="@string/contacts_list_presenter.none_of_your_contacts_registered"
+            />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/contacts_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbarStyle="insideInset"
+            android:fadeScrollbars="true"
+            android:layout_weight="1"
+            android:scrollbars="vertical"
+            />
+        <!--android:background="@color/text_gray_4"-->
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/layout2"
+        android:visibility="invisible"
+        android:background="@drawable/minitab_container_background"
+        style="@style/minitab_container"
+
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/empty_followings_msg"
+            style="@style/minitab_container_empty_msg"
+            android:text="@string/contacts_list_presenter.you_not_following_anybody"
+            />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/followings_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbarStyle="insideInset"
+            android:fadeScrollbars="true"
+            android:layout_weight="1"
+            android:scrollbars="vertical"
+
+            />
+
+    </FrameLayout>
+
+
+
+</LinearLayout>

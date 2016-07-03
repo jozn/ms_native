@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <com.mardomsara.social.ui.views.wigets.SimpleTopNav
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+    </com.mardomsara.social.ui.views.wigets.SimpleTopNav>
+
+    <com.mardomsara.social.ui.views.wigets.SimpleText
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:padding="5dp"
+        android:background="@color/transparent_0"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="!! Hello Wolrld row !!"
+        android:gravity="center_horizontal"
+        android:id="@+id/txt"/>
+    <com.mardomsara.social.ui.views.wigets.BadgeCount
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="asdasassadas"
+        android:padding="5dp"
+        />
+
+    <com.mardomsara.social.ui.views.wigets.BadgeCount
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="23"
+        android:padding="15dp"
+        />
+
+    <com.mardomsara.social.ui.views.wigets.CountView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="14"
+        />
+
+    <com.mardomsara.social.ui.views.wigets.CountView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="4846"
+
+        />
+
+    <!--<com.mardomsara.social.ui.views.play.MyView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--/>-->
+
+    <!--<com.mardomsara.social.ui.views.play.MyView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:padding="14dp"-->
+        <!--/>-->
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn"
+        android:text="Add a page"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn2"
+        android:text="Add a galler chhoser"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/anvil"
+        android:orientation="vertical"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/anvil2"
+        android:orientation="vertical"
+        />
+
+
+</LinearLayout>

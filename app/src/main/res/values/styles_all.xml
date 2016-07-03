@@ -1,0 +1,113 @@
+<resources>
+
+    <style name="chat_top_tab">
+        <item name="tabIndicatorColor">@color/light_blue_1</item>
+        <item name="tabIndicatorHeight">4dp</item>
+        <item name="tabPaddingStart">12dp</item>
+        <item name="tabPaddingEnd">12dp</item>
+
+        <!--<item name="tabBackground">@color/light_blue_5</item>-->
+        <item name="tabSelectedTextColor">?android:textColorPrimary</item>
+        <item name="android:background">@drawable/tab_holder_background</item>
+    </style>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+
+
+    </style>
+
+    <style name="AppTheme.NoActionBar.OtherActivity">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+
+    </style>
+    <style name="AppTheme.Btn" parent="">
+
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="tabs_btn">
+        <item name="android:textSize">14dp</item>
+        <item name="android:background">@color/btn_backgrounds</item>
+        <item name="android:color">@color/background_white</item>
+        <item name="android:paddingBottom">4dp</item>
+        <item name="android:paddingRight">6dp</item>
+        <item name="android:paddingLeft">6dp</item>
+    </style>
+
+    <style name="emoji_window_tab">
+        <item name="android:tint">@color/white</item>
+        <item name="android:cropToPadding">true</item>
+        <item name="android:padding">6dp</item>//todo: make this 4 for grand 2 display
+        <item name="android:scaleType">fitCenter</item>
+    </style>
+
+    <style name="minitab_cell">
+        <item name="android:layout_gravity">center</item>
+        <item name="android:minWidth">100dp</item>
+        <item name="android:paddingTop">6dp</item>
+        <item name="android:paddingRight">4dp</item>
+        <item name="android:paddingBottom">6dp</item>
+        <item name="android:paddingLeft">4dp</item>
+
+        <item name="android:textSize">14dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">normal</item>
+        <item name="fontPath">@string/font_iran_medium</item>
+
+    </style>
+
+    <style name="minitab_container">
+        <item name="android:background">@drawable/minitab_container_background</item>
+    </style>
+
+    <style name="minitab_container_empty_msg">
+        <item name="android:layout_gravity">center</item>
+        <item name="android:minWidth">100dp</item>
+        <item name="android:paddingTop">6dp</item>
+        <item name="android:paddingRight">4dp</item>
+        <item name="android:paddingBottom">6dp</item>
+        <item name="android:paddingLeft">4dp</item>
+
+        <item name="android:textSize">14dp</item>
+        <item name="android:textColor">@color/text_gray_3</item>
+        <item name="android:textStyle">normal</item>
+        <item name="fontPath">@string/font_iran</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="user_list"/>
+
+    <style name="user_list.primary_name">
+        <item name="android:layout_gravity">center_vertical|right</item>
+        <item name="android:paddingLeft">4dp</item>
+
+        <item name="android:textSize">14dp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">normal</item>
+        <item name="fontPath">@string/font_iran_medium</item>
+    </style>
+
+    <style name="user_list.second_name">
+        <item name="android:paddingLeft">4dp</item>
+        <item name="android:layout_gravity">center_vertical|right</item>
+        <item name="android:textSize">14dp</item>
+        <item name="android:textColor">@color/text_gray_1</item>
+        <item name="android:textStyle">normal</item>
+        <item name="fontPath">@string/font_iran</item>
+    </style>
+
+</resources>

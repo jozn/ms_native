@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="id" name="msg_row" />
+
+    <dimen name="msg_content_holder.inside_bubble_padding">0dp</dimen>
+    <dimen name="msg_content_holder.inside_bubble_padding_content">5dp</dimen>
+    <color name="msg_content_holder.background_color_me">#d6d600</color>
+    <color name="msg_content_holder.background_color_peer">#7bff9c</color>
+    <!--<color name="msg_content_holder.background_color_peer">@color/light_gery</color>-->
+
+    <style name="msg"></style>
+
+    <style name="msg_row">
+        <item name="android:id">@id/msg_row</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">fill_horizontal</item>
+        <item name="android:layout_marginTop">8dp</item>
+    </style>
+
+    <style name="msg_row.id">
+        <item name="android:id">@id/msg_row</item>
+    </style>
+
+    <style name="msg.content_holder">
+        <item name="android:id">@id/msg_content_holder</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">0dp</item>
+        <item name="android:layout_marginRight">0dp</item>
+        <item name="android:layout_marginBottom">0dp</item>
+        <item name="android:layout_marginLeft">0dp</item>
+        <item name="android:padding">2dp</item>
+        <!--<item name="android:background">@color/blue_primary</item>-->
+    </style>
+
+    <style name="msg.content_holder.me">
+        <item name="android:layout_marginRight">40dp</item>
+        <item name="android:layout_marginLeft">8dp</item>
+        <item name="android:paddingLeft">@dimen/msg_content_holder.inside_bubble_padding_content</item>
+        <item name="android:colorBackground">@color/light_blue_5</item>
+        <item name="android:layout_gravity">left</item>
+        <item name="android:background">@drawable/chat_content_bubble_me</item>
+        <!--<item name="android:background">#d6d600</item>-->
+    </style>
+
+    <style name="msg.content_holder.peer" >
+        <!--<item name="android:layout_marginRight">8dp</item>-->
+        <item name="android:layout_marginLeft">40dp</item>
+        <item name="android:layout_marginRight">@dimen/msg_content_holder.inside_bubble_padding_content</item>
+        <!--<item name="android:background">@color/light_gery</item>-->
+        <item name="android:layout_gravity">right</item>
+        <item name="android:background">@drawable/chat_content_bubble_peer</item>
+
+
+    </style>
+
+    <style name="msg_text" >
+        <item type="id" name="android:id">@id/msg_text</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:gravity">right</item>
+        <item name="android:padding">4dp</item>
+
+        <item name="android:textSize">14dp</item>
+        <item name="android:textColor">@color/text_black_1</item>
+        <item name="android:autoLink">none</item>
+        <item name="android:linksClickable">true</item>
+        <item name="android:textColorLink">@color/blue_primary_1</item>
+        <item name="android:textStyle">normal</item>
+        <item name="fontPath">@string/font_iran</item>
+    </style>
+
+    <style name="msg_text.me" >
+
+    </style>
+
+    <style name="msg_text.peer" >
+
+    </style>
+
+    <!--chat List Presnter-->
+
+    <style name="room_row_unseen_count">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <!--<item name="android:layout_marginTop">4dp</item>-->
+        <!--<item name="android:layout_marginBottom">4dp</item>-->
+        <item name="android:minWidth">15dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:baselineAligned">true</item>
+        <!--<item name="android:padding">0dp</item>-->
+        <!--<item name="android:paddingTop">2dp</item>-->
+        <item name="android:paddingRight">3dp</item>
+        <item name="android:paddingBottom">0dp</item>
+        <item name="android:paddingLeft">3dp</item>
+        <item name="android:background">@drawable/room_row_unseen_count_background</item>
+        <!--<item name="android:background">#00f</item>-->
+        <item name="android:textSize">14dp</item>
+        <item name="android:textColor">@color/white</item>
+
+        <item name="android:textStyle">normal</item>
+        <item name="fontPath">@string/font_iran</item>
+
+
+    </style>
+
+    <style name="room_row_date">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+
+        <item name="android:paddingRight">2dp</item>
+        <item name="android:paddingLeft">0dp</item>
+        <item name="android:textSize">14dp</item>
+        <item name="android:textColor">@color/text_black_1</item>
+        <item name="android:textStyle">normal</item>
+        <item name="fontPath">@string/font_iran_light</item>
+
+    </style>
+
+    <style name="com">
+        <!--<item name="android:id">msg_row</item>-->
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_centerInParent">false</item>
+        <item name="android:gravity">fill_horizontal</item>
+
+        <item name="android:layout_margin">0dp</item>
+        <item name="android:layout_marginTop">0dp</item>
+        <item name="android:layout_marginRight">0dp</item>
+        <item name="android:layout_marginBottom">0dp</item>
+        <item name="android:layout_marginLeft">0dp</item>
+        <item name="android:padding">0dp</item>
+        <item name="android:paddingTop">0dp</item>
+        <item name="android:paddingRight">0dp</item>
+        <item name="android:paddingBottom">0dp</item>
+        <item name="android:paddingLeft">0dp</item>
+
+        <item name="android:background">@color/white</item>
+        <item name="android:colorBackground">@color/white</item>
+
+        <item name="android:text"></item>
+        <item name="android:textSize">14dp</item>
+        <item name="android:textColor">@color/text_black_1</item>
+        <item name="android:autoLink">all</item>
+        <item name="android:linksClickable">true</item>
+        <item name="android:textColorLink">@color/blue_primary_1</item>
+        <item name="android:textStyle">normal</item>
+        <item name="fontPath">@string/font_iran</item>
+
+    </style>
+
+</resources>

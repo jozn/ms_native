@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/msg_row_top_margin"
+    android:paddingTop="@dimen/msg_row_top_margin"
+    >
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="@dimen/msg_holder_margin_edge"
+        android:layout_marginRight="40dp"
+
+        android:padding="@dimen/msg_holder_padding"
+        android:layout_gravity="left"
+        android:background="@color/msg_background_me"
+        android:id="@+id/msg_content_holder"
+        >
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/msg_image"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/text_ionic.large"
+                android:background="@color/transparent_0"
+                android:text="\uf24c"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_centerInParent="true"
+                />
+
+        </RelativeLayout>
+
+
+        <com.mardomsara.emojicon.EmojiconTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/msg_text"
+            android:textColor="@color/white"
+            fontPath="@string/font_iran"
+            android:textSize="14dp"
+            android:autoLink="all"
+            android:linksClickable="true"
+            />
+
+        <include layout="@layout/msg_shared_time_status"/>
+
+
+    </RelativeLayout>
+
+</LinearLayout>

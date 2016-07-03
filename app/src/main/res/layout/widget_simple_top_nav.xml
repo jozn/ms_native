@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+    >
+
+  <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="match_parent"
+      android:id="@+id/left_text"
+      />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/title_text"
+        android:layout_weight="1"
+        android:gravity="center"
+        />
+
+    <TextView
+        android:text="\uf3d1"
+        style="@style/back_nav_btn"
+        />
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:id="@+id/back_btn"-->
+</merge>

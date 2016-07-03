@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorNavBarIconFont">#FF4081</color>
+    <color name="btn_backgrounds">#4680fc</color>
+
+    <!-- base colors -->
+
+
+    <color name="light_geryer_1" >#eeeeee</color>
+    <color name="light_geryer_2" >#eaeaea</color>
+    <color name="light_geryer_3" >#dfdfdf</color>
+    <color name="light_geryer_4" >#bfbfbf</color>
+    <color name="light_geryer_5" >#acacac</color>
+
+    <color name="light_blue_1">#1e83ff</color>
+    <color name="light_blue_2">#3f95ff</color>
+    <color name="light_blue_3">#53a0ff</color>
+    <color name="light_blue_4">#8abeff</color>
+    <color name="light_blue_5">#a8cfff</color>
+    <color name="light_blue_6">#e6e6f7</color>
+
+    <color name="blue_primary_1">#116cf4</color>
+    <color name="orange">#ff942a</color>
+    <color name="yellow">#fff948</color>
+
+
+    <color name="text_gray_1">#505050</color>
+    <color name="text_gray_2">#787878</color>
+    <color name="text_gray_3">#aeaeae</color>
+    <color name="text_gray_4">#d7d7d7</color>
+
+    <color name="text_black_1">#000000</color>
+    <color name="text_black_2">#0a0a0a</color>
+    <color name="text_black_3">#101010</color>
+    <color name="text_black_4">#1b1b1b</color>
+    <color name="text_black_5">#252525</color>
+    <color name="text_black_6">#2e2e2e</color>
+
+
+    <color name="light_gery_dark" >#bebebe</color>//dep
+    <color name="light_darker_1" >#ccdaef</color>
+    <color name="light_darkest" >#afc1da</color>
+    <color name="white">#ffffff</color>
+
+    <color name="white_trans">#979797</color>
+
+    <color name="transparent_black_light">#60000000</color>
+    <color name="transparent_black_light2">#46000000</color>
+    <color name="transparent_selection">#55000000</color>
+    <color name="transparent_gray_darkest">#8c000000</color>
+    <color name="transparent_0">#00ffffff</color>
+    <color name="transparent_1">#32000000</color>
+    <color name="transparent_2">#64000000</color>
+    <color name="transparent_3">#96000000</color>
+    <color name="transparent_4">#c8000000</color>
+
+
+    <color name="selected_icon">#116cf4</color>
+    <color name="unseen_count_background">#116cf4</color>
+
+
+    <color name="border_gray">#eee</color>
+    <!-- transparent -->
+
+
+    <!--end -->
+
+
+    <color name="navbar_icon_font">#4089ff</color>
+    <color name="navbar_icon_font_active">#ffffff</color>
+    <color name="navbar_background">#1f2c41</color>
+    <color name="navbar_background_active">#304f81</color>
+    <color name="background_white">#ffffff</color>
+    <color name="chat_entery_background">@color/light_blue_5</color>
+    <color name="chat_entery_background2">#b2b1ff</color>
+    <color name="msg_background_peer" >#cdd0d4</color>
+    <color name="msg_background_me" >@color/light_darkest</color>
+    <color name="black">#000000</color>
+
+    <!--tabs-->
+    <color name="tab_btn_background">#000000</color>
+
+    <!--Text-->
+    <!--<color name="text_black_1">#101010</color>-->
+
+    <color name="text_heavy_gray">#787878</color>
+    <color name="text_light_gray">#9b9999</color>
+
+
+    <!--buttons-->
+    <color name="btn_send">@color/blue_primary_1</color>
+    <color name="btn_close">@color/orange</color>
+    <!--<color name="send_msg"></color>-->
+
+    <!--minitabs-->
+    <color name="minitab_blue">@color/light_blue_2</color>
+    <color name="minitab_inactive">@color/light_geryer_4</color>
+
+    <!--following btn-->
+    <color name="following_blue">@color/light_blue_2</color>
+    <color name="following_inactive">@color/light_geryer_4</color>
+
+</resources>

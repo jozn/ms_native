@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.mardomsara.social">
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:debuggable="true"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="false"
+        android:theme="@style/AppTheme"
+        android:windowSoftInputMode="adjustNothing"
+        android:name=".AppAplication"
+        android:layoutDirection="ltr"
+
+        >
+        <activity
+            android:name=".activities.MainAppActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar"
+
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.recyclegridview.GalleryAlbumActivity" />
+        <activity android:name="com.recyclegridview.ShowAlbumImagesActivity" />
+        <activity android:name="com.mardomsara.photopicker.PhotoPickerActivity" />
+        <activity android:name="com.mardomsara.photopicker.PhotoPagerActivity" />
+        <activity android:name="com.ipaulpro.afilechooser.FileChooserActivity" />
+        <activity android:name=".activities.TestWebSocketActivity" />
+        <activity
+            android:name=".activities.TestContactsActivity"
+            android:label="@string/title_activity_test_contacts"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activities.HttpActivity"
+            android:label="@string/title_activity_http"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activities.TestRecycleView"
+            android:label="@string/title_activity_test_recycle_view"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".activities.Main22Activity" />
+        <activity
+            android:name=".play.FontsScrollingActivity"
+            android:label="@string/title_activity_fonts_scrolling"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".play.PlayJson1Activity"
+            android:label="@string/title_activity_play_json1"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
+        <activity android:name=".activities.Main2Activity" />
+        <activity android:name=".activities.KybordActivity" />
+
+        <service
+            android:name=".service.PingService"
+            android:enabled="true"
+            android:exported="true" />
+        <service
+            android:name=".service.WSService"
+            android:enabled="true"
+            android:exported="false" />
+
+        <activity android:name=".play.FragmentsPlayActivity" />
+
+        <!-- <receiver android:name="com.facebook.react.modules.netinfo.ConnectivityBroadcastReceiver"> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="android.net.conn.CONNECTIVITY_CHANGE" /> -->
+        <!-- </intent-filter> -->
+        <!-- </receiver> -->
+
+        <activity
+            android:name=".play.DataBinding"
+            android:label="@string/title_activity_data_binding"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <receiver
+            android:name=".service.AppReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+                <action android:name="android.intent.action.BATTERY_LOW" />
+                <action android:name="android.intent.action.BATTERY_OKAY" />
+                <action android:name="android.intent.action.DATE_CHANGED" />
+                <action android:name="android.intent.action.SCREEN_ON" />
+                <action android:name="android.intent.action.REBOOT" />
+                <action android:name="android.intent.action.DEVICE_STORAGE_LOW" />
+                <action android:name="android.intent.action.MEDIA_SHARED" />
+                <action android:name="android.intent.action.EXTERNAL_APPLICATIONS_AVAILABLE" />
+                <action android:name="android.intent.action.MEDIA_MOUNTED" />
+                <action android:name="android.intent.action.MEDIA_REMOVED" />
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <action android:name="android.intent.action.PACKAGE_INSTALL" />
+                <action android:name="android.intent.action.PHONE_STATE" />
+                <action android:name="android.intent.action.NEW_OUTGOING_CALL" />
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.HEADSET_PLUG" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="android.intent.action.AIRPLANE_MODE" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name=".play.Okhttp2Activity"
+            android:label="@string/title_activity_okhttp2"
+            android:theme="@style/AlertDialog.AppCompat" />
+        <activity android:name=".play.PlayAdvanced" />
+
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="ebdbf7ef25356ba4ece45926eb78419326b8dec1" />
+
+        <activity android:name=".activities.GalleryChooserActivity"></activity>
+    </application>
+
+</manifest>

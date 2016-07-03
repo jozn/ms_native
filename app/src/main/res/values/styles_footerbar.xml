@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <style name="foot_bar_cell">
+        <item name="android:gravity">center</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textColor">@color/navbar_icon_font</item>
+        <item name="android:textSize">@dimen/footerbar_icon_font</item>
+        <item name="fontPath">@string/font_ionic</item>
+    </style>
+</resources>

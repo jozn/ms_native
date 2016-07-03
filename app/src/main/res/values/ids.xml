@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--for relative layout of chatroom lists-->
+    <item name="date_txt" type="id"/>
+    <item name="avatar" type="id"/>
+    <item name="last_msg_txt" type="id"/>
+    <item name="room_row_date" type="id"/>
+    <item name="unseen_count_txt" type="id"/>
+</resources>

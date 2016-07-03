@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        style="@style/msg_row"
+    >
+    <LinearLayout
+        android:id="@+id/msg_content_holder"
+        style="@style/msg.content_holder.peer"
+        >
+        <!--<com.mardomsara.social.ui.views.LinkerText-->
+        <com.mardomsara.emojicon.EmojiconTextView
+            style="@style/msg_text.peer"
+            android:id="@+id/msg_text"
+            />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="right"
+            android:layout_marginTop="-4dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/msg_time"
+                android:textSize="14dp"
+                android:layout_marginLeft="4dp"
+                fontPath="@string/font_iran_light"
+
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:id="@+id/msg_delivery_status"
+                android:textSize="18dp"
+
+                />
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+</LinearLayout>
+
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:id="@+id/msg_text"-->
+    <!--android:textColor="@color/black"-->
+    <!--android:gravity="right"-->
+    <!--android:layout_gravity="right"-->
+    <!--fontPath="@string/font_iran"-->
+    <!--android:textSize="14dp"-->
+    <!--emojiconSize="100dp"-->
+    <!--android:padding="4dp"-->
+
+    <!--android:id="@+id/msg_text"-->
+    <!--emojiconSize="100dp"-->

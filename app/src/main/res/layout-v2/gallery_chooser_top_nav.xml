@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:gravity="center_vertical"
+
+    >
+
+    <!--Left-->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:id="@+id/left_side"
+        android:paddingLeft="5dp"
+
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/text_ionic.btn"
+            android:text="\uf2f6"
+            android:id="@+id/text_icon"
+            android:rotation="180"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/send_btn"
+            android:paddingLeft="5dp"
+            style="@style/text"
+            android:text="بفرس"
+            />
+
+    </LinearLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        />
+    <!--Right-->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:paddingRight="5dp"
+        android:layout_gravity="center_vertical"
+        android:layout_alignParentRight="true"
+        android:gravity="center_vertical"
+
+        >
+
+        <TextView
+            style="@style/back_nav_btn"
+            />
+        <!--<TextView-->
+            <!--android:layout_width="50dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--style="@style/text_ionic.btn"-->
+            <!--android:text="\uf3d1"-->
+            <!--android:id="@+id/back_btn"-->
+            <!--android:padding="5dp"-->
+            <!--android:paddingLeft="40dp"-->
+            <!--android:paddingRight="10dp"-->
+            <!--android:gravity="center"-->
+            <!--/>-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/title"
+            />
+
+    </LinearLayout>
+
+</RelativeLayout>
