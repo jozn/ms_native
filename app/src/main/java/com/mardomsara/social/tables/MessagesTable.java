@@ -8,6 +8,7 @@ import com.mardomsara.social.app.AppFiles;
 import com.mardomsara.social.app.Constants;
 import com.mardomsara.social.base.Command;
 import com.mardomsara.social.base.Session;
+import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.FileUtil;
 import com.mardomsara.social.helpers.FormaterUtil;
@@ -16,6 +17,7 @@ import com.mardomsara.social.helpers.JsonUtil;
 import com.mardomsara.social.helpers.LangUtil;
 import com.mardomsara.social.helpers.TimeUtil;
 import com.mardomsara.social.helpers.VideoMetasHelper;
+import com.mardomsara.social.models.LastMsgOfRoomsCache;
 import com.mardomsara.social.models.events.MessageSyncMeta;
 import com.mardomsara.social.models.events.MsgGeneralChangeChangeEvent;
 import com.mardomsara.social.models.events.MsgsSyncMetaSeenByPeer;
@@ -28,6 +30,7 @@ import com.raizlabs.android.dbflow.annotation.Table;
 import com.raizlabs.android.dbflow.sql.language.SQLite;
 import com.raizlabs.android.dbflow.structure.BaseModel;
 
+import org.apache.commons.io.FileUtils;
 import org.greenrobot.eventbus.EventBus;
 
 import java.io.File;
@@ -171,6 +174,14 @@ public class MessagesTable extends BaseModel {
         return msgs;
     }
 
+    public static List<MessagesTable> getAllRoomsMessages(String roomKey) {
+        List<MessagesTable> msgs = SQLite.select().from(MessagesTable.class)
+                .where(MessagesTable_Table.RoomKey.eq(roomKey))
+                .orderBy(MessagesTable_Table.CreatedMs,false)
+                .queryList();
+        return msgs;
+    }
+
     public static MessagesTable getMessageByKey(String msgKey) {
         MessagesTable msg = SQLite.select().from(MessagesTable.class)
                 .where(MessagesTable_Table.MessageKey.eq(msgKey))
@@ -274,6 +285,39 @@ public class MessagesTable extends BaseModel {
                 .execute();
     }
 
+    public static void clearAllMessagesOfRoom(RoomsListTable room){
+        AndroidUtil.runInBackground(()->{
+            List<MessagesTable> msgs = getAllRoomsMessages(room.getRoomKey());
+            for(MessagesTable msg : msgs){
+                String src = msg.getMediaLocalSrc();
+                if(src != null && !src.equals("")){
+                    FileUtil.tryDelete(src);
+                }
+            }
+            for(MessagesTable msg : msgs){
+                msg.delete();
+            }
+            LastMsgOfRoomsCache.getInstance().removeForRoom(room.getRoomKey());
+            room.setUnseenMessageCount(0);
+            room.save();
+        });
+    }
+
+    public static void clearAllMessagesOfRoom(String roomKey){
+        AndroidUtil.runInBackground(()->{
+            List<MessagesTable> msgs = getAllRoomsMessages(roomKey);
+            for(MessagesTable msg : msgs){
+                String src = msg.getMediaLocalSrc();
+                if(src != null && !src.equals("")){
+                    FileUtil.tryDelete(src);
+                }
+            }
+            for(MessagesTable msg : msgs){
+                msg.delete();
+            }
+            LastMsgOfRoomsCache.getInstance().removeForRoom(roomKey);
+        });
+    }
 
         //just eventBus
     public static void publishNewMsgEvent(MessagesTable msg) {

@@ -190,6 +190,15 @@ public class RoomsListTable  extends BaseModel {
         Nav.push(Router.getRoomEntery(room));
     }
 
+    public static void deleteRoom(String roomKey){
+        RoomsListTable room = getRoomByRoomKey(roomKey);
+        if(room != null){
+            room.delete();
+        }
+        MessagesTable.clearAllMessagesOfRoom(roomKey);
+
+    }
+
 
         ////////////////////////////////////////////////
 

@@ -16,6 +16,18 @@ import java.util.Map;
  * Created by Hamid on 5/9/2016.
  */
 public class FileUtil {
+    public static void tryDelete(String path) {
+        try {
+            File file = new File(path);
+            if(file.exists()){
+                if(!file.isDirectory()){
+                    file.delete();
+                }
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 
     public static boolean createFolderRec(Context mContext, String path){
         File SDCardRoot = new File(path);

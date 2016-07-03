@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.mardomsara.social.R;
 import com.orhanobut.dialogplus.DialogPlus;
@@ -21,6 +22,18 @@ import java.util.List;
  * Created by Hamid on 2/19/2016.
  */
 public class DialogHelper {
+
+    public static void toastLong(String text){
+        Toast.makeText(AppUtil.getContext(),text,Toast.LENGTH_LONG).show();
+    }
+
+    public static void toastShort(String text){
+        Toast.makeText(AppUtil.getContext(),text,Toast.LENGTH_SHORT).show();
+    }
+
+    public static void toast(String text){
+        Toast.makeText(AppUtil.getContext(),text,Toast.LENGTH_SHORT).show();
+    }
 
     static float _dialogWidth = 0.80f;
 

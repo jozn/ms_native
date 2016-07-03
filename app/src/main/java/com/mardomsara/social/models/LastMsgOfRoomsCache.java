@@ -43,6 +43,10 @@ public class LastMsgOfRoomsCache {
         _map.put(room.getRoomKey(),msg);
     }
 
+    public void removeForRoom(String roomKey){
+        _map.put(roomKey,null);
+    }
+
     public void setForRoom(String roomkey, MessagesTable msg){
         _map.put(roomkey,msg);
     }

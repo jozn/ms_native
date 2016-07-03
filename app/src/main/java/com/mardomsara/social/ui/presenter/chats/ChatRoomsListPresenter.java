@@ -16,6 +16,7 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import com.mardomsara.social.App;
 import com.mardomsara.social.Nav;
 import com.mardomsara.social.R;
+import com.mardomsara.social.app.Constants;
 import com.mardomsara.social.app.Router;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.DialogHelper;
@@ -57,7 +58,6 @@ public class ChatRoomsListPresenter extends BasePresenter {
        list  = RoomsListTable.getAllRoomsList(0);
 
        rv = (RecyclerView) v.findViewById(R.id.contacts_list);
-//        ChatListAdaptor adp = new RoomsListAdaptor(list.toArray(new RoomsListTable[]{}));
        adp = new RoomsListAdaptor(list);
 //        EventBus.getDefault().register(adp);
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(fragment.getActivity());
@@ -71,16 +71,11 @@ public class ChatRoomsListPresenter extends BasePresenter {
         rv.setLayoutManager(mLayoutManager);
         return v;
     }
-    void showMeas(){
-        Toast.makeText(App.context,"w: "+v.getMeasuredWidth() + " h: "+ v.getMeasuredHeight(),Toast.LENGTH_LONG).show();
-    }
 
     @Override
     public void onResume() {
         super.onResume();
-        showMeas();
     }
-
 
     /**
      * Created by Hamid on 5/4/2016.
@@ -107,24 +102,20 @@ public class ChatRoomsListPresenter extends BasePresenter {
             public TextView last_msg_txt;
             public View row;
 
+            RoomsListAdaptor adaptor;
+
             public ViewHolder(View v) {
                 super(v);
                 self = v;
-                v.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View vv) {
-                        RoomsListTable r = (RoomsListTable) vv.getTag();
-                        Log.d(TAG, "Romm raw list " + r.getRoomName() + " clicked.");
-                        Nav.push(Router.getRoomEntery(r));
-                    }});
+                v.setOnClickListener((vv)->{
+                    RoomsListTable r = room;//(RoomsListTable) vv.getTag();
+                    Log.d(TAG, "Romm raw list " + r.getRoomName() + " clicked.");
+                    Nav.push(Router.getRoomEntery(r));
+                });
 
-                v.setOnLongClickListener(new View.OnLongClickListener() {
-                    @Override
-                    public boolean onLongClick(View vv) {
-//                        DialogHelper.simpleAlert(vv.getContext(), "ایران ما", "تتای عیشسعی یادشسیاسش یشسیشست ");
-                        openMoreOptionDialog(null);
-                        return true;
-                    }
+                v.setOnLongClickListener((vv)->{
+                    openMoreOptionDialog(room);
+                    return true;
                 });
 
                 textView = (TextView) v.findViewById(R.id.textView);
@@ -136,31 +127,27 @@ public class ChatRoomsListPresenter extends BasePresenter {
                 avatar = (SimpleDraweeView) v.findViewById(R.id.avatar);
                 row = v;
 
-    //            avatar.setOnClickListener((vv)->{
-                /*avatar.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View vv) {
-//                        openMoreOptionDialog(null);
-//                        DialogHelper.simpleMenu(null);
-                        *//*RoomListRowOptionsPresenter op = new RoomListRowOptionsPresenter();
-                        DialogHelper.alertViewWithListner(vv.getContext(),op.getGrandView(),op);
-                        com.orhanobut.dialogplus.ViewHolder vh = new com.orhanobut.dialogplus.ViewHolder(op.getGrandView());*//*
-                    }
-                });*/
             }
 
             public TextView getTextView() {
                 return textView;
             }
 
-            static void openMoreOptionDialog(RoomsListTable room){
+            void openMoreOptionDialog(RoomsListTable room){
                 List<DialogHelper.MenuItem> items = new ArrayList<>();
-                items.add(new DialogHelper.MenuItem("پاک کردن همه پیام ها",(v)->{
-                    Toast.makeText(AppUtil.getContext(),"asdas",Toast.LENGTH_SHORT).show();
+                items.add(new DialogHelper.MenuItem("پاک کردن پیام ها",(v)->{
+//                    Toast.makeText(AppUtil.getContext(),room.User.FirstName,Toast.LENGTH_SHORT).show();
+                    MessagesTable.clearAllMessagesOfRoom(room.getRoomKey());
+//                    LastMsgOfRoomsCache.getInstance().removeForRoom(room.getRoomKey());
+                    room.setUnseenMessageCount(0);
+                    room.save();
+                    adaptor.notifyDataSetChanged();
                 }));
 
                 items.add(new DialogHelper.MenuItem("حذف گفتگو",(v)->{
-
+                    RoomsListTable.deleteRoom(room.getRoomKey());
+                    adaptor.roomsList.remove(room);
+                    adaptor.notifyDataSetChanged();
                 }));
 
                 items.add(new DialogHelper.MenuItem("رفتن به پروفایل",(v)->{
@@ -172,20 +159,7 @@ public class ChatRoomsListPresenter extends BasePresenter {
         }
         public RoomsListAdaptor(List<RoomsListTable> dataSet) {
             roomsList = dataSet;
-
-    //        ___room = RoomsListTable.getRoomByRoomKeyAndLoadUser("u2");
-    //        ___room.setRoomName("dsddd");
-    //        ___room.setUnseenMessageCount(100);
-    //        ___room.User = UsersTable.getByUserId(2);
             EventBus.getDefault().register(this);
-            /*up =()-> {
-                roomsList.clear();
-                roomsList.addAll(RoomsListTable.getAllRoomsList(0));
-    //            notifyItemRangeChanged(0,10);
-                notifyDataSetChanged();
-    //            notifyItemChanged(0);
-    //            notifyItemInserted(0);
-            };*/
         }
 
         @Override
@@ -205,45 +179,53 @@ public class ChatRoomsListPresenter extends BasePresenter {
         public void onBindViewHolder(ViewHolder viewHolder, final int position) {
     //        Log.d(TAG, "Element " + position + " set.");
             RoomsListTable room = roomsList.get(position);
-    //        RoomsListTable room = ___room;
-    //        room = ___room;
             MessagesTable lastMsg = LastMsgOfRoomsCache.getInstance().getForRoom(room);
-    //         lastMsg = null;
-
             ViewHolder vh = viewHolder;
+            vh.room = room;
+            vh.adaptor = this;
             vh.name_txt.setText(room.getRoomName());
-    //        vh.last_msg_txt.setText(room.getLastMessageText());
-    //        vh.unseen_count_txt.setText(""+room.getUpdatedMs());
-
             vh.date_txt.setText(""+ FormaterUtil.frindlyTimeClockOrDay(room.getUpdatedMs()));//+"قبل");
-    //        vh.date_txt.setText("*&*"+ (room.getUpdatedMs()));//+"قبل");
-    //        vh.unseen_count_txt.setText("" + room.getUnseenMessageCount());
-    //        vh.unseen_count_txt.setBadgeBackgroundColor(Color.BLUE);
-    //        vh.unseen_count_txt.setText("" + room.getUnseenMessageCount());
             vh.unseen_count_txt.setCount(room.getUnseenMessageCount());
-    //        vh.unseen_count_txt.show();
-
-            BadgeDrawable badge = new BadgeDrawable.Builder().type(BadgeDrawable.TYPE_NUMBER).number(room.getUnseenMessageCount())
-                    .badgeColor(Color.BLACK).textColor(Color.WHITE).build();
-
-    //        vh.unseen_count_image.setImageDrawable(badge);
-
-
-
 
             if(lastMsg != null){
-                ////limiting text very important performance optimazations
-                vh.last_msg_txt.setText(LangUtil.limitText(lastMsg.getText(),50));
+//                AppUtil.log(lastMsg.toString());
+                vh.last_msg_txt.setText(_getLastMsgFormatedText(lastMsg));
+            }else {//clear from previus
+                vh.last_msg_txt.setText("");
             }
-    //        vh.last_msg_txt.setText(" \uD83D\uDE02 \uD83D\uDE03 \uD83D\uDE04 \uD83D\uDE05 \uD83D\uDE06 \uD83D\uDE09 \uD83D\uDE0A \uD83D\uDE1A ☺️ \uD83D\uDE42 \uD83E\uDD17 \uD83D\uDE07 \uD83E\uDD13 \uD83E\uDD14 \uD83D\uDE10 \uD83D\uDE11 \uD83D\uDE36 \uD83D\uDE44");
-
 
             vh.self.setTag(room);
-    //        Uri imageUri = Uri.parse("http://localhost:5000/public/avatars/"+ RandomUtils.nextInt(0,15) +".jpg");
-    //        Uri imageUri = Uri.parse("http://localhost:5000/public/avatars/101.jpg");
             Uri imageUri = Helper.PathToUserAvatarUri(room.getRoomAvatarUrl());
             vh.avatar.setImageURI(imageUri);
+        }
 
+        String _getLastMsgFormatedText(MessagesTable lastMsg){
+            String txt = "";
+            int limit = 40;
+            switch (lastMsg.getMessageTypeId()){
+                case Constants.MESSAGE_TEXT:
+                    txt = LangUtil.limitText(lastMsg.getText(), limit);
+                    break;
+                case Constants.MESSAGE_IMAGE:
+                    txt = "[عکس] " + LangUtil.limitText(lastMsg.getText(), limit);
+                    break;
+                case Constants.MESSAGE_VIDEO:
+                    txt = "[ویدیو] " +LangUtil.limitText(lastMsg.getText(), limit);
+                    break;
+                case Constants.MESSAGE_FILE:
+                    txt = "[فایل] " +LangUtil.limitText(lastMsg.getText(), limit);
+                    break;
+                case Constants.MESSAGE_AUDIO:
+                    txt = "[صوتی] " +LangUtil.limitText(lastMsg.getText(), limit);
+                    break;
+                case Constants.MESSAGE_STICKER:
+                    txt = "[استیکر] " +LangUtil.limitText(lastMsg.getText(), limit);
+                    break;
+                case Constants.MESSAGE_lOCATION:
+                    txt = "[مکان] " +LangUtil.limitText(lastMsg.getText(), limit);
+                    break;
+            }
+            return txt;
         }
 
         @Override
