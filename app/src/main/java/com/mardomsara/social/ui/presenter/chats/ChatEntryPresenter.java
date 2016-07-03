@@ -218,7 +218,7 @@ public class ChatEntryPresenter extends BasePresenter implements
     public void onFocus() {
         super.onFocus();
         AppUtil.log("after?? Chatroom onFocus()");
-        MessagesTable.sendToServerAllMsgsSeenbyPeerCmdForRoom(room);
+        MessagesModel.sendToServerAllMsgsSeenbyPeerCmdForRoom(room);
         RoomsListTable.onRoomOpened(room);
 //        showMeas();
 
@@ -226,13 +226,13 @@ public class ChatEntryPresenter extends BasePresenter implements
 ////play
 
     void addNewMsg(){
-        MessagesTable msg =  MessagesTable.NewTextMsgForRoom(room);
+        MessagesTable msg =  MessagesModel.NewTextMsgForRoom(room);
         msg.setMessageTypeId(Constants.MESSAGE_TEXT);
         msg.setText(edit_filed.getText().toString());
         msg.insert();
 
         edit_filed.setText("");
-        MessagesTable.syncToServer(msg);
+        MessagesModel.syncToServer(msg);
 
         onHereAddedNewMsgEvent(msg);
     }
@@ -273,7 +273,7 @@ public class ChatEntryPresenter extends BasePresenter implements
             e.printStackTrace();
         }
         //todo: if app in not focuesd dont to this, instead in refouce do it
-        MessagesTable.sendToServerMsgsSeenByPeerCmd(msg);
+        MessagesModel.sendToServerMsgsSeenByPeerCmd(msg);
     }
 
     //    @Subscribe
@@ -321,7 +321,7 @@ public class ChatEntryPresenter extends BasePresenter implements
                 for(int i=0; i< sizeMsgs; i++){
                     msg = messagesAdaptor.msgs.get(i);
                     if(msg.getMessageKey().equals(metaMsgsKey)){
-                        MessagesTable msg2 = MessagesTable.getMessageByKey(metaMsgsKey);
+                        MessagesTable msg2 = MessagesModel.getMessageByKey(metaMsgsKey);
                         messagesAdaptor.msgs.remove(i);
                         messagesAdaptor.msgs.add(i,msg2);
                         messagesAdaptor.notifyItemChanged(i);
@@ -340,7 +340,7 @@ public class ChatEntryPresenter extends BasePresenter implements
             for(int i=0; i< size; i++){
                 msg = messagesAdaptor.msgs.get(i);
                 if(msg.getMessageKey().equals(meta.MessageKey)){
-                    MessagesTable msg2 = MessagesTable.getMessageByKey(meta.MessageKey);
+                    MessagesTable msg2 = MessagesModel.getMessageByKey(meta.MessageKey);
                     messagesAdaptor.msgs.remove(i);
                     messagesAdaptor.msgs.add(i,msg2);
                     messagesAdaptor.notifyDataSetChanged();
@@ -501,10 +501,10 @@ public class ChatEntryPresenter extends BasePresenter implements
             Toast.makeText(getContext(),"فایل موجود نیست",Toast.LENGTH_SHORT).show();
             return;
         }
-        MessagesTable msg =  MessagesTable.NewTextMsgForRoom(room);
+        MessagesTable msg =  MessagesModel.NewTextMsgForRoom(room);
         msg.setMediaStatus(Constants.Msg_Media_To_Push);
         msg.setMessageTypeId(Constants.MESSAGE_IMAGE);
-        MessagesTable.setPhotoParams(msg,resizedPath);
+        MessagesModel.setPhotoParams(msg,resizedPath);
         msg.save();
 
         Http.Req req = new Http.Req();
@@ -564,10 +564,10 @@ public class ChatEntryPresenter extends BasePresenter implements
             Toast.makeText(getContext(),"فایل موجود نیست",Toast.LENGTH_SHORT).show();
             return;
         }
-        MessagesTable msg =  MessagesTable.NewTextMsgForRoom(room);
+        MessagesTable msg =  MessagesModel.NewTextMsgForRoom(room);
         msg.setMediaStatus(Constants.Msg_Media_To_Push);
         msg.setMessageTypeId(Constants.MESSAGE_VIDEO);
-        MessagesTable.setVideoParams(msg,thumbPath,resizedPath);
+        MessagesModel.setVideoParams(msg,thumbPath,resizedPath);
         msg.save();
 
         Http.Req req = new Http.Req();

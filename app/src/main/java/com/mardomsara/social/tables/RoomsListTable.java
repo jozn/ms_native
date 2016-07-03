@@ -195,7 +195,7 @@ public class RoomsListTable  extends BaseModel {
         if(room != null){
             room.delete();
         }
-        MessagesTable.clearAllMessagesOfRoom(roomKey);
+        MessagesModel.clearAllMessagesOfRoom(roomKey);
 
     }
 

@@ -46,7 +46,7 @@ public class MsgCommand {
         if(msgs==null)return;
         AppUtil.log("MsgsAddNew: cmd -> "+data);
         for (MessagesTable msg : msgs) {
-            MessagesTable.setParamsForNewMsgRecivedFromNet(msg);
+            MessagesModel.setParamsForNewMsgRecivedFromNet(msg);
 
 
             RoomsListTable.onRecivedNewMsg(msg);
@@ -58,7 +58,7 @@ public class MsgCommand {
             EventBus.getDefault().post(msg);
 
 
-            MessagesTable.sendToServerMsgsReceivedToPeerCmd(msg);
+            MessagesModel.sendToServerMsgsReceivedToPeerCmd(msg);
         }
     };
 
@@ -83,7 +83,7 @@ public class MsgCommand {
                             ()->{//callback
                                 msg.setMediaStatus(Constants.Msg_Media_Downloaded);
                                 msg.save();
-                                MessagesTable.publishMsgGeneralChangeEvent(msg);
+                                MessagesModel.publishMsgGeneralChangeEvent(msg);
 
                             },
                             ()->{//errorback
@@ -104,9 +104,9 @@ public class MsgCommand {
 //                                String $thumbPath = AppFiles.VIDEO_DIR_PATH + FormaterUtil.getFullyYearToSecondsSolarName() +"$" + msg.getMediaExtension();
 //                                String thumbPath = FileUtil.createNextName($thumbPath);
                                 msg.setMediaStatus(Constants.Msg_Media_Downloaded);
-                                MessagesTable.setVideoExtraParams(msg,fileName );
+                                MessagesModel.setVideoExtraParams(msg,fileName );
                                 msg.save();
-                                MessagesTable.publishMsgGeneralChangeEvent(msg);
+                                MessagesModel.publishMsgGeneralChangeEvent(msg);
                             },
                             ()->{//errorback
 
@@ -124,13 +124,13 @@ public class MsgCommand {
         if(metas == null) return;
         AppUtil.log("MsgsReceivedToServer size:" + metas.length);
         for (MsgsSyncMetaReceivedToServer m : metas){
-            MessagesTable msg = MessagesTable.getMessageByKey(m.MessageKey);
+            MessagesTable msg = MessagesModel.getMessageByKey(m.MessageKey);
             AppUtil.log("MsgsReceivedToServer For: " + m.toString() + msg);
             if(msg != null && msg.RoomKey.equals(m.RoomKey)){
                 msg.setServerReceivedTime((int) (m.AtTimeMs/1000));
                 msg.setToPush(0);
                 msg.save();
-//                MessagesTable.publishEvent(m);
+//                MessagesModel.publishEvent(m);
                 EventBus.getDefault().post(m);
             }
             //todo: implement event to UI
@@ -143,11 +143,11 @@ public class MsgCommand {
         if(metas == null) return;
         AppUtil.log("MsgsReceivedToPeer" + metas.toString());
         for (MsgsSyncMetaReceivedToPeer m : metas){
-            MessagesTable msg = MessagesTable.getMessageByKey(m.MessageKey);
+            MessagesTable msg = MessagesModel.getMessageByKey(m.MessageKey);
             if(msg != null && msg.getRoomKey().equals(m.RoomKey)){
                 msg.setPeerReceivedTime((int) (m.AtTimeMs/1000));
                 msg.save();
-//                MessagesTable.publishEvent(m);
+//                MessagesModel.publishEvent(m);
                 EventBus.getDefault().post(m);
             }
             //todo: implement event to UI
@@ -159,13 +159,13 @@ public class MsgCommand {
         if(metas == null) return;
         AppUtil.log("MsgsSeenByPeer " + metas.toString());
         for (MsgsSyncMetaSeenByPeer m : metas){
-            MessagesTable.makeMsgsSeen(m.ExtraData ,m);
+            MessagesModel.makeMsgsSeen(m.ExtraData ,m);
             EventBus.getDefault().post(m);
-//            MessagesTable msg = MessagesTable.getMessageByKey(m.MessageKey);
+//            MessagesTable msg = MessagesModel.getMessageByKey(m.MessageKey);
 //            if(msg != null && msg.RoomKey.equals(m.RoomKey)){
 //                msg.setPeerSeenTime((int) (m.AtTimeMs/1000));
 //                msg.save();
-////                MessagesTable.publishEvent(m);
+////                MessagesModel.publishEvent(m);
 //                EventBus.getDefault().post(m);
 //            }
             //todo: implement event to UI
@@ -177,7 +177,7 @@ public class MsgCommand {
         if(metas == null) return;
         AppUtil.log("MsgsDeletedFromServer " + metas.toString());
         for (MessageSyncMeta m : metas){
-            MessagesTable msg = MessagesTable.getMessageByKey(m.MessageKey);
+            MessagesTable msg = MessagesModel.getMessageByKey(m.MessageKey);
             if(msg != null && msg.RoomKey.equals(m.RoomKey)){
                 msg.setServerDeletedTime((int) (m.AtTimeMs/1000));
                 msg.save();

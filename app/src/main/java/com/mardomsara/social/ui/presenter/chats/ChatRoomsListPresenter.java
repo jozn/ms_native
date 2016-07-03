@@ -137,7 +137,7 @@ public class ChatRoomsListPresenter extends BasePresenter {
                 List<DialogHelper.MenuItem> items = new ArrayList<>();
                 items.add(new DialogHelper.MenuItem("پاک کردن پیام ها",(v)->{
 //                    Toast.makeText(AppUtil.getContext(),room.User.FirstName,Toast.LENGTH_SHORT).show();
-                    MessagesTable.clearAllMessagesOfRoom(room.getRoomKey());
+                    MessagesModel.clearAllMessagesOfRoom(room.getRoomKey());
 //                    LastMsgOfRoomsCache.getInstance().removeForRoom(room.getRoomKey());
                     room.setUnseenMessageCount(0);
                     room.save();
