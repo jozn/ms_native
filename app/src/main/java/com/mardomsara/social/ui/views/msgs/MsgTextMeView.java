@@ -5,12 +5,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.mardomsara.emojicon.EmojiMaper2;
+import com.mardomsara.emojicon.EmojiMaper;
 import com.mardomsara.emojicon.EmojiconTextView;
 import com.mardomsara.social.R;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.tables.MessagesTable;
-import com.mardomsara.social.ui.views.helpers.ViewHelper;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -36,7 +35,7 @@ public class MsgTextMeView extends MsgAbstractViewHolder {
     @Override
     public void bindToView(MessagesTable msg) {
         Log.d("Msg","bindToView Me");
-        if(EmojiMaper2.isJustEmoji(msg.getText())){
+        if(EmojiMaper.isJustEmoji(msg.getText())){
             Log.d("Emoji","isJustEmoji true");
 //            msg_text.setJustEmojiconSize(AndroidUtil.dpToPx(40));
         }else {

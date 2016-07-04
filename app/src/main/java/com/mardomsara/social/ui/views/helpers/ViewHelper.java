@@ -23,7 +23,7 @@ public class ViewHelper {
     public static void setViewSizeDp(View view, int width_dp , int height_dp){
 //        ViewGroup.LayoutParams sizes = new ViewGroup.LayoutParams(AndroidUtil.dpToPx(width_dp),
         ViewGroup.LayoutParams sizes = new LinearLayout.LayoutParams(AndroidUtil.dpToPx(width_dp),
-                AndroidUtil.dpToPx(height_dp));
+                 AndroidUtil.dpToPx(height_dp));
         view.setLayoutParams(sizes);
     }
 
@@ -82,6 +82,50 @@ public class ViewHelper {
 //        Log.d("Image","setImageSizesWithMaxPx() imageView Sizes: "+width +" "+ height);
 
         view.setLayoutParams(sizes);
+    }
+
+    public static void setViewSizesPrecentaion(View view, float percent){
+        int width = (int) (AndroidUtil.getScreenWidth() * percent);
+        ViewGroup.LayoutParams sizes;
+        if(view.getParent() instanceof LinearLayout){
+            sizes = new LinearLayout.LayoutParams(width, LinearLayout.LayoutParams.WRAP_CONTENT);
+        }else if(view.getParent() instanceof FrameLayout){
+            sizes = new FrameLayout.LayoutParams(width,FrameLayout.LayoutParams.WRAP_CONTENT);
+        }else if(view.getParent() instanceof RelativeLayout){
+            sizes = new RelativeLayout.LayoutParams(width,-2);
+        }else{
+            sizes = new ViewGroup.LayoutParams(width,-2);
+        }
+//        Log.d("Image","setImageSizesWithMaxPx() imageView Sizes: "+width +" "+ height);
+
+        view.setLayoutParams(sizes);
+    }
+    public static int[] calculateImageSizesWithMaxPx(View view,int minWidt_dp ,int maxWidth_dp , int width_px , int height_px) {
+        int max_width_px = AndroidUtil.dpToPx(maxWidth_dp);
+
+        if (minWidt_dp > 0) {
+            int min_width_px = AndroidUtil.dpToPx(minWidt_dp);
+            if (min_width_px > width_px) {
+                float ratio = (float) min_width_px / (float) width_px;
+                height_px = (int) ((float) height_px * ratio);
+                width_px = min_width_px;
+            }
+        }
+
+        int width, height = 0;
+        ViewGroup.LayoutParams sizes;
+        if (max_width_px > width_px) {
+//            sizes = new LinearLayout.LayoutParams(width_px,height_px);
+            width = width_px;
+            height = height_px;
+        } else {
+            float aspect = (float) max_width_px / (float) width_px; // <1
+            int newHeight_px = Math.round(height_px * aspect);
+//            sizes = new LinearLayout.LayoutParams(max_width_px, max_width_px);
+            width = max_width_px;
+            height = newHeight_px;
+        }
+        return new int[]{width,height};
     }
 
     //////////////////////////////////////////////////////////////

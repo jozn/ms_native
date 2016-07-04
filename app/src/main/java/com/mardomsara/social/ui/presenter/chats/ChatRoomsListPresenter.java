@@ -31,6 +31,7 @@ import com.mardomsara.social.models.events.MsgsSyncMetaReceivedToServer;
 import com.mardomsara.social.models.events.MsgsSyncMetaSeenByPeer;
 import com.mardomsara.social.models.events.RoomInfoChangedEvent;
 import com.mardomsara.social.play.DividerItemDecoration;
+import com.mardomsara.social.tables.MessagesModel;
 import com.mardomsara.social.tables.MessagesTable;
 import com.mardomsara.social.tables.RoomsListTable;
 import com.mardomsara.social.ui.BasePresenter;

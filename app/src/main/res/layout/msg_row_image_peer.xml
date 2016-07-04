@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    style="@style/msg_row"
-    >
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    style="@style/msg_row">
     <LinearLayout
         android:id="@+id/msg_content_holder"
         style="@style/msg.content_holder.peer"
         >
 
         <com.facebook.drawee.view.SimpleDraweeView
-            android:layout_width="300dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
             android:id="@+id/msg_image"
+            style="@style/msg_image.peer"
             />
 
         <com.mardomsara.emojicon.EmojiconTextView
@@ -19,7 +20,7 @@
 
             />
 
-        <include layout="@layout/msg_shared_time_status"/>
+        <include layout="@layout/msg_shared_time"/>
 
 
     </LinearLayout>

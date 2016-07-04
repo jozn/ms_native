@@ -8,7 +8,7 @@
         >
 
         <com.facebook.drawee.view.SimpleDraweeView
-            style="@style/msg_text.peer"
+            style="@style/msg_image.peer"
             android:id="@+id/msg_image"
         />
 

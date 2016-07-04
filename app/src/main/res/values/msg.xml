@@ -2,11 +2,14 @@
 <resources>
     <item type="id" name="msg_row" />
 
+    <color name="msg_window_main">#fff</color>
+    <color name="msg_content_holder.background_color_me">#c4e0ff</color>
+    <color name="msg_content_holder.background_color_peer">#eee</color>
+    <!--<color name="msg_content_holder.background_color_peer">@color/light_gery</color>-->
+
     <dimen name="msg_content_holder.inside_bubble_padding">0dp</dimen>
     <dimen name="msg_content_holder.inside_bubble_padding_content">5dp</dimen>
-    <color name="msg_content_holder.background_color_me">#d6d600</color>
-    <color name="msg_content_holder.background_color_peer">#7bff9c</color>
-    <!--<color name="msg_content_holder.background_color_peer">@color/light_gery</color>-->
+    <dimen name="msg_content_holder.radius">8dp</dimen>
 
     <style name="msg"></style>
 
@@ -44,13 +47,15 @@
         <item name="android:layout_gravity">left</item>
         <item name="android:background">@drawable/chat_content_bubble_me</item>
         <!--<item name="android:background">#d6d600</item>-->
+
     </style>
 
     <style name="msg.content_holder.peer" >
-        <!--<item name="android:layout_marginRight">8dp</item>-->
-        <item name="android:layout_marginLeft">40dp</item>
-        <item name="android:layout_marginRight">@dimen/msg_content_holder.inside_bubble_padding_content</item>
+        <item name="android:layout_marginRight">8dp</item>
+        <item name="android:layout_marginLeft">50dp</item>
+        <!--<item name="android:layout_marginRight">@dimen/msg_content_holder.inside_bubble_padding_content</item>-->
         <!--<item name="android:background">@color/light_gery</item>-->
+        <!--<item name="android:background">@color/white</item>-->
         <item name="android:layout_gravity">right</item>
         <item name="android:background">@drawable/chat_content_bubble_peer</item>
 
@@ -61,7 +66,7 @@
         <item type="id" name="android:id">@id/msg_text</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_gravity">right</item>
         <item name="android:gravity">right</item>
         <item name="android:padding">4dp</item>
 
@@ -75,12 +80,34 @@
     </style>
 
     <style name="msg_text.me" >
-
+        <item name="android:textSize">14dp</item>
+        <!--<item name="android:textColor">@color/white</item>-->
     </style>
 
     <style name="msg_text.peer" >
 
     </style>
+
+    <style name="msg_image" >
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:padding">4dp</item>
+        <item name="fadeDuration">200</item>
+        <item name="roundedCornerRadius">@dimen/msg_content_holder.radius</item>
+
+    </style>
+
+    <style name="msg_image.me" >
+
+    </style>
+
+    <style name="msg_image.peer" >
+        <item name="android:layout_gravity">center</item>
+        <item name="android:gravity">center</item>
+    </style>
+
 
     <!--chat List Presnter-->
 

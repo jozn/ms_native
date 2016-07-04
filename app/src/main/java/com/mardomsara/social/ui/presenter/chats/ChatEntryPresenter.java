@@ -4,12 +4,9 @@ import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.Color;
 import android.net.Uri;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -21,9 +18,9 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.facebook.drawee.view.SimpleDraweeView;
 import com.ipaulpro.afilechooser.FileChooserActivity;
 import com.ipaulpro.afilechooser.utils.FileChooserFileUtils;
+import com.mardomsara.emojicon.EmojiconEditText;
 import com.mardomsara.emojicon.EmojiconsFragment;
 import com.mardomsara.social.AppAplication;
 import com.mardomsara.social.Nav;
@@ -31,34 +28,28 @@ import com.mardomsara.social.R;
 import com.mardomsara.social.app.AppFiles;
 import com.mardomsara.social.app.Config;
 import com.mardomsara.social.app.Constants;
-import com.mardomsara.social.app.Router;
 import com.mardomsara.social.base.Http;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
-import com.mardomsara.social.helpers.DialogHelper;
 import com.mardomsara.social.helpers.FileUtil;
 import com.mardomsara.social.helpers.FormaterUtil;
-import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.ImageUtil;
 import com.mardomsara.social.helpers.IntentHelper;
 import com.mardomsara.social.helpers.JsonUtil;
-import com.mardomsara.social.helpers.LangUtil;
-import com.mardomsara.social.models.LastMsgOfRoomsCache;
 import com.mardomsara.social.models.events.MessageSyncMeta;
 import com.mardomsara.social.models.events.MsgGeneralChangeChangeEvent;
 import com.mardomsara.social.models.events.MsgsSyncMetaDeletedFromServer;
 import com.mardomsara.social.models.events.MsgsSyncMetaReceivedToPeer;
 import com.mardomsara.social.models.events.MsgsSyncMetaReceivedToServer;
 import com.mardomsara.social.models.events.MsgsSyncMetaSeenByPeer;
-import com.mardomsara.social.models.events.RoomInfoChangedEvent;
+import com.mardomsara.social.tables.MessagesModel;
 import com.mardomsara.social.tables.MessagesTable;
 import com.mardomsara.social.tables.RoomsListTable;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.adaptors.ChatEnteryAdaptor;
 import com.mardomsara.social.ui.views.EmojiKeybord;
+import com.mardomsara.social.ui.views.EmojiKeybord2;
 import com.mardomsara.social.ui.views.chat.KeywordAttachmentView;
-import com.mardomsara.social.ui.views.play.BadgeDrawable;
-import com.mardomsara.social.ui.views.wigets.CountView;
 import com.orhanobut.hawk.Hawk;
 import com.squareup.leakcanary.RefWatcher;
 import com.sw926.imagefileselector.ImageFileSelector;
@@ -83,7 +74,7 @@ public class ChatEntryPresenter extends BasePresenter implements
     ImageButton emoji_opener_btn;
     FrameLayout emoji_window_holder;
 //    EmojiconEditText edit_filed;
-    EditText edit_filed;
+    EmojiconEditText edit_filed;
     Button send_msg;
     View bottom_container;
     View attach;
@@ -115,14 +106,15 @@ public class ChatEntryPresenter extends BasePresenter implements
 
     IntentHelper intentHelper;
     Uri file_uri;
+    EmojiKeybord emojiKeybord;
 
     @Override
     public View buildView() {
         view = AppUtil.inflate(R.layout.fragment_chat_entery_page);
         emoji_opener_btn = (ImageButton)view.findViewById(R.id.emoji_opener_btn);
         emoji_window_holder = (FrameLayout) view.findViewById(R.id.emoji_window_holder);
-//        edit_filed = (EmojiconEditText) view.findViewById(R.id.edit_filed);
-        edit_filed = (EditText) view.findViewById(R.id.edit_filed);
+        edit_filed = (EmojiconEditText) view.findViewById(R.id.edit_filed);
+//        edit_filed = (EditText) view.findViewById(R.id.edit_filed);
         send_msg = (Button) view.findViewById(R.id.send_msg);
         bottom_container =  view.findViewById(R.id.bottom_container);
         attach =  view.findViewById(R.id.attach);
@@ -140,7 +132,7 @@ public class ChatEntryPresenter extends BasePresenter implements
 
         recylerView = (RecyclerView) view.findViewById(R.id.recycler_view);
 
-        messages = MessagesTable.getRoomMessage(room.getRoomKey(),0);
+        messages = MessagesModel.getRoomMessage(room.getRoomKey(),0);
         messagesAdaptor =new ChatEnteryAdaptor();
 
         messagesAdaptor.setMsgs(messages);
@@ -164,18 +156,32 @@ public class ChatEntryPresenter extends BasePresenter implements
             @Override
             public void onClick(View v) {
                 Nav.pop();
-                Nav.showFooter();
+//                Nav.showFooter();*/
+                onBack();
             }
         });
         TextView roomTitle = (TextView) view.findViewById(R.id.room_name);
         roomTitle.setText(room.getRoomName());
         EventBus.getDefault().register(this);
 
+/*
 
-        EmojiKeybord emojiKeybord = new EmojiKeybord(emoji_window_holder, getFragment().getChildFragmentManager());
+        emojiKeybord = new EmojiKeybord(emoji_window_holder, getFragment().getChildFragmentManager());
         emojiKeybord.setEditInput(edit_filed);
         emojiKeybord.setEmojiOpenerBtn(emoji_opener_btn);
         emojiKeybord.build();
+
+*/
+
+
+//        EmojiKeybord2 emojiKeybord = new EmojiKeybord2(emoji_window_holder, getFragment().getChildFragmentManager());
+//        EmojiKeybord2 emojiKeybord = new EmojiKeybord2(emoji_opener_btn, edit_filed,getFragment().getChildFragmentManager());
+        EmojiKeybord2 emojiKeybord = new EmojiKeybord2(emoji_opener_btn, edit_filed,getFragment().getFragmentManager());
+//        emojiKeybord.setEditInput(edit_filed);
+//        emojiKeybord.setEmojiOpenerBtn(emoji_opener_btn);
+        emojiKeybord.emoji_window_holder = bottom_container;
+        emojiKeybord.build();
+
 
 
         that = this;
@@ -223,7 +229,19 @@ public class ChatEntryPresenter extends BasePresenter implements
 //        showMeas();
 
     }
-////play
+
+    @Override
+    public void onBack() {
+        super.onBack();
+        Nav.showFooter();
+//        emojiKeybord.unregisterOnBackListener();
+
+    }
+
+    private void endThis() {
+        Nav.pop();
+    }
+    ////play
 
     void addNewMsg(){
         MessagesTable msg =  MessagesModel.NewTextMsgForRoom(room);

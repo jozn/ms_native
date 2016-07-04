@@ -7,7 +7,7 @@
         style="@style/msg.content_holder.me"
         >
         <com.mardomsara.emojicon.EmojiconTextView
-            style="@style/msg_text.peer"
+            style="@style/msg_text.me"
 
             />
 

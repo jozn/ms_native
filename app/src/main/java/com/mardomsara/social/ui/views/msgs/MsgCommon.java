@@ -7,6 +7,7 @@ import android.text.style.BackgroundColorSpan;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.ImageSpan;
 import android.text.style.SubscriptSpan;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -35,6 +36,16 @@ public class MsgCommon {
         return FormaterUtil.timeToClockTimeMs(msg.getCreatedMs());
     }
 
+    public static void setTextForImages(MessagesTable msg , TextView textView){
+        String txt = msg.getText();
+        textView.setText(txt);
+        if(txt == null || txt.equals("")){
+            textView.setVisibility(View.GONE);
+        }else {
+            textView.setVisibility(View.VISIBLE);
+        }
+    }
+
     public static void setImage(MessagesTable msg , ImageView image_iew){
         File file = new File(msg.getMediaLocalSrc());
         int max_width = (int) (AndroidUtil.getScreenWidth() * 0.8);
@@ -44,7 +55,8 @@ public class MsgCommon {
 //                AndroidUtil.dpToPx(msg.getMediaWidth()));
 //        msg_image.setLayoutParams(sizes);
 
-        ViewHelper.setImageSizesWithMaxPx(image_iew, max_width, msg.getMediaWidth(),msg.getMediaHeight());
+//        ViewHelper.setImageSizesWithMaxPx(image_iew, max_width, msg.getMediaWidth(),msg.getMediaHeight());
+        ViewHelper.setImageSizesWithMaxPx(image_iew, max_width -2,max_width, msg.getMediaWidth(),msg.getMediaHeight());
 //        ViewHelper.setViewSizeDp(msg_image,msg.getMediaWidth(),msg.getMediaHeight());
 //        msg_image.setLayoutParams();
         file.toURI();
@@ -60,6 +72,15 @@ public class MsgCommon {
         });
 //        image_iew.setBackground();
     }
+
+
+    public static void setContentMaxwhidth(MessagesTable msg , View container) {
+        int max_width = (int) (AndroidUtil.getScreenWidth() * 0.8);
+        AppUtil.log("width: "+max_width+AndroidUtil.getScreenResolution()+AndroidUtil.getDensity());
+        max_width = AndroidUtil.pxToDp(max_width);
+        ViewHelper.setImageSizesWithMaxPx(container, max_width-1,max_width, msg.getMediaWidth(),msg.getMediaHeight());
+    }
+
     public static void setVideoImage(MessagesTable msg , ImageView msg_image) {
         //        URI uri = AppUtil.(msg.getMediaLocalSrc());
 //        msg_image.

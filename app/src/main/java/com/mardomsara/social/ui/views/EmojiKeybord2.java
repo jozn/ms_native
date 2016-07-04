@@ -1,11 +1,17 @@
 package com.mardomsara.social.ui.views;
 
 import android.support.v4.app.FragmentManager;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.PopupWindow;
+import android.widget.TextView;
 
+import com.mardomsara.emojicon.EmojiconEditText;
 import com.mardomsara.emojicon.EmojiconGridFragment;
 import com.mardomsara.emojicon.EmojiconsFragment;
 import com.mardomsara.emojicon.emoji.Emojicon;
@@ -22,14 +28,12 @@ import java.util.List;
 /**
  * Created by Hamid on 5/15/2016.
  */
-public class EmojiKeybord implements EmojiconsFragment.OnEmojiconBackspaceClickedListener, EmojiconGridFragment.OnEmojiconClickedListener {
+public class EmojiKeybord2 implements EmojiconsFragment.OnEmojiconBackspaceClickedListener, EmojiconGridFragment.OnEmojiconClickedListener {
     View windowHolder;
-    FragmentManager childFM;//childFragmentManager
-    boolean useSystemDefault = false;
-    EmojiconsFragment emoji_window;
+
 //    TextView emojiOpenerBtn;
     ImageButton emojiOpenerBtn;
-    EditText editInput;
+//    EditText editInput;
     List<String> strInput = new ArrayList<>();
 
     //icon
@@ -47,7 +51,7 @@ public class EmojiKeybord implements EmojiconsFragment.OnEmojiconBackspaceClicke
         return false;
     };
 
-    public EmojiKeybord(View windowHolderFrameLayout, FragmentManager childFragmentManager) {
+    public EmojiKeybord2(View windowHolderFrameLayout, FragmentManager childFragmentManager) {
 
         windowHolder = windowHolderFrameLayout;
         childFM = childFragmentManager;
@@ -56,19 +60,54 @@ public class EmojiKeybord implements EmojiconsFragment.OnEmojiconBackspaceClicke
 
     }
 
-    public void unregisterOnBackListener(){
-        Nav.removeCustomOnBackPressHandler(backPressHandler);
-    }
+    //////////////////////////////////////////////////////
+    View iconText;
+    EmojiconEditText editInput;
+    FragmentManager childFM;//childFragmentManager
+    boolean useSystemDefault = false;
+    EmojiconsFragment emoji_window;
+    PopupWindow attachWindow;
+    public View emoji_window_holder;
 
+    public EmojiKeybord2(View iconTexx, EmojiconEditText editInput ,FragmentManager childFragmentManager) {
+        this.iconText = iconTexx;
+        this.editInput = editInput;
+        childFM = childFragmentManager;
+    }
     public void build(){
         emoji_window = EmojiconsFragment.newInstance(useSystemDefault);
         emoji_window.setEmojiBackListener(this);
         emoji_window.setmOnEmojiconClickedListener(this);
-        childFM.beginTransaction()
-                .add(R.id.emoji_window_holder, emoji_window)
-                .commit();
 
-        emojiOpenerBtn.setOnClickListener((v)-> {
+        ViewGroup popupView = (ViewGroup) AppUtil.inflate(R.layout.keywoard_emoji);
+
+
+        emoji_window.onCreateView(LayoutInflater.from(AppUtil.getContext()),popupView,null);
+
+        attachWindow = new PopupWindow(
+                popupView,
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                700);//kybordSize);
+
+        popupView.addView(emoji_window.getView());
+
+//        popupView.findViewById(R.id.emoji_window_holder2);
+
+//        childFM.beginTransaction()
+//                .add(R.id.emoji_window_holder2, emoji_window)
+//                .commit();
+
+   /*     childFM.beginTransaction()
+                .add(R.id.emoji_window_holder, emoji_window)
+                .commit();*/
+
+
+
+        /*emojiOpenerBtn.setOnClickListener((v)-> {
+            AppUtil.log("emojiOpenerBtn.setOnClickListener "+ v.toString());
+            emojiBtnClicked();
+        });*/
+        iconText.setOnClickListener((v)-> {
             AppUtil.log("emojiOpenerBtn.setOnClickListener "+ v.toString());
             emojiBtnClicked();
         });
@@ -79,21 +118,6 @@ public class EmojiKeybord implements EmojiconsFragment.OnEmojiconBackspaceClicke
         });
 
 
-        }
-
-    public void setEmojiOpenerBtn(ImageButton emojiOpenerBtn) {
-        this.emojiOpenerBtn = emojiOpenerBtn;
-//        emojiOpenerBtn.setOnClickListener((e)->{
-//            if(isOpen ==false){
-//                AndroidUtil.showKeyboard();
-//            }
-//        });
-    }
-
-    public void setEditInput(EditText editInput) {
-        this.editInput = editInput;
-//        editInput.setInputType(InputType.TYPE_NULL);
-        editInput.setTextIsSelectable(true);
     }
 
     @Override
@@ -105,16 +129,15 @@ public class EmojiKeybord implements EmojiconsFragment.OnEmojiconBackspaceClicke
         }
     }
 
+
     protected void emojiBtnClicked(){
         if(isEmojiOpen == false){
             if(isKeybordOpen == false){//thi is minimized
-                openEmojiSchedule();
-//                closeKeyboard();//
-//                openEmoji();
+                attachWindow.showAtLocation(AppUtil.global_window, Gravity.END,0,150);
+//                openEmojiSchedule();
             }else { //switch from open keywoard to emoji keyboard
-                openEmojiSchedule();
-//                closeKeyboard();
-//                openEmoji();
+//                openEmojiSchedule();
+                attachWindow.dismiss();
             }
         }else {//open keyborad
             openKeyboardchedule();
@@ -144,7 +167,7 @@ public class EmojiKeybord implements EmojiconsFragment.OnEmojiconBackspaceClicke
         closeEmoji();
         AndroidUtil.runInUiWithSleep(()->{
             openKeyboard();
-            emojiOpenerBtn.setImageResource(keyboardIcon);
+//            emojiOpenerBtn.setImageResource(keyboardIcon);
         },1);
     }
 
@@ -152,25 +175,28 @@ public class EmojiKeybord implements EmojiconsFragment.OnEmojiconBackspaceClicke
         closeKeyboard();
         AndroidUtil.runInUiWithSleep(()->{
             openEmoji();
-            emojiOpenerBtn.setImageResource(emojiIcon);
+//            emojiOpenerBtn.setImageResource(emojiIcon);
         },1);
     }
 
     protected void openEmoji(){
         AppUtil.log("openEmoji()");
         isEmojiOpen = true;
-        windowHolder.setLayoutParams(
+        attachWindow.showAtLocation(emoji_window_holder, Gravity.END,0,15000);
+
+        /*windowHolder.setLayoutParams(
                 new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
-                Hawk.get(Config.KEYBOARD_HEIGHT, Config.KEYBOARD_HEIGHT_DEFAULT)));
+                Hawk.get(Config.KEYBOARD_HEIGHT, Config.KEYBOARD_HEIGHT_DEFAULT)));*/
 
     }
     protected void closeEmoji(){
         AppUtil.log("closeEmoji()");
-        isEmojiOpen = false;
+        attachWindow.dismiss();
+/*        isEmojiOpen = false;
 //        windowHolder.setVisibility(View.INVISIBLE);
         windowHolder.setLayoutParams(
                 new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 0)
-        );
+        );*/
     }
     protected void openKeyboard(){
         AppUtil.log("openKeyboard()");

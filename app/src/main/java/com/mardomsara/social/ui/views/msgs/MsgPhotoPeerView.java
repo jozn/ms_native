@@ -24,7 +24,7 @@ import butterknife.ButterKnife;
 public class MsgPhotoPeerView extends MsgAbstractViewHolder {
     @Bind(R.id.msg_time)
     TextView time_txt;
-    @Bind(R.id.msg_delivery_status) TextView msg_delivery_status;
+//    @Bind(R.id.msg_delivery_status) TextView msg_delivery_status;
     @Bind(R.id.msg_text) TextView msg_text;
     @Bind(R.id.msg_image)
     SimpleDraweeView msg_image;
@@ -45,10 +45,12 @@ public class MsgPhotoPeerView extends MsgAbstractViewHolder {
     @Override
     public void bindToView(MessagesTable msg) {
         AppUtil.log("bindToView Peer");
-        time_txt.setText(MsgCommon.msgRawTime2(msg));
-        msg_text.setText(msg.getText());
+//        msg_text.setText(msg.getText());
         MsgCommon.setImage(msg,msg_image);
-
+//        MsgCommon.setContentMaxwhidth(msg,msg_image);
+//        ViewHelper.setViewSizesPrecentaion(msg_content_holder,0.8f);
+        MsgCommon.setTextForImages(msg,msg_text);
+        time_txt.setText(MsgCommon.msgRawTime2(msg));
 
     }
 

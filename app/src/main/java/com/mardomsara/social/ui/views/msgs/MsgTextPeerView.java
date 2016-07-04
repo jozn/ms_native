@@ -5,6 +5,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.mardomsara.social.R;
+import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.tables.MessagesTable;
 
@@ -24,6 +25,7 @@ public class MsgTextPeerView extends MsgAbstractViewHolder {
     public MsgTextPeerView(View itemView) {
         super(itemView);
         ButterKnife.bind(this, itemView);
+//        itemView.((int)(AndroidUtil.getScreenWidth()*.8));
     }
 
     public static MsgAbstractViewHolder makeNew(ViewGroup parent){

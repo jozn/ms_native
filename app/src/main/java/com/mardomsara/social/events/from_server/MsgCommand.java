@@ -13,6 +13,7 @@ import com.mardomsara.social.models.events.MessageSyncMeta;
 import com.mardomsara.social.models.events.MsgsSyncMetaReceivedToPeer;
 import com.mardomsara.social.models.events.MsgsSyncMetaReceivedToServer;
 import com.mardomsara.social.models.events.MsgsSyncMetaSeenByPeer;
+import com.mardomsara.social.tables.MessagesModel;
 import com.mardomsara.social.tables.UsersTable;
 import com.mardomsara.social.tables.MessagesTable;
 import com.mardomsara.social.tables.RoomsListTable;

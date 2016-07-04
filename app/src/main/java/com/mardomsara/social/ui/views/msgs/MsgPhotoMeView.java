@@ -1,19 +1,14 @@
 package com.mardomsara.social.ui.views.msgs;
 
-import android.net.Uri;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.mardomsara.social.R;
-import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.tables.MessagesTable;
-import com.mardomsara.social.ui.views.FullScreenImage;
 import com.mardomsara.social.ui.views.helpers.ViewHelper;
-
-import java.io.File;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -43,8 +38,12 @@ public class MsgPhotoMeView extends MsgAbstractViewHolder {
     public void bindToView(MessagesTable msg) {
         AppUtil.log("bindToView Peer");
         time_txt.setText(MsgCommon.msgRawTime2(msg));
-        msg_text.setText(msg.getText());
+//        msg_text.setText(msg.getText());
         MsgCommon.setImage(msg,msg_image);
+//        MsgCommon.setContentMaxwhidth(msg,msg_image);
+        MsgCommon.setTextForImages(msg,msg_text);
+        ViewHelper.setViewSizesPrecentaion(msg_content_holder,0.8f);
+
         MsgCommon.msgDelviryStatusText(msg,msg_delivery_status);
 
 
