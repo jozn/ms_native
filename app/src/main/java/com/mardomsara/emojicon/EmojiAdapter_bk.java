@@ -29,25 +29,25 @@ import java.util.List;
 /**
  * @author Hieu Rocker (rockerhieu@gmail.com)
  */
-class EmojiAdapter extends ArrayAdapter<Emojicon> {
+class EmojiAdapter_bk extends ArrayAdapter<Emojicon> {
     private boolean mUseSystemDefault = false;
 
-    public EmojiAdapter(Context context, List<Emojicon> data) {
+    public EmojiAdapter_bk(Context context, List<Emojicon> data) {
         super(context, R.layout.emojicon_item_cell, data);
         mUseSystemDefault = false;
     }
 
-    public EmojiAdapter(Context context, List<Emojicon> data, boolean useSystemDefault) {
+    public EmojiAdapter_bk(Context context, List<Emojicon> data, boolean useSystemDefault) {
         super(context, R.layout.emojicon_item_cell, data);
         mUseSystemDefault = useSystemDefault;
     }
 
-    public EmojiAdapter(Context context, Emojicon[] data) {
+    public EmojiAdapter_bk(Context context, Emojicon[] data) {
         super(context, R.layout.emojicon_item_cell, data);
         mUseSystemDefault = false;
     }
 
-    public EmojiAdapter(Context context, Emojicon[] data, boolean useSystemDefault) {
+    public EmojiAdapter_bk(Context context, Emojicon[] data, boolean useSystemDefault) {
         super(context, R.layout.emojicon_item_cell, data);
         mUseSystemDefault = useSystemDefault;
     }
@@ -65,18 +65,7 @@ class EmojiAdapter extends ArrayAdapter<Emojicon> {
         Emojicon emoji = getItem(position);
         ViewHolder holder = (ViewHolder) v.getTag();
         holder.icon.setText(emoji.getEmoji());
-        holder.icon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                emojiClickListener.onEmojiconClicked(getItem(position));
-            }
-        });
         return v;
-    }
-
-    OnEmojiconClickedListener emojiClickListener;
-    void setEmojiClickListener(OnEmojiconClickedListener listener){
-        this.emojiClickListener = listener;
     }
 
     static class ViewHolder {

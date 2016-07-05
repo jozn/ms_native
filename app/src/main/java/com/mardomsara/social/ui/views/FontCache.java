@@ -34,4 +34,8 @@ public class FontCache {
     public static Typeface getIonic(){
         return get(AndroidUtil.getString(R.string.font_ionic));
     }
+
+    public static Typeface getLinear(){
+        return get(AndroidUtil.getString(R.string.font_linear));
+    }
 }

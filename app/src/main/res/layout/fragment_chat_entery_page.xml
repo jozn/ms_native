@@ -42,14 +42,14 @@
         android:id="@+id/bottom_container"
         >
 
-            <ImageButton
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_gravity="bottom"
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="bottom|center"
                 android:layout_marginLeft="4dp"
-                android:layout_marginBottom="5dp"
+
                 android:id="@+id/emoji_opener_btn"
-                android:background="@drawable/emoji_1f60f"
+                android:gravity="center"
                 />
             <com.mardomsara.emojicon.EmojiconEditText
                 android:layout_width="match_parent"

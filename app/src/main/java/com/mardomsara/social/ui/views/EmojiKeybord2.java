@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.mardomsara.emojicon.EmojiconEditText;
 import com.mardomsara.emojicon.EmojiconGridFragment;
+import com.mardomsara.emojicon.Emojicons;
 import com.mardomsara.emojicon.EmojiconsFragment;
 import com.mardomsara.emojicon.emoji.Emojicon;
 import com.mardomsara.social.Nav;
@@ -65,7 +66,7 @@ public class EmojiKeybord2 implements EmojiconsFragment.OnEmojiconBackspaceClick
     EmojiconEditText editInput;
     FragmentManager childFM;//childFragmentManager
     boolean useSystemDefault = false;
-    EmojiconsFragment emoji_window;
+    Emojicons emoji_window;
     PopupWindow attachWindow;
     public View emoji_window_holder;
 
@@ -75,21 +76,27 @@ public class EmojiKeybord2 implements EmojiconsFragment.OnEmojiconBackspaceClick
         childFM = childFragmentManager;
     }
     public void build(){
-        emoji_window = EmojiconsFragment.newInstance(useSystemDefault);
+/*        emoji_window = EmojiconsFragment.newInstance(useSystemDefault);
         emoji_window.setEmojiBackListener(this);
-        emoji_window.setmOnEmojiconClickedListener(this);
+        emoji_window.setmOnEmojiconClickedListener(this);*/
+
+        emoji_window = Emojicons.newInstance(useSystemDefault,childFM);
+//        emoji_window.setEmojiBackListener(this);
+//        emoji_window.setmOnEmojiconClickedListener(this);
 
         ViewGroup popupView = (ViewGroup) AppUtil.inflate(R.layout.keywoard_emoji);
 
 
-        emoji_window.onCreateView(LayoutInflater.from(AppUtil.getContext()),popupView,null);
+//        emoji_window.onCreateView(LayoutInflater.from(AppUtil.getContext()),popupView,null);
+        emoji_window.createView(popupView);
+        popupView.addView(emoji_window.getView());
 
         attachWindow = new PopupWindow(
                 popupView,
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 700);//kybordSize);
 
-        popupView.addView(emoji_window.getView());
+//        popupView.addView(emoji_window.getView());
 
 //        popupView.findViewById(R.id.emoji_window_holder2);
 

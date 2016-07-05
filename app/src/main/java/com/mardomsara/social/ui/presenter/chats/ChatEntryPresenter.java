@@ -49,6 +49,7 @@ import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.adaptors.ChatEnteryAdaptor;
 import com.mardomsara.social.ui.views.EmojiKeybord;
 import com.mardomsara.social.ui.views.EmojiKeybord2;
+import com.mardomsara.social.ui.views.EmojiKeybord3;
 import com.mardomsara.social.ui.views.chat.KeywordAttachmentView;
 import com.orhanobut.hawk.Hawk;
 import com.squareup.leakcanary.RefWatcher;
@@ -71,7 +72,7 @@ public class ChatEntryPresenter extends BasePresenter implements
         EmojiconsFragment.OnEmojiconBackspaceClickedListener,
         KeywordAttachmentView.Callbacks{
     public RoomsListTable room;
-    ImageButton emoji_opener_btn;
+    TextView emoji_opener_btn;
     FrameLayout emoji_window_holder;
 //    EmojiconEditText edit_filed;
     EmojiconEditText edit_filed;
@@ -106,12 +107,12 @@ public class ChatEntryPresenter extends BasePresenter implements
 
     IntentHelper intentHelper;
     Uri file_uri;
-    EmojiKeybord emojiKeybord;
+    EmojiKeybord3 emojiKeybord;
 
     @Override
     public View buildView() {
         view = AppUtil.inflate(R.layout.fragment_chat_entery_page);
-        emoji_opener_btn = (ImageButton)view.findViewById(R.id.emoji_opener_btn);
+        emoji_opener_btn = (TextView) view.findViewById(R.id.emoji_opener_btn);
         emoji_window_holder = (FrameLayout) view.findViewById(R.id.emoji_window_holder);
         edit_filed = (EmojiconEditText) view.findViewById(R.id.edit_filed);
 //        edit_filed = (EditText) view.findViewById(R.id.edit_filed);
@@ -164,26 +165,8 @@ public class ChatEntryPresenter extends BasePresenter implements
         roomTitle.setText(room.getRoomName());
         EventBus.getDefault().register(this);
 
-/*
-
-        emojiKeybord = new EmojiKeybord(emoji_window_holder, getFragment().getChildFragmentManager());
-        emojiKeybord.setEditInput(edit_filed);
-        emojiKeybord.setEmojiOpenerBtn(emoji_opener_btn);
-        emojiKeybord.build();
-
-*/
-
-
-//        EmojiKeybord2 emojiKeybord = new EmojiKeybord2(emoji_window_holder, getFragment().getChildFragmentManager());
-//        EmojiKeybord2 emojiKeybord = new EmojiKeybord2(emoji_opener_btn, edit_filed,getFragment().getChildFragmentManager());
-        EmojiKeybord2 emojiKeybord = new EmojiKeybord2(emoji_opener_btn, edit_filed,getFragment().getFragmentManager());
-//        emojiKeybord.setEditInput(edit_filed);
-//        emojiKeybord.setEmojiOpenerBtn(emoji_opener_btn);
-        emojiKeybord.emoji_window_holder = bottom_container;
-        emojiKeybord.build();
-
-
-
+        emojiKeybord= new EmojiKeybord3(edit_filed,emoji_opener_btn, AppUtil.global_window);
+        
         that = this;
         attach.setOnClickListener((v)->{ showAttachmentWindow();});
         //todo later fix this for G
@@ -205,6 +188,7 @@ public class ChatEntryPresenter extends BasePresenter implements
 //                .beginTransaction();
         RefWatcher refWatcher = AppAplication.getRefWatcher(getActivity());
         if(null != refWatcher)  refWatcher.watch(this, " ChatChat");
+        if(emojiKeybord != null) emojiKeybord.destroy();
 
     }
 
@@ -235,6 +219,9 @@ public class ChatEntryPresenter extends BasePresenter implements
         super.onBack();
         Nav.showFooter();
 //        emojiKeybord.unregisterOnBackListener();
+        if(emojiKeybord!= null){
+            emojiKeybord.destroy();
+        }
 
     }
 

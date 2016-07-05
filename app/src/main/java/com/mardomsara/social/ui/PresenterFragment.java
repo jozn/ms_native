@@ -68,10 +68,11 @@ public class PresenterFragment extends BaseFragment {
 
     @Override
     public void onDestroy() {
-        super.onDestroy();
         if(presenter!=null){
             presenter.onDestroy();
         }
+        super.onDestroy();
+
     }
 
 }

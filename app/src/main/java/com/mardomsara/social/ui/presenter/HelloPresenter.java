@@ -29,6 +29,7 @@ public class HelloPresenter extends BasePresenter {
        ViewGroup v = (ViewGroup)inflater.inflate(R.layout.hello_world_row,null);
         View btn = v.findViewById(R.id.btn);
         View btn2 = v.findViewById(R.id.btn2);
+        View btn3 = v.findViewById(R.id.btn3);
         TextView txt = (TextView)v.findViewById(R.id.txt);
         View anvil_view = v.findViewById(R.id.anvil);
         View anvil_view2 = v.findViewById(R.id.anvil2);
@@ -39,6 +40,10 @@ public class HelloPresenter extends BasePresenter {
 
         btn2.setOnClickListener((vv)->{
             Nav.push(Router.getGalleryChooserPage());
+        });
+
+        btn3.setOnClickListener((vv)->{
+            Nav.push(new PlayPresenter());
         });
         sendWsReqRes();
 

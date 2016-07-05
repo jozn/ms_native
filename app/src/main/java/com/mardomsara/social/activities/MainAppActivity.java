@@ -21,6 +21,7 @@ import android.widget.TextView;
 import com.crashlytics.android.Crashlytics;
 import com.mardomsara.emojicon.EmojiconGridFragment;
 import com.mardomsara.emojicon.EmojiconsFragment;
+import com.mardomsara.emojicon.EmojiconsPopup;
 import com.mardomsara.emojicon.emoji.Emojicon;
 import com.mardomsara.social.App;
 import com.mardomsara.social.Init;
@@ -88,6 +89,8 @@ public class MainAppActivity extends AppActivity implements EmojiconGridFragment
         Crashlytics.getInstance().core.setUserName("AtashN");
 
         LifeCycle.onAppActivityStarted();
+
+        EmojiconsPopup.setUpLayoutListnr(global_window);
 
 
     }
