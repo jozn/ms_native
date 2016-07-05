@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.mardomsara.emojicon;
+package com.mardomsara.emojicon.dep;
 
 import android.app.Activity;
 //import android.app.DialogFragment;
@@ -37,6 +37,8 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
+import com.mardomsara.emojicon.EmojiconRecents;
+import com.mardomsara.emojicon.EmojiconRecentsManager;
 import com.mardomsara.emojicon.emoji.Activities;
 import com.mardomsara.emojicon.emoji.Diversity;
 import com.mardomsara.emojicon.emoji.Emojicon;

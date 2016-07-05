@@ -14,9 +14,8 @@
  * limitations under the License.
  */
 
-package com.mardomsara.emojicon;
+package com.mardomsara.emojicon.dep;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.v4.app.Fragment;
@@ -26,8 +25,9 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
 
+import com.mardomsara.emojicon.EmojiAdapter;
+import com.mardomsara.emojicon.EmojiconRecents;
 import com.mardomsara.emojicon.emoji.Emojicon;
-import com.mardomsara.emojicon.emoji.Objects;
 import com.mardomsara.emojicon.emoji.People;
 import com.mardomsara.social.R;
 

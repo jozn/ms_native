@@ -14,13 +14,14 @@
  * limitations under the License.
  */
 
-package com.mardomsara.emojicon;
+package com.mardomsara.emojicon.dep;
 
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 
+import com.mardomsara.emojicon.EmojiconTextView;
 import com.mardomsara.emojicon.emoji.Emojicon;
 import com.mardomsara.social.R;
 
