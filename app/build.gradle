@@ -121,4 +121,8 @@ dependencies {
     testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2'
 
     compile 'me.relex:photodraweeview:1.0.0'
+
+    //forloading
+//    compile 'com.nineoldandroids:library:2.4.0'
+    compile 'com.github.rahatarmanahmed:circularprogressview:2.5.0'
 }

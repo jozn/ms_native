@@ -34,7 +34,7 @@ public class ChatEnteryAdaptor extends RecyclerView.Adapter<MsgAbstractViewHolde
         this.msgs = msgs;
     }
 //
-//    public static class ViewHolder extends RecyclerView.ViewHolder {
+//    public static class UserRowViewHolder extends RecyclerView.UserRowViewHolder {
 //        @Bind(R.id.msg_time) TextView time_txt;
 //        @Bind(R.id.msg_delivery_status) TextView msg_delivery_status;
 //        @Bind(R.id.msg_text) TextView msg_text;
@@ -48,7 +48,7 @@ public class ChatEnteryAdaptor extends RecyclerView.Adapter<MsgAbstractViewHolde
 //        int typeId =0;
 //        MessagesTable msg;
 //        @DebugLog
-//        public ViewHolder(View v , int type) {
+//        public UserRowViewHolder(View v , int type) {
 //            super(v);
 //            typeId = type;
 ////            orginal = v;
@@ -148,7 +148,7 @@ public class ChatEnteryAdaptor extends RecyclerView.Adapter<MsgAbstractViewHolde
             rowView = _infl.inflate(R.layout.msg_row_system, parent, false);
         }
         return msgView;
-//        return new ViewHolder(rowView,viewType);
+//        return new UserRowViewHolder(rowView,viewType);
     }
 
     @Override
@@ -223,18 +223,18 @@ public class ChatEnteryAdaptor extends RecyclerView.Adapter<MsgAbstractViewHolde
 //    }
 //
 //    @Override
-//    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+//    public UserRowViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 //        // Create a new view.
 //        if(viewType == 2){
 //            View v = LayoutInflater.from(parent.getContext())
 //                    .inflate(R.layout.msg_row_all_peer, parent, false);
 //
-//            return new ViewHolder(v, viewType);
+//            return new UserRowViewHolder(v, viewType);
 //        }else {
 //            View v = LayoutInflater.from(parent.getContext())
 //                    .inflate(R.layout.msg_row_all_me, parent, false);
 //
-//            return new ViewHolder(v,viewType);
+//            return new UserRowViewHolder(v,viewType);
 //        }
 //
 //    }

@@ -37,6 +37,10 @@ public class API {
     public static URL CONTACTS_SYNC_ALL = AppUtil.toUrl(BASE_URL_STR+"sync-all-contacts");
     public static URL FOLLOWINGS_SYNC_ALL = AppUtil.toUrl(BASE_URL_STR+"sync-followings");
 
+    /////////////////// New from  version 0.4 //////
+    public static URL POSTS_STREAM_GET = AppUtil.toUrl(BASE_URL_STR+"post/stream");
+    public static URL POSTS_LIKES_GET = AppUtil.toUrl(BASE_URL_STR+"likes");
+
     static {
         setUp();
     }

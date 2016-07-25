@@ -5,8 +5,8 @@ package com.mardomsara.social.models;
  */
 public interface IUserAndMe {
     int getFollowingType();
-    void setFollowingType();
+    void setFollowingType(int type);
     int getIsProfilePrivate();
-    void setIsProfilePrivate();
+    void setIsProfilePrivate(int type);
 
 }

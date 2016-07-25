@@ -15,7 +15,7 @@ import com.mardomsara.social.ui.views.FontCache;
 /**
  * Created by Hamid on 6/27/2016.
  */
-public class followingButton extends TextView {
+public class FollowingButton extends TextView {
     String icon_isFollowing = "\uf47d";//"\uf213";//ion-person
 //    String icon_isFollowing = "\uf213";//ion-person
     String icon_notFollowing = "\uf47f" ;//"\uf211";//ion-person-add
@@ -49,17 +49,17 @@ public class followingButton extends TextView {
         }
     };
 
-    public followingButton(Context context) {
+    public FollowingButton(Context context) {
         super(context);
         init();
     }
 
-    public followingButton(Context context, AttributeSet attrs) {
+    public FollowingButton(Context context, AttributeSet attrs) {
         super(context, attrs);
         init();
     }
 
-    public followingButton(Context context, AttributeSet attrs, int defStyleAttr) {
+    public FollowingButton(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init();
         setOnClickListener(switchFollowing);

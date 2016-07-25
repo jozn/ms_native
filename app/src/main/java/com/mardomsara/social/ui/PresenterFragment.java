@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
 import com.mardomsara.social.R;
-import com.mardomsara.social.helpers.AppUtil;
 
 /**
  * Created by Hamid on 5/2/2016.
@@ -42,7 +41,6 @@ public class PresenterFragment extends BaseFragment {
         }catch (Exception e){
             e.printStackTrace();
             Log.e("Presenter:"," render err:");
-
         }
     }
 
@@ -72,7 +70,6 @@ public class PresenterFragment extends BaseFragment {
             presenter.onDestroy();
         }
         super.onDestroy();
-
     }
 
 }

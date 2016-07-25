@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="user_list_general_follow"/>
+
+    <style name="user_list_general_follow.primary_name">
+        <item name="android:layout_gravity">right</item>
+        <!--<item name="android:paddingLeft">4dp</item>-->
+
+        <item name="android:textSize">14dp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">normal</item>
+        <item name="fontPath">@string/font_iran_medium</item>
+    </style>
+
+    <style name="user_list_general_follow.second_name">
+        <!--<item name="android:paddingLeft">4dp</item>-->
+        <item name="android:layout_gravity">right</item>
+        <item name="android:textSize">12dp</item>
+        <item name="android:textColor">@color/text_gray_3</item>
+        <item name="android:textStyle">normal</item>
+        <item name="fontPath">@string/font_iran_light</item>
+    </style>
+
+</resources>

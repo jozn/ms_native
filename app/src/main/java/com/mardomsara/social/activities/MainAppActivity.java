@@ -8,7 +8,6 @@ import android.os.PersistableBundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.view.ActionMode;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -19,9 +18,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.crashlytics.android.Crashlytics;
-import com.mardomsara.emojicon.EmojiconGridFragment;
-import com.mardomsara.emojicon.EmojiconsFragment;
 import com.mardomsara.emojicon.EmojiconsPopup;
+//import com.mardomsara.emojicon.dep.EmojiconGridFragment;
+//import com.mardomsara.emojicon.dep.EmojiconsFragment;
 import com.mardomsara.emojicon.emoji.Emojicon;
 import com.mardomsara.social.App;
 import com.mardomsara.social.Init;
@@ -36,7 +35,6 @@ import com.mardomsara.social.play.Okhttp2Activity;
 import com.mardomsara.social.play.PlayAdvanced;
 import com.mardomsara.social.play.PlayJson1Activity;
 import com.mardomsara.social.service.PingService;
-import com.squareup.leakcanary.LeakCanary;
 
 import io.fabric.sdk.android.Fabric;
 import pl.tajchert.nammu.Nammu;
@@ -45,7 +43,7 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 /**
  * Created by Hamid on 1/31/2016.
  */
-public class MainAppActivity extends AppActivity implements EmojiconGridFragment.OnEmojiconClickedListener, EmojiconsFragment.OnEmojiconBackspaceClickedListener {
+public class MainAppActivity extends AppActivity {
     TextView st;
 
     boolean isFirstInited = false;
@@ -365,7 +363,7 @@ public class MainAppActivity extends AppActivity implements EmojiconGridFragment
         return super.onKeyUp(keyCode, event);
     }
 
-    @Override
+/*    @Override
     public void onEmojiconBackspaceClicked(View v) {
 
     }
@@ -373,7 +371,7 @@ public class MainAppActivity extends AppActivity implements EmojiconGridFragment
     @Override
     public void onEmojiconClicked(Emojicon emojicon) {
 
-    }
+    }*/
 }
 
 //

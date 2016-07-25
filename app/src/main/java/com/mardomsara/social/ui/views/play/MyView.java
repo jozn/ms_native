@@ -98,8 +98,8 @@ public class MyView extends View {
     protected void onDraw(Canvas canvas) {
 //        super.onDraw(canvas);
         canvas.drawColor(Color.rgb(255, 0, 0));
-//        draw1(canvas, paint, LABEL);
+//        draw1(canvas, paintIonic, LABEL);
         draw2(canvas, paint, LABEL);
-//        draw3(canvas, paint, LABEL);
+//        draw3(canvas, paintIonic, LABEL);
     }
 }

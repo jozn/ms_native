@@ -10,9 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.FrameLayout;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
@@ -21,7 +19,6 @@ import android.widget.Toast;
 import com.ipaulpro.afilechooser.FileChooserActivity;
 import com.ipaulpro.afilechooser.utils.FileChooserFileUtils;
 import com.mardomsara.emojicon.EmojiconEditText;
-import com.mardomsara.emojicon.EmojiconsFragment;
 import com.mardomsara.social.AppAplication;
 import com.mardomsara.social.Nav;
 import com.mardomsara.social.R;
@@ -47,8 +44,6 @@ import com.mardomsara.social.tables.MessagesTable;
 import com.mardomsara.social.tables.RoomsListTable;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.adaptors.ChatEnteryAdaptor;
-import com.mardomsara.social.ui.views.EmojiKeybord;
-import com.mardomsara.social.ui.views.EmojiKeybord2;
 import com.mardomsara.social.ui.views.EmojiKeybord3;
 import com.mardomsara.social.ui.views.chat.KeywordAttachmentView;
 import com.orhanobut.hawk.Hawk;
@@ -63,13 +58,14 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+//import com.mardomsara.emojicon.dep.EmojiconsFragment;
+
 //import org.msgpack.core.MessagePack;
 
 /**
  * Created by Hamid on 5/4/2016.
  */
 public class ChatEntryPresenter extends BasePresenter implements
-        EmojiconsFragment.OnEmojiconBackspaceClickedListener,
         KeywordAttachmentView.Callbacks{
     public RoomsListTable room;
     TextView emoji_opener_btn;
@@ -166,7 +162,7 @@ public class ChatEntryPresenter extends BasePresenter implements
         EventBus.getDefault().register(this);
 
         emojiKeybord= new EmojiKeybord3(edit_filed,emoji_opener_btn, AppUtil.global_window);
-        
+
         that = this;
         attach.setOnClickListener((v)->{ showAttachmentWindow();});
         //todo later fix this for G
@@ -192,12 +188,6 @@ public class ChatEntryPresenter extends BasePresenter implements
 
     }
 
-    @Override
-    public void onEmojiconBackspaceClicked(View v) {
-//        Toast.makeText(fragment.getActivity(),"Asdas",Toast.LENGTH_LONG).show();
-        showMeas();
-        edit_filed.setText(" \uD83D\uDE3B \uD83D\uDE3C \uD83D\uDE3D \uD83D\uDE40 \uD83D\uDE3F \uD83D\uDE3E \uD83D\uDE48 \uD83D\uDE49 \uD83D\uDE4A \uD83D\uDC66 \uD83D\uDC66");
-    }
 
     @Override
     public void onResume() {
@@ -596,152 +586,6 @@ public class ChatEntryPresenter extends BasePresenter implements
     }
 
 }
-//
-//mImageFileSelector = new ImageFileSelector(getFragment().getContext());
-//        mImageFileSelector.setCallback(new ImageFileSelector.Callback() {
-//@Override
-//public void onSuccess(final String file_uri) {
-//        logIt("onActivityResult: result " + file_uri);
-//        if (!TextUtils.isEmpty(file_uri)) {
-//        //loadImage(file_uri);
-//        //mCurrentSelectFile = new File(file_uri);
-//        //mBtnCrop.setVisibility(View.VISIBLE);
-//        Toast.makeText(getFragment().getContext(), "select image file_uri SUUCESS", Toast.LENGTH_LONG).show();
-//        } else {
-//        Toast.makeText(getFragment().getContext(), "select image file_uri error", Toast.LENGTH_LONG).show();
-//        }
-//        }
-//
-//@Override
-//public void onError() {
-//        Toast.makeText(getFragment().getContext(), "select image file_uri error", Toast.LENGTH_LONG).show();
-//        }
-//        });
-//        mImageFileSelector.selectImage(getFragment());
-//        alert(v);
-
-//    void addNewMsg__DEP(){
-//        MessagesTable msg = new MessagesTable();
-//        msg.setRoomKey(room.getRoomKey());
-//        msg.setDeliveryStatus(0);
-//        msg.setIsByMe(1);
-//        msg.setRoomTypeId(room.getRoomTypeId());
-//        msg.setCreatedMs(AppUtil.getTimeMs());
-//        msg.setMessageTypeId(10);
-//        msg.setUserId(6);
-//        msg.setMessageKey(LangUtil.getRandomString(20));
-//        msg.setText(edit_filed.getText().toString());
-////        msg.save();
-//        msg.insert();
-//
-//        edit_filed.setText("");
-//
-//        Command cmd = new Command();
-//        cmd.Name = Constants.MsgsAddNew;
-//        cmd.Data = JsonUtil.toJson(msg);
-//
-//        WSService.sendCommand(cmd);
-//        onHereAddedNewMsgEvent(msg);
-//    }
-
-
-//        if(f.exists()){
-//            logIt("onActivityResult: File f exist");
-//            imageView.setImageURI(file_uri);
-//        }else if(data != null){
-//            logIt("onActivityResult: chat data "+data.getData());
-//            imageView.setImageURI(data.getData());
-//        }
-//        file_uri=null;
-//        mImageFileSelector.onActivityResult(requestCode, resultCode, data);
-//        mImageCropper.onActivityResult(requestCode, resultCode, data);
-
-
-//    public void onActivityResult__OLD(int requestCode, int resultCode, Intent data) {
-/////        super.onActivityResult(requestCode, resultCode, data);
-//        logIt("onActivityResult: chat "+requestCode+ resultCode + " " +data);
-////        Uri u =intentHelper.getOutputMediaFileUri(15);
-////        intentHelper.
-////        data.getExtras();
-//        logIt("file_uri: "+file_uri);
-////        File f = new File(file_uri.getPath());
-//
-//        MessagesTable msg = new MessagesTable();
-//        msg.MessageKey = LangUtil.getRandomString(20);
-//        Http.Req req = new Http.Req();
-//        req._finalUrl = AppUtil.toUrl("http://localhost:5000/MsgUpload");
-//        req.absPath = "http://localhost:5000/MsgUpload";
-//        req.file_uri = new File(file_uri.getPath());
-//        req.urlParams.put("message",JsonUtil.toJson(msg));
-//        AndroidUtil.runInBackground(()->{
-//            Http.Result res = Http.uploadFile(req);
-////            res.response.body().byteStream().
-//        });
-//        intentHelper.previewCapturedImage(imageView);
-//        if(data != null){
-////            Uri f = data.getExtras().get
-//        }
-//
-//    }
-
-
-//    public void showAttachmentWindow_dep(){
-//        //            View popupView = AppUtil.inflate(R.layout.activity_test_web_socket);
-//
-//        KeywoardAttachmentBinding binding = DataBindingUtil.bind(AppUtil.inflate(R.layout.keywoard_attachment___dep));
-//        binding.setHandler(that);
-//
-//
-//        View popupView = binding.getRoot();//AppUtil.inflate(R.layout.keywoard_attachment___dep);
-//        attachWindow = new PopupWindow(
-//                popupView,
-//                ViewGroup.LayoutParams.MATCH_PARENT,
-//                ViewGroup.LayoutParams.MATCH_PARENT);//kybordSize);
-//
-////            binding.setHandler();
-//        View btnDismiss = popupView.findViewById(R.id.attachment_top);
-//        View main = popupView.findViewById(R.id.attachment_main);
-//        main.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,kybordSize));
-//        btnDismiss.setOnClickListener(new Button.OnClickListener(){
-//
-//            @Override
-//            public void onClick(View v) {
-//                // TODO Auto-generated method stub
-//                attachWindow.dismiss();
-//            }});
-////                attachWindow.showAsDropDown(btnOpenPopup, 50, -30);
-////        attachWindow.setHeight(540);
-//        attachWindow.showAtLocation(bottom_container, Gravity.END,0,15000);
-//    }
-
-//    public void onCameraPhotoClick(View v) {
-////        intentHelper = new IntentHelper();
-////        attachWindow.dismiss();
-////        file_uri =  intentHelper.captureImage(getFragment().getActivity(), ATTACH_CAMERA_IMAGE,"back");
-//    }
-//
-//    public void onGalleryClick(View v) {
-////       (intentHelper =new IntentHelper()).pickImage(getFragment().getActivity(),11);
-////       attachWindow.dismiss();
-//    }
-//
-//    public void onVideoClick(View v) {
-////        alert(v);
-////        intentHelper = new IntentHelper();
-////        intentHelper.recordVideo(getFragment().getActivity(),15,"back");
-//
-//    }
-
-//        Intent intent = new Intent(getContext(),GalleryAlbumActivity.class);
-//        getActivity().startActivityForResult(intent,777);
-//        PhotoAdapter photoAdapter = new PhotoAdapter(getFragment().getContext(), selectedPhotos);
-//        Intent intent = new Intent(getFragment().getContext() ,PhotoPagerActivity.class);
-//        PhotoPickerIntent.setPhotoCount(intent, 9);
-//        PhotoPickerIntent.setColumn(intent, 4);
-//
-//        getFragment().getActivity().startActivityForResult(intent, 111);
-
-
 
 
 //////////////////////////////////////////////////////////////

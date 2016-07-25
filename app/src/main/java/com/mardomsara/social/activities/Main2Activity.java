@@ -28,7 +28,7 @@ import android.widget.Toast;
 
 import com.mardomsara.emojicon.EmojiconEditText;
 import com.mardomsara.emojicon.EmojiconTextView;
-import com.mardomsara.emojicon.EmojiconsFragment;
+//import com.mardomsara.emojicon.dep.EmojiconsFragment;
 import com.mardomsara.social.R;
 import com.mardomsara.social.ui.views.TextParser;
 import com.mardomsara.social.ui.views.TextWatcherAdapter;
@@ -147,10 +147,10 @@ public class Main2Activity extends FragmentActivity{//} implements EmojiconGridF
     }
 
     private void setEmojiconFragment(boolean useSystemDefault) {
-        getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.emojicons, EmojiconsFragment.newInstance(useSystemDefault))
-                .commit();
+//        getSupportFragmentManager()
+//                .beginTransaction()
+//                .replace(R.id.emojicons, EmojiconsFragment.newInstance(useSystemDefault))
+//                .commit();
     }
 
 //    @Override

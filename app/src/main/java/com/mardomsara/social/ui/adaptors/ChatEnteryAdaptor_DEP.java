@@ -263,18 +263,18 @@ public class ChatEnteryAdaptor_DEP extends RecyclerView.Adapter<ChatEnteryAdapto
 //    }
 //
 //    @Override
-//    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+//    public UserRowViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 //        // Create a new view.
 //        if(viewType == 2){
 //            View v = LayoutInflater.from(parent.getContext())
 //                    .inflate(R.layout.msg_row_all_peer, parent, false);
 //
-//            return new ViewHolder(v, viewType);
+//            return new UserRowViewHolder(v, viewType);
 //        }else {
 //            View v = LayoutInflater.from(parent.getContext())
 //                    .inflate(R.layout.msg_row_all_me, parent, false);
 //
-//            return new ViewHolder(v,viewType);
+//            return new UserRowViewHolder(v,viewType);
 //        }
 //
 //    }

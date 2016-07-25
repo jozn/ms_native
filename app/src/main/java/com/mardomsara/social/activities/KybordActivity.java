@@ -13,10 +13,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.mardomsara.emojicon.EmojiconEditText;
-import com.mardomsara.emojicon.EmojiconGridFragment;
 import com.mardomsara.emojicon.EmojiconTextView;
-import com.mardomsara.emojicon.EmojiconsFragment;
-import com.mardomsara.emojicon.emoji.Emojicon;
+//import com.mardomsara.emojicon.dep.EmojiconsFragment;
 import com.mardomsara.social.R;
 
 
@@ -47,11 +45,11 @@ public class KybordActivity extends FragmentActivity {//implements EmojiconsFrag
                 int w2 = orginalHeight - parent.getRootView().getMeasuredHeight();
                 LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(orginalWidth,Math.abs(w2));
                 keybord1.setLayoutParams(lp );
-                getSupportFragmentManager()
-                        .beginTransaction()
-                        .replace(R.id.keybord1, EmojiconsFragment.newInstance(false))
-                        .commit();
-                updateSize();
+//                getSupportFragmentManager()
+//                        .beginTransaction()
+//                        .replace(R.id.keybord1, EmojiconsFragment.newInstance(false))
+//                        .commit();
+//                updateSize();
             }
         });
 

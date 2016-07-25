@@ -8,6 +8,8 @@
 
     <!-- base colors -->
 
+    <color name="background_blue">#adc7d7</color>
+
 
     <color name="light_geryer_1" >#eeeeee</color>
     <color name="light_geryer_2" >#eaeaea</color>

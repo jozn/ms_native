@@ -1,35 +1,21 @@
 package com.mardomsara.social.ui.views;
 
 import android.content.Context;
-import android.support.v4.app.FragmentManager;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.mardomsara.emojicon.EmojiconEditText;
-import com.mardomsara.emojicon.EmojiconGridFragment;
-import com.mardomsara.emojicon.EmojiconsDialogFragment;
-import com.mardomsara.emojicon.EmojiconsFragment;
 import com.mardomsara.emojicon.EmojiconsPopup;
 import com.mardomsara.emojicon.OnEmojiconBackspaceClickedListener;
 import com.mardomsara.emojicon.OnEmojiconClickedListener;
 import com.mardomsara.emojicon.emoji.Emojicon;
 import com.mardomsara.social.App;
-import com.mardomsara.social.Nav;
-import com.mardomsara.social.R;
-import com.mardomsara.social.app.Config;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
-import com.orhanobut.hawk.Hawk;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by Hamid on 5/15/2016.

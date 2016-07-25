@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="5dp"
+    android:background="@color/white"
+    android:id="@+id/post_row_holder">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:layout_gravity="left"
+        android:id="@+id/date"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        />
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"/>
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@id/avatar"
+        android:layout_gravity="right|center_vertical"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        style="@style/post_row.avatar"
+        fresco:roundAsCircle="false"
+        fresco:roundedCornerRadius="6dp"
+
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:layout_gravity="right"
+        android:id="@+id/fullname"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@id/avatar"
+        style="@style/post_row.fullname"
+
+        />
+
+    <com.mardomsara.social.ui.views.LinkerText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/text"
+        android:layout_toLeftOf="@id/avatar"
+        android:layout_below="@id/fullname"
+        android:text="ssvvvvss"
+        style="@style/post_row.text"
+
+        />
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:id="@+id/image"
+        android:layout_below="@id/text"
+        fresco:roundAsCircle="false"
+
+        fresco:fadeDuration="200"
+
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/image"
+        android:orientation="horizontal"
+        android:gravity="right|center_vertical"
+        android:id="@+id/counts_info"
+        android:layout_marginTop="8dp"
+        >
+<!--        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/post_row.counts_info"
+            android:id="@+id/comment_count"
+
+            />-->
+  <!--      <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/post_row.counts_info"
+
+            android:id="@+id/likes_count"
+            />
+-->
+        <com.mardomsara.social.ui.views.play.TextViewWithIcon
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/counts_info"
+            android:id="@+id/comment_count"
+            />
+
+        <com.mardomsara.social.ui.views.play.TextViewWithIcon
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/counts_info"
+            android:id="@+id/likes_count"
+            android:layout_marginLeft="14dp"
+            />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/post_row.like_btn"
+            android:text="\uf442"
+            android:layout_weight="1"
+            />
+
+    </LinearLayout>
+
+</RelativeLayout>
+
+<!--
+    <?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:orientation="vertical"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:layout_marginTop="5dp"
+android:background="@color/white"
+android:id="@+id/post_row_holder"
+    >
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_vertical|right"
+    android:orientation="horizontal"
+    >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:layout_gravity="left"
+        android:id="@+id/date"
+
+        />
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"/>
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@id/avatar"
+        android:src="@drawable/emoji_1f1e7_1f1f9"
+        android:layout_gravity="right|center_vertical"
+        />
+
+</LinearLayout>
+<com.mardomsara.social.ui.views.LinkerText
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/text"
+
+    android:text="ssssssssssss"
+    style="@style/text.normal"
+    />
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="30dp"
+    >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/text_ionic.btn"
+        android:text="\uf442"
+        android:layout_weight="1"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/text_ionic.btn"
+        android:text="\uf442"
+        android:layout_weight="1"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/text_ionic.btn"
+        android:text="\uf442"
+        android:layout_weight="1"
+        />
+</LinearLayout>
+
+</LinearLayout>
+-->
+<!--
+<LinearLayout
+android:layout_width="match_parent"
+android:layout_height="30dp"
+android:layout_below="@id/counts_info"
+    >
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    style="@style/post_row.like_btn"
+    android:text="\uf442"
+    android:layout_weight="1"
+    />
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    style="@style/post_row.like_btn"
+    android:text="\uf442"
+    android:layout_weight="1"
+    />
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    style="@style/post_row.like_btn"
+    android:text="\uf442"
+    android:layout_weight="1"
+    />
+</LinearLayout>
+-->
+<!--
+<LinearLayout
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:layout_below="@id/counts_info"
+android:orientation="horizontal"
+android:gravity="right"
+
+android:layout_marginTop="8dp"
+    >
+<com.mardomsara.social.ui.views.play.IconAnTextView
+    android:layout_width="100dp"
+    android:layout_height="wrap_content"
+    android:id="@+id/vvv"
+    android:textSize="16dp"
+    />
+</LinearLayout>
+-->
+

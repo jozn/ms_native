@@ -6,15 +6,19 @@ import com.mardomsara.social.ui.presenter.HelloPresenter;
 import com.mardomsara.social.ui.presenter.chats.ChatEntryPresenter;
 import com.mardomsara.social.ui.presenter.chats.GalleryChooserPresenter;
 import com.mardomsara.social.ui.presenter.main_pages.ChatMainBranch;
+import com.mardomsara.social.ui.presenter.social.HomeStreamPresenter;
+import com.mardomsara.social.ui.presenter.social.LikesPresenter;
 
 /**
  * Created by Hamid on 1/30/2016.
  */
 public class Router {
-    public static FragmentPage getLikesPage(){
-        ChatEntryPresenter p = new ChatEntryPresenter();
+    public static FragmentPage getLikesPage(int PostId){
+        return  new LikesPresenter(PostId);
+//        return  new HelloPresenter();
+/*        ChatEntryPresenter p = new ChatEntryPresenter();
         p.room = RoomsListTable.getRoomByRoomKey("u5");
-        return p;
+        return p;*/
     }
 
     public static FragmentPage getChatPage(){
@@ -23,7 +27,7 @@ public class Router {
     }
 
     public static FragmentPage getHomePage(){
-        return new ChatMainBranch();
+        return new HomeStreamPresenter();
     }
 
     public static FragmentPage getRoomEntery(RoomsListTable room){

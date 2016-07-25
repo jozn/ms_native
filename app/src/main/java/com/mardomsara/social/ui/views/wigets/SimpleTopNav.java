@@ -5,7 +5,9 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.mardomsara.social.Nav;
@@ -20,7 +22,7 @@ import butterknife.OnClick;
 /**
  * Created by Hamid on 6/27/2016.
  */
-public class SimpleTopNav extends LinearLayout {
+public class SimpleTopNav extends RelativeLayout {
 
 
     @Bind(R.id.left_text) TextView left_text ;
@@ -47,9 +49,9 @@ public class SimpleTopNav extends LinearLayout {
 //        View v = AppUtil.inflate(R.layout.widget_simple_top_nav, this);
         LayoutInflater.from(getContext()).inflate(R.layout.widget_simple_top_nav, this, true);
         ButterKnife.bind(this,this);
-        setOrientation(HORIZONTAL);
-        setLayoutParams(new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
-                AndroidUtil.dpToPx(50)));
+//        setOrientation(HORIZONTAL);
+//        setLayoutParams(new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+//                AndroidUtil.dpToPx(50)));
         setBackgroundResource(R.drawable.background_tab);
         requestLayout();
     }
@@ -62,7 +64,8 @@ public class SimpleTopNav extends LinearLayout {
 
     public void setTitle(String title) {
         this.title = title;
-        requestLayout();
+        title_text.setText(title);
+//        requestLayout();
     }
 
     public void setLeftText(String leftText) {

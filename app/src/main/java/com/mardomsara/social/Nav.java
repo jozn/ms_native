@@ -244,7 +244,7 @@ public class Nav {
         for (String b : branchs){
             BranchCell c = new BranchCell();
             c.name = b;
-            c.defaultRoute = Router.getLikesPage();
+            c.defaultRoute = Router.getLikesPage(2);
             if(b.equals("chat")){
                 c.defaultRoute = Router.getChatPage();
             }

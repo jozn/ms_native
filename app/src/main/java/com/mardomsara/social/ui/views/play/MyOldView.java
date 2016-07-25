@@ -53,11 +53,11 @@ public class MyOldView extends TextView {
         int i = canvas.save();
         int w = getWidth();
         int h = getHeight();
-//        canvas.drawText("adasdas",0,110,0,60,paint);
+//        canvas.drawText("adasdas",0,110,0,60,paintIonic);
         paint.setColor(Color.BLACK);
         canvas.drawRect(10,0,50,150,paint);
 
-//        paint.setColor(Color.BLACK);
+//        paintIonic.setColor(Color.BLACK);
         paint.setColor(x.getRandomColor());
         canvas.drawText("jhbhbh",10,110,paint);
         canvas.drawText("ساتم",10,310,paint);

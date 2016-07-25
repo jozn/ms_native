@@ -155,6 +155,7 @@ public class Http {
 
     @DebugLog
     private static Result _doSend(Request request, boolean setBody){
+        AppUtil.log("sending Http to :"+request.url().toString());
         Response response = null;
         String body= "";
         Result res = new Result();
@@ -164,7 +165,9 @@ public class Http {
                 body = response.body().string();
             }
             res.data = body;
-            res.ok = true;
+            if(res.data.indexOf("Status") >= 0 ){
+                res.ok = true;
+            }
             res.response = response;
         } catch (IOException e) {
             e.printStackTrace();

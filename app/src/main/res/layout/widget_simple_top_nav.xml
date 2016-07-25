@@ -16,9 +16,13 @@
         android:id="@+id/title_text"
         android:layout_weight="1"
         android:gravity="center"
+        android:layout_centerInParent="true"
+        style="@style/top_nav.title"
         />
 
     <TextView
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
         android:text="\uf3d1"
         style="@style/back_nav_btn"
         />

@@ -14,7 +14,7 @@ import com.orhanobut.dialogplus.ViewHolder;
 public class RoomHelper {
     public static void roomRowOpttions(Context ctx, RoomsListTable room) {
 
-//        ViewHolder vh = new ViewHolder(v);
+//        UserRowViewHolder vh = new UserRowViewHolder(v);
 //        DialogPlus dialog = DialogPlus.newDialog(ctx)
 //                .setContentHolder(vh)
 //                .setGravity(Gravity.CENTER)
