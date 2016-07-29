@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    ///////////////////////////////////////
+    <!-- SimpleTextAdd-->
+    <style name="SimpleAddText"/>
+
+    <style name="SimpleAddText.emoji">
+
+    </style>
+
+    <style name="SimpleAddText.input">
+
+    </style>
+
+    <style name="SimpleAddText.send">
+
+    </style>
+    ///////////////////////////////////////
+</resources>

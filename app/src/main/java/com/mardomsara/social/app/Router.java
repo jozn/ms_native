@@ -6,6 +6,7 @@ import com.mardomsara.social.ui.presenter.HelloPresenter;
 import com.mardomsara.social.ui.presenter.chats.ChatEntryPresenter;
 import com.mardomsara.social.ui.presenter.chats.GalleryChooserPresenter;
 import com.mardomsara.social.ui.presenter.main_pages.ChatMainBranch;
+import com.mardomsara.social.ui.presenter.social.CommontsPresnter;
 import com.mardomsara.social.ui.presenter.social.HomeStreamPresenter;
 import com.mardomsara.social.ui.presenter.social.LikesPresenter;
 
@@ -21,6 +22,10 @@ public class Router {
         return p;*/
     }
 
+    public static FragmentPage getCommontsPage(int PostId){
+        return  new CommontsPresnter(PostId);
+    }
+
     public static FragmentPage getChatPage(){
         return new HelloPresenter();
 //       return FragmentPage.fromPresenter(new HelloPresenter());
@@ -28,6 +33,7 @@ public class Router {
 
     public static FragmentPage getHomePage(){
         return new HomeStreamPresenter();
+//        return new HelloPresenter();
     }
 
     public static FragmentPage getRoomEntery(RoomsListTable room){

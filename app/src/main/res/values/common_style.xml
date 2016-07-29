@@ -12,6 +12,12 @@
 
     </style>
 
+    <style name="text.normal.black">
+        <item name="android:textSize">14dp</item>
+        <item name="android:textColor">@color/black</item>
+
+    </style>
+
     <style name="text.normal.white">
         <!--<item name="android:textSize">14dp</item>-->
         <item name="android:textColor">@color/white</item>
@@ -26,9 +32,26 @@
 
 
     </style>
+
     <style name="text_bold">
         <item name="fontPath">@string/font_iran_bold</item>
+    </style>
 
+    <style name="text_bold.black">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="text_normal0">
+        <item name="fontPath">@string/font_iran_light</item>
+        <item name="android:textSize">14dp</item>
+    </style>
+
+    <style name="text_normal0.black">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="text_normal0.gray">
+        <item name="android:color">@color/text_gray_3</item>
     </style>
 
     <style name="text.info_text">

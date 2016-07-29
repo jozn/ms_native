@@ -15,6 +15,11 @@
         android:padding="5dp"
         android:background="@color/transparent_0"
         />
+
+    <com.mardomsara.social.ui.views.wigets.SimpleAddText
+        android:layout_width="match_parent"
+        android:layout_height="50dp"></com.mardomsara.social.ui.views.wigets.SimpleAddText>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -91,6 +96,7 @@
         android:id="@+id/anvil2"
         android:orientation="vertical"
         />
+
 
 
 </LinearLayout>

@@ -107,6 +107,10 @@ public class EmojiconsPopup extends PopupWindow {
 	public void showAtBottom(){
 		showAtLocation(rootView, Gravity.BOTTOM, 0, 0);
 	}
+
+	public void showAtBottom2(){
+		showAtLocation(rootView, Gravity.TOP, 100, 1000);
+	}
 	/**
 	 * Use this function when the soft keyboard has not been opened yet. This
 	 * will show the emoji popup after the keyboard is up next time.
@@ -227,6 +231,7 @@ public class EmojiconsPopup extends PopupWindow {
 	 * @param height Height of the popup
 	 */
 	public void setSize(int width, int height){
+		height = height < 100 ? 500 :height;
 		setWidth(AndroidUtil.getScreenWidth());
 		setHeight(height);
 	}

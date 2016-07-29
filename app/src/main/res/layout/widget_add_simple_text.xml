@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/bottom_container"
+    android:background="@color/white"
+
+    >
+
+    <TextView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="bottom|center"
+        android:layout_marginLeft="4dp"
+
+        android:id="@+id/emoji_opener_btn"
+        android:gravity="center"
+        />
+    <com.mardomsara.emojicon.EmojiconEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="40dp"
+        android:maxHeight="150dp"
+        android:isScrollContainer="true"
+        android:layout_weight="1"
+        android:id="@+id/input"
+        android:layout_marginLeft="15dp"
+        android:inputType="textMultiLine"
+        android:textColor="@color/black"
+        style="@style/SimpleAddText.input"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/send_btn"
+        android:layout_gravity="bottom"
+        android:text="Send"
+        />
+</LinearLayout>

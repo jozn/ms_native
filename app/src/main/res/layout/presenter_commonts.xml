@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="0dp"
+    android:background="@color/white"
+    android:id="@+id/post_row_holder"
+    >
+
+    <com.mardomsara.social.ui.views.wigets.SimpleTopNav
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/simpleTopNav"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+
+        />
+    <com.mardomsara.social.ui.views.wigets.SimpleAddText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/simpleAddText"
+        android:layout_alignParentBottom="true"
+        />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/simpleTopNav"
+        android:layout_above="@+id/simpleAddText"
+        android:layout_centerInParent="true"
+        >
+
+        <com.mardomsara.social.ui.views.wigets.LoadingView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/loadingView"
+
+            />
+    </FrameLayout>
+
+</RelativeLayout>
+

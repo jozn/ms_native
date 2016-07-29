@@ -1,6 +1,7 @@
 package com.mardomsara.social.helpers;
 
 import android.net.Uri;
+import android.widget.Toast;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 
@@ -17,4 +18,12 @@ public class Helper {
         draweeView.setImageURI(imageUri);
 
     }
+
+    //Can be called from any thread
+    public static void showMessage(String text){
+        AndroidUtil.runInUi(()->{
+            Toast.makeText(AppUtil.getContext(),text,Toast.LENGTH_SHORT).show();
+        });
+    }
+
 }

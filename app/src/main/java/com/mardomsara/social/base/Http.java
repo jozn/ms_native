@@ -186,8 +186,8 @@ public class Http {
     }
     public static Map<String, String> _getDefualturlParams(){
         Map<String, String> h = new HashMap();
-        h.put("sessions","14dsad");
-        h.put("UserIds2","1sss");
+        h.put("session","14dsad");
+        h.put("user_id","6");
         return  h;
     }
 

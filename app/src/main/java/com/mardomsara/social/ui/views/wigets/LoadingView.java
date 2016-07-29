@@ -3,6 +3,7 @@ package com.mardomsara.social.ui.views.wigets;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
 import com.mardomsara.social.R;
@@ -17,6 +18,12 @@ public class LoadingView extends FrameLayout {
     public LoadingView(Context context) {
         super(context);
         init();
+    }
+
+    public static LoadingView getNewWraped(){
+        LoadingView loadingView = new LoadingView(AppUtil.getContext());
+        loadingView.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        return loadingView;
     }
 
     public LoadingView(Context context, AttributeSet attrs) {

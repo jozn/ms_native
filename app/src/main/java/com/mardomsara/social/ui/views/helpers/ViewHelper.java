@@ -1,6 +1,7 @@
 package com.mardomsara.social.ui.views.helpers;
 
 import android.graphics.Color;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -166,6 +167,19 @@ public class ViewHelper {
                 textView.setTextColor(defualtColor);
             }
         }
+    }
+
+    public static RecyclerView newRecyclerViewMatch(){
+        RecyclerView recyclerView = new RecyclerView(AppUtil.getContext());
+        recyclerView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+        return recyclerView;
+    }
+
+    public static RecyclerView newRecyclerViewWraped(){
+        RecyclerView recyclerView = new RecyclerView(AppUtil.getContext());
+        recyclerView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+//        recyclerView.setBackgroundColor(Color.RED);
+        return recyclerView;
     }
     ///////////////////////////////////////////////////////////////////
 }

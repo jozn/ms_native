@@ -48,9 +48,9 @@ public class HomeStreamPresenter extends BasePresenter {
 
     @Override
     public View buildView() {
-        loadFromServer();
         view = AppUtil.inflate(R.layout.preseter_home_stream);
         ButterKnife.bind(this,view);
+        loadFromServer();
         return view;
     }
 
@@ -121,7 +121,7 @@ public class HomeStreamPresenter extends BasePresenter {
             };
 
             View.OnClickListener gotoComments = (v)->{
-
+                Nav.push(Router.getCommontsPage(post.Id));
             };
 
             Runnable gotoProfile = ()->{
@@ -174,7 +174,9 @@ public class HomeStreamPresenter extends BasePresenter {
                 if(post.LikesCount>0){
                     likes_count.setTextAndIcon(post.LikesCount+"پسند","\uF443");
                 }
-                comment_count.setTextAndIcon(14+"نظر","\uf11e");
+                if(post.CommentsCount>0){
+                    comment_count.setTextAndIcon(post.CommentsCount+"نظر","\uf11e");
+                }
 
                 likes_count.setOnClickListener(gotoLikes);
                 comment_count.setOnClickListener(gotoComments);

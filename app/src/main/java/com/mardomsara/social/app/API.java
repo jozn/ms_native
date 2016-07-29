@@ -15,8 +15,8 @@ public class API {
     public static URL POST_ADD = AppUtil.toUrl(BASE_URL_STR+"add-post");
     public static URL POST_DELETE = AppUtil.toUrl(BASE_URL_STR+"posts");
 
-    public static URL COMMENTS_GET = AppUtil.toUrl(BASE_URL_STR+"comments");
-    public static URL COMMENT_ADD = AppUtil.toUrl(BASE_URL_STR+"add-comment");
+//    public static URL COMMENTS_LIST_GET = AppUtil.toUrl(BASE_URL_STR+"comments");
+//    public static URL COMMENT_ADD = AppUtil.toUrl(BASE_URL_STR+"add-comment");
 
     public static URL LIKES_GET = AppUtil.toUrl(BASE_URL_STR+"likes");
     public static URL LIKE_POST_ADD = AppUtil.toUrl(BASE_URL_STR + "add-post-like");
@@ -40,6 +40,9 @@ public class API {
     /////////////////// New from  version 0.4 //////
     public static URL POSTS_STREAM_GET = AppUtil.toUrl(BASE_URL_STR+"post/stream");
     public static URL POSTS_LIKES_GET = AppUtil.toUrl(BASE_URL_STR+"likes");
+    public static URL COMMENTS_LIST_GET = AppUtil.toUrl(BASE_URL_STR+"comments/list");
+    public static URL COMMENTS_ADD = AppUtil.toUrl(BASE_URL_STR+"comments/add");
+
 
     static {
         setUp();

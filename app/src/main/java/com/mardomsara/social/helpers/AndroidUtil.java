@@ -92,6 +92,14 @@ public class AndroidUtil {
         Singletons.getThreadPool().execute(r);
     }
 
+    public static void runInBackgroundNoPanic(Runnable r){
+        try {
+            Singletons.getThreadPool().execute(r);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
     public static void runInSingleBackground(Runnable r){
         Singletons.getSingleThread().execute(r);
     }
