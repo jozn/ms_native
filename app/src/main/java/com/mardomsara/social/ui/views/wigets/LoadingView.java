@@ -15,6 +15,13 @@ import com.mardomsara.social.helpers.AppUtil;
  */
 public class LoadingView extends FrameLayout {
     View v;
+
+    public static LoadingView getNewMatchParent(){
+        LoadingView view = new LoadingView(AppUtil.getContext());
+        view.setLayoutParams(new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+        return view;
+    }
+
     public LoadingView(Context context) {
         super(context);
         init();

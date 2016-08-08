@@ -25,7 +25,8 @@ import hugo.weaving.DebugLog;
  * Created by Hamid on 1/30/2016.
  */
 public class Nav {
-    static String LOGTAG = "Nav";
+    static String TAG = "Nav";
+    static int MAX_BRANCH_STACKE_SIZE = 10;
     public static Map<String,FragmentPage> branchsDef;
     public static List<FragmentPage> branchsPageStacks;
     public static String _activeBranch;
@@ -44,6 +45,11 @@ public class Nav {
     public static void push(FragmentPage frag){
         _attachPage2(frag);
         _getActiveBranchCell().fragmentsPageStacks.add(frag);
+        if(_getActiveBranchCell().fragmentsPageStacks.size()>MAX_BRANCH_STACKE_SIZE){
+            FragmentPage frag2 = _getActiveBranchCell().fragmentsPageStacks.remove(1);
+            removePageFromGlobaFragment(frag2);
+            Log.d(TAG, " removed max extra:");
+        }
     }
 
     public static void pop() {
@@ -73,7 +79,7 @@ public class Nav {
 //        if (bra == _activeBranch ){ return; };
         _activeBranch = bra;
         BranchCell bc = _getActiveBranchCell();
-        Log.d(LOGTAG, "Branch "+bra + " stacke size " +bc.fragmentsPageStacks.size());
+        Log.d(TAG, "Branch "+bra + " stacke size " +bc.fragmentsPageStacks.size());
 //        if(bc.fragmentsPageStacks.size() == 0 ){
             push(bc.defaultRoute);
 //        }else{
@@ -88,7 +94,7 @@ public class Nav {
 //        if (bra == _activeBranch ){ return; };
         _activeBranch = bra;
         BranchCell bc = _getActiveBranchCell();
-        Log.d(LOGTAG, "Branch "+bra + " stacke size " +bc.fragmentsPageStacks.size());
+        Log.d(TAG, "Branch "+bra + " stacke size " +bc.fragmentsPageStacks.size());
         if(bc.fragmentsPageStacks.size() == 0 ){
             push(bc.defaultRoute);
         }else{
@@ -107,7 +113,7 @@ public class Nav {
                 _lastFragmentPage.onBlur();
                 ft.hide(_lastFragmentPage.getFragment());
             }
-            Log.d(LOGTAG, "frag + "+frag.getFragment().isAdded());
+            Log.d(TAG, "frag + "+frag.getFragment().isAdded());
             _lastFragmentPage = frag;
             boolean isAttached = false;
             if(frag.getFragment().isAdded() && frag.getFragment().isHidden()){
@@ -120,7 +126,7 @@ public class Nav {
             ft.commit();
             if(isAttached == true) frag.callOnFocus();
         } catch (Exception e){
-            Log.e(LOGTAG, "Execption for attachng fragment "+ e.toString());
+            Log.e(TAG, "Execption for attachng fragment "+ e.toString());
         }
     }
 
@@ -182,6 +188,12 @@ public class Nav {
         }
         ft.commit();
         return res;
+    }
+    static void  removePageFromGlobaFragment(FragmentPage fp){
+        FragmentTransaction ft = App.mFragmentManager.beginTransaction();
+        fp.onBlur();
+        ft.remove(fp.getFragment());
+        ft.commit();
     }
 
     public static void addCustomOnBackPressHandler(OnBackPressHandler handler) {
@@ -266,7 +278,7 @@ public class Nav {
         _lastFragmentPage = null;
         setDefultBranc();
         _activeBranch= "home";
-        Log.d(LOGTAG, "called Nav.reset()");
+        Log.d(TAG, "called Nav.reset()");
 
     }
 
@@ -309,7 +321,7 @@ public class Nav {
 ////        branchMapHolder.get(_activeBranch).fragmentsPageStacks.add(frag);
 //            ft.commit();
 //        } catch (Exception e){
-//            Log.e(LOGTAG, "Execption for attachng fragment "+ e.toString());
+//            Log.e(TAG, "Execption for attachng fragment "+ e.toString());
 //        }
 //    }
 

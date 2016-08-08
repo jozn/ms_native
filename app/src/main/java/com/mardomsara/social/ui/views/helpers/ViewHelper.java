@@ -1,6 +1,7 @@
 package com.mardomsara.social.ui.views.helpers;
 
 import android.graphics.Color;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
@@ -20,6 +21,9 @@ import com.mardomsara.social.ui.views.FontCache;
  * Created by Hamid on 6/6/2016.
  */
 public class ViewHelper {
+
+    public static int MATCH_PARENT = ViewGroup.LayoutParams.MATCH_PARENT;
+    public static int WRAP_CONTENT = ViewGroup.LayoutParams.WRAP_CONTENT;
 
     public static void setViewSizeDp(View view, int width_dp , int height_dp){
 //        ViewGroup.LayoutParams sizes = new ViewGroup.LayoutParams(AndroidUtil.dpToPx(width_dp),
@@ -83,6 +87,10 @@ public class ViewHelper {
 //        Log.d("Image","setImageSizesWithMaxPx() imageView Sizes: "+width +" "+ height);
 
         view.setLayoutParams(sizes);
+        if(view.getParent() instanceof ViewGroup){
+            ((ViewGroup)view.getParent()).requestLayout();
+            AppUtil.log("request relayout");
+        }
     }
 
     public static void setViewSizesPrecentaion(View view, float percent){
@@ -169,10 +177,19 @@ public class ViewHelper {
         }
     }
 
+    ///////////////////////////////////////////////////////
+    ///////////// Views Shourtcuts ////////////////////////
+
     public static RecyclerView newRecyclerViewMatch(){
         RecyclerView recyclerView = new RecyclerView(AppUtil.getContext());
         recyclerView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
         return recyclerView;
+    }
+
+    public static LinearLayout newLnearLayout(int width, int height){
+        LinearLayout view = new LinearLayout(AppUtil.getContext());
+        view.setLayoutParams(new ViewGroup.LayoutParams(width, height));
+        return view;
     }
 
     public static RecyclerView newRecyclerViewWraped(){
@@ -180,6 +197,12 @@ public class ViewHelper {
         recyclerView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 //        recyclerView.setBackgroundColor(Color.RED);
         return recyclerView;
+    }
+
+    public static SwipeRefreshLayout newSwipeRefreshLayout(int width, int height){
+        SwipeRefreshLayout view = new SwipeRefreshLayout(AppUtil.getContext());
+        view.setLayoutParams(new ViewGroup.LayoutParams(width, height));
+        return view;
     }
     ///////////////////////////////////////////////////////////////////
 }

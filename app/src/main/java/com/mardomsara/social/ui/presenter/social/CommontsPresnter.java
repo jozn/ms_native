@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.github.rahatarmanahmed.cpv.CircularProgressView;
+import com.mardomsara.social.Nav;
 import com.mardomsara.social.R;
 import com.mardomsara.social.app.API;
 import com.mardomsara.social.base.Http;
@@ -239,10 +240,17 @@ public class CommontsPresnter extends BasePresenter
                 return true;
             };
 
+            View.OnClickListener gotoProfile = (v)->{
+                Nav.push(new ProfilePresenter(comment.UserId));
+            };
+
             public CommentRowViewHolder(View itemView) {
                 super(itemView);
                 ButterKnife.bind(this,itemView);
+
                 itemView.setOnLongClickListener(onLong);
+                fullname.setOnClickListener(gotoProfile);
+                avatar.setOnClickListener(gotoProfile);
             }
             int i =0;
             void bind(CommentRowJson commont){

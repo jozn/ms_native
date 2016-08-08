@@ -29,6 +29,12 @@ public class SimpleTopNav extends RelativeLayout {
     @Bind(R.id.title_text) TextView title_text ;
     @Bind(R.id.back_btn) TextView  back_btn ;
 
+    public static SimpleTopNav newDefualt(){
+        SimpleTopNav nav = new SimpleTopNav(AppUtil.getContext());
+        nav.setLayoutParams(new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,AndroidUtil.dpToPx(50)));
+        return nav;
+    }
+
     String title = "";
     String leftText = "";
     public SimpleTopNav(Context context) {
@@ -72,6 +78,8 @@ public class SimpleTopNav extends RelativeLayout {
         this.leftText = leftText;
         requestLayout();
     }
+
+
 
 
 }

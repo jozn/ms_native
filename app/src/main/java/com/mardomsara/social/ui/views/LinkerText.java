@@ -12,11 +12,13 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.mardomsara.social.helpers.AppUtil;
+
 /**
  * Created by Hamid on 2/4/2016.
  */
 public class LinkerText extends TextView {
-    String TAG ="LinkerText";
+    static String TAG ="LinkerText";
     public LinkerText(Context context) {
         super(context);
         init();
@@ -32,19 +34,19 @@ public class LinkerText extends TextView {
         init();
     }
 
-//    @Override
-    public  void setText2(CharSequence text) {
-//        setText(text, mBufferType);
-        super.setText(text);
-        init2(text);
+    int i = 0;
+    @Override
+    public void setText(CharSequence text, BufferType type) {
+        super.setText(linkerText(text,this),type);
     }
+
 
     void init(){
         CharSequence txt = getText();
-        init2(txt);
+//        linkerText(txt);
     }
 
-    void init2(CharSequence txt){
+    void linkerText(CharSequence txt){
         SpannableStringBuilder builder = new SpannableStringBuilder();
         TextParser.Lexing lex=  new TextParser.Lexing(txt.toString());
         lex.parse();
@@ -80,14 +82,55 @@ public class LinkerText extends TextView {
 
     }
 
-    ClickableSpan buildclick(final CharSequence s){
+    ///////////////////////////////////////////////////
+    /////////// Stattics //////////////////////////
+
+    static ClickableSpan buildclick(final CharSequence s){
 
         ClickableSpan clickableSpan = new ClickableSpan() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getContext(), s, Toast.LENGTH_LONG).show();
+                Toast.makeText(AppUtil.getContext(), s, Toast.LENGTH_LONG).show();
             }
         };
         return clickableSpan;
     }
+
+    public static SpannableStringBuilder linkerText(CharSequence txt, TextView textView){
+        SpannableStringBuilder builder = new SpannableStringBuilder();
+        TextParser.Lexing lex=  new TextParser.Lexing(txt.toString());
+        lex.parse();
+
+        ClickableSpan clickableSpan = new ClickableSpan() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(AppUtil.getContext(), "dolor", Toast.LENGTH_LONG).show();
+            }
+        };
+
+        for(TextParser.LexEntry ent  :lex.chunks){
+            SpannableString s1 = new SpannableString(ent.text);
+            Log.d(TAG,ent.text + "-" + ent.type);
+            switch (ent.type){
+                case SimpleText:
+
+                    break;
+
+                case UserName:
+                    s1.setSpan(buildclick(s1),0,s1.length(), Spanned.SPAN_MARK_MARK);
+                    break;
+
+                case Tag:
+                    s1.setSpan(buildclick(s1),0,s1.length(),Spanned.SPAN_MARK_MARK);
+                    break;
+            }
+            builder.append(s1);
+        }
+
+        textView.setMovementMethod(LinkMovementMethod.getInstance());
+//        setText(builder);
+        return builder;
+
+    }
+
 }

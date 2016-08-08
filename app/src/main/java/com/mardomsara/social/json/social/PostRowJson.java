@@ -3,12 +3,14 @@ package com.mardomsara.social.json.social;
 /**
  * Created by Hamid on 7/13/2016.
  */
-public class HomeStreamRowJson {
+public class PostRowJson {
     public int Id;
     public int UserId;
     public int TypeId;
     public String Text;
     public String MediaUrl;
+    public int Width;
+    public int Height;
     public String FormatedText;
     public int SharedTo;
     public int LikesCount;

@@ -109,5 +109,17 @@
         <item name="android:textColor">@color/white</item>
     </style>
 
+    <!-- Spacer -->
+    <style name="spacer">
+        <item name="android:layout_height">1px</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">@color/light_blue_6</item>
+    </style>
+    <style name="spacer.dp2">
+        <item name="android:layout_height">2dp</item>
+    </style>
+    <style name="spacer.dp4">
+        <item name="android:layout_height">2dp</item>
+    </style>
 
 </resources>

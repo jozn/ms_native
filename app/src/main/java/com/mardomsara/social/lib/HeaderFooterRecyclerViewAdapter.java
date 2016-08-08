@@ -277,7 +277,7 @@ public abstract class HeaderFooterRecyclerViewAdapter<
     }
 
     /**
-     * Notifies that a footer item is inserted.
+     * Notifies that a footerViews item is inserted.
      *
      * @param position the position of the content item.
      */
@@ -286,13 +286,13 @@ public abstract class HeaderFooterRecyclerViewAdapter<
         int newContentItemCount = getContentItemCount();
         int newFooterItemCount = getFooterItemCount();
         if (position < 0 || position >= newFooterItemCount) {
-            throw new IndexOutOfBoundsException("The given position " + position + " is not within the position bounds for footer items [0 - " + (newFooterItemCount - 1) + "].");
+            throw new IndexOutOfBoundsException("The given position " + position + " is not within the position bounds for footerViews items [0 - " + (newFooterItemCount - 1) + "].");
         }
         notifyItemInserted(position + newHeaderItemCount + newContentItemCount);
     }
 
     /**
-     * Notifies that multiple footer items are inserted.
+     * Notifies that multiple footerViews items are inserted.
      *
      * @param positionStart the position.
      * @param itemCount     the item count.
@@ -302,70 +302,70 @@ public abstract class HeaderFooterRecyclerViewAdapter<
         int newContentItemCount = getContentItemCount();
         int newFooterItemCount = getFooterItemCount();
         if (positionStart < 0 || itemCount < 0 || positionStart + itemCount > newFooterItemCount) {
-            throw new IndexOutOfBoundsException("The given range [" + positionStart + " - " + (positionStart + itemCount - 1) + "] is not within the position bounds for footer items [0 - " + (newFooterItemCount - 1) + "].");
+            throw new IndexOutOfBoundsException("The given range [" + positionStart + " - " + (positionStart + itemCount - 1) + "] is not within the position bounds for footerViews items [0 - " + (newFooterItemCount - 1) + "].");
         }
         notifyItemRangeInserted(positionStart + newHeaderItemCount + newContentItemCount, itemCount);
     }
 
     /**
-     * Notifies that a footer item is changed.
+     * Notifies that a footerViews item is changed.
      *
      * @param position the position.
      */
     public final void notifyFooterItemChanged(int position) {
         if (position < 0 || position >= footerItemCount) {
-            throw new IndexOutOfBoundsException("The given position " + position + " is not within the position bounds for footer items [0 - " + (footerItemCount - 1) + "].");
+            throw new IndexOutOfBoundsException("The given position " + position + " is not within the position bounds for footerViews items [0 - " + (footerItemCount - 1) + "].");
         }
         notifyItemChanged(position + headerItemCount + contentItemCount);
     }
 
     /**
-     * Notifies that multiple footer items are changed.
+     * Notifies that multiple footerViews items are changed.
      *
      * @param positionStart the position.
      * @param itemCount     the item count.
      */
     public final void notifyFooterItemRangeChanged(int positionStart, int itemCount) {
         if (positionStart < 0 || itemCount < 0 || positionStart + itemCount > footerItemCount) {
-            throw new IndexOutOfBoundsException("The given range [" + positionStart + " - " + (positionStart + itemCount - 1) + "] is not within the position bounds for footer items [0 - " + (footerItemCount - 1) + "].");
+            throw new IndexOutOfBoundsException("The given range [" + positionStart + " - " + (positionStart + itemCount - 1) + "] is not within the position bounds for footerViews items [0 - " + (footerItemCount - 1) + "].");
         }
         notifyItemRangeChanged(positionStart + headerItemCount + contentItemCount, itemCount);
     }
 
     /**
-     * Notifies that an existing footer item is moved to another position.
+     * Notifies that an existing footerViews item is moved to another position.
      *
      * @param fromPosition the original position.
      * @param toPosition   the new position.
      */
     public final void notifyFooterItemMoved(int fromPosition, int toPosition) {
         if (fromPosition < 0 || toPosition < 0 || fromPosition >= footerItemCount || toPosition >= footerItemCount) {
-            throw new IndexOutOfBoundsException("The given fromPosition " + fromPosition + " or toPosition " + toPosition + " is not within the position bounds for footer items [0 - " + (footerItemCount - 1) + "].");
+            throw new IndexOutOfBoundsException("The given fromPosition " + fromPosition + " or toPosition " + toPosition + " is not within the position bounds for footerViews items [0 - " + (footerItemCount - 1) + "].");
         }
         notifyItemMoved(fromPosition + headerItemCount + contentItemCount, toPosition + headerItemCount + contentItemCount);
     }
 
     /**
-     * Notifies that a footer item is removed.
+     * Notifies that a footerViews item is removed.
      *
      * @param position the position.
      */
     public final void notifyFooterItemRemoved(int position) {
         if (position < 0 || position >= footerItemCount) {
-            throw new IndexOutOfBoundsException("The given position " + position + " is not within the position bounds for footer items [0 - " + (footerItemCount - 1) + "].");
+            throw new IndexOutOfBoundsException("The given position " + position + " is not within the position bounds for footerViews items [0 - " + (footerItemCount - 1) + "].");
         }
         notifyItemRemoved(position + headerItemCount + contentItemCount);
     }
 
     /**
-     * Notifies that multiple footer items are removed.
+     * Notifies that multiple footerViews items are removed.
      *
      * @param positionStart the position.
      * @param itemCount     the item count.
      */
     public final void notifyFooterItemRangeRemoved(int positionStart, int itemCount) {
         if (positionStart < 0 || itemCount < 0 || positionStart + itemCount > footerItemCount) {
-            throw new IndexOutOfBoundsException("The given range [" + positionStart + " - " + (positionStart + itemCount - 1) + "] is not within the position bounds for footer items [0 - " + (footerItemCount - 1) + "].");
+            throw new IndexOutOfBoundsException("The given range [" + positionStart + " - " + (positionStart + itemCount - 1) + "] is not within the position bounds for footerViews items [0 - " + (footerItemCount - 1) + "].");
         }
         notifyItemRangeRemoved(positionStart + headerItemCount + contentItemCount, itemCount);
     }
@@ -381,10 +381,10 @@ public abstract class HeaderFooterRecyclerViewAdapter<
     }
 
     /**
-     * Gets the footer item view type. By default, this method returns 0.
+     * Gets the footerViews item view type. By default, this method returns 0.
      *
      * @param position the position.
-     * @return the footer item view type (within the range [0 - VIEW_TYPE_MAX_COUNT-1]).
+     * @return the footerViews item view type (within the range [0 - VIEW_TYPE_MAX_COUNT-1]).
      */
     protected int getFooterItemViewType(int position) {
         return 0;
@@ -408,9 +408,9 @@ public abstract class HeaderFooterRecyclerViewAdapter<
     protected abstract int getHeaderItemCount();
 
     /**
-     * Gets the footer item count. This method can be called several times, so it should not calculate the count every time.
+     * Gets the footerViews item count. This method can be called several times, so it should not calculate the count every time.
      *
-     * @return the footer item count.
+     * @return the footerViews item count.
      */
     protected abstract int getFooterItemCount();
 
@@ -431,10 +431,10 @@ public abstract class HeaderFooterRecyclerViewAdapter<
     protected abstract HeaderViewHolder onCreateHeaderItemViewHolder(ViewGroup parent, int headerViewType);
 
     /**
-     * This method works exactly the same as {@link #onCreateViewHolder(android.view.ViewGroup, int)}, but for footer items.
+     * This method works exactly the same as {@link #onCreateViewHolder(android.view.ViewGroup, int)}, but for footerViews items.
      *
      * @param parent         the parent view.
-     * @param footerViewType the view type for the footer.
+     * @param footerViewType the view type for the footerViews.
      * @return the view holder.
      */
     protected abstract FooterViewHolder onCreateFooterItemViewHolder(ViewGroup parent, int footerViewType);
@@ -457,9 +457,9 @@ public abstract class HeaderFooterRecyclerViewAdapter<
     protected abstract void onBindHeaderItemViewHolder(HeaderViewHolder headerViewHolder, int position);
 
     /**
-     * This method works exactly the same as {@link #onBindViewHolder(android.support.v7.widget.RecyclerView.ViewHolder, int)}, but for footer items.
+     * This method works exactly the same as {@link #onBindViewHolder(android.support.v7.widget.RecyclerView.ViewHolder, int)}, but for footerViews items.
      *
-     * @param footerViewHolder the view holder for the footer item.
+     * @param footerViewHolder the view holder for the footerViews item.
      * @param position         the position.
      */
     protected abstract void onBindFooterItemViewHolder(FooterViewHolder footerViewHolder, int position);

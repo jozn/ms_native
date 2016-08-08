@@ -21,8 +21,8 @@ import com.mardomsara.social.helpers.AppUtil;
 import java.io.File;
 
 import butterknife.Bind;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
+import me.relex.photodraweeview.OnViewTapListener;
 import me.relex.photodraweeview.PhotoDraweeView;
 
 /**
@@ -30,6 +30,8 @@ import me.relex.photodraweeview.PhotoDraweeView;
  */
 public class FullScreenImage {
     @Bind(R.id.window) View window;
+//    @Bind(R.id.clear) View clear;
+//    @Bind(R.id.outer) View outer;
     @Bind(R.id.top_nav) View top_nav;
     @Bind(R.id.back_btn) View back_btn;
 //    @Bind(R.id.image_view) SimpleDraweeView image_view;
@@ -37,7 +39,7 @@ public class FullScreenImage {
     @Bind(R.id.text_view) TextView text_view;
     String TAG = "FullScreenImage";
     PopupWindow attachWindow;
-    View popupView = AppUtil.inflate(R.layout.widget_full_screen_image, AppUtil.global_window);
+    ViewGroup popupView = (ViewGroup)AppUtil.inflate(R.layout.widget_full_screen_image, AppUtil.global_window);
 
     public String text;
     public Uri imageUri;
@@ -49,14 +51,55 @@ public class FullScreenImage {
         return true;
     };
 
+    int cliked = 0;
+
     public FullScreenImage() {
         this.attachWindow = new PopupWindow(
                 popupView,
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT);
-        ButterKnife.bind(this, popupView);
+//        ButterKnife.bind(this, popupView);
+
+//        clear = popupView.findViewById(R.id.clear);
+//        outer = popupView.findViewById(R.id.outer);
+        top_nav = popupView.findViewById(R.id.top_nav);
+        back_btn = popupView.findViewById(R.id.back_btn);
+        image_view = (PhotoDraweeView) popupView.findViewById(R.id.image_view);
+        text_view = (TextView) popupView.findViewById(R.id.text_view);
+
+
         Nav.addCustomOnBackPressHandler(backHandler);
 
+        back_btn.setOnClickListener((v)->{
+            close();
+        });
+
+        text_view.setOnClickListener((v)->{
+           toggle();
+        });
+
+        top_nav.setOnClickListener((v)->{
+            toggle();
+        });
+
+        image_view.setOnViewTapListener(new OnViewTapListener() {
+            @Override
+            public void onViewTap(View view, float x, float y) {
+                toggle();
+            }
+        });
+    }
+
+    void toggle(){
+        if(cliked == 0){
+            top_nav.setVisibility(View.GONE);
+            text_view.setVisibility(View.GONE);
+            cliked = 1;
+        }else {
+            top_nav.setVisibility(View.VISIBLE);
+            text_view.setVisibility(View.VISIBLE);
+            cliked = 0;
+        }
     }
 
     private void close() {
@@ -70,9 +113,11 @@ public class FullScreenImage {
         close();
     }
 
-    @OnClick(R.id.window)
-    void onChange(View v){
-    }
+//    @OnClick(R.id.window)
+//    void onChange(View v){
+//        top_nav.setVisibility(View.INVISIBLE);
+//        text_view.setVisibility(View.INVISIBLE);
+//    }
 
     public void show(){
         Log.d(TAG,"show()"+ imageUrlPath + text);

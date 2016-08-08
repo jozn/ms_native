@@ -8,5 +8,5 @@ import java.util.List;
  * Created by Hamid on 7/13/2016.
  */
 public class HomeStreamJson extends HttpBaseProtocol {
-    public List<HomeStreamRowJson> Payload ;
+    public List<PostRowJson> Payload ;
 }

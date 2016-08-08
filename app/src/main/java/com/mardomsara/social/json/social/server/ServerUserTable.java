@@ -11,6 +11,7 @@ public class ServerUserTable {
     public String LastName;
     public String FullName;
     public String AvatarUrl;
+    public String About;
     public String Phone;
     public int IsDeleted;
 

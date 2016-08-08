@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- For top Header of profile-->
+    <style name="profile"/>
+
+    <style name="profile.top_holder">
+        <item name="android:paddingTop">6dp</item>
+        <item name="android:paddingRight">6dp</item>
+        <item name="android:paddingBottom">4dp</item>
+        <item name="android:paddingLeft">6dp</item>
+     </style>
+
+
+    <style name="profile.fullname" >
+        <item name="android:text"></item>
+        <item name="android:gravity">right</item>
+        <item name="android:textSize">14dp</item>
+        <item name="android:textColor">@color/text_black_1</item>
+        <item name="android:autoLink">all</item>
+        <item name="android:linksClickable">true</item>
+        <item name="fontPath">@string/font_iran_medium</item>
+    </style>
+    <style name="profile.avatar_big">
+        <item name="fadeDuration">200</item>
+        <item name="roundedCornerRadius">10dp</item>
+    </style>
+
+    <style name="profile.about">
+        <item name="android:text">سیکشسی شسیشسینشی شسیشسنیشسیدتشس </item>
+        <item name="android:gravity">right</item>
+        <item name="android:textSize">14dp</item>
+        <item name="android:textColor">@color/text_black_1</item>
+        <item name="android:autoLink">all</item>
+        <item name="android:linksClickable">true</item>
+        <item name="fontPath">@string/font_iran_light</item>
+    </style>
+
+    <style name="profile.count_holder">
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">fill_horizontal</item>
+        <item name="android:weightSum">3</item>
+
+    </style>
+    <style name="profile.count_cell">
+        <item name="android:paddingRight">4dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_weight">1</item>
+
+    </style>
+
+    <style name="profile.count_name">
+        <!--<item name="android:layout_gravity">center</item>-->
+        <item name="android:text"></item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">12dp</item>
+        <item name="android:textColor">@color/text_gray_3</item>
+        <item name="fontPath">@string/font_iran_light</item>
+    </style>
+    <style name="profile.count_value">
+        <item name="android:text"></item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">16dp</item>
+        <item name="android:textColor">@color/text_black_1</item>
+        <item name="fontPath">@string/font_iran_medium</item>
+    </style>
+
+
+
+
+
+
+</resources>

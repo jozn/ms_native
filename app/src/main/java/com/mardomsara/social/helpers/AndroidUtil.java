@@ -68,6 +68,13 @@ public class AndroidUtil {
             }
         }.executeOnExecutor(Singletons.getThreadPool());
     }
+    public static void runInUiNoPanic(Runnable r) {
+        try {
+            runInUi(r);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 
     public static void runInUiWithSleep(Runnable r, int sleep)
     {
