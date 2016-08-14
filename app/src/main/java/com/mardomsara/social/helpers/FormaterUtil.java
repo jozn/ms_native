@@ -95,6 +95,12 @@ public class FormaterUtil {
         return fileName;
     }
 
+    ///////////////////////////////////////////////
+    ///////////// For Time Ago ///////////////////
+
+    public static String timeAgo(long milisconds){
+        return "";
+    }
 
 
 }

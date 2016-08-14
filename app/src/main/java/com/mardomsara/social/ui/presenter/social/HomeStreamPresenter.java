@@ -26,6 +26,7 @@ import com.mardomsara.social.helpers.LangUtil;
 import com.mardomsara.social.json.social.HomeStreamJson;
 import com.mardomsara.social.json.social.HomeStreamRowJson;
 import com.mardomsara.social.ui.BasePresenter;
+import com.mardomsara.social.ui.views.FullScreenImage;
 import com.mardomsara.social.ui.views.play.IconAnTextView;
 import com.mardomsara.social.ui.views.play.MixIconAndTextHelper;
 import com.mardomsara.social.ui.views.play.TextViewWithIcon;
@@ -116,12 +117,22 @@ public class HomeStreamPresenter extends BasePresenter {
 //            @Bind(R.id.cnts) TextViewWithIcon cnts;
 //            @Bind(R.id.vvv) IconAnTextView vvv;
 
+            Uri imageUri2;
+
+
             View.OnClickListener gotoLikes = (v)->{
                 Nav.push(Router.getLikesPage(post.Id));
             };
 
             View.OnClickListener gotoComments = (v)->{
                 Nav.push(Router.getCommontsPage(post.Id));
+            };
+
+            View.OnClickListener imagePopup = (v)->{
+                FullScreenImage window = new FullScreenImage();
+                window.text = post.Text;
+                window.imageUri = imageUri2;
+                window.show();
             };
 
             Runnable gotoProfile = ()->{
@@ -146,10 +157,12 @@ public class HomeStreamPresenter extends BasePresenter {
                 avatar.setImageURI(imageUri);
                 if(LangUtil.getRandom(3)% 2 ==0 ){
                     image.setVisibility(View.VISIBLE);
-                    Uri imageUri2 = Helper.PathToUserAvatarUri("/public/photo/"+LangUtil.getRandom(50) +"_960.jpg");
+                    imageUri2 = Helper.PathToUserAvatarUri("/public/photo/"+LangUtil.getRandom(50) +"_960.jpg");
                     image.setImageURI(imageUri2);
+                    image.setOnClickListener(imagePopup);
                 }else {
                     image.setVisibility(View.GONE);
+                    image.setOnClickListener(null);
                 }
 
 //                comment_count.setText(MixIconAndTextHelper.MixIconAndText("نظر 256 ","\uf11e"));

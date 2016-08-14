@@ -10,4 +10,5 @@ public class CommentRowJson {
     public String Text;
     public int CreatedTime;
     public UserSenderJson Sender;
+    public boolean _isNew = false;
 }

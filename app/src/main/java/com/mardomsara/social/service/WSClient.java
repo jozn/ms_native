@@ -5,7 +5,6 @@ import android.util.Log;
 import com.mardomsara.social.app.NetEventRouter;
 import com.mardomsara.social.base.CmdResRegistery;
 import com.mardomsara.social.base.Command;
-import com.mardomsara.social.base.Session;
 import com.mardomsara.social.base.WSCall;
 import com.mardomsara.social.helpers.AppUtil;
 
@@ -37,7 +36,7 @@ import static okhttp3.ws.WebSocket.TEXT;
  */
 public class WSClient implements WebSocketListener {
     private String LOGTAG = "WSClient";
-    private String wsUrl = "ws://192.168.0.10:5000/ws?UserId="+ Session.getUserId();
+    private String wsUrl = "ws://192.168.0.10:5000/ws?UserId="+ com.mardomsara.social.models.Session.getUserId();
     public WebSocket webSocket;
 //    private boolean isOpen = false;
     private STATUS staus = STATUS.CLOSED;

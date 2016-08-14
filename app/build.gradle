@@ -125,4 +125,5 @@ dependencies {
     //forloading
 //    compile 'com.nineoldandroids:library:2.4.0'
     compile 'com.github.rahatarmanahmed:circularprogressview:2.5.0'
+    compile 'com.pnikosis:materialish-progress:1.7'
 }

@@ -7,7 +7,6 @@ import android.util.Log;
 import com.mardomsara.social.app.AppFiles;
 import com.mardomsara.social.app.Constants;
 import com.mardomsara.social.base.Command;
-import com.mardomsara.social.base.Session;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.FileUtil;
@@ -68,7 +67,7 @@ public class MessagesModel {
         msg.setCreatedMs(AppUtil.getTimeMs());
         msg.setCreatedDeviceMs(AppUtil.getTimeMs());
         msg.setMessageTypeId(Constants.MESSAGE_TEXT);
-        msg.setUserId(Session.getUserId());
+        msg.setUserId(com.mardomsara.social.models.Session.getUserId());
         msg.setMessageKey(LangUtil.getRandomString(20));
         msg.setToPush(1);
         return msg;
@@ -106,7 +105,7 @@ public class MessagesModel {
         seenList.add(msg.getMessageKey());
 
         MsgsSyncMetaSeenByPeer meta = new MsgsSyncMetaSeenByPeer();
-        meta.ByUserId = Session.getUserId();
+        meta.ByUserId = com.mardomsara.social.models.Session.getUserId();
         meta.MessageKey = msg.getMessageKey();
         meta.ExtraData = seenList;
         meta.RoomKey = msg.getRoomKey();
@@ -134,7 +133,7 @@ public class MessagesModel {
 
         Command cmd = Command.getNew(Constants.MsgsSeenByPeer);
         MsgsSyncMetaSeenByPeer meta = new MsgsSyncMetaSeenByPeer();
-        meta.ByUserId = Session.getUserId();
+        meta.ByUserId = com.mardomsara.social.models.Session.getUserId();
 //        meta.MessageKey = msg.getMessageKey();
         meta.ExtraData = seenMsgKeys;
         meta.RoomKey = room.getRoomKey();
@@ -255,7 +254,7 @@ public class MessagesModel {
     public static void sendToServerMsgsReceivedToPeerCmd(MessagesTable msg){
         Command cmd = Command.getNew(Constants.MsgsReceivedToPeer);
         MessageSyncMeta meta = new MessageSyncMeta();
-        meta.ByUserId = Session.getUserId();
+        meta.ByUserId = com.mardomsara.social.models.Session.getUserId();
         meta.MessageKey = msg.getMessageKey();
         meta.RoomKey = msg.getRoomKey();
         meta.AtTimeMs = TimeUtil.getTimeMs();

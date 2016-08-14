@@ -40,9 +40,12 @@ public class API {
     /////////////////// New from  version 0.4 //////
     public static URL POSTS_STREAM_GET = AppUtil.toUrl(BASE_URL_STR+"post/stream");
     public static URL POSTS_LIKES_GET = AppUtil.toUrl(BASE_URL_STR+"likes");
+
     public static URL COMMENTS_LIST_GET = AppUtil.toUrl(BASE_URL_STR+"comments/list");
     public static URL COMMENTS_ADD = AppUtil.toUrl(BASE_URL_STR+"comments/add");
+    public static URL COMMENTS_DELETE = AppUtil.toUrl(BASE_URL_STR+"comments/delete");
 
+    public static URL SESSION_INFO = AppUtil.toUrl(BASE_URL_STR+"session/info");
 
     static {
         setUp();

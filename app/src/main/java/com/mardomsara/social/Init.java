@@ -2,6 +2,7 @@ package com.mardomsara.social;
 
 import com.mardomsara.social.app.AppFiles;
 import com.mardomsara.social.base.Command;
+import com.mardomsara.social.models.Session;
 import com.mardomsara.social.service.WSService;
 
 /**
@@ -19,6 +20,7 @@ public class Init {
         Command cmd = new Command();
         cmd.Name = "Echo";
         WSService.sendCommand(cmd);
+        Session.fetchUserInfoFromServer();
         /////////////
     }
 

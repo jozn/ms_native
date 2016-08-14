@@ -9,11 +9,4 @@ import com.mardomsara.social.helpers.AndroidUtil;
  */
 public class Session {
 
-    public static int getUserId(){
-        if(AndroidUtil.getAndroidSdkVersion() >= Build.VERSION_CODES.LOLLIPOP){
-            return 6;
-        }else{
-            return 2;
-        }
-    }
 }

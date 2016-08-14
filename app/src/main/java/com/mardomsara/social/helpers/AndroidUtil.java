@@ -3,6 +3,8 @@ package com.mardomsara.social.helpers;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.KeyguardManager;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -128,6 +130,19 @@ public class AndroidUtil {
             return true;
         }
         return false;
+    }
+
+    public static void copyTextToClipboard(String text){
+        copyTextToClipboard(text,false);
+    }
+
+    public static void copyTextToClipboard(String text, boolean alert){
+        ClipboardManager clipboard = (ClipboardManager) getContext().getSystemService(Activity.CLIPBOARD_SERVICE);
+        ClipData clip = ClipData.newPlainText("MS", text);
+        clipboard.setPrimaryClip(clip);
+        if(alert){
+            Helper.showMessage("متن کپی شد.");
+        }
     }
 
     public static String getString(int id){

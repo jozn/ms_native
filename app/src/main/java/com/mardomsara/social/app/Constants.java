@@ -32,5 +32,11 @@ public class Constants {
     public static int Msg_Media_Deleteted_Server = 6; // ??
 
 
+    //Hawk
+    public static String SessionUserInfo = "SessionUserInfo";
+
+
+
+
 
 }
