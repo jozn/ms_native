@@ -31,4 +31,17 @@ public class PageCells {
             ButterKnife.bind(this, rootView);
         }
     }
+
+    public static class NavAndEmptyView {
+        public ViewGroup rootView;
+        @Bind(R.id.simpleTopNav)
+        public SimpleTopNav simpleTopNav;
+
+        public NavAndEmptyView() {
+            rootView = (ViewGroup)AppUtil.inflate(R.layout.cell_page_cell_nav_linear_view);
+            ButterKnife.bind(this, rootView);
+        }
+    }
+
+
 }

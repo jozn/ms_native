@@ -111,6 +111,7 @@ public class Nav {
             FragmentTransaction ft = App.mFragmentManager.beginTransaction();
             if(_lastFragmentPage != null && _lastFragmentPage != frag ){
                 _lastFragmentPage.onBlur();
+
                 ft.hide(_lastFragmentPage.getFragment());
             }
             Log.d(TAG, "frag + "+frag.getFragment().isAdded());
@@ -128,6 +129,10 @@ public class Nav {
         } catch (Exception e){
             Log.e(TAG, "Execption for attachng fragment "+ e.toString());
         }
+    }
+
+    public static void detachaLstOne(){
+
     }
 
     public static void resetBranch(String branch) {

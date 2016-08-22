@@ -54,39 +54,42 @@ public class FollowsListPresenter extends BasePresenter implements AppHeaderFoot
     LinearLayoutManager layoutManager;
     UserList.Adapter adaptor;
     void init() {
-         setTitle();
-         setUrl();
+        try {
+            setTitle();
+            setUrl();
 
-        refreshLayout = ViewHelper.newSwipeRefreshLayout(ViewHelper.MATCH_PARENT,ViewHelper.MATCH_PARENT);
+            refreshLayout = ViewHelper.newSwipeRefreshLayout(ViewHelper.MATCH_PARENT,ViewHelper.MATCH_PARENT);
 
-        recycler_view = ViewHelper.newRecyclerViewMatch();
-         layoutManager = new LinearLayoutManager(AppUtil.getContext());
-         recycler_view.setLayoutManager(layoutManager);
-         adaptor = new UserList.Adapter();
-         recycler_view.setAdapter(adaptor);
-         adaptor.setUpForPaginationWith(recycler_view,layoutManager,this);
+            recycler_view = ViewHelper.newRecyclerViewMatch();
+            layoutManager = new LinearLayoutManager(AppUtil.getContext());
+            recycler_view.setLayoutManager(layoutManager);
+            adaptor = new UserList.Adapter();
+            recycler_view.setAdapter(adaptor);
+            adaptor.setUpForPaginationWith(recycler_view,layoutManager,this);
 
-        refreshLayout.addView(recycler_view);
-        pageCell.rootView.addView(refreshLayout);
+            refreshLayout.addView(recycler_view);
+            pageCell.rootView.addView(refreshLayout);
 
-        loadFromServer(1);
-        refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                loadFromServer(1);
-            }
-        });
-
+            loadFromServer(1);
+            refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+                @Override
+                public void onRefresh() {
+                    loadFromServer(1);
+                }
+            });
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void loadNextPage(int pageNum) {
-        loadFromServer(pageNum);
+//        loadFromServer(pageNum);
     }
 
     private void loadFromServer(int page) {
         int pageCnt = page -1;
-        AndroidUtil.runInBackground(()->{
+        AndroidUtil.runInBackgroundNoPanic(()->{
             Http.Req req = new Http.Req();
             req.urlParams.put("username","abas");
             req.urlParams.put("peer_id",""+ObjectId);// for follows types
@@ -94,13 +97,15 @@ public class FollowsListPresenter extends BasePresenter implements AppHeaderFoot
             Http.Result res = Http.get(req);
 
             boolean hideLoading = false;
-            AndroidUtil.runInUi(() -> {
+            AndroidUtil.runInUiNoPanic(() -> {
                 if(res.ok) {
                     LikesListJson data = JsonUtil.fromJson(res.data, LikesListJson.class);
                     if (data.Status.equalsIgnoreCase("OK") && data.Payload != null && data.Payload.size() >0) {
                         if(page <= 1) adaptor.list.clear();
-                        adaptor.list.addAll(data.Payload);
-                        adaptor.notifyDataSetChanged();
+                        if(data.Payload != null && data.Payload.size() >0){
+                            adaptor.list.addAll(data.Payload);
+                            adaptor.notifyDataSetChanged();
+                        }
                     }else {
                         adaptor.setHasMorePage(false);
                     }
@@ -108,7 +113,7 @@ public class FollowsListPresenter extends BasePresenter implements AppHeaderFoot
                     Helper.showMessage("load next"+pageCnt);
                     adaptor.setHasMorePage(false);
                 }
-                AndroidUtil.runInUi(()->{
+                AndroidUtil.runInUiNoPanic(()->{
                     refreshLayout.setRefreshing(false);
                 });
             });

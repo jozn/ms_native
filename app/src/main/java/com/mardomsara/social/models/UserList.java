@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.mardomsara.social.R;
+import com.mardomsara.social.app.Router;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.json.social.UserRowAndMeJson;
@@ -46,6 +47,11 @@ public class UserList {
 
     public static class UserRowViewHolder extends RecyclerView.ViewHolder {
 
+   /*     public
+        static View.OnClickListener onClick = (v)->{
+            Router.goToProfile();
+        };*/
+
         @Bind(R.id.following_button)
         public FollowingButton following_button;
 
@@ -60,14 +66,19 @@ public class UserList {
 
         View view;
 
+        UserRowAndMeJson row;
+
         public UserRowViewHolder(View itemView) {
             super(itemView);
             view = itemView;
+            view.setOnClickListener((v)->{
+                Router.goToProfile(row.UserId);
+            });
             ButterKnife.bind(this,itemView);
-
         }
 
         public void bind(UserRowAndMeJson row){
+            this.row = row;
             primary_name.setText(row.FullName);
             second_name.setText("@"+row.UserName);
             Helper.SetAvatar(avatar, row.AvatarUrl);

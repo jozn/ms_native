@@ -137,7 +137,10 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
     }
 
     public void hideLoading(){
-        removeViewFromFooter(loading);
+        if(loading!= null){
+            loading.setVisibility(View.GONE);
+        }
+//        removeViewFromFooter(loading);
     }
 
     //// For multi pages ///////////
@@ -151,17 +154,18 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
     public  void setHasMorePage(boolean hasMore){
         if(hasMore){
 //            footerSize = 1;
-            if(listener != null){
+            if(listener != null && getContentItemCount() >0){
                 recyclerView.addOnScrollListener(listener);
+                notifyFooterItemChanged(0);
+
             }
-            notifyFooterItemChanged(0);
         }else {
 //            footerSize = 0;
             hideLoading();
-            if(listener != null){
+            if(listener != null && getContentItemCount() >0){
                 recyclerView.removeOnScrollListener(listener);
+                notifyFooterItemChanged(0);
             }
-            notifyFooterItemChanged(0);
         }
     }
 

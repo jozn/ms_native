@@ -10,9 +10,25 @@ import com.facebook.drawee.view.SimpleDraweeView;
  */
 public class Helper {
     public static Uri PathToUserAvatarUri(String path){
-        return  Uri.parse("http://localhost:5000/"+path);
+        return  PathToUserAvatarUri(path,50);
     }
 
+    public static Uri PathToUserAvatarUri(String path, int sizeDp){
+//        return  Uri.parse("http://localhost:5000/"+path);
+        int px = AndroidUtil.dpToPx(sizeDp);
+        int t = 100;
+        if (px <= 50 ){
+            t = 50;
+        } else if (px <= 100 ) {
+            t = 100;
+        }else if (px <= 200 ) {
+            t = 200;
+        }else {
+            t = 400;
+        }
+
+        return  Uri.parse(path.replace("%s", ""+t ));
+    }
     public static void SetAvatar(SimpleDraweeView draweeView, String urlPath){
         Uri imageUri = Helper.PathToUserAvatarUri(urlPath);
         draweeView.setImageURI(imageUri);

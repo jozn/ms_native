@@ -5,8 +5,11 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.MemoryCategory;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.mardomsara.social.Nav;
 import com.mardomsara.social.R;
@@ -34,6 +37,9 @@ import butterknife.ButterKnife;
  * Created by Hamid on 8/3/2016.
  */
 public class UIPostsList {
+    static {
+        Glide.get(AppUtil.getContext()).setMemoryCategory(MemoryCategory.LOW);
+    }
     public static RecyclerView buildNew(List<PostRowJson> posts){
         RecyclerView recycler_view = ViewHelper.newRecyclerViewMatch();
 //        if(posts == null){
@@ -41,8 +47,8 @@ public class UIPostsList {
 //        }
 
         PostsAdaptor adaptor = new PostsAdaptor();
-//        if(posts != null) posts.addAll(posts);
-        adaptor.posts.addAll(posts);
+        if(posts != null) posts.addAll(posts);
+//        adaptor.posts.addAll(posts);
 
         recycler_view.setLayoutManager(new LinearLayoutManager(AppUtil.getContext()));
         recycler_view.setAdapter(adaptor);
@@ -109,8 +115,11 @@ public class UIPostsList {
         TextView date;
         @Bind(R.id.avatar)
         SimpleDraweeView avatar;
+
         @Bind(R.id.image)
-        SimpleDraweeView image;
+        ImageView image;
+//        SimpleDraweeView image;
+
         //            @Bind(R.id.comment_count) TextView comment_count;
         @Bind(R.id.comment_count)
         TextViewWithIcon comment_count;
@@ -147,10 +156,12 @@ public class UIPostsList {
 
         };
 
+        static int __i = 0;
         public PostStreamHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
-
+            __i++;
+            AppUtil.log("xxx: count of ui instance: " + __i);
             rootView = itemView;
 
             user_name.setOnClickListener(gotoProfile);
@@ -179,10 +190,19 @@ public class UIPostsList {
                 int screenSize = AndroidUtil.pxToDp( AndroidUtil.getScreenWidth() );
                 ViewHelper.setImageSizesWithMaxPx(image,screenSize,screenSize,post.Width,post.Height);
                 image.setVisibility(View.VISIBLE);
-//                imageUri2 = Helper.PathToUserAvatarUri("/public/photo/" + LangUtil.getRandom(50) + "_960.jpg");
-                imageUri2 = Uri.parse("http://localhost:5000/"+post.MediaUrl);
+                String urlStr = "http://localhost:5000/"+post.MediaUrl;
+
+                Glide.with(AppUtil.getContext())
+                    .load(urlStr)
+                    .centerCrop()
+//                    .placeholder(R.drawable.loading_spinner)
+                    .crossFade()
+                    .into(image);
+
+                /////// Fresco //////////////////
+                /*imageUri2 = Uri.parse("http://localhost:5000/"+post.MediaUrl);
                 image.setImageURI(imageUri2);
-                image.setOnClickListener(imagePopup);
+                image.setOnClickListener(imagePopup);*/
             } else {
                 image.setVisibility(View.GONE);
                 image.setOnClickListener(null);

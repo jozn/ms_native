@@ -93,6 +93,10 @@ public  abstract class BasePresenter implements FragmentPage {
     @Override
     public void onFocus() {
         logIt("onFocus");
+        if(fragment != null){
+            View v = ((PresenterFragment) fragment).presenterViewHolder;
+            v.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override
@@ -105,6 +109,10 @@ public  abstract class BasePresenter implements FragmentPage {
     @Override
     public void onBlur() {
         logIt("onBlur");
+        if(fragment != null){
+           View v = ((PresenterFragment) fragment).presenterViewHolder;
+            v.setVisibility(View.GONE);
+        }
     }
 
     @Override

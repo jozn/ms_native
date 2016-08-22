@@ -1,6 +1,7 @@
 package com.mardomsara.social.app;
 
 import com.mardomsara.social.FragmentPage;
+import com.mardomsara.social.Nav;
 import com.mardomsara.social.tables.RoomsListTable;
 import com.mardomsara.social.ui.presenter.HelloPresenter;
 import com.mardomsara.social.ui.presenter.chats.ChatEntryPresenter;
@@ -9,6 +10,7 @@ import com.mardomsara.social.ui.presenter.main_pages.ChatMainBranch;
 import com.mardomsara.social.ui.presenter.social.CommontsPresnter;
 import com.mardomsara.social.ui.presenter.social.HomeStreamPresenter;
 import com.mardomsara.social.ui.presenter.social.LikesPresenter;
+import com.mardomsara.social.ui.presenter.social.ProfilePresenter;
 
 /**
  * Created by Hamid on 1/30/2016.
@@ -52,6 +54,10 @@ public class Router {
 
     public static FragmentPage getGalleryChooserPage(){
         return new GalleryChooserPresenter();
+    }
+
+    public static void goToProfile(int userId) {
+        Nav.push(new ProfilePresenter(userId));
     }
 
 
