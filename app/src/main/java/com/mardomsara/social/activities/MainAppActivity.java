@@ -19,26 +19,21 @@ import android.widget.TextView;
 
 import com.crashlytics.android.Crashlytics;
 import com.mardomsara.emojicon.EmojiconsPopup;
-//import com.mardomsara.emojicon.dep.EmojiconGridFragment;
-//import com.mardomsara.emojicon.dep.EmojiconsFragment;
-import com.mardomsara.emojicon.emoji.Emojicon;
 import com.mardomsara.social.App;
 import com.mardomsara.social.Init;
 import com.mardomsara.social.Nav;
 import com.mardomsara.social.R;
 import com.mardomsara.social.app.LifeCycle;
 import com.mardomsara.social.helpers.AppUtil;
-import com.mardomsara.social.play.DataBinding;
-import com.mardomsara.social.play.FontsScrollingActivity;
-import com.mardomsara.social.play.FragmentsPlayActivity;
-import com.mardomsara.social.play.Okhttp2Activity;
 import com.mardomsara.social.play.PlayAdvanced;
-import com.mardomsara.social.play.PlayJson1Activity;
 import com.mardomsara.social.service.PingService;
 
 import io.fabric.sdk.android.Fabric;
 import pl.tajchert.nammu.Nammu;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
+
+//import com.mardomsara.emojicon.dep.EmojiconGridFragment;
+//import com.mardomsara.emojicon.dep.EmojiconsFragment;
 
 /**
  * Created by Hamid on 1/31/2016.
@@ -285,7 +280,7 @@ public class MainAppActivity extends AppActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
- 
+
         return super.onOptionsItemSelected(item);
     }
 

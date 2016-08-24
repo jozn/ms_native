@@ -40,12 +40,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.recyclegridview.GalleryAlbumActivity" />
-        <activity android:name="com.recyclegridview.ShowAlbumImagesActivity" />
         <activity android:name="com.mardomsara.photopicker.PhotoPickerActivity" />
         <activity android:name="com.mardomsara.photopicker.PhotoPagerActivity" />
         <activity android:name="com.ipaulpro.afilechooser.FileChooserActivity" />
-        <activity android:name=".activities.TestWebSocketActivity" />
         <activity
             android:name=".activities.TestContactsActivity"
             android:label="@string/title_activity_test_contacts"
@@ -54,20 +51,13 @@
             android:name=".activities.HttpActivity"
             android:label="@string/title_activity_http"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".activities.TestRecycleView"
-            android:label="@string/title_activity_test_recycle_view"
-            android:theme="@style/AppTheme.NoActionBar" />
+
         <activity android:name=".activities.Main22Activity" />
         <activity
             android:name=".play.FontsScrollingActivity"
             android:label="@string/title_activity_fonts_scrolling"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".play.PlayJson1Activity"
-            android:label="@string/title_activity_play_json1"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
+
         <activity android:name=".activities.Main2Activity" />
         <activity android:name=".activities.KybordActivity" />
 
@@ -80,7 +70,6 @@
             android:enabled="true"
             android:exported="false" />
 
-        <activity android:name=".play.FragmentsPlayActivity" />
 
         <!-- <receiver android:name="com.facebook.react.modules.netinfo.ConnectivityBroadcastReceiver"> -->
         <!-- <intent-filter> -->

@@ -9,11 +9,9 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.mardomsara.social.R;
-import com.mardomsara.social.activities.HttpActivity;
 import com.mardomsara.social.activities.KybordActivity;
 import com.mardomsara.social.activities.Main2Activity;
 import com.mardomsara.social.activities.TestContactsActivity;
-import com.mardomsara.social.activities.TestWebSocketActivity;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -62,42 +60,16 @@ public class PlayAdvanced extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         Intent its;
         switch (item.getItemId()){
-            case R.id.websocket:
-                Intent it = new Intent(this,TestWebSocketActivity.class);
-                startActivity(it);
-                break;
             case R.id.contacts:
                 Intent it2 = new Intent(this,TestContactsActivity.class);
                 startActivity(it2);
                 break;
-            case R.id.http:
-                Intent it3 = new Intent(this,HttpActivity.class);
-                startActivity(it3);
-                break;
+
             case R.id.font:
                 Intent it4 = new Intent(this,FontsScrollingActivity.class);
                 startActivity(it4);
                 break;
-            case R.id.json1:
-                its = new Intent(this,PlayJson1Activity.class);
-                startActivity(its);
-                break;
-            /*case R.id.fact1:
-                its = new Intent(this,FactActivity.class);
-                startActivity(its);
-                break;*/
-//            case R.id.rooms:
-//                its = new Intent(this,ChatListActivity.class);
-//                startActivity(its);
-//                break;
-            case R.id.react1:
-//                its = new Intent(this,React1Activity.class);
-//                startActivity(its);
-                break;
-            case R.id.frag1:
-                its = new Intent(this,FragmentsPlayActivity.class);
-                startActivity(its);
-                break;
+
 
             case R.id.binding:
                 its = new Intent(this,DataBinding.class);
