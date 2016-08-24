@@ -9,7 +9,6 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.mardomsara.social.R;
-import com.mardomsara.social.activities.TestContactsActivity;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -58,10 +57,6 @@ public class PlayAdvanced extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         Intent its;
         switch (item.getItemId()){
-            case R.id.contacts:
-                Intent it2 = new Intent(this,TestContactsActivity.class);
-                startActivity(it2);
-                break;
 
             case R.id.advanced:
                 its = new Intent(this,PlayAdvanced.class);

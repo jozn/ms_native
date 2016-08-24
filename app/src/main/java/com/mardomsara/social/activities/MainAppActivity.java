@@ -62,7 +62,7 @@ public class MainAppActivity extends AppActivity {
         super.onCreate(savedInstanceState);
         Fabric.with(this, new Crashlytics());
 
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main_app);
         ViewGroup global_window = (ViewGroup)findViewById(R.id.global_window);
         AppUtil.global_window = global_window;
 
@@ -323,7 +323,7 @@ public class MainAppActivity extends AppActivity {
 //    @Override
 //    protected void onCreate(Bundle savedInstanceState) {
 //        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_main);
+//        setContentView(R.layout.activity_main_app);
 //        App.init(getApplicationContext());
 //        App.mFragmentManager = getFragmentManager();
 //        EventBus.getDefault().register(this);

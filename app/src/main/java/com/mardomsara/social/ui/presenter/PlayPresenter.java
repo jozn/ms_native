@@ -31,7 +31,7 @@ public class PlayPresenter extends BasePresenter {
     public View buildView() {
        ViewGroup v = (ViewGroup)inflater.inflate(R.layout.presenter_sample,null);
 
-//        setContentView(R.layout.activity_main);
+//        setContentView(R.layout.activity_main_app);
         ListView lv = (ListView) v.findViewById(R.id.lv);
         final ArrayAdapter<String> mAdapter = new ArrayAdapter<String>(getContext(), R.layout.presenter_sample_list);
         lv.setAdapter(mAdapter);

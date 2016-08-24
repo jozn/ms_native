@@ -43,10 +43,6 @@
         <activity android:name="com.mardomsara.photopicker.PhotoPickerActivity" />
         <activity android:name="com.mardomsara.photopicker.PhotoPagerActivity" />
         <activity android:name="com.ipaulpro.afilechooser.FileChooserActivity" />
-        <activity
-            android:name=".activities.TestContactsActivity"
-            android:label="@string/title_activity_test_contacts"
-            android:theme="@style/AppTheme.NoActionBar" />
 
         <service
             android:name=".service.PingService"
