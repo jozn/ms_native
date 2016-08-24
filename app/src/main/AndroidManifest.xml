@@ -91,7 +91,6 @@
             android:name="io.fabric.ApiKey"
             android:value="ebdbf7ef25356ba4ece45926eb78419326b8dec1" />
 
-        <activity android:name=".activities.GalleryChooserActivity"></activity>
     </application>
 
 </manifest>
