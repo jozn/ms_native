@@ -12,12 +12,14 @@ import com.facebook.imagepipeline.core.ImagePipelineConfig;
 import com.facebook.imagepipeline.listener.RequestListener;
 import com.facebook.imagepipeline.listener.RequestLoggingListener;
 import com.mardomsara.social.helpers.AppUtil;
+import com.mardomsara.social.tables.OrmaDatabase;
 import com.mardomsara.social.ui.BasePresenter;
 import com.orhanobut.hawk.Hawk;
 import com.orhanobut.hawk.HawkBuilder;
 import com.raizlabs.android.dbflow.config.FlowConfig;
 import com.raizlabs.android.dbflow.config.FlowLog;
 import com.raizlabs.android.dbflow.config.FlowManager;
+import com.squareup.picasso.Picasso;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -75,6 +77,9 @@ public class App extends Application {
       AppUtil._context = ctx;
 //      AppUtil._context = ctx;
 
+      Picasso.with(AppUtil.getContext()).setIndicatorsEnabled(true);
+      Picasso.with(AppUtil.getContext()).setLoggingEnabled(true);
+
       if(isInintiolized == false){
          Nammu.init(ctx);
          Set<RequestListener> requestListeners = new HashSet<>();
@@ -123,6 +128,15 @@ public class App extends Application {
 
       // Initialize Stetho with the Initializer
       Stetho.initialize(initializer);*/
+   }
+
+   public void play(){
+      OrmaDatabase orma = OrmaDatabase.builder(context)
+              .build();
+      orma.selectFromTodo().idEq(1).and().get(1);
+//      orma.selectFromTodo().toList().;
+//      orma.relationOfTodo().inserter().execute();
+//      orma.transactionSync();
    }
 
 }

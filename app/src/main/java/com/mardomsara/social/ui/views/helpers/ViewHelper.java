@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -201,6 +202,12 @@ public class ViewHelper {
 
     public static SwipeRefreshLayout newSwipeRefreshLayout(int width, int height){
         SwipeRefreshLayout view = new SwipeRefreshLayout(AppUtil.getContext());
+        view.setLayoutParams(new ViewGroup.LayoutParams(width, height));
+        return view;
+    }
+
+    public static ImageView newImageView(int width, int height){
+        ImageView view = new ImageView(AppUtil.getContext());
         view.setLayoutParams(new ViewGroup.LayoutParams(width, height));
         return view;
     }

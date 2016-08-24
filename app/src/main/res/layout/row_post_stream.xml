@@ -127,6 +127,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/like_btn"
                 style="@style/post_row.like_btn"
                 android:text="\uf442"
                 android:layout_weight="1"

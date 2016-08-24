@@ -1,5 +1,6 @@
 package com.mardomsara.social.ui.ui;
 
+import android.graphics.Color;
 import android.net.Uri;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -26,6 +27,7 @@ import com.mardomsara.social.ui.presenter.social.ProfilePresenter;
 import com.mardomsara.social.ui.views.FullScreenImage;
 import com.mardomsara.social.ui.views.helpers.ViewHelper;
 import com.mardomsara.social.ui.views.play.TextViewWithIcon;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -118,6 +120,10 @@ public class UIPostsList {
 
         @Bind(R.id.image)
         ImageView image;
+
+
+        @Bind(R.id.like_btn) TextView like_btn;
+
 //        SimpleDraweeView image;
 
         //            @Bind(R.id.comment_count) TextView comment_count;
@@ -191,13 +197,21 @@ public class UIPostsList {
                 ViewHelper.setImageSizesWithMaxPx(image,screenSize,screenSize,post.Width,post.Height);
                 image.setVisibility(View.VISIBLE);
                 String urlStr = "http://localhost:5000/"+post.MediaUrl;
+                Picasso.with(AppUtil.getContext())
+                        .load(urlStr)
+                        .placeholder(R.drawable.image_background)
 
-                Glide.with(AppUtil.getContext())
-                    .load(urlStr)
-                    .centerCrop()
-//                    .placeholder(R.drawable.loading_spinner)
-                    .crossFade()
-                    .into(image);
+//                        .resize(screenSize,screenSize)
+//                        .fit()
+//                        .centerCrop()
+                        .into(image);
+
+//                Glide.with(AppUtil.getContext())
+//                    .load(urlStr)
+//                    .centerCrop()
+////                    .placeholder(R.drawable.loading_spinner)
+//                    .crossFade()
+//                    .into(image);
 
                 /////// Fresco //////////////////
                 /*imageUri2 = Uri.parse("http://localhost:5000/"+post.MediaUrl);
@@ -236,6 +250,15 @@ public class UIPostsList {
 
             likes_count.setOnClickListener(gotoLikes);
             comment_count.setOnClickListener(gotoComments);
+
+            if(post.AmIlike){
+                like_btn.setTextColor(Color.RED);
+                like_btn.setText("\uf443");
+
+            }else {
+                like_btn.setTextColor(Color.BLACK);
+                like_btn.setText("\uf442");
+            }
 
             itemView.requestLayout();
 

@@ -271,6 +271,9 @@ public class Nav {
             if(b.equals("search")){
                 c.defaultRoute = Router.getSearchPage();
             }
+            if(b.equals("activity")){
+                c.defaultRoute = Router.getAactivityPage();
+            }
             if(b.equals("profile")){
                 c.defaultRoute = Router.getGalleryChooserPage();
             }

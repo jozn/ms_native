@@ -51,6 +51,11 @@ public class API {
     public static URL FOLLOWERS_GET = AppUtil.toUrl(BASE_URL_STR+"followers");
     public static URL FOLLOWINGS_GET = AppUtil.toUrl(BASE_URL_STR+"following");
 
+    public static String RECOMMEND_TOP_POST = BASE_URL_STR+"recommend/top_posts";
+    public static String RECOMMEND_TOP_TAGS =  BASE_URL_STR+"recommend/top_tags";
+    public static String RECOMMEND_TOP_TAGS_DISCOVER =  BASE_URL_STR+"recommend/top_tags_discover";
+    public static String RECOMMEND_USERS =  BASE_URL_STR+"recommend/users";
+
 
     static {
         setUp();

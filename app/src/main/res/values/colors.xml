@@ -9,6 +9,7 @@
     <!-- base colors -->
 
     <color name="background_blue">#adc7d7</color>
+    <color name="background_image">#f5f5f5</color>
 
 
     <color name="light_geryer_1" >#eeeeee</color>

@@ -62,6 +62,12 @@
 
     <style name="text_ionic">
         <item name="fontPath">@string/font_ionic</item>
+        <item name="android:textSize">25dp</item>
+    </style>
+
+    <style name="text_ionic.normal">
+        <item name="fontPath">@string/font_ionic</item>
+        <item name="android:textSize">25dp</item>
     </style>
 
     <style name="text_ionic.btn">
@@ -103,6 +109,15 @@
         <item name="android:textSize">14dp</item>
         <item name="android:textColor">@color/light_blue_2</item>
         <item name="fontPath">@string/font_iran_medium</item>
+    </style>
+
+    <style name="top_nav.icon_btn" parent="text_ionic.normal">
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/text_black_6</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:minWidth">40dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:paddingLeft">10dp</item>
     </style>
 
     <style name="back_nav_btn.white">
