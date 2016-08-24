@@ -47,19 +47,6 @@
             android:name=".activities.TestContactsActivity"
             android:label="@string/title_activity_test_contacts"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".activities.HttpActivity"
-            android:label="@string/title_activity_http"
-            android:theme="@style/AppTheme.NoActionBar" />
-
-        <activity android:name=".activities.Main22Activity" />
-        <activity
-            android:name=".play.FontsScrollingActivity"
-            android:label="@string/title_activity_fonts_scrolling"
-            android:theme="@style/AppTheme.NoActionBar" />
-
-        <activity android:name=".activities.Main2Activity" />
-        <activity android:name=".activities.KybordActivity" />
 
         <service
             android:name=".service.PingService"
@@ -69,18 +56,6 @@
             android:name=".service.WSService"
             android:enabled="true"
             android:exported="false" />
-
-
-        <!-- <receiver android:name="com.facebook.react.modules.netinfo.ConnectivityBroadcastReceiver"> -->
-        <!-- <intent-filter> -->
-        <!-- <action android:name="android.net.conn.CONNECTIVITY_CHANGE" /> -->
-        <!-- </intent-filter> -->
-        <!-- </receiver> -->
-
-        <activity
-            android:name=".play.DataBinding"
-            android:label="@string/title_activity_data_binding"
-            android:theme="@style/AppTheme.NoActionBar" />
 
         <receiver
             android:name=".service.AppReceiver"
@@ -110,10 +85,6 @@
             </intent-filter>
         </receiver>
 
-        <activity
-            android:name=".play.Okhttp2Activity"
-            android:label="@string/title_activity_okhttp2"
-            android:theme="@style/AlertDialog.AppCompat" />
         <activity android:name=".play.PlayAdvanced" />
 
         <meta-data

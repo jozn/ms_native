@@ -9,8 +9,6 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.mardomsara.social.R;
-import com.mardomsara.social.activities.KybordActivity;
-import com.mardomsara.social.activities.Main2Activity;
 import com.mardomsara.social.activities.TestContactsActivity;
 
 import butterknife.Bind;
@@ -65,34 +63,11 @@ public class PlayAdvanced extends AppCompatActivity {
                 startActivity(it2);
                 break;
 
-            case R.id.font:
-                Intent it4 = new Intent(this,FontsScrollingActivity.class);
-                startActivity(it4);
-                break;
-
-
-            case R.id.binding:
-                its = new Intent(this,DataBinding.class);
-                startActivity(its);
-                break;
-
-            case R.id.ok2:
-                its = new Intent(this,Okhttp2Activity.class);
-                startActivity(its);
-                break;
-
             case R.id.advanced:
                 its = new Intent(this,PlayAdvanced.class);
                 startActivity(its);
                 break;
-            case R.id.keybord1:
-                its = new Intent(this,KybordActivity.class);
-                startActivity(its);
-                break;
-            case R.id.emoji:
-                its = new Intent(this,Main2Activity.class);
-                startActivity(its);
-                break;
+
         }
         return super.onOptionsItemSelected(item);
     }
