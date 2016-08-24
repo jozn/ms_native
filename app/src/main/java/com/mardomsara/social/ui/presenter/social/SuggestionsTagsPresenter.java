@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.mardomsara.social.Nav;
 import com.mardomsara.social.R;
 import com.mardomsara.social.app.API;
 import com.mardomsara.social.base.Http;
@@ -125,6 +126,7 @@ public class SuggestionsTagsPresenter extends BasePresenter implements AppHeader
         @Bind(R.id.image3) ImageView image3;
         @Bind(R.id.text) TextView text;
 
+
         int size =0;
 
         public TagHolder(View itemView) {
@@ -143,19 +145,19 @@ public class SuggestionsTagsPresenter extends BasePresenter implements AppHeader
             if(tagJson.Posts == null) return;
 //            if(tagJson.Posts)
             if(tagJson.Posts.size()>0){
-                setImage(image1,tagJson.Posts.get(0).MediaUrl);
+                setImage(image1,tagJson.Posts.get(0).MediaUrl,tagJson.Tag.Name);
             }
 
             if(tagJson.Posts.size()>1){
-                setImage(image2,tagJson.Posts.get(1).MediaUrl);
+                setImage(image2,tagJson.Posts.get(1).MediaUrl,tagJson.Tag.Name);
             }
 
             if(tagJson.Posts.size()>2){
-                setImage(image3,tagJson.Posts.get(2).MediaUrl);
+                setImage(image3,tagJson.Posts.get(2).MediaUrl,tagJson.Tag.Name);
             }
         }
 
-        void setImage(ImageView image, String src){
+        void setImage(ImageView image, String src, String tag) {
             src = "http://localhost:5000/"+src;
             AppUtil.log("SRCCCCC2" +src);
             if(src.equals("")) return;
@@ -164,7 +166,15 @@ public class SuggestionsTagsPresenter extends BasePresenter implements AppHeader
                     .resize(size,size)
                     .centerCrop()
                     .into(image);
+
+            View.OnClickListener onClick = (v)->{
+                Nav.push(new TagsPresenter(tag));
+            };
+
+            image.setOnClickListener(onClick);
         }
+
+
     }
 
 }

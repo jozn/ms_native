@@ -285,68 +285,7 @@ public class MainAppActivity extends AppActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        Intent its;
-        switch (item.getItemId()){
-            case R.id.websocket:
-                Intent it = new Intent(this,TestWebSocketActivity.class);
-                startActivity(it);
-                break;
-            case R.id.contacts:
-                Intent it2 = new Intent(this,TestContactsActivity.class);
-                startActivity(it2);
-                break;
-            case R.id.http:
-                Intent it3 = new Intent(this,HttpActivity.class);
-                startActivity(it3);
-                break;
-            case R.id.font:
-                Intent it4 = new Intent(this,FontsScrollingActivity.class);
-                startActivity(it4);
-                break;
-            case R.id.json1:
-                its = new Intent(this,PlayJson1Activity.class);
-                startActivity(its);
-                break;
-//            case R.id.fact1:
-//                its = new Intent(this,FactActivity.class);
-//                startActivity(its);
-//                break;
-//            case R.id.rooms:
-//                its = new Intent(this,ChatListActivity.class);
-//                startActivity(its);
-//                break;
-            case R.id.keybord1:
-                its = new Intent(this,KybordActivity.class);
-                startActivity(its);
-                break;
-            case R.id.emoji:
-                its = new Intent(this,Main2Activity.class);
-                startActivity(its);
-                break;
-            case R.id.react1:
-//                its = new Intent(this,React1Activity.class);
-//                startActivity(its);
-                break;
-            case R.id.frag1:
-                its = new Intent(this,FragmentsPlayActivity.class);
-                startActivity(its);
-                break;
-
-            case R.id.binding:
-                its = new Intent(this,DataBinding.class);
-                startActivity(its);
-                break;
-
-            case R.id.ok2:
-                its = new Intent(this,Okhttp2Activity.class);
-                startActivity(its);
-                break;
-
-            case R.id.advanced:
-                its = new Intent(this,PlayAdvanced.class);
-                startActivity(its);
-                break;
-        }
+ 
         return super.onOptionsItemSelected(item);
     }
 

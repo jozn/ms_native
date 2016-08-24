@@ -56,6 +56,7 @@ public class API {
     public static String RECOMMEND_TOP_TAGS_DISCOVER =  BASE_URL_STR+"recommend/top_tags_discover";
     public static String RECOMMEND_USERS =  BASE_URL_STR+"recommend/users";
 
+    public static String TAGS_LIST =  BASE_URL_STR+"tags/list";
 
     static {
         setUp();

@@ -193,7 +193,7 @@ public class UIPostsList {
             }*/
 
             if (post.TypeId == 2) {
-                int screenSize = AndroidUtil.pxToDp( AndroidUtil.getScreenWidth() );
+                int screenSize = AndroidUtil.pxToDp( AndroidUtil.getScreenWidth() )+1;
                 ViewHelper.setImageSizesWithMaxPx(image,screenSize,screenSize,post.Width,post.Height);
                 image.setVisibility(View.VISIBLE);
                 String urlStr = "http://localhost:5000/"+post.MediaUrl;
