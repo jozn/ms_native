@@ -6,18 +6,17 @@ import com.mardomsara.social.app.API;
 import com.mardomsara.social.app.Constants;
 import com.mardomsara.social.base.Http;
 import com.mardomsara.social.helpers.AndroidUtil;
-import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.JsonUtil;
-import com.mardomsara.social.json.social.ServerUserTableJson;
-import com.mardomsara.social.json.social.UserSenderJson;
-import com.mardomsara.social.json.social.server.ServerUserTable;
+import com.mardomsara.social.json.social.http.ServerUserTableJson;
+import com.mardomsara.social.json.social.rows.UserInfoJson;
+import com.mardomsara.social.json.social.rows.UserTableJson;
 import com.orhanobut.hawk.Hawk;
 
 /**
  * Created by Hamid on 7/30/2016.
  */
 public class Session {
-    private static ServerUserTable userInfo = null;
+    private static UserTableJson userInfo = null;
 
     static {
         getUserInfo();
@@ -54,20 +53,20 @@ public class Session {
         }
     }
 
-    public static ServerUserTable getUserInfo(){
+    public static UserTableJson getUserInfo(){
         if(userInfo!= null){
             return userInfo;
         }
-        ServerUserTable u = Hawk.get(Constants.SessionUserInfo);
+        UserTableJson u = Hawk.get(Constants.SessionUserInfo);
         userInfo = u;
         return u;
     }
 
-    public static UserSenderJson buildUserSender(){
+    public static UserInfoJson buildUserSender(){
         if(userInfo== null){
             return null;
         }
-        UserSenderJson sender = new UserSenderJson();
+        UserInfoJson sender = new UserInfoJson();
         sender.UserId = userInfo.Id;
         sender.FullName = userInfo.getFullName();
         sender.AvatarUrl = userInfo.AvatarUrl;

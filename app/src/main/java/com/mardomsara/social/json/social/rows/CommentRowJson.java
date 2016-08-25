@@ -1,4 +1,4 @@
-package com.mardomsara.social.json.social;
+package com.mardomsara.social.json.social.rows;
 
 /**
  * Created by Hamid on 7/25/2016.
@@ -9,6 +9,6 @@ public class CommentRowJson {
     public int PostId;
     public String Text;
     public int CreatedTime;
-    public UserSenderJson Sender;
+    public UserInfoJson Sender;
     public boolean _isNew = false;
 }

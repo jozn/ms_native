@@ -5,8 +5,7 @@ import com.mardomsara.social.base.Http;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.JsonUtil;
-import com.mardomsara.social.json.social.BooleanRespnseJson;
-import com.mardomsara.social.json.social.CommentSingleJson;
+import com.mardomsara.social.json.social.http.BooleanRespnseJson;
 
 /**
  * Created by Hamid on 7/31/2016.

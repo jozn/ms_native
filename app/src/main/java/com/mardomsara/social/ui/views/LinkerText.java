@@ -12,7 +12,9 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.mardomsara.social.Nav;
 import com.mardomsara.social.helpers.AppUtil;
+import com.mardomsara.social.ui.presenter.social.TagsPresenter;
 
 /**
  * Created by Hamid on 2/4/2016.
@@ -96,6 +98,17 @@ public class LinkerText extends TextView {
         return clickableSpan;
     }
 
+    static ClickableSpan buildclickTag(final CharSequence s){
+
+        ClickableSpan clickableSpan = new ClickableSpan() {
+            @Override
+            public void onClick(View view) {
+//                Toast.makeText(AppUtil.getContext(), s, Toast.LENGTH_LONG).show();
+                Nav.push(new TagsPresenter(s.toString()));
+            }
+        };
+        return clickableSpan;
+    }
     public static SpannableStringBuilder linkerText(CharSequence txt, TextView textView){
         SpannableStringBuilder builder = new SpannableStringBuilder();
         TextParser.Lexing lex=  new TextParser.Lexing(txt.toString());
@@ -121,7 +134,7 @@ public class LinkerText extends TextView {
                     break;
 
                 case Tag:
-                    s1.setSpan(buildclick(s1),0,s1.length(),Spanned.SPAN_MARK_MARK);
+                    s1.setSpan(buildclickTag(s1),0,s1.length(),Spanned.SPAN_MARK_MARK);
                     break;
             }
             builder.append(s1);

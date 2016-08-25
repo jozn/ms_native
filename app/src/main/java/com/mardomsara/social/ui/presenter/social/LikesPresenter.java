@@ -3,7 +3,6 @@ package com.mardomsara.social.ui.presenter.social;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 
 import com.mardomsara.social.R;
 import com.mardomsara.social.app.API;
@@ -11,7 +10,7 @@ import com.mardomsara.social.base.Http;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.JsonUtil;
-import com.mardomsara.social.json.social.LikesListJson;
+import com.mardomsara.social.json.social.http.LikesListJson;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.views.wigets.GeneralUserListTypeFollow;
 import com.mardomsara.social.ui.views.wigets.LoadingView;

@@ -1,4 +1,4 @@
-package com.mardomsara.social.json.social;
+package com.mardomsara.social.json.social.rows;
 
 /**
  * Created by Hamid on 8/23/2016.

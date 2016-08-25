@@ -1,17 +1,18 @@
-package com.mardomsara.social.json.social.server;
+package com.mardomsara.social.json.social.rows;
 
 /**
  * Created by Hamid on 7/30/2016.
  */
-public class ServerUserTable {
+public class UserTableJson extends UserInfoJson {
 
-    public int Id;
+    /*public int Id;
     public String UserName;
     public String FirstName;
     public String LastName;
     public String FullName;
     public String AvatarUrl;
-    public String About;
+    public String About;*/
+
     public String Phone;
     public int IsDeleted;
 

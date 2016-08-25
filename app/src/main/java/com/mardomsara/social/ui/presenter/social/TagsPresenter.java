@@ -13,7 +13,7 @@ import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.JsonUtil;
-import com.mardomsara.social.json.social.HomeStreamJson;
+import com.mardomsara.social.json.social.http.HomeStreamJson;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.ui.UIPostsList;

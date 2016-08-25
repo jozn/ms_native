@@ -11,13 +11,12 @@ import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.JsonUtil;
-import com.mardomsara.social.json.social.LikesListJson;
+import com.mardomsara.social.json.social.http.LikesListJson;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
 import com.mardomsara.social.models.UserList;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.views.cells.PageCells;
 import com.mardomsara.social.ui.views.helpers.ViewHelper;
-import com.mardomsara.social.ui.views.wigets.GeneralUserListTypeFollow;
 
 /**
  * Created by Hamid on 8/6/2016.

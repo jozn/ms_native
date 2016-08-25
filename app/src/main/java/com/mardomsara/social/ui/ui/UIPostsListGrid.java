@@ -12,7 +12,7 @@ import com.mardomsara.social.app.Router;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.Helper;
-import com.mardomsara.social.json.social.PostRowJson;
+import com.mardomsara.social.json.social.rows.PostRowJson;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
 import com.mardomsara.social.ui.presenter.social.ProfilePresenter;
 import com.mardomsara.social.ui.views.FullScreenImage;

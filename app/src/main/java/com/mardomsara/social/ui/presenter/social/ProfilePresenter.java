@@ -16,9 +16,9 @@ import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.JsonUtil;
-import com.mardomsara.social.json.social.HomeStreamJson;
-import com.mardomsara.social.json.social.ProfileAndPostsJson;
-import com.mardomsara.social.json.social.server.ServerUserTable;
+import com.mardomsara.social.json.social.http.HomeStreamJson;
+import com.mardomsara.social.json.social.http.ProfileAndPostsJson;
+import com.mardomsara.social.json.social.rows.UserTableJson;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.ui.UIPostsList;
@@ -188,7 +188,7 @@ public class ProfilePresenter extends BasePresenter implements AppHeaderFooterRe
             ButterKnife.bind(this,view);
         }
 
-        ProfileTopInfo bind(ServerUserTable user){
+        ProfileTopInfo bind(UserTableJson user){
 
             Helper.SetAvatar(avatar,user.AvatarUrl);
             fullname.setText(user.getFullName());

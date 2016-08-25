@@ -1,4 +1,4 @@
-package com.mardomsara.social.json.social;
+package com.mardomsara.social.json.social.rows;
 
 /**
  * Created by Hamid on 7/13/2016.
@@ -18,7 +18,7 @@ public class PostRowJson {
     public int CreatedTime;
     public String TypeName;
     public boolean AmIlike;
-    public UserSenderJson Sender;
+    public UserInfoJson Sender;
 
 }
 

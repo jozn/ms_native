@@ -1,9 +1,10 @@
-package com.mardomsara.social.json.social;
+package com.mardomsara.social.json.social.rows;
 
 import com.mardomsara.social.models.IUserAndMe;
 
 /**
  * Created by Hamid on 7/18/2016.
+ * @deprecated  use UserInfoJson
  */
 public class UserRowAndMeJson implements IUserAndMe {
     public int UserId;

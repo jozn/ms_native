@@ -4,6 +4,7 @@ import com.mardomsara.social.tables.UsersTable;
 
 /**
  * Created by Hamid on 4/4/2016.
+ * @deprecated switvh to UserSyncJson
  */
 public class UserRow {
     public Integer Id;

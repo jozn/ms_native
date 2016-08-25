@@ -3,7 +3,7 @@ package com.mardomsara.social.json;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@Deprecated
 public class UserListFollowJson extends HttpBaseProtocol {
 
     public List<UserListFollow> Payload ;//= new ArrayList<UserListFollow>();

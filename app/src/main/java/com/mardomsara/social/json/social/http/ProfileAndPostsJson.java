@@ -1,7 +1,8 @@
-package com.mardomsara.social.json.social;
+package com.mardomsara.social.json.social.http;
 
 import com.mardomsara.social.json.HttpBaseProtocol;
-import com.mardomsara.social.json.social.server.ServerUserTable;
+import com.mardomsara.social.json.social.rows.PostRowJson;
+import com.mardomsara.social.json.social.rows.UserTableJson;
 
 import java.util.List;
 
@@ -12,7 +13,7 @@ public class ProfileAndPostsJson extends HttpBaseProtocol {
     public ProfileResponse Payload;
 
     public static class ProfileResponse{
-        public ServerUserTable User;
+        public UserTableJson User;
         public List<PostRowJson> Posts;
     }
 }

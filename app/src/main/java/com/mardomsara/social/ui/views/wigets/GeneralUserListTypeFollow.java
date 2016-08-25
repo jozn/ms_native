@@ -15,7 +15,7 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import com.mardomsara.social.R;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.Helper;
-import com.mardomsara.social.json.social.UserRowAndMeJson;
+import com.mardomsara.social.json.social.rows.UserRowAndMeJson;
 
 import java.util.List;
 

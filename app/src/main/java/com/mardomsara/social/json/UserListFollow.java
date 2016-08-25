@@ -1,7 +1,7 @@
 
 package com.mardomsara.social.json;
 
-
+@Deprecated
 public class UserListFollow {
 
     public Integer UserId;
