@@ -9,8 +9,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.MemoryCategory;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.mardomsara.social.Nav;
 import com.mardomsara.social.R;
@@ -22,6 +20,7 @@ import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.LangUtil;
 import com.mardomsara.social.json.social.rows.PostRowJson;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
+import com.mardomsara.social.ui.cells.rows.PostRowCell;
 import com.mardomsara.social.ui.presenter.social.ProfilePresenter;
 import com.mardomsara.social.ui.views.FullScreenImage;
 import com.mardomsara.social.ui.views.helpers.ViewHelper;
@@ -38,9 +37,7 @@ import butterknife.ButterKnife;
  * Created by Hamid on 8/3/2016.
  */
 public class UIPostsList {
-    static {
-        Glide.get(AppUtil.getContext()).setMemoryCategory(MemoryCategory.LOW);
-    }
+
     public static RecyclerView buildNew(List<PostRowJson> posts){
         RecyclerView recycler_view = ViewHelper.newRecyclerViewMatch();
 //        if(posts == null){
@@ -90,13 +87,15 @@ public class UIPostsList {
 
         @Override
         protected PostStreamHolder onCreateContentItemViewHolder(ViewGroup parent, int contentViewType) {
-            View v = AppUtil.inflate(R.layout.row_post_stream, parent);
-            return new PostStreamHolder(v);
+//            View v = AppUtil.inflate(R.layout.row_post_stream, parent);
+            PostRowCell postRowJson = new PostRowCell(null);
+            return new PostStreamHolder(postRowJson);
         }
 
         @Override
         protected void onBindContentItemViewHolder(PostStreamHolder postStreamHolder, int position) {
-            postStreamHolder.bind(posts.get(position));
+//            postStreamHolder.bind(posts.get(position));
+            postStreamHolder.postRowJson.bind(posts.get(position));
         }
     }
 
@@ -106,6 +105,13 @@ public class UIPostsList {
 
 
     public static class PostStreamHolder extends RecyclerView.ViewHolder {
+        PostRowCell postRowJson;
+        public PostStreamHolder(PostRowCell postRowJson) {
+            super(postRowJson.rootView);
+        }
+
+    }
+    public static class PostStreamHolder2 extends RecyclerView.ViewHolder {
         View rootView;
         PostRowJson post;
         @Bind(R.id.text)
@@ -162,7 +168,7 @@ public class UIPostsList {
         };
 
         static int __i = 0;
-        public PostStreamHolder(View itemView) {
+        public PostStreamHolder2(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
             __i++;
@@ -271,12 +277,12 @@ public class UIPostsList {
         @Override
         public PostStreamHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             View v = AppUtil.inflate(R.layout.row_post_stream, parent);
-            return new PostStreamHolder(v);
+            return new PostStreamHolder(null);
         }
 
         @Override
         public void onBindViewHolder(PostStreamHolder holder, int position) {
-            holder.bind(posts.get(position));
+//            holder.bind(posts.get(position));
         }
 
         @Override

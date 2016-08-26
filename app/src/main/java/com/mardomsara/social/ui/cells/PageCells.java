@@ -1,11 +1,8 @@
-package com.mardomsara.social.ui.views.cells;
+package com.mardomsara.social.ui.cells;
 
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
-import com.facebook.drawee.view.SimpleDraweeView;
 import com.mardomsara.social.R;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.ui.views.wigets.SimpleTopNav;

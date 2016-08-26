@@ -15,7 +15,7 @@ import com.mardomsara.social.json.social.http.LikesListJson;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
 import com.mardomsara.social.models.UserList;
 import com.mardomsara.social.ui.BasePresenter;
-import com.mardomsara.social.ui.views.cells.PageCells;
+import com.mardomsara.social.ui.cells.PageCells;
 import com.mardomsara.social.ui.views.helpers.ViewHelper;
 
 /**

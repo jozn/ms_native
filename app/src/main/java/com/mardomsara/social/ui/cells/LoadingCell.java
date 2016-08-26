@@ -1,4 +1,4 @@
-package com.mardomsara.social.ui.views.cells;
+package com.mardomsara.social.ui.cells;
 
 import android.view.ViewGroup;
 

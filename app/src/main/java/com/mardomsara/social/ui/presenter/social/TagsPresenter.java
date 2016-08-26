@@ -17,7 +17,7 @@ import com.mardomsara.social.json.social.http.HomeStreamJson;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.ui.UIPostsList;
-import com.mardomsara.social.ui.views.cells.PageCells;
+import com.mardomsara.social.ui.cells.PageCells;
 import com.mardomsara.social.ui.views.helpers.ViewHelper;
 
 import butterknife.Bind;

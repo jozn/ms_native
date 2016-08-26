@@ -5,8 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.mardomsara.social.ui.views.cells.LoadingCell;
-import com.mardomsara.social.ui.views.wigets.LoadingView;
+import com.mardomsara.social.ui.cells.LoadingCell;
 
 import java.util.ArrayList;
 import java.util.List;
