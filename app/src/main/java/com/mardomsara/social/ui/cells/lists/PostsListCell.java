@@ -1,11 +1,11 @@
-package com.mardomsara.social.ui.presenter.social;
+package com.mardomsara.social.ui.cells.lists;
 
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.view.ViewGroup;
 
-import com.mardomsara.social.app.API;
 import com.mardomsara.social.base.Http;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
@@ -13,43 +13,31 @@ import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.JsonUtil;
 import com.mardomsara.social.json.social.http.HomeStreamJson;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
-import com.mardomsara.social.ui.BasePresenter;
-import com.mardomsara.social.ui.ui.UIPostsListGrid;
+import com.mardomsara.social.ui.ui.UIPostsList;
 import com.mardomsara.social.ui.views.helpers.ViewHelper;
 
 /**
- * Created by Hamid on 8/23/2016.
+ * Created by Hamid on 8/26/2016.
  */
-public class SuggestionsPostsPresenter extends BasePresenter
+public class PostsListCell
         implements AppHeaderFooterRecyclerViewAdapter.LoadNextPage {
-    @Override
-    public View buildView() {
-        refreshLayout = ViewHelper.newSwipeRefreshLayout(ViewHelper.MATCH_PARENT,ViewHelper.MATCH_PARENT);
-        load();
-        return refreshLayout;
-    }
 
-    UIPostsListGrid.PostsAdaptor adaptor;
+    View loading;
+    UIPostsList.PostsAdaptor adaptor;
     SwipeRefreshLayout refreshLayout;
 
-    private void load() {
-        adaptor = new UIPostsListGrid.PostsAdaptor();
+    public PostsListCell() {
+        init();
+    }
+
+    private void init() {
+        refreshLayout = ViewHelper.newSwipeRefreshLayout(ViewHelper.MATCH_PARENT,ViewHelper.MATCH_PARENT);
+        adaptor = new UIPostsList.PostsAdaptor();
         RecyclerView recycler_view = ViewHelper.newRecyclerViewMatch();
-//        LinearLayoutManager layoutManager = new LinearLayoutManager(AppUtil.getContext());
-        GridLayoutManager layoutManager = new GridLayoutManager(AppUtil.getContext(),3);
-        layoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
-            @Override
-            public int getSpanSize(int position) {
-                int size = adaptor.posts.size();
-                if(position == 0 ) return 3;
-                if(position == size ) return 3;
-                return 1;
-            }
-        });
+        LinearLayoutManager layoutManager = new LinearLayoutManager(AppUtil.getContext());
         recycler_view.setLayoutManager(layoutManager);
         recycler_view.setAdapter(adaptor);
         adaptor.setUpForPaginationWith(recycler_view,layoutManager,this);
-//        adaptor.setRecyclerView(recycler_view);
         adaptor.showLoading();
 
         refreshLayout.addView(recycler_view);
@@ -57,38 +45,63 @@ public class SuggestionsPostsPresenter extends BasePresenter
             @Override
             public void onRefresh() {
                 Helper.showMessage("re");
-                loadFromServer();
+                loadFromServer(0);
             }
         });
-        loadFromServer();
+//        loadFromServer();
     }
 
-    private void loadFromServer() {
+    String endPointAbsPath;
+    public void setLoadingEndPoint(String absPath){
+        this.endPointAbsPath = absPath;
+    }
+
+    public void loadFromServer(int page) {
+        if(endPointAbsPath == null){
+            throw new IllegalArgumentException("In PostsListCell endPointAbsPath url must be set for loading posts");
+        }
         AndroidUtil.runInBackground(()->{
             Http.Req req = new Http.Req();
-            req.absPath = API.RECOMMEND_TOP_POST;
+
+            req.absPath = endPointAbsPath;
+            req.urlParams.put("page",""+page);
+            req.urlParams.put("last",""+getLastPostId());
             Http.Result res = Http.get(req);
             if(res.ok){
                 AndroidUtil.runInUi(()->{
-                    loadedPostsFromNet(res);
+                    loadedPostsFromNet(res, page);
                 });
             }
         });
     }
 
-    private void loadedPostsFromNet(Http.Result res) {
+    private int getLastPostId() {
+        if(adaptor.posts.size() > 0 ){
+            return adaptor.posts.get(adaptor.posts.size()-1).Id;
+        }
+        return 0;
+    }
+
+    private void loadedPostsFromNet(Http.Result res, int page) {
         HomeStreamJson data= JsonUtil.fromJson(res.data, HomeStreamJson.class);
         if(data != null && data.Payload != null && data.Status.equalsIgnoreCase("OK")){
-
             if(data.Payload != null){
+                if(page == 0){
+                    adaptor.posts.clear();
+                }
                 adaptor.posts.addAll(data.Payload);
                 adaptor.notifyDataSetChanged();
             }
         }
     }
 
+    public ViewGroup getViewRoot() {
+        return refreshLayout;
+    }
+
     @Override
     public void loadNextPage(int pageNum) {
-
+        Helper.showMessage("pageNum: "+pageNum);
+        loadFromServer(pageNum);
     }
 }

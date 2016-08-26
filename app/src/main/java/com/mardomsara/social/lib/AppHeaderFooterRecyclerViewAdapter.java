@@ -185,8 +185,8 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
             public void onLoadMore(int page, int totalItemsCount) {
 //                loadNextPage();
                 if(pager!=null){
-                    pageNum++;
                     pager.loadNextPage(page);
+                    pageNum++;
                 }
             }
         };

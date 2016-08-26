@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -124,6 +125,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"/>
+           <!-- <com.mardomsara.sparkbutton.SparkButton
+                android:id="@+id/spark_button"
+                android:layout_width="140dp"
+                android:layout_height="60dp"
+                app:sparkbutton_activeImage="@drawable/emoji_1f1e8_1f1eb"
+                app:sparkbutton_inActiveImage="@drawable/__picker_ic_camera_p"
+                app:sparkbutton_iconSize="40dp"
+                app:sparkbutton_primaryColor="@color/__picker_item_photo_border_selected"
+                app:sparkbutton_secondaryColor="@color/light_blue_1"
+
+                />-->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

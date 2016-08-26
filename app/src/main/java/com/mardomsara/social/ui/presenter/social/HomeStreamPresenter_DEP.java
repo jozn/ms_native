@@ -24,7 +24,8 @@ import butterknife.Bind;
 /**
  * Created by Hamid on 7/13/2016.
  */
-public class HomeStreamPresenter extends BasePresenter implements AppHeaderFooterRecyclerViewAdapter.LoadNextPage {
+@Deprecated
+public class HomeStreamPresenter_DEP extends BasePresenter implements AppHeaderFooterRecyclerViewAdapter.LoadNextPage {
     ViewGroup viewRoot;
     @Bind(R.id.content)
     ViewGroup content;
