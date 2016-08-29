@@ -55,6 +55,7 @@ public class PostRowCell {
 
 
     View.OnClickListener gotoLikes = (v) -> {
+//        Nav.push(Router.getLikesPage(post.Id));
         Nav.push(Router.getLikesPage(post.Id));
     };
 
@@ -91,7 +92,7 @@ public class PostRowCell {
     public void bind(PostRowJson post) {
         this.post = post;
         text.setText(LangUtil.limitText(post.Text, 120));
-        user_name.setText(post.Sender.FullName);
+        user_name.setText(post.Sender.getFullName());
         date.setText(FormaterUtil.timeToDayTime(post.CreatedTime));
         Uri imageUri = Helper.PathToUserAvatarUri(post.Sender.AvatarUrl);
         avatar.setImageURI(imageUri);
@@ -132,4 +133,7 @@ public class PostRowCell {
 
     }
 
+    public View getViewRoot() {
+        return rootView;
+    }
 }

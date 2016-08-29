@@ -275,7 +275,7 @@ public class Nav {
                 c.defaultRoute = Router.getAactivityPage();
             }
             if(b.equals("profile")){
-                c.defaultRoute = Router.getGalleryChooserPage();
+                c.defaultRoute = Router.getMyProfile();
             }
             branchMapHolder.put(b,c);
         }

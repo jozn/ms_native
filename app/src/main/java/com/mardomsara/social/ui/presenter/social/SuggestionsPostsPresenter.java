@@ -5,6 +5,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import com.mardomsara.social.Nav;
 import com.mardomsara.social.app.API;
 import com.mardomsara.social.base.Http;
 import com.mardomsara.social.helpers.AndroidUtil;
@@ -14,6 +15,7 @@ import com.mardomsara.social.helpers.JsonUtil;
 import com.mardomsara.social.json.social.http.HomeStreamJson;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
 import com.mardomsara.social.ui.BasePresenter;
+import com.mardomsara.social.ui.cells.TitleCellsGroup;
 import com.mardomsara.social.ui.ui.UIPostsListGrid;
 import com.mardomsara.social.ui.views.helpers.ViewHelper;
 
@@ -35,9 +37,11 @@ public class SuggestionsPostsPresenter extends BasePresenter
     private void load() {
         adaptor = new UIPostsListGrid.PostsAdaptor();
         RecyclerView recycler_view = ViewHelper.newRecyclerViewMatch();
+        refreshLayout.addView(recycler_view);
+
 //        LinearLayoutManager layoutManager = new LinearLayoutManager(AppUtil.getContext());
         GridLayoutManager layoutManager = new GridLayoutManager(AppUtil.getContext(),3);
-        layoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+        /*layoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
             @Override
             public int getSpanSize(int position) {
                 int size = adaptor.posts.size();
@@ -45,14 +49,32 @@ public class SuggestionsPostsPresenter extends BasePresenter
                 if(position == size ) return 3;
                 return 1;
             }
-        });
+        });*/
+        layoutManager.setSpanSizeLookup(adaptor.getSpanSizeForSimpleContentGridLayput(3));
         recycler_view.setLayoutManager(layoutManager);
         recycler_view.setAdapter(adaptor);
         adaptor.setUpForPaginationWith(recycler_view,layoutManager,this);
 //        adaptor.setRecyclerView(recycler_view);
         adaptor.showLoading();
 
-        refreshLayout.addView(recycler_view);
+        TitleCellsGroup.BigClickAbleTitle recent = new TitleCellsGroup.BigClickAbleTitle(recycler_view);
+        recent.setText("مشاهده آخرین پست ها");
+        recent.setIcon("\uf2ca");
+
+        TitleCellsGroup.InfoTitle topTitle = new TitleCellsGroup.InfoTitle(recycler_view);
+        topTitle.setText("پست های داغ");
+
+//        TextView txt2 = new TextView(AppUtil.getContext());
+//        View txt = AppUtil.inflate(R.layout.title_string_clickable,recycler_view);
+//        View txt3 = AppUtil.inflate(R.layout.title_string_clickable,recycler_view);
+//        txt2.setText("زنزده");
+        recent.rootView.setOnClickListener((v)->{
+            Nav.push(new LastPostsPresenter());
+        });
+        adaptor.appendViewToHeader(recent.rootView);
+        adaptor.appendViewToHeader(topTitle.rootView);
+//        txt3.setLayoutParams();
+//        adaptor.appendViewToHeader(txt2);
         refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {

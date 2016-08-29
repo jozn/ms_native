@@ -10,6 +10,7 @@ import com.mardomsara.social.ui.views.wigets.LoadingView;
 /**
  * Created by Hamid on 7/26/2016.
  */
+@Deprecated
 public abstract class PagerRecyclerViewAdapter extends HeaderFooterRecyclerViewAdapter {
     int footerSize = 1;
 
@@ -72,7 +73,7 @@ public abstract class PagerRecyclerViewAdapter extends HeaderFooterRecyclerViewA
         this.pager = pager;
     }
 
-    public  void listenOnScroll(){
+    public void listenOnScroll(){
             listener =new EndlessRecyclerViewScrollListener(layoutManager){
             @Override
             public void onLoadMore(int page, int totalItemsCount) {

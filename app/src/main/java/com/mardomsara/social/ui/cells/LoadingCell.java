@@ -12,7 +12,7 @@ public class LoadingCell {
     public ViewGroup rootView;
 
     public LoadingCell() {
-        rootView = (ViewGroup) AppUtil.inflate(R.layout.cell_loading);
+        rootView = (ViewGroup) AppUtil.inflate(R.layout.loading_row);
 //        ButterKnife.bind(this, rootView);
 //        progressWheel.
     }

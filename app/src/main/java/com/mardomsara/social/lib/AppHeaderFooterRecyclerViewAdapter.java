@@ -1,5 +1,6 @@
 package com.mardomsara.social.lib;
 
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -13,6 +14,9 @@ import java.util.List;
 /**
  * Created by Hamid on 8/4/2016.
  */
+
+///NOTICE: notify**Changed() shoulld not be called in here (we should not manuplate views in
+// here) it must be called from apps code -- it will be bugy
 public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.ViewHolder> extends
         HeaderFooterRecyclerViewAdapter<
                 T,
@@ -144,7 +148,7 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
 
     //// For multi pages ///////////
 
-    EndlessRecyclerViewScrollListener listener;
+    EndlessRecyclerViewScrollListener scrollListener;
     RecyclerView recyclerView;
     LinearLayoutManager layoutManager;
     LoadNextPage pager;
@@ -153,17 +157,17 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
     public  void setHasMorePage(boolean hasMore){
         if(hasMore){
 //            footerSize = 1;
-            if(listener != null && getContentItemCount() >0){
-                recyclerView.addOnScrollListener(listener);
-                notifyFooterItemChanged(0);
-
+            if(scrollListener != null && getContentItemCount() >0){
+                recyclerView.addOnScrollListener(scrollListener);
+//                notifyFooterItemChanged(0);
             }
         }else {
 //            footerSize = 0;
             hideLoading();
-            if(listener != null && getContentItemCount() >0){
-                recyclerView.removeOnScrollListener(listener);
-                notifyFooterItemChanged(0);
+            if(scrollListener != null && getContentItemCount() >0){
+                recyclerView.removeOnScrollListener(scrollListener);
+                //ME:dont do this it will crash: reason: child not attached???
+//                notifyFooterItemChanged(0);
             }
         }
     }
@@ -179,8 +183,9 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
         }
     }
 
-    public  void listenOnScroll(){
-        listener =new EndlessRecyclerViewScrollListener(layoutManager){
+    public void listenOnScroll(){
+
+        scrollListener =new EndlessRecyclerViewScrollListener(layoutManager){
             @Override
             public void onLoadMore(int page, int totalItemsCount) {
 //                loadNextPage();
@@ -190,10 +195,45 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
                 }
             }
         };
-        recyclerView.addOnScrollListener(listener);
+        //ME: somehow if we attach scrollListener in here befor View attached to window it will
+        //crashe. so add it after attached in onAttached
+//        recyclerView.addOnScrollListener(scrollListener);
     }
 
+    @Override
+    public void onViewAttachedToWindow(RecyclerView.ViewHolder holder) {
+        super.onViewAttachedToWindow(holder);
+        if(scrollListener != null){
+            recyclerView.addOnScrollListener(scrollListener);
+        }
+    }
 
+    @Override
+    public void onViewDetachedFromWindow(RecyclerView.ViewHolder holder) {
+        super.onViewDetachedFromWindow(holder);
+        if(scrollListener != null){
+            recyclerView.removeOnScrollListener(scrollListener);
+        }
+    }
+
+    public GridLayoutManager.SpanSizeLookup getSpanSizeForSimpleContentGridLayput(int contentSpanSize){
+        return new GridLayoutManager.SpanSizeLookup() {
+            @Override
+            public int getSpanSize(int position) {
+                int sizeHeader = getHeaderItemCount();
+                int sizeFooter = getFooterItemCount();
+                int sizeContent = getContentItemCount();
+
+                if (sizeHeader > 0 && position < sizeHeader) {
+                    return contentSpanSize;
+                } else if (sizeContent > 0 && position - sizeHeader < sizeContent) {
+                    return 1;
+                } else {//footer
+                    return contentSpanSize;
+                }
+            }
+        };
+    }
 
     ///////////////////////////////////////////////
     ///// Class ///////////////

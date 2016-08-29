@@ -19,6 +19,7 @@ import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.JsonUtil;
 import com.mardomsara.social.json.social.http.TopTagsWithPostsJson;
 import com.mardomsara.social.json.social.http.TopTagsWithPostsRowJson;
+import com.mardomsara.social.json.social.rows.PostRowJson;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.views.helpers.ViewHelper;
@@ -144,19 +145,19 @@ public class SuggestionsTagsPresenter extends BasePresenter implements AppHeader
             if(tagJson.Posts == null) return;
 //            if(tagJson.Posts)
             if(tagJson.Posts.size()>0){
-                setImage(image1,tagJson.Posts.get(0).MediaUrl,tagJson.Tag.Name);
+                setImage(image1,tagJson.Posts.get(0).MediaUrl,tagJson.Tag.Name,tagJson.Posts.get(0));
             }
 
             if(tagJson.Posts.size()>1){
-                setImage(image2,tagJson.Posts.get(1).MediaUrl,tagJson.Tag.Name);
+                setImage(image2,tagJson.Posts.get(1).MediaUrl,tagJson.Tag.Name,tagJson.Posts.get(0));
             }
 
             if(tagJson.Posts.size()>2){
-                setImage(image3,tagJson.Posts.get(2).MediaUrl,tagJson.Tag.Name);
+                setImage(image3,tagJson.Posts.get(2).MediaUrl,tagJson.Tag.Name,tagJson.Posts.get(0));
             }
         }
 
-        void setImage(ImageView image, String src, String tag) {
+        void setImage(ImageView image, String src, String tag, PostRowJson post) {
             src = "http://localhost:5000/"+src;
             AppUtil.log("SRCCCCC2" +src);
             if(src.equals("")) return;
@@ -167,7 +168,7 @@ public class SuggestionsTagsPresenter extends BasePresenter implements AppHeader
                     .into(image);
 
             View.OnClickListener onClick = (v)->{
-                Nav.push(new TagsPresenter(tag));
+                Nav.push(new PostEnteryPresenter(post));
             };
 
             image.setOnClickListener(onClick);

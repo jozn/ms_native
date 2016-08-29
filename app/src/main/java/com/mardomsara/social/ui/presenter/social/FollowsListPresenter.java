@@ -92,6 +92,7 @@ public class FollowsListPresenter extends BasePresenter implements AppHeaderFoot
             Http.Req req = new Http.Req();
             req.urlParams.put("username","abas");
             req.urlParams.put("peer_id",""+ObjectId);// for follows types
+            req.urlParams.put("post_id",""+ObjectId);// for follows types
             req.absPath = urlEndpoint;
             Http.Result res = Http.get(req);
 
