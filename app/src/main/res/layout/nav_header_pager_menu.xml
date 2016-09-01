@@ -20,6 +20,7 @@
             android:background="@drawable/border_left"
             android:layout_marginRight="0dp"
             android:gravity="center"
+            android:id="@+id/search"
             >
             <!--android:paddingLeft="20dp"-->
             <!--android:paddingRight="20dp"-->

@@ -162,7 +162,7 @@ public class DevicePhoneContact {
                 return;
             }
             UserListJson r = JsonUtil.fromJson(res.data, UserListJson.class);
-//        DialogHelper.simpleAlert(App.context,"hhhh",r.Payload.get(1).FullName );
+//        DialogHelper.simpleAlert(App.context,"hhhh",r.Load.get(1).FullName );
             saveContacts(r.Payload);
         }catch (Exception e){
             AppUtil.log(e.toString());

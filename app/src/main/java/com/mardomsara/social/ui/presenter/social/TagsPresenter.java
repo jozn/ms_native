@@ -47,7 +47,9 @@ public class TagsPresenter extends BasePresenter
     public View buildView() {
 //        viewRoot = (ViewGroup) AppUtil.inflate(R.layout.preseter_home_stream);
 //        ButterKnife.bind(this, viewRoot);
-        viewRoot = new PageCells.NavAndEmptyView().rootView;
+        PageCells.NavAndEmptyView page = new PageCells.NavAndEmptyView();
+        page.simpleTopNav.setTitle(""+tagName);
+        viewRoot = page.rootView;
         load();
 //        loadFromServer();
         return viewRoot;
@@ -101,7 +103,7 @@ public class TagsPresenter extends BasePresenter
         HomeStreamJson data= JsonUtil.fromJson(res.data, HomeStreamJson.class);
         if(data != null && data.Payload != null && data.Status.equalsIgnoreCase("OK")){
 
-//            content.addView(UIPostsList.buildNew(data.Payload));
+//            content.addView(UIPostsList.buildNew(data.Load));
 
 
             //////////NEW
@@ -111,7 +113,7 @@ public class TagsPresenter extends BasePresenter
             }
 
 //            UIPostsList_DEP.HomeStreamAdaptor_Dep adaptor = new UIPostsList_DEP.HomeStreamAdaptor_Dep();
-//            adaptor.posts = data.Payload;
+//            adaptor.posts = data.Load;
 //            recycler_view.setLayoutManager(new LinearLayoutManager(getContext()));
 //            recycler_view.setAdapter(adaptor);
         }

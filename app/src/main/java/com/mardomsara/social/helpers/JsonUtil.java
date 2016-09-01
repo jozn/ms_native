@@ -16,13 +16,13 @@ import java.util.ArrayList;
  */
 public class JsonUtil {
 
+    static Gson g = new Gson();
     //could be null - check it
     public static <T> T fromJson(String str , Class<T> cls){
-        Gson g = new Gson();
         T j = null;
         try {
             j = g.fromJson(str,cls);
-//            Class<?> cl = j.Payload.getClass();
+//            Class<?> cl = j.Load.getClass();
         }catch (Exception e){
             Log.e("JSON: ","error in JsonUtil.fromJson parsing: "+e.toString() );
             e.printStackTrace();
@@ -31,7 +31,7 @@ public class JsonUtil {
     }
 
     public static String toJson(Object obj) {
-        Gson g = new Gson();
+//        Gson g = new Gson();
         return g.toJson(obj);
     }
 
@@ -47,20 +47,20 @@ public class JsonUtil {
 //        HttpBaseProtocol<T> j;
 //        try {
 //            j = g.fromJson(str,fooType);
-//            Class<?> cl = j.Payload.getClass();
+//            Class<?> cl = j.Load.getClass();
 //            //if we have array in json Gson will produce ArrayList but we need puer java array: User[] so
 //            //we do litlte Reflection hack
 //            if( cl.getName().equals("java.util.ArrayList")){
-//               Object[] tt =  ( (ArrayList<Object>)j.Payload ).toArray();
+//               Object[] tt =  ( (ArrayList<Object>)j.Load ).toArray();
 //                T t = (T)tt;
-//               j.Payload = t;
+//               j.Load = t;
 //            }
 //        }catch (Exception e){
 //            Log.e("JSON: ","error in JsonUtil.fromJson parsing: "+e.toString() );
 //            e.printStackTrace();
 //            j = new HttpBaseProtocol<T>();//???????? is this good??????
 //        }
-////        b.Payload =
+////        b.Load =
 //        return j;
 //    }
 }

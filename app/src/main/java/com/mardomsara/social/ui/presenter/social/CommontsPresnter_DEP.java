@@ -171,7 +171,7 @@ public class CommontsPresnter_DEP extends BasePresenter
             if(res.ok){
                 CommentSingleJson data = JsonUtil.fromJson(res.data,CommentSingleJson.class);
                 if(data != null && data.Payload != null && data.Status.equalsIgnoreCase("OK")){
-//                    Helper.showMessage(data.Payload.toString());
+//                    Helper.showMessage(data.Load.toString());
                     comment.Id = data.Payload.Id;
                     comment.CreatedTime = data.Payload.CreatedTime;
                     comment._isNew=false;

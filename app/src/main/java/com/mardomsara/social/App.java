@@ -11,8 +11,8 @@ import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.imagepipeline.core.ImagePipelineConfig;
 import com.facebook.imagepipeline.listener.RequestListener;
 import com.facebook.imagepipeline.listener.RequestLoggingListener;
+import com.mardomsara.social.app.DB;
 import com.mardomsara.social.helpers.AppUtil;
-import com.mardomsara.social.tables.OrmaDatabase;
 import com.mardomsara.social.ui.BasePresenter;
 import com.orhanobut.hawk.Hawk;
 import com.orhanobut.hawk.HawkBuilder;
@@ -25,6 +25,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 import pl.tajchert.nammu.Nammu;
+
+//import com.mardomsara.social.tables.orma.DB;
 
 //import com.facebook.stetho.Stetho;
 
@@ -103,7 +105,11 @@ public class App extends Application {
          FlowLog.setMinimumLoggingLevel(FlowLog.Level.V);
          FlowManager.init(new FlowConfig.Builder(ctx)
                  .openDatabasesOnInit(true).build());
+
+         DB.init();
+
 //         mFragmentManager
+//         play();
       }
 //      context =(Context) context;
    }
@@ -130,13 +136,31 @@ public class App extends Application {
       Stetho.initialize(initializer);*/
    }
 
-   public void play(){
-      OrmaDatabase orma = OrmaDatabase.builder(context)
+/*
+   public static void play(){
+
+      DB db = DB.builder(AppUtil.getContext())
+              .readOnMainThread(AccessThreadConstraint.WARNING)
+              .name("ms1")
+              .trace(true)
               .build();
-      orma.selectFromTodo().idEq(1).and().get(1);
+
+      AndroidUtil.runInBackground(()-> {
+                 db.transactionSync(() -> {
+                    for (int i = 0; i < 100; i++) {
+                       Notifications not = new Notifications();
+                       not.Id = (long) i;
+                       not.CreatedTime = (int) AppUtil.getTime();
+                       not.Load = JsonUtil.toJson(new UserInfoJson());
+                       db.insertIntoNotifications(not);
+                    }
+                 });
+              });
+
 //      orma.selectFromTodo().toList().;
 //      orma.relationOfTodo().inserter().execute();
 //      orma.transactionSync();
    }
+*/
 
 }

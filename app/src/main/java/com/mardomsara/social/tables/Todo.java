@@ -19,6 +19,12 @@ public class Todo {
     @Nullable // allows NULL (default: NOT NULL)
     public String content;
 
-    @Column
+    @Column(indexed = true)
     public long createdTimeMillis;
+
+    void asd(){
+        OrmaDatabase ormaDatabase = OrmaDatabase.builder(null).build();
+        ormaDatabase.deleteFromTodo().titleEq("").execute();
+
+    }
 }

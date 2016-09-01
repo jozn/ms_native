@@ -14,6 +14,7 @@ import com.mardomsara.social.ui.presenter.social.HomeStream2Presenter;
 import com.mardomsara.social.ui.presenter.social.LikesPresenter;
 import com.mardomsara.social.ui.presenter.social.ProfilePresenter;
 import com.mardomsara.social.ui.presenter.social.SearchTabPresenter;
+import com.mardomsara.social.ui.presenter.social.TagsPresenter;
 
 /**
  * Created by Hamid on 1/30/2016.
@@ -67,6 +68,10 @@ public class Router {
         Nav.push(new ProfilePresenter(userId));
     }
 
+    public static void goToTag(String tag) {
+        Nav.push(new TagsPresenter(tag));
+    }
+
     public static FragmentPage getMyProfile() {
         return new ProfilePresenter(Session.getUserId());
     }
@@ -76,5 +81,6 @@ public class Router {
 
     public static FragmentPage getAactivityPage() {
         return new HelloPresenter();
+//        return new ProfilePresenter(Session.getUserId());
     }
 }

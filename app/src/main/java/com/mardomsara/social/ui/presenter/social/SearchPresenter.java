@@ -6,33 +6,40 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
 
-import com.mardomsara.social.Nav;
 import com.mardomsara.social.R;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.ui.BasePresenter;
+import com.mardomsara.social.ui.cells.lists.SearchTagsListCell;
 
 /**
  * Created by Hamid on 8/23/2016.
  */
-public class SearchTabPresenter extends BasePresenter {
+public class SearchPresenter extends BasePresenter {
+    SearchTagsListCell listCell;
+    SearchTabPagerAdaptor pad;
+
     @Override
     public View buildView() {
 //        ViewGroup v = (ViewGroup)inflater.inflate(R.layout.hello_world_row,null);
 //        return v;
 
-        View l = AppUtil.inflate(R.layout.nav_header_pager_menu);
+        View l = AppUtil.inflate(R.layout.nav_header_search);
+        EditText search_input = (EditText)l.findViewById(R.id.search_input);
         ViewPager vp = (ViewPager)l.findViewById(R.id.viewpager);
         TabLayout tab = (TabLayout)l.findViewById(R.id.sliding_tabs);
         tab.setBackgroundColor(0xeeeeee);
-        SearchTabPagerAdaptor pad = new SearchTabPagerAdaptor(fragment.getChildFragmentManager(),fragment.getActivity());
+        pad = new SearchTabPagerAdaptor(fragment.getChildFragmentManager(),fragment.getActivity());
 
         tab.setTabMode(TabLayout.MODE_FIXED);
 //
-
         vp.setAdapter(pad);
         tab.setupWithViewPager(vp);
 
@@ -42,17 +49,40 @@ public class SearchTabPresenter extends BasePresenter {
             t.setCustomView( pad.getTabView(i) );
         }
 
+        search_input.addTextChangedListener(new TextWatcher(){
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                textChanged(s.toString());
+            }
+        });
+
         vp.setCurrentItem(pad.getCount()-1);
-
-        //////TEMP/////////////
-        View searchBtn = l.findViewById(R.id.search);
-        searchBtn.setOnClickListener((v)-> Nav.push(new SearchPresenter()));
-        /////////////////
-
         return l;
     }
 
-    public static class SearchTabPagerAdaptor extends FragmentPagerAdapter {
+    void textChanged(String txt){
+        if(listCell != null){
+            listCell.setNewTag(txt);
+            pad.presenter.listCell.setNewTag(txt);
+
+        }
+        pad.presenter.listCell.setNewTag(txt);
+        AppUtil.log("listCell: " +listCell);
+        AppUtil.log("listCell: " +pad.presenter.listCell);
+    }
+
+    public  class SearchTabPagerAdaptor extends FragmentPagerAdapter {
         final int PAGE_COUNT = 3;
         private String tabTitles[] = new String[] { "تگ","کاربر","پست"};//, "Tab3","Tab222","Tab222","Tab222" };
         private Context context;
@@ -69,10 +99,15 @@ public class SearchTabPresenter extends BasePresenter {
             return PAGE_COUNT;
         }
 
+        SearchTagPagerPresenter presenter;
+
         public Fragment getItem(int position) {
             switch (position){
                 case 0:
-                    return new SuggestionsTagsPresenter().getFragment();
+                    presenter = new SearchTagPagerPresenter();
+                    listCell = presenter.listCell;
+                    return presenter.getFragment();
+
                 case 1:
                     return new SuggestionsUsersPresenter().getFragment();
                 default:
@@ -94,5 +129,18 @@ public class SearchTabPresenter extends BasePresenter {
             //img.setImageResource(imageResId[position]);
             return v;
         }
+    }
+
+    public static class SearchTagPagerPresenter extends BasePresenter {
+        ViewGroup viewRoot;
+        SearchTagsListCell listCell;
+
+        @Override
+        public View buildView() {
+            listCell = new SearchTagsListCell("");
+            viewRoot = listCell.getViewRoot();
+            return viewRoot;
+        }
+
     }
 }

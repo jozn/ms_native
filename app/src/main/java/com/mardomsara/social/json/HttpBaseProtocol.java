@@ -12,6 +12,6 @@ public abstract class HttpBaseProtocol<T> {
     public Integer ServerTime;
     public Integer Version;
     public Integer ResTime;
-//    public T Payload;
+//    public T Load;
 
 }

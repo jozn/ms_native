@@ -58,7 +58,7 @@ public class SuggestionsPostsPresenter extends BasePresenter
         adaptor.showLoading();
 
         TitleCellsGroup.BigClickAbleTitle recent = new TitleCellsGroup.BigClickAbleTitle(recycler_view);
-        recent.setText("مشاهده آخرین پست ها");
+        recent.setText("مشاهده جدیدترین پست ها");
         recent.setIcon("\uf2ca");
 
         TitleCellsGroup.InfoTitle topTitle = new TitleCellsGroup.InfoTitle(recycler_view);

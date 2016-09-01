@@ -159,7 +159,7 @@ public class SuggestionsTagsPresenter extends BasePresenter implements AppHeader
 
         void setImage(ImageView image, String src, String tag, PostRowJson post) {
             src = "http://localhost:5000/"+src;
-            AppUtil.log("SRCCCCC2" +src);
+            AppUtil.log("SCC2" +src);
             if(src.equals("")) return;
             Picasso.with(AppUtil.getContext())
                     .load(src)

@@ -56,9 +56,9 @@ public class LikesPresenter extends BasePresenter {
                 LikesListJson data = JsonUtil.fromJson(res.data, LikesListJson.class);
                 if (data.Status.equalsIgnoreCase("OK")) {
                     AndroidUtil.runInUi(() -> {
-//                        AppUtil.log(data.Payload.get(0).FullName);
-//                        AppUtil.log("sssssssssssssss" + data.Payload.size());
-//                        generalUserListTypeFollow.adapter.setList(data.Payload);
+//                        AppUtil.log(data.Load.get(0).FullName);
+//                        AppUtil.log("sssssssssssssss" + data.Load.size());
+//                        generalUserListTypeFollow.adapter.setList(data.Load);
                         loadingView.replace(generalUserListTypeFollow);
                         generalUserListTypeFollow.show(data.Payload);
                     });

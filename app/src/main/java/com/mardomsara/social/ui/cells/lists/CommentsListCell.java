@@ -128,9 +128,9 @@ public class CommentsListCell implements  AppHeaderFooterRecyclerViewAdapter.Loa
 /*
 if(!isNextPages){
         isNextPages = true;
-        if(data != null && data.Status.equalsIgnoreCase("OK") && data.Payload!=null){
+        if(data != null && data.Status.equalsIgnoreCase("OK") && data.Load!=null){
 
-        adaptor.list.addAll(data.Payload);
+        adaptor.list.addAll(data.Load);
         adaptor.notifyDataSetChanged();
 //                recyclerView.setAdapter(adaptor);
 //                recyclerView.setLayoutManager(layoutManager);
@@ -140,8 +140,8 @@ if(!isNextPages){
         //todo error
         }
         }else {
-        if(data != null && data.Status.equalsIgnoreCase("OK") && data.Payload!=null){
-        adaptor.list.addAll(data.Payload);
+        if(data != null && data.Status.equalsIgnoreCase("OK") && data.Load!=null){
+        adaptor.list.addAll(data.Load);
         adaptor.notifyDataSetChanged();
         }else {
         adaptor.setHasMorePage(false);

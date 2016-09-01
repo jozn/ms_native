@@ -61,6 +61,12 @@ public class API {
     public static String TAGS_LIST =  BASE_URL_STR+"tags/list";
     public static String LATEST_POSTS_GET =  BASE_URL_STR+"post/latest";
 
+    public static String SEARCH_TAGS =  BASE_URL_STR+"search/tags";
+    public static String SEARCH_USERS =  BASE_URL_STR+"search/users";
+
+    public static String NOTIFICATIONS =  BASE_URL_STR+"notifications";
+
+
     static {
         setUp();
     }
