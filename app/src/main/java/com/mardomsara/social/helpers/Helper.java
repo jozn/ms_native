@@ -1,9 +1,11 @@
 package com.mardomsara.social.helpers;
 
 import android.net.Uri;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.squareup.picasso.Picasso;
 
 /**
  * Created by Hamid on 5/2/2016.
@@ -33,6 +35,13 @@ public class Helper {
         Uri imageUri = Helper.PathToUserAvatarUri(urlPath);
         draweeView.setImageURI(imageUri);
 
+    }
+
+    public static void SetAvatar(ImageView draweeView, String urlPath){
+        Uri imageUri = Helper.PathToUserAvatarUri(urlPath);
+        Picasso.with(AppUtil.getContext())
+                .load(imageUri)
+                .into(draweeView);
     }
 
     //Can be called from any thread

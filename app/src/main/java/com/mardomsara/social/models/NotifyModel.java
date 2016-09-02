@@ -9,10 +9,16 @@ import com.mardomsara.social.helpers.JsonUtil;
 import com.mardomsara.social.json.social.http.NotifysListJson;
 import com.mardomsara.social.models.tables.Notify;
 
+import java.util.List;
+
 /**
  * Created by Hamid on 9/2/2016.
  */
 public class NotifyModel {
+
+    public static List<Notify> getAll(){
+        return DB.db.selectFromNotify().toList();
+    }
 
     public static void getSyncLasts(){
         loadFromServer();

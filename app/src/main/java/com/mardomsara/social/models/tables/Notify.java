@@ -48,4 +48,8 @@ public class Notify {
         PayloadStored = AppUtil.toJson(Load);
     }
 
+    public void setloadFromStored(){
+        Load = AppUtil.fromJson(PayloadStored,NotifyPayloadJson.class);
+    }
+
 }

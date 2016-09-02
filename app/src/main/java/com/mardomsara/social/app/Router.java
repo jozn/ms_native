@@ -8,6 +8,7 @@ import com.mardomsara.social.ui.presenter.HelloPresenter;
 import com.mardomsara.social.ui.presenter.chats.ChatEntryPresenter;
 import com.mardomsara.social.ui.presenter.chats.GalleryChooserPresenter;
 import com.mardomsara.social.ui.presenter.main_pages.ChatMainBranch;
+import com.mardomsara.social.ui.presenter.social.AcitivityTabPresenter;
 import com.mardomsara.social.ui.presenter.social.CommontsPresnter;
 import com.mardomsara.social.ui.presenter.social.FollowsListPresenter;
 import com.mardomsara.social.ui.presenter.social.HomeStream2Presenter;
@@ -80,7 +81,8 @@ public class Router {
     }
 
     public static FragmentPage getAactivityPage() {
-        return new HelloPresenter();
+        return new AcitivityTabPresenter();
+//        return new HelloPresenter();
 //        return new ProfilePresenter(Session.getUserId());
     }
 }
