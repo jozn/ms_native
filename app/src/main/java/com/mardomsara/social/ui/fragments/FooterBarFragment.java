@@ -52,16 +52,19 @@ public class FooterBarFragment extends BaseFragment {
     }
 
     public void setUpEvents(){
+
         for (final String k: cellsMap.keySet()){
             cellsMap.get(k).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Nav.goToBranch(k);
                 }});
-            cellsMap.get(k).setOnClickListener(new View.OnClickListener() {
+            cellsMap.get(k).setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
-                public void onClick(View v) {
-                    Nav.goToBranch(k);
+                public boolean onLongClick(View v) {
+//                    Nav.goToBranch(k);
+//                    Nav.resetBranch(k);
+                    return true;
                 }
             });
 //            cellsMap.get(k).setOnClickListener((v)-> Nav.goToBranch(k));

@@ -51,4 +51,10 @@ public class Helper {
         });
     }
 
+    public static void showDebugMessage(String text){
+        AndroidUtil.runInUi(()->{
+            Toast.makeText(AppUtil.getContext(),text,Toast.LENGTH_SHORT).show();
+        });
+    }
+
 }

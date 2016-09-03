@@ -1,11 +1,13 @@
 package com.mardomsara.social.ui.views;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
+import android.text.style.StyleSpan;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
@@ -14,6 +16,7 @@ import android.widget.Toast;
 
 import com.mardomsara.social.Nav;
 import com.mardomsara.social.helpers.AppUtil;
+import com.mardomsara.social.lib.AppClickableSpan;
 import com.mardomsara.social.ui.presenter.social.TagsPresenter;
 
 /**
@@ -89,7 +92,7 @@ public class LinkerText extends TextView {
 
     static ClickableSpan buildclick(final CharSequence s){
 
-        ClickableSpan clickableSpan = new ClickableSpan() {
+        ClickableSpan clickableSpan = new AppClickableSpan() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(AppUtil.getContext(), s, Toast.LENGTH_LONG).show();
@@ -100,7 +103,7 @@ public class LinkerText extends TextView {
 
     static ClickableSpan buildclickTag(final CharSequence s){
 
-        ClickableSpan clickableSpan = new ClickableSpan() {
+        ClickableSpan clickableSpan = new AppClickableSpan() {
             @Override
             public void onClick(View view) {
 //                Toast.makeText(AppUtil.getContext(), s, Toast.LENGTH_LONG).show();
@@ -131,10 +134,12 @@ public class LinkerText extends TextView {
 
                 case UserName:
                     s1.setSpan(buildclick(s1),0,s1.length(), Spanned.SPAN_MARK_MARK);
+                    s1.setSpan(new StyleSpan(Typeface.BOLD),0,s1.length(), Spanned.SPAN_MARK_MARK);
                     break;
 
                 case Tag:
                     s1.setSpan(buildclickTag(s1),0,s1.length(),Spanned.SPAN_MARK_MARK);
+                    s1.setSpan(new StyleSpan(Typeface.BOLD),0,s1.length(), Spanned.SPAN_MARK_MARK);
                     break;
             }
             builder.append(s1);

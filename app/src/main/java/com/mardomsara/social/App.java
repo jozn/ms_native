@@ -19,6 +19,7 @@ import com.orhanobut.hawk.HawkBuilder;
 import com.raizlabs.android.dbflow.config.FlowConfig;
 import com.raizlabs.android.dbflow.config.FlowLog;
 import com.raizlabs.android.dbflow.config.FlowManager;
+import com.squareup.picasso.LruCache;
 import com.squareup.picasso.Picasso;
 
 import java.util.HashSet;
@@ -79,10 +80,19 @@ public class App extends Application {
       AppUtil._context = ctx;
 //      AppUtil._context = ctx;
 
-      Picasso.with(AppUtil.getContext()).setIndicatorsEnabled(true);
-      Picasso.with(AppUtil.getContext()).setLoggingEnabled(true);
 
       if(isInintiolized == false){
+         isInintiolized = true;
+
+         //////////////////////////////////////////
+         Picasso p = new Picasso.Builder(context)
+                 .memoryCache(new LruCache(100000000))
+                 .build();
+         Picasso.setSingletonInstance(p);
+//         Picasso.with(AppUtil.getContext()).setIndicatorsEnabled(true);
+         Picasso.with(AppUtil.getContext()).setLoggingEnabled(true);
+         /////////////////////////////////////////
+
          Nammu.init(ctx);
          Set<RequestListener> requestListeners = new HashSet<>();
          requestListeners.add(new RequestLoggingListener());

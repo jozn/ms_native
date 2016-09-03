@@ -5,7 +5,7 @@ package com.mardomsara.social.json.social.rows;
  */
 public class UserTableJson extends UserInfoJson {
 
-    public int Id;
+//    public int Id;
     /*public String UserName;
     public String FirstName;
     public String LastName;

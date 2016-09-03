@@ -8,6 +8,9 @@ import com.mardomsara.social.models.IUserAndMe;
  * Created by Hamid on 7/13/2016.
  */
 public class UserInfoJson implements IUserAndMe {
+    public int Id;
+
+    @Deprecated
     public int UserId;
     public @Nullable String FirstName;
     public @Nullable String LastName;
@@ -23,6 +26,10 @@ public class UserInfoJson implements IUserAndMe {
     public String getFullName() {
         return FullName == null ? FirstName + " " + LastName : FullName;
     }
+
+//    public int getUserId() {
+//        return Id;
+//    }
 
     ///////////// Extra methods //////////////////////
     @Override

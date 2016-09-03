@@ -23,6 +23,7 @@
         android:layout_weight="1"
         android:text="\uf493"
         style="@style/foot_bar_cell"
+        android:longClickable="true"
         android:id="@+id/activity"/>
 
     <TextView

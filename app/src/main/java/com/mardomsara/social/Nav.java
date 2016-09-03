@@ -9,6 +9,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 
 import com.mardomsara.social.app.Router;
+import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.ui.fragments.FooterBarFragment;
 
 import java.util.ArrayList;
@@ -135,11 +136,14 @@ public class Nav {
 
     }
 
+    //Fixme: .pop() events + bug: get longcliked branced not active
     public static void resetBranch(String branch) {
+        Helper.showDebugMessage("resetBranch");
        BranchCell bc =  _getActiveBranchCell();
         while (bc.fragmentsPageStacks.size()>1){
             bc.fragmentsPageStacks.pop();
         }
+        resetBranch(branch);
     }
 
     @DebugLog

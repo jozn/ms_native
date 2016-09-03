@@ -25,6 +25,7 @@ import com.mardomsara.social.Nav;
 import com.mardomsara.social.R;
 import com.mardomsara.social.app.LifeCycle;
 import com.mardomsara.social.helpers.AppUtil;
+import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.play.PlayAdvanced;
 import com.mardomsara.social.service.PingService;
 
@@ -122,6 +123,20 @@ public class MainAppActivity extends AppActivity {
     }
 
     @Override
+    public void onTrimMemory(int level) {
+        super.onTrimMemory(level);
+        logIt("onTrimMemory");
+        Helper.showDebugMessage("onTrimMemory - leve:"+ level);
+    }
+
+    @Override
+    public void onLowMemory() {
+        super.onLowMemory();
+        logIt("onLowMemory");
+        Helper.showDebugMessage("onLowMemory");
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
@@ -177,11 +192,6 @@ public class MainAppActivity extends AppActivity {
         logIt("onConfigurationChanged");
     }
 
-    @Override
-    public void onLowMemory() {
-        super.onLowMemory();
-        logIt("onLowMemory");
-    }
 
 
     @Override

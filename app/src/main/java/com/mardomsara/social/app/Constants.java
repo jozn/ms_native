@@ -32,6 +32,14 @@ public class Constants {
     public static int Msg_Media_Deleteted_Server = 6; // ??
 
 
+    // Notifications
+    public static int NOTIFICATION_TYPE_POST_LIKED = 200;
+    public static int NOTIFICATION_TYPE_POST_COMMENTED = 220 ;
+    public static int NOTIFICATION_TYPE_FOLLOWED_YOU = 250 ;
+
+    //Posts
+    public static int POST_TYPE_TEXT = 1;
+    public static int POST_TYPE_PHOTO = 2;
     //Hawk
     public static String SessionUserInfo = "SessionUserInfo";
 

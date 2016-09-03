@@ -2,6 +2,7 @@ package com.mardomsara.social.app;
 
 import com.mardomsara.social.FragmentPage;
 import com.mardomsara.social.Nav;
+import com.mardomsara.social.json.social.rows.PostRowJson;
 import com.mardomsara.social.models.Session;
 import com.mardomsara.social.tables.RoomsListTable;
 import com.mardomsara.social.ui.presenter.HelloPresenter;
@@ -13,6 +14,7 @@ import com.mardomsara.social.ui.presenter.social.CommontsPresnter;
 import com.mardomsara.social.ui.presenter.social.FollowsListPresenter;
 import com.mardomsara.social.ui.presenter.social.HomeStream2Presenter;
 import com.mardomsara.social.ui.presenter.social.LikesPresenter;
+import com.mardomsara.social.ui.presenter.social.PostEnteryPresenter;
 import com.mardomsara.social.ui.presenter.social.ProfilePresenter;
 import com.mardomsara.social.ui.presenter.social.SearchTabPresenter;
 import com.mardomsara.social.ui.presenter.social.TagsPresenter;
@@ -67,6 +69,10 @@ public class Router {
 
     public static void goToProfile(int userId) {
         Nav.push(new ProfilePresenter(userId));
+    }
+
+    public static void goToPost(PostRowJson postRowJson) {
+        Nav.push(new PostEnteryPresenter(postRowJson));
     }
 
     public static void goToTag(String tag) {

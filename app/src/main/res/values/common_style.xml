@@ -155,4 +155,11 @@
         <item name="android:layout_height">2dp</item>
     </style>
 
+    <!-- Notifications -->
+    <style name="notificatin_text">
+        <item name="fontPath">@string/font_iran_light</item>
+        <item name="android:textSize">12dp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
 </resources>

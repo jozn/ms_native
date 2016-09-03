@@ -1,22 +1,33 @@
 package com.mardomsara.social.ui.cells.lists;
 
+import android.graphics.Typeface;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.method.LinkMovementMethod;
+import android.text.style.ClickableSpan;
+import android.text.style.StyleSpan;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.mardomsara.social.App;
 import com.mardomsara.social.R;
-import com.mardomsara.social.helpers.AndroidUtil;
+import com.mardomsara.social.app.Constants;
+import com.mardomsara.social.app.Router;
 import com.mardomsara.social.helpers.AppUtil;
+import com.mardomsara.social.helpers.FormaterUtil;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.LangUtil;
+import com.mardomsara.social.json.social.rows.PostRowJson;
+import com.mardomsara.social.json.social.rows.UserInfoJson;
+import com.mardomsara.social.lib.AppClickableSpan;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
+import com.mardomsara.social.lib.Spanny;
 import com.mardomsara.social.models.tables.Notify;
 import com.mardomsara.social.ui.views.helpers.ViewHelper;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -79,6 +90,13 @@ public class NotifyListCell
             }
         }
 
+
+        @Override
+        protected int getContentItemViewType(int position) {
+//            return super.getContentItemViewType(position);
+            return list.get(position).ActionTypeId;
+        }
+
         @Override
         protected int getContentItemCount() {
             return list.size();
@@ -112,18 +130,164 @@ public class NotifyListCell
     public static class NotifyCell {
         View viewRoot;
 
-        @Bind(R.id.image) ImageView image;
-        @Bind(R.id.text) TextView text;
+        @Bind(R.id.avatar) ImageView avatar_image;
+        @Bind(R.id.frame_layout) ImageView image;
+        @Bind(R.id.text) TextView text_main;
+        @Bind(R.id.date) TextView date;
 
         public NotifyCell(ViewGroup parent) {
             viewRoot = AppUtil.inflate(R.layout.notify_cell ,parent);
             ButterKnife.bind(this,viewRoot);
         }
+        void _bindPost(Notify nf){}
+        void _bindPostText(Notify nf){}
+        void _bindPostPhoto(Notify nf){}
+        void _bindComment(Notify nf){}
+
+        void _bindLiked(Notify nf){
+            PostRowJson post = nf.Load.Post;
+            UserInfoJson actor = nf.Load.Actor;
+            _setAvatar(actor);
+            Spanny spanny = _getProfileSpany(actor); //new Spanny(s, new StyleSpan(Typeface.BOLD), goToProfileSpan(uid));
+            String tp ="";
+            if(post != null){//must never happen
+                tp = " پست شما: \"%\" را پسندید.";
+                tp = tp.replace("%",LangUtil.limitText(nf.Load.Post.Text,40));
+                if(post.TypeId == Constants.POST_TYPE_PHOTO){
+                    tp = " عکس شما: \"%\" را پسندید.";
+                    tp = tp.replace("%",LangUtil.limitText(nf.Load.Post.Text,40));
+                    _setPostImage(post.MediaUrl);
+//                    image.setVisibility(View.VISIBLE);
+                }else {
+                    image.setVisibility(View.GONE);
+                }
+                spanny.append(tp);
+                viewRoot.setOnClickListener((v)->Router.goToPost(nf.Load.Post));
+                text_main.setText(spanny);
+            }
+        }
+        void _bindFollowing(Notify nf){}
+
+        void _setPostImage(String url){
+            image.setVisibility(View.VISIBLE);
+            Picasso.with(AppUtil.getContext())
+                    .load("http://localhost:5000/"+url)
+                    .into(image);
+        }
+
+        void _setDate(int time){
+            date.setText(FormaterUtil.timeToDayTime(time));
+        }
+
+        void _setAvatar(UserInfoJson Actor){
+            avatar_image.setOnClickListener((v)-> Router.goToProfile(Actor.UserId));
+            Helper.SetAvatar(avatar_image, Actor.AvatarUrl);
+            avatar_image.setOnClickListener((v)-> Router.goToProfile(Actor.UserId));
+        }
+
+        Spanny _getProfileSpany(UserInfoJson Actor){
+            /////////////////////////
+            String s = Actor.getFullName();
+            int uid = Actor.UserId;
+            Spanny spanny = new Spanny(s, new StyleSpan(Typeface.BOLD), goToProfileSpan(uid));
+            return spanny;
+        }
+
         void bind(Notify nf){
             nf.setloadFromStored();
+            _setDate(nf.CreatedTime);
+            text_main.setMovementMethod(LinkMovementMethod.getInstance());
+
+
+            /////////////////////////
             String s = nf.Load.Actor.getFullName();
-            text.setText(s);
-            Helper.SetAvatar(image, nf.Load.Actor.AvatarUrl);
+            int uid = nf.Load.Actor.UserId;
+            Spanny spanny = new Spanny(s, new StyleSpan(Typeface.BOLD), goToProfileSpan(uid));
+
+            ////////////////////////////////////////////////
+            // Posts: text_main,Photo,
+            String tp ="";
+            if(nf.ActionTypeId == Constants.NOTIFICATION_TYPE_POST_LIKED){
+                PostRowJson post = nf.Load.Post;
+                if(post != null){//must never happen
+                    tp = " پست شما: \"%\" را پسندید.";
+                    tp = tp.replace("%",LangUtil.limitText(nf.Load.Post.Text,40));
+                    if(post.TypeId == Constants.POST_TYPE_PHOTO){
+                        tp = " عکس شما: \"%\" را پسندید.";
+                        tp = tp.replace("%",LangUtil.limitText(nf.Load.Post.Text,40));
+                        Picasso.with(AppUtil.getContext())
+                                .load("http://localhost:5000/"+post.MediaUrl)
+                                .into(image);
+                        image.setVisibility(View.VISIBLE);
+                    }else {
+                        image.setVisibility(View.GONE);
+                    }
+                    spanny.append(tp);
+                    viewRoot.setOnClickListener((v)->Router.goToPost(nf.Load.Post));
+                }
+            }
+
+            if(nf.ActionTypeId == Constants.NOTIFICATION_TYPE_POST_COMMENTED){
+                PostRowJson post = nf.Load.Post;
+                if(post != null){//must never happen
+                    tp = " بر روی پست شما: \"%\" نظر داد: \"@$\".";
+                    tp = tp.replace("%",LangUtil.limitText(nf.Load.Post.Text,40));
+                    if(post.TypeId == Constants.POST_TYPE_PHOTO){
+                        tp = " بر روی عکس شما: \"%\" نظر داد: \"@$\".";
+                        tp = tp.replace("%",LangUtil.limitText(nf.Load.Post.Text,40));
+                        Picasso.with(AppUtil.getContext())
+                                .load("http://localhost:5000/"+post.MediaUrl)
+                                .into(image);
+                        image.setVisibility(View.VISIBLE);
+                    }else {
+                        image.setVisibility(View.GONE);
+                    }
+                    if(nf.Load.Comment!= null){
+                        tp = tp.replace("@$",nf.Load.Comment.Text);
+                    }
+                    spanny.append(tp);
+                    viewRoot.setOnClickListener((v)->Router.goToPost(nf.Load.Post));
+                }
+            }
+
+            if(nf.ActionTypeId == Constants.NOTIFICATION_TYPE_FOLLOWED_YOU){
+                PostRowJson post = nf.Load.Post;
+
+                    tp = "شما را دنبال می کند.";
+                    spanny.append(tp);
+                    viewRoot.setOnClickListener((v)->Router.goToPost(nf.Load.Post));
+
+            }
+
+            text_main.setText(spanny);
+            text_main.setMovementMethod(LinkMovementMethod.getInstance());
+            /////////////////
+            avatar_image.setOnClickListener((v)-> Router.goToProfile(uid));
+
+            Helper.SetAvatar(avatar_image, nf.Load.Actor.AvatarUrl);
+            date.setText(FormaterUtil.timeToDayTime(1425654125));
+        }
+
+        static ClickableSpan buildclick(final CharSequence s){
+
+            ClickableSpan clickableSpan = new AppClickableSpan() {
+                @Override
+                public void onClick(View view) {
+                    Toast.makeText(AppUtil.getContext(), s, Toast.LENGTH_LONG).show();
+                }
+            };
+            return clickableSpan;
+        }
+
+        static ClickableSpan goToProfileSpan(final int s){
+
+            AppClickableSpan clickableSpan = new AppClickableSpan() {
+                @Override
+                public void onClick(View view) {
+                    Router.goToProfile(s);
+                }
+            };
+            return clickableSpan;
         }
     }
 }
