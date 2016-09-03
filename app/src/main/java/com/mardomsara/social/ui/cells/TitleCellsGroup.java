@@ -1,11 +1,12 @@
 package com.mardomsara.social.ui.cells;
 
-import android.view.View;
+import android.graphics.Typeface;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.mardomsara.social.R;
 import com.mardomsara.social.helpers.AppUtil;
+import com.mardomsara.social.lib.Spanny;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -49,6 +50,23 @@ public class TitleCellsGroup {
 
         public void setText(String title){
             text_view.setText(title);
+        }
+    }
+
+    public static class InfoTitleLight {
+        public ViewGroup rootView;
+        @Bind(R.id.text_view)
+        TextView text_view;
+
+        public InfoTitleLight(ViewGroup parent){
+            rootView =(ViewGroup) AppUtil.inflate(R.layout.title_info_light,parent);
+            ButterKnife.bind(this,rootView);
+        }
+
+        public void setText(String title){
+            Spanny spanny = new Spanny();
+            spanny.append(title, Typeface.BOLD);
+            text_view.setText(spanny);
         }
     }
 

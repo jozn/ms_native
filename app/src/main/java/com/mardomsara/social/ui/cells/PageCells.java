@@ -40,5 +40,12 @@ public class PageCells {
         }
     }
 
+    public static class ComingSoon {
+        public ViewGroup rootView;
+        public ComingSoon() {
+            rootView = (ViewGroup)AppUtil.inflate(R.layout.cell_page_comming_soon);
+        }
+    }
+
 
 }

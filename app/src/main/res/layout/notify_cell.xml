@@ -13,17 +13,20 @@
         android:layout_width="55dp"
         android:layout_height="55dp"
         android:visibility="visible"
+        android:layout_marginLeft="2dp"
+        android:id="@+id/frame_layout"
         >
         <ImageView
             android:layout_width="55dp"
             android:layout_height="55dp"
             android:src="@drawable/e_1f1e7_1f1fb"
-            android:id="@+id/frame_layout"
+            android:id="@+id/image_extra"
             />
         <com.mardomsara.social.ui.views.wigets.FollowingButton
             android:layout_width="55dp"
             android:layout_height="55dp"
             android:visibility="gone"
+            android:id="@+id/following_button"
             />
 
     </FrameLayout>

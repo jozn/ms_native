@@ -20,6 +20,10 @@ public class NotifyModel {
         return DB.db.selectFromNotify().toList();
     }
 
+    public static List<Notify> getAllReverse(){
+        return DB.db.selectFromNotify().orderByIdDesc().toList();
+    }
+
     public static void getSyncLasts(){
         loadFromServer();
     }

@@ -14,6 +14,7 @@ import com.mardomsara.social.Nav;
 import com.mardomsara.social.R;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.ui.BasePresenter;
+import com.mardomsara.social.ui.cells.PageCells;
 
 /**
  * Created by Hamid on 8/23/2016.
@@ -72,7 +73,7 @@ public class AcitivityTabPresenter extends BasePresenter {
         public Fragment getItem(int position) {
             switch (position){
                 case 0:
-                    return new SuggestionsTagsPresenter().getFragment();
+                    return new ComingSoonPresenter().getFragment();
                 default:
                     return new NotifyPresenter().getFragment();
             }
