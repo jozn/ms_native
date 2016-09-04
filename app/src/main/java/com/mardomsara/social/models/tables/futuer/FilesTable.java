@@ -1,4 +1,4 @@
-package com.mardomsara.social.tables;
+package com.mardomsara.social.models.tables.futuer;
 
 /**
  * Created by Hamid on 2/13/2016.

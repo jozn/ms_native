@@ -6,6 +6,7 @@ import com.raizlabs.android.dbflow.annotation.Database;
  * Created by Hamid on 4/29/2016.
  */
 @Database(name = "app46", version = 1)
+@Deprecated
 public class AppDB {
 
 }
