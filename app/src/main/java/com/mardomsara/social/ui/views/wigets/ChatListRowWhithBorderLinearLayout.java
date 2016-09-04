@@ -31,13 +31,15 @@ public class ChatListRowWhithBorderLinearLayout extends LinearLayout {
 //    Paint paint = new Paint();
     int xoff = -1;
     View child;
+    View child0;
     int color = Color.parseColor("#dddddd");
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         if(xoff == -1 ){
             child = getChildAt(1);
-            xoff = getPaddingRight() + child.getWidth() +child.getPaddingLeft()+child.getPaddingRight();
+            child0 = getChildAt(0);
+            xoff = getPaddingRight() + child.getWidth() +child.getPaddingLeft()+child.getPaddingRight() + child0.getPaddingRight();
         }
 
         paint.setStyle(Paint.Style.FILL_AND_STROKE);

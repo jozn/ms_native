@@ -22,6 +22,7 @@ import java.util.Map;
 
 //@TableModelSpec(className = "RoomListsTable",tableName = "room_list")
 //@Message
+@Deprecated
 @Table(name = "rooms_list",database = AppDB.class)
 public class RoomsListTable  extends BaseModel {
 

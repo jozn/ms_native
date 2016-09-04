@@ -19,6 +19,7 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:orientation="vertical"
+        android:paddingRight="8dp"
         >
 
         <LinearLayout
@@ -81,13 +82,14 @@
     </LinearLayout>
 
     <com.facebook.drawee.view.SimpleDraweeView
-        android:layout_marginLeft="4dp"
+        android:layout_marginLeft="0dp"
         android:id="@+id/avatar"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        fresco:roundedCornerRadius="5dp"
+        fresco:roundedCornerRadius="6dp"
+        fresco:roundAsCircle="false"
         fresco:fadeDuration="200"
-        android:paddingLeft="4dp"
+        android:paddingLeft="0dp"
 
 
         />

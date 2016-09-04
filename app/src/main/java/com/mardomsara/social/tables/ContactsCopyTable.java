@@ -7,7 +7,7 @@ import com.raizlabs.android.dbflow.sql.language.SQLite;
 import com.raizlabs.android.dbflow.structure.BaseModel;
 
 import java.util.List;
-
+@Deprecated
 @Table(allFields = true ,name = "contacts_copy",database = AppDB.class)
 public class ContactsCopyTable extends BaseModel {
 

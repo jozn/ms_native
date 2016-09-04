@@ -43,6 +43,7 @@ import java.util.List;
 //@TableModelSpec(className = "MessagesTable",tableName = "messages")
 
 //TOdo; add: IsSeenByPeer() IsRe....
+@Deprecated
 @Table(name = "messages",database = AppDB.class, cachingEnabled = false)
 public class MessagesTable extends BaseModel {
     @PrimaryKey

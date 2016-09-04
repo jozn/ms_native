@@ -197,6 +197,7 @@ public class ChatRoomsListPresenter extends BasePresenter {
 
             vh.self.setTag(room);
             Uri imageUri = Helper.PathToUserAvatarUri(room.getRoomAvatarUrl());
+//            Helper.SetAvatar(vh.avatar, room.getRoomAvatarUrl());
             vh.avatar.setImageURI(imageUri);
         }
 

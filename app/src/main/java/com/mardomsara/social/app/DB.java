@@ -4,8 +4,10 @@ import com.github.gfx.android.orma.AccessThreadConstraint;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.JsonUtil;
+import com.mardomsara.social.helpers.LangUtil;
 import com.mardomsara.social.json.social.rows.UserInfoJson;
 import com.mardomsara.social.models.tables.AppDB;
+import com.mardomsara.social.models.tables.Message;
 import com.mardomsara.social.models.tables.Notify;
 
 /**
@@ -32,6 +34,10 @@ public class DB {
                     not.CreatedTime = (int) AppUtil.getTime();
 //                    not.Load = JsonUtil.toJson(new UserInfoJson());
 //                    db.insertIntoNotify(not);
+                    Message msg = new Message();
+                    msg.MessageKey = LangUtil.getRandomString(20);
+                    msg.RoomKey = "u12";
+                    db.insertIntoMessage(msg);
                 }
             });
         });

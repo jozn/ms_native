@@ -8,7 +8,11 @@ import com.github.gfx.android.orma.annotation.Database;
 @Database(
         databaseClassName = "AppDB",
         includes = {
+                ContactsCopy.class,
                 Notify.class,
+                Message.class,
+                Room.class,
+                User.class,
 
         }, // Give model classes to handle
         excludes = {  } // Give model classes not to handle

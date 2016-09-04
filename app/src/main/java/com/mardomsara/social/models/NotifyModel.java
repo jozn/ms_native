@@ -21,6 +21,7 @@ public class NotifyModel {
     }
 
     public static List<Notify> getAllReverse(){
+//        DB.db.updateNotify().ForUserId(55).execute();
         return DB.db.selectFromNotify().orderByIdDesc().toList();
     }
 

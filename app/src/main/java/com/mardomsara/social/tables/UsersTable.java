@@ -11,6 +11,7 @@ import java.util.List;
 
 //@TableModelSpec(className = "UsersTable",tableName = "contacts")
 @Table(allFields = true ,name = "user",database = AppDB.class)
+@Deprecated
 public class UsersTable extends BaseModel {
 //    @ColumnSpec(constraints = "NOT NULL UNIQUE")
 //    @PrimaryKey(autoincrement = false)
