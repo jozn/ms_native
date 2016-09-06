@@ -46,8 +46,8 @@ public class MessageModel {
 
     //FIXME: Primery key??
     public static Message getMessageByKey(String msgKey) {
-//        return DB.db.selectFromMessage().MessageKeyEq(msgKey).getOrNull(1);
-        return null;
+        return DB.db.selectFromMessage().MessageKeyEq(msgKey).getOrNull(0);
+//        return null;
     }
 
     public static Message newTextMsgForRoom(Room room) {

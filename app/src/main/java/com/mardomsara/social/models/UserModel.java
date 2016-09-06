@@ -15,10 +15,18 @@ import java.util.List;
  */
 public class UserModel {
 
+    //////////// CRUD ///////////
+    public static void create(User user){
+        DB.db.insertIntoUser(user);
+    }
+
     @Nullable
     public static User getByUserId(int id){
         return DB.db.selectFromUser().UserIdEq(id).getOrNull(0);
     }
+
+    /////////////////////////////
+
 
     public static void onRecivedNewMsg(Message msg) {
         User user = getByUserId( msg.UserId );

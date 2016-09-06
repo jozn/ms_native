@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import com.github.gfx.android.orma.annotation.Column;
 import com.github.gfx.android.orma.annotation.PrimaryKey;
 import com.github.gfx.android.orma.annotation.Table;
+import com.mardomsara.social.app.DB;
 
 /**
  * Created by Hamid on 9/4/2016.
@@ -121,4 +122,7 @@ public class Message {
         return (ServerDeletedTime > 0 );
     }
 
+    public void save() {
+        DB.db.insertIntoMessage(this);
+    }
 }
