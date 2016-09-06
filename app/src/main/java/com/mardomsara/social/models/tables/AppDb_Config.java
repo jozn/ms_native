@@ -13,6 +13,7 @@ import com.github.gfx.android.orma.annotation.Database;
                 Message.class,
                 Room.class,
                 User.class,
+//                Item.class
 
         }, // Give model classes to handle
         excludes = {  } // Give model classes not to handle

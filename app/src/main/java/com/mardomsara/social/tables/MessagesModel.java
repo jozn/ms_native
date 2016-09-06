@@ -201,6 +201,7 @@ public class MessagesModel {
     public static void setPhotoParams(MessagesTable msg, Bitmap bm) {
 
     }
+
     public static void setPhotoParams(MessagesTable msg, String filePath) {
         File file = new File(filePath);
         Bitmap mBitmap = BitmapFactory.decodeFile(filePath);

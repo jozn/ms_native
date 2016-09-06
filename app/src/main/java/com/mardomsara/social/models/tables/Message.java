@@ -13,25 +13,25 @@ import com.github.gfx.android.orma.annotation.Table;
 @Table
 public class Message {
 
-    @PrimaryKey(autoincrement = true)
-    public int id;
+//    @PrimaryKey(autoincrement = true)
+//    public int id;
 
-    @Column(unique = true, indexed = true)
-    @NonNull
+//    @Column(unique = true, indexed = true)
+//    @NonNull
+    @PrimaryKey(auto = false)
     public String MessageKey;
 
     @Column(indexed = true)
     @NonNull
     public String RoomKey;
 
-    @Column(defaultExpr = "0")
+    @Column(defaultExpr = "0", helpers = Column.Helpers.CONDITION_EQ)
     public int UserId =0 ;//-1: system
 
     @Column(defaultExpr = "1")
     public int RoomTypeId = 1;//1: peer-to-peer 2:private-group
 
-    @Column(defaultExpr = "1")
-//    @NotNull
+    @Column(defaultExpr = "1",helpers = Column.Helpers.CONDITION_EQ)
     public int MessageTypeId = 1;//1: text,...
 
     @Column(defaultExpr = "''")
@@ -40,37 +40,37 @@ public class Message {
     @Column(defaultExpr = "''")
     public String ExtraJson = "";
 
-    @Column(defaultExpr = "0")
+    @Column(defaultExpr = "0", helpers = Column.Helpers.CONDITION_EQ)
     public int IsByMe =0 ;
 
     @Column(defaultExpr = "0")
     public int IsStared =0;//REMOVE??????? its table????
 
-    @Column(defaultExpr = "0")
+    @Column(defaultExpr = "0", helpers = Column.Helpers.CONDITIONS)
     public int DeliveryStatus = 0;//0:not-me  1: need-push 2: resic=ved-server 3:rc-clint; 4:seen-client 5: removed-server
 
-    @Column(defaultExpr = "0")
+    @Column(defaultExpr = "0", helpers = Column.Helpers.ALL)
     public long CreatedMs = 0;
 
-    @Column(defaultExpr = "0")
+    @Column(defaultExpr = "0", helpers = Column.Helpers.ALL)
     public long CreatedDeviceMs = 0;
 
-    @Column(defaultExpr = "0")
+    @Column(defaultExpr = "0" ,helpers = Column.Helpers.CONDITION_EQ)
     public int PeerSeenTime = 0;
 
-    @Column(defaultExpr = "0")
+    @Column(defaultExpr = "0", helpers = Column.Helpers.CONDITION_EQ)
     public int ServerReceivedTime = 0;
 
-    @Column(defaultExpr = "0")
+    @Column(defaultExpr = "0", helpers = Column.Helpers.CONDITION_EQ)
     public int PeerReceivedTime = 0;
 
-    @Column(defaultExpr = "0")
+    @Column(defaultExpr = "0" ,helpers = Column.Helpers.CONDITION_EQ)
     public int ServerDeletedTime = 0;
 
-    @Column(defaultExpr = "0")
+    @Column(defaultExpr = "0", helpers = Column.Helpers.CONDITION_EQ)
     public int ToPush = 0;
 
-    @Column(defaultExpr = "0")
+    @Column(defaultExpr = "0" ,helpers = Column.Helpers.CONDITION_EQ)
     public int MediaStatus=0;
 
     /// Media
@@ -80,10 +80,10 @@ public class Message {
     @Column(defaultExpr = "''")
     public String MediaName = "";
 
-    @Column(defaultExpr = "''")
+    @Column(defaultExpr = "''" , helpers = Column.Helpers.CONDITION_EQ)
     public String MediaLocalSrc = "";
 
-    @Column(defaultExpr = "''")
+    @Column(defaultExpr = "''" , helpers = Column.Helpers.CONDITION_EQ)
     public String MediaServerSrc = "";
 
     @Column(defaultExpr = "0")
@@ -100,5 +100,25 @@ public class Message {
 
     @Column(defaultExpr = "''")
     public String MediaExtension = "";
+
+
+    /////////////////////////////////////////
+    ///////////////// Helpers? //////////////
+
+    public boolean isReceivedToPeer() {
+        return (PeerReceivedTime > 0 );
+    }
+
+    public boolean issSeenByPeer() {
+        return (PeerSeenTime > 0 );
+    }
+
+    public boolean isReceivedToServer() {
+        return (ServerReceivedTime > 0 );
+    }
+
+    public boolean isDeletedFromServer() {
+        return (ServerDeletedTime > 0 );
+    }
 
 }

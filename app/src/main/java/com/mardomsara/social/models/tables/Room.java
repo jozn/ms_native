@@ -29,25 +29,25 @@ public class Room {
     @Column(defaultExpr = "0")
     public int UseCustomRoomSettings = 0;
 
-    @Column(defaultExpr = "0")
+    @Column(defaultExpr = "0" , helpers = Column.Helpers.ALL)
     public long LastRoomOpenedTimeMs = 0;
 
-    @Column(defaultExpr = "0")
+    @Column(defaultExpr = "0", helpers = Column.Helpers.ALL)
     public int UnseenMessageCount = 0;
 
-    @Column(defaultExpr = "''")
+    @Column(defaultExpr = "''", helpers = Column.Helpers.CONDITION_EQ)
     public String LastSeenMessageKey = "";
 
     @Column(defaultExpr = "''")
     public String MessageDraftText = "";
 
-    @Column(defaultExpr = "0")
+    @Column(defaultExpr = "0" ,helpers = Column.Helpers.ALL)
     public long UpdatedMs = 0;
 
-    @Column(defaultExpr = "0")
+    @Column(defaultExpr = "0" , helpers = Column.Helpers.ALL)
     public long CreatedMs = 0;
 
-    @Column(defaultExpr = "0")
+    @Column(defaultExpr = "0" , indexed = true)
     public long SortTimeMs = 0;
 
     @Column(defaultExpr = "sssss")

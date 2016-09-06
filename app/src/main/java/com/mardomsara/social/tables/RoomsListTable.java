@@ -99,7 +99,7 @@ public class RoomsListTable  extends BaseModel {
         return "RoomName";
     }
 
-    public String getRoomAvatarUrl() {
+    public String getRoomAvatarUrl(){
         if(User != null){
             return User.getAvatarUrl();
         }

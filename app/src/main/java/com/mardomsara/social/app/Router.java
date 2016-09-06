@@ -3,6 +3,7 @@ package com.mardomsara.social.app;
 import com.mardomsara.social.FragmentPage;
 import com.mardomsara.social.Nav;
 import com.mardomsara.social.json.social.rows.PostRowJson;
+import com.mardomsara.social.models.RoomModel;
 import com.mardomsara.social.models.Session;
 import com.mardomsara.social.tables.RoomsListTable;
 import com.mardomsara.social.ui.presenter.HelloPresenter;
@@ -77,6 +78,11 @@ public class Router {
 
     public static void goToTag(String tag) {
         Nav.push(new TagsPresenter(tag));
+    }
+
+    public static void goToUserChatEntery(int UserId){
+//        RoomsListTable room = RoomModel.getRoomByRoomKeyAndLoadUser("u"+UserId);
+//        Nav.push(Router.getRoomEntery(room));
     }
 
     public static FragmentPage getMyProfile() {

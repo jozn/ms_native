@@ -4,9 +4,11 @@
 
 	<item
 		android:id="@+id/menu_remove"
-		android:icon="@drawable/abc_ic_clear_mtrl_alpha"
 		android:orderInCategory="1"
 		app:showAsAction="ifRoom"
-		android:title="Delete" />
+		android:title="Delete"
+
+		/>
+	<!--android:icon="@drawable/abc_ic_clear_mtrl_alpha"-->
 
 </menu>

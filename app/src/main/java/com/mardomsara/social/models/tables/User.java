@@ -7,7 +7,7 @@ import com.github.gfx.android.orma.annotation.Table;
 /**
  * Created by Hamid on 9/4/2016.
  */
-@Table
+@Table()
 public class User {
     @PrimaryKey(auto = false)
     public int UserId;
@@ -15,41 +15,41 @@ public class User {
     @Column(defaultExpr = "0")
     public int PhoneContactRowId = 0;
 
-    @Column(defaultExpr = "0")
+    @Column(defaultExpr = "0", helpers = Column.Helpers.CONDITION_EQ)
     public int IsPhoneContact = 0;
 
-    @Column(defaultExpr = "''")
+    @Column(defaultExpr = "''" ,helpers = Column.Helpers.CONDITION_EQ)
     public String PhoneNumber = "";//0935... +98910711..
 
-    @Column(defaultExpr = "''" )
+    @Column(defaultExpr = "''",helpers = Column.Helpers.CONDITION_EQ )
     public String PhoneNormalizedNumber = "";
 
-    @Column(defaultExpr = "''")
+    @Column(defaultExpr = "''" ,helpers = Column.Helpers.CONDITION_EQ)
     public String PhoneDisplayName = "";
 
-    @Column(defaultExpr = "''")
+    @Column(defaultExpr = "''" ,helpers = Column.Helpers.CONDITION_EQ)
     public String PhoneFamilyName = "";
 
-    @Column(defaultExpr = "0")
+    @Column(defaultExpr = "0" ,helpers = Column.Helpers.CONDITION_EQ)
     public int IsFollowing = 0;
 
-    @Column(defaultExpr = "''")
+    @Column(defaultExpr = "''" ,helpers = Column.Helpers.CONDITION_EQ)
     public String AvatarUrl = "";
 
     @Column(defaultExpr = "''")
     public String StatusText = "";
 
-    @Column(defaultExpr = "0")
+    @Column(defaultExpr = "0",helpers = Column.Helpers.CONDITION_EQ)
     public int StatusId = 0;
 
-    @Column(defaultExpr = "0")
+    @Column(defaultExpr = "0", helpers = Column.Helpers.CONDITIONS)
     public int UpdateTimestamp = 0;
 
-    @Column(defaultExpr = "0")
+    @Column(defaultExpr = "0" ,helpers = Column.Helpers.CONDITIONS)
     public int UnseenMessageCount = 0;//??
 
     //for followings
-    @Column(defaultExpr = "''")
+    @Column(defaultExpr = "''" ,helpers = Column.Helpers.CONDITION_EQ)
     public String UserName = "";
 
     @Column(defaultExpr = "''")
@@ -61,12 +61,12 @@ public class User {
     @Column(defaultExpr = "''")
     public String FullName = "";
 
-    @Column(defaultExpr = "0")
+    @Column(defaultExpr = "0" ,helpers = Column.Helpers.CONDITION_EQ)
     public int IsProfilePrivate = 0;
 
-    @Column(defaultExpr = "0")
+    @Column(defaultExpr = "0", helpers = Column.Helpers.CONDITION_EQ)
     public int FollowingType = 0;
 
-    @Column(defaultExpr = "0")
+    @Column(defaultExpr = "0" ,helpers = Column.Helpers.CONDITIONS)
     public int UpdatedTimestamp = 0;
 }

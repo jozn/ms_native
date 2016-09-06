@@ -1,41 +1,10 @@
 package com.mardomsara.social.tables;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.util.Log;
-
-import com.mardomsara.social.app.AppFiles;
-import com.mardomsara.social.app.Constants;
-import com.mardomsara.social.base.Command;
-import com.mardomsara.social.base.Session;
-import com.mardomsara.social.helpers.AndroidUtil;
-import com.mardomsara.social.helpers.AppUtil;
-import com.mardomsara.social.helpers.FileUtil;
-import com.mardomsara.social.helpers.FormaterUtil;
-import com.mardomsara.social.helpers.ImageUtil;
-import com.mardomsara.social.helpers.JsonUtil;
-import com.mardomsara.social.helpers.LangUtil;
-import com.mardomsara.social.helpers.TimeUtil;
-import com.mardomsara.social.helpers.VideoMetasHelper;
-import com.mardomsara.social.models.LastMsgOfRoomsCache;
-import com.mardomsara.social.models.events.MessageSyncMeta;
-import com.mardomsara.social.models.events.MsgGeneralChangeChangeEvent;
-import com.mardomsara.social.models.events.MsgsSyncMetaSeenByPeer;
-import com.mardomsara.social.models.extra.MsgExtraPhotoThumbnail;
-import com.mardomsara.social.service.WSService;
 import com.raizlabs.android.dbflow.annotation.Column;
 import com.raizlabs.android.dbflow.annotation.NotNull;
 import com.raizlabs.android.dbflow.annotation.PrimaryKey;
 import com.raizlabs.android.dbflow.annotation.Table;
-import com.raizlabs.android.dbflow.sql.language.SQLite;
 import com.raizlabs.android.dbflow.structure.BaseModel;
-
-import org.apache.commons.io.FileUtils;
-import org.greenrobot.eventbus.EventBus;
-
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by Hamid on 1/4/2016.
