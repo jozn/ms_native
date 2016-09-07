@@ -39,7 +39,7 @@ public interface LoadingListItemCreator {
 
         @Override
         public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-            // No binding for default loading row
+            // No binding for default loading root_view
         }
     };
 }

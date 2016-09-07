@@ -1,4 +1,4 @@
-package com.mardomsara.social.ui.adaptors.pager;
+package com.mardomsara.social.ui.presenter.chats.old;
 
 
 import android.content.Context;
@@ -10,9 +10,11 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.mardomsara.social.R;
-import com.mardomsara.social.ui.presenter.chats.ChatRoomsListPresenter;
+import com.mardomsara.social.ui.presenter.chats.RoomsListPresenter;
 import com.mardomsara.social.ui.presenter.chats.UserAndContactsPresenter;
+import com.mardomsara.social.ui.presenter.chats.old.ChatRoomsListPresenter;
 
+@Deprecated
 public class ChatBranchPagerAdaptor extends FragmentPagerAdapter  {
     final int PAGE_COUNT = 2;
     private String tabTitles[] = new String[] {  "کاربران" ,"گفتگو ها"};//, "Tab3","Tab222","Tab222","Tab222" };
@@ -39,6 +41,7 @@ public class ChatBranchPagerAdaptor extends FragmentPagerAdapter  {
 //                return new HelloFragment();
             default:
                 return new ChatRoomsListPresenter().getFragment();
+//                return new RoomsListPresenter().getFragment();
 //                return BasePresenter.presenterToFragment(new UserAndContactsPresenter());
         }
     }

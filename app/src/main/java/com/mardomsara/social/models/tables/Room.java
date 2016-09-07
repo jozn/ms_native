@@ -4,8 +4,14 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import com.github.gfx.android.orma.annotation.Column;
+import com.github.gfx.android.orma.annotation.OnConflict;
 import com.github.gfx.android.orma.annotation.PrimaryKey;
 import com.github.gfx.android.orma.annotation.Table;
+import com.mardomsara.social.app.DB;
+import com.mardomsara.social.models.UserModel;
+import com.mardomsara.social.tables.UsersTable;
+
+import org.apache.commons.lang3.math.NumberUtils;
 
 /**
  * Created by Hamid on 9/4/2016.
@@ -13,10 +19,11 @@ import com.github.gfx.android.orma.annotation.Table;
 @Table
 public class Room {
     
-    @PrimaryKey(autoincrement = true)
-    public int id;
-    
-    @Column(indexed = true)
+//    @PrimaryKey(autoincrement = true)
+//    public int id;
+//
+//    @Column(indexed = true)
+    @PrimaryKey(auto = false)
     @NonNull
     public String RoomKey;
 
@@ -50,12 +57,40 @@ public class Room {
     @Column(defaultExpr = "0" , indexed = true)
     public long SortTimeMs = 0;
 
-    @Column(defaultExpr = "sssss")
-    @NonNull
-    public String HHHHH;
+    /////////////////////////////////////////////////////////
+    ////////////////// Helpers ///////////////////
+    public void save() {
+        DB.db.prepareInsertIntoRoom(OnConflict.REPLACE,false).execute(this);
+    }
 
-    @Column(defaultExpr = "Oh_Yeah_lo")
-    @Nullable
-    public String GGGG;
-    
+
+    public User User;
+
+    public int getUserId(){
+        //todo add support for groups
+        if(RoomTypeId == 1 && false ) return 0;
+        Integer id = NumberUtils.createInteger(RoomKey.substring(1));
+        return id;
+    }
+
+    public User loadAndGetUser(){
+        User = UserModel.getByUserId(getUserId());
+        return User;
+    }
+
+    public String getRoomName() {
+        if(User != null){
+            return User.getFullName();
+        }
+        return "RoomName";
+    }
+
+    public String getRoomAvatarUrl(){
+        loadAndGetUser();//todo remove me
+        if(User != null){
+            return User.AvatarUrl;
+        }
+        return "public/avatars/no.jpg";
+    }
+
 }

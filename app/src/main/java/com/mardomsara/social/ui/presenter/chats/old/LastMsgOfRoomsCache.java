@@ -1,4 +1,4 @@
-package com.mardomsara.social.models;
+package com.mardomsara.social.ui.presenter.chats.old;
 
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -24,6 +24,7 @@ import java.util.Map;
 /**
  * Created by Hamid on 5/31/2016.
  */
+@Deprecated
 public class LastMsgOfRoomsCache {
     private static LastMsgOfRoomsCache _instance;
     private Map<String,MessagesTable> _map = new HashMap<>();

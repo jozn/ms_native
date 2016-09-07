@@ -89,7 +89,7 @@
             </LinearLayout>
 
         </LinearLayout>
-        <!--end of cells row 1-->
+        <!--end of cells root_view 1-->
 
         <!-- Cells sceond column-->
         <LinearLayout

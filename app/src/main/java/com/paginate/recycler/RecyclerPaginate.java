@@ -29,13 +29,13 @@ public final class RecyclerPaginate extends Paginate {
         recyclerView.addOnScrollListener(mOnScrollListener);
 
         if (addLoadingListItem) {
-            // Wrap existing adapter with new adapter that will add loading row
+            // Wrap existing adapter with new adapter that will add loading root_view
             RecyclerView.Adapter adapter = recyclerView.getAdapter();
             wrapperAdapter = new WrapperAdapter(adapter, loadingListItemCreator);
             adapter.registerAdapterDataObserver(mDataObserver);
             recyclerView.setAdapter(wrapperAdapter);
 
-            // For GridLayoutManager use separate/customisable span lookup for loading row
+            // For GridLayoutManager use separate/customisable span lookup for loading root_view
             if (recyclerView.getLayoutManager() instanceof GridLayoutManager) {
                 wrapperSpanSizeLookup = new WrapperSpanSizeLookup(
                         ((GridLayoutManager) recyclerView.getLayoutManager()).getSpanSizeLookup(),
@@ -179,12 +179,12 @@ public final class RecyclerPaginate extends Paginate {
         }
 
         /**
-         * Setup loading row. If loading row is used original adapter set on RecyclerView will be wrapped with
-         * internal adapter that will add loading row as the last item in the list. Paginate will observer the
-         * changes upon original adapter and remove loading row if there is no more data to load. By default loading
-         * row will be added.
+         * Setup loading root_view. If loading root_view is used original adapter set on RecyclerView will be wrapped with
+         * internal adapter that will add loading root_view as the last item in the list. Paginate will observer the
+         * changes upon original adapter and remove loading root_view if there is no more data to load. By default loading
+         * root_view will be added.
          *
-         * @param addLoadingListItem true if loading row needs to be added, false otherwise.
+         * @param addLoadingListItem true if loading root_view needs to be added, false otherwise.
          * @return {@link com.paginate.recycler.RecyclerPaginate.Builder}
          * @see {@link com.paginate.Paginate.Callbacks#hasLoadedAllItems()}
          * @see {@link com.paginate.recycler.RecyclerPaginate.Builder#setLoadingListItemCreator(LoadingListItemCreator)}

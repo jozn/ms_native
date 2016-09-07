@@ -1,6 +1,5 @@
-package com.mardomsara.social.ui.presenter.chats;
+package com.mardomsara.social.ui.presenter.chats.old;
 
-import android.graphics.Color;
 import android.net.Uri;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -10,10 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.mardomsara.social.App;
 import com.mardomsara.social.Nav;
 import com.mardomsara.social.R;
 import com.mardomsara.social.app.Constants;
@@ -23,7 +20,6 @@ import com.mardomsara.social.helpers.DialogHelper;
 import com.mardomsara.social.helpers.FormaterUtil;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.LangUtil;
-import com.mardomsara.social.models.LastMsgOfRoomsCache;
 import com.mardomsara.social.models.events.MessageSyncMeta;
 import com.mardomsara.social.models.events.MsgsSyncMetaDeletedFromServer;
 import com.mardomsara.social.models.events.MsgsSyncMetaReceivedToPeer;
@@ -35,7 +31,6 @@ import com.mardomsara.social.tables.MessagesModel;
 import com.mardomsara.social.tables.MessagesTable;
 import com.mardomsara.social.tables.RoomsListTable;
 import com.mardomsara.social.ui.BasePresenter;
-import com.mardomsara.social.ui.views.play.BadgeDrawable;
 import com.mardomsara.social.ui.views.wigets.CountView;
 
 import org.greenrobot.eventbus.EventBus;
@@ -265,7 +260,7 @@ public class ChatRoomsListPresenter extends BasePresenter {
     //        }else if (index == 0){
     //
     //        }
-            //row itself update
+            //root_view itself update
 
             //Keep it simple
             if(index>0){

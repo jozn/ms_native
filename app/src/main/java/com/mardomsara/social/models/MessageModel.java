@@ -24,6 +24,7 @@ import com.mardomsara.social.models.extra.MsgExtraPhotoThumbnail;
 import com.mardomsara.social.models.tables.Message;
 import com.mardomsara.social.models.tables.Room;
 import com.mardomsara.social.service.WSService;
+import com.mardomsara.social.ui.presenter.chats.old.LastMsgOfRoomsCache;
 
 import org.greenrobot.eventbus.EventBus;
 

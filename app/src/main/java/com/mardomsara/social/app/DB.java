@@ -31,7 +31,7 @@ public class DB {
 
         db = AppDB.builder(AppUtil.getContext())
                 .readOnMainThread(AccessThreadConstraint.NONE)
-                .name("ms5")
+                .name("ms6")
                 .trace(true)
                 .build();
 

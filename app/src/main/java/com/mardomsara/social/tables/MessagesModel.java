@@ -16,7 +16,7 @@ import com.mardomsara.social.helpers.JsonUtil;
 import com.mardomsara.social.helpers.LangUtil;
 import com.mardomsara.social.helpers.TimeUtil;
 import com.mardomsara.social.helpers.VideoMetasHelper;
-import com.mardomsara.social.models.LastMsgOfRoomsCache;
+import com.mardomsara.social.ui.presenter.chats.old.LastMsgOfRoomsCache;
 import com.mardomsara.social.models.events.MessageSyncMeta;
 import com.mardomsara.social.models.events.MsgGeneralChangeChangeEvent;
 import com.mardomsara.social.models.events.MsgsSyncMetaSeenByPeer;
@@ -29,7 +29,7 @@ import org.greenrobot.eventbus.EventBus;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-
+@Deprecated
 public class MessagesModel {
 
     /////////////////// Static /////////////

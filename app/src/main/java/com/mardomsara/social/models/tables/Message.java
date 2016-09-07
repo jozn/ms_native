@@ -3,6 +3,7 @@ package com.mardomsara.social.models.tables;
 import android.support.annotation.NonNull;
 
 import com.github.gfx.android.orma.annotation.Column;
+import com.github.gfx.android.orma.annotation.OnConflict;
 import com.github.gfx.android.orma.annotation.PrimaryKey;
 import com.github.gfx.android.orma.annotation.Table;
 import com.mardomsara.social.app.DB;
@@ -18,8 +19,8 @@ public class Message {
 //    public int id;
 
 //    @Column(unique = true, indexed = true)
-//    @NonNull
     @PrimaryKey(auto = false)
+    @NonNull
     public String MessageKey;
 
     @Column(indexed = true)
@@ -123,6 +124,10 @@ public class Message {
     }
 
     public void save() {
-        DB.db.insertIntoMessage(this);
+        DB.db.prepareInsertIntoMessage(OnConflict.REPLACE,true).execute(this);
+    }
+
+    public void insert() {
+        DB.db.prepareInsertIntoMessage(OnConflict.ABORT,true).execute(this);
     }
 }

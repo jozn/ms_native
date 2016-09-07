@@ -69,4 +69,11 @@ public class User {
 
     @Column(defaultExpr = "0" ,helpers = Column.Helpers.CONDITIONS)
     public int UpdatedTimestamp = 0;
+
+    ///////////////////////////////////////
+
+    public String getFullName() {
+        return FirstName + " " + LastName;
+    }
+
 }

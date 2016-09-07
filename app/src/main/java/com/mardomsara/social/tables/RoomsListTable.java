@@ -6,7 +6,7 @@ import com.mardomsara.social.Nav;
 import com.mardomsara.social.app.Router;
 import com.mardomsara.social.helpers.LangUtil;
 import com.mardomsara.social.helpers.TimeUtil;
-import com.mardomsara.social.models.LastMsgOfRoomsCache;
+import com.mardomsara.social.ui.presenter.chats.old.LastMsgOfRoomsCache;
 import com.mardomsara.social.models.events.RoomInfoChangedEvent;
 import com.raizlabs.android.dbflow.annotation.Column;
 import com.raizlabs.android.dbflow.annotation.PrimaryKey;

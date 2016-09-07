@@ -2,25 +2,16 @@ package com.mardomsara.social.models;
 
 import android.support.annotation.Nullable;
 
-import com.github.gfx.android.orma.annotation.Column;
 import com.github.gfx.android.orma.annotation.OnConflict;
 import com.mardomsara.social.app.DB;
-import com.mardomsara.social.helpers.AndroidUtil;
-import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.TimeUtil;
 import com.mardomsara.social.models.events.RoomInfoChangedEvent;
 import com.mardomsara.social.models.tables.Message;
 import com.mardomsara.social.models.tables.Room;
 import com.mardomsara.social.models.tables.Room_Schema;
-import com.mardomsara.social.models.tables.Room_Updater;
-import com.mardomsara.social.tables.MessagesTable;
-import com.mardomsara.social.tables.RoomsListTable_Table;
-import com.raizlabs.android.dbflow.sql.language.SQLite;
 
 import org.greenrobot.eventbus.EventBus;
 
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
 import java.util.List;
 
 /**
@@ -34,10 +25,10 @@ public class RoomModel {
     }
 
     public static void updateOrInsert(Room room) {
-        DB.db.prepareInsertIntoRoom(OnConflict.REPLACE,false).execute(room);
+        DB.db.prepareInsertIntoRoom(OnConflict.REPLACE,true).execute(room);
     }
 
-    //FIXME :getsingle row? how to
+    //FIXME :getsingle root_view? how to
     public static Room getRoomByRoomKey(String roomKey){
         return DB.db.selectFromRoom().RoomKeyEq(roomKey).getOrNull(0);
      /*   RoomsListTable room = SQLite.select().from(RoomsListTable.class)
@@ -59,7 +50,7 @@ public class RoomModel {
 //            room = new RoomsListTable();
 //            room.setRoomKey(roomKey);
 //        };
-//        room.loadAndGetUser();
+        room.loadAndGetUser();
         return room;
     }
 
@@ -87,7 +78,7 @@ public class RoomModel {
         room.SortTimeMs = TimeUtil.getTimeMs();//just for sorting needs accurte user own device
         updateOrInsert(room);
 //        room.save();
-        msg.getClass().getAnnotation(Column.class).value();
+//        msg.getClass().getAnnotation(Column.class).value();
     }
 
     public static List<Room> getAllRoomsList(int page) {

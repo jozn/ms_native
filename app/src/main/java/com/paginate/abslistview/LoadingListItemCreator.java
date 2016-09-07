@@ -36,7 +36,7 @@ public interface LoadingListItemCreator {
 
         @Override
         public void bindView(int position, View view) {
-            // No binding for default loading row
+            // No binding for default loading root_view
         }
     };
 

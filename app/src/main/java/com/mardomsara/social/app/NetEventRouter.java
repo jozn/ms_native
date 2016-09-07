@@ -3,8 +3,9 @@ package com.mardomsara.social.app;
 import com.mardomsara.social.base.Command;
 import com.mardomsara.social.base.NetEventHandler;
 import com.mardomsara.social.events.from_server.HelloCommand;
-import com.mardomsara.social.events.from_server.MsgCommand;
+//import com.mardomsara.social.events.from_server.MsgCommand;
 import com.mardomsara.social.helpers.AppUtil;
+import com.mardomsara.social.models.net_events.MsgCommand;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -32,7 +33,7 @@ public class NetEventRouter {
             if(handler != null){
                 handler.handle(data);
             }else {
-                AppUtil.error("NetEventRouter for "+ command +" has not been registered.");
+                AppUtil.error("NetEventRouter for "+ command +" has not been registered. ");
             }
         }catch (Exception e){
             e.printStackTrace();
@@ -42,7 +43,8 @@ public class NetEventRouter {
     public static void handleResponse(Command command) {
 
     }
-        public static void buildMapper() {
+
+    public static void buildMapper() {
         register("time", HelloCommand.addMesage);
         register("hello", HelloCommand.addMesage);
 

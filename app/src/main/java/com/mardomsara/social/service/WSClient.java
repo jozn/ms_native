@@ -79,7 +79,7 @@ public class WSClient implements WebSocketListener {
         List<Long> recied = new ArrayList<>();
         Runnable r = ()->{
             for(Command comStr : res.Commands){
-                if(comStr.Name.equals(CmdResRegistery.CMD_RES) ){
+                if(comStr.Name.equals(CmdResRegistery.CMD_RES) ){//for response
                     CmdResRegistery.tryRunCmd(comStr);
                 }else {
                     NetEventRouter.handle(comStr.Name ,comStr.Data);

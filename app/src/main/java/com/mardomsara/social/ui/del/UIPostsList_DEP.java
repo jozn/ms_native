@@ -1,4 +1,4 @@
-package com.mardomsara.social.ui.ui;
+package com.mardomsara.social.ui.del;
 
 import android.net.Uri;
 import android.support.v7.widget.LinearLayoutManager;
@@ -29,6 +29,7 @@ import butterknife.ButterKnife;
 /**
  * Created by Hamid on 8/3/2016.
  */
+@Deprecated
 public class UIPostsList_DEP {
     public static RecyclerView buildNew(List<PostRowJson> posts){
         RecyclerView recycler_view = ViewHelper.newRecyclerViewMatch();

@@ -1,18 +1,17 @@
-package com.mardomsara.social.ui.presenter.main_pages;
+package com.mardomsara.social.ui.presenter.chats.old;
 
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 
 import com.mardomsara.social.R;
-import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.ui.BasePresenter;
-import com.mardomsara.social.ui.adaptors.pager.ChatBranchPagerAdaptor;
 
 /**
  * Created by Hamid on 5/2/2016.
  */
+@Deprecated
 public class ChatMainBranch extends BasePresenter {
     @Override
     public View buildView() {
