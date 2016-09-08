@@ -12,7 +12,7 @@ import com.mardomsara.social.app.Config;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.tables.MessagesTable;
-import com.mardomsara.social.ui.presenter.chats.ChatEntryPresenter;
+import com.mardomsara.social.ui.presenter.chats.old.ChatEntryPresenter;
 import com.mardomsara.social.ui.views.RecentImagesView;
 import com.orhanobut.hawk.Hawk;
 

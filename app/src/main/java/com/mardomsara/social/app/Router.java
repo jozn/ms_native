@@ -7,7 +7,7 @@ import com.mardomsara.social.models.Session;
 import com.mardomsara.social.models.tables.Room;
 import com.mardomsara.social.tables.RoomsListTable;
 import com.mardomsara.social.ui.presenter.HelloPresenter;
-import com.mardomsara.social.ui.presenter.chats.ChatEntryPresenter;
+import com.mardomsara.social.ui.presenter.chats.old.ChatEntryPresenter;
 import com.mardomsara.social.ui.presenter.chats.ChatTabPresenter;
 import com.mardomsara.social.ui.presenter.chats.GalleryChooserPresenter;
 import com.mardomsara.social.ui.presenter.chats.old.ChatMainBranch;

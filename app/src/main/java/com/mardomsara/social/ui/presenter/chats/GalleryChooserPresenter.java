@@ -28,6 +28,7 @@ import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.CursorRecyclerViewAdapter;
+import com.mardomsara.social.ui.presenter.chats.old.ChatEntryPresenter;
 
 import java.io.File;
 import java.util.ArrayList;

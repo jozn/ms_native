@@ -24,6 +24,7 @@ import com.mardomsara.social.play.DividerItemDecoration;
 import com.mardomsara.social.tables.RoomsListTable;
 import com.mardomsara.social.tables.UsersTable;
 import com.mardomsara.social.ui.BasePresenter;
+import com.mardomsara.social.ui.presenter.chats.old.ChatEntryPresenter;
 import com.mardomsara.social.ui.presenter.dialogs.RoomListRowOptionsPresenter;
 
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package com.mardomsara.social.ui.presenter.chats;
+package com.mardomsara.social.ui.presenter.chats.old;
 
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
@@ -44,6 +44,7 @@ import com.mardomsara.social.tables.MessagesTable;
 import com.mardomsara.social.tables.RoomsListTable;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.adaptors.ChatEnteryAdaptor;
+import com.mardomsara.social.ui.presenter.chats.GalleryChooserPresenter;
 import com.mardomsara.social.ui.views.EmojiKeybord3;
 import com.mardomsara.social.ui.views.chat.KeywordAttachmentView;
 import com.orhanobut.hawk.Hawk;
