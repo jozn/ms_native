@@ -22,6 +22,6 @@ public class AppAplication extends Application {
     @Override public void onCreate() {
         super.onCreate();
 //        LeakCanary.install(this);
-        refWatcher = LeakCanary.install(this);
+        //refWatcher = LeakCanary.install(this);
     }
 }

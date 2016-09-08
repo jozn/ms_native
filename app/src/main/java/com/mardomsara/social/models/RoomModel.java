@@ -4,15 +4,19 @@ import android.support.annotation.Nullable;
 
 import com.github.gfx.android.orma.annotation.OnConflict;
 import com.mardomsara.social.app.DB;
+import com.mardomsara.social.helpers.LangUtil;
 import com.mardomsara.social.helpers.TimeUtil;
 import com.mardomsara.social.models.events.RoomInfoChangedEvent;
 import com.mardomsara.social.models.tables.Message;
 import com.mardomsara.social.models.tables.Room;
 import com.mardomsara.social.models.tables.Room_Schema;
+import com.mardomsara.social.models.tables.User;
 
 import org.greenrobot.eventbus.EventBus;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Hamid on 9/5/2016.
@@ -28,7 +32,7 @@ public class RoomModel {
         DB.db.prepareInsertIntoRoom(OnConflict.REPLACE,true).execute(room);
     }
 
-    //FIXME :getsingle root_view? how to
+    @Nullable
     public static Room getRoomByRoomKey(String roomKey){
         return DB.db.selectFromRoom().RoomKeyEq(roomKey).getOrNull(0);
      /*   RoomsListTable room = SQLite.select().from(RoomsListTable.class)
@@ -53,7 +57,6 @@ public class RoomModel {
         room.loadAndGetUser();
         return room;
     }
-
 
 
     public static void onRoomOpened(Room room){
@@ -86,38 +89,40 @@ public class RoomModel {
 //        List<RoomsListTable> roomsRes = new ArrayList<>();
 
         loadAllUserForRooms(rooms);
-        //FIXME
-//        LastMsgOfRoomsCache.getInstance().setForRooms(rooms);
+        LastMsgOfRoomsCache2.getInstance().setForRooms(rooms);
         return rooms;
     }
 
-    //// TODO: 9/6/2016 implement this
     public static void loadAllUserForRooms(List<Room> rooms) {
-        /*int[] in  = new int[rooms.size()];
-        int i =0;
-        for (Room room : rooms){
-            in[i] = room.UserId;
-            i++;
-        }
-        List<UsersTable> users =  SQLite.select().from(UsersTable.class)
-                .where(UsersTable_Table.UserId.in(-1,in))
-                .queryList();
 
-        Map<Integer,UsersTable> usersMap = LangUtil.listToHashMap(users,(u)->u.getUserId());
-        for (RoomsListTable room : rooms){
+        List<Integer> in  = new ArrayList<>();
+        for (Room room : rooms){
+            in.add(room.getUserId());
+        }
+        List<User> users = DB.db.selectFromUser().UserIdIn(in).toList();
+        Map<Integer,User> usersMap = LangUtil.listToHashMap(users,(u)->u.UserId);
+        for (Room room : rooms) {
             room.User = usersMap.get(room.getUserId());
-        }*/
+        }
     }
 
-    //FIXME
     public static void deleteRoom(String roomKey){
         Room room = getRoomByRoomKey(roomKey);
         if(room != null){
+            clearRoomMsgs(room);
             DB.db.deleteFromRoom().RoomKeyEq(room.RoomKey).execute();
         }
-        //MessagesModel.clearAllMessagesOfRoom(roomKey);
-
+        //???for safety if room somehow dosent exit
+        MessageModel.clearAllMessagesOfRoom(roomKey);
     }
+
+    public static void clearRoomMsgs(Room room){
+        MessageModel.clearAllMessagesOfRoom(room.RoomKey);
+        LastMsgOfRoomsCache2.getInstance().removeForRoom(room.RoomKey);
+        room.UnseenMessageCount = 0;
+        room.save();
+    }
+
 
 
 }

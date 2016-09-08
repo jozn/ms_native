@@ -9,10 +9,12 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.mardomsara.social.App;
 import com.mardomsara.social.Nav;
 import com.mardomsara.social.R;
 import com.mardomsara.social.app.Constants;
 import com.mardomsara.social.app.Router;
+import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.DialogHelper;
 import com.mardomsara.social.helpers.FormaterUtil;
@@ -32,7 +34,9 @@ import com.mardomsara.social.models.tables.Message;
 import com.mardomsara.social.models.tables.Room;
 import com.mardomsara.social.play.DividerItemDecoration;
 import com.mardomsara.social.ui.views.wigets.CountView;
+import com.mardomsara.social.ui.views.wigets.CountView2;
 
+import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
@@ -82,6 +86,7 @@ public class RoomsListCell {
             if(rooms != null){
                 this.roomsList.addAll(rooms);
             }
+            App.getBus().register(this);
         }
 
         @Override
@@ -91,12 +96,18 @@ public class RoomsListCell {
 
         @Override
         protected RoomRowCellHolder onCreateContentItemViewHolder(ViewGroup parent, int contentViewType) {
-            return RoomRowCellHolder.getNew(parent);
+            return RoomRowCellHolder.getNew(parent,this);
         }
 
         @Override
         protected void onBindContentItemViewHolder(RoomRowCellHolder roomRowCellHolder, int position) {
             roomRowCellHolder.bind(roomsList.get(position));
+        }
+
+        @Override
+        public void onDetachedFromRecyclerView(RecyclerView recyclerView) {
+            super.onDetachedFromRecyclerView(recyclerView);
+            App.getBus().unregister(this);
         }
 
         //////////// Events ////////////////
@@ -208,16 +219,6 @@ public class RoomsListCell {
             roomRowCell =rowCell;
 
             root_view = rowCell.root_view;
-            root_view.setOnClickListener((vv)->{
-                Room r = room;//(RoomsListTable) vv.getTag();
-                AppUtil.log("Romm raw list " + r.RoomName + " clicked.");
-                Nav.push(Router.getRoomEntery(r));
-            });
-
-            root_view.setOnLongClickListener((vv)->{
-//                openMoreOptionDialog(room);
-                return true;
-            });
         }
 
         public void bind(Room room){
@@ -225,27 +226,38 @@ public class RoomsListCell {
             roomRowCell.bind(room);
         }
 
-        public static RoomRowCellHolder getNew(ViewGroup parent){
-            RoomRowCell roomRowCell = new RoomRowCell(parent);
+        public static RoomRowCellHolder getNew(ViewGroup parent, RoomsListAdaptor adaptor){
+            RoomRowCell roomRowCell = new RoomRowCell(parent,adaptor);
             return new RoomRowCellHolder(roomRowCell);
         }
     }
 
     public static class RoomRowCell{
         public Room room;
+        RoomsListAdaptor adaptor;
 
         private View root_view;
         @Bind(R.id.avatar)public SimpleDraweeView avatar;
         @Bind(R.id.date_txt) public TextView date_txt;
         @Bind(R.id.name_txt) public TextView name_txt;
-        @Bind(R.id.unseen_count_txt)public CountView unseen_count_txt;
+        @Bind(R.id.unseen_count_txt)public CountView2 unseen_count_txt;
         @Bind(R.id.last_msg_txt)public TextView last_msg_txt;
 
-        RoomsListAdaptor adaptor;
-
-        public RoomRowCell(ViewGroup parent) {
-            root_view = AppUtil.inflate(R.layout.chat_list_row_new,parent);
+        public RoomRowCell(ViewGroup parent, RoomsListAdaptor adaptor) {
+            root_view = AppUtil.inflate(R.layout.chat_list_row_new_rel2,parent);
             ButterKnife.bind(this,root_view);
+            this.adaptor = adaptor;
+
+            root_view.setOnClickListener((vv)->{
+//                Room r = room;//(RoomsListTable) vv.getTag();
+//                AppUtil.log("Romm raw list " + r.RoomName + " clicked.");
+                if (room!= null) Nav.push(Router.getRoomEntery(room));
+            });
+
+            root_view.setOnLongClickListener((vv)->{
+                RoomHelper.moreRoomOptin(room,adaptor);
+                return true;
+            });
         }
 
         public void bind(Room room){
@@ -301,25 +313,22 @@ public class RoomsListCell {
             return txt;
         }
 
-        public void moreRoomOptin(Room room, RoomsListAdaptor adaptor) {
+        public static void moreRoomOptin(Room room, RoomsListAdaptor adaptor) {
+            if(room == null || adaptor == null) return;
             List<DialogHelper.MenuItem> items = new ArrayList<>();
             items.add(new DialogHelper.MenuItem("پاک کردن پیام ها",(v)->{
-//                    Toast.makeText(AppUtil.getContext(),room.User.FirstName,Toast.LENGTH_SHORT).show();
-                MessageModel.clearAllMessagesOfRoom(room.RoomKey);
-//                    LastMsgOfRoomsCache.getInstance().removeForRoom(room.getRoomKey());
-                room.UnseenMessageCount = 0;
-                room.save();
+                AndroidUtil.runInBackgroundNoPanic(()-> RoomModel.clearRoomMsgs(room));
                 adaptor.notifyDataSetChanged();
             }));
 
             items.add(new DialogHelper.MenuItem("حذف گفتگو",(v)->{
-                RoomModel.deleteRoom(room.RoomKey);
+                AndroidUtil.runInBackgroundNoPanic(()-> RoomModel.deleteRoom(room.RoomKey) );
                 adaptor.roomsList.remove(room);
                 adaptor.notifyDataSetChanged();
             }));
 
             items.add(new DialogHelper.MenuItem("رفتن به پروفایل",(v)->{
-
+                Router.goToProfile(room.getUserId());
             }));
 
             DialogHelper.simpleMenu(items);

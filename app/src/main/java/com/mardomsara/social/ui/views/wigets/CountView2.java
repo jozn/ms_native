@@ -7,7 +7,6 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.widget.TextView;
 
 import com.mardomsara.social.R;
@@ -16,25 +15,25 @@ import com.mardomsara.social.helpers.AndroidUtil;
 /**
  * Created by Hamid on 6/26/2016.
  */
-public class CountView extends TextView {
+public class CountView2 extends TextView {
 
     //    int color = Color.argb(255,50,50,200);
     int color = AndroidUtil.getColor(R.color.unseen_count_background);
-    int countHPadding = AndroidUtil.dpToPx(4);
+    int countHPadding = AndroidUtil.dpToPx(8);
     int countVPadding = AndroidUtil.dpToPx(2);
 
     Paint paint = new Paint();
-    public CountView(Context context) {
+    public CountView2(Context context) {
         super(context);
         init();
     }
 
-    public CountView(Context context, AttributeSet attrs) {
+    public CountView2(Context context, AttributeSet attrs) {
         super(context, attrs);
         init();
     }
 
-    public CountView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public CountView2(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init();
     }
@@ -48,7 +47,8 @@ public class CountView extends TextView {
         );
 //        setMinimumWidth(AndroidUtil.dpToPx(30));
         if(getHeight() > getWidth()){
-//            setHeight((int) (getWidth()/1.2));
+            setWidth((int) (getHeight()*1.2));
+            invalidate();
         }
     }
 
@@ -58,6 +58,7 @@ public class CountView extends TextView {
 //        setPaddingRelative();
     }
 
+    RectF rectF;
     @Override
     protected void onDraw(Canvas canvas) {
         initPaint();
@@ -79,14 +80,21 @@ public class CountView extends TextView {
         paint.setStyle(Paint.Style.FILL);
         paint.setAntiAlias(true);
         paint.setColor(color);
-        drawEdgeRoundedRect(
+        /*drawEdgeRoundedRect(
                 canvas,
                 (float)getPaddingLeft()-countHPadding ,
                 (float)getPaddingTop() - countVPadding ,
                 (float)getWidth() -(float)getPaddingRight() + countHPadding ,
                 (float)getHeight()- getPaddingBottom() + countVPadding ,
-                paint);
+                paint);*/
+        if(rectF == null){
+            rectF = new RectF((float)getPaddingLeft()-countHPadding,
+                    (float)getPaddingTop() - countVPadding,
+                    (float)getWidth() -(float)getPaddingRight() + countHPadding,
+                    (float)getHeight()- getPaddingBottom() + countVPadding);
+        }
 
+        canvas.drawOval(rectF,paint);
         //draw count
         paint.setColor(Color.WHITE);
         paint.setTextSize(getTextSize());

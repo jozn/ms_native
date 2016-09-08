@@ -22,6 +22,8 @@ import com.raizlabs.android.dbflow.config.FlowManager;
 import com.squareup.picasso.LruCache;
 import com.squareup.picasso.Picasso;
 
+import org.greenrobot.eventbus.EventBus;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -40,6 +42,10 @@ import pl.tajchert.nammu.Nammu;
 public class App extends Application {
    public static Context getContext() {
       return context;
+   }
+
+   public static EventBus getBus(){
+      return EventBus.getDefault();
    }
 
    //   private static WSBase ws;

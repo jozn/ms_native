@@ -74,7 +74,9 @@ public class Room {
     }
 
     public User loadAndGetUser(){
-        User = UserModel.getByUserId(getUserId());
+        if(User == null) {
+            User = UserModel.getByUserId(getUserId());
+        }
         return User;
     }
 
@@ -86,7 +88,7 @@ public class Room {
     }
 
     public String getRoomAvatarUrl(){
-        loadAndGetUser();//todo remove me
+//        loadAndGetUser();//todo remove me
         if(User != null){
             return User.AvatarUrl;
         }
