@@ -43,6 +43,7 @@ import java.util.List;
 /**
  * Created by Hamid on 5/2/2016.
  */
+@Deprecated
 public class ChatRoomsListPresenter extends BasePresenter {
     View v;
     List<RoomsListTable> list;
