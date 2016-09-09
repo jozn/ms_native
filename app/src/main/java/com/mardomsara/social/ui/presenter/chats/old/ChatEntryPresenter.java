@@ -66,6 +66,7 @@ import java.util.List;
 /**
  * Created by Hamid on 5/4/2016.
  */
+@Deprecated
 public class ChatEntryPresenter extends BasePresenter implements
         KeywordAttachmentView.Callbacks{
     public RoomsListTable room;

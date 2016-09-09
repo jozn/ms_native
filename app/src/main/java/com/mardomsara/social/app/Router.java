@@ -7,14 +7,14 @@ import com.mardomsara.social.models.Session;
 import com.mardomsara.social.models.tables.Room;
 import com.mardomsara.social.tables.RoomsListTable;
 import com.mardomsara.social.ui.presenter.HelloPresenter;
-import com.mardomsara.social.ui.presenter.chats.ChatPresenter;
-import com.mardomsara.social.ui.presenter.chats.old.ChatEntryPresenter;
+import com.mardomsara.social.ui.presenter.chats.ChatRoomPresenter;
 import com.mardomsara.social.ui.presenter.chats.ChatTabPresenter;
 import com.mardomsara.social.ui.presenter.chats.GalleryChooserPresenter;
-import com.mardomsara.social.ui.presenter.chats.old.ChatMainBranch;
+import com.mardomsara.social.ui.presenter.chats.old.ChatEntryPresenter;
 import com.mardomsara.social.ui.presenter.social.AcitivityTabPresenter;
 import com.mardomsara.social.ui.presenter.social.CommontsPresnter;
 import com.mardomsara.social.ui.presenter.social.FollowsListPresenter;
+import com.mardomsara.social.ui.presenter.social.HomeStream2Presenter;
 import com.mardomsara.social.ui.presenter.social.PostEnteryPresenter;
 import com.mardomsara.social.ui.presenter.social.ProfilePresenter;
 import com.mardomsara.social.ui.presenter.social.SearchTabPresenter;
@@ -43,12 +43,12 @@ public class Router {
     }
 
     public static FragmentPage getChatPage() {
-        return new ChatMainBranch();
+        return new ChatTabPresenter();
+//        return new ChatMainBranch();
     }
 
     public static FragmentPage getHomePage() {
-        return new ChatTabPresenter();
-//        return new HomeStream2Presenter();
+        return new HomeStream2Presenter();
     }
 
     @Deprecated
@@ -59,7 +59,7 @@ public class Router {
     }
 
     public static FragmentPage getRoomEntery(Room room) {
-        ChatPresenter p = new ChatPresenter();
+        ChatRoomPresenter p = new ChatRoomPresenter();
         p.room = room;
         return p;
     }

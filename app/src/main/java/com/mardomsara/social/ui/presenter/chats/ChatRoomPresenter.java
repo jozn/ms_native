@@ -19,6 +19,7 @@ import android.widget.Toast;
 import com.ipaulpro.afilechooser.FileChooserActivity;
 import com.ipaulpro.afilechooser.utils.FileChooserFileUtils;
 import com.mardomsara.emojicon.EmojiconEditText;
+import com.mardomsara.social.App;
 import com.mardomsara.social.AppAplication;
 import com.mardomsara.social.Nav;
 import com.mardomsara.social.R;
@@ -66,7 +67,7 @@ import java.util.List;
 /**
  * Created by Hamid on 5/4/2016.
  */
-public class ChatPresenter extends BasePresenter implements
+public class ChatRoomPresenter extends BasePresenter implements
         KeywordAttachmentView.Callbacks{
     public Room room;
     TextView emoji_opener_btn;
@@ -103,7 +104,7 @@ public class ChatPresenter extends BasePresenter implements
 
     PopupWindow attachWindow;
     KeywordAttachmentView attachmentView;
-    ChatPresenter that;
+    ChatRoomPresenter that;
 
     IntentHelper intentHelper;
     Uri file_uri;
@@ -142,7 +143,7 @@ public class ChatPresenter extends BasePresenter implements
 //        AppUtil.log(messages.get(messages.size()-1));
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(fragment.getActivity());
 
-//        mLayoutManager.setSmoothScrollbarEnabled(true);
+        mLayoutManager.setSmoothScrollbarEnabled(true);
         mLayoutManager.setReverseLayout(true);
 //        mLayoutManager
 
@@ -164,7 +165,8 @@ public class ChatPresenter extends BasePresenter implements
         });
         TextView roomTitle = (TextView) view.findViewById(R.id.room_name);
         roomTitle.setText(room.getRoomName());
-        EventBus.getDefault().register(this);
+//        EventBus.getDefault().register(this);
+        App.getBus().register(this);
 
         emojiKeybord= new EmojiKeybord3(edit_filed,emoji_opener_btn, AppUtil.global_window);
 
@@ -178,7 +180,8 @@ public class ChatPresenter extends BasePresenter implements
     @Override
     public void onDestroy() {
         super.onDestroy();
-        EventBus.getDefault().unregister(this);
+        App.getBus().unregister(this);
+//        EventBus.getDefault().unregister(this);
         AppUtil.unRegisterKeywoardlistaner(view);
 //        fragment.getActivity().getSupportFragmentManager()
 //                .beginTransaction();
@@ -255,6 +258,7 @@ public class ChatPresenter extends BasePresenter implements
 
     }
 
+    ////////////////////////////////////
     //////////// Events ////////////////
 
     @Subscribe(threadMode = ThreadMode.MAIN)
@@ -348,6 +352,8 @@ public class ChatPresenter extends BasePresenter implements
 
     }
 
+    /////////////// End Events /////////////////////
+    ////////////////////////////////////////////////
 //        protected void logIt(String str) {
 //        Log.d(" "+ this.getClass().getSimpleName() ," "+ str);
 //    }
