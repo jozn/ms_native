@@ -36,39 +36,17 @@ public class WSService extends Service {
         connectToServer();
     }
 
+
+
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         Log.d(LOGTAG, "WSService  onStartCommand");
-//        wsclient.sendString("wwqeqwnjwqjnjnakdjjhbfhjsdf");
-////        return super.onStartCommand(intent, flags, startId);
-        _exe.execute(new Runnable() {
-            @Override
-            public void run() {
-                try {
-//                    for (int i = 0; i < 10000000; i++) {
-                       /* Thread.sleep(4000);
-                        WSReq req = new WSReq();
-                        req.Command = "time";
-                        req.RequestId = "" + i;
-
-                        String body = new Gson().toJson(req);
-                        wsclient.sendString(body);*/
-//                        wsclient.wsSendChannel.add(body);
-//                        wsclient.wsSendChannel.add("sleep + chanel : "+i);
-//                        wsclient.sendString("sleep: "+i);
-                        //EventBus.getDefault().post(new RoomListsTable().setRoomName("romm-"+i));
-                        //Log.d(LOGTAG, "slepp "+i);
-//                    }
-                } catch (Exception e) {
-                }
-            }
-        });
 
         return Service.START_STICKY;
     }
 
 
-    public static void send(String command){
+    static void send(String command){
         _runService();
         //WORKAROUND carsh: somethimse for first time connection wsclient maybe null
         if(_serviceInstance == null || _serviceInstance.wsclient == null){
@@ -115,7 +93,7 @@ public class WSService extends Service {
         }
 
     }
-    public static void connectToServer(){
+    static void connectToServer(){
         Log.d(LOGTAG, " connectToServer");
         //just make sure there is only one conncetion open to server
         if(wsclient != null && wsclient.webSocket != null ){

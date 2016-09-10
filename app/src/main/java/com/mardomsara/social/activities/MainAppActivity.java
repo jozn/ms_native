@@ -20,7 +20,6 @@ import android.widget.TextView;
 import com.crashlytics.android.Crashlytics;
 import com.mardomsara.emojicon.EmojiconsPopup;
 import com.mardomsara.social.App;
-import com.mardomsara.social.Init;
 import com.mardomsara.social.Nav;
 import com.mardomsara.social.R;
 import com.mardomsara.social.app.LifeCycle;
@@ -112,7 +111,7 @@ public class MainAppActivity extends AppActivity {
             isFirstInited = true;// rash onCreate()
         }
 
-        Init.onAfterAppStart();
+        LifeCycle.onAfterAppActivityStarted();
 
     }
 

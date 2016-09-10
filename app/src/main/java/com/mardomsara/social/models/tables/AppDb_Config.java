@@ -1,6 +1,7 @@
 package com.mardomsara.social.models.tables;
 
 import com.github.gfx.android.orma.annotation.Database;
+import com.mardomsara.social.base.Command;
 
 /**
  * Created by Hamid on 9/1/2016.
@@ -13,6 +14,7 @@ import com.github.gfx.android.orma.annotation.Database;
                 Message.class,
                 Room.class,
                 User.class,
+                Command.class
 //                Item.class
 
         }, // Give model classes to handle

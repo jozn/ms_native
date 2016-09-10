@@ -4,6 +4,7 @@ import android.support.annotation.Nullable;
 
 import com.github.gfx.android.orma.annotation.OnConflict;
 import com.mardomsara.social.app.DB;
+import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.LangUtil;
 import com.mardomsara.social.helpers.TimeUtil;
 import com.mardomsara.social.models.events.RoomInfoChangedEvent;
@@ -44,28 +45,29 @@ public class RoomModel {
     public static Room getRoomByRoomKeyAndLoadUser(String roomKey){
         Room room =  getRoomByRoomKey(roomKey);
 
+//        if(room == null){
+//            return null;
+//        }
+        if(room == null) {
+            room = new Room();
+            room.RoomKey = (roomKey);
+        }
 
-
-//        DB.db.selectFromRoom().RoomKeyEq(roomKey).execute();
-//        Room_Schema.INSTANCE.newModelFromCursor(DB.db.getConnection(),)
-//        RoomsListTable room =SQLite.select().from(RoomsListTable.class)
-//                .where(RoomsListTable_Table.RoomKey.eq(roomKey)).querySingle();
-//        if(room == null) {
-//            room = new RoomsListTable();
-//            room.setRoomKey(roomKey);
-//        };
         room.loadAndGetUser();
         return room;
     }
 
 
-    public static void onRoomOpened(Room room){
+    public static void onRoomOpenedInBackground(Room room){
         room.LastRoomOpenedTimeMs = TimeUtil.getTimeMs();
         room.UnseenMessageCount = 0;
-        update(room);
-        RoomInfoChangedEvent event = new RoomInfoChangedEvent();
-        event.RoomKey = room.RoomKey;
-        EventBus.getDefault().post(event);
+        AndroidUtil.runInBackgroundNoPanic(()->{
+            update(room);
+            RoomInfoChangedEvent event = new RoomInfoChangedEvent();
+            event.RoomKey = room.RoomKey;
+            EventBus.getDefault().post(event);
+        });
+
     }
 
     public static void onRecivedNewMsg(Message msg){
@@ -121,6 +123,11 @@ public class RoomModel {
         LastMsgOfRoomsCache2.getInstance().removeForRoom(room.RoomKey);
         room.UnseenMessageCount = 0;
         room.save();
+    }
+
+    ///////////////////////////////////////
+    public static void sendRoomInfoChangedEvent(String roomKey){
+
     }
 
 

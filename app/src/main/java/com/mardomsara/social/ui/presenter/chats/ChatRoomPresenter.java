@@ -52,17 +52,12 @@ import com.orhanobut.hawk.Hawk;
 import com.squareup.leakcanary.RefWatcher;
 import com.sw926.imagefileselector.ImageFileSelector;
 
-import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-
-//import com.mardomsara.emojicon.dep.EmojiconsFragment;
-
-//import org.msgpack.core.MessagePack;
 
 /**
  * Created by Hamid on 5/4/2016.
@@ -202,7 +197,7 @@ public class ChatRoomPresenter extends BasePresenter implements
         super.onFocus();
         AppUtil.log("after?? Chatroom onFocus()");
         MessageModel.sendToServerAllMsgsSeenbyPeerCmdForRoom(room);
-        RoomModel.onRoomOpened(room);
+        RoomModel.onRoomOpenedInBackground(room);
 //        showMeas();
 
     }
