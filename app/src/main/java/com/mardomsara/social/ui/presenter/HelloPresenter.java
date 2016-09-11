@@ -14,7 +14,7 @@ import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.JsonUtil;
 import com.mardomsara.social.helpers.LangUtil;
 import com.mardomsara.social.json.UserRow;
-import com.mardomsara.social.service.WSService;
+import com.mardomsara.social.service.WS;
 import com.mardomsara.social.ui.BasePresenter;
 
 //import ;
@@ -102,7 +102,7 @@ public class HelloPresenter extends BasePresenter {
     void sendWsReqRes(){
         Command cmd = Command.getNewForResult("EchoRes");
         cmd.setData("dasdsad");
-        WSService.sendCommandForRespone(cmd,(data)->{
+        WS.sendCommandForResponse(cmd,(data)->{
             AndroidUtil.runInUi(()->{
                 UserRow u = JsonUtil.fromJson(data,UserRow.class);
                 if(u!= null){

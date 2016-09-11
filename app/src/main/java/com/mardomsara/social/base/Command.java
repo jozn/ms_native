@@ -3,7 +3,6 @@ package com.mardomsara.social.base;
 import com.github.gfx.android.orma.annotation.Column;
 import com.github.gfx.android.orma.annotation.PrimaryKey;
 import com.github.gfx.android.orma.annotation.Table;
-import com.google.gson.annotations.Expose;
 import com.mardomsara.social.helpers.JsonUtil;
 import com.mardomsara.social.helpers.LangUtil;
 import com.mardomsara.social.helpers.TimeUtil;
@@ -16,14 +15,14 @@ import java.util.List;
  */
 @Table
 public class Command {
-    @Column(helpers = Column.Helpers.CONDITION_EQ)
+    @Column(helpers = Column.Helpers.CONDITION_EQ, defaultExpr = "''")
     public String Name;
 
-    @Column(helpers = Column.Helpers.CONDITION_EQ)
+    @Column(helpers = Column.Helpers.CONDITION_EQ ,defaultExpr = "''")
     public String Data;
 
-    @Column(helpers = Column.Helpers.CONDITION_EQ)
-    public long ResId;//
+    @Column(helpers = Column.Helpers.CONDITION_EQ ,defaultExpr = "0")
+    public long ResId = 0;//
 
     @PrimaryKey(auto = false)
     public long CmdId;//eq to nano
@@ -35,7 +34,7 @@ public class Command {
     private transient List<Object> _dataArray = new ArrayList<>();
 
     public Command() {
-        CmdId = TimeUtil.getTimeNano()+ (long)(1000_000+LangUtil.getRandom(9_000_000));
+        CmdId = (1_000_000_000_000L+LangUtil.getRandomLong(9_000_000_000_000L));
         CreatedTimeMs = TimeUtil.getTimeMs();
     }
 

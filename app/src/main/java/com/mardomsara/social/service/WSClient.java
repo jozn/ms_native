@@ -39,7 +39,7 @@ public class WSClient implements WebSocketListener {
     private String wsUrl = "ws://192.168.0.10:5000/ws?UserId="+ com.mardomsara.social.models.Session.getUserId();
     public WebSocket webSocket;
 //    private boolean isOpen = false;
-    private STATUS staus = STATUS.CLOSED;
+    private STATUS status = STATUS.CLOSED;
     private Thread senderThread;
     private Thread senderThreadBinary;
     public static BlockingQueue<String> wsSendChannel = new LinkedBlockingQueue<>();
@@ -51,8 +51,9 @@ public class WSClient implements WebSocketListener {
     public void onOpen(WebSocket webSocket, Response response) {
         Log.d(LOGTAG, "onOpen: Response:" + response.message());
         this.webSocket = webSocket;
-        staus = STATUS.OPEN;
+        status = STATUS.OPEN;
         runSenderThread();
+        WSService.getInstance().onClientConnectionSuccess();
         //        isOpen = true;
 //        sendString("hhhhh");
 //        sendString("hhhhh2222");
@@ -64,7 +65,8 @@ public class WSClient implements WebSocketListener {
     public void onFailure(IOException e, Response response) {
         Log.d(LOGTAG, "onFailure: IOException - Response:" + e.toString() );
 //        isOpen = false;
-        staus = STATUS.CLOSED;
+        status = STATUS.CLOSED;
+        WSService.getInstance().onClientConnectionFinished();
     }
 
     @Override
@@ -103,12 +105,13 @@ public class WSClient implements WebSocketListener {
     public void onClose(int code, String reason) {
         Log.d(LOGTAG, "onClose: code - reason: :" + code + " " + reason);
 //        isOpen = false;
-        staus = STATUS.CLOSED;
+        status = STATUS.CLOSED;
+        WSService.getInstance().onClientConnectionFinished();
     }
 
     public void tryConnect() {
-        if(staus == STATUS.CONNECTING || staus == STATUS.OPEN ) return;//OPEN or CONNECTING return;
-        staus = STATUS.CONNECTING;
+        if(status == STATUS.CONNECTING || status == STATUS.OPEN ) return;//OPEN or CONNECTING return;
+        status = STATUS.CONNECTING;
         OkHttpClient client;// = new OkHttpClient.Builder();
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
         builder.connectTimeout(10, TimeUnit.SECONDS);

@@ -57,6 +57,9 @@ public class NetEventRouter {
         register(Constants.MsgsSeenByPeer, MsgCommand.MsgsSeenByPeer);
         register(Constants.MsgsDeletedFromServer, MsgCommand.MsgsDeletedFromServer);
 
+        //internal
+        register(Constants.CommandsReceivedToServer, MsgCommand.MsgsDeletedFromServer);
+
         //////////////////
         register("SetUserForTable", MsgCommand.SetUserForTable);
         register("SetUserForTable", MsgCommand.SetUserForTable);

@@ -2,7 +2,7 @@ package com.mardomsara.social.tables;
 
 import com.mardomsara.social.base.Command;
 import com.mardomsara.social.helpers.AppUtil;
-import com.mardomsara.social.service.WSService;
+import com.mardomsara.social.service.WS;
 import com.raizlabs.android.dbflow.annotation.*;
 import com.raizlabs.android.dbflow.sql.language.SQLite;
 import com.raizlabs.android.dbflow.structure.BaseModel;
@@ -98,7 +98,7 @@ public class UsersTable extends BaseModel {
             Command cmd = new Command();
             cmd.Name = "GetUserForTable";
             cmd.Data = ""+ msg.getUserId();
-            WSService.sendCommand(cmd);
+            WS.sendCommand(cmd);
         }
     }
 

@@ -23,7 +23,7 @@ import com.mardomsara.social.models.events.MsgsSyncMetaSeenByPeer;
 import com.mardomsara.social.models.extra.MsgExtraPhotoThumbnail;
 import com.mardomsara.social.models.tables.Message;
 import com.mardomsara.social.models.tables.Room;
-import com.mardomsara.social.service.WSService;
+import com.mardomsara.social.service.WS;
 import com.mardomsara.social.ui.presenter.chats.old.LastMsgOfRoomsCache;
 
 import org.greenrobot.eventbus.EventBus;
@@ -82,7 +82,7 @@ public class MessageModel {
         cmd.Name = Constants.MsgsAddNew;
         cmd.Data = JsonUtil.toJson(msg);
 
-        WSService.sendCommand(cmd);
+        WS.sendCommand(cmd);
         //onAddedNewMsgEvent(msg);
     }
 
@@ -100,7 +100,7 @@ public class MessageModel {
 
         cmd.addToDataArray(meta);
         cmd.makeDataReady();
-        WSService.sendCommand(cmd);
+        WS.sendCommand(cmd);
     }
 
     public static void sendToServerAllMsgsSeenbyPeerCmdForRoom(Room room){
@@ -127,7 +127,7 @@ public class MessageModel {
 
         cmd.addToDataArray(meta);
         cmd.makeDataReady();
-        WSService.sendAnStoreCommand(cmd);
+        WS.sendAnStoreCommand(cmd);
     }
 
     public static void makeMsgsSeen(List<String> msgKeys, MsgsSyncMetaSeenByPeer meta){
@@ -224,7 +224,7 @@ public class MessageModel {
 
         cmd.addToDataArray(meta);
         cmd.makeDataReady();
-        WSService.sendCommand(cmd);
+        WS.sendCommand(cmd);
     }
 
     public static void publishEvent(MessageSyncMeta msg) {

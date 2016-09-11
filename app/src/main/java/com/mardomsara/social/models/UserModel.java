@@ -6,7 +6,7 @@ import com.mardomsara.social.app.DB;
 import com.mardomsara.social.base.Command;
 import com.mardomsara.social.models.tables.Message;
 import com.mardomsara.social.models.tables.User;
-import com.mardomsara.social.service.WSService;
+import com.mardomsara.social.service.WS;
 
 import java.util.List;
 
@@ -34,7 +34,7 @@ public class UserModel {
             Command cmd = new Command();
             cmd.Name = "GetUserForTable";
             cmd.Data = ""+ msg.UserId;
-            WSService.sendCommand(cmd);
+            WS.sendCommand(cmd);
         }
     }
 

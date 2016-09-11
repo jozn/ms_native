@@ -15,7 +15,7 @@ import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.models.NotifyModel;
 import com.mardomsara.social.models.Session;
 import com.mardomsara.social.service.BackgroundService;
-import com.mardomsara.social.service.WSService;
+import com.mardomsara.social.service.WS;
 import com.mardomsara.social.ui.BasePresenter;
 import com.orhanobut.hawk.Hawk;
 import com.orhanobut.hawk.HawkBuilder;
@@ -36,7 +36,7 @@ import pl.tajchert.nammu.Nammu;
 public class LifeCycle {
 
     public static void initFromActivity(Context ctx){
-
+        initCommon(ctx);
         if(true) {
             Intent i = new Intent(ctx,BackgroundService.class);
             ctx.startService(i);
@@ -112,7 +112,7 @@ public class LifeCycle {
         //////////////
         Command cmd = new Command();
         cmd.Name = "Echo";
-        WSService.sendCommand(cmd);
+        WS.sendCommand(cmd);
         Session.fetchUserInfoFromServer();
         /////////////
         _afterCalled = true;

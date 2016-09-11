@@ -11,6 +11,8 @@ public class Constants {
     public static String MsgsSeenByPeer = "MsgsSeenByPeer";
     public static String MsgsDeletedFromServer = "MsgsDeletedFromServer";
 
+    public static String CommandsReceivedToServer = "CommandsReceivedToServer";
+
 
     //messages Types
     public static final int MESSAGE_TEXT = 10;

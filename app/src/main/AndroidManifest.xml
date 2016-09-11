@@ -49,7 +49,7 @@
             android:enabled="true"
             android:exported="true" />
         <service
-            android:name=".service.WSService"
+            android:name=".service.WS"
             android:enabled="true"
             android:exported="false" />
 

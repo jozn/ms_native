@@ -21,7 +21,7 @@ import com.mardomsara.social.models.events.MessageSyncMeta;
 import com.mardomsara.social.models.events.MsgGeneralChangeChangeEvent;
 import com.mardomsara.social.models.events.MsgsSyncMetaSeenByPeer;
 import com.mardomsara.social.models.extra.MsgExtraPhotoThumbnail;
-import com.mardomsara.social.service.WSService;
+import com.mardomsara.social.service.WS;
 import com.raizlabs.android.dbflow.sql.language.SQLite;
 
 import org.greenrobot.eventbus.EventBus;
@@ -94,7 +94,7 @@ public class MessagesModel {
         cmd.Name = Constants.MsgsAddNew;
         cmd.Data = JsonUtil.toJson(msg);
 
-        WSService.sendCommand(cmd);
+        WS.sendCommand(cmd);
         //onAddedNewMsgEvent(msg);
     }
 
@@ -113,7 +113,7 @@ public class MessagesModel {
 
         cmd.addToDataArray(meta);
         cmd.makeDataReady();
-        WSService.sendCommand(cmd);
+        WS.sendCommand(cmd);
     }
 
     public static void sendToServerAllMsgsSeenbyPeerCmdForRoom(RoomsListTable room){
@@ -141,7 +141,7 @@ public class MessagesModel {
 
         cmd.addToDataArray(meta);
         cmd.makeDataReady();
-        WSService.sendAnStoreCommand(cmd);
+        WS.sendAnStoreCommand(cmd);
 
     }
 
@@ -262,7 +262,7 @@ public class MessagesModel {
 
         cmd.addToDataArray(meta);
         cmd.makeDataReady();
-        WSService.sendCommand(cmd);
+        WS.sendCommand(cmd);
     }
 
     public static void publishEvent(MessageSyncMeta msg) {

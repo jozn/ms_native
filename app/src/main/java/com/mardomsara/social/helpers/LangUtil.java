@@ -46,6 +46,11 @@ public class LangUtil {
         return rand.nextInt(number);
     }
 
+    public static long getRandomLong(long number) {
+        Random rand = new Random();
+        return (long)(rand.nextDouble()*number);
+    }
+
 
     /**
      * make arraylist from "," separated string

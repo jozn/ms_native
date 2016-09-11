@@ -1,8 +1,11 @@
 package com.mardomsara.social.service;
 
+import android.app.Service;
+import android.content.Intent;
+import android.os.IBinder;
 import android.util.Log;
 
-import com.mardomsara.social.app.DB;
+import com.mardomsara.social.App;
 import com.mardomsara.social.base.CmdResRegistery;
 import com.mardomsara.social.base.Command;
 import com.mardomsara.social.base.NetEventHandler;
@@ -15,32 +18,36 @@ import java.util.concurrent.Executors;
 /**
  * Created by Hamid on 3/20/2016.
  */
-public class WSService {
+public class WSService_DEP extends Service {
     private static String LOGTAG = "WSService";
-    private static WSService _serviceInstance;
+    private static Executor _exe ;
+    private static WSService_DEP _serviceInstance;
+    public static WSClient wsclient;
+    public WSService_DEP() {
+    }
 
-    private Executor _exe = Executors.newSingleThreadExecutor();
-    public WSClient wsclient;
-
-    int delayReconnect = 5;//seconds
-
-    public WSService() {
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        App.init(this);
         _serviceInstance = this;
         Log.d(LOGTAG, "WSService onCreate");
-//        _exe = Executors.newSingleThreadExecutor();
+        _exe = Executors.newSingleThreadExecutor();
         connectToServer();
     }
 
-    public static WSService getInstance(){
-        if(_serviceInstance == null){
-            _serviceInstance = new WSService();
-        }
-        return _serviceInstance;
+
+
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        Log.d(LOGTAG, "WSService  onStartCommand");
+
+        return Service.START_STICKY;
     }
 
 
-    private void send(String command){
-//        _runService();
+    static void send(String command){
+        _runService();
         //WORKAROUND carsh: somethimse for first time connection connection maybe null
         if(_serviceInstance == null || _serviceInstance.wsclient == null){
             try {
@@ -58,31 +65,22 @@ public class WSService {
         WSCall res = new WSCall();
         res.Commands = new Command[]{command};
         String ws_res = JsonUtil.toJson(res);
-        getInstance().send(ws_res);
+        send(ws_res);
     }
 
+    //TODO: implement
     public static void sendAnStoreCommand(Command command) {
-        Runnable r = ()->{
-            try {
-                command.makeDataReady();
-                DB.db.insertIntoCommand(command);
-                sendCommand(command);
-            }catch (Exception e){
-                e.printStackTrace();
-            }
-        };
-
-        getInstance()._exe.execute(r);
+        sendCommand(command);
     }
 
-    public static void sendCommandForResponse(Command command, NetEventHandler handler){
+        public static void sendCommandForRespone(Command command, NetEventHandler handler){
         CmdResRegistery.register(command.ResId, handler);
         sendCommand(command);
     }
 
     public static void sendBinary(byte[] bytes){
         Log.d(LOGTAG, " sendBinary");
-//        _runService();
+        _runService();
         //WORKAROUND carsh: somethimse for first time connection connection maybe null
         if(_serviceInstance == null || _serviceInstance.wsclient == null){
             try {
@@ -95,8 +93,7 @@ public class WSService {
         }
 
     }
-
-    void connectToServer(){
+    static void connectToServer(){
         Log.d(LOGTAG, " connectToServer");
         //just make sure there is only one conncetion open to server
         if(wsclient != null && wsclient.webSocket != null ){
@@ -110,27 +107,22 @@ public class WSService {
         wsclient.tryConnect();
     }
 
-    boolean isReconnectingRunning = false;
-    void onClientConnectionFinished(){
-        if(isReconnectingRunning) return;
-
-        Runnable r = ()->{
-            try {
-                isReconnectingRunning = true;
-                Thread.sleep(delayReconnect * 1000);
-                connectToServer();
-            }catch (Exception e){
-
-            }finally {
-
-            }
-        };
-        Executors.newSingleThreadExecutor().execute(r);
+    private static void _runService(){
+        if(_serviceInstance == null) {
+            Intent i = new Intent(App.context,WSService_DEP.class);
+            App.context.startService(i);
+        }
     }
 
-    void onClientConnectionSuccess(){
-        isReconnectingRunning = false;
-        delayReconnect = 5;
+    @Override
+    public void onDestroy() {
+        Log.d(LOGTAG, "WSService onDestroy");
+        super.onDestroy();
     }
 
+    @Override
+    public IBinder onBind(Intent intent) {
+        // TODO: Return the communication channel to the service.
+        throw new UnsupportedOperationException("Not yet implemented");
+    }
 }
