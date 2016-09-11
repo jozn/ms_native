@@ -12,6 +12,7 @@ import com.facebook.imagepipeline.core.ImagePipelineConfig;
 import com.facebook.imagepipeline.listener.RequestListener;
 import com.facebook.imagepipeline.listener.RequestLoggingListener;
 import com.mardomsara.social.app.DB;
+import com.mardomsara.social.app.LifeCycle;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.ui.BasePresenter;
 import com.orhanobut.hawk.Hawk;
@@ -83,7 +84,8 @@ public class App extends Application {
    }
    public static void init(Context ctx){
       context = ctx;
-      AppUtil._context = ctx;
+      LifeCycle.initFromActivity(ctx);
+/*      AppUtil._context = ctx;
 //      AppUtil._context = ctx;
 
 
@@ -128,6 +130,7 @@ public class App extends Application {
 //         play();
       }
 //      context =(Context) context;
+      */
    }
 
    public static void runStetho(Context ctx){
