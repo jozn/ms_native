@@ -7,6 +7,7 @@ import com.github.gfx.android.orma.annotation.OnConflict;
 import com.github.gfx.android.orma.annotation.PrimaryKey;
 import com.github.gfx.android.orma.annotation.Table;
 import com.mardomsara.social.app.DB;
+import com.mardomsara.social.helpers.AndroidUtil;
 
 /**
  * Created by Hamid on 9/4/2016.
@@ -127,7 +128,7 @@ public class Message {
         DB.db.prepareInsertIntoMessage(OnConflict.REPLACE,true).execute(this);
     }
 
-    public void insert() {
-        DB.db.prepareInsertIntoMessage(OnConflict.ABORT,true).execute(this);
+    public void insertInBackground() {
+        AndroidUtil.runInBackgroundNoPanic(()->DB.db.prepareInsertIntoMessage(OnConflict.ABORT,true).execute(this));
     }
 }

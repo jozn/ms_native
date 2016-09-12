@@ -6,6 +6,7 @@ import com.mardomsara.social.events.from_server.HelloCommand;
 //import com.mardomsara.social.events.from_server.MsgCommand;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.models.net_events.MsgCommand;
+import com.mardomsara.social.service.WS;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -58,7 +59,7 @@ public class NetEventRouter {
         register(Constants.MsgsDeletedFromServer, MsgCommand.MsgsDeletedFromServer);
 
         //internal
-        register(Constants.CommandsReceivedToServer, MsgCommand.MsgsDeletedFromServer);
+        register(Constants.CommandsReceivedToServer, WS.CommandsReceivedToServer_Handler);
 
         //////////////////
         register("SetUserForTable", MsgCommand.SetUserForTable);

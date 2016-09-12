@@ -56,11 +56,44 @@ public class WS {
     ExecutorService reciverHandlerExecuter = Executors.newSingleThreadExecutor();
     WebSocket webSocket;
 
+    public static NetEventHandler CommandsReceivedToServer_Handler = (data)->{
+        Long[] ids = JsonUtil.fromJson(data, Long[].class);
+        if(ids == null) return;
+        logIt("CommandsReceivedToServer_Handler " + ids.toString());
+        DB.db.deleteFromCommand().CmdIdIn(ids).execute();
+
+    };
+
     private WS() {
         instance = this;
         Log.d(LOGTAG, "WSService onCreate");
         runSenderThread();
         connectToServer();
+        connectionCheker();
+    }
+
+    void connectionCheker(){
+        Runnable r = ()->{
+            int t = 5;
+            while (true){
+                try {
+                    if(status == STATUS.CLOSED){
+                        Thread.sleep(t * 1000);
+                        connectToServer();
+                        t += t;
+                    }else {
+                        t = 5;
+                    }
+                }catch (Exception e){
+
+                }finally {
+
+                }
+            }
+        };
+        delayReconnect += delayReconnect;
+        Executors.newSingleThreadExecutor().execute(r);
+
     }
 
     public static WS getInstance(){
@@ -80,17 +113,35 @@ public class WS {
 
     public static void sendCommand(Command command){
         command.makeDataReady();
+        command.makeDataReady();
+        command.makeDataReady();
         WSCall res = new WSCall();
         res.Commands = new Command[]{command};
         String ws_res = JsonUtil.toJson(res);
         getInstance().sendString(ws_res);
     }
 
+    public static void sendCommands(List<Command> commands){
+        for(Command c : commands){
+//            c.makeDataReady();
+            c.prepareAfterLoadFromDB();
+            AppUtil.log("Command XXX: "+c.toString());
+            c.Data.replace("\\\\","\\");
+            sendCommand(c);
+        }
+
+        /*WSCall res = new WSCall();
+        res.Commands = commands.toArray(new Command[]{});
+        String ws_res = JsonUtil.toJson(res);
+        getInstance().sendString(ws_res);*/
+    }
+
     public static void sendAnStoreCommand(Command command) {
         Runnable r = ()->{
             try {
                 command.makeDataReady();
-                DB.db.insertIntoCommand(command);
+                command.insert();
+//                DB.db.insertIntoCommand(command);
                 sendCommand(command);
             }catch (Exception e){
                 e.printStackTrace();
@@ -109,7 +160,7 @@ public class WS {
         Log.d(LOGTAG, " connectToServer");
         //just make sure there is only one conncetion open to server
         if(connection != null && webSocket != null ){
-            closeConnection();
+//            closeConnection();
         }
 
         tryConnect();
@@ -126,9 +177,8 @@ public class WS {
     }
 
     boolean isReconnectingRunning = false;
-    void onClientConnectionFinished(){
+    void prepareForReqonecting(){
         if(isReconnectingRunning) return;
-
         Runnable r = ()->{
             try {
                 isReconnectingRunning = true;
@@ -140,16 +190,13 @@ public class WS {
 
             }
         };
-        Executors.newSingleThreadExecutor().execute(r);
+        delayReconnect += delayReconnect;
+//        Executors.newSingleThreadExecutor().execute(r);
     }
 
-    void onClientConnectionSuccess(WebSocket webSocket, Response response){
-        isReconnectingRunning = false;
-        delayReconnect = 5;
-
-        this.webSocket = webSocket;
-        status = STATUS.OPEN;
-        runSenderThread();
+    void sendStoredCommands(){
+        List<Command> cmds =  DB.db.selectFromCommand().toList();
+        sendCommands(cmds);
     }
 
     void tryConnect() {
@@ -199,6 +246,7 @@ public class WS {
 
         if(res.Commands == null) return;
         List<Long> recied = new ArrayList<>();
+        Boolean sendCmdsRecived = true;
         Runnable r = ()->{
             for(Command comStr : res.Commands){
                 try {//handle catches errors
@@ -207,14 +255,18 @@ public class WS {
                     }else {
                         NetEventRouter.handle(comStr.Name ,comStr.Data);
                     }
-                    recied.add(comStr.CmdId);
+                    if(comStr.CmdId > 0){
+                        recied.add(comStr.CmdId);
+                    }
                 }catch (Exception e){
                     e.printStackTrace();
                 }
             }
-            Command reviedCmd = Command.getNew("CommandsReceived");
-            reviedCmd.setData(recied);
-            sendCommand(reviedCmd);
+            if(recied.size() > 0){
+                Command reviedCmd = Command.getNew("CommandsReceived");
+                reviedCmd.setData(recied);
+                sendCommand(reviedCmd);
+            }
         };
         reciverHandlerExecuter.execute(r);
     }
@@ -224,11 +276,15 @@ public class WS {
         Log.d(LOGTAG, "onOpen: Response:" + response.message());
         this.webSocket = webSocket;
         status = STATUS.OPEN;
+        isReconnectingRunning = false;
+        delayReconnect = 5;
+        sendStoredCommands();
     }
 
     void onFailure(IOException e, Response response) {
         Log.d(LOGTAG, "onFailure: IOException - Response:" + e.toString() );
         status = STATUS.CLOSED;
+        prepareForReqonecting();
     }
 
     void onMessage(ResponseBody message) {
@@ -247,13 +303,12 @@ public class WS {
     void onClose(int code, String reason) {
         logIt("onClose: code - reason: :" + code + " " + reason);
         status = STATUS.CLOSED;
+        prepareForReqonecting();
     }
 
-    void logIt(String msg){
+    static void logIt(String msg){
         Log.d(LOGTAG,"Thread: "+Thread.currentThread().getName() + " " + msg);
     }
-
-
 
     /////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////

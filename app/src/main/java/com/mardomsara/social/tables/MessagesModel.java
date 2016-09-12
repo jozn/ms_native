@@ -142,7 +142,6 @@ public class MessagesModel {
         cmd.addToDataArray(meta);
         cmd.makeDataReady();
         WS.sendAnStoreCommand(cmd);
-
     }
 
     public static void makeMsgsSeen(List<String> msgKeys, MsgsSyncMetaSeenByPeer meta){

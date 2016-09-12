@@ -222,7 +222,7 @@ public class ChatRoomPresenter extends BasePresenter implements
         Message msg =  MessageModel.newTextMsgForRoom(room);
         msg.MessageTypeId = Constants.MESSAGE_TEXT;
         msg.Text = edit_filed.getText().toString();
-        msg.insert();
+        msg.insertInBackground();
 
         edit_filed.setText("");
         MessageModel.syncToServer(msg);

@@ -23,7 +23,7 @@
         android:isScrollContainer="false"
         android:layout_weight="1"
         android:layout_below="@+id/header"
-        android:background="@color/yellow"
+        android:background="@color/white"
         />
 
     <LinearLayout
