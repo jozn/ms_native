@@ -5,9 +5,10 @@ package com.mardomsara.social.base;
  */
 //TODO implement WSResCommand
 public class WSCall {
-    public String Status;//dep
-    public Object Payload; //,interface{}//dep
-    public int ResTime;//dep
+//    public String Status;//dep
+//    public Object Payload; //,interface{}//dep
+//    public int ResTime;//dep
     public Command[] Commands;//[]WSResCommand
-    public String RequestId;//dep
+    public long SyncedNanoId;
+//    public String RequestId;//dep
 }

@@ -56,7 +56,8 @@ public class Command {
     private transient List<Object> _dataArray = null;
 
     public Command() {
-        CmdId = (1_000_000_000_000L+LangUtil.getRandomLong(9_000_000_000_000L));
+//        CmdId = (1_000_000_000_000L+LangUtil.getRandomLong(9_000_000_000_000L));
+        CmdId = TimeUtil.getTimeNano();;
         CreatedTimeMs = TimeUtil.getTimeMs();
     }
 

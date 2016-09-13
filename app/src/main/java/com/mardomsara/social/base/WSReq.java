@@ -8,4 +8,5 @@ public class WSReq {
     public String Command;
     public Map<String, Object> Params; // map[string]interface{}
     public String RequestId;
+
 }
