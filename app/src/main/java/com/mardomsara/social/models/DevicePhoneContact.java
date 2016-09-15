@@ -22,8 +22,6 @@ import com.mardomsara.social.tables.UsersTable_Table;
 import com.orhanobut.hawk.Hawk;
 import com.raizlabs.android.dbflow.sql.language.SQLite;
 
-import org.apache.commons.lang3.StringUtils;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
