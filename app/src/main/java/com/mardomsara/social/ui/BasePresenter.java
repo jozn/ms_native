@@ -30,8 +30,10 @@ public  abstract class BasePresenter implements FragmentPage {
     public static Context context;//set thif from App.init()
 
     //dep
+    @Deprecated
     public static LayoutInflater inflater;
 
+    @Deprecated
     protected View grandView;
 
     public BasePresenter() {

@@ -12,10 +12,11 @@
     </style>
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <!--<style name="AppTheme" parent="Theme.AppCompat">-->
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/light_blue_2</item>
-        <item name="colorPrimaryDark">@color/light_blue_1</item>
-        <item name="colorAccent">@color/light_blue_5</item>
+        <!--<item name="colorPrimary">@color/light_blue_2</item>-->
+        <!--<item name="colorPrimaryDark">@color/light_blue_1</item>-->
+        <!--<item name="colorAccent">@color/light_blue_5</item>-->
 
         <!--FOr EditText-->
         <item name="colorControlNormal">#d3c52f</item> <!-- scrollbar color -->
@@ -23,31 +24,34 @@
         <item name="colorControlHighlight">@color/light_blue_5</item>
 
         <!-- me:Old ones -->
-        <!--<item name="colorPrimary">@color/colorPrimary</item>-->
-        <!--<item name="colorPrimaryDark">@color/colorPrimaryDark</item>-->
-        <!--<item name="colorAccent">@color/colorAccent</item>-->
-
-    </style>
-
-    <style name="AppTheme.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-
-
-    </style>
-
-    <style name="AppTheme.NoActionBar.OtherActivity">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
 
     </style>
+
+    <!--<style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+
+
+    </style>-->
+
+    <!--<style name="AppTheme.NoActionBar.OtherActivity">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+
+    </style>-->
+    <!--
     <style name="AppTheme.Btn" parent="">
 
-    </style>
+    </style>-->
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <!--<style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />-->
 
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <!--<style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />-->
 
     <style name="tabs_btn">
         <item name="android:textSize">14dp</item>

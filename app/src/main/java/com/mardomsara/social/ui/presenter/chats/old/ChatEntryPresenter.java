@@ -375,7 +375,7 @@ public class ChatEntryPresenter extends BasePresenter implements
     public void onGalleryClick() {
         attachmentView.dismiss();
         GalleryChooserPresenter gallery =new GalleryChooserPresenter();
-        gallery.chatEntryPresenter = this;
+//        gallery.chatEntryPresenter = this;
         Nav.push(gallery);
     }
 

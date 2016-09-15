@@ -386,7 +386,7 @@ public class ChatRoomPresenter extends BasePresenter implements
         attachmentView.dismiss();
         GalleryChooserPresenter gallery =new GalleryChooserPresenter();
         //FIxme: gallery.chatEntryPresenter to interface
-//        gallery.chatEntryPresenter = this;
+        gallery.chatEntryPresenter = this;
         Nav.push(gallery);
     }
 

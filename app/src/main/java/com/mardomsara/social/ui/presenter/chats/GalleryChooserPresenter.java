@@ -28,7 +28,6 @@ import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.CursorRecyclerViewAdapter;
-import com.mardomsara.social.ui.presenter.chats.old.ChatEntryPresenter;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -49,7 +48,8 @@ public class GalleryChooserPresenter extends BasePresenter {
     Map<String, Integer> folder_count_cache = new HashMap<>();;
     Map<String, Integer> folder_count_video_cache = new HashMap<>();;
 
-    public ChatEntryPresenter chatEntryPresenter;
+//    public ChatEntryPresenter chatEntryPresenter;
+    public ChatRoomPresenter chatEntryPresenter;
 
     @Bind(R.id.view_pager)
     ViewPager view_pager;
@@ -58,7 +58,7 @@ public class GalleryChooserPresenter extends BasePresenter {
     GalleryChooserPresenterPagerAdaptor pagerAdaptor;
     @Override
     public View buildView() {
-        View v = inflater.inflate(R.layout.gallery_chooser_presenter, null);
+        View v = AppUtil.inflate(R.layout.gallery_chooser_presenter);
         ButterKnife.bind(this, v);
 
         pagerAdaptor = new GalleryChooserPresenterPagerAdaptor(getFragment().getChildFragmentManager(),getContext());
