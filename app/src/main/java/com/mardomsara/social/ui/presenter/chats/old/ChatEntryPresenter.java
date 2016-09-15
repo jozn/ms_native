@@ -44,9 +44,9 @@ import com.mardomsara.social.tables.MessagesTable;
 import com.mardomsara.social.tables.RoomsListTable;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.adaptors.ChatEnteryAdaptor;
+import com.mardomsara.social.ui.cells.general.KeywordAttachmentCell;
 import com.mardomsara.social.ui.presenter.chats.GalleryChooserPresenter;
 import com.mardomsara.social.ui.views.EmojiKeyboard3;
-import com.mardomsara.social.ui.views.chat.KeywordAttachmentView;
 import com.orhanobut.hawk.Hawk;
 import com.squareup.leakcanary.RefWatcher;
 import com.sw926.imagefileselector.ImageFileSelector;
@@ -68,7 +68,7 @@ import java.util.List;
  */
 @Deprecated
 public class ChatEntryPresenter extends BasePresenter implements
-        KeywordAttachmentView.Callbacks{
+        KeywordAttachmentCell.Callbacks{
     public RoomsListTable room;
     TextView emoji_opener_btn;
     FrameLayout emoji_window_holder;
@@ -100,7 +100,7 @@ public class ChatEntryPresenter extends BasePresenter implements
 
 
     PopupWindow attachWindow;
-    KeywordAttachmentView attachmentView;
+    KeywordAttachmentCell attachmentView;
     ChatEntryPresenter that;
 
     IntentHelper intentHelper;
@@ -253,7 +253,7 @@ public class ChatEntryPresenter extends BasePresenter implements
     }
 
     public void showAttachmentWindow(){
-        attachmentView = new KeywordAttachmentView(this,bottom_container);
+        attachmentView = new KeywordAttachmentCell(this,bottom_container);
 
     }
 

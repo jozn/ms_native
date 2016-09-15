@@ -1,4 +1,4 @@
-package com.mardomsara.social.ui.views;
+package com.mardomsara.social.ui.cells.general;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -31,7 +31,7 @@ import jp.wasabeef.recyclerview.adapters.AlphaInAnimationAdapter;
 /**
  * Created by Hamid on 6/17/2016.
  */
-public class RecentImagesView {
+public class RecentImagesCell {
     View view;
     String Tag = "Gallery";
     Cursor cursor ;
@@ -46,8 +46,8 @@ public class RecentImagesView {
     public RecyclerView recycler_view;
     Context context = AppUtil.getContext();
 
-    public RecentImagesView() {
-        recycler_view = (RecyclerView) AppUtil.inflate(R.layout.recent_images_view_recycler_view);
+    public RecentImagesCell(ViewGroup parent) {
+        recycler_view = (RecyclerView) AppUtil.inflate(R.layout.recent_images_view_recycler_view,parent);
         ImageCursor imageCursor = ImageProviderHelper.getLastImages();
 
         Galley galley = new Galley(AppUtil.getContext(),imageCursor);

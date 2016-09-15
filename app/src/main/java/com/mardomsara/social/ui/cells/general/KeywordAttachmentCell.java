@@ -1,4 +1,4 @@
-package com.mardomsara.social.ui.views.chat;
+package com.mardomsara.social.ui.cells.general;
 
 import android.view.Gravity;
 import android.view.View;
@@ -12,8 +12,6 @@ import com.mardomsara.social.app.Config;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.tables.MessagesTable;
-import com.mardomsara.social.ui.presenter.chats.old.ChatEntryPresenter;
-import com.mardomsara.social.ui.views.RecentImagesView;
 import com.orhanobut.hawk.Hawk;
 
 import java.util.List;
@@ -25,14 +23,12 @@ import butterknife.OnClick;
 /**
  * Created by Hamid on 6/15/2016.
  */
-//todo migrate to dataBinding: on xml set onClick={callback_listner.onPhotoClick()}
-public class KeywordAttachmentView implements RecentImagesView.onRecentImageClicked{
+//todo [update DON'T] migrate to dataBinding: on xml set onClick={callback_listener.onPhotoClick()}
+public class KeywordAttachmentCell implements RecentImagesCell.onRecentImageClicked{
     @Bind(R.id.attach_video) View attach_video;
     @Bind(R.id.attach_gallery) View attach_gallery;
     @Bind(R.id.attach_camera) View attach_camera;
     @Bind(R.id.attach_file) View attach_file;
-
-//    @Bind(R.id.gridview) TwoWayGridView gridview;
 
     @Bind(R.id.attachment_top) View attachment_top;
 
@@ -43,26 +39,25 @@ public class KeywordAttachmentView implements RecentImagesView.onRecentImageClic
     @Bind(R.id.frame_layout) ViewGroup frame_layout;
 
 
-    Callbacks callback_listner;
-    RecentImagesView recentImagesView;
+    Callbacks callback_listener;
+    RecentImagesCell recentImagesCell;
     PopupWindow attachWindow;
-    public ChatEntryPresenter chatEntryPresenter;
 
-    int kybordSize = Hawk.get(Config.KEYBOARD_HEIGHT, Config.KEYBOARD_HEIGHT_DEFAULT);
+    int keyboardSize = Hawk.get(Config.KEYBOARD_HEIGHT, Config.KEYBOARD_HEIGHT_DEFAULT);
 
-    public KeywordAttachmentView(Callbacks listner, View bottom_container) {
-        callback_listner = listner;
-        View popupView = AppUtil.inflate(R.layout.keywoard_attachment);
+    public KeywordAttachmentCell(Callbacks listener, View bottom_container) {
+        callback_listener = listener;
+        View popupView = AppUtil.inflate(R.layout.cells_keywoard_attachment);
         ButterKnife.bind(this,popupView);
 
         attachWindow = new PopupWindow(
                 popupView,
                 ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.MATCH_PARENT);//kybordSize);
+                ViewGroup.LayoutParams.MATCH_PARENT);//keyboardSize);
 
         //view containg icons
         View main_content = popupView.findViewById(R.id.attachment_main);
-        main_content.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,kybordSize));
+        main_content.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, keyboardSize));
 //        close_send_btn.setOnClickListener((v)->{
 //                attachWindow.close_send_btn();
 //            });
@@ -73,9 +68,9 @@ public class KeywordAttachmentView implements RecentImagesView.onRecentImageClic
     }
 
     void setRecentImages(){
-        recentImagesView = new RecentImagesView();
-        recentImagesView.insertInto(frame_layout);
-        recentImagesView.setListener(this);
+        recentImagesCell = new RecentImagesCell(frame_layout);
+        recentImagesCell.insertInto(frame_layout);
+        recentImagesCell.setListener(this);
     }
 
     public void bindToView(MessagesTable msg) {
@@ -99,7 +94,7 @@ public class KeywordAttachmentView implements RecentImagesView.onRecentImageClic
     }
 
     void _updateCloseBtn(){
-        int size = recentImagesView.getSelected().size();
+        int size = recentImagesCell.getSelected().size();
         if(size >0 ){
             close_icon.setText("\uf2f6");
             close_text.setText("بفرس("+size +")");
@@ -118,9 +113,9 @@ public class KeywordAttachmentView implements RecentImagesView.onRecentImageClic
 
     @OnClick(R.id.close_send_btn)
     void sendRecentImagesOrClose(){
-        int size = recentImagesView.getSelected().size();
+        int size = recentImagesCell.getSelected().size();
         if(size >0 ){
-            callback_listner.onRecentImagesClick(recentImagesView.getSelected());
+            callback_listener.onRecentImagesClick(recentImagesCell.getSelected());
         }else {//clse
            dismiss();
         }
@@ -133,27 +128,27 @@ public class KeywordAttachmentView implements RecentImagesView.onRecentImageClic
 
     @OnClick(R.id.attach_video)
     public void attach_video(){
-        callback_listner.onVideoClick();
+        callback_listener.onVideoClick();
     }
 
     @OnClick(R.id.attach_camera)
     public void attach_camera(){
-        callback_listner.onCameraPhotoClick();
+        callback_listener.onCameraPhotoClick();
     }
 
     @OnClick(R.id.attach_gallery)
     public void setAttach_gallery(){
-        callback_listner.onGalleryClick();
+        callback_listener.onGalleryClick();
     }
 
     @OnClick(R.id.attach_file)
     public void setAttach_file(){
-        callback_listner.onFileClick();
+        callback_listener.onFileClick();
     }
 
     @OnClick(R.id.attach_location)
     public void setAttach_location(){
-        callback_listner.onLocationClick();
+        callback_listener.onLocationClick();
     }
 
     public interface Callbacks {

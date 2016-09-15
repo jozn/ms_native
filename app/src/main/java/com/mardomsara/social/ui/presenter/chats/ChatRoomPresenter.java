@@ -46,8 +46,7 @@ import com.mardomsara.social.models.tables.Room;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.cells.chats.lists.MsgsListCell;
 import com.mardomsara.social.ui.views.EmojiKeyboard3;
-import com.mardomsara.social.ui.views.TextWatcherAdapter;
-import com.mardomsara.social.ui.views.chat.KeywordAttachmentView;
+import com.mardomsara.social.ui.cells.general.KeywordAttachmentCell;
 import com.squareup.picasso.Picasso;
 import com.sw926.imagefileselector.ImageFileSelector;
 
@@ -65,7 +64,7 @@ import butterknife.ButterKnife;
  * Created by Hamid on 5/4/2016.
  */
 public class ChatRoomPresenter extends BasePresenter implements
-        KeywordAttachmentView.Callbacks{
+        KeywordAttachmentCell.Callbacks{
     public Room room;
 
     ////// Views Bindings//////
@@ -106,7 +105,7 @@ public class ChatRoomPresenter extends BasePresenter implements
     MsgsListCell messagesCell;
     MsgsListCell.ChatEntaryAdaptor messagesAdaptor;
 
-    KeywordAttachmentView attachmentView;
+    KeywordAttachmentCell attachmentView;
     ChatRoomPresenter that;
 
     IntentHelper intentHelper;
@@ -262,7 +261,7 @@ public class ChatRoomPresenter extends BasePresenter implements
     }
 
     public void showAttachmentWindow(){
-        attachmentView = new KeywordAttachmentView(this,bottom_container);
+        attachmentView = new KeywordAttachmentCell(this,bottom_container);
     }
 
     ////////////////////////////////////

@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/transparent_black_light">
+    <!-- transpanert part -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -25,16 +26,21 @@
         android:background="@color/white"
         >
 
-
-        <FrameLayout
+        <!--Height sizing: imageitem:80 + 2* padding 8 = 96dp-->
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="85dp"
-            android:layout_marginBottom="5dp"
-            android:layout_marginTop="5dp"
+            android:layout_height="96dp"
+            android:layout_marginBottom="0dp"
+            android:layout_marginTop="0dp"
             android:id="@+id/frame_layout"
+            android:background="@drawable/border_bottom_1px"
+            android:gravity="center_vertical"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+
             >
 
-        </FrameLayout>
+        </RelativeLayout>
 
         <LinearLayout
             style="@style/attachment_cells_row_holder"
