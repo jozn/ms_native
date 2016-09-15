@@ -3,19 +3,35 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="50dp"
-    android:background="@color/light_blue_5"
+    android:background="@drawable/background_tab"
     >
 
-    <TextView
+    <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="\uf3d3"
-        fontPath="@string/font_iran_medium"
-        android:id="@+id/room_name"
+        android:layout_height="match_parent"
 
         android:layout_centerVertical="true"
         android:layout_centerInParent="true"
-        />
+        android:gravity="center_vertical"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="\uf3d3"
+            fontPath="@string/font_iran_medium"
+            android:id="@+id/room_name"
+            android:gravity="center_vertical"
+
+            />
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="4dp"
+            android:id="@id/avatar"
+            android:background="@color/background_image"
+            />
+    </LinearLayout>
+
 
     <TextView
         android:layout_width="wrap_content"
@@ -25,7 +41,7 @@
         android:id="@+id/back"
         android:textColor="@color/navbar_icon_font"
         android:gravity="right"
-        android:textSize="38dp"
+        android:textSize="37dp"
         android:paddingRight="10dp"
         android:paddingLeft="10dp"
 

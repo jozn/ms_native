@@ -27,14 +27,14 @@ import java.util.List;
  */
 public class MsgsListCell {
     View root_view;
-    public ChatEnteryAdaptor adaptor;
+    public ChatEntaryAdaptor adaptor;
 
     public MsgsListCell() {
-        this.adaptor = new ChatEnteryAdaptor();
+        this.adaptor = new ChatEntaryAdaptor();
     }
 
 
-    public class ChatEnteryAdaptor extends RecyclerView.Adapter<MsgAbstractViewHolder> {
+    public class ChatEntaryAdaptor extends RecyclerView.Adapter<MsgAbstractViewHolder> {
         //    @Bind()
         public List<Message> msgs;
         public void setMsgs(List<Message> msgs) {

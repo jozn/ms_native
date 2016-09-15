@@ -8,6 +8,8 @@
 
     <!-- base colors -->
 
+    <color name="gray">#949494</color>
+
     <color name="background_blue">#adc7d7</color>
     <color name="background_image">#f5f5f5</color>
 

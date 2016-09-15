@@ -20,7 +20,7 @@ import com.mardomsara.social.helpers.AppUtil;
 /**
  * Created by Hamid on 5/15/2016.
  */
-public class EmojiKeybord3 {
+public class EmojiKeyboard3 {
     EmojiconEditText emojiconEditText;
     View rootView ;
     ImageView emojiButton;
@@ -34,7 +34,7 @@ public class EmojiKeybord3 {
     String textIconKeyboard = "\uE837";
     String textIconFace = "\uE854";
 
-    public EmojiKeybord3(EmojiconEditText emojiconEditText, TextView emojiIcon, View rootView) {
+    public EmojiKeyboard3(EmojiconEditText emojiconEditText, TextView emojiIcon, View rootView) {
         this.emojiconEditText = emojiconEditText;
         this.emojiIcon = emojiIcon;
         this.rootView = rootView;

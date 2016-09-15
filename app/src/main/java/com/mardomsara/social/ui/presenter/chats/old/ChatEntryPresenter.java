@@ -45,7 +45,7 @@ import com.mardomsara.social.tables.RoomsListTable;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.adaptors.ChatEnteryAdaptor;
 import com.mardomsara.social.ui.presenter.chats.GalleryChooserPresenter;
-import com.mardomsara.social.ui.views.EmojiKeybord3;
+import com.mardomsara.social.ui.views.EmojiKeyboard3;
 import com.mardomsara.social.ui.views.chat.KeywordAttachmentView;
 import com.orhanobut.hawk.Hawk;
 import com.squareup.leakcanary.RefWatcher;
@@ -105,7 +105,7 @@ public class ChatEntryPresenter extends BasePresenter implements
 
     IntentHelper intentHelper;
     Uri file_uri;
-    EmojiKeybord3 emojiKeybord;
+    EmojiKeyboard3 emojiKeybord;
 
     @Override
     public View buildView() {
@@ -163,7 +163,7 @@ public class ChatEntryPresenter extends BasePresenter implements
         roomTitle.setText(room.getRoomName());
         EventBus.getDefault().register(this);
 
-        emojiKeybord= new EmojiKeybord3(edit_filed,emoji_opener_btn, AppUtil.global_window);
+        emojiKeybord= new EmojiKeyboard3(edit_filed,emoji_opener_btn, AppUtil.global_window);
 
         that = this;
         attach.setOnClickListener((v)->{ showAttachmentWindow();});
