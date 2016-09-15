@@ -24,7 +24,6 @@ import com.mardomsara.social.models.extra.MsgExtraPhotoThumbnail;
 import com.mardomsara.social.models.tables.Message;
 import com.mardomsara.social.models.tables.Room;
 import com.mardomsara.social.service.WS;
-import com.mardomsara.social.ui.presenter.chats.old.LastMsgOfRoomsCache;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -154,7 +153,7 @@ public class MessageModel {
                 list.add(msg.RoomKey);
             }
             DB.db.deleteFromMessage().MessageKeyIn(list);
-            LastMsgOfRoomsCache.getInstance().removeForRoom(roomKey);
+            LastMsgOfRoomsCache2.getInstance().removeForRoom(roomKey);
         });
     }
 

@@ -13,7 +13,6 @@ import android.widget.TextView;
 import com.mardomsara.social.R;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.ui.BasePresenter;
-import com.mardomsara.social.ui.presenter.chats.old.ChatRoomsListPresenter;
 
 /**
  * Created by Hamid on 5/2/2016.

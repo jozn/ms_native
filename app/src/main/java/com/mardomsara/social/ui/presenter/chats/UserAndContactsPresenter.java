@@ -11,9 +11,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.mardomsara.social.Nav;
 import com.mardomsara.social.R;
-import com.mardomsara.social.app.Router;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.DialogHelper;
 import com.mardomsara.social.helpers.Helper;
@@ -21,10 +19,8 @@ import com.mardomsara.social.helpers.IntentUtil;
 import com.mardomsara.social.models.DevicePhoneContact;
 import com.mardomsara.social.models.PhoneContactsModel;
 import com.mardomsara.social.play.DividerItemDecoration;
-import com.mardomsara.social.tables.RoomsListTable;
 import com.mardomsara.social.tables.UsersTable;
 import com.mardomsara.social.ui.BasePresenter;
-import com.mardomsara.social.ui.presenter.chats.old.ChatEntryPresenter;
 import com.mardomsara.social.ui.presenter.dialogs.RoomListRowOptionsPresenter;
 
 import java.util.ArrayList;
@@ -223,11 +219,12 @@ public class UserAndContactsPresenter extends BasePresenter {
                 super(v);
                 self = v;
                 v.setOnClickListener((vv)-> {
-                    UsersTable r = (UsersTable) vv.getTag();
+                    //todo migrate this
+                    /*UsersTable r = (UsersTable) vv.getTag();
                     Log.d(TAG, "Romm raw list " + r.getUserName() + " clicked.");
                     ChatEntryPresenter chat = new ChatEntryPresenter();
                     RoomsListTable room = RoomsListTable.getRoomByRoomKeyAndLoadUser("u"+ usersTable.getUserId());
-                    Nav.push(Router.getRoomEntery(room));
+                    Nav.push(Router.getRoomEntery(room));*/
                 });
 
                 v.setOnLongClickListener((vv)-> {

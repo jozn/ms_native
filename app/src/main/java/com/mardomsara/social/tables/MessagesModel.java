@@ -16,7 +16,6 @@ import com.mardomsara.social.helpers.JsonUtil;
 import com.mardomsara.social.helpers.LangUtil;
 import com.mardomsara.social.helpers.TimeUtil;
 import com.mardomsara.social.helpers.VideoMetasHelper;
-import com.mardomsara.social.ui.presenter.chats.old.LastMsgOfRoomsCache;
 import com.mardomsara.social.models.events.MessageSyncMeta;
 import com.mardomsara.social.models.events.MsgGeneralChangeChangeEvent;
 import com.mardomsara.social.models.events.MsgsSyncMetaSeenByPeer;
@@ -164,7 +163,7 @@ public class MessagesModel {
             for(MessagesTable msg : msgs){
                 msg.delete();
             }
-            LastMsgOfRoomsCache.getInstance().removeForRoom(room.getRoomKey());
+//            LastMsgOfRoomsCache.getInstance().removeForRoom(room.getRoomKey());
             room.setUnseenMessageCount(0);
             room.save();
         });
@@ -182,7 +181,7 @@ public class MessagesModel {
             for(MessagesTable msg : msgs){
                 msg.delete();
             }
-            LastMsgOfRoomsCache.getInstance().removeForRoom(roomKey);
+//            LastMsgOfRoomsCache.getInstance().removeForRoom(roomKey);
         });
     }
 

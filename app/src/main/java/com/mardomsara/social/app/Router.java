@@ -5,12 +5,10 @@ import com.mardomsara.social.Nav;
 import com.mardomsara.social.json.social.rows.PostRowJson;
 import com.mardomsara.social.models.Session;
 import com.mardomsara.social.models.tables.Room;
-import com.mardomsara.social.tables.RoomsListTable;
 import com.mardomsara.social.ui.presenter.HelloPresenter;
 import com.mardomsara.social.ui.presenter.chats.ChatRoomPresenter;
 import com.mardomsara.social.ui.presenter.chats.ChatTabPresenter;
 import com.mardomsara.social.ui.presenter.chats.GalleryChooserPresenter;
-import com.mardomsara.social.ui.presenter.chats.old.ChatEntryPresenter;
 import com.mardomsara.social.ui.presenter.social.AcitivityTabPresenter;
 import com.mardomsara.social.ui.presenter.social.CommontsPresnter;
 import com.mardomsara.social.ui.presenter.social.FollowsListPresenter;
@@ -51,12 +49,12 @@ public class Router {
         return new HomeStream2Presenter();
     }
 
-    @Deprecated
+    /*@Deprecated
     public static FragmentPage getRoomEntery(RoomsListTable room) {
         ChatEntryPresenter p = new ChatEntryPresenter();
         p.room = room;
         return p;
-    }
+    }*/
 
     public static FragmentPage getRoomEntery(Room room) {
         ChatRoomPresenter p = new ChatRoomPresenter();

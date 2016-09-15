@@ -2,11 +2,8 @@ package com.mardomsara.social.tables;
 
 import android.support.annotation.Nullable;
 
-import com.mardomsara.social.Nav;
-import com.mardomsara.social.app.Router;
 import com.mardomsara.social.helpers.LangUtil;
 import com.mardomsara.social.helpers.TimeUtil;
-import com.mardomsara.social.ui.presenter.chats.old.LastMsgOfRoomsCache;
 import com.mardomsara.social.models.events.RoomInfoChangedEvent;
 import com.raizlabs.android.dbflow.annotation.Column;
 import com.raizlabs.android.dbflow.annotation.PrimaryKey;
@@ -155,7 +152,7 @@ public class RoomsListTable  extends BaseModel {
                 .orderBy(RoomsListTable_Table.UpdatedMs,false)
                 .queryList();
         loadAllUserForRooms(rooms);
-        LastMsgOfRoomsCache.getInstance().setForRooms(rooms);
+//        LastMsgOfRoomsCache.getInstance().setForRooms(rooms);
         return rooms;
     }
 
@@ -188,7 +185,7 @@ public class RoomsListTable  extends BaseModel {
 
     public static void goToUserChatEntery(int UserId){
         RoomsListTable room = RoomsListTable.getRoomByRoomKeyAndLoadUser("u"+UserId);
-        Nav.push(Router.getRoomEntery(room));
+//        Nav.push(Router.getRoomEntery(room));
     }
 
     public static void deleteRoom(String roomKey){
