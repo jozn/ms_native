@@ -6,12 +6,9 @@ import com.github.gfx.android.orma.annotation.Column;
 import com.github.gfx.android.orma.annotation.Getter;
 import com.github.gfx.android.orma.annotation.OnConflict;
 import com.github.gfx.android.orma.annotation.PrimaryKey;
-import com.github.gfx.android.orma.annotation.Setter;
 import com.github.gfx.android.orma.annotation.Table;
 import com.mardomsara.social.app.DB;
-import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.JsonUtil;
-import com.mardomsara.social.helpers.LangUtil;
 import com.mardomsara.social.helpers.TimeUtil;
 
 import java.util.ArrayList;
@@ -38,7 +35,9 @@ public class Command {
     public long ResId = 0;//
 
     @PrimaryKey(auto = false,onConflict = OnConflict.REPLACE)
-    public long CmdId;//eq to nano
+    public long ClientNanoId;//eq to nano
+
+    public long ServerNanoId = -1 ;//eq to nano
 
     @Column(indexed = true)
     public long CreatedTimeMs;
@@ -56,8 +55,8 @@ public class Command {
     private transient List<Object> _dataArray = null;
 
     public Command() {
-//        CmdId = (1_000_000_000_000L+LangUtil.getRandomLong(9_000_000_000_000L));
-        CmdId = TimeUtil.getTimeNano();;
+//        ClientNanoId = (1_000_000_000_000L+LangUtil.getRandomLong(9_000_000_000_000L));
+        ClientNanoId = TimeUtil.getTimeNano();;
         CreatedTimeMs = TimeUtil.getTimeMs();
     }
 
@@ -125,7 +124,7 @@ public class Command {
                 "Name='" + Name + '\'' +
                 ", Data='" + Data + '\'' +
                 ", ResId=" + ResId +
-                ", CmdId=" + CmdId +
+                ", ClientNanoId=" + ClientNanoId +
                 ", CreatedTimeMs=" + CreatedTimeMs +
                 ", Bytes=" + Arrays.toString(Bytes) +
                 ", _dataArray=" + _dataArray +

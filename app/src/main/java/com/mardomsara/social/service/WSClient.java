@@ -34,6 +34,7 @@ import static okhttp3.ws.WebSocket.TEXT;
 /**
  * Created by Hamid on 3/20/2016.
  */
+@Deprecated
 public class WSClient implements WebSocketListener {
     private String LOGTAG = "WSClient";
     private String wsUrl = "ws://192.168.0.10:5000/ws?UserId="+ com.mardomsara.social.models.Session.getUserId();
@@ -86,7 +87,7 @@ public class WSClient implements WebSocketListener {
                 }else {
                     NetEventRouter.handle(comStr.Name ,comStr.Data);
                 }
-                recied.add(comStr.CmdId);
+                recied.add(comStr.ClientNanoId);
             }
             Command reviedCmd = Command.getNew("CommandsReceived");
             reviedCmd.setData(recied);

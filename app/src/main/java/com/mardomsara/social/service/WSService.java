@@ -15,6 +15,7 @@ import java.util.concurrent.Executors;
 /**
  * Created by Hamid on 3/20/2016.
  */
+@Deprecated
 public class WSService {
     private static String LOGTAG = "WSService";
     private static WSService _serviceInstance;

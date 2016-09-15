@@ -69,7 +69,7 @@ public class ChatRoomPresenter extends BasePresenter implements
     FrameLayout emoji_window_holder;
 //    EmojiconEditText edit_filed;
     EmojiconEditText edit_filed;
-    Button send_msg;
+    TextView send_msg;
     View bottom_container;
     View attach;
     ImageView imageView;
@@ -112,7 +112,7 @@ public class ChatRoomPresenter extends BasePresenter implements
         emoji_window_holder = (FrameLayout) view.findViewById(R.id.emoji_window_holder);
         edit_filed = (EmojiconEditText) view.findViewById(R.id.edit_filed);
 //        edit_filed = (EditText) view.findViewById(R.id.edit_filed);
-        send_msg = (Button) view.findViewById(R.id.send_msg);
+        send_msg =  (TextView)view.findViewById(R.id.send_msg);
         bottom_container =  view.findViewById(R.id.bottom_container);
         attach =  view.findViewById(R.id.attach);
         imageView =  (ImageView)view.findViewById(R.id.imageView);

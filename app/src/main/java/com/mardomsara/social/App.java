@@ -3,6 +3,7 @@ package com.mardomsara.social;
 import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
+import android.support.multidex.MultiDexApplication;
 import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 
@@ -40,7 +41,7 @@ import pl.tajchert.nammu.Nammu;
 /**
  * Created by Hamid on 1/4/2016.
  */
-public class App extends Application {
+public class App extends MultiDexApplication {
    public static Context getContext() {
       return context;
    }

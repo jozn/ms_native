@@ -60,7 +60,7 @@ public class WS {
         Long[] ids = JsonUtil.fromJson(data, Long[].class);
         if(ids == null) return;
         logIt("CommandsReceivedToServer_Handler " + ids.toString());
-        DB.db.deleteFromCommand().CmdIdIn(ids).execute();
+        DB.db.deleteFromCommand().ClientNanoIdIn(ids).execute();
 
     };
 
@@ -113,8 +113,6 @@ public class WS {
 
     public static void sendCommand(Command command){
         command.makeDataReady();
-        command.makeDataReady();
-        command.makeDataReady();
         WSCall res = new WSCall();
         res.Commands = new Command[]{command};
         String ws_res = JsonUtil.toJson(res);
@@ -126,7 +124,7 @@ public class WS {
 //            c.makeDataReady();
             c.prepareAfterLoadFromDB();
             AppUtil.log("Command XXX: "+c.toString());
-            c.Data.replace("\\\\","\\");
+//            c.Data.replace("\\\\","\\");
             sendCommand(c);
         }
 
@@ -245,26 +243,28 @@ public class WS {
         Log.d("ws", ""+res);
 
         if(res.Commands == null) return;
-        List<Long> recied = new ArrayList<>();
+        List<Long> serverNanosRecied = new ArrayList<>();
         Boolean sendCmdsRecived = true;
         Runnable r = ()->{
             for(Command comStr : res.Commands){
                 try {//handle catches errors
+                    //responed to server servers commands recived
+                    if(comStr.ServerNanoId > 0){
+                        serverNanosRecied.add(comStr.ServerNanoId);
+                    }
+
                     if(comStr.Name.equals(CmdResRegistery.CMD_RES) ){//for request->responsed command
                         CmdResRegistery.tryRunCmd(comStr);
                     }else {
                         NetEventRouter.handle(comStr.Name ,comStr.Data);
                     }
-                    if(comStr.CmdId > 0){
-                        recied.add(comStr.CmdId);
-                    }
                 }catch (Exception e){
                     e.printStackTrace();
                 }
             }
-            if(recied.size() > 0){
-                Command reviedCmd = Command.getNew("CommandsReceived");
-                reviedCmd.setData(recied);
+            if(serverNanosRecied.size() > 0){
+                Command reviedCmd = Command.getNew("CommandsReceivedToClient");
+                reviedCmd.setData(serverNanosRecied);
                 sendCommand(reviedCmd);
             }
         };

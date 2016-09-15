@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
-    android:background="@color/yellow"
+    android:background="@color/white"
     >
 
     <include layout="@layout/header_chat_entary"
@@ -32,52 +32,66 @@
         android:minHeight="50dp"
         android:layout_weight="0"
         android:orientation="horizontal"
-        android:background="@color/light_blue_5"
+
+        android:background="@drawable/chat_input_border2"
         android:layout_alignParentBottom="true"
         android:layout_below="@+id/recycler_view"
         >
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/bottom_container"
-        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/bottom_container"
+            android:gravity="center_vertical"
+            >
 
-            <TextView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_gravity="bottom|center"
-                android:layout_marginLeft="4dp"
+                <TextView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="bottom|center"
+                    android:layout_marginLeft="4dp"
 
-                android:id="@+id/emoji_opener_btn"
-                android:gravity="center"
-                />
-            <com.mardomsara.emojicon.EmojiconEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:minHeight="40dp"
-                android:maxHeight="150dp"
-                android:isScrollContainer="true"
-                android:layout_weight="1"
-                android:id="@+id/edit_filed"
-                android:layout_marginLeft="15dp"
-                android:inputType="textMultiLine"
-                />
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/attach"
-                android:layout_gravity="bottom"
-                android:text="Attach"
-                />
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/send_msg"
-                android:layout_gravity="bottom"
-                android:text="Send"
-                />
-        </LinearLayout>
+                    android:id="@+id/emoji_opener_btn"
+                    android:gravity="center"
+                    />
+                <com.mardomsara.emojicon.EmojiconEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:minHeight="40dp"
+                    android:maxHeight="150dp"
+                    android:isScrollContainer="true"
+                    android:layout_weight="1"
+                    android:id="@+id/edit_filed"
+                    android:layout_marginLeft="15dp"
+                    android:inputType="textMultiLine"
+                    android:gravity="right|center_vertical"
+                    android:layout_gravity="right|center_vertical"
+                    android:paddingRight="10dp"
+                    android:layout_marginRight="10dp"
+                    android:soundEffectsEnabled="true"
+                    android:hint="پیام"
+                    style="@style/text_light"
+                    />
+                <com.joanzapata.iconify.widget.IconTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/attach"
+                    android:layout_gravity="bottom"
+                    android:textColor="#6d8de6"
+                    android:padding="8dp"
+                    android:text="{ion-paperclip 42dp}"
+                    />
+                <com.joanzapata.iconify.widget.IconTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/send_msg"
+                    android:layout_gravity="bottom"
+                    android:textColor="#6d8de6"
+                    android:padding="8dp"
+                    android:text="{ion-android-send spin 33dp}"
+                    />
+            </LinearLayout>
     </LinearLayout>
 
         <FrameLayout

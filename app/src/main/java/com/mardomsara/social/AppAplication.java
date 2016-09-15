@@ -2,14 +2,18 @@ package com.mardomsara.social;
 
 import android.app.Application;
 import android.content.Context;
+import android.support.multidex.MultiDexApplication;
 
+import com.joanzapata.iconify.Iconify;
+import com.joanzapata.iconify.fonts.IoniconsModule;
+import com.joanzapata.iconify.fonts.SimpleLineIconsModule;
 import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
 
 /**
  * Created by Hamid on 6/17/2016.
  */
-public class AppAplication extends Application {
+public class AppAplication extends MultiDexApplication {
 
     public static RefWatcher getRefWatcher(Context context) {
 //        AppAplication application = (AppAplication) context.getApplicationContext();
@@ -21,6 +25,9 @@ public class AppAplication extends Application {
 
     @Override public void onCreate() {
         super.onCreate();
+        Iconify
+                .with(new SimpleLineIconsModule())
+                .with(new IoniconsModule());
 //        LeakCanary.install(this);
         //refWatcher = LeakCanary.install(this);
     }

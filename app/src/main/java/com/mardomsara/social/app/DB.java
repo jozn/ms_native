@@ -30,7 +30,8 @@ public class DB {
         if(db != null) return;
 
         db = AppDB.builder(AppUtil.getContext())
-                .readOnMainThread(AccessThreadConstraint.NONE)
+                .readOnMainThread(AccessThreadConstraint.WARNING)
+                .writeOnMainThread(AccessThreadConstraint.WARNING)
                 .name("ms6")
                 .trace(true)
                 .build();

@@ -13,9 +13,19 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/light_blue_2</item>
+        <item name="colorPrimaryDark">@color/light_blue_1</item>
+        <item name="colorAccent">@color/light_blue_5</item>
+
+        <!--FOr EditText-->
+        <item name="colorControlNormal">#d3c52f</item> <!-- scrollbar color -->
+        <!--<item name="colorControlActivated">@color/light_blue_3</item> &lt;!&ndash;Infact Edittext blink |&ndash;&gt;-->
+        <item name="colorControlHighlight">@color/light_blue_5</item>
+
+        <!-- me:Old ones -->
+        <!--<item name="colorPrimary">@color/colorPrimary</item>-->
+        <!--<item name="colorPrimaryDark">@color/colorPrimaryDark</item>-->
+        <!--<item name="colorAccent">@color/colorAccent</item>-->
 
     </style>
 
