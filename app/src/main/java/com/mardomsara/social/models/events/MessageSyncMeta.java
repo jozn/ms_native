@@ -16,13 +16,13 @@ public class MessageSyncMeta {
 
     public MessageSyncMeta() {}
 
-    @Deprecated
+    /*@Deprecated
     public MessageSyncMeta(MessagesTable msg) {
         MessageKey = msg.getMessageKey();
         RoomKey = msg.getRoomKey();
         ByUserId = msg.getUserId();
         AtTimeMs = TimeUtil.getTimeMs();
-    }
+    }*/
 
     public MessageSyncMeta(Message msg) {
         MessageKey = msg.MessageKey;

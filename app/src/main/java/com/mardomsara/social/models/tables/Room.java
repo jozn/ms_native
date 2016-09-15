@@ -1,7 +1,6 @@
 package com.mardomsara.social.models.tables;
 
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 
 import com.github.gfx.android.orma.annotation.Column;
 import com.github.gfx.android.orma.annotation.OnConflict;
@@ -9,7 +8,6 @@ import com.github.gfx.android.orma.annotation.PrimaryKey;
 import com.github.gfx.android.orma.annotation.Table;
 import com.mardomsara.social.app.DB;
 import com.mardomsara.social.models.UserModel;
-import com.mardomsara.social.tables.UsersTable;
 
 import org.apache.commons.lang3.math.NumberUtils;
 

@@ -4,7 +4,6 @@ import android.content.Context;
 import android.view.Gravity;
 import android.view.View;
 
-import com.mardomsara.social.tables.RoomsListTable;
 import com.orhanobut.dialogplus.DialogPlus;
 import com.orhanobut.dialogplus.ViewHolder;
 
@@ -12,7 +11,7 @@ import com.orhanobut.dialogplus.ViewHolder;
  * Created by Hamid on 2/19/2016.
  */
 public class RoomHelper {
-    public static void roomRowOpttions(Context ctx, RoomsListTable room) {
+/*    public static void roomRowOpttions(Context ctx, RoomsListTable room) {
 
 //        UserRowViewHolder vh = new UserRowViewHolder(v);
 //        DialogPlus dialog = DialogPlus.newDialog(ctx)
@@ -20,7 +19,7 @@ public class RoomHelper {
 //                .setGravity(Gravity.CENTER)
 //                .create();
 //        dialog.show();
-    }
+    }*/
     public static DialogPlus alertView(Context ctx, View v) {
         ViewHolder vh = new ViewHolder(v);
         DialogPlus dialog = DialogPlus.newDialog(ctx)
