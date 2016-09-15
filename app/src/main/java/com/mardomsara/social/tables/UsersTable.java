@@ -92,7 +92,7 @@ public class UsersTable extends BaseModel {
                 .where(UsersTable_Table.UserId.eq(id)).querySingle();
     }
 
-    public static void onRecivedNewMsg(MessagesTable msg) {
+    /*public static void onRecivedNewMsg(MessagesTable msg) {
         UsersTable user = getByUserId( msg.getUserId() );
         if(user == null){
             Command cmd = new Command();
@@ -100,7 +100,7 @@ public class UsersTable extends BaseModel {
             cmd.Data = ""+ msg.getUserId();
             WS.sendCommand(cmd);
         }
-    }
+    }*/
 
     public static List<UsersTable> getAllFollowings() {
         return SQLite.select().from(UsersTable.class).where(UsersTable_Table.FollowingType.eq(1)).queryList();
