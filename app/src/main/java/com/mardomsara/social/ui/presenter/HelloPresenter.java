@@ -43,7 +43,7 @@ public class HelloPresenter extends BasePresenter {
         });
 
         btn3.setOnClickListener((vv)->{
-            Nav.push(new PlayPresenter());
+//            Nav.push(new PlayPresenter());
         });
         sendWsReqRes();
 
