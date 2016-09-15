@@ -3,20 +3,15 @@ package com.mardomsara.social.ui.views.helpers;
 import android.graphics.Color;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
-import com.mardomsara.social.R;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
-import com.mardomsara.social.tables.MessagesTable;
-import com.mardomsara.social.ui.views.FontCache;
 
 /**
  * Created by Hamid on 6/6/2016.
@@ -153,30 +148,6 @@ public class ViewHelper {
     public static final int Msg_Recived_Server = 2 ;
     public static final int Msg_Recived_Peer = 3 ;
     public static final int Msg_Seen_Peer = 4 ;
-
-
-
-    public static void msgDelviryStatusText(MessagesTable msg, TextView textView){
-        if(msg == null || textView == null) return;
-        String icon =_wating;
-        boolean isSeen = false;
-        int color = R.color.light_gery_dark;
-        if(msg.getIsByMe() == 1) {
-
-            if(msg.isReceivedToServer()) icon =  _recived_server;
-            if(msg.isReceivedToPeer()) icon =  _recived_peer;
-            if(msg.issSeenByPeer()) isSeen = true;
-//            if(msg.issSeenByPeer()) color = R.color.colorAccent;
-
-            textView.setTypeface(FontCache.get(AndroidUtil.getString(R.string.font_ionic)));
-            textView.setText(icon);
-            if(isSeen){
-                textView.setTextColor(seenColor);
-            }else {
-                textView.setTextColor(defualtColor);
-            }
-        }
-    }
 
     ///////////////////////////////////////////////////////
     ///////////// Views Shourtcuts ////////////////////////

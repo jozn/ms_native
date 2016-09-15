@@ -2,7 +2,6 @@ package com.mardomsara.social.models.events;
 
 import com.mardomsara.social.helpers.TimeUtil;
 import com.mardomsara.social.models.tables.Message;
-import com.mardomsara.social.tables.MessagesTable;
 
 /**
  * Created by Hamid on 5/14/2016.
@@ -15,14 +14,6 @@ public class MessageSyncMeta {
 //    public Object ExtraData;
 
     public MessageSyncMeta() {}
-
-    /*@Deprecated
-    public MessageSyncMeta(MessagesTable msg) {
-        MessageKey = msg.getMessageKey();
-        RoomKey = msg.getRoomKey();
-        ByUserId = msg.getUserId();
-        AtTimeMs = TimeUtil.getTimeMs();
-    }*/
 
     public MessageSyncMeta(Message msg) {
         MessageKey = msg.MessageKey;

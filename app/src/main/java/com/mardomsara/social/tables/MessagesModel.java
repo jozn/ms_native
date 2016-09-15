@@ -190,11 +190,11 @@ public class MessagesModel {
         //onAddedNewMsgEvent(msg);
     }
 
-    public static void publishMsgGeneralChangeEvent(MessagesTable msg) {
+   /* public static void publishMsgGeneralChangeEvent(MessagesTable msg) {
         //onAddedNewMsgEvent(msg);
         MsgGeneralChangeChangeEvent meta = new MsgGeneralChangeChangeEvent(msg);
         EventBus.getDefault().post(meta);
-    }
+    }*/
 
     public static void setPhotoParams(MessagesTable msg, Bitmap bm) {
 

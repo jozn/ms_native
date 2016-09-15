@@ -11,7 +11,6 @@ import com.mardomsara.social.R;
 import com.mardomsara.social.app.Config;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
-import com.mardomsara.social.tables.MessagesTable;
 import com.orhanobut.hawk.Hawk;
 
 import java.util.List;
@@ -73,9 +72,9 @@ public class KeywordAttachmentCell implements RecentImagesCell.onRecentImageClic
         recentImagesCell.setListener(this);
     }
 
-    public void bindToView(MessagesTable msg) {
+    /*public void bindToView(MessagesTable msg) {
 
-    }
+    }*/
 
     //// Recent Images callbacks //////////////
     @Override
