@@ -226,6 +226,9 @@ public class ImageUtil {
     }
 
     public static boolean resizeImage(String filePath ,String outFilePath, int maxWidthHeight ){
+        if(filePath== null || filePath.equals("")) return false;
+        if(outFilePath== null || outFilePath.equals("")) return false;
+
         File file = new File(filePath);
         Bitmap bitmap = BitmapFactory.decodeFile(filePath);
         if(bitmap == null) return  false;

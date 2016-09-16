@@ -114,7 +114,7 @@ public class KeywordAttachmentCell implements RecentImagesCell.onRecentImageClic
     void sendRecentImagesOrClose(){
         int size = recentImagesCell.getSelected().size();
         if(size >0 ){
-            callback_listener.onRecentImagesClick(recentImagesCell.getSelected());
+            callback_listener.onRecentImagesSendClicked(recentImagesCell.getSelected());
         }else {//clse
            dismiss();
         }
@@ -158,7 +158,7 @@ public class KeywordAttachmentCell implements RecentImagesCell.onRecentImageClic
         void onLocationClick();
         void onFileClick();
         void onContactClick();
-        void onRecentImagesClick(List<String> imagesPath);
+        void onRecentImagesSendClicked(List<String> imagesPath);
 
 
     }

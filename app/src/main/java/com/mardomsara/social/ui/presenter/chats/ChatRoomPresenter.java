@@ -106,6 +106,7 @@ public class ChatRoomPresenter extends BasePresenter implements
     MsgsListCell.ChatEntaryAdaptor messagesAdaptor;
 
     KeywordAttachmentCell attachment_view;
+    LinearLayoutManager mLayoutManager;
     ChatRoomPresenter that;
 
     IntentHelper intentHelper;
@@ -133,10 +134,12 @@ public class ChatRoomPresenter extends BasePresenter implements
 
         messagesAdaptor.setMsgs(messages);
 
-        LinearLayoutManager mLayoutManager = new LinearLayoutManager(fragment.getActivity());
+        mLayoutManager = new LinearLayoutManager(fragment.getActivity());
 
         mLayoutManager.setSmoothScrollbarEnabled(true);
         mLayoutManager.setReverseLayout(true);
+        mLayoutManager.setStackFromEnd(true);
+        mLayoutManager.scrollToPositionWithOffset(0,10000);
 
         recycler_view.setAdapter(messagesAdaptor);
         recycler_view.setLayoutManager(mLayoutManager);
@@ -163,7 +166,7 @@ public class ChatRoomPresenter extends BasePresenter implements
         //todo later fix this for G
 //        AppUtil.listanAndSaveKewordSize(view);
 
-        setUpInputOnTextTextCjanged();
+        setUpInputOnTextTextChanged();
 
         Uri imageUri = Helper.PathToUserAvatarUri(room.getRoomAvatarUrl());
 //            Helper.SetAvatar(vh.avatar, room.getRoomAvatarUrl());
@@ -212,7 +215,7 @@ public class ChatRoomPresenter extends BasePresenter implements
         Nav.pop();
     }
 
-    void setUpInputOnTextTextCjanged(){
+    void setUpInputOnTextTextChanged(){
         edit_filed.addTextChangedListener(new TextWatcher(){
 
             @Override
@@ -253,7 +256,8 @@ public class ChatRoomPresenter extends BasePresenter implements
     void onHereAddedNewMsgEvent(Message msg){
         messages.add(0,msg);
         messagesAdaptor.notifyItemInserted(0);
-        recycler_view.scrollBy(0,1000);
+        mLayoutManager.scrollToPositionWithOffset(0,10000);
+//        recycler_view.scrollBy(0,100000);
     }
 
     void showMeas(){
@@ -354,6 +358,21 @@ public class ChatRoomPresenter extends BasePresenter implements
         }
     }
 
+    /*Message getMsgOfAdaptorListByKey(String msgKey){
+        if(meta.RoomKey.equals(room.RoomKey)){
+            int size = messagesAdaptor.msgs.size();
+            for(int i=0; i< size; i++){
+                msg = messagesAdaptor.msgs.get(i);
+                if(msg.MessageKey.equals(meta.MessageKey)){
+                    Message msg2 = MessageModel.getMessageByKey(meta.MessageKey);
+                    messagesAdaptor.msgs.remove(i);
+                    messagesAdaptor.msgs.add(i,msg2);
+                    messagesAdaptor.notifyDataSetChanged();
+                }
+            }
+        }
+    }*/
+
     void _updateMsgForMetaWithExtraDataList(MessageSyncMeta meta) {
 
     }
@@ -371,13 +390,7 @@ public class ChatRoomPresenter extends BasePresenter implements
         intentHelper = new IntentHelper();
 //        attachWindow.dismiss();
         attachment_view.dismiss();
-        file_uri =  intentHelper.captureImage(getFragment().getActivity(), ATTACH_CAMERA_IMAGE,"back");
-
-    ///play
-//        Intent intent = new Intent(getContext(),GalleryChooserActivity.class);
-//        getActivity().startActivityForResult(intent,333);
-
-
+        file_uri =  intentHelper.captureImage(getActivity(), ATTACH_CAMERA_IMAGE,"back");
     }
 
     ArrayList<String> selectedPhotos = new ArrayList<>();
@@ -442,7 +455,7 @@ public class ChatRoomPresenter extends BasePresenter implements
     }
 
     @Override
-    public void onRecentImagesClick(List<String> imagesPath){
+    public void onRecentImagesSendClicked(List<String> imagesPath){
         attachment_view.dismiss();
         for(String image : imagesPath){
             _sendMsgImage(image,false);
@@ -480,6 +493,7 @@ public class ChatRoomPresenter extends BasePresenter implements
     //// TODO: migrate to _sendMsgImage(path)
     void createMsgPhotoFromCamera(){
         logIt("file_uri: "+ file_uri);
+        if(file_uri == null)return;
         String path = file_uri.getPath();
         File file = new File(file_uri.getPath());
         _sendMsgImage(file_uri.getPath(),true);
@@ -496,13 +510,14 @@ public class ChatRoomPresenter extends BasePresenter implements
     void _sendMsgImage(String path, final boolean deleteOrginal){
         logIt("_sendMsgImage: "+ path + " "+deleteOrginal);
 //        String path = file_uri.getPath();
+        if(path== null || path.equals("")) return;
         File fileOrginal = new File(path);
 
         String $resizedPath = AppFiles.PHOTO_SENT_DIR_PATH+"IMG_"+ FormaterUtil.getFullyYearToSecondsSolarName()+"$.jpg";
         String resizedPath ;//= $resizedPath.replace("$","");
 //        resizedPath = FileUtil.createNextFile($resizedPath).getAbsolutePath();
         resizedPath = FileUtil.createNextName($resizedPath);
-        ImageUtil.resizeImage(path,resizedPath,1024);
+        ImageUtil.resizeImage(path,resizedPath,1080);
         File resizedFile = new File(resizedPath);
 
         if(!resizedFile.exists()){
@@ -526,10 +541,10 @@ public class ChatRoomPresenter extends BasePresenter implements
             Http.Result res = Http.uploadFile(req);
             if(res.ok){
                 msg.MediaStatus = (Constants.Msg_Media_Uploaded);
+                msg.ToPush = 0;
                 msg.save();
                 if(deleteOrginal == true){
                     fileOrginal.delete();
-
                 }
             }
 //            res.response.body().byteStream().

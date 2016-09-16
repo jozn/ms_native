@@ -23,7 +23,6 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import com.mardomsara.MediaFacade.media.MediaCursor;
 import com.mardomsara.MediaFacade.media.image.ImageCursor;
 import com.mardomsara.MediaFacade.media.image.ImageProviderHelper;
-import com.mardomsara.social.App;
 import com.mardomsara.social.Nav;
 import com.mardomsara.social.R;
 import com.mardomsara.social.helpers.AndroidUtil;
@@ -108,7 +107,7 @@ public class GalleryChooserPresenter extends BasePresenter {
             }
         };
 
-        Nammu.askForPermission(App.getActivity(), Manifest.permission.WRITE_EXTERNAL_STORAGE,callback);
+        Nammu.askForPermission(getActivity(), Manifest.permission.WRITE_EXTERNAL_STORAGE,callback);
     }
 
     Integer _getFoldersCountImages(String buketId){
@@ -336,7 +335,7 @@ public class GalleryChooserPresenter extends BasePresenter {
             if(selectedReal.size()>0){
                 if(type==MediaType.IMAGE){
                     AndroidUtil.runInUi(()->{//async
-                        chatEntryPresenter.onRecentImagesClick(selectedReal);
+                        chatEntryPresenter.onRecentImagesSendClicked(selectedReal);
                     });
                 }else {//Video
                     AndroidUtil.runInUi(()->{//async

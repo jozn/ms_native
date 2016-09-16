@@ -60,9 +60,13 @@ public class MessageModel {
         msg.CreatedDeviceMs = AppUtil.getTimeMs();
         msg.MessageTypeId = Constants.MESSAGE_TEXT;
         msg.UserId = Session.getUserId();
-        msg.MessageKey = LangUtil.getRandomString(20);
+        msg.MessageKey = generateMessageKey();
         msg.ToPush = 1;
         return msg;
+    }
+
+    public static String generateMessageKey(){
+        return ""+Session.getUserId()+":"+LangUtil.getRandomString(20);
     }
 
     public static  void setParamsForNewMsgRecivedFromNet(Message msg){
@@ -164,15 +168,19 @@ public class MessageModel {
     }
 
     public static void setPhotoParams(Message msg, String filePath) {
-        File file = new File(filePath);
-        Bitmap mBitmap = BitmapFactory.decodeFile(filePath);
-        msg.MediaThumb64 = ImageUtil.blurThumbnailToBase64(mBitmap);
-        msg.MediaHeight = mBitmap.getHeight();
-        msg.MediaWidth = mBitmap.getWidth();
-        msg.MediaLocalSrc = filePath;
-        msg.MediaSize = (int)file.length();
-        msg.MediaName = file.getName();
-        msg.MediaDuration = 0;
+        try {
+            File file = new File(filePath);
+            Bitmap mBitmap = BitmapFactory.decodeFile(filePath);
+            msg.MediaThumb64 = ImageUtil.blurThumbnailToBase64(mBitmap);
+            msg.MediaHeight = mBitmap.getHeight();
+            msg.MediaWidth = mBitmap.getWidth();
+            msg.MediaLocalSrc = filePath;
+            msg.MediaSize = (int)file.length();
+            msg.MediaName = file.getName();
+            msg.MediaDuration = 0;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     public static void setVideoParams(Message msg, String thumbPath, String videoPath) {
