@@ -113,7 +113,9 @@ public  abstract class BasePresenter implements FragmentPage {
         logIt("onBlur");
         if(fragment != null){
            View v = ((PresenterFragment) fragment).presenterViewHolder;
-            v.setVisibility(View.GONE);
+            if(v != null){
+                v.setVisibility(View.GONE);
+            }
         }
     }
 
