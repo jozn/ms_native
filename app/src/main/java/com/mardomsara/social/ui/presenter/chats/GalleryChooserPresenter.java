@@ -59,14 +59,22 @@ public class GalleryChooserPresenter extends BasePresenter {
     @Override
     public View buildView() {
         View v = AppUtil.inflate(R.layout.gallery_chooser_presenter);
+        TabLayout tabs = (TabLayout) v.findViewById(R.id.tab_layout);
         ButterKnife.bind(this, v);
 
         pagerAdaptor = new GalleryChooserPresenterPagerAdaptor(getFragment().getChildFragmentManager(),getContext());
+
 
         view_pager.setAdapter(pagerAdaptor);
         tab_layout.setupWithViewPager(view_pager);
         tab_layout.setTabMode(TabLayout.MODE_FIXED);
         view_pager.setCurrentItem(1);
+
+        //must be here
+        for (int i = 0; i < tabs.getTabCount(); i++) {
+            TabLayout.Tab t = tabs.getTabAt(i);
+            t.setCustomView(pagerAdaptor.getTabView(i) );
+        }
 
         return v;
     }
@@ -131,14 +139,13 @@ public class GalleryChooserPresenter extends BasePresenter {
 
         public View getTabView(int position) {
             // Given you have a custom layout in `response/layout/custom_tab.xml` with a TextView and ImageView
-            View v = LayoutInflater.from(context).inflate(R.layout.tab_cell_general, null);
+            View v = AppUtil.inflate(R.layout.tab_cell_general);
             TextView tv = (TextView) v.findViewById(R.id.textView);
             tv.setText(tabTitles[position]);
             ImageView img = (ImageView) v.findViewById(R.id.imgView);
             //img.setImageResource(imageResId[position]);
             return v;
         }
-
     }
 
     /////////////////////////////////////////////////////////////////////////
@@ -350,7 +357,6 @@ public class GalleryChooserPresenter extends BasePresenter {
                         }else {
                             selectedReal.remove(ImageProviderHelper.getVideoPathByImaheId(mediaId));
                         }
-
                     }else {
                         if(selectedThumbs.size() < maxSelection){
                             selectedThumbs.add(thumbsSignatuer);
@@ -362,7 +368,6 @@ public class GalleryChooserPresenter extends BasePresenter {
                         }else {
                             //TODO: Toast user that max is 10 for example
                         }
-
                     }
                     _updateSendText();
                     notifyDataSetChanged();
