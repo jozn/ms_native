@@ -1,5 +1,6 @@
 package com.mardomsara.social.ui.presenter.chats;
 
+import android.Manifest;
 import android.content.Context;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -22,12 +23,14 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import com.mardomsara.MediaFacade.media.MediaCursor;
 import com.mardomsara.MediaFacade.media.image.ImageCursor;
 import com.mardomsara.MediaFacade.media.image.ImageProviderHelper;
+import com.mardomsara.social.App;
 import com.mardomsara.social.Nav;
 import com.mardomsara.social.R;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.CursorRecyclerViewAdapter;
+import com.mardomsara.social.ui.views.FontCache;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -38,13 +41,17 @@ import java.util.Map;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import pl.tajchert.nammu.Nammu;
+import pl.tajchert.nammu.PermissionCallback;
 
 /**
  * Created by Hamid on 6/17/2016.
  */
 public class GalleryChooserPresenter extends BasePresenter {
-    Map<Long, String> thumbs_paths_map= ImageProviderHelper.loadAllTumbsPaths();;
-    Map<Long, String> thumbs_video_paths_map= ImageProviderHelper.loadAllMoviesTumbsPaths();;
+    //Must permision be granted
+    Map<Long, String> thumbs_paths_map;//= ImageProviderHelper.loadAllTumbsPaths();;
+    Map<Long, String> thumbs_video_paths_map;//= ImageProviderHelper.loadAllMoviesTumbsPaths();;
+
     Map<String, Integer> folder_count_cache = new HashMap<>();;
     Map<String, Integer> folder_count_video_cache = new HashMap<>();;
 
@@ -56,14 +63,24 @@ public class GalleryChooserPresenter extends BasePresenter {
     @Bind(R.id.tab_layout)
     TabLayout tab_layout;
     GalleryChooserPresenterPagerAdaptor pagerAdaptor;
+
+    View v;
     @Override
     public View buildView() {
-        View v = AppUtil.inflate(R.layout.gallery_chooser_presenter);
+        v = AppUtil.inflate(R.layout.presenter_gallery_chooser);
+        askPermissions();
+
+        return v;
+    }
+
+    void afterPermissionsGranted(){
+        thumbs_paths_map= ImageProviderHelper.loadAllTumbsPaths();;
+        thumbs_video_paths_map= ImageProviderHelper.loadAllMoviesTumbsPaths();;
+
         TabLayout tabs = (TabLayout) v.findViewById(R.id.tab_layout);
         ButterKnife.bind(this, v);
 
         pagerAdaptor = new GalleryChooserPresenterPagerAdaptor(getFragment().getChildFragmentManager(),getContext());
-
 
         view_pager.setAdapter(pagerAdaptor);
         tab_layout.setupWithViewPager(view_pager);
@@ -75,8 +92,23 @@ public class GalleryChooserPresenter extends BasePresenter {
             TabLayout.Tab t = tabs.getTabAt(i);
             t.setCustomView(pagerAdaptor.getTabView(i) );
         }
+    }
 
-        return v;
+    private void askPermissions() {
+        PermissionCallback callback = new PermissionCallback(){
+            @Override
+            public void permissionGranted() {
+                AppUtil.log("permissionGranted() callback");
+                afterPermissionsGranted();
+            }
+
+            @Override
+            public void permissionRefused() {
+                AppUtil.log("permissionRefused() callback");
+            }
+        };
+
+        Nammu.askForPermission(App.getActivity(), Manifest.permission.WRITE_EXTERNAL_STORAGE,callback);
     }
 
     Integer _getFoldersCountImages(String buketId){
@@ -240,7 +272,7 @@ public class GalleryChooserPresenter extends BasePresenter {
                     String bucketId = cursor.bucketId();
 //                    ImageProviderHelper.tryClose(folder);
                     v.setOnClickListener((v)->{
-                        Nav.push(new MediaBrowserEnteryPresenter(type, bucketId));
+                        Nav.push(new MediaBrowserFolderInsidePresenter(type, bucketId));
                     });
                 }
 
@@ -249,7 +281,7 @@ public class GalleryChooserPresenter extends BasePresenter {
 //        MediaStore.Images.Thumbnails
     }
 
-    class MediaBrowserEnteryPresenter extends BasePresenter {
+    class MediaBrowserFolderInsidePresenter extends BasePresenter {
         MediaType type;
         @Bind(R.id.recycler_view) RecyclerView recycler_view;
         @Bind(R.id.left_side) View left_side;
@@ -266,15 +298,19 @@ public class GalleryChooserPresenter extends BasePresenter {
         Map<Long,Bitmap> _cache= new HashMap();
         String buketId;
 
-        public MediaBrowserEnteryPresenter(MediaType type, String buketId) {
+        public MediaBrowserFolderInsidePresenter(MediaType type, String buketId) {
             this.type = type;
             this.buketId = buketId;
         }
 
         @Override
         public View buildView() {
-            View v = LayoutInflater.from(context).inflate(R.layout.gallery_chooser_media_list, null);
+            View v = AppUtil.inflate(R.layout.gallery_chooser_media_list, null);
             ButterKnife.bind(this, v);
+//            send_btn.setTypeface(FontCache.getIonic());
+            back_btn.setTypeface(FontCache.getIonic());
+            send_btn.setTypeface(FontCache.getIranNormal());
+            title.setTypeface(FontCache.getIranNormal());
             FolderAdaptor folderAdaptor;
             if (type == MediaType.IMAGE) {
                 folderAdaptor = new FolderAdaptor(getContext(), ImageProviderHelper.getImagesForBucket(buketId));

@@ -105,7 +105,7 @@ public class ChatRoomPresenter extends BasePresenter implements
     MsgsListCell messagesCell;
     MsgsListCell.ChatEntaryAdaptor messagesAdaptor;
 
-    KeywordAttachmentCell attachmentView;
+    KeywordAttachmentCell attachment_view;
     ChatRoomPresenter that;
 
     IntentHelper intentHelper;
@@ -261,7 +261,7 @@ public class ChatRoomPresenter extends BasePresenter implements
     }
 
     public void showAttachmentWindow(){
-        attachmentView = new KeywordAttachmentCell(this,bottom_container);
+        attachment_view = new KeywordAttachmentCell(this,bottom_container);
     }
 
     ////////////////////////////////////
@@ -370,7 +370,7 @@ public class ChatRoomPresenter extends BasePresenter implements
     public void onCameraPhotoClick() {
         intentHelper = new IntentHelper();
 //        attachWindow.dismiss();
-        attachmentView.dismiss();
+        attachment_view.dismiss();
         file_uri =  intentHelper.captureImage(getFragment().getActivity(), ATTACH_CAMERA_IMAGE,"back");
 
     ///play
@@ -383,7 +383,7 @@ public class ChatRoomPresenter extends BasePresenter implements
     ArrayList<String> selectedPhotos = new ArrayList<>();
     @Override
     public void onGalleryClick() {
-        attachmentView.dismiss();
+        attachment_view.dismiss();
         GalleryChooserPresenter gallery =new GalleryChooserPresenter();
         //FIxme: gallery.chatEntryPresenter to interface
         gallery.chatEntryPresenter = this;
@@ -392,7 +392,7 @@ public class ChatRoomPresenter extends BasePresenter implements
 
     @Override
     public void onVideoClick() {
-        attachmentView.dismiss();
+        attachment_view.dismiss();
 //        String $resizedPath = AppFiles.VIDEO_SENT_DIR_PATH+"VID_"+ FormaterUtil.getFullyYearToSecondsSolarName()+"$.mp4";
         String tempPath = AppFiles.APP_TEMP_DIR_PATH+"VID_"+ FormaterUtil.getFullyYearToSecondsSolarName()+"$.mp4";
         String resizedPath = FileUtil.createNextName(tempPath);
@@ -443,7 +443,7 @@ public class ChatRoomPresenter extends BasePresenter implements
 
     @Override
     public void onRecentImagesClick(List<String> imagesPath){
-        attachmentView.dismiss();
+        attachment_view.dismiss();
         for(String image : imagesPath){
             _sendMsgImage(image,false);
         }
@@ -451,7 +451,7 @@ public class ChatRoomPresenter extends BasePresenter implements
 
 
     public void onGalleryChoserVideoClicked(List<String> videoPaths){
-        attachmentView.dismiss();
+        attachment_view.dismiss();
         for(String image : videoPaths){
             _sendMsgVideo(image);
         }

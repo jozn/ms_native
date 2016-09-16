@@ -1,5 +1,6 @@
 package com.mardomsara.social.ui.cells.general;
 
+import android.Manifest;
 import android.content.Context;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -15,6 +16,7 @@ import com.facebook.drawee.generic.GenericDraweeHierarchyBuilder;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.mardomsara.MediaFacade.media.image.ImageCursor;
 import com.mardomsara.MediaFacade.media.image.ImageProviderHelper;
+import com.mardomsara.social.App;
 import com.mardomsara.social.R;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
@@ -27,6 +29,8 @@ import java.util.List;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import jp.wasabeef.recyclerview.adapters.AlphaInAnimationAdapter;
+import pl.tajchert.nammu.Nammu;
+import pl.tajchert.nammu.PermissionCallback;
 
 /**
  * Created by Hamid on 6/17/2016.
@@ -48,6 +52,10 @@ public class RecentImagesCell {
 
     public RecentImagesCell(ViewGroup parent) {
         recycler_view = (RecyclerView) AppUtil.inflate(R.layout.recent_images_view_recycler_view,parent);
+        askPermissions();
+    }
+
+    void afterPermissionsGranted(){
         ImageCursor imageCursor = ImageProviderHelper.getLastImages();
 
         Galley galley = new Galley(AppUtil.getContext(),imageCursor);
@@ -60,6 +68,22 @@ public class RecentImagesCell {
 //        recycler_view.setItemAnimator(new FadeInRightAnimator());
     }
 
+    private void askPermissions() {
+        PermissionCallback callback = new PermissionCallback(){
+            @Override
+            public void permissionGranted() {
+                AppUtil.log("permissionGranted() callback");
+                afterPermissionsGranted();
+            }
+
+            @Override
+            public void permissionRefused() {
+                AppUtil.log("permissionRefused() callback");
+            }
+        };
+
+        Nammu.askForPermission(App.getActivity(), Manifest.permission.WRITE_EXTERNAL_STORAGE,callback);
+    }
     public void insertInto(ViewGroup viewGroup){
         viewGroup.addView(recycler_view);
     }

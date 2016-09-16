@@ -39,6 +39,7 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
  * Created by Hamid on 1/31/2016.
  */
 public class MainAppActivity extends AppActivity {
+    public static MainAppActivity instance;
     TextView st;
 
     boolean isFirstInited = false;
@@ -60,6 +61,7 @@ public class MainAppActivity extends AppActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        instance = this;
         Fabric.with(this, new Crashlytics());
 
         setContentView(R.layout.activity_main_app);

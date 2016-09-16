@@ -35,6 +35,14 @@ public class FontCache {
         return get(AndroidUtil.getString(R.string.font_ionic));
     }
 
+    public static Typeface getIranNormal(){
+        return get(AndroidUtil.getString(R.string.font_iran));
+    }
+
+    public static Typeface getIranLight(){
+        return get(AndroidUtil.getString(R.string.font_iran_light));
+    }
+
     public static Typeface getLinear(){
         return get(AndroidUtil.getString(R.string.font_linear));
     }

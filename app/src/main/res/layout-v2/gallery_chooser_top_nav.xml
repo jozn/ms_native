@@ -33,9 +33,10 @@
             android:layout_height="wrap_content"
             android:id="@+id/send_btn"
             android:paddingLeft="5dp"
-            style="@style/text"
+
             android:text="بفرس"
             />
+        <!--style="@style/text"-->
 
     </LinearLayout>
 

@@ -1,35 +1,14 @@
 package com.mardomsara.social;
 
 import android.app.Activity;
-import android.app.Application;
 import android.content.Context;
 import android.support.multidex.MultiDexApplication;
 import android.support.v4.app.FragmentManager;
-import android.view.LayoutInflater;
 
-import com.facebook.common.logging.FLog;
-import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.imagepipeline.core.ImagePipelineConfig;
-import com.facebook.imagepipeline.listener.RequestListener;
-import com.facebook.imagepipeline.listener.RequestLoggingListener;
-import com.mardomsara.social.app.DB;
+import com.mardomsara.social.activities.MainAppActivity;
 import com.mardomsara.social.app.LifeCycle;
-import com.mardomsara.social.helpers.AppUtil;
-import com.mardomsara.social.ui.BasePresenter;
-import com.orhanobut.hawk.Hawk;
-import com.orhanobut.hawk.HawkBuilder;
-import com.raizlabs.android.dbflow.config.FlowConfig;
-import com.raizlabs.android.dbflow.config.FlowLog;
-import com.raizlabs.android.dbflow.config.FlowManager;
-import com.squareup.picasso.LruCache;
-import com.squareup.picasso.Picasso;
 
 import org.greenrobot.eventbus.EventBus;
-
-import java.util.HashSet;
-import java.util.Set;
-
-import pl.tajchert.nammu.Nammu;
 
 //import com.mardomsara.social.tables.orma.DB;
 
@@ -81,7 +60,7 @@ public class App extends MultiDexApplication {
    }
 
    public static Activity getActivity(){
-     return _activity;
+     return MainAppActivity.instance;
    }
    public static void init(Context ctx){
       context = ctx;
