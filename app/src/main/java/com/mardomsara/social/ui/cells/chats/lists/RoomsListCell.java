@@ -145,7 +145,8 @@ public class RoomsListCell {
             if(index>0){
                 notifyItemRemoved(index);
             }
-            notifyItemChanged(0);
+//            notifyItemChanged(0);//buggy
+            notifyDataSetChanged();
         }
 
         @Subscribe(threadMode = ThreadMode.MAIN)

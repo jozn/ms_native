@@ -257,6 +257,9 @@ public class ChatRoomPresenter extends BasePresenter implements
         messages.add(0,msg);
         messagesAdaptor.notifyItemInserted(0);
         mLayoutManager.scrollToPositionWithOffset(0,10000);
+
+        MessageModel.didMsgsAdded(msg);
+
 //        recycler_view.scrollBy(0,100000);
     }
 
@@ -273,6 +276,13 @@ public class ChatRoomPresenter extends BasePresenter implements
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onEvent(Message msg){
+        //ignor mssgas added in this chat room
+        for (Message m: messagesAdaptor.msgs){
+            if(m.MessageKey.equals(msg.MessageKey)){
+                return;
+            }
+        }
+        if(msg.RoomKey.equals(room.RoomKey) == false) return;
         logIt("event new msg: " + msg.toString());
         try {
             messagesAdaptor.msgs.add(0,msg);

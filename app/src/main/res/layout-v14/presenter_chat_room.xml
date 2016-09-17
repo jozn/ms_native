@@ -11,17 +11,27 @@
         android:id="@+id/header"></include>
 
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_view"
+    <!--<LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:scrollbars="vertical"
-        android:fadeScrollbars="false"
-        android:isScrollContainer="false"
         android:layout_weight="1"
-        android:layout_below="@+id/header"
-        android:background="@color/white"
-        />
+        android:gravity="bottom"
+        >-->
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical"
+            android:fadeScrollbars="false"
+            android:isScrollContainer="false"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:layout_gravity="bottom"
+
+            />
+
+    <!--</LinearLayout>-->
 
     <LinearLayout
         android:layout_width="match_parent"

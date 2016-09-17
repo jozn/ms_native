@@ -3,8 +3,10 @@ package com.mardomsara.social.models;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.support.annotation.NonNull;
 import android.util.Log;
 
+import com.mardomsara.social.App;
 import com.mardomsara.social.app.AppFiles;
 import com.mardomsara.social.app.Constants;
 import com.mardomsara.social.app.DB;
@@ -152,11 +154,11 @@ public class MessageModel {
                     FileUtil.tryDelete(src);
                 }
             }
-            List<String> list = new ArrayList<String>();
+            List<String> listMsgs = new ArrayList<String>();
             for(Message msg : msgs){
-                list.add(msg.RoomKey);
+                listMsgs.add(msg.MessageKey);
             }
-            DB.db.deleteFromMessage().MessageKeyIn(list);
+            DB.db.deleteFromMessage().MessageKeyIn(listMsgs).execute();
             LastMsgOfRoomsCache2.getInstance().removeForRoom(roomKey);
         });
     }
@@ -234,6 +236,11 @@ public class MessageModel {
         WS.sendCommand(cmd);
     }
 
+
+    public static void didMsgsAdded(@NonNull Message msg) {
+        RoomModel.onHereNewMsg(msg);
+        App.getBus().post(msg);
+    }
     public static void publishEvent(MessageSyncMeta msg) {
         Log.d("EVENT", "publishEvent: "+ msg.toString());
 //        LastMsgOfRoomsCache.getInstance().onEvent(msg);
