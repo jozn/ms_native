@@ -8,6 +8,7 @@ import android.provider.ContactsContract;
 import com.mardomsara.social.App;
 import com.mardomsara.social.app.API;
 import com.mardomsara.social.app.Config;
+import com.mardomsara.social.app.DB;
 import com.mardomsara.social.base.FNV;
 import com.mardomsara.social.base.Http;
 import com.mardomsara.social.helpers.AppUtil;
@@ -16,11 +17,9 @@ import com.mardomsara.social.helpers.LangUtil;
 import com.mardomsara.social.helpers.TimeUtil;
 import com.mardomsara.social.json.UserListJson;
 import com.mardomsara.social.json.UserRow;
-import com.mardomsara.social.tables.ContactsCopyTable;
-import com.mardomsara.social.tables.UsersTable;
-import com.mardomsara.social.tables.UsersTable_Table;
+import com.mardomsara.social.models.tables.ContactsCopy;
+import com.mardomsara.social.models.tables.User;
 import com.orhanobut.hawk.Hawk;
-import com.raizlabs.android.dbflow.sql.language.SQLite;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -102,9 +101,9 @@ public class DevicePhoneContact {
 
     private static void doActualResync() {
         List<Row> rows = fetchAllContacts();
-        List<ContactsCopyTable> copyTableList= ContactsCopyTable.loadAll();
+        List<ContactsCopy> copyTableList= getAllCopyContacts();
         if(rows == null) {
-            ContactsCopyTable.empty();
+//            ContactsCopyTable.empty();
             return;
         }
 
@@ -131,24 +130,28 @@ public class DevicePhoneContact {
 
     //todo: perform saving in transaction
     private static void performFullInsertOfContacts(List<Row> rows) {
-        SQLite.delete().from(ContactsCopyTable.class).execute();
-        for (Row row : rows){
-            ContactsCopyTable copy = new ContactsCopyTable();
-            copy.PhoneNumber = row.PhoneNumber;
-            copy.PhoneContactRowId = row.PhoneContactRowId;
-            copy.PhoneFamilyName = row.PhoneFamilyName;
-            copy.PhoneNormalizedNumber = row.PhoneNormalizedNumber;
-            copy.PhoneDisplayName = row.PhoneDisplayName;
-            copy.Hash = row.Hash;
+        DB.db.deleteFromContactsCopy().execute();//del all
 
-            copy.save();
-        }
+        DB.db.transactionSync(()->{
+            for (Row row : rows){
+                ContactsCopy copy = new ContactsCopy();
+                copy.PhoneNumber = row.PhoneNumber;
+                copy.PhoneContactRowId = row.PhoneContactRowId;
+                copy.PhoneFamilyName = row.PhoneFamilyName;
+                copy.PhoneNormalizedNumber = row.PhoneNormalizedNumber;
+                copy.PhoneDisplayName = row.PhoneDisplayName;
+                copy.Hash = row.Hash;
+
+                copy.insert();
+            }
+        });
         uploadContacs();
+
     }
 
     public static void uploadContacs(){
         try {
-            List<ContactsCopyTable> contacts = ContactsCopyTable.loadAll();
+            List<ContactsCopy> contacts = getAllCopyContacts();
             Http.Req rq = new Http.Req();
             rq.form.put("contacts", AppUtil.toJson(contacts));
             rq.absPath = API.CONTACTS_SYNC_ALL.toString();
@@ -172,7 +175,7 @@ public class DevicePhoneContact {
     private static void saveContacts(List<UserRow> users){
         Map<String,DevicePhoneContact.Row> map = getMapOfContacts();
         AppUtil.log(map.toString());
-        DevicePhoneContact.Row contact;
+
         //// TODO: 4/4/2016 do in transactions for maximim speed
 
         int[] ids_int = new int[users.size()];
@@ -184,6 +187,30 @@ public class DevicePhoneContact {
             i++;
         }
 
+        DB.db.deleteFromUser().UserIdIn(ids).execute();
+        DB.db.transactionSync(()->{
+            for (UserRow user: users){
+                DevicePhoneContact.Row contact;
+                contact = map.get(user.Phone);
+                AppUtil.log("Building Contacts For "+contact.PhoneNormalizedNumber);
+                User c = new User();
+//            c.setIsPhoneContact(1);
+                c.PhoneNumber = (contact.PhoneNumber);
+                c.PhoneNormalizedNumber = (contact.PhoneNormalizedNumber);
+                c.PhoneDisplayName = (contact.PhoneDisplayName);
+                c.PhoneFamilyName = (contact.PhoneFamilyName);
+                c.PhoneContactRowId = (contact.PhoneContactRowId);
+
+                c.IsPhoneContact = (1);//true
+//            _setUserTableFieldsFromJson(user,c);
+                user.setUserTableParams(c);
+
+                AppUtil.log("presisiting Contacts" + c.toString());
+                c.insert();
+            }
+
+        });
+/*
         SQLite.delete().from(UsersTable.class).where(UsersTable_Table.UserId.in(ids_int[0],ids_int)).execute();
 
         for (UserRow user: users){
@@ -203,10 +230,14 @@ public class DevicePhoneContact {
 
             AppUtil.log("presisiting Contacts" + c.toString());
             c.save();
-        }
+        }*/
     }
 
-    private static void _setUserTableFieldsFromJson(UserRow user, UsersTable tableRaw){
+    public static List<ContactsCopy> getAllCopyContacts(){
+        return DB.db.selectFromContactsCopy().toList();
+    }
+
+    /*private static void _setUserTableFieldsFromJson(UserRow user, UsersTable tableRaw){
         tableRaw.setUserId(user.Id);
 //            c.setId(user.Id);// the same of setUserId() -- SquidDb limitions
         tableRaw.setIsFollowing(user.FollowingType);//
@@ -216,7 +247,7 @@ public class DevicePhoneContact {
         tableRaw.setUserName(user.UserName);
         tableRaw.setAvatarUrl(user.AvatarUrl);
         tableRaw.setUpdateTimestamp(user.UpdatedTimestamp);
-    }
+    }*/
 
     public static Map<String,DevicePhoneContact.Row> getMapOfContacts(){
         List<DevicePhoneContact.Row> cs = fetchAllContacts();

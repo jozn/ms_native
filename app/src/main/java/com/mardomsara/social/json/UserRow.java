@@ -1,5 +1,6 @@
 package com.mardomsara.social.json;
 
+import com.mardomsara.social.models.tables.User;
 import com.mardomsara.social.tables.UsersTable;
 
 /**
@@ -29,6 +30,7 @@ public class UserRow {
     public Integer FollowingCount;
     public Integer PostsCount;
 
+    @Deprecated
     public void setUserTableParams(UsersTable user){
         user.setUserId(Id);
 //            c.setId(user.Id);// the same of setUserId() -- SquidDb limitions
@@ -40,6 +42,19 @@ public class UserRow {
         user.setUserName(UserName);
         user.setAvatarUrl(AvatarUrl);
         user.setUpdateTimestamp(UpdatedTimestamp);
+    }
+
+    public void setUserTableParams(User user){
+        user.UserId = (Id);
+//            c.setId(user.Id);// the same of setUserId() -- SquidDb limitions
+        user.IsFollowing = (FollowingType);//
+        user.FollowingType = (FollowingType);//
+        user.FirstName = (FirstName);
+        user.LastName = (LastName);
+//        user.setFullName(user.FullName);
+        user.UserName = (UserName);
+        user.AvatarUrl = (AvatarUrl);
+        user.UpdateTimestamp = (UpdatedTimestamp);
     }
 
 }

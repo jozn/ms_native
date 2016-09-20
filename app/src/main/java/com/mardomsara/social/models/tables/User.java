@@ -3,6 +3,7 @@ package com.mardomsara.social.models.tables;
 import com.github.gfx.android.orma.annotation.Column;
 import com.github.gfx.android.orma.annotation.PrimaryKey;
 import com.github.gfx.android.orma.annotation.Table;
+import com.mardomsara.social.app.DB;
 
 /**
  * Created by Hamid on 9/4/2016.
@@ -71,6 +72,11 @@ public class User {
     public int UpdatedTimestamp = 0;
 
     ///////////////////////////////////////
+
+    public void insert(){
+        DB.db.relationOfUser().upserter().execute(this);
+    }
+
 
     public String getFullName() {
         return FirstName + " " + LastName;

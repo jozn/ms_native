@@ -3,6 +3,7 @@ package com.mardomsara.social.models.tables;
 import com.github.gfx.android.orma.annotation.Column;
 import com.github.gfx.android.orma.annotation.PrimaryKey;
 import com.github.gfx.android.orma.annotation.Table;
+import com.mardomsara.social.app.DB;
 
 /**
  * Created by Hamid on 9/4/2016.
@@ -27,5 +28,10 @@ public class ContactsCopy {
 
     @Column(defaultExpr = "''")
     public String Hash;
+
+
+    public void insert(){
+        DB.db.relationOfContactsCopy().upserter().execute(this);
+    }
 
 }
