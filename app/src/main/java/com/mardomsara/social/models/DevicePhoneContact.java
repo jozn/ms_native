@@ -92,7 +92,6 @@ public class DevicePhoneContact {
             @Override
             public void permissionRefused() {
                 AppUtil.log("permissionRefused() callback");
-
             }
         };
 

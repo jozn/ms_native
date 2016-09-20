@@ -5,19 +5,11 @@ import android.content.ContentValues;
 import com.github.gfx.android.orma.AccessThreadConstraint;
 import com.github.gfx.android.orma.Schema;
 import com.github.gfx.android.orma.annotation.Column;
-import com.github.gfx.android.orma.annotation.OnConflict;
 import com.github.gfx.android.orma.annotation.PrimaryKey;
-import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
-import com.mardomsara.social.helpers.LangUtil;
-import com.mardomsara.social.helpers.TimeUtil;
 import com.mardomsara.social.models.tables.AppDB;
-import com.mardomsara.social.models.tables.Message;
-import com.mardomsara.social.models.tables.Message_Schema;
-import com.mardomsara.social.models.tables.Notify;
 
 import java.lang.reflect.Field;
-import java.util.List;
 
 /**
  * Created by Hamid on 9/1/2016.

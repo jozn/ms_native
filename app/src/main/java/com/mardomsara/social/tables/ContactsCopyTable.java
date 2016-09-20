@@ -30,8 +30,6 @@ public class ContactsCopyTable extends BaseModel {
     @Column(defaultValue = "\"\"")
     public String Hash;
 
-
-
     public static List<ContactsCopyTable> loadAll(){
         return SQLite.select().from(ContactsCopyTable.class).queryList();
     }

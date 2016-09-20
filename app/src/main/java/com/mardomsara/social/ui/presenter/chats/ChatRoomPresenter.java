@@ -33,6 +33,7 @@ import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.ImageUtil;
 import com.mardomsara.social.helpers.IntentHelper;
 import com.mardomsara.social.helpers.JsonUtil;
+import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
 import com.mardomsara.social.models.MessageModel;
 import com.mardomsara.social.models.RoomModel;
 import com.mardomsara.social.models.events.MessageSyncMeta;
@@ -64,7 +65,7 @@ import butterknife.ButterKnife;
  * Created by Hamid on 5/4/2016.
  */
 public class ChatRoomPresenter extends BasePresenter implements
-        KeywordAttachmentCell.Callbacks{
+        KeywordAttachmentCell.Callbacks , AppHeaderFooterRecyclerViewAdapter.LoadNextPage{
     public Room room;
 
     ////// Views Bindings//////
@@ -144,6 +145,9 @@ public class ChatRoomPresenter extends BasePresenter implements
         recycler_view.setAdapter(messagesAdaptor);
         recycler_view.setLayoutManager(mLayoutManager);
         recycler_view.setHasFixedSize(true);
+
+//        messagesAdaptor.showLoading();
+        messagesAdaptor.setUpForPaginationWith(recycler_view,mLayoutManager,this);
 
         view.findViewById(R.id.back).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -255,7 +259,7 @@ public class ChatRoomPresenter extends BasePresenter implements
 
     void onHereAddedNewMsgEvent(Message msg){
         messages.add(0,msg);
-        messagesAdaptor.notifyItemInserted(0);
+        messagesAdaptor.notifyContentItemInserted(0);
         mLayoutManager.scrollToPositionWithOffset(0,10000);
 
         MessageModel.didMsgsAdded(msg);
@@ -343,7 +347,7 @@ public class ChatRoomPresenter extends BasePresenter implements
                         Message msg2 = MessageModel.getMessageByKey(metaMsgsKey);
                         messagesAdaptor.msgs.remove(i);
                         messagesAdaptor.msgs.add(i,msg2);
-                        messagesAdaptor.notifyItemChanged(i);
+                        messagesAdaptor.notifyContentItemChanged(i);
 //                        messagesAdaptor.notifyDataSetChanged();
                     }
                 }
@@ -623,6 +627,10 @@ public class ChatRoomPresenter extends BasePresenter implements
 //        intentHelper.previewCapturedImage(imageView);
     }
 
+    @Override
+    public void loadNextPage(int pageNum) {
+        Helper.showDebugMessage("page : "+pageNum);
+    }
 }
 
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:fresco="http://schemas.android.com/apk/res-auto"
     xmlns:wheel="http://schemas.android.com/apk/res-auto"
     xmlns:app="http://schemas.android.com/tools"
@@ -38,36 +38,21 @@
         style="@style/text_normal0.gray"
         />
 
- <!--   <com.github.rahatarmanahmed.cpv.CircularProgressView
 
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:id="@+id/loadingView"
+       <com.github.rahatarmanahmed.cpv.CircularProgressView
+           android:id="@+id/loadingView"
+           android:layout_width="25dp"
+           android:layout_height="25dp"
+           android:layout_alignParentLeft="true"
+           android:layout_below="@id/date"
+           android:layout_centerVertical="true"
+           android:layout_marginTop="10dp"
+           android:background="@color/transparent_0"
 
-        android:layout_alignParentLeft="true"
-        android:layout_below="@id/date"
-        android:layout_centerVertical="true"
         app:cpv_animAutostart="true"
         app:cpv_indeterminate="true"
 
-        />-->
-
-        <com.pnikosis.materialishprogress.ProgressWheel
-            android:id="@+id/loadingView"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@id/date"
-            android:layout_centerVertical="true"
-            wheel:matProg_barColor="#5588FF"
-            wheel:matProg_progressIndeterminate="true"
-            wheel:matProg_barWidth="2dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/transparent_0"
-
-            />
-
-
+        />
 
     <com.mardomsara.emojicon.EmojiconTextView
         android:layout_width="wrap_content"
@@ -81,8 +66,6 @@
         android:textColor="@color/text_gray_1"
         android:gravity="right"
         />
-
-
 
 
 </RelativeLayout>

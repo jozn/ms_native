@@ -110,7 +110,7 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
     public void removeViewFromFooter(View view){
         for(ViewTag tag : footerViews) {
             if (tag.view == view) {
-                footerViews.remove(view);
+                footerViews.remove(tag);
             }
         }
     }
@@ -121,6 +121,14 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
         tag.typeId=headerTypeId;
         tag.view = view;
         headerViews.add(tag);
+    }
+
+    public void removeViewFromHeader(View view){
+        for(ViewTag tag : headerViews) {
+            if (tag.view == view) {
+                headerViews.remove(tag);
+            }
+        }
     }
 
     //needed for centering LoadingView

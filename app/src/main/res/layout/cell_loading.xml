@@ -1,23 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="80dp"
     android:layout_gravity="center"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:wheel="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:gravity="center|center_horizontal"
     android:background="@color/white">
-<!--    <com.pnikosis.materialishprogress.ProgressWheel
-        android:id="@+id/progress_wheel"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        wheel:matProg_barColor="#5588FF"
-        wheel:matProg_progressIndeterminate="false" />-->
 
     <com.github.rahatarmanahmed.cpv.CircularProgressView
         android:layout_gravity="center"
@@ -33,24 +23,4 @@
 
         />
 
-    <!--<com.github.rahatarmanahmed.cpv.CircularProgressView-->
-        <!--android:id="@+id/loading"-->
-        <!--android:layout_gravity="center"-->
-        <!--android:gravity="center"-->
-        <!--android:layout_width="40dp"-->
-        <!--android:layout_height="40dp"-->
-        <!--app:cpv_animAutostart="true"-->
-        <!--app:cpv_indeterminate="true" />-->
-    <!--<com.pnikosis.materialishprogress.ProgressWheel-->
-        <!--android:id="@+id/loadingView"-->
-        <!--android:layout_width="25dp"-->
-        <!--android:layout_height="25dp"-->
-
-        <!--wheel:matProg_barColor="#5588FF"-->
-        <!--wheel:matProg_progressIndeterminate="true"-->
-        <!--wheel:matProg_barWidth="2dp"-->
-        <!--android:layout_marginTop="10dp"-->
-        <!--android:background="@color/transparent_0"-->
-
-        <!--/>-->
 </RelativeLayout>

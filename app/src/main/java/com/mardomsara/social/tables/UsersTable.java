@@ -1,9 +1,9 @@
 package com.mardomsara.social.tables;
 
-import com.mardomsara.social.base.Command;
 import com.mardomsara.social.helpers.AppUtil;
-import com.mardomsara.social.service.WS;
-import com.raizlabs.android.dbflow.annotation.*;
+import com.raizlabs.android.dbflow.annotation.Column;
+import com.raizlabs.android.dbflow.annotation.PrimaryKey;
+import com.raizlabs.android.dbflow.annotation.Table;
 import com.raizlabs.android.dbflow.sql.language.SQLite;
 import com.raizlabs.android.dbflow.structure.BaseModel;
 
