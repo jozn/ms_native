@@ -1,8 +1,5 @@
 package com.mardomsara.social.models;
 
-import com.raizlabs.android.dbflow.annotation.Column;
-import com.raizlabs.android.dbflow.annotation.NotNull;
-
 /**
  * Created by Hamid on 5/14/2016.
  */

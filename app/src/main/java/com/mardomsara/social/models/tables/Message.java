@@ -8,6 +8,8 @@ import com.github.gfx.android.orma.annotation.PrimaryKey;
 import com.github.gfx.android.orma.annotation.Table;
 import com.mardomsara.social.app.DB;
 import com.mardomsara.social.helpers.AndroidUtil;
+import com.mardomsara.social.helpers.AppUtil;
+import com.mardomsara.social.helpers.TimeUtil;
 
 /**
  * Created by Hamid on 9/4/2016.
@@ -56,7 +58,10 @@ public class Message {
     public long CreatedMs = 0;
 
     @Column(defaultExpr = "0", helpers = Column.Helpers.ALL)
-    public long CreatedDeviceMs = 0;
+    public long CreatedDeviceMs = TimeUtil.getTimeMs();
+
+    @Column(defaultExpr = "0", indexed = true)
+    public long SortId = TimeUtil.getTimeNano();
 
     @Column(defaultExpr = "0" ,helpers = Column.Helpers.CONDITION_EQ)
     public int PeerSeenTime = 0;
@@ -103,6 +108,10 @@ public class Message {
 
     @Column(defaultExpr = "''")
     public String MediaExtension = "";
+
+    public Message() {
+        AppUtil.log("time: "+ TimeUtil.getTimeNano());
+    }
 
 
     /////////////////////////////////////////

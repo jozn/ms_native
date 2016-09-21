@@ -129,7 +129,7 @@ public class ChatRoomPresenter extends BasePresenter implements
 
         Nav.hideFooter();
 
-        messages = MessageModel.getRoomMessages(room.RoomKey,0);
+        messages = MessageModel.getRoomMessagesTimeOffset(room.RoomKey,0);
         messagesCell = new MsgsListCell();
         messagesAdaptor =messagesCell.adaptor;
 
@@ -629,6 +629,21 @@ public class ChatRoomPresenter extends BasePresenter implements
 
     @Override
     public void loadNextPage(int pageNum) {
+        int size = messagesAdaptor.msgs.size();
+        List<Message> msgs = null;
+        if(size > 0){
+            long lastSortid = messagesAdaptor.msgs.get(size -1).SortId;
+            msgs = MessageModel.getRoomMessagesTimeOffset(room.RoomKey,lastSortid);
+            if(msgs != null){
+                messagesAdaptor.msgs.addAll(msgs);
+                messagesAdaptor.notifyDataSetChanged();
+
+            }
+        }
+        //pageNum is actuly is never 0
+        if(pageNum != 0  && (msgs == null || msgs.size() == 0)){
+            messagesAdaptor.setHasMorePage(false);
+        }
         Helper.showDebugMessage("page : "+pageNum);
     }
 }

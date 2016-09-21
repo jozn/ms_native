@@ -9,10 +9,8 @@ import com.mardomsara.social.models.events.MsgsSyncMetaDeletedFromServer;
 import com.mardomsara.social.models.events.MsgsSyncMetaReceivedToPeer;
 import com.mardomsara.social.models.events.MsgsSyncMetaReceivedToServer;
 import com.mardomsara.social.models.events.MsgsSyncMetaSeenByPeer;
-
 import com.mardomsara.social.models.tables.Message;
 import com.mardomsara.social.models.tables.Room;
-import com.raizlabs.android.dbflow.sql.language.SQLite;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;

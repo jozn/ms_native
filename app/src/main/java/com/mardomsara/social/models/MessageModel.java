@@ -37,9 +37,17 @@ import java.util.List;
  * Created by Hamid on 9/5/2016.
  */
 public class MessageModel {
+    final static int MSGS_PER_PAGE = 4;
 
-    public static List<Message> getRoomMessages(String roomKey, int page) {
-        return DB.db.selectFromMessage().RoomKeyEq(roomKey).orderByCreatedDeviceMsDesc().toList();
+    //TODO: change orderByCreatedDeviceMsDesc() -> orderBySortId()
+    public static List<Message> getRoomMessagesTimeOffset(String roomKey, long deviceCreatedTimeOffset){
+        /*AndroidUtil.runInBackgroundNoPanic(()->{
+            DB.db.getConnection().execSQL("update Message set SortId = CreatedDeviceMs * 1000000");
+        });*/
+        if(deviceCreatedTimeOffset < 1){
+            return DB.db.selectFromMessage().RoomKeyEq(roomKey).orderBySortIdDesc().limit(MSGS_PER_PAGE).toList();
+        }
+        return DB.db.selectFromMessage().RoomKeyEq(roomKey).SortIdLt(deviceCreatedTimeOffset).orderBySortIdDesc().limit(MSGS_PER_PAGE).toList();
     }
 
     public static List<Message> getAllRoomsMessages(String roomKey) {

@@ -1,5 +1,7 @@
 package com.mardomsara.social.helpers;
 
+import com.mardomsara.social.lib.NanoTimestamp;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -26,7 +28,7 @@ public class TimeUtil {
     }
 
     public static long getTimeNano(){
-        return System.nanoTime();
+        return NanoTimestamp.getNano();
     }
 
     public static int timeMsToSec(long time){
