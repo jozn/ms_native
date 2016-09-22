@@ -41,7 +41,7 @@ import java.util.Map;
 
 //copy of TinyDB
 //version 1
-public class TinyDB {
+public class TinyDBStatic {
 
     private static SharedPreferences preferences;
     private static String DEFAULT_APP_IMAGEDATA_DIRECTORY;

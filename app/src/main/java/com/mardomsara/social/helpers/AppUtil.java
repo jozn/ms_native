@@ -13,6 +13,7 @@ import android.view.ViewTreeObserver;
 import com.google.gson.Gson;
 import com.mardomsara.social.app.Config;
 import com.mardomsara.social.app.Singletons;
+import com.mardomsara.social.lib.TinyDB;
 import com.orhanobut.hawk.Hawk;
 
 import java.net.MalformedURLException;
@@ -50,8 +51,20 @@ public class AppUtil {
         return null;
     }
 
-    public static SharedPreferences getStore(){
-        return getContext().getSharedPreferences("",0);
+    static TinyDB tinyDBStore;
+    public static TinyDB getStore(){
+        if(tinyDBStore == null){
+            tinyDBStore = new TinyDB(getContext(),"store");
+        }
+        return tinyDBStore;
+    }
+
+    static TinyDB tinyDBCache;
+    public static TinyDB getCacheStore(){
+        if(tinyDBCache == null){
+            tinyDBCache = new TinyDB(getContext(),"store_cache");
+        }
+        return tinyDBCache;
     }
 
     public static Context getContext(){
