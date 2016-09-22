@@ -40,6 +40,7 @@ import java.util.Arrays;
 import java.util.Map;
 
 //copy of TinyDB
+//version 1
 public class Store {
 
     private static SharedPreferences preferences;
@@ -313,16 +314,16 @@ public class Store {
 
 
     public static ArrayList<Object> getListObject(String key, Class<?> mClass){
-    	Gson gson = new Gson();
+        Gson gson = new Gson();
 
-    	ArrayList<String> objStrings = getListString(key);
-    	ArrayList<Object> objects =  new ArrayList<Object>();
+        ArrayList<String> objStrings = getListString(key);
+        ArrayList<Object> objects =  new ArrayList<Object>();
 
-    	for(String jObjString : objStrings){
-    		Object value  = gson.fromJson(jObjString,  mClass);
-    		objects.add(value);
-    	}
-    	return objects;
+        for(String jObjString : objStrings){
+            Object value  = gson.fromJson(jObjString,  mClass);
+            objects.add(value);
+        }
+        return objects;
     }
 
 
@@ -345,7 +346,7 @@ public class Store {
      * @param value int value to be added
      */
     public static void putInt(String key, int value) {
-    	checkForNullKey(key);
+        checkForNullKey(key);
         preferences.edit().putInt(key, value).apply();
     }
 
@@ -355,7 +356,7 @@ public class Store {
      * @param intList ArrayList of Integer to be added
      */
     public static void putListInt(String key, ArrayList<Integer> intList) {
-    	checkForNullKey(key);
+        checkForNullKey(key);
         Integer[] myIntList = intList.toArray(new Integer[intList.size()]);
         preferences.edit().putString(key, TextUtils.join("‚‗‚", myIntList)).apply();
     }
@@ -366,7 +367,7 @@ public class Store {
      * @param value long value to be added
      */
     public static void putLong(String key, long value) {
-    	checkForNullKey(key);
+        checkForNullKey(key);
         preferences.edit().putLong(key, value).apply();
     }
 
@@ -376,7 +377,7 @@ public class Store {
      * @param value float value to be added
      */
     public static void putFloat(String key, float value) {
-    	checkForNullKey(key);
+        checkForNullKey(key);
         preferences.edit().putFloat(key, value).apply();
     }
 
@@ -386,7 +387,7 @@ public class Store {
      * @param value double value to be added
      */
     public static void putDouble(String key, double value) {
-    	checkForNullKey(key);
+        checkForNullKey(key);
         putString(key, String.valueOf(value));
     }
 
@@ -396,7 +397,7 @@ public class Store {
      * @param doubleList ArrayList of Double to be added
      */
     public static void putListDouble(String key, ArrayList<Double> doubleList) {
-    	checkForNullKey(key);
+        checkForNullKey(key);
         Double[] myDoubleList = doubleList.toArray(new Double[doubleList.size()]);
         preferences.edit().putString(key, TextUtils.join("‚‗‚", myDoubleList)).apply();
     }
@@ -407,7 +408,7 @@ public class Store {
      * @param value String value to be added
      */
     public static void putString(String key, String value) {
-    	checkForNullKey(key); checkForNullValue(value);
+        checkForNullKey(key); checkForNullValue(value);
         preferences.edit().putString(key, value).apply();
     }
 
@@ -417,7 +418,7 @@ public class Store {
      * @param stringList ArrayList of String to be added
      */
     public static void putListString(String key, ArrayList<String> stringList) {
-    	checkForNullKey(key);
+        checkForNullKey(key);
         String[] myStringList = stringList.toArray(new String[stringList.size()]);
         preferences.edit().putString(key, TextUtils.join("‚‗‚", myStringList)).apply();
     }
@@ -428,7 +429,7 @@ public class Store {
      * @param value boolean value to be added
      */
     public static void putBoolean(String key, boolean value) {
-    	checkForNullKey(key);
+        checkForNullKey(key);
         preferences.edit().putBoolean(key, value).apply();
     }
 
@@ -438,7 +439,7 @@ public class Store {
      * @param boolList ArrayList of Boolean to be added
      */
     public static void putListBoolean(String key, ArrayList<Boolean> boolList) {
-    	checkForNullKey(key);
+        checkForNullKey(key);
         ArrayList<String> newList = new ArrayList<String>();
 
         for (Boolean item : boolList) {
@@ -455,22 +456,22 @@ public class Store {
     /**
      * Put ObJect any type into SharedPrefrences with 'key' and save
      * @param key SharedPreferences key
-     * @param obj is the Object you want to put 
+     * @param obj is the Object you want to put
      */
     public static void putObject(String key, Object obj){
-    	checkForNullKey(key);
-    	Gson gson = new Gson();
-    	putString(key, gson.toJson(obj));
+        checkForNullKey(key);
+        Gson gson = new Gson();
+        putString(key, gson.toJson(obj));
     }
 
     public static void putListObject(String key, ArrayList<Object> objArray){
-    	checkForNullKey(key);
-    	Gson gson = new Gson();
-    	ArrayList<String> objStrings = new ArrayList<String>();
-    	for(Object obj : objArray){
-    		objStrings.add(gson.toJson(obj));
-    	}
-    	putListString(key, objStrings);
+        checkForNullKey(key);
+        Gson gson = new Gson();
+        ArrayList<String> objStrings = new ArrayList<String>();
+        for(Object obj : objArray){
+            objStrings.add(gson.toJson(obj));
+        }
+        putListString(key, objStrings);
     }
 
     /**
@@ -551,17 +552,17 @@ public class Store {
      * @param the pref key
      */
     public static void checkForNullKey(String key){
-    	 if (key == null){
-    		 throw new NullPointerException();
-    	 }
+        if (key == null){
+            throw new NullPointerException();
+        }
     }
     /**
      * null keys would corrupt the shared pref file and make them unreadable this is a preventive measure
      * @param the pref key
      */
     public static void checkForNullValue(String value){
-    	 if (value == null){
-    		 throw new NullPointerException();
-    	 }
+        if (value == null){
+            throw new NullPointerException();
+        }
     }
 }

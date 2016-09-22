@@ -39,7 +39,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Map;
 
-
+//copy of TinyDB
+//version 1
 public class TinyDB {
 
     private static SharedPreferences preferences;
