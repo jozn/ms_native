@@ -11,6 +11,7 @@ import com.mardomsara.social.app.Config;
 import com.mardomsara.social.app.DB;
 import com.mardomsara.social.base.FNV;
 import com.mardomsara.social.base.Http;
+import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.JsonUtil;
 import com.mardomsara.social.helpers.LangUtil;
@@ -38,7 +39,7 @@ public class DevicePhoneContact {
 
     //statics methods
 
-    public static List<Row> fetchAllContacts(){
+    public static List<Row> fetchAllContactsFromAndroidContacts(){
         //        StringBuffer sb = new StringBuffer();
         Context ctx = App.context;
         List<Row> al = new ArrayList<>();
@@ -67,7 +68,7 @@ public class DevicePhoneContact {
     }
 
 
-    public static void checKforSync(){
+    public static void checkForSync(){
         long lastSyncedTime = Hawk.<Long>get(Config.SYNC_CONTACTS_REFETCHED_FROM_DEVICE_LAST_TIME,0l);
         if(lastSyncedTime +REFETCH_INTERVAL < TimeUtil.getTime()){
             askPremisionsForDoResync();
@@ -99,15 +100,17 @@ public class DevicePhoneContact {
     }
 
     private static void doActualResync() {
-        List<Row> rows = fetchAllContacts();
+        List<Row> rows = fetchAllContactsFromAndroidContacts();
         List<ContactsCopy> copyTableList= getAllCopyContacts();
         if(rows == null) {
 //            ContactsCopyTable.empty();
+            emptyTableAsync();
             return;
         }
 
         for(Row row: rows){
-            row.Hash = FNV.fnv1a_32(row.toStringForHash().getBytes()).toString();
+//            row.Hash = FNV.fnv1a_32(row.toStringForHash().getBytes()).toString();
+            row.calculateHash();
         }
         if(copyTableList != null){
             Map<String, Row> mapNew = LangUtil.listToHashMap(rows,(row)-> row.Hash);
@@ -134,18 +137,11 @@ public class DevicePhoneContact {
         DB.db.transactionSync(()->{
             for (Row row : rows){
                 ContactsCopy copy = new ContactsCopy();
-                copy.PhoneNumber = row.PhoneNumber;
-                copy.PhoneContactRowId = row.PhoneContactRowId;
-                copy.PhoneFamilyName = row.PhoneFamilyName;
-                copy.PhoneNormalizedNumber = row.PhoneNormalizedNumber;
-                copy.PhoneDisplayName = row.PhoneDisplayName;
-                copy.Hash = row.Hash;
-
+                row.toCnotactsCopy(copy);
                 copy.insert();
             }
         });
         uploadContacs();
-
     }
 
     public static void uploadContacs(){
@@ -209,52 +205,25 @@ public class DevicePhoneContact {
             }
 
         });
-/*
-        SQLite.delete().from(UsersTable.class).where(UsersTable_Table.UserId.in(ids_int[0],ids_int)).execute();
-
-        for (UserRow user: users){
-            contact = map.get(user.Phone);
-            AppUtil.log("Building Contacts For "+contact.PhoneNormalizedNumber);
-            UsersTable c = new UsersTable();
-//            c.setIsPhoneContact(1);
-            c.setPhoneNumber(contact.PhoneNumber);
-            c.setPhoneNormalizedNumber(contact.PhoneNormalizedNumber);
-            c.setPhoneDisplayName(contact.PhoneDisplayName);
-            c.setPhoneFamilyName(contact.PhoneFamilyName);
-            c.setPhoneContactRowId(contact.PhoneContactRowId);
-
-            c.setIsPhoneContact(1);//true
-//            _setUserTableFieldsFromJson(user,c);
-            user.setUserTableParams(c);
-
-            AppUtil.log("presisiting Contacts" + c.toString());
-            c.save();
-        }*/
     }
 
     public static List<ContactsCopy> getAllCopyContacts(){
         return DB.db.selectFromContactsCopy().toList();
     }
 
-    /*private static void _setUserTableFieldsFromJson(UserRow user, UsersTable tableRaw){
-        tableRaw.setUserId(user.Id);
-//            c.setId(user.Id);// the same of setUserId() -- SquidDb limitions
-        tableRaw.setIsFollowing(user.FollowingType);//
-        tableRaw.setFirstName(user.FirstName);
-        tableRaw.setLastName(user.LastName);
-//        tableRaw.setFullName(user.FullName);
-        tableRaw.setUserName(user.UserName);
-        tableRaw.setAvatarUrl(user.AvatarUrl);
-        tableRaw.setUpdateTimestamp(user.UpdatedTimestamp);
-    }*/
-
     public static Map<String,DevicePhoneContact.Row> getMapOfContacts(){
-        List<DevicePhoneContact.Row> cs = fetchAllContacts();
+        List<DevicePhoneContact.Row> cs = fetchAllContactsFromAndroidContacts();
         Map<String,DevicePhoneContact.Row> map = new HashMap<>();
         for (DevicePhoneContact.Row row : cs){
             map.put(row.PhoneNormalizedNumber, row);
         }
         return map;
+    }
+
+    public static void emptyTableAsync(){
+        AndroidUtil.runInBackgroundNoPanic(()->{
+            DB.db.deleteFromContactsCopy().execute();
+        });
     }
 
 
@@ -274,6 +243,20 @@ public class DevicePhoneContact {
 
         public String toStringForHash(){
             return ""+PhoneNumber+ PhoneNormalizedNumber + PhoneDisplayName + PhoneFamilyName+ PhoneContactRowId;
+        }
+
+        public void calculateHash(){
+            Hash = FNV.fnv1a_32(toStringForHash().getBytes()).toString();
+        }
+
+        public void toCnotactsCopy(ContactsCopy copy){
+//            ContactsCopy copy = new ContactsCopy();
+            copy.PhoneNumber = this.PhoneNumber;
+            copy.PhoneContactRowId = this.PhoneContactRowId;
+            copy.PhoneFamilyName = this.PhoneFamilyName;
+            copy.PhoneNormalizedNumber = this.PhoneNormalizedNumber;
+            copy.PhoneDisplayName = this.PhoneDisplayName;
+            copy.Hash = this.Hash;
         }
     }
 }

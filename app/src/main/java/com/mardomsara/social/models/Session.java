@@ -75,4 +75,8 @@ public class Session {
         return sender;
     }
 
+    static void play(){
+        Store.getFloat("dd");
+    }
+
 }

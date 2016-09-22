@@ -14,7 +14,7 @@ public class Sync {
         Runnable r = () -> {
 //            PhoneContactsModel.syncContactsFromServer();
             try {
-                DevicePhoneContact.checKforSync();
+                DevicePhoneContact.checkForSync();
             }catch (Exception e){
                 e.printStackTrace();
             }

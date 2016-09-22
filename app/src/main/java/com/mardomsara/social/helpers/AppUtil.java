@@ -1,6 +1,7 @@
 package com.mardomsara.social.helpers;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.util.Log;
@@ -25,6 +26,7 @@ import java.util.Date;
  */
 public class AppUtil {
     public static Context _context;
+    private static SharedPreferences store;
     private static Gson gson = new Gson();
 
     public static ViewGroup global_window;
@@ -46,6 +48,10 @@ public class AppUtil {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public static SharedPreferences getStore(){
+        return getContext().getSharedPreferences("",0);
     }
 
     public static Context getContext(){

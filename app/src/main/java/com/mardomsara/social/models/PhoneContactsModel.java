@@ -162,7 +162,7 @@ public class PhoneContactsModel {
         return map;
     }
     public static List<DevicePhoneContact.Row> fetchAllContacts(){
-        return DevicePhoneContact.fetchAllContacts();
+        return DevicePhoneContact.fetchAllContactsFromAndroidContacts();
 /*//        StringBuffer sb = new StringBuffer();
         Context ctx = App.context;
         List<Row> al = new ArrayList<>();
