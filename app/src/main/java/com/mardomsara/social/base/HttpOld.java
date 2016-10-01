@@ -28,7 +28,7 @@ import okio.BufferedSink;
 /**
  * Created by Hamid on 3/4/2016.
  */
-public class Http {
+public class HttpOld {
     private static final OkHttpClient client = new OkHttpClient();
 
     public static String simpleGet(String path){
@@ -239,7 +239,7 @@ public class Http {
                 ls.add(""+k+"="+urlParams.get(k));
             }
 
-            Map<String, String> defs = Http._getDefualturlParams();
+            Map<String, String> defs = HttpOld._getDefualturlParams();
             for (String k : defs.keySet()){
                 ls.add(""+k+"="+defs.get(k));
             }
