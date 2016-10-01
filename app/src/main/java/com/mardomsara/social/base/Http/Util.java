@@ -1,4 +1,4 @@
-package com.mardomsara.social.base.Http2;
+package com.mardomsara.social.base.Http;
 
 import com.mardomsara.social.helpers.AppUtil;
 
@@ -53,7 +53,7 @@ public class Util {
             ls.add(""+k+"="+ urlQueryParams.get(k));
         }
 
-        Map<String, String> defs = Http2._getDefualturlParams();
+        Map<String, String> defs = Http._getDefualturlParams();
         for (String k : defs.keySet()){
             ls.add(""+k+"="+defs.get(k));
         }

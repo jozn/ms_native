@@ -1,10 +1,9 @@
-package com.mardomsara.social.base.Http2;
+package com.mardomsara.social.base.Http;
 
 import com.mardomsara.social.base.OkhttpMimeTypes;
 import com.mardomsara.social.helpers.AppUtil;
 
 import java.io.IOException;
-import java.net.URL;
 
 import okhttp3.MultipartBody;
 import okhttp3.OkHttpClient;

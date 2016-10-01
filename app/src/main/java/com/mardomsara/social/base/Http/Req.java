@@ -1,4 +1,4 @@
-package com.mardomsara.social.base.Http2;
+package com.mardomsara.social.base.Http;
 
 import com.mardomsara.social.helpers.AndroidUtil;
 
@@ -19,7 +19,7 @@ public class Req<T> {
     String absUrl;
     URL _finalUrl;//todo: make this private
     String method = "GET";
-    Map<String, String> headers = Http2.defaultHeaders();
+    Map<String, String> headers = Http.defaultHeaders();
     Map<String, String> urlQueryParams = new HashMap<>();
     Map<String, String> form = new HashMap<>();
     private Map<String, String[]> headersMulti;//??

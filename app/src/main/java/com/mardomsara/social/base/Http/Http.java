@@ -1,4 +1,4 @@
-package com.mardomsara.social.base.Http2;
+package com.mardomsara.social.base.Http;
 
 import android.support.annotation.NonNull;
 
@@ -11,7 +11,7 @@ import java.util.Map;
 /**
  * Created by Hamid on 9/30/2016.
  */
-public class Http2 {
+public class Http {
     public static Req get(String absUrl){
         Req req = new Req(Action.GET, absUrl);
         return req;

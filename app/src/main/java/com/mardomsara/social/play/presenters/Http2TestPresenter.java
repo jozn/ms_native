@@ -4,12 +4,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.mardomsara.social.app.API;
-import com.mardomsara.social.base.Http2.Http2;
-import com.mardomsara.social.base.Http2.Result;
+import com.mardomsara.social.base.Http.Http;
+import com.mardomsara.social.base.Http.Result;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.TimeUtil;
-import com.mardomsara.social.json.HttpJson;
 import com.mardomsara.social.json.HttpJsonList;
 import com.mardomsara.social.json.social.rows.TagRowJson;
 import com.mardomsara.social.ui.BasePresenter;
@@ -18,7 +17,6 @@ import com.mardomsara.social.ui.cells.TitleCellsGroup;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by Hamid on 10/1/2016.
@@ -68,7 +66,7 @@ public class Http2TestPresenter extends BasePresenter {
     }
 
     void simpleGet(){
-        Http2.get(API.SEARCH_TAGS)
+        Http.get(API.SEARCH_TAGS)
                 .setQueryParam("tag","م")
                 .setQueryParam("nio",15)
                 .doAsync((r)->{
@@ -77,7 +75,7 @@ public class Http2TestPresenter extends BasePresenter {
     }
 
     void simplePost(){
-        Http2.post(API.SEARCH_TAGS)
+        Http.post(API.SEARCH_TAGS)
             .setQueryParam("tag","م")
             .setQueryParam("nio",15)
             .setFormParam("fo1","sdsdشسش")
@@ -88,7 +86,7 @@ public class Http2TestPresenter extends BasePresenter {
     }
 
     void getJson(){
-        Http2.get(API.SEARCH_TAGS)
+        Http.get(API.SEARCH_TAGS)
                 .setQueryParam("tag","م")
                 .setQueryParam("nio",15)
                 .setQueryParam("hamid","kar")
@@ -125,7 +123,7 @@ public class Http2TestPresenter extends BasePresenter {
 
 
     void getJsonMoshi() {
-        Http2.get(API.SEARCH_TAGS)
+        Http.get(API.SEARCH_TAGS)
                 .setQueryParam("tag", "م")
                 .setQueryParam("nio", 15)
                 .setQueryParam("hamid", "kar")
@@ -150,7 +148,7 @@ public class Http2TestPresenter extends BasePresenter {
     }
 
     void upload(){
-        Http2.upload("http://localhost:5000/upload2", new File("/storage/emulated/0/1.mp4"))
+        Http.upload("http://localhost:5000/upload2", new File("/storage/emulated/0/1.mp4"))
             .doAsync((r)->{
                 Helper.showDebugMessage(r.data);
             });
@@ -158,7 +156,7 @@ public class Http2TestPresenter extends BasePresenter {
 
     void download(){
         String f= "/storage/emulated/0/1_"+ TimeUtil.getTime() +".mp4";
-        Http2.download("http://localhost:5000/upload/1.mp4", f)
+        Http.download("http://localhost:5000/upload/1.mp4", f)
                 .doAsyncDownload((r)->{
                     Helper.showDebugMessage(r.data);
                 });

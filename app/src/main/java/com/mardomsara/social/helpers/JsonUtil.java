@@ -3,7 +3,7 @@ package com.mardomsara.social.helpers;
 import android.util.Log;
 
 import com.google.gson.Gson;
-import com.mardomsara.social.base.Http2.Result;
+import com.mardomsara.social.base.Http.Result;
 
 /**
  * Created by Hamid on 3/4/2016.

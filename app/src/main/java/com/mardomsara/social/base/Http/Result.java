@@ -1,4 +1,4 @@
-package com.mardomsara.social.base.Http2;
+package com.mardomsara.social.base.Http;
 
 import android.util.Log;
 
