@@ -1,6 +1,5 @@
 package com.mardomsara.social.base.Http2;
 
-import com.mardomsara.social.base.Http;
 import com.mardomsara.social.helpers.AppUtil;
 
 import java.io.IOException;
@@ -32,13 +31,8 @@ public class Sender<T> {
         //todo set Upload
 
         Request request = rb.build();
-/*
-                .url(req.buildFinalUrlFromPath())
-//                .method(req.method, null)
-                .headers(req.getToHeaders())
-                .post(req.getFormParams())
-                .build();*/
-       Result  res = _doSend(request,true);
+
+        Result  res = _doSend(request,true);
         return res;
     }
 
@@ -56,6 +50,9 @@ public class Sender<T> {
             /*if(res.data.indexOf("Status") >= 0 ){
                 res.ok = true;
             }*/
+            if(response.isSuccessful()){
+                res.ok = true;
+            }
             res.response = response;
         } catch (IOException e) {
             res.ok = false;

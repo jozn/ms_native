@@ -1,15 +1,8 @@
 package com.mardomsara.social.base.Http2;
 
-import android.util.Log;
-
-import com.google.gson.Gson;
-import com.mardomsara.social.base.Http;
 import com.mardomsara.social.helpers.AndroidUtil;
-import com.mardomsara.social.helpers.JsonUtil;
-import com.mardomsara.social.models.tables.User;
 
 import java.io.File;
-import java.lang.reflect.Type;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
@@ -61,40 +54,10 @@ public class Req<T> {
         return this;
     }
 
-    /*static Gson g = new Gson();
-    public <T> T fromJson(String str , Class<T> cls){
-        T j = null;
-        try {
-            j = g.fromJson(str,cls);
-//            Class<?> cl = j.Load.getClass();
-        }catch (Exception e){
-            Log.e("JSON: ","error in JsonUtil.fromJson parsing: "+e.toString() );
-            e.printStackTrace();
-        }
-        return j;
-    }
-
-    Class<T> cls2;*/
-    /*public T fromJson2(Class<T> cls){
-        T j = null;
-        try {
-            cls2 = cls;
-//            Class<?> cl = j.Load.getClass();
-        }catch (Exception e){
-            Log.e("JSON: ","error in JsonUtil.fromJson parsing: "+e.toString() );
-            e.printStackTrace();
-        }
-        return j;
-    }*/
+    //generics dosn't work, just set for futuer maybe
     public <K>  void doAsync(CallBack<K> callBack){
         AndroidUtil.runInBackground(()->{
             Result res = Sender.Send(this);
-
-            Result<K> res2 = new Result<K>();//How we can be generic type(pass generic to Result) and avoid making another object
-            res2.ok = res.ok;
-            res2.data = res.data;
-            res2.bytes = res.bytes;
-            res2.response = res.response;
 
             if(callBack != null){
                 callBack.callback(res);
@@ -102,43 +65,4 @@ public class Req<T> {
         });
     }
 
-    public  <T>void doAsyncJson(Class<T> cls,CallBack<T> callBack){
-        AndroidUtil.runInBackground(()->{
-            Result res = Sender.Send(this);
-            Result<T> res2 = new Result<T>();//How we can be generic type(pass generic to Result) and avoid making another object
-            res2.ok = res.ok;
-            res2.data = res.data;
-            res2.bytes = res.bytes;
-            res2.response = res.response;
-
-
-            if(res2.data !=  null && res2.data.length() > 0){// && res.data.indexOf("Status")>0){
-                T json = JsonUtil.fromJson(res2.data,cls);
-                if(json != null ){
-                    res2.ok =true;
-                    res2.parsedJson = json;
-                }else {
-                    res2.ok = false;
-                }
-                if(callBack != null){
-                    callBack.<T>callback(res2);
-                }
-            }
-
-
-        });
-    }
-
-    void prcessCallback(Result res){
-        /*if(res.data !=  null && res.data.length() > 0 && res.data.indexOf("Status")>0){
-            Type collectionType = new TypeToken<User<T>>(){}.getType();
-            res.parseJson(res,cls2)
-
-        }*/
-    }
-
-    ////////////////////////////// internal Classes ////////////////////////
-    static class Req2 {
-        
-    }
 }

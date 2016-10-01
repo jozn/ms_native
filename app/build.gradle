@@ -140,6 +140,8 @@ dependencies {
     compile 'com.joanzapata.iconify:android-iconify-ionicons:2.2.2' // (v2.0.1)
     compile 'com.joanzapata.iconify:android-iconify-simplelineicons:2.2.2' // (v1.0.0)
 
+    compile 'com.squareup.moshi:moshi:1.2.0'
+
 //    androidTestCompile 'com.android.support:support-annotations:24.2.0'
 //    compile 'com.amitshekhar.android:android-networking:0.1.0'
 

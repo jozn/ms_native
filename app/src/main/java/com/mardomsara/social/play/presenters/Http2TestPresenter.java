@@ -3,21 +3,20 @@ package com.mardomsara.social.play.presenters;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.mardomsara.social.Nav;
 import com.mardomsara.social.app.API;
-import com.mardomsara.social.base.Http;
-import com.mardomsara.social.base.Http2.CallBack;
 import com.mardomsara.social.base.Http2.Http2;
 import com.mardomsara.social.base.Http2.Result;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.Helper;
-import com.mardomsara.social.helpers.JsonUtil;
-import com.mardomsara.social.json.social.http.TagsListJson;
+import com.mardomsara.social.json.HttpJson;
+import com.mardomsara.social.json.HttpJsonList;
 import com.mardomsara.social.json.social.rows.TagRowJson;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.cells.PageCells;
 import com.mardomsara.social.ui.cells.TitleCellsGroup;
-import com.mardomsara.social.ui.presenter.HelloPresenter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Hamid on 10/1/2016.
@@ -39,6 +38,10 @@ public class Http2TestPresenter extends BasePresenter {
 
         layout.addView(newTitle("Http2.get() + with json",()->{
             getJson();
+        }));
+
+        layout.addView(newTitle("Http2.get() + with json Moshi",()->{
+            getJsonMoshi();
         }));
 
         return rootView;
@@ -80,12 +83,19 @@ public class Http2TestPresenter extends BasePresenter {
                 .setQueryParam("nio",15)
                 .setQueryParam("hamid","kar")
                 .doAsync((result)->{
-                    TagsListJson r2 = Result.fromJson(result,TagsListJson.class);
+//                    TagsListJson r2 = Result.fromJson(result,TagsListJson.class);
+//                    HttpJson<ArrayList> r2 = Result.fromJson2(result,ArrayList.class);
+                    /*HttpJson<List<TagRowJson>> r2 = Result.fromJsonList(result,TagRowJson.class);
 //                    TagsListJson r2 =result.fromJson2(TagsListJson.class);
+                    if(result.isOk()){
+                        String t = r2.Status;
+
+                        Helper.showDebugMessage(""+t);
+                        Helper.showDebugMessage(r2.Payload.get(0).toString());
+                    }*/
 
 //                    String t = result.<TagRowJson>fromJson(TagRowJson.class).Name;
-                    String t = r2.Status;
-                    Helper.showDebugMessage(""+t);
+
                 });
 
         /*.doAsyncJson(TagsListJson.class,
@@ -101,6 +111,35 @@ public class Http2TestPresenter extends BasePresenter {
 //            r.parsedJson.
 //                    Helper.showDebugMessage(r.data);
 //        });
+    }
+
+
+    void getJsonMoshi() {
+        Http2.get(API.SEARCH_TAGS)
+                .setQueryParam("tag", "م")
+                .setQueryParam("nio", 15)
+                .setQueryParam("hamid", "kar")
+                .doAsync((result) -> {
+                    HttpJsonList<TagRowJson> r2 = Result.fromJsonList(result, TagRowJson.class);
+//                    TagsListJson r2 =result.fromJson2(TagsListJson.class);
+                    if (result.isOk()) {
+                        String t = r2.Status;
+                        try {
+                            Helper.showDebugMessage("" + r2.Payload.getClass() );
+                            Helper.showDebugMessage(r2.Payload.get(0).Name);
+                        }catch (Exception e){
+                            Helper.showDebugMessage("EXe: " + e.toString() );
+                        }
+                        Helper.showDebugMessage("" + t);
+                        Helper.showDebugMessage(r2.Payload.toString());
+                    }
+
+//                    String t = result.<TagRowJson>fromJson(TagRowJson.class).Name;
+
+                });
+    }
+    class TagsListsAll extends ArrayList<TagRowJson> {
+
     }
 
 }

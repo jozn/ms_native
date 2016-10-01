@@ -1,14 +1,9 @@
 package com.mardomsara.social.base.Http2;
 
-import com.mardomsara.social.helpers.AppUtil;
+import com.mardomsara.social.app.API;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
 
 /**
  * Created by Hamid on 9/30/2016.
@@ -19,13 +14,29 @@ public class Http2 {
         return req;
     }
 
+    //like: getPath("like")
+    public static Req getPath(String path){
+        Req req = new Req(Action.GET, API.BASE_URL_STR+path);
+        return req;
+    }
+
     public static Req post(String absUrl){
         Req req = new Req(Action.POST, absUrl);
         return req;
     }
 
+    public static Req postPath(String path){
+        Req req = new Req(Action.POST, API.BASE_URL_STR+path);
+        return req;
+    }
+
     public static Req upload(String absUrl){
         Req req = new Req(Action.UPLOAD, absUrl);
+        return req;
+    }
+
+    public static Req uploadPath(String path){
+        Req req = new Req(Action.UPLOAD, API.BASE_URL_STR+path);
         return req;
     }
 
