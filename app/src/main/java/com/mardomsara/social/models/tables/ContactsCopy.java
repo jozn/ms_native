@@ -27,6 +27,9 @@ public class ContactsCopy {
     @Column(defaultExpr = "''")
     public String PhoneFamilyName = "";
 
+    @Column(defaultExpr = "0")
+    public int IsSynced = 0;
+
     @Column(defaultExpr = "''")
     public String Hash = "";
 

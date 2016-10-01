@@ -5,6 +5,8 @@ import android.util.Log;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
+import com.mardomsara.social.base.Http;
+import com.mardomsara.social.base.Http2.Result;
 import com.mardomsara.social.json.HttpBaseProtocol;
 import com.mardomsara.social.json.UserListFollow;
 
@@ -22,6 +24,18 @@ public class JsonUtil {
         T j = null;
         try {
             j = g.fromJson(str,cls);
+//            Class<?> cl = j.Load.getClass();
+        }catch (Exception e){
+            Log.e("JSON: ","error in JsonUtil.fromJson parsing: "+e.toString() );
+            e.printStackTrace();
+        }
+        return j;
+    }
+
+    public static <T> T fromJsonHttp(Result result , Class<T> cls){
+        T j = null;
+        try {
+            j = g.fromJson(result.data,cls);
 //            Class<?> cl = j.Load.getClass();
         }catch (Exception e){
             Log.e("JSON: ","error in JsonUtil.fromJson parsing: "+e.toString() );

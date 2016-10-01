@@ -14,7 +14,7 @@ import com.mardomsara.social.base.Command;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.models.NotifyModel;
 import com.mardomsara.social.models.Session;
-import com.mardomsara.social.models.Store;
+import com.mardomsara.social.models.stores.Store;
 import com.mardomsara.social.service.BackgroundService;
 import com.mardomsara.social.service.WS;
 import com.mardomsara.social.ui.BasePresenter;

@@ -46,7 +46,7 @@ public class Http {
     //deprecated
     public static Result get(Req rq){
 //        Req rq = new Req();
-//        rq._finalUrl = AppUtil.toUrl(_getStrWithParams(rq.absPath,rq));
+//        rq._finalUrl = AppUtil.toUrl(_getStrWithParams(rq.absUrl,rq));
         Result r = masterSend(rq);
         return r;
     }
@@ -62,7 +62,7 @@ public class Http {
 
     @DebugLog
     public static Result download(Req rq){
-//        rq._finalUrl = AppUtil.toUrl(_getStrWithParams(rq.absPath,rq));
+//        rq._finalUrl = AppUtil.toUrl(_getStrWithParams(rq.absUrl,rq));
         Request request = new Request.Builder()
                 .url(rq.buildFinalUrlFromPath())
                 .build();
@@ -274,11 +274,11 @@ public class Http {
 
 //    //depreceated
 //
-//    public static String get2(String absPath){
+//    public static String get2(String absUrl){
 //        Req rq = new Req();
-////        rq._finalUrl = toUrl(absPath);
+////        rq._finalUrl = toUrl(absUrl);
 //        Request request = new Request.Builder()
-//                ._finalUrl(absPath)
+//                ._finalUrl(absUrl)
 //                .build();
 //
 //        String response = "";

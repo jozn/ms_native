@@ -47,5 +47,14 @@ public class PageCells {
         }
     }
 
+    public static class Scroller {
+        public ViewGroup rootView;
+        public ViewGroup layout;//add views to this
+        public Scroller() {
+            rootView = (ViewGroup)AppUtil.inflate(R.layout.cell_page_scroller);
+            layout = (ViewGroup)rootView.findViewById(R.id.layout);
+        }
+    }
+
 
 }

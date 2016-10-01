@@ -16,8 +16,8 @@ import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.DialogHelper;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.IntentUtil;
-import com.mardomsara.social.models.DevicePhoneContact;
-import com.mardomsara.social.models.PhoneContactsModel;
+import com.mardomsara.social.models.old.DevicePhoneContact__OLD;
+import com.mardomsara.social.models.old.PhoneContactsModel;
 import com.mardomsara.social.play.DividerItemDecoration;
 import com.mardomsara.social.tables.UsersTable;
 import com.mardomsara.social.ui.BasePresenter;
@@ -55,7 +55,7 @@ public class UserAndContactsPresenter extends BasePresenter {
         List<UsersTable> registeredContactsList = UsersTable.getAllRegisteredContacts();
 //        List<UsersTable> followingsLists = PhoneContactsModel.getAllFollowings();
         List<UsersTable> followingsLists = UsersTable.getAllFollowings();
-        List<DevicePhoneContact.Row> notRegisterd = PhoneContactsModel.getAllContactssAndUsersOrNot(registeredContactsList);
+        List<DevicePhoneContact__OLD.Row> notRegisterd = PhoneContactsModel.getAllContactssAndUsersOrNot(registeredContactsList);
         UserFollowingSavedAdaptor adp_contacts = new UserFollowingSavedAdaptor(registeredContactsList ,CONTACTS);
         adp_contacts.mListUnregisteredContacts = notRegisterd;
         UserFollowingSavedAdaptor adp_followings = new UserFollowingSavedAdaptor(followingsLists, FOLLOWINGS);
@@ -124,7 +124,7 @@ public class UserAndContactsPresenter extends BasePresenter {
         private static final String TAG = "UserFollowingSavedAdaptor";
 
         private List<UsersTable> mDataSet;
-        private List<DevicePhoneContact.Row> mListUnregisteredContacts = new ArrayList<>();
+        private List<DevicePhoneContact__OLD.Row> mListUnregisteredContacts = new ArrayList<>();
         int listType;
 
 
@@ -168,7 +168,7 @@ public class UserAndContactsPresenter extends BasePresenter {
             }else if(vh0 instanceof ViewHolderForUnregisterd){
                 try {
                     ViewHolderForUnregisterd vh = (ViewHolderForUnregisterd) vh0;
-                    DevicePhoneContact.Row user = mListUnregisteredContacts.get(position - mDataSet.size());
+                    DevicePhoneContact__OLD.Row user = mListUnregisteredContacts.get(position - mDataSet.size());
                     vh.phoneContact = user;
                     vh.name_text.setText(user.PhoneDisplayName);
                 }catch (Exception c){//out of index bug???
@@ -250,7 +250,7 @@ public class UserAndContactsPresenter extends BasePresenter {
         //view holders
         public static class ViewHolderForUnregisterd extends ViewHolderBase {
             private final View self;
-            DevicePhoneContact.Row phoneContact;
+            DevicePhoneContact__OLD.Row phoneContact;
             @Bind(R.id.name_text)
             public TextView name_text;
 

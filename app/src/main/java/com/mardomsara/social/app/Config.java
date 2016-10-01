@@ -4,6 +4,7 @@ package com.mardomsara.social.app;
  * Created by Hamid on 5/9/2016.
  */
 public class Config {
+    public static boolean IS_DEBUG =true;
 
     public static int KEYBOARD_HEIGHT_DEFAULT = 700;
     public static String KEYBOARD_HEIGHT = "KEYBOARD_HEIGHT";

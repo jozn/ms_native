@@ -81,8 +81,8 @@ public class TagsPresenter extends BasePresenter
     private void loadFromServer() {
         AndroidUtil.runInBackground(()->{
             Http.Req req = new Http.Req();
-//            req.absPath = API.POSTS_STREAM_GET.toString();
-//            req.absPath = "http://localhost:5000/v1/post/stream";
+//            req.absUrl = API.POSTS_STREAM_GET.toString();
+//            req.absUrl = "http://localhost:5000/v1/post/stream";
             req.absPath = API.TAGS_LIST;
             req.urlParams.put("tag",tagName);
             Http.Result res = Http.get(req);

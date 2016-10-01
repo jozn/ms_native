@@ -1,4 +1,4 @@
-package com.mardomsara.social.models;
+package com.mardomsara.social.models.old;
 
 import com.mardomsara.social.app.API;
 import com.mardomsara.social.app.Config;
@@ -26,7 +26,7 @@ public class PhoneContactsModel {
     public static void syncContactsFromServer(){
 
         try {
-            List<DevicePhoneContact.Row> cs = fetchAllContacts();
+            List<DevicePhoneContact__OLD.Row> cs = fetchAllContacts();
             Http.Req rq = new Http.Req();
             rq.form.put("contacts", AppUtil.toJson(cs));
             rq.absPath = API.CONTACTS_SYNC_ALL.toString();
@@ -96,9 +96,9 @@ public class PhoneContactsModel {
     public static void saveContacts(List<UserRow> users){
 
 //        AppDatabase appDb = DBSingletons.getAppDataBase();
-        Map<String,DevicePhoneContact.Row> map = getMapOfContacts();
+        Map<String,DevicePhoneContact__OLD.Row> map = getMapOfContacts();
         AppUtil.log(map.toString());
-        DevicePhoneContact.Row contact;
+        DevicePhoneContact__OLD.Row contact;
         //// TODO: 4/4/2016 do in transactions for maximim speed
 
 //        appDb.delete(Delete.from(UsersTable.TABLE).)
@@ -153,16 +153,16 @@ public class PhoneContactsModel {
     }
 
 
-    public static Map<String,DevicePhoneContact.Row> getMapOfContacts(){
-        List<DevicePhoneContact.Row> cs = fetchAllContacts();
-        Map<String,DevicePhoneContact.Row> map = new HashMap<>();
-        for (DevicePhoneContact.Row row : cs){
+    public static Map<String,DevicePhoneContact__OLD.Row> getMapOfContacts(){
+        List<DevicePhoneContact__OLD.Row> cs = fetchAllContacts();
+        Map<String,DevicePhoneContact__OLD.Row> map = new HashMap<>();
+        for (DevicePhoneContact__OLD.Row row : cs){
             map.put(row.PhoneNormalizedNumber, row);
         }
         return map;
     }
-    public static List<DevicePhoneContact.Row> fetchAllContacts(){
-        return DevicePhoneContact.fetchAllContactsFromAndroidContacts();
+    public static List<DevicePhoneContact__OLD.Row> fetchAllContacts(){
+        return DevicePhoneContact__OLD.fetchAllContactsFromAndroidContacts();
 /*//        StringBuffer sb = new StringBuffer();
         Context ctx = App.context;
         List<Row> al = new ArrayList<>();
@@ -208,11 +208,11 @@ public class PhoneContactsModel {
                 where(UsersTable_Table.IsPhoneContact.eq(1)).queryList();
     }
 
-    public static List<DevicePhoneContact.Row> getAllContactssAndUsersOrNot(List<UsersTable> listOfRegisterd) {
-        List<DevicePhoneContact.Row> contacts = fetchAllContacts();
-        List<DevicePhoneContact.Row> res = new ArrayList<>();
+    public static List<DevicePhoneContact__OLD.Row> getAllContactssAndUsersOrNot(List<UsersTable> listOfRegisterd) {
+        List<DevicePhoneContact__OLD.Row> contacts = fetchAllContacts();
+        List<DevicePhoneContact__OLD.Row> res = new ArrayList<>();
         Map<String,UsersTable> map =LangUtil.listToHashMap(listOfRegisterd,(user)-> { return user.getPhoneNormalizedNumber(); });
-        for(DevicePhoneContact.Row contact : contacts){
+        for(DevicePhoneContact__OLD.Row contact : contacts){
             if(!map.containsKey(contact.PhoneNormalizedNumber)){
                 res.add(contact);
             }

@@ -87,7 +87,7 @@ public class ProfilePresenter extends BasePresenter implements AppHeaderFooterRe
         int pageCnt = page -1;
         AndroidUtil.runInBackground(()->{
             Http.Req req = new Http.Req();
-//            req.absPath = API.POSTS_STREAM_GET.toString();
+//            req.absUrl = API.POSTS_STREAM_GET.toString();
             req.absPath = API.PROFILE_ALL.toString();
             req.urlParams.put("profile_id",""+UserId);
             req.urlParams.put("page",""+pageCnt);
@@ -123,7 +123,7 @@ public class ProfilePresenter extends BasePresenter implements AppHeaderFooterRe
         int pageCnt = page -1;
         AndroidUtil.runInBackground(()->{
             Http.Req req = new Http.Req();
-//            req.absPath = API.POSTS_STREAM_GET.toString();
+//            req.absUrl = API.POSTS_STREAM_GET.toString();
             req.absPath = API.PROFILE_POSTS.toString();
             req.urlParams.put("profile_id",""+UserId);
             req.urlParams.put("peer_id",""+UserId);

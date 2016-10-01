@@ -61,7 +61,7 @@ public class CropImage extends MonitoredActivity {
     final int IMAGE_MAX_SIZE = 1024;
 
     private static final String TAG                    = "CropImage";
-    public static final  String IMAGE_PATH             = "image-absPath";
+    public static final  String IMAGE_PATH             = "image-absUrl";
     public static final  String SCALE                  = "scale";
     public static final  String ORIENTATION_IN_DEGREES = "orientation_in_degrees";
     public static final  String ASPECT_X               = "aspectX";

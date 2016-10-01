@@ -42,8 +42,8 @@ public class SearchUsersResultListCell {
     }
 
     String endPointAbsPath;
-    public void setLoadingEndPoint(String absPath){
-        this.endPointAbsPath = absPath;
+    public void setLoadingEndPoint(String absUrl){
+        this.endPointAbsPath = absUrl;
     }
 
     public void loadFromServer(int page) {
@@ -53,9 +53,9 @@ public class SearchUsersResultListCell {
         AndroidUtil.runInBackground(()->{
             Http.Req req = new Http.Req();
 
-            req.absPath = endPointAbsPath;
-            req.urlParams.put("page",""+page);
-            req.urlParams.put("last",""+getLastPostId());
+            req.absUrl = endPointAbsPath;
+            req.urlQueryParams.put("page",""+page);
+            req.urlQueryParams.put("last",""+getLastPostId());
             Http.Result res = Http.get(req);
             if(res.ok){
                 AndroidUtil.runInUi(()->{

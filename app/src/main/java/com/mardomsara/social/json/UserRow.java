@@ -23,6 +23,7 @@ public class UserRow {
 
     //just for contacts
     public String Phone;
+    public Integer UpdatedTime;
     public Integer UpdatedTimestamp;
     public Integer UpdatedTimestampMs;
 
@@ -54,7 +55,7 @@ public class UserRow {
 //        user.setFullName(user.FullName);
         user.UserName = (UserName);
         user.AvatarUrl = (AvatarUrl);
-        user.UpdateTimestamp = (UpdatedTimestamp);
+        user.UpdatedTime = UpdatedTime;
     }
 
 }

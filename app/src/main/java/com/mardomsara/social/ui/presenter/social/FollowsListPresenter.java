@@ -154,8 +154,8 @@ public class FollowsListPresenter extends BasePresenter implements AppHeaderFoot
 /*
 AndroidUtil.runInBackground(()->{
         Http.Req req = new Http.Req();
-        req.urlParams.put("username","abas");
-        req.absPath = API.FOLLOWERS_GET.toString();
+        req.urlQueryParams.put("username","abas");
+        req.absUrl = API.FOLLOWERS_GET.toString();
         Http.Result res = Http.get(req);
         if(res.ok) {
         LikesListJson data = JsonUtil.fromJson(res.data, LikesListJson.class);

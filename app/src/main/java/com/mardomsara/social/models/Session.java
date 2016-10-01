@@ -10,6 +10,7 @@ import com.mardomsara.social.helpers.JsonUtil;
 import com.mardomsara.social.json.social.http.ServerUserTableJson;
 import com.mardomsara.social.json.social.rows.UserInfoJson;
 import com.mardomsara.social.json.social.rows.UserTableJson;
+import com.mardomsara.social.models.stores.Store;
 import com.orhanobut.hawk.Hawk;
 
 /**

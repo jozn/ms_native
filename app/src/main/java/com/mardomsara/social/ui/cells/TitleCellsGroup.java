@@ -29,6 +29,11 @@ public class TitleCellsGroup {
             ButterKnife.bind(this,rootView);
         }
 
+        public BigClickAbleTitle(ViewGroup parent,String title){
+            this(parent);
+            text_view.setText(title);
+        }
+
         public void setIcon(String icon){
             this.icon.setText(icon);
         }
@@ -47,6 +52,10 @@ public class TitleCellsGroup {
             rootView =(ViewGroup) AppUtil.inflate(R.layout.title_info,parent);
             ButterKnife.bind(this,rootView);
         }
+        public InfoTitle(ViewGroup parent,String title){
+            this(parent);
+            text_view.setText(title);
+        }
 
         public void setText(String title){
             text_view.setText(title);
@@ -61,6 +70,11 @@ public class TitleCellsGroup {
         public InfoTitleLight(ViewGroup parent){
             rootView =(ViewGroup) AppUtil.inflate(R.layout.title_info_light,parent);
             ButterKnife.bind(this,rootView);
+        }
+
+        public InfoTitleLight(ViewGroup parent,String title){
+            this(parent);
+            text_view.setText(title);
         }
 
         public void setText(String title){

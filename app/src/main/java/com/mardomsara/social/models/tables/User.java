@@ -13,24 +13,6 @@ public class User {
     @PrimaryKey(auto = false)
     public int UserId;
 
-    @Column(defaultExpr = "0")
-    public int PhoneContactRowId = 0;
-
-    @Column(defaultExpr = "0", helpers = Column.Helpers.CONDITION_EQ)
-    public int IsPhoneContact = 0;
-
-    @Column(defaultExpr = "''" ,helpers = Column.Helpers.CONDITION_EQ)
-    public String PhoneNumber = "";//0935... +98910711..
-
-    @Column(defaultExpr = "''",helpers = Column.Helpers.CONDITION_EQ )
-    public String PhoneNormalizedNumber = "";
-
-    @Column(defaultExpr = "''" ,helpers = Column.Helpers.CONDITION_EQ)
-    public String PhoneDisplayName = "";
-
-    @Column(defaultExpr = "''" ,helpers = Column.Helpers.CONDITION_EQ)
-    public String PhoneFamilyName = "";
-
     @Column(defaultExpr = "0" ,helpers = Column.Helpers.CONDITION_EQ)
     public int IsFollowing = 0;
 
@@ -42,9 +24,6 @@ public class User {
 
     @Column(defaultExpr = "0",helpers = Column.Helpers.CONDITION_EQ)
     public int StatusId = 0;
-
-    @Column(defaultExpr = "0", helpers = Column.Helpers.CONDITIONS)
-    public int UpdateTimestamp = 0;
 
     @Column(defaultExpr = "0" ,helpers = Column.Helpers.CONDITIONS)
     public int UnseenMessageCount = 0;//??
@@ -63,13 +42,41 @@ public class User {
     public String FullName = "";
 
     @Column(defaultExpr = "0" ,helpers = Column.Helpers.CONDITION_EQ)
-    public int IsProfilePrivate = 0;
+    public int PrivacyProfile = 0;
 
     @Column(defaultExpr = "0", helpers = Column.Helpers.CONDITION_EQ)
     public int FollowingType = 0;
 
+
+    /////////// FOr contacts
+    @Column(defaultExpr = "0", helpers = Column.Helpers.CONDITION_EQ)
+    public int IsPhoneContact = 0;
+
+    @Column(defaultExpr = "0")
+    public int PhoneContactRowId = 0;
+
+    @Column(defaultExpr = "''" ,helpers = Column.Helpers.CONDITION_EQ)
+    public String PhoneNumber = "";//0935... +98910711..
+
+    @Column(defaultExpr = "''",helpers = Column.Helpers.CONDITION_EQ )
+    public String PhoneNormalizedNumber = "";
+
+    @Column(defaultExpr = "''" ,helpers = Column.Helpers.CONDITION_EQ)
+    public String PhoneDisplayName = "";
+
+    @Column(defaultExpr = "''" ,helpers = Column.Helpers.CONDITION_EQ)
+    public String PhoneFamilyName = "";
+
+
+    //////////////// Others /////////////
+    @Column(defaultExpr = "1" ,helpers = Column.Helpers.CONDITIONS)
+    public int AppVersion = 1;
+
+
     @Column(defaultExpr = "0" ,helpers = Column.Helpers.CONDITIONS)
-    public int UpdatedTimestamp = 0;
+    public int UpdatedTime = 0;
+
+
 
     ///////////////////////////////////////
 
@@ -83,3 +90,8 @@ public class User {
     }
 
 }
+//
+//    @Deprecated
+//    @Column(defaultExpr = "0" ,helpers = Column.Helpers.CONDITION_EQ)
+//    public int IsProfilePrivate = 0;
+

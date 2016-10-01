@@ -71,7 +71,7 @@ public class HomeStreamPresenter_DEP extends BasePresenter implements AppHeaderF
     private void loadFromServer() {
         AndroidUtil.runInBackground(()->{
             Http.Req req = new Http.Req();
-//            req.absPath = API.POSTS_STREAM_GET.toString();
+//            req.absUrl = API.POSTS_STREAM_GET.toString();
             req.absPath = "http://localhost:5000/v1/post/stream";
             Http.Result res = Http.get(req);
             if(res.ok){

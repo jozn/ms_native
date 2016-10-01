@@ -22,10 +22,12 @@ import com.mardomsara.emojicon.EmojiconsPopup;
 import com.mardomsara.social.App;
 import com.mardomsara.social.Nav;
 import com.mardomsara.social.R;
+import com.mardomsara.social.app.Config;
 import com.mardomsara.social.app.LifeCycle;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.play.PlayAdvanced;
+import com.mardomsara.social.play.presenters.TestsPresenter;
 import com.mardomsara.social.service.PingService;
 
 import io.fabric.sdk.android.Fabric;
@@ -295,7 +297,7 @@ public class MainAppActivity extends AppActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
+    /*@Override
     public boolean onKeyUp(int keyCode, KeyEvent event) {
         AppUtil.log("called onKeyUp: "+keyCode);
         if(keyCode == KeyEvent.KEYCODE_VOLUME_UP){
@@ -306,6 +308,16 @@ public class MainAppActivity extends AppActivity {
             return true;
         }
         return super.onKeyUp(keyCode, event);
+    }
+*/
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        AppUtil.log("called onKeyDown: "+keyCode);
+        if(Config.IS_DEBUG && keyCode == KeyEvent.KEYCODE_VOLUME_DOWN){
+            Nav.push(new TestsPresenter());
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 
 /*    @Override

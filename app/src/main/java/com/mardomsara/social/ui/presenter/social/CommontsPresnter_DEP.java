@@ -346,9 +346,9 @@ public static class CommentsAdaptor extends RecyclerView.Adapter<CommentsAdaptor
     private void loadCommontsFromNet_bk() {
         AndroidUtil.runInBackground(()->{
             Http.Req req = new Http.Req();
-            req.absPath = API.COMMENTS_LIST_GET.toString();
-            req.urlParams.put("post_id",""+postId);
-            req.urlParams.put("page",""+0);
+            req.absUrl = API.COMMENTS_LIST_GET.toString();
+            req.urlQueryParams.put("post_id",""+postId);
+            req.urlQueryParams.put("page",""+0);
             Http.Result res = Http.get(req);
             if(res.ok){
                 AndroidUtil.runInUi(()->{

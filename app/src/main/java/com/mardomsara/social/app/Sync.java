@@ -1,9 +1,9 @@
 package com.mardomsara.social.app;
 
 import com.mardomsara.social.helpers.AppUtil;
-import com.mardomsara.social.models.DevicePhoneContact;
+import com.mardomsara.social.models.old.DevicePhoneContact__OLD;
 import com.mardomsara.social.models.Follow;
-import com.mardomsara.social.models.PhoneContactsModel;
+import com.mardomsara.social.models.old.PhoneContactsModel;
 
 /**
  * Created by Hamid on 7/2/2016.
@@ -14,7 +14,7 @@ public class Sync {
         Runnable r = () -> {
 //            PhoneContactsModel.syncContactsFromServer();
             try {
-                DevicePhoneContact.checkForSync();
+                DevicePhoneContact__OLD.checkForSync();
             }catch (Exception e){
                 e.printStackTrace();
             }

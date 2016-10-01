@@ -548,7 +548,7 @@ public class ChatRoomPresenter extends BasePresenter implements
         req._finalUrl = AppUtil.toUrl("http://localhost:5000/MsgUpload");
         req.absPath = "http://localhost:5000/MsgUpload";
         req.file = resizedFile;
-//        req.urlParams.put("message",JsonUtil.toJson(msg));
+//        req.urlQueryParams.put("message",JsonUtil.toJson(msg));
         req.form.put("message",JsonUtil.toJson(msg));
 
         AndroidUtil.runInBackground(()->{
@@ -611,7 +611,7 @@ public class ChatRoomPresenter extends BasePresenter implements
         req._finalUrl = AppUtil.toUrl("http://localhost:5000/MsgUpload");
         req.absPath = "http://localhost:5000/MsgUpload";
         req.file = resizedFile;
-//        req.urlParams.put("message",JsonUtil.toJson(msg));
+//        req.urlQueryParams.put("message",JsonUtil.toJson(msg));
         req.form.put("message",JsonUtil.toJson(msg));
 
         AndroidUtil.runInBackground(()->{
