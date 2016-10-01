@@ -4,7 +4,7 @@ import android.os.Build;
 
 import com.mardomsara.social.app.API;
 import com.mardomsara.social.app.Constants;
-import com.mardomsara.social.base.Http;
+import com.mardomsara.social.base.HttpOld;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.JsonUtil;
 import com.mardomsara.social.json.social.http.ServerUserTableJson;
@@ -25,9 +25,9 @@ public class Session {
 
     public static void fetchUserInfoFromServer(){
         AndroidUtil.runInBackgroundNoPanic(()->{
-            Http.Req req = new Http.Req();
+            HttpOld.Req req = new HttpOld.Req();
             req.absPath = API.SESSION_INFO.toString();
-            Http.Result res = Http.masterSendPost(req);
+            HttpOld.Result res = HttpOld.masterSendPost(req);
             boolean isError = false;
             if(res.ok){
                 ServerUserTableJson data = JsonUtil.fromJson(res.data,ServerUserTableJson.class);

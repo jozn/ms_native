@@ -12,7 +12,7 @@ import android.widget.TextView;
 import com.mardomsara.social.Nav;
 import com.mardomsara.social.R;
 import com.mardomsara.social.app.API;
-import com.mardomsara.social.base.Http;
+import com.mardomsara.social.base.HttpOld;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.Helper;
@@ -70,9 +70,9 @@ public class SuggestionsTagsPresenter extends BasePresenter implements AppHeader
 
     private void loadFromServer() {
         AndroidUtil.runInBackground(() -> {
-            Http.Req req = new Http.Req();
+            HttpOld.Req req = new HttpOld.Req();
             req.absPath = API.RECOMMEND_TOP_TAGS_DISCOVER;
-            Http.Result res = Http.get(req);
+            HttpOld.Result res = HttpOld.get(req);
             if (res.ok) {
                 AndroidUtil.runInUi(() -> {
                     loadedPostsFromNet(res);
@@ -81,7 +81,7 @@ public class SuggestionsTagsPresenter extends BasePresenter implements AppHeader
         });
     }
 
-    private void loadedPostsFromNet(Http.Result res) {
+    private void loadedPostsFromNet(HttpOld.Result res) {
         TopTagsWithPostsJson data = JsonUtil.fromJson(res.data, TopTagsWithPostsJson.class);
         if (data != null && data.Payload != null && data.Status.equalsIgnoreCase("OK")) {
 

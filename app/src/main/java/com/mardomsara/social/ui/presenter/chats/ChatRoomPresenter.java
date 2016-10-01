@@ -24,7 +24,7 @@ import com.mardomsara.social.Nav;
 import com.mardomsara.social.R;
 import com.mardomsara.social.app.AppFiles;
 import com.mardomsara.social.app.Constants;
-import com.mardomsara.social.base.Http;
+import com.mardomsara.social.base.HttpOld;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.FileUtil;
@@ -544,7 +544,7 @@ public class ChatRoomPresenter extends BasePresenter implements
         MessageModel.setPhotoParams(msg,resizedPath);
         msg.save();
 
-        Http.Req req = new Http.Req();
+        HttpOld.Req req = new HttpOld.Req();
         req._finalUrl = AppUtil.toUrl("http://localhost:5000/MsgUpload");
         req.absPath = "http://localhost:5000/MsgUpload";
         req.file = resizedFile;
@@ -552,7 +552,7 @@ public class ChatRoomPresenter extends BasePresenter implements
         req.form.put("message",JsonUtil.toJson(msg));
 
         AndroidUtil.runInBackground(()->{
-            Http.Result res = Http.uploadFile(req);
+            HttpOld.Result res = HttpOld.uploadFile(req);
             if(res.ok){
                 msg.MediaStatus = (Constants.Msg_Media_Uploaded);
                 msg.ToPush = 0;
@@ -607,7 +607,7 @@ public class ChatRoomPresenter extends BasePresenter implements
         MessageModel.setVideoParams(msg,thumbPath,resizedPath);
         msg.save();
 
-        Http.Req req = new Http.Req();
+        HttpOld.Req req = new HttpOld.Req();
         req._finalUrl = AppUtil.toUrl("http://localhost:5000/MsgUpload");
         req.absPath = "http://localhost:5000/MsgUpload";
         req.file = resizedFile;
@@ -615,7 +615,7 @@ public class ChatRoomPresenter extends BasePresenter implements
         req.form.put("message",JsonUtil.toJson(msg));
 
         AndroidUtil.runInBackground(()->{
-            Http.Result res = Http.uploadFile(req);
+            HttpOld.Result res = HttpOld.uploadFile(req);
             if(res.ok){
                 msg.MediaStatus = (Constants.Msg_Media_Uploaded);
                 msg.save();

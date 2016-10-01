@@ -1,7 +1,7 @@
 package com.mardomsara.social.models;
 
 import com.mardomsara.social.app.API;
-import com.mardomsara.social.base.Http;
+import com.mardomsara.social.base.HttpOld;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.JsonUtil;
@@ -13,12 +13,12 @@ import com.mardomsara.social.json.social.http.BooleanRespnseJson;
 public class Comment {
     public static void serverRemoveComment(int commentId, int postId){
         AndroidUtil.runInBackgroundNoPanic(()-> {
-            Http.Req req = new Http.Req();
+            HttpOld.Req req = new HttpOld.Req();
             req.absPath = API.COMMENTS_DELETE.toString();
             req.form.put("post_id", "" + postId);
             req.form.put("comment_id", "" + commentId);
 
-            Http.Result res = Http.masterSendPost(req);
+            HttpOld.Result res = HttpOld.masterSendPost(req);
             boolean isError = false;
             if (res.ok) {
                 BooleanRespnseJson data = JsonUtil.fromJson(res.data, BooleanRespnseJson.class);

@@ -1,19 +1,5 @@
 package com.mardomsara.social.ui.cells.lists;
 
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.view.ViewGroup;
-
-import com.mardomsara.social.base.Http;
-import com.mardomsara.social.helpers.AndroidUtil;
-import com.mardomsara.social.helpers.AppUtil;
-import com.mardomsara.social.helpers.Helper;
-import com.mardomsara.social.helpers.JsonUtil;
-import com.mardomsara.social.json.social.http.HomeStreamJson;
-import com.mardomsara.social.ui.ui.UIPostsList;
-import com.mardomsara.social.ui.views.helpers.ViewHelper;
-
 /**
  * Created by Hamid on 8/29/2016.
  */

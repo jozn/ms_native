@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 
 import com.mardomsara.social.R;
 import com.mardomsara.social.app.API;
-import com.mardomsara.social.base.Http;
+import com.mardomsara.social.base.HttpOld;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.JsonUtil;
@@ -48,10 +48,10 @@ public class LikesPresenter extends BasePresenter {
         simpleTopNav.setTitle("پسندیدند");
 
         AndroidUtil.runInBackground(()->{
-            Http.Req req = new Http.Req();
+            HttpOld.Req req = new HttpOld.Req();
             req.urlParams.put("post_id",""+postId);
             req.absPath = API.POSTS_LIKES_GET.toString();
-            Http.Result res = Http.get(req);
+            HttpOld.Result res = HttpOld.get(req);
             if(res.ok) {
                 LikesListJson data = JsonUtil.fromJson(res.data, LikesListJson.class);
                 if (data.Status.equalsIgnoreCase("OK")) {

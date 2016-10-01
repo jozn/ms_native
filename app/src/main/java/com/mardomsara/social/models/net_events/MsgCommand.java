@@ -2,7 +2,7 @@ package com.mardomsara.social.models.net_events;
 
 import com.mardomsara.social.app.AppFiles;
 import com.mardomsara.social.app.Constants;
-import com.mardomsara.social.base.Http;
+import com.mardomsara.social.base.HttpOld;
 import com.mardomsara.social.base.NetEventHandler;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
@@ -79,7 +79,7 @@ public class MsgCommand {
                     msg.MediaLocalSrc = fileName;
                     msg.MediaStatus = Constants.Msg_Media_To_Upload;
                     msg.save();
-                    Http.downloadFile(msg.MediaServerSrc,fileName,
+                    HttpOld.downloadFile(msg.MediaServerSrc,fileName,
                             ()->{//callback
                                 msg.MediaStatus = Constants.Msg_Media_Downloaded ;
                                 msg.save();
@@ -99,7 +99,7 @@ public class MsgCommand {
                     msg.MediaLocalSrc = fileName;
                     msg.MediaStatus = Constants.Msg_Media_To_Upload;
                     msg.save();
-                    Http.downloadFile(msg.MediaServerSrc ,fileName,
+                    HttpOld.downloadFile(msg.MediaServerSrc ,fileName,
                             ()->{//callback
 //                                String $thumbPath = AppFiles.VIDEO_DIR_PATH + FormaterUtil.getFullyYearToSecondsSolarName() +"$" + msg.getMediaExtension();
 //                                String thumbPath = FileUtil.createNextName($thumbPath);

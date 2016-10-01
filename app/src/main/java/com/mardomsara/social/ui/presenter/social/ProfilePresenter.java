@@ -11,7 +11,7 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import com.mardomsara.social.Nav;
 import com.mardomsara.social.R;
 import com.mardomsara.social.app.API;
-import com.mardomsara.social.base.Http;
+import com.mardomsara.social.base.HttpOld;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.Helper;
@@ -86,12 +86,12 @@ public class ProfilePresenter extends BasePresenter implements AppHeaderFooterRe
     private void loadPostsAndProfileFromServer(int page) {
         int pageCnt = page -1;
         AndroidUtil.runInBackground(()->{
-            Http.Req req = new Http.Req();
+            HttpOld.Req req = new HttpOld.Req();
 //            req.absUrl = API.POSTS_STREAM_GET.toString();
             req.absPath = API.PROFILE_ALL.toString();
             req.urlParams.put("profile_id",""+UserId);
             req.urlParams.put("page",""+pageCnt);
-            Http.Result res = Http.get(req);
+            HttpOld.Result res = HttpOld.get(req);
             if(res.ok){
                 AndroidUtil.runInUi(()->{
                    /*TextView tv= (TextView)viewRoot.findViewById(R.id.loading);
@@ -106,7 +106,7 @@ public class ProfilePresenter extends BasePresenter implements AppHeaderFooterRe
         });
     }
 
-    private void loadedPostsAndProfileFromNet(Http.Result res) {
+    private void loadedPostsAndProfileFromNet(HttpOld.Result res) {
         ProfileAndPostsJson data= JsonUtil.fromJson(res.data, ProfileAndPostsJson.class);
         if(data != null && data.Status.equalsIgnoreCase("OK")){
             AndroidUtil.runInUiNoPanic(()->{
@@ -122,13 +122,13 @@ public class ProfilePresenter extends BasePresenter implements AppHeaderFooterRe
     private void loadPostsFromServer(int page) {
         int pageCnt = page -1;
         AndroidUtil.runInBackground(()->{
-            Http.Req req = new Http.Req();
+            HttpOld.Req req = new HttpOld.Req();
 //            req.absUrl = API.POSTS_STREAM_GET.toString();
             req.absPath = API.PROFILE_POSTS.toString();
             req.urlParams.put("profile_id",""+UserId);
             req.urlParams.put("peer_id",""+UserId);
             req.urlParams.put("page",""+pageCnt);
-            Http.Result res = Http.get(req);
+            HttpOld.Result res = HttpOld.get(req);
             if(res.ok){
                 AndroidUtil.runInUi(()->{
                     loadedPostsFromNet(res);
@@ -137,7 +137,7 @@ public class ProfilePresenter extends BasePresenter implements AppHeaderFooterRe
         });
     }
 
-    private void loadedPostsFromNet(Http.Result res) {
+    private void loadedPostsFromNet(HttpOld.Result res) {
         HomeStreamJson data= JsonUtil.fromJson(res.data, HomeStreamJson.class);
         if(data != null && data.Payload != null && data.Status.equalsIgnoreCase("OK")){
             AndroidUtil.runInUiNoPanic(()->{

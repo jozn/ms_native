@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.mardomsara.social.R;
-import com.mardomsara.social.base.Http;
+import com.mardomsara.social.base.HttpOld;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.Helper;
@@ -70,10 +70,10 @@ public class HomeStreamPresenter_DEP extends BasePresenter implements AppHeaderF
 
     private void loadFromServer() {
         AndroidUtil.runInBackground(()->{
-            Http.Req req = new Http.Req();
+            HttpOld.Req req = new HttpOld.Req();
 //            req.absUrl = API.POSTS_STREAM_GET.toString();
             req.absPath = "http://localhost:5000/v1/post/stream";
-            Http.Result res = Http.get(req);
+            HttpOld.Result res = HttpOld.get(req);
             if(res.ok){
                 AndroidUtil.runInUi(()->{
                    /*TextView tv= (TextView)viewRoot.findViewById(R.id.loading);
@@ -85,7 +85,7 @@ public class HomeStreamPresenter_DEP extends BasePresenter implements AppHeaderF
         });
     }
 
-    private void loadedPostsFromNet(Http.Result res) {
+    private void loadedPostsFromNet(HttpOld.Result res) {
 //        loading.setVisibility(View.GONE);
 //        content.setVisibility(View.VISIBLE);
         HomeStreamJson data= JsonUtil.fromJson(res.data, HomeStreamJson.class);

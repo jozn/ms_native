@@ -6,7 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.mardomsara.social.base.Http;
+import com.mardomsara.social.base.HttpOld;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.Helper;
@@ -61,12 +61,12 @@ public class PostsListCell
             throw new IllegalArgumentException("In PostsListCell endPointAbsPath url must be set for loading posts");
         }
         AndroidUtil.runInBackground(()->{
-            Http.Req req = new Http.Req();
+            HttpOld.Req req = new HttpOld.Req();
 
             req.absPath = endPointAbsPath;
             req.urlParams.put("page",""+page);
             req.urlParams.put("last",""+getLastPostId());
-            Http.Result res = Http.get(req);
+            HttpOld.Result res = HttpOld.get(req);
             if(res.ok){
                 AndroidUtil.runInUi(()->{
                     loadedPostsFromNet(res, page);
@@ -82,7 +82,7 @@ public class PostsListCell
         return 0;
     }
 
-    private void loadedPostsFromNet(Http.Result res, int page) {
+    private void loadedPostsFromNet(HttpOld.Result res, int page) {
         HomeStreamJson data= JsonUtil.fromJson(res.data, HomeStreamJson.class);
         if(data != null && data.Payload != null && data.Status.equalsIgnoreCase("OK")){
             if(data.Payload != null){

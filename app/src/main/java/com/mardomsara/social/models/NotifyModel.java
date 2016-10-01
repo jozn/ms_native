@@ -2,7 +2,7 @@ package com.mardomsara.social.models;
 
 import com.mardomsara.social.app.API;
 import com.mardomsara.social.app.DB;
-import com.mardomsara.social.base.Http;
+import com.mardomsara.social.base.HttpOld;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.JsonUtil;
@@ -31,12 +31,12 @@ public class NotifyModel {
 
     public static void loadFromServer() {
         AndroidUtil.runInBackgroundNoPanic(()->{
-            Http.Req req = new Http.Req();
+            HttpOld.Req req = new HttpOld.Req();
 
             req.absPath = API.NOTIFICATIONS;
             req.urlParams.put("page",""+0);
             req.urlParams.put("last","");
-            Http.Result res = Http.get(req);
+            HttpOld.Result res = HttpOld.get(req);
             if(res.ok){
                     loadedPostsFromNet(res);
             }
@@ -44,7 +44,7 @@ public class NotifyModel {
     }
 
     //in background thread
-    private static void loadedPostsFromNet(Http.Result res) {
+    private static void loadedPostsFromNet(HttpOld.Result res) {
         NotifysListJson data= JsonUtil.fromJson(res.data, NotifysListJson.class);
         if(data != null && data.Payload != null && data.Status.equalsIgnoreCase("OK")){
             if(data.Payload != null){

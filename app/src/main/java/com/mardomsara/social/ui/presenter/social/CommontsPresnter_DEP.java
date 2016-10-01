@@ -10,7 +10,7 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import com.mardomsara.social.Nav;
 import com.mardomsara.social.R;
 import com.mardomsara.social.app.API;
-import com.mardomsara.social.base.Http;
+import com.mardomsara.social.base.HttpOld;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.DialogHelper;
@@ -95,12 +95,12 @@ public class CommontsPresnter_DEP extends BasePresenter
     }
     private void loadCommontsFromNet() {
         AndroidUtil.runInBackground(()->{
-            Http.Req req = new Http.Req();
+            HttpOld.Req req = new HttpOld.Req();
             req.absPath = API.COMMENTS_LIST_GET.toString();
             req.urlParams.put("post_id",""+postId);
             req.urlParams.put("page",""+page);
             page++;
-            Http.Result res = Http.get(req);
+            HttpOld.Result res = HttpOld.get(req);
             if(res.ok){
                 AndroidUtil.runInUi(()->{
                     loadedCommentsFromNet(res);
@@ -110,7 +110,7 @@ public class CommontsPresnter_DEP extends BasePresenter
     }
 
 
-    private void loadedCommentsFromNet(Http.Result res) {
+    private void loadedCommentsFromNet(HttpOld.Result res) {
 
 
         CommentsListJson data = JsonUtil.fromJson(res.data, CommentsListJson.class);
@@ -162,11 +162,11 @@ public class CommontsPresnter_DEP extends BasePresenter
         adaptor.notifyDataSetChanged();
 
         AndroidUtil.runInBackgroundNoPanic(()->{
-            Http.Req req = new Http.Req();
+            HttpOld.Req req = new HttpOld.Req();
             req.absPath = API.COMMENTS_ADD.toString();
             req.form.put("post_id",""+postId);
             req.form.put("text",""+text);
-            Http.Result res = Http.masterSendPost(req);
+            HttpOld.Result res = HttpOld.masterSendPost(req);
             boolean isError = false;
             if(res.ok){
                 CommentSingleJson data = JsonUtil.fromJson(res.data,CommentSingleJson.class);

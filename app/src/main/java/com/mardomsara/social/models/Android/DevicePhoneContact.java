@@ -10,7 +10,7 @@ import com.mardomsara.social.app.API;
 import com.mardomsara.social.app.Config;
 import com.mardomsara.social.app.DB;
 import com.mardomsara.social.base.FNV;
-import com.mardomsara.social.base.Http;
+import com.mardomsara.social.base.HttpOld;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.JsonUtil;
@@ -147,10 +147,10 @@ public class DevicePhoneContact {
     public static void uploadContacs(){
         try {
             List<ContactsCopy> contacts = getAllCopyContacts();
-            Http.Req rq = new Http.Req();
+            HttpOld.Req rq = new HttpOld.Req();
             rq.form.put("contacts", AppUtil.toJson(contacts));
             rq.absPath = API.CONTACTS_GRAB_ALL;
-            Http.Result res = Http.masterSendPost(rq);
+            HttpOld.Result res = HttpOld.masterSendPost(rq);
             AppUtil.log("http result of syncContactsFromServer() :" +res.data);
             if(res.ok == false) {
                 AppUtil.error("http result of syncContactsFromServer() is failed");
@@ -170,10 +170,10 @@ public class DevicePhoneContact {
     public static void uploadContacsToGrabber(){
         try {
             List<ContactsCopy> contacts = getAllCopyContacts();
-            Http.Req rq = new Http.Req();
+            HttpOld.Req rq = new HttpOld.Req();
             rq.form.put("contacts", AppUtil.toJson(contacts));
             rq.absPath = API.CONTACTS_GRAB_ALL;
-            Http.Result res = Http.masterSendPost(rq);
+            HttpOld.Result res = HttpOld.masterSendPost(rq);
             AppUtil.log("http result of syncContactsFromServer() :" +res.data);
             if(res.ok == false) {
                 AppUtil.error("http result of syncContactsFromServer() is failed");

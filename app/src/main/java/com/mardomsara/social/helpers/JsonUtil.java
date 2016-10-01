@@ -3,15 +3,7 @@ package com.mardomsara.social.helpers;
 import android.util.Log;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.reflect.TypeToken;
-import com.mardomsara.social.base.Http;
 import com.mardomsara.social.base.Http2.Result;
-import com.mardomsara.social.json.HttpBaseProtocol;
-import com.mardomsara.social.json.UserListFollow;
-
-import java.lang.reflect.Type;
-import java.util.ArrayList;
 
 /**
  * Created by Hamid on 3/4/2016.

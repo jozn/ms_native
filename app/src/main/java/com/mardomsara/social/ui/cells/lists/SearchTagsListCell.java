@@ -9,16 +9,14 @@ import android.widget.TextView;
 import com.mardomsara.social.R;
 import com.mardomsara.social.app.API;
 import com.mardomsara.social.app.Router;
-import com.mardomsara.social.base.Http;
+import com.mardomsara.social.base.HttpOld;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.JsonUtil;
-import com.mardomsara.social.json.social.http.CommentsListJson;
 import com.mardomsara.social.json.social.http.TagsListJson;
 import com.mardomsara.social.json.social.rows.TagRowJson;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
 import com.mardomsara.social.ui.views.helpers.ViewHelper;
-import com.mardomsara.social.ui.views.wigets.SimpleAddText;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,12 +53,12 @@ public class SearchTagsListCell {
 
     private void loadTagsFromNet(int page) {
         AndroidUtil.runInBackground(()->{
-            Http.Req req = new Http.Req();
+            HttpOld.Req req = new HttpOld.Req();
             req.absPath = API.SEARCH_TAGS;
             req.urlParams.put("q",""+tagName);
             req.urlParams.put("tag",""+tagName);
             req.urlParams.put("page",""+page);
-            Http.Result res = Http.get(req);
+            HttpOld.Result res = HttpOld.get(req);
             if(res.ok){
                 AndroidUtil.runInUi(()->{
                     loadedTagsFromNet(res);
@@ -69,7 +67,7 @@ public class SearchTagsListCell {
         });
     }
 
-    private void loadedTagsFromNet(Http.Result res) {
+    private void loadedTagsFromNet(HttpOld.Result res) {
         TagsListJson data = JsonUtil.fromJson(res.data, TagsListJson.class);
         if(data != null && data.Status.equalsIgnoreCase("OK") && data.Payload!=null){
             adaptor.list.clear();

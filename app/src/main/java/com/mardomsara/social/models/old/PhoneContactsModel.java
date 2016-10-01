@@ -2,7 +2,7 @@ package com.mardomsara.social.models.old;
 
 import com.mardomsara.social.app.API;
 import com.mardomsara.social.app.Config;
-import com.mardomsara.social.base.Http;
+import com.mardomsara.social.base.HttpOld;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.JsonUtil;
 import com.mardomsara.social.helpers.LangUtil;
@@ -27,10 +27,10 @@ public class PhoneContactsModel {
 
         try {
             List<DevicePhoneContact__OLD.Row> cs = fetchAllContacts();
-            Http.Req rq = new Http.Req();
+            HttpOld.Req rq = new HttpOld.Req();
             rq.form.put("contacts", AppUtil.toJson(cs));
             rq.absPath = API.CONTACTS_SYNC_ALL.toString();
-            Http.Result res = Http.masterSendPost(rq);
+            HttpOld.Result res = HttpOld.masterSendPost(rq);
             AppUtil.log("http result of syncContactsFromServer() :" +res.data);
             if(res.ok == false) {
                 AppUtil.error("http result of syncContactsFromServer() is failed");
@@ -47,10 +47,10 @@ public class PhoneContactsModel {
 
     public static void syncAllFollowingsFromServer(){
         try {
-            Http.Req rq = new Http.Req();
+            HttpOld.Req rq = new HttpOld.Req();
             rq.absPath = API.FOLLOWINGS_SYNC_ALL.toString();
             rq.urlParams.put("last", ""+Hawk.<Integer>get(Config.SYNC_DIFF_FOLLOWINGS_LAST_TIMESTAMP,0));
-            Http.Result res = Http.masterSendPost(rq);
+            HttpOld.Result res = HttpOld.masterSendPost(rq);
             AppUtil.log("http result of syncAllFollowingsFromServer() :" +res.data);
             if(res.ok == false) {
                 AppUtil.error("http result of syncAllFollowingsFromServer() is failed");

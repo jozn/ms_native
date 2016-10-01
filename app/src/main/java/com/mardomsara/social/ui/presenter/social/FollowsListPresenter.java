@@ -6,7 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.mardomsara.social.app.API;
-import com.mardomsara.social.base.Http;
+import com.mardomsara.social.base.HttpOld;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.Helper;
@@ -89,12 +89,12 @@ public class FollowsListPresenter extends BasePresenter implements AppHeaderFoot
     private void loadFromServer(int page) {
         int pageCnt = page -1;
         AndroidUtil.runInBackgroundNoPanic(()->{
-            Http.Req req = new Http.Req();
+            HttpOld.Req req = new HttpOld.Req();
             req.urlParams.put("username","abas");
             req.urlParams.put("peer_id",""+ObjectId);// for follows types
             req.urlParams.put("post_id",""+ObjectId);// for follows types
             req.absPath = urlEndpoint;
-            Http.Result res = Http.get(req);
+            HttpOld.Result res = HttpOld.get(req);
 
             boolean hideLoading = false;
             AndroidUtil.runInUiNoPanic(() -> {
