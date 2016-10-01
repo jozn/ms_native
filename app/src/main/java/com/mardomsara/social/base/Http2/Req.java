@@ -2,16 +2,20 @@ package com.mardomsara.social.base.Http2;
 
 import com.mardomsara.social.helpers.AndroidUtil;
 
+import org.apache.commons.io.FileUtils;
+
 import java.io.File;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
+import okio.BufferedSink;
+
 /**
  * Created by Hamid on 10/1/2016.
  */
 public class Req<T> {
-    Http2.Action action = Http2.Action.GET;
+    Action action = Action.GET;
     String absUrl;
     URL _finalUrl;//todo: make this private
     String method = "GET";
@@ -21,8 +25,9 @@ public class Req<T> {
     private Map<String, String[]> headersMulti;//??
     //        public File[] files;
     File file;
+    String fileDownloadDest;
 
-    public Req(Http2.Action action, String absUrl) {
+    public Req(Action action, String absUrl) {
         this.action = action;
         this.absUrl =absUrl;
     }
@@ -56,8 +61,41 @@ public class Req<T> {
 
     //generics dosn't work, just set for futuer maybe
     public <K>  void doAsync(CallBack<K> callBack){
+        if(action == Action.DOWNLOAD){
+            throw new IllegalArgumentException("In Http2 for uploads actions doAsyncDownload(...) must be called in doAsyncDownload(), not doAsync(...)");
+        }
         AndroidUtil.runInBackground(()->{
             Result res = Sender.Send(this);
+
+            if(callBack != null){
+                callBack.callback(res);
+            }
+        });
+    }
+
+    //
+    public void doAsyncDownload(CallBack callBack){
+        if(action != Action.DOWNLOAD){
+            throw new IllegalArgumentException("In Http2 doAsyncDownload() must be called just fro uploads.");
+        }
+        AndroidUtil.runInBackground(()->{
+            Result res = Sender.Send(this);
+
+            File downloadedFile = new File(fileDownloadDest);
+
+            BufferedSink sink = null;
+            try {
+                byte[] bs= res.response.body().bytes();
+                FileUtils.writeByteArrayToFile(downloadedFile,bs);
+                //TODO: the below way is slow but more correct fix it
+//            sink = Okio.buffer(Okio.sink(downloadedFile));
+//            sink.writeAll(res.response.body().source());
+//            sink.close();
+                res.ok = true;
+            } catch (Exception e) {
+                res.ok = false;
+                e.printStackTrace();
+            }
 
             if(callBack != null){
                 callBack.callback(res);

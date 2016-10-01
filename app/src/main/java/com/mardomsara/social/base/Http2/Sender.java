@@ -1,11 +1,15 @@
 package com.mardomsara.social.base.Http2;
 
+import com.mardomsara.social.base.OkhttpMimeTypes;
 import com.mardomsara.social.helpers.AppUtil;
 
 import java.io.IOException;
+import java.net.URL;
 
+import okhttp3.MultipartBody;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
+import okhttp3.RequestBody;
 import okhttp3.Response;
 
 /**
@@ -20,15 +24,47 @@ public class Sender<T> {
         //common: headers, url query params
         rb.url(Util.buildFinalUrlFromPath(req.absUrl,req.urlQueryParams))
                 .headers(Util.headersToOkHttpHeaders(req.headers));
-        if(req.action == Http2.Action.GET) {
+
+        ////////////////////Methods funcs /////////////////////////
+
+        if(req.action == Action.GET) {
             rb.get();
         }
 
-        if(req.action == Http2.Action.POST) {
+        if(req.action == Action.POST) {
             rb.post(Util.formsToOkHttpFormParams(req.form));
         }
 
-        //todo set Upload
+        if(req.action == Action.UPLOAD) {
+            RequestBody dataToSend = null;
+            MultipartBody.Builder b = new MultipartBody.Builder();
+            rb.post(Util.buildOthersFormParamsForUpload(b,req.form));
+
+            dataToSend = RequestBody.create(OkhttpMimeTypes.MEDIA_TYPE_FILE_GENERAL, req.file);
+            b.addFormDataPart("file",req.file.getName(),dataToSend);
+            b.setType(MultipartBody.FORM);
+
+            rb.post(b.build());
+        }
+
+        if(req.action == Action.UPLOAD) {
+            RequestBody dataToSend = null;
+            MultipartBody.Builder b = new MultipartBody.Builder();
+            rb.post(Util.buildOthersFormParamsForUpload(b,req.form));
+
+            dataToSend = RequestBody.create(OkhttpMimeTypes.MEDIA_TYPE_FILE_GENERAL, req.file);
+            b.addFormDataPart("file",req.file.getName(),dataToSend);
+            b.setType(MultipartBody.FORM);
+
+            rb.post(b.build());
+        }
+
+        if(req.action == Action.DOWNLOAD) {
+            rb.get();
+            Request request = rb.build();
+            Result  res = _doSend(request,false);//don't read result to strings
+            return res;
+        }
 
         Request request = rb.build();
 

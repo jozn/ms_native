@@ -1,7 +1,10 @@
 package com.mardomsara.social.base.Http2;
 
+import android.support.annotation.NonNull;
+
 import com.mardomsara.social.app.API;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -30,13 +33,21 @@ public class Http2 {
         return req;
     }
 
-    public static Req upload(String absUrl){
+    public static Req upload(String absUrl,@NonNull File file){
         Req req = new Req(Action.UPLOAD, absUrl);
+        req.file = file;
         return req;
     }
 
-    public static Req uploadPath(String path){
+    public static Req uploadPath(String path, @NonNull File file){
         Req req = new Req(Action.UPLOAD, API.BASE_URL_STR+path);
+        req.file = file;
+        return req;
+    }
+
+    public static Req download(String absUrl,String absFilePath){
+        Req req = new Req(Action.DOWNLOAD, absUrl);
+        req.fileDownloadDest = absFilePath;
         return req;
     }
 
@@ -54,11 +65,10 @@ public class Http2 {
         return  h;
     }
 
-    public enum  Action {
+    /*public enum  Action {
         GET,
         POST,
         UPLOAD,
-    }
-
-
+        DOWNLOAD
+    }*/
 }

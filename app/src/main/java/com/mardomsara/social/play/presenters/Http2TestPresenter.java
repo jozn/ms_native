@@ -8,6 +8,7 @@ import com.mardomsara.social.base.Http2.Http2;
 import com.mardomsara.social.base.Http2.Result;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.Helper;
+import com.mardomsara.social.helpers.TimeUtil;
 import com.mardomsara.social.json.HttpJson;
 import com.mardomsara.social.json.HttpJsonList;
 import com.mardomsara.social.json.social.rows.TagRowJson;
@@ -15,6 +16,7 @@ import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.cells.PageCells;
 import com.mardomsara.social.ui.cells.TitleCellsGroup;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,6 +44,14 @@ public class Http2TestPresenter extends BasePresenter {
 
         layout.addView(newTitle("Http2.get() + with json Moshi",()->{
             getJsonMoshi();
+        }));
+
+        layout.addView(newTitle("Http2.Uplaid() ",()->{
+            upload();
+        }));
+
+        layout.addView(newTitle("Http2.download() ",()->{
+            download();
         }));
 
         return rootView;
@@ -138,6 +148,22 @@ public class Http2TestPresenter extends BasePresenter {
 
                 });
     }
+
+    void upload(){
+        Http2.upload("http://localhost:5000/upload2", new File("/storage/emulated/0/1.mp4"))
+            .doAsync((r)->{
+                Helper.showDebugMessage(r.data);
+            });
+    }
+
+    void download(){
+        String f= "/storage/emulated/0/1_"+ TimeUtil.getTime() +".mp4";
+        Http2.download("http://localhost:5000/upload/1.mp4", f)
+                .doAsyncDownload((r)->{
+                    Helper.showDebugMessage(r.data);
+                });
+    }
+
     class TagsListsAll extends ArrayList<TagRowJson> {
 
     }
