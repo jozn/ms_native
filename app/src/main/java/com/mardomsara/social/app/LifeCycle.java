@@ -16,6 +16,7 @@ import com.mardomsara.social.models.syncer.ContactsCopySyncer;
 import com.mardomsara.social.models.NotifyModel;
 import com.mardomsara.social.models.Session;
 import com.mardomsara.social.models.stores.Store;
+import com.mardomsara.social.models.syncer.UserSyncer;
 import com.mardomsara.social.service.BackgroundService;
 import com.mardomsara.social.service.WS;
 import com.mardomsara.social.ui.BasePresenter;
@@ -108,8 +109,12 @@ public class LifeCycle {
     static boolean _afterActivityCalled = false;
     public static void onAfterAppActivityStarted(){
         if(_afterActivityCalled) return;
+
         onAfterAppStartedCommon();
+
 		ContactsCopySyncer.checkChangesAndSyncToServer();
+		UserSyncer.getSyncChangededUser();
+
 		_afterActivityCalled = true;
     }
 

@@ -5,4 +5,6 @@ package com.mardomsara.social.models.stores;
  */
 public class StoreConstants {
 
+	public static final String LAST_USER_TABLE_SYNCED = "LAST_USER_TABLE_SYNCED";
+
 }

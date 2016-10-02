@@ -47,6 +47,9 @@ public class User {
     @Column(defaultExpr = "0", helpers = Column.Helpers.CONDITION_EQ)
     public int FollowingType = 0;
 
+	@Column(defaultExpr = "''")
+	public String About = "";
+
 
     /////////// FOr contacts
     @Column(defaultExpr = "0", helpers = Column.Helpers.CONDITION_EQ)

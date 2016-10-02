@@ -20,7 +20,8 @@ public class UserInfoJson implements IUserAndMe {
 
     public String About = "";
 
-    public int IFollowType = 0;
+    public int FollowingType = 0;
+    public int PrivacyProfile = 0;
 
 
     public String getFullName() {
@@ -34,12 +35,12 @@ public class UserInfoJson implements IUserAndMe {
     ///////////// Extra methods //////////////////////
     @Override
     public int getFollowingType() {
-        return IFollowType;
+        return FollowingType;
     }
 
     @Override
     public void setFollowingType(int type) {
-        IFollowType = type;
+        FollowingType = type;
     }
 
     @Override
