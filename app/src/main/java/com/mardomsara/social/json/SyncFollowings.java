@@ -1,5 +1,7 @@
 package com.mardomsara.social.json;
 
+import com.mardomsara.social.json.social.rows.UserSyncJson;
+
 import java.util.List;
 
 /**
@@ -10,7 +12,7 @@ public class SyncFollowings extends HttpBaseProtocol {
     public Sync Payload ;
 
     public class Sync {
-        public List<UserRow> Add;
+        public List<UserSyncJson> Add;
         public List<Integer> Remove;
     }
 

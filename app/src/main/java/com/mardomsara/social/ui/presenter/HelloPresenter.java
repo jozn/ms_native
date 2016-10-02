@@ -13,7 +13,7 @@ import com.mardomsara.social.base.Command;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.JsonUtil;
 import com.mardomsara.social.helpers.LangUtil;
-import com.mardomsara.social.json.UserRow;
+import com.mardomsara.social.json.social.rows.UserInfoJson;
 import com.mardomsara.social.service.WS;
 import com.mardomsara.social.ui.BasePresenter;
 
@@ -104,7 +104,7 @@ public class HelloPresenter extends BasePresenter {
         cmd.setData("dasdsad");
         WS.sendCommandForResponse(cmd,(data)->{
             AndroidUtil.runInUi(()->{
-                UserRow u = JsonUtil.fromJson(data,UserRow.class);
+				UserInfoJson u = JsonUtil.fromJson(data,UserInfoJson.class);
                 if(u!= null){
                     Toast.makeText(App.context,u.FirstName,Toast.LENGTH_LONG).show();
                 }

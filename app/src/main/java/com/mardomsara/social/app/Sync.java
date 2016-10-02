@@ -1,8 +1,5 @@
 package com.mardomsara.social.app;
 
-import com.mardomsara.social.helpers.AppUtil;
-import com.mardomsara.social.models.Follow;
-
 /**
  * Created by Hamid on 7/2/2016.
  */
@@ -27,14 +24,14 @@ public class Sync {
         AppUtil.runInBackgeound(r);
     }*/
 
-    public static void syncAllFollowings() {
+    /*public static void syncAllFollowings() {
         Runnable r = () -> {
 //            PhoneContactsModel.syncAllFollowingsFromServer();
 //            Follow.syncAllFollowingsFromServer();
             Follow.checkSyncAllFollowingsFromServer();
         };
         AppUtil.runInBackgeound(r);
-    }
+    }*/
 
 }
 
