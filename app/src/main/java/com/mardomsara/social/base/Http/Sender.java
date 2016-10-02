@@ -3,6 +3,7 @@ package com.mardomsara.social.base.Http;
 import com.mardomsara.social.base.Http.listener.DownloadProgressListener;
 import com.mardomsara.social.base.Http.listener.ProgressListener;
 import com.mardomsara.social.base.Http.listener.UploadProgressListener;
+import com.mardomsara.social.base.Http.old.ProgressUploadBody;
 import com.mardomsara.social.base.OkhttpMimeTypes;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
@@ -43,11 +44,11 @@ public class Sender<T> {
         }
 
         if(req.action == Action.UPLOAD) {
-			if(req.uploadProgress != null){
+			/*if(req.uploadProgress != null){
 				OkHttpClient.Builder upClientBuilder = defualtClient.newBuilder();
 				addUploadInterceptor(upClientBuilder,req.uploadProgress);
 				okHttpClient = upClientBuilder.build();
-			}
+			}*/
             RequestBody dataToSend = null;
             MultipartBody.Builder b = new MultipartBody.Builder();
             rb.post(Util.buildOthersFormParamsForUpload(b,req.form));
@@ -55,8 +56,12 @@ public class Sender<T> {
             dataToSend = RequestBody.create(OkhttpMimeTypes.MEDIA_TYPE_FILE_GENERAL, req.file);
             b.addFormDataPart("file",req.file.getName(),dataToSend);
             b.setType(MultipartBody.FORM);
-
-            rb.post(b.build());
+			RequestBody body = b.build();
+			if(req.uploadProgress != null){
+				body = new ProgressRequestBody(body,req.uploadProgress);
+			}
+            rb.post(body);
+//            rb.post(b.build());
         }
 
         if(req.action == Action.DOWNLOAD) {

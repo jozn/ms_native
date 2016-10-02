@@ -1,4 +1,4 @@
-package com.mardomsara.social.base.Http;
+package com.mardomsara.social.base.Http.old;
 
 import com.mardomsara.social.base.Http.listener.UploadProgressListener;
 
@@ -12,8 +12,8 @@ import okio.BufferedSource;
 import okio.ForwardingSource;
 import okio.Okio;
 import okio.Source;
-
-class ProgressUploadBody extends ResponseBody {
+@Deprecated
+public class ProgressUploadBody extends ResponseBody {
 
     private final ResponseBody responseBody;
 	//ME: for potential memory leak
@@ -56,7 +56,7 @@ class ProgressUploadBody extends ResponseBody {
           // read() returns the number of bytes read, or -1 if this source is exhausted.
           totalBytesRead += bytesRead != -1 ? bytesRead : 0;
 			progressListener = weakReference.get();
-			if( progressListener != null){
+			if( progressListener!= null){
 				progressListener.update(totalBytesRead, responseBody.contentLength(), bytesRead == -1);
 			}
           return bytesRead;
