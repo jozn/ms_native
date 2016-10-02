@@ -90,7 +90,7 @@ public class Req<T> {
 	}
 
     //generics dosn't work, just set for futuer maybe
-    public <K>  void doAsync(CallBack<K> callBack){
+    public <K> Req doAsync(CallBack<K> callBack){
         if(action == Action.DOWNLOAD){
             throw new IllegalArgumentException("In Http2 for uploads actions doAsyncDownload(...) must be called in doAsyncDownload(), not doAsync(...)");
         }
@@ -101,10 +101,11 @@ public class Req<T> {
                 callBack.callback(res);
             }
         });
+		return this;
     }
 
     //
-    public void doAsyncDownload(CallBack callBack){
+    public Req doAsyncDownload(CallBack callBack){
         if(action != Action.DOWNLOAD){
             throw new IllegalArgumentException("In Http2 doAsyncDownload() must be called just fro uploads.");
         }
@@ -131,6 +132,7 @@ public class Req<T> {
                 callBack.callback(res);
             }
         });
+		return this;
     }
-
+	
 }
