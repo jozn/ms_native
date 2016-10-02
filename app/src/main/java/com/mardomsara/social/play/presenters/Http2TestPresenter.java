@@ -48,8 +48,16 @@ public class Http2TestPresenter extends BasePresenter {
             upload();
         }));
 
+		layout.addView(newTitle("Http2.upload()  progress",()->{
+			uploadProgrss();
+		}));
+
         layout.addView(newTitle("Http2.download() ",()->{
             download();
+        }));
+
+        layout.addView(newTitle("Http2.download() progress ",()->{
+            downloadProgress();
         }));
 
         return rootView;
@@ -161,6 +169,27 @@ public class Http2TestPresenter extends BasePresenter {
                     Helper.showDebugMessage(r.data);
                 });
     }
+
+    void downloadProgress(){
+        String f= "/storage/emulated/0/1_"+ TimeUtil.getTime() +".mp4";
+        Http.download("http://localhost:5000/upload/1.mp4", f)
+            .setDownloadProgress((bytesRead,contentLength,done)->{
+                Helper.showDebugMessage(""+bytesRead+ " "+ contentLength+ " "+done);
+            })
+            .doAsyncDownload((r)->{
+                Helper.showDebugMessage(r.data);
+            });
+    }
+
+	void uploadProgrss(){
+		Http.upload("http://localhost:5000/upload2", new File("/storage/emulated/0/1.mp4"))
+			.setUploadProgress((bytesRead,contentLength,done)->{
+				Helper.showDebugMessage(""+bytesRead+ " "+ contentLength+ " "+done);
+			})
+			.doAsync((r)->{
+				Helper.showDebugMessage(r.data);
+			});
+	}
 
     class TagsListsAll extends ArrayList<TagRowJson> {
 

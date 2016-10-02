@@ -54,7 +54,7 @@ public class Http {
     //////////////////////////////// Privets /////////////////////////////////
     static Map<String, String> defaultHeaders(){
         Map<String, String> h = new HashMap();
-        h.put("X-ms-client","1");
+        h.put("X-ms-defualtClient","1");
         return  h;
     }
 

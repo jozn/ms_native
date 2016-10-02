@@ -1,5 +1,8 @@
 package com.mardomsara.social.base.Http;
 
+import com.mardomsara.social.base.Http.listener.CallBack;
+import com.mardomsara.social.base.Http.listener.DownloadProgressListener;
+import com.mardomsara.social.base.Http.listener.UploadProgressListener;
 import com.mardomsara.social.helpers.AndroidUtil;
 
 import org.apache.commons.io.FileUtils;
@@ -9,6 +12,8 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
+import okhttp3.Call;
+import okhttp3.Request;
 import okio.BufferedSink;
 
 /**
@@ -24,8 +29,17 @@ public class Req<T> {
     Map<String, String> form = new HashMap<>();
     private Map<String, String[]> headersMulti;//??
     //        public File[] files;
+
+    //// For Uploads
     File file;
     String fileDownloadDest;
+
+    /// For Progress
+    DownloadProgressListener downloadProgress;
+    UploadProgressListener uploadProgress;
+
+	Request okHttpRequset;
+	Call okHttpCall;
 
     public Req(Action action, String absUrl) {
         this.action = action;
@@ -54,10 +68,26 @@ public class Req<T> {
         return this;
     }
 
-    public Req JsonInto(Class cls){
+    /*public Req JsonInto(Class cls){
         jsonClass = cls;
         return this;
+    }*/
+
+    public Req setDownloadProgress (DownloadProgressListener listener){
+        downloadProgress = listener;
+        return this;
     }
+
+    public Req  setUploadProgress (UploadProgressListener listener){
+        uploadProgress = listener;
+        return this;
+    }
+
+	public void cancel(){
+		if(okHttpCall != null){
+			okHttpCall.cancel();
+		}
+	}
 
     //generics dosn't work, just set for futuer maybe
     public <K>  void doAsync(CallBack<K> callBack){
