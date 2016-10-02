@@ -66,7 +66,7 @@ public class API {
 
     public static String NOTIFICATIONS =  BASE_URL_STR+"notifications";
 
-    public static String CONTACTS_GRAB_ALL =  BASE_URL_STR+"grab_contacts";
+    public static String CONTACTS_GRAB_ALL =  BASE_URL_STR+"grab_contacts2";
 
 
     static {

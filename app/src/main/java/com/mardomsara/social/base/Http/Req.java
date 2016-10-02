@@ -94,7 +94,7 @@ public class Req<T> {
         if(action == Action.DOWNLOAD){
             throw new IllegalArgumentException("In Http2 for uploads actions doAsyncDownload(...) must be called in doAsyncDownload(), not doAsync(...)");
         }
-        AndroidUtil.runInBackground(()->{
+        AndroidUtil.runInBackgroundNoPanic(()->{
             Result res = Sender.Send(this);
 
             if(callBack != null){

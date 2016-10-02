@@ -13,12 +13,14 @@ import com.mardomsara.social.base.FNV;
 public class ContactsCopy {
 
     @PrimaryKey(auto = false)
-    public int PhoneContactRowId;
+//	@Column(defaultExpr = "0")
+	public int PhoneContactRowId;
 
     @Column(defaultExpr = "''")
     public String PhoneNumber = "";//0935... +98910711..
 
-    @Column(defaultExpr = "''" )
+    @Column(defaultExpr = "''", indexed = true)
+//	@PrimaryKey
     public String PhoneNormalizedNumber = "";
 
     @Column(defaultExpr = "''")
@@ -27,10 +29,13 @@ public class ContactsCopy {
     @Column(defaultExpr = "''")
     public String PhoneFamilyName = "";
 
-    @Column(defaultExpr = "0")
+    @Column(defaultExpr = "0", helpers = Column.Helpers.CONDITION_EQ)
     public int IsSynced = 0;
 
-    @Column(defaultExpr = "''")
+    @Column(defaultExpr = "0", helpers = Column.Helpers.CONDITION_EQ)
+    public int IsRemoved = 0;
+
+    @Column(defaultExpr = "''" ,indexed = true)
     public String Hash = "";
 
     /*public void calculateHash(){

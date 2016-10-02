@@ -12,6 +12,7 @@ import com.facebook.imagepipeline.listener.RequestLoggingListener;
 import com.mardomsara.social.App;
 import com.mardomsara.social.base.Command;
 import com.mardomsara.social.helpers.AppUtil;
+import com.mardomsara.social.models.syncer.ContactsCopySyncer;
 import com.mardomsara.social.models.NotifyModel;
 import com.mardomsara.social.models.Session;
 import com.mardomsara.social.models.stores.Store;
@@ -108,7 +109,8 @@ public class LifeCycle {
     public static void onAfterAppActivityStarted(){
         if(_afterActivityCalled) return;
         onAfterAppStartedCommon();
-        _afterActivityCalled = true;
+		ContactsCopySyncer.checkChangesAndSyncToServer();
+		_afterActivityCalled = true;
     }
 
     static boolean _afterCalled = false;

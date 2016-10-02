@@ -5,6 +5,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.mardomsara.social.app.Config;
 import com.squareup.picasso.Picasso;
 
 /**
@@ -52,6 +53,7 @@ public class Helper {
     }
 
     public static void showDebugMessage(String text){
+		if( ! Config.IS_DEBUG) return;
         AndroidUtil.runInUi(()->{
             Toast.makeText(AppUtil.getContext(),text,Toast.LENGTH_SHORT).show();
         });

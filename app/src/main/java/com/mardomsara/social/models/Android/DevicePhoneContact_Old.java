@@ -1,4 +1,4 @@
-package com.mardomsara.social.models.Android;
+package com.mardomsara.social.models.android;
 
 import android.Manifest;
 import android.content.Context;
@@ -33,7 +33,7 @@ import pl.tajchert.nammu.PermissionCallback;
 /**
  * Created by Hamid on 7/2/2016.
  */
-public class DevicePhoneContact {
+public class DevicePhoneContact_Old {
 
     private static int REFETCH_INTERVAL = 8;//86400
 
@@ -188,7 +188,7 @@ public class DevicePhoneContact {
     }
 
     private static void saveContacts(List<UserRow> users){
-        Map<String,DevicePhoneContact.Row> map = getMapOfContacts();
+        Map<String,DevicePhoneContact_Old.Row> map = getMapOfContacts();
         AppUtil.log(map.toString());
 
         //// TODO: 4/4/2016 do in transactions for maximim speed
@@ -205,7 +205,7 @@ public class DevicePhoneContact {
         DB.db.deleteFromUser().UserIdIn(ids).execute();
         DB.db.transactionSync(()->{
             for (UserRow user: users){
-                DevicePhoneContact.Row contact;
+                DevicePhoneContact_Old.Row contact;
                 contact = map.get(user.Phone);
                 AppUtil.log("Building Contacts For "+contact.PhoneNormalizedNumber);
                 User c = new User();
@@ -231,10 +231,10 @@ public class DevicePhoneContact {
         return DB.db.selectFromContactsCopy().toList();
     }
 
-    public static Map<String,DevicePhoneContact.Row> getMapOfContacts(){
-        List<DevicePhoneContact.Row> cs = fetchAllContactsFromAndroidContacts();
-        Map<String,DevicePhoneContact.Row> map = new HashMap<>();
-        for (DevicePhoneContact.Row row : cs){
+    public static Map<String,DevicePhoneContact_Old.Row> getMapOfContacts(){
+        List<DevicePhoneContact_Old.Row> cs = fetchAllContactsFromAndroidContacts();
+        Map<String,DevicePhoneContact_Old.Row> map = new HashMap<>();
+        for (DevicePhoneContact_Old.Row row : cs){
             map.put(row.PhoneNormalizedNumber, row);
         }
         return map;

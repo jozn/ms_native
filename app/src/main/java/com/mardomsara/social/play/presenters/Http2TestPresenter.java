@@ -7,6 +7,7 @@ import com.mardomsara.social.app.API;
 import com.mardomsara.social.base.Http.Http;
 import com.mardomsara.social.base.Http.Result;
 import com.mardomsara.social.helpers.AndroidUtil;
+import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.TimeUtil;
 import com.mardomsara.social.json.HttpJsonList;
@@ -174,7 +175,7 @@ public class Http2TestPresenter extends BasePresenter {
         String f= "/storage/emulated/0/1_"+ TimeUtil.getTime() +".mp4";
         Http.download("http://localhost:5000/upload/1.mp4", f)
             .setDownloadProgress((bytesRead,contentLength,done)->{
-                Helper.showDebugMessage(""+bytesRead+ " "+ contentLength+ " "+done);
+                AppUtil.log(""+bytesRead+ " "+ contentLength+ " "+done);
             })
             .doAsyncDownload((r)->{
                 Helper.showDebugMessage(r.data);
@@ -184,7 +185,7 @@ public class Http2TestPresenter extends BasePresenter {
 	void uploadProgrss(){
 		Http.upload("http://localhost:5000/upload2", new File("/storage/emulated/0/1.mp4"))
 			.setUploadProgress((bytesRead,contentLength,done)->{
-				Helper.showDebugMessage(""+bytesRead+ " "+ contentLength+ " "+done);
+				AppUtil.log(""+bytesRead+ " "+ contentLength+ " "+done);
 			})
 			.doAsync((r)->{
 				Helper.showDebugMessage(r.data);

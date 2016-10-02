@@ -33,6 +33,7 @@ import pl.tajchert.nammu.PermissionCallback;
 /**
  * Created by Hamid on 7/2/2016.
  */
+@Deprecated
 public class DevicePhoneContact__OLD {
 
     private static int REFETCH_INTERVAL = 8;//86400
