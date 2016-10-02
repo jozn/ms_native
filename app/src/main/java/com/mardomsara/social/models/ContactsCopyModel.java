@@ -2,7 +2,9 @@ package com.mardomsara.social.models;
 
 import com.mardomsara.social.app.DB;
 import com.mardomsara.social.models.tables.ContactsCopy;
+import com.mardomsara.social.models.tables.User;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -25,4 +27,19 @@ public class ContactsCopyModel {
 		}
 		return cacheMap;
 	}
+
+	public static List<ContactsCopy> getAllContactsCopy(){
+		return DB.db.selectFromContactsCopy().PhoneNormalizedNumberNotEq("").toList();
+	}
+
+	public static List<ContactsCopy> getContactsNotRegisterd(List<User> usersRegisterd){
+		List<String> regs = new ArrayList<>();
+		regs.add("");
+		for (User u: usersRegisterd){
+			regs.add(u.PhoneNormalizedNumber);
+		}
+
+		return DB.db.selectFromContactsCopy().PhoneNormalizedNumberNotIn(regs).toList();
+	}
+
 }

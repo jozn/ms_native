@@ -16,13 +16,8 @@ import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.DialogHelper;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.IntentUtil;
-import com.mardomsara.social.models.ContactsCopyModel;
-import com.mardomsara.social.models.UserModel;
-import com.mardomsara.social.models.android.PhoneContact;
 import com.mardomsara.social.models.old.DevicePhoneContact__OLD;
 import com.mardomsara.social.models.old.PhoneContactsModel;
-import com.mardomsara.social.models.tables.ContactsCopy;
-import com.mardomsara.social.models.tables.User;
 import com.mardomsara.social.play.DividerItemDecoration;
 import com.mardomsara.social.tables.UsersTable;
 import com.mardomsara.social.ui.BasePresenter;
@@ -37,7 +32,7 @@ import butterknife.ButterKnife;
 /**
  * Created by Hamid on 5/2/2016.
  */
-public class UserAndContactsPresenter extends BasePresenter {
+public class UserAndContactsPresenter_DEP extends BasePresenter {
     static int CONTACTS = 1;
     static int FOLLOWINGS = 1;
 
@@ -57,10 +52,10 @@ public class UserAndContactsPresenter extends BasePresenter {
         Log.d("presenter", "UserAndContactsPresenter has inited.");
 
         View view = AppUtil.inflate(R.layout.presenter_list_contacts_followings);
-        List<User> registeredContactsList = UserModel.getAllRegisteredContacts();
+        List<UsersTable> registeredContactsList = UsersTable.getAllRegisteredContacts();
 //        List<UsersTable> followingsLists = PhoneContactsModel.getAllFollowings();
-        List<User> followingsLists = UserModel.getAllFollowings();
-        List<ContactsCopy> notRegisterd = ContactsCopyModel.getContactsNotRegisterd(registeredContactsList);
+        List<UsersTable> followingsLists = UsersTable.getAllFollowings();
+        List<DevicePhoneContact__OLD.Row> notRegisterd = PhoneContactsModel.getAllContactssAndUsersOrNot(registeredContactsList);
         UserFollowingSavedAdaptor adp_contacts = new UserFollowingSavedAdaptor(registeredContactsList ,CONTACTS);
         adp_contacts.mListUnregisteredContacts = notRegisterd;
         UserFollowingSavedAdaptor adp_followings = new UserFollowingSavedAdaptor(followingsLists, FOLLOWINGS);
@@ -128,14 +123,14 @@ public class UserAndContactsPresenter extends BasePresenter {
     public static class UserFollowingSavedAdaptor extends RecyclerView.Adapter<UserFollowingSavedAdaptor.ViewHolderBase> {
         private static final String TAG = "UserFollowingSavedAdaptor";
 
-        private List<User> mDataSet;
-        private List<ContactsCopy> mListUnregisteredContacts = new ArrayList<>();
+        private List<UsersTable> mDataSet;
+        private List<DevicePhoneContact__OLD.Row> mListUnregisteredContacts = new ArrayList<>();
         int listType;
 
 
         // END_INCLUDE(recyclerViewSampleViewHolder)
 
-        public UserFollowingSavedAdaptor(List<User> dataSet, int type) {
+        public UserFollowingSavedAdaptor(List<UsersTable> dataSet, int type) {
             mDataSet = dataSet;
             listType = type;
         }
@@ -162,10 +157,10 @@ public class UserAndContactsPresenter extends BasePresenter {
 //            AppUtil.log("user: "+ user.getPhoneDisplayName());
             ViewHolderBase vh0 = viewHolder;
             if(vh0 instanceof ViewHolder && mDataSet.size()> position){
-                User user = mDataSet.get(position);
+                UsersTable user = mDataSet.get(position);
                 ViewHolder vh = (ViewHolder) vh0;
-                vh.primary_name.setText(user.FirstName +" "+ user.LastName);
-                vh.second_name.setText(""+user.PhoneDisplayName);
+                vh.primary_name.setText(user.getFirstName() +" "+ user.getLastName());
+                vh.second_name.setText(""+user.getPhoneDisplayName());
                 vh.self.setTag(user);
                 vh.usersTable = user;
                 Uri imageUri = Helper.PathToUserAvatarUri(user.AvatarUrl);
@@ -173,7 +168,7 @@ public class UserAndContactsPresenter extends BasePresenter {
             }else if(vh0 instanceof ViewHolderForUnregisterd){
                 try {
                     ViewHolderForUnregisterd vh = (ViewHolderForUnregisterd) vh0;
-                    ContactsCopy user = mListUnregisteredContacts.get(position - mDataSet.size());
+                    DevicePhoneContact__OLD.Row user = mListUnregisteredContacts.get(position - mDataSet.size());
                     vh.phoneContact = user;
                     vh.name_text.setText(user.PhoneDisplayName);
                 }catch (Exception c){//out of index bug???
@@ -205,7 +200,7 @@ public class UserAndContactsPresenter extends BasePresenter {
         //view holders
         public static class ViewHolder extends ViewHolderBase {
             private final View self;
-            User usersTable;
+            UsersTable usersTable;
 
             @Bind(R.id.following_button)
             public View following_button;
@@ -255,7 +250,7 @@ public class UserAndContactsPresenter extends BasePresenter {
         //view holders
         public static class ViewHolderForUnregisterd extends ViewHolderBase {
             private final View self;
-            ContactsCopy phoneContact;
+            DevicePhoneContact__OLD.Row phoneContact;
             @Bind(R.id.name_text)
             public TextView name_text;
 

@@ -13,23 +13,23 @@ public class User {
     @PrimaryKey(auto = false)
     public int UserId;
 
-    @Column(defaultExpr = "0" ,helpers = Column.Helpers.CONDITION_EQ)
+    @Column(defaultExpr = "0" ,helpers = Column.Helpers.CONDITIONS)
     public int IsFollowing = 0;
 
-    @Column(defaultExpr = "''" ,helpers = Column.Helpers.CONDITION_EQ)
+    @Column(defaultExpr = "''" ,helpers = Column.Helpers.CONDITIONS)
     public String AvatarUrl = "";
 
     @Column(defaultExpr = "''")
     public String StatusText = "";
 
-    @Column(defaultExpr = "0",helpers = Column.Helpers.CONDITION_EQ)
+    @Column(defaultExpr = "0",helpers = Column.Helpers.CONDITIONS)
     public int StatusId = 0;
 
     @Column(defaultExpr = "0" ,helpers = Column.Helpers.CONDITIONS)
     public int UnseenMessageCount = 0;//??
 
     //for followings
-    @Column(defaultExpr = "''" ,helpers = Column.Helpers.CONDITION_EQ)
+    @Column(defaultExpr = "''" ,helpers = Column.Helpers.CONDITIONS)
     public String UserName = "";
 
     @Column(defaultExpr = "''")
@@ -41,10 +41,10 @@ public class User {
     @Column(defaultExpr = "''")
     public String FullName = "";
 
-    @Column(defaultExpr = "0" ,helpers = Column.Helpers.CONDITION_EQ)
+    @Column(defaultExpr = "0" ,helpers = Column.Helpers.CONDITIONS)
     public int PrivacyProfile = 0;
 
-    @Column(defaultExpr = "0", helpers = Column.Helpers.CONDITION_EQ)
+    @Column(defaultExpr = "0", helpers = Column.Helpers.CONDITIONS)
     public int FollowingType = 0;
 
 	@Column(defaultExpr = "''")
@@ -52,22 +52,22 @@ public class User {
 
 
     /////////// FOr contacts
-    @Column(defaultExpr = "0", helpers = Column.Helpers.CONDITION_EQ)
+    @Column(defaultExpr = "0", helpers = Column.Helpers.CONDITIONS)
     public int IsPhoneContact = 0;
 
     @Column(defaultExpr = "0")
     public int PhoneContactRowId = 0;
 
-    @Column(defaultExpr = "''" ,helpers = Column.Helpers.CONDITION_EQ)
+    @Column(defaultExpr = "''" ,helpers = Column.Helpers.CONDITIONS)
     public String PhoneNumber = "";//0935... +98910711..
 
-    @Column(defaultExpr = "''",helpers = Column.Helpers.CONDITION_EQ )
+    @Column(defaultExpr = "''",helpers = Column.Helpers.CONDITIONS )
     public String PhoneNormalizedNumber = "";
 
-    @Column(defaultExpr = "''" ,helpers = Column.Helpers.CONDITION_EQ)
+    @Column(defaultExpr = "''" ,helpers = Column.Helpers.CONDITIONS)
     public String PhoneDisplayName = "";
 
-    @Column(defaultExpr = "''" ,helpers = Column.Helpers.CONDITION_EQ)
+    @Column(defaultExpr = "''" ,helpers = Column.Helpers.CONDITIONS)
     public String PhoneFamilyName = "";
 
 
