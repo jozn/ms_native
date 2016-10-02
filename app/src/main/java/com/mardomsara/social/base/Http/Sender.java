@@ -105,8 +105,12 @@ public class Sender<T> {
         } catch (IOException e) {
             res.ok = false;
             e.printStackTrace();
-        }
-        return  res;
+        }finally {
+			if(setBody){
+				response.body().close();
+			}
+		}
+		return  res;
     }
 
 

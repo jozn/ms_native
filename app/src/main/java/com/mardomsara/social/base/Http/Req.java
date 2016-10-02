@@ -109,7 +109,7 @@ public class Req<T> {
         if(action != Action.DOWNLOAD){
             throw new IllegalArgumentException("In Http2 doAsyncDownload() must be called just fro uploads.");
         }
-        AndroidUtil.runInBackground(()->{
+        AndroidUtil.runInBackgroundNoPanic(()->{
             Result res = Sender.Send(this);
 
             File downloadedFile = new File(fileDownloadDest);
@@ -126,7 +126,9 @@ public class Req<T> {
             } catch (Exception e) {
                 res.ok = false;
                 e.printStackTrace();
-            }
+            }finally {
+				res.response.body().close();
+			}
 
             if(callBack != null){
                 callBack.callback(res);
