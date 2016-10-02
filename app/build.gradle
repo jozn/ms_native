@@ -9,7 +9,7 @@ repositories {
     maven { url 'https://maven.fabric.io/public' }
 }
 
-def dbflow_version = "3.0.0-beta6"
+//def dbflow_version = "3.0.0-beta6"
 
 android {
     compileSdkVersion 24
@@ -67,9 +67,9 @@ dependencies {
     //    apt 'com.github.Raizlabs.DBFlow:dbflow-processor:develop-SNAPSHOT'
     //    compile "com.github.Raizlabs.DBFlow:dbflow-core:develop-SNAPSHOT"
     //    compile "com.github.Raizlabs.DBFlow:dbflow:develop-SNAPSHOT"
-    apt "com.github.Raizlabs.DBFlow:dbflow-processor:${dbflow_version}"
-    compile "com.github.Raizlabs.DBFlow:dbflow-core:${dbflow_version}"
-    compile "com.github.Raizlabs.DBFlow:dbflow:${dbflow_version}"
+//    apt "com.github.Raizlabs.DBFlow:dbflow-processor:${dbflow_version}"
+//    compile "com.github.Raizlabs.DBFlow:dbflow-core:${dbflow_version}"
+//    compile "com.github.Raizlabs.DBFlow:dbflow:${dbflow_version}"
     //    apt 'com.yahoo.squidb:squidb-processor:2.0.3'
     //    compile 'com.yahoo.squidb:squidb:2.0.3'
     //    compile 'com.yahoo.squidb:squidb-annotations:2.0.3'

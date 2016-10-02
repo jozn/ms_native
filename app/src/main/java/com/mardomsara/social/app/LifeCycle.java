@@ -12,19 +12,16 @@ import com.facebook.imagepipeline.listener.RequestLoggingListener;
 import com.mardomsara.social.App;
 import com.mardomsara.social.base.Command;
 import com.mardomsara.social.helpers.AppUtil;
-import com.mardomsara.social.models.syncer.ContactsCopySyncer;
 import com.mardomsara.social.models.NotifyModel;
 import com.mardomsara.social.models.Session;
 import com.mardomsara.social.models.stores.Store;
+import com.mardomsara.social.models.syncer.ContactsCopySyncer;
 import com.mardomsara.social.models.syncer.UserSyncer;
 import com.mardomsara.social.service.BackgroundService;
 import com.mardomsara.social.service.WS;
 import com.mardomsara.social.ui.BasePresenter;
 import com.orhanobut.hawk.Hawk;
 import com.orhanobut.hawk.HawkBuilder;
-import com.raizlabs.android.dbflow.config.FlowConfig;
-import com.raizlabs.android.dbflow.config.FlowLog;
-import com.raizlabs.android.dbflow.config.FlowManager;
 import com.squareup.picasso.LruCache;
 import com.squareup.picasso.Picasso;
 
@@ -89,9 +86,6 @@ public class LifeCycle {
 
             BasePresenter.context = ctx;
             BasePresenter.inflater = LayoutInflater.from(ctx);
-            FlowLog.setMinimumLoggingLevel(FlowLog.Level.V);
-            FlowManager.init(new FlowConfig.Builder(ctx)
-                    .openDatabasesOnInit(true).build());
 
             DB.init();
 
@@ -101,7 +95,7 @@ public class LifeCycle {
     public static void onAppActivityStarted(){
 //        Sync.syncAllFollowings();
 //        Sync.checkSyncContacts();
-        Sync.syncAllFollowings();
+//        Sync.syncAllFollowings();
 
         NotifyModel.getSyncLasts();
     }
