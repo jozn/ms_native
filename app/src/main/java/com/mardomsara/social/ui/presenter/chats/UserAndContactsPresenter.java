@@ -18,13 +18,9 @@ import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.IntentUtil;
 import com.mardomsara.social.models.ContactsCopyModel;
 import com.mardomsara.social.models.UserModel;
-import com.mardomsara.social.models.android.PhoneContact;
-import com.mardomsara.social.models.old.DevicePhoneContact__OLD;
-import com.mardomsara.social.models.old.PhoneContactsModel;
 import com.mardomsara.social.models.tables.ContactsCopy;
 import com.mardomsara.social.models.tables.User;
 import com.mardomsara.social.play.DividerItemDecoration;
-import com.mardomsara.social.tables.UsersTable;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.presenter.dialogs.RoomListRowOptionsPresenter;
 

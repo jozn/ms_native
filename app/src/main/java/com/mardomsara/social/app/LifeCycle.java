@@ -100,7 +100,7 @@ public class LifeCycle {
 
     public static void onAppActivityStarted(){
 //        Sync.syncAllFollowings();
-        Sync.checkSyncContacts();
+//        Sync.checkSyncContacts();
         Sync.syncAllFollowings();
 
         NotifyModel.getSyncLasts();

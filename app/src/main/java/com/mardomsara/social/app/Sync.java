@@ -1,16 +1,14 @@
 package com.mardomsara.social.app;
 
 import com.mardomsara.social.helpers.AppUtil;
-import com.mardomsara.social.models.old.DevicePhoneContact__OLD;
 import com.mardomsara.social.models.Follow;
-import com.mardomsara.social.models.old.PhoneContactsModel;
 
 /**
  * Created by Hamid on 7/2/2016.
  */
 public class Sync {
 
-    public static void checkSyncContacts() {
+    /*public static void checkSyncContacts() {
         Runnable r = () -> {
 //            PhoneContactsModel.syncContactsFromServer();
             try {
@@ -27,7 +25,7 @@ public class Sync {
             PhoneContactsModel.syncAllFollowingsFromServer();
         };
         AppUtil.runInBackgeound(r);
-    }
+    }*/
 
     public static void syncAllFollowings() {
         Runnable r = () -> {
