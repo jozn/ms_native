@@ -9,12 +9,12 @@ import com.mardomsara.social.App;
 import com.mardomsara.social.Nav;
 import com.mardomsara.social.R;
 import com.mardomsara.social.app.Router;
-import com.mardomsara.social.base.Command;
+import com.mardomsara.social.base.old.Command;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.JsonUtil;
 import com.mardomsara.social.helpers.LangUtil;
 import com.mardomsara.social.json.social.rows.UserInfoJson;
-import com.mardomsara.social.service.WS;
+import com.mardomsara.social.service.WS_DEP;
 import com.mardomsara.social.ui.BasePresenter;
 
 //import ;
@@ -102,7 +102,7 @@ public class HelloPresenter extends BasePresenter {
     void sendWsReqRes(){
         Command cmd = Command.getNewForResult("EchoRes");
         cmd.setData("dasdsad");
-        WS.sendCommandForResponse(cmd,(data)->{
+        WS_DEP.sendCommandForResponse(cmd,(data)->{
             AndroidUtil.runInUi(()->{
 				UserInfoJson u = JsonUtil.fromJson(data,UserInfoJson.class);
                 if(u!= null){

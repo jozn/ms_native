@@ -22,7 +22,6 @@ import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.LangUtil;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
 import com.mardomsara.social.models.LastMsgOfRoomsCache2;
-import com.mardomsara.social.models.MessageModel;
 import com.mardomsara.social.models.RoomModel;
 import com.mardomsara.social.models.events.MessageSyncMeta;
 import com.mardomsara.social.models.events.MsgsSyncMetaDeletedFromServer;
@@ -33,10 +32,8 @@ import com.mardomsara.social.models.events.RoomInfoChangedEvent;
 import com.mardomsara.social.models.tables.Message;
 import com.mardomsara.social.models.tables.Room;
 import com.mardomsara.social.play.DividerItemDecoration;
-import com.mardomsara.social.ui.views.wigets.CountView;
 import com.mardomsara.social.ui.views.wigets.CountView2;
 
-import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
@@ -307,7 +304,7 @@ public class RoomsListCell {
                 case Constants.MESSAGE_STICKER:
                     txt = "[استیکر] " +LangUtil.limitText(lastMsg.Text, limit);
                     break;
-                case Constants.MESSAGE_lOCATION:
+                case Constants.MESSAGE_lOCCASION:
                     txt = "[مکان] " +LangUtil.limitText(lastMsg.Text, limit);
                     break;
             }

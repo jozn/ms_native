@@ -17,7 +17,7 @@ public class Constants {
     //messages Types
     public static final int MESSAGE_TEXT = 10;
     public static final int MESSAGE_CONTACT = 12;
-    public static final int MESSAGE_lOCATION = 14;
+    public static final int MESSAGE_lOCCASION = 14;
     public static final int MESSAGE_STICKER= 18;
     public static final int MESSAGE_POST = 30;
     public static final int MESSAGE_IMAGE = 40;

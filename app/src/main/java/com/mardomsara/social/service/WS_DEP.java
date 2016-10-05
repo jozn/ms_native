@@ -37,10 +37,10 @@ import static okhttp3.ws.WebSocket.TEXT;
 /**
  * Created by Hamid on 9/11/2016.
  */
-public class WS {
-    private static String wsUrl = "ws://192.168.0.10:5000/ws_call?UserId="+ Session.getUserId();
+public class WS_DEP {
+    private static String wsUrl = "ws://192.168.0.10:5000/ws?UserId="+ Session.getUserId();
     private static String LOGTAG = "WS";
-    private static WS instance;
+    private static WS_DEP instance;
 
     private STATUS status = STATUS.CLOSED;
 
@@ -64,7 +64,7 @@ public class WS {
 
     };
 
-    private WS() {
+    private WS_DEP() {
         instance = this;
         Log.d(LOGTAG, "WSService onCreate");
         runSenderThread();
@@ -96,9 +96,9 @@ public class WS {
 
     }
 
-    public static WS getInstance(){
+    public static WS_DEP getInstance(){
         if(instance == null){
-            instance = new WS();
+            instance = new WS_DEP();
         }
         return instance;
     }
@@ -192,8 +192,6 @@ public class WS {
 //        Executors.newSingleThreadExecutor().execute(r);
     }
 
-	//todo upgrade
-	@Deprecated
     void sendStoredCommands(){
         List<Command> cmds =  DB.db.selectFromCommand().toList();
         sendCommands(cmds);
@@ -318,34 +316,34 @@ public class WS {
     static class WSConnection implements WebSocketListener {
         public WebSocket webSocket;
 
-        public WSConnection(WS ws) {
-            this.ws = ws;
+        public WSConnection(WS_DEP wsDEP) {
+            this.wsDEP = wsDEP;
         }
 
-        WS ws;
+        WS_DEP wsDEP;
         @Override
         public void onOpen(WebSocket webSocket, Response response) {
-            ws.onOpen(webSocket, response);
+            wsDEP.onOpen(webSocket, response);
         }
 
         @Override
         public void onFailure(IOException e, Response response) {
-            ws.onFailure(e,response);
+            wsDEP.onFailure(e,response);
         }
 
         @Override
         public void onMessage(ResponseBody message) throws IOException {
-            ws.onMessage(message);
+            wsDEP.onMessage(message);
         }
 
         @Override
         public void onPong(Buffer payload) {
-            ws.onPong(payload);
+            wsDEP.onPong(payload);
         }
 
         @Override
         public void onClose(int code, String reason) {
-            ws.onClose(code,reason);
+            wsDEP.onClose(code,reason);
         }
 
     }

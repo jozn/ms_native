@@ -1,7 +1,7 @@
 package com.mardomsara.social.models.tables;
 
 import com.github.gfx.android.orma.annotation.Database;
-import com.mardomsara.social.base.Command;
+import com.mardomsara.social.base.old.Command;
 
 /**
  * Created by Hamid on 9/1/2016.

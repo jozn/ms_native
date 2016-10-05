@@ -1,4 +1,4 @@
-package com.mardomsara.social.base;
+package com.mardomsara.social.base.old;
 
 import android.support.annotation.Nullable;
 
@@ -18,11 +18,12 @@ import java.util.List;
 /**
  * Created by Hamid on 3/28/2016.
  */
+//todo probly can use this class for other stuff with new Call class -- like send offline messages or posts
+@Deprecated
 @Table
 public class Command {
     static final String BytesCol = "Bytes";
     static final String DataCol = "Data";
-
 
     @Column(helpers = Column.Helpers.CONDITION_EQ, defaultExpr = "''")
     public String Name;

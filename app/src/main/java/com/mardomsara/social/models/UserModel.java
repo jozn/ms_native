@@ -3,10 +3,10 @@ package com.mardomsara.social.models;
 import android.support.annotation.Nullable;
 
 import com.mardomsara.social.app.DB;
-import com.mardomsara.social.base.Command;
+import com.mardomsara.social.base.old.Command;
 import com.mardomsara.social.models.tables.Message;
 import com.mardomsara.social.models.tables.User;
-import com.mardomsara.social.service.WS;
+import com.mardomsara.social.service.WS_DEP;
 
 import java.util.List;
 
@@ -34,7 +34,7 @@ public class UserModel {
             Command cmd = new Command();
             cmd.Name = "GetUserForTable";
             cmd.Data = ""+ msg.UserId;
-            WS.sendCommand(cmd);
+            WS_DEP.sendCommand(cmd);
         }
     }
 

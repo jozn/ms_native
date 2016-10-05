@@ -1,4 +1,6 @@
-package com.mardomsara.social.base;
+package com.mardomsara.social.base.old;
+
+import com.mardomsara.social.base.NetEventHandler;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -6,6 +8,7 @@ import java.util.Map;
 /**
  * Created by Hamid on 5/12/2016.
  */
+@Deprecated
 public class CmdResRegistery {
     public static String CMD_RES ="ResCmd" ;
     private static Map<Long, NetEventHandler> _mapper = new HashMap<>();

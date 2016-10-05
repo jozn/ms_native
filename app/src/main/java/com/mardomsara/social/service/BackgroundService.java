@@ -7,14 +7,6 @@ import android.util.Log;
 
 import com.mardomsara.social.App;
 import com.mardomsara.social.app.LifeCycle;
-import com.mardomsara.social.base.CmdResRegistery;
-import com.mardomsara.social.base.Command;
-import com.mardomsara.social.base.NetEventHandler;
-import com.mardomsara.social.base.WSCall;
-import com.mardomsara.social.helpers.JsonUtil;
-
-import java.util.concurrent.Executor;
-import java.util.concurrent.Executors;
 
 /**
  * Created by Hamid on 3/20/2016.
