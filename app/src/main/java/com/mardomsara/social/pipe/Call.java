@@ -1,4 +1,4 @@
-package com.mardomsara.social.base;
+package com.mardomsara.social.pipe;
 
 import com.mardomsara.social.helpers.JsonUtil;
 import com.mardomsara.social.helpers.TimeUtil;
@@ -39,6 +39,10 @@ public class Call {
 			throw new RuntimeException("In network command you should not call both: .setData(...) and .addToDataArray(...) ");
 		}
 		Data = JsonUtil.toJson(objToJson);
+	}
+
+	public void setMeta(Object objToJson){
+		Meta = JsonUtil.toJson(objToJson);
 	}
 
 	public void addToDataArray(Object arrayRow){

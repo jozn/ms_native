@@ -40,7 +40,7 @@ public class PresenterFragment extends BaseFragment {
             presenterViewHolder.addView(v);
         }catch (Exception e){
             e.printStackTrace();
-            Log.e("Presenter:"," render err:");
+            Log.e("Presenter:"," render error:");
         }
     }
 

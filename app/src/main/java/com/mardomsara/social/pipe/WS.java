@@ -1,4 +1,4 @@
-package com.mardomsara.social.service;
+package com.mardomsara.social.pipe;
 
 import android.util.Log;
 
@@ -69,10 +69,10 @@ public class WS {
         Log.d(LOGTAG, "WSService onCreate");
         runSenderThread();
         connectToServer();
-        connectionCheker();
+        connectionChecker();
     }
 
-    void connectionCheker(){
+    void connectionChecker(){
         Runnable r = ()->{
             int t = 5;
             while (true){
@@ -103,10 +103,10 @@ public class WS {
         return instance;
     }
 
-    private void sendString(String command){
+    void sendString(String callString){
         try {
-            wsSendChannel.put(command);//sendString to chanel
-        } catch (InterruptedException e) {
+            wsSendChannel.put(callString);//sendString to chanel
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -119,7 +119,7 @@ public class WS {
         getInstance().sendString(ws_res);
     }
 
-    public static void sendCommands(List<Command> commands){
+    /*public static void sendCommands(List<Command> commands){
         for(Command c : commands){
 //            c.makeDataReady();
             c.prepareAfterLoadFromDB();
@@ -128,13 +128,13 @@ public class WS {
             sendCommand(c);
         }
 
-        /*WSCall res = new WSCall();
+        *//*WSCall res = new WSCall();
         res.Commands = commands.toArray(new Command[]{});
         String ws_res = JsonUtil.toJson(res);
-        getInstance().sendString(ws_res);*/
-    }
+        getInstance().sendString(ws_res);*//*
+    }*/
 
-    public static void sendAnStoreCommand(Command command) {
+    /*public static void sendAnStoreCommand(Command command) {
         Runnable r = ()->{
             try {
                 command.makeDataReady();
@@ -147,12 +147,12 @@ public class WS {
         };
 
         getInstance().sequnceSendThread.execute(r);
-    }
+    }*/
 
-    public static void sendCommandForResponse(Command command, NetEventHandler handler){
+    /*public static void sendCommandForResponse(Command command, NetEventHandler handler){
         CmdResRegistery.register(command.ResId, handler);
         sendCommand(command);
-    }
+    }*/
 
     void connectToServer(){
         Log.d(LOGTAG, " connectToServer");
@@ -192,12 +192,12 @@ public class WS {
 //        Executors.newSingleThreadExecutor().execute(r);
     }
 
-	//todo upgrade
+	/*//todo upgrade
 	@Deprecated
     void sendStoredCommands(){
         List<Command> cmds =  DB.db.selectFromCommand().toList();
         sendCommands(cmds);
-    }
+    }*/
 
     void tryConnect() {
         connection = new WSConnection(this);
@@ -280,7 +280,7 @@ public class WS {
         status = STATUS.OPEN;
         isReconnectingRunning = false;
         delayReconnect = 5;
-        sendStoredCommands();
+//        sendStoredCommands();
     }
 
     void onFailure(IOException e, Response response) {
