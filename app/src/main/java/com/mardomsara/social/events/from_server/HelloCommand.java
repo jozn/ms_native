@@ -6,7 +6,7 @@ import android.widget.Toast;
 
 import com.mardomsara.social.App;
 import com.mardomsara.social.app.Singletons;
-import com.mardomsara.social.base.NetEventHandler;
+import com.mardomsara.social.pipe.NetEventHandler;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.json.UserListFollow;
 

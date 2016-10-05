@@ -6,7 +6,7 @@ import com.mardomsara.social.app.DB;
 import com.mardomsara.social.app.NetEventRouter;
 import com.mardomsara.social.base.old.CmdResRegistery;
 import com.mardomsara.social.base.old.Command;
-import com.mardomsara.social.base.NetEventHandler;
+import com.mardomsara.social.pipe.NetEventHandler;
 import com.mardomsara.social.base.old.WSCall;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.JsonUtil;

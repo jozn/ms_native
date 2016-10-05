@@ -1,6 +1,6 @@
 package com.mardomsara.social.base.old;
 
-import com.mardomsara.social.base.NetEventHandler;
+import com.mardomsara.social.pipe.NetEventHandler;
 
 import java.util.HashMap;
 import java.util.Map;

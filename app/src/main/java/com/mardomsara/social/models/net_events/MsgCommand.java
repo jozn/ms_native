@@ -3,7 +3,7 @@ package com.mardomsara.social.models.net_events;
 import com.mardomsara.social.app.AppFiles;
 import com.mardomsara.social.app.Constants;
 import com.mardomsara.social.base.HttpOld;
-import com.mardomsara.social.base.NetEventHandler;
+import com.mardomsara.social.pipe.NetEventHandler;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.FileUtil;

@@ -2,19 +2,11 @@ package com.mardomsara.social.pipe;
 
 import android.util.Log;
 
-import com.mardomsara.social.app.DB;
-import com.mardomsara.social.app.NetEventRouter;
-import com.mardomsara.social.base.old.CmdResRegistery;
-import com.mardomsara.social.base.old.Command;
-import com.mardomsara.social.base.NetEventHandler;
-import com.mardomsara.social.base.old.WSCall;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.JsonUtil;
 import com.mardomsara.social.models.Session;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
@@ -55,14 +47,6 @@ public class WS {
     //for now use just single thread, maybe using multi thread could cause data racing or others bug
     ExecutorService reciverHandlerExecuter = Executors.newSingleThreadExecutor();
     WebSocket webSocket;
-
-    public static NetEventHandler CommandsReceivedToServer_Handler = (data)->{
-        Long[] ids = JsonUtil.fromJson(data, Long[].class);
-        if(ids == null) return;
-        logIt("CommandsReceivedToServer_Handler " + ids.toString());
-        DB.db.deleteFromCommand().ClientNanoIdIn(ids).execute();
-
-    };
 
     private WS() {
         instance = this;
@@ -111,49 +95,6 @@ public class WS {
         }
     }
 
-    public static void sendCommand(Command command){
-        command.makeDataReady();
-        WSCall res = new WSCall();
-        res.Commands = new Command[]{command};
-        String ws_res = JsonUtil.toJson(res);
-        getInstance().sendString(ws_res);
-    }
-
-    /*public static void sendCommands(List<Command> commands){
-        for(Command c : commands){
-//            c.makeDataReady();
-            c.prepareAfterLoadFromDB();
-            AppUtil.log("Command XXX: "+c.toString());
-//            c.Data.replace("\\\\","\\");
-            sendCommand(c);
-        }
-
-        *//*WSCall res = new WSCall();
-        res.Commands = commands.toArray(new Command[]{});
-        String ws_res = JsonUtil.toJson(res);
-        getInstance().sendString(ws_res);*//*
-    }*/
-
-    /*public static void sendAnStoreCommand(Command command) {
-        Runnable r = ()->{
-            try {
-                command.makeDataReady();
-                command.insert();
-//                DB.db.insertIntoCommand(command);
-                sendCommand(command);
-            }catch (Exception e){
-                e.printStackTrace();
-            }
-        };
-
-        getInstance().sequnceSendThread.execute(r);
-    }*/
-
-    /*public static void sendCommandForResponse(Command command, NetEventHandler handler){
-        CmdResRegistery.register(command.ResId, handler);
-        sendCommand(command);
-    }*/
-
     void connectToServer(){
         Log.d(LOGTAG, " connectToServer");
         //just make sure there is only one conncetion open to server
@@ -191,13 +132,6 @@ public class WS {
         delayReconnect += delayReconnect;
 //        Executors.newSingleThreadExecutor().execute(r);
     }
-
-	/*//todo upgrade
-	@Deprecated
-    void sendStoredCommands(){
-        List<Command> cmds =  DB.db.selectFromCommand().toList();
-        sendCommands(cmds);
-    }*/
 
     void tryConnect() {
         connection = new WSConnection(this);
@@ -239,39 +173,39 @@ public class WS {
         Executors.newSingleThreadExecutor().execute(run);
     }
 
-    void handleNetMessage(String body){
-        logIt("onMessage: message :" + body);
-        WSCall res = AppUtil.fromJson(body, WSCall.class);
-        Log.d("ws", ""+res);
+	void handleNetMessage(String body){
+		logIt("onMessage: message :" + body);
+		Call call = AppUtil.fromJson(body, Call.class);
+		Log.d("ws", ""+call);
 
-        if(res.Commands == null) return;
-        List<Long> serverNanosRecied = new ArrayList<>();
-        Boolean sendCmdsRecived = true;
-        Runnable r = ()->{
-            for(Command comStr : res.Commands){
-                try {//handle catches errors
-                    //responed to server servers commands recived
-                    if(comStr.ServerNanoId > 0){
-                        serverNanosRecied.add(comStr.ServerNanoId);
-                    }
+		if(call == null) return;
 
-                    if(comStr.Name.equals(CmdResRegistery.CMD_RES) ){//for request->responsed command
-                        CmdResRegistery.tryRunCmd(comStr);
-                    }else {
-                        NetEventRouter.handle(comStr.Name ,comStr.Data);
-                    }
-                }catch (Exception e){
-                    e.printStackTrace();
-                }
-            }
-            if(serverNanosRecied.size() > 0){
-                Command reviedCmd = Command.getNew("CommandsReceivedToClient");
-                reviedCmd.setData(serverNanosRecied);
-                sendCommand(reviedCmd);
-            }
-        };
-        reciverHandlerExecuter.execute(r);
-    }
+		Runnable r = ()->{
+			try {
+				if (call.ServerCallId != 0) {//respond call
+					sendToServer_CallReceivedToAndroid(call.ServerCallId);
+					return;
+				}
+				if (call.Name.equals("CallReceivedToServer")) {
+					CallRespondCallbacksRegistery.trySucc(call.ClientCallId);
+					return;
+				}
+
+				WSCallRouter.handle(call.Name, call.Data);
+			}catch (Exception e){
+				e.printStackTrace();
+			}
+		};
+		reciverHandlerExecuter.execute(r);
+	}
+
+	void sendToServer_CallReceivedToAndroid(long ServerCallId){
+		Call call = new Call("CallReceivedToClient");
+		call.ClientCallId = 0;//tell server don't respond
+		call.ServerCallId = ServerCallId;
+
+		sendString(JsonUtil.toJson(call));
+	}
 
     /////////////////////// Websocket Connection callbacks ////////////////////////////////////
     void onOpen(WebSocket webSocket, Response response) {

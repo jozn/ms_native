@@ -1,9 +1,8 @@
-package com.mardomsara.social.app;
+package com.mardomsara.social.pipe;
 
+import com.mardomsara.social.app.Constants;
 import com.mardomsara.social.base.old.Command;
-import com.mardomsara.social.pipe.NetEventHandler;
 import com.mardomsara.social.events.from_server.HelloCommand;
-//import com.mardomsara.social.events.from_server.MsgCommand;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.models.net_events.MsgCommand;
 import com.mardomsara.social.service.WS_DEP;
@@ -11,11 +10,12 @@ import com.mardomsara.social.service.WS_DEP;
 import java.util.HashMap;
 import java.util.Map;
 
+//import com.mardomsara.social.events.from_server.MsgCommand;
+
 /**
  * Created by Hamid on 3/31/2016.
  */
-@Deprecated
-public class NetEventRouter {
+public class WSCallRouter {
 
     static {
         mapper = new HashMap<>();//must be here - otherwise it will not inintilaze befor buildMapper()
