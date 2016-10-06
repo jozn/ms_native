@@ -5,7 +5,6 @@ import com.mardomsara.social.base.old.Command;
 import com.mardomsara.social.events.from_server.HelloCommand;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.models.net_events.MsgCommand;
-import com.mardomsara.social.service.WS_DEP;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -60,7 +59,7 @@ public class WSCallRouter {
         register(Constants.MsgsDeletedFromServer, MsgCommand.MsgsDeletedFromServer);
 
         //internal
-        register(Constants.CommandsReceivedToServer, WS_DEP.CommandsReceivedToServer_Handler);
+//        register(Constants.CommandsReceivedToServer, WS_DEP.CommandsReceivedToServer_Handler);
 
         //////////////////
         register("SetUserForTable", MsgCommand.SetUserForTable);

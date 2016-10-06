@@ -28,6 +28,10 @@ public class TestsPresenter extends BasePresenter {
             Nav.push(new Http2TestPresenter());
         }));
 
+		layout.addView(newTitle("Ws Call tsest",()->{
+			Nav.push(new WSCallPresenter());
+		}));
+
         return rootView;
     }
 

@@ -10,15 +10,14 @@ import com.facebook.imagepipeline.core.ImagePipelineConfig;
 import com.facebook.imagepipeline.listener.RequestListener;
 import com.facebook.imagepipeline.listener.RequestLoggingListener;
 import com.mardomsara.social.App;
-import com.mardomsara.social.base.old.Command;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.models.NotifyModel;
 import com.mardomsara.social.models.Session;
 import com.mardomsara.social.models.stores.Store;
 import com.mardomsara.social.models.syncer.ContactsCopySyncer;
 import com.mardomsara.social.models.syncer.UserSyncer;
+import com.mardomsara.social.pipe.Pipe;
 import com.mardomsara.social.service.BackgroundService;
-import com.mardomsara.social.service.WS_DEP;
 import com.mardomsara.social.ui.BasePresenter;
 import com.orhanobut.hawk.Hawk;
 import com.orhanobut.hawk.HawkBuilder;
@@ -118,9 +117,10 @@ public class LifeCycle {
         //////////////
         AppFiles.buildAllDirs();
         //////////////
-        Command cmd = new Command();
+		Pipe.sendCall("Echo","",null,null);
+        /*Command cmd = new Command();
         cmd.Name = "Echo";
-        WS_DEP.sendCommand(cmd);
+        WS_DEP.sendCommand(cmd);*/
         Session.fetchUserInfoFromServer();
         /////////////
         _afterCalled = true;

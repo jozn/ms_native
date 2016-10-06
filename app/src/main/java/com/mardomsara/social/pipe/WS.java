@@ -187,7 +187,7 @@ public class WS {
 					return;
 				}
 				if (call.Name.equals("CallReceivedToServer")) {
-					CallRespondCallbacksRegistery.trySucc(call.ClientCallId);
+					CallRespondCallbacksRegistery.trySucceeded(call.ClientCallId);
 					return;
 				}
 

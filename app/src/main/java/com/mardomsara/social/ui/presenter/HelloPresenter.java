@@ -99,7 +99,19 @@ public class HelloPresenter extends BasePresenter {
         count +=1;
     }
 
-    void sendWsReqRes(){
+	void sendWsReqRes(){
+		Command cmd = Command.getNewForResult("EchoRes");
+		cmd.setData("dasdsad");
+		WS_DEP.sendCommandForResponse(cmd,(data)->{
+			AndroidUtil.runInUi(()->{
+				UserInfoJson u = JsonUtil.fromJson(data,UserInfoJson.class);
+				if(u!= null){
+					Toast.makeText(App.context,u.FirstName,Toast.LENGTH_LONG).show();
+				}
+			});
+		});
+	}
+    /*void sendWsReqRes(){
         Command cmd = Command.getNewForResult("EchoRes");
         cmd.setData("dasdsad");
         WS_DEP.sendCommandForResponse(cmd,(data)->{
@@ -110,5 +122,5 @@ public class HelloPresenter extends BasePresenter {
                 }
             });
         });
-    }
+    }*/
 }

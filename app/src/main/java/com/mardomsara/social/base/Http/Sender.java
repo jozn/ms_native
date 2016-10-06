@@ -107,7 +107,11 @@ public class Sender<T> {
             e.printStackTrace();
         }finally {
 			if(setBody){
-				response.body().close();
+				try {
+					response.body().close();
+				}catch (Exception e){
+					e.printStackTrace();
+				}
 			}
 		}
 		return  res;
