@@ -24,7 +24,8 @@ import org.greenrobot.eventbus.EventBus;
 /**
  * Created by Hamid on 5/2/2016.
  */
-public class MsgCommand {
+@Deprecated
+public class MsgCommand_DEP {
     public static NetEventHandler addSingleMsg = ( data) ->{
         Message msg = AppUtil.fromJson(data,Message.class);
         if(msg==null)return;

@@ -184,7 +184,6 @@ public class WS {
 			try {
 				if (call.ServerCallId != 0) {//respond call
 					sendToServer_CallReceivedToAndroid(call.ServerCallId);
-					return;
 				}
 				if (call.Name.equals("CallReceivedToServer")) {
 					CallRespondCallbacksRegistery.trySucceeded(call.ClientCallId);

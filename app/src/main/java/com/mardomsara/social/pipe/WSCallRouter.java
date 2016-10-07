@@ -1,10 +1,10 @@
 package com.mardomsara.social.pipe;
 
 import com.mardomsara.social.app.Constants;
-import com.mardomsara.social.base.old.Command;
 import com.mardomsara.social.events.from_server.HelloCommand;
 import com.mardomsara.social.helpers.AppUtil;
-import com.mardomsara.social.models.net_events.MsgCommand;
+import com.mardomsara.social.models.net_events.MsgCommand_DEP;
+import com.mardomsara.social.pipe.from_net_calls.MsgCalls;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -23,7 +23,7 @@ public class WSCallRouter {
 
     public static Map<String,NetEventHandler> mapper;
 
-    public static void register(String command, NetEventHandler handler){
+    static void register(String command, NetEventHandler handler){
         mapper.put(command,handler);
     }
 
@@ -41,29 +41,26 @@ public class WSCallRouter {
         }
     }
 
-    public static void handleResponse(Command command) {
-
-    }
-
     public static void buildMapper() {
         register("time", HelloCommand.addMesage);
         register("hello", HelloCommand.addMesage);
 
         //dep
-        register("addMsg", MsgCommand.addSingleMsg);
+//        register("addMsg", MsgCommand_DEP.addSingleMsg);
         //Messages
-        register(Constants.MsgsAddNew, MsgCommand.MsgsAddNew);
-        register(Constants.MsgsReceivedToServer, MsgCommand.MsgsReceivedToServer);
-        register(Constants.MsgsReceivedToPeer, MsgCommand.MsgsReceivedToPeer);
-        register(Constants.MsgsSeenByPeer, MsgCommand.MsgsSeenByPeer);
-        register(Constants.MsgsDeletedFromServer, MsgCommand.MsgsDeletedFromServer);
+        register("MsgAddOne", MsgCalls.MsgAddOne);
+
+        register(Constants.MsgsReceivedToServer, MsgCommand_DEP.MsgsReceivedToServer);
+        register(Constants.MsgsReceivedToPeer, MsgCommand_DEP.MsgsReceivedToPeer);
+        register(Constants.MsgsSeenByPeer, MsgCommand_DEP.MsgsSeenByPeer);
+        register(Constants.MsgsDeletedFromServer, MsgCommand_DEP.MsgsDeletedFromServer);
 
         //internal
 //        register(Constants.CommandsReceivedToServer, WS_DEP.CommandsReceivedToServer_Handler);
 
         //////////////////
-        register("SetUserForTable", MsgCommand.SetUserForTable);
-        register("SetUserForTable", MsgCommand.SetUserForTable);
+        register("SetUserForTable", MsgCommand_DEP.SetUserForTable);
+        register("SetUserForTable", MsgCommand_DEP.SetUserForTable);
 
 //        register("ResCmd", MsgCommand.SetUserForTable);
 
