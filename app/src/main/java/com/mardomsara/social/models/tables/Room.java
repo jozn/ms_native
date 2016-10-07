@@ -7,6 +7,8 @@ import com.github.gfx.android.orma.annotation.OnConflict;
 import com.github.gfx.android.orma.annotation.PrimaryKey;
 import com.github.gfx.android.orma.annotation.Table;
 import com.mardomsara.social.app.DB;
+import com.mardomsara.social.helpers.LangUtil;
+import com.mardomsara.social.models.Session;
 import com.mardomsara.social.models.UserModel;
 
 import org.apache.commons.lang3.math.NumberUtils;
@@ -67,7 +69,7 @@ public class Room {
     public int getUserId(){
         //todo add support for groups
         if(RoomTypeId == 1 && false ) return 0;
-        Integer id = NumberUtils.createInteger(RoomKey.substring(1));
+        Integer id = roomKeyToPeerId(RoomKey);//NumberUtils.createInteger(RoomKey.substring(1));
         return id;
     }
 
@@ -92,5 +94,24 @@ public class Room {
         }
         return "public/avatars/no.jpg";
     }
+
+
+	//todo move this somewhere
+	public static int roomKeyToPeerId(String RoomKey){
+		int myId = Session.getUserId();
+		String[] users = RoomKey.substring(1).split("_");
+		if(users.length != 2) return 0;
+		int user1 = LangUtil.stringToInt(users[0],0);
+		int user2 = LangUtil.stringToInt(users[1],0);
+
+		if(user1 == myId){
+			return user2;
+		}
+
+		if(user2 == myId){
+			return user1;
+		}
+		return 0;
+	}
 
 }

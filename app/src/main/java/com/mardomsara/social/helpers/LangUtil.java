@@ -2,6 +2,8 @@ package com.mardomsara.social.helpers;
 
 import android.util.Patterns;
 
+import org.apache.commons.lang3.math.NumberUtils;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -63,6 +65,15 @@ public class LangUtil {
                 Arrays.asList(string.split(",")));
         return strValueList;
     }
+
+	public static int stringToInt(String s,int defult){
+		try {
+			defult = NumberUtils.createInteger(s);
+		}catch (Exception e){
+			e.printStackTrace();
+		}
+		return defult;
+	}
 
     /**
      * convert array list to "," separated string

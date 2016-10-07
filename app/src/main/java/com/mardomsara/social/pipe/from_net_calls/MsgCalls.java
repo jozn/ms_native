@@ -1,5 +1,6 @@
 package com.mardomsara.social.pipe.from_net_calls;
 
+import com.mardomsara.social.App;
 import com.mardomsara.social.app.AppFiles;
 import com.mardomsara.social.app.Constants;
 import com.mardomsara.social.app.DB;
@@ -31,13 +32,19 @@ public class MsgCalls {
 		MsgAddOneJson d = AppUtil.fromJson(data,MsgAddOneJson.class);
         if(d==null || d.Message == null )return;
         AppUtil.log("MsgAddOne: cmd -> "+data);
-        RoomModel.onRecivedNewMsg(d.Message);
-        UserModel.onRecivedNewMsg(d.Message);
-		DB.db.insertIntoMessage(d.Message);
-//        AppUtil.runInUi(()->{RoomsListAdaptor.up.run();});
-        EventBus.getDefault().post(d.Message);
+
+		handleNewMsg(d.Message);
     };
 
+	static void handleNewMsg(Message msg){
+		MessageModel.setParamsForNewMsgRecivedFromNet(msg);
+		RoomModel.onRecivedNewMsg(msg);
+		handleNewMsgFunctionalitiesForTypes(msg);
+		App.getBus().post(msg);
+
+		DB.db.insertIntoMessage(msg);
+//		MessageModel.sendToServerMsgsReceivedToPeerCmd(msg);
+	}
 
 
 
