@@ -2,6 +2,7 @@ package com.mardomsara.social.pipe;
 
 import android.util.Log;
 
+import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.JsonUtil;
 import com.mardomsara.social.models.Session;
@@ -51,9 +52,11 @@ public class WS {
     private WS() {
         instance = this;
         Log.d(LOGTAG, "WSService onCreate");
-        runSenderThread();
-        connectToServer();
-        connectionChecker();
+		AndroidUtil.runInBackgroundNoPanic(()->{
+			runSenderThread();
+			connectToServer();
+			connectionChecker();
+		});
     }
 
     void connectionChecker(){
@@ -223,12 +226,18 @@ public class WS {
     }
 
     void onMessage(ResponseBody message) {
-        try {
-            String body =  message.string();
-            handleNetMessage(body);
-        }catch (Exception e){
-            e.printStackTrace();
-        }
+		try {
+			String body =  message.string();
+			AndroidUtil.runInBackgroundNoPanic(()->{
+				handleNetMessage(body);
+			});
+		}catch (Exception e){
+			e.printStackTrace();
+		}finally {
+			if(message != null){
+				message.close();
+			}
+		}
     }
 
     void onPong(Buffer payload) {

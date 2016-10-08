@@ -79,11 +79,14 @@ public class User {
     @Column(defaultExpr = "0" ,helpers = Column.Helpers.CONDITIONS)
     public int UpdatedTime = 0;
 
+	//todo what to do whit this ? //server sends Phone
+	public String Phone = "";
+
 
 
     ///////////////////////////////////////
 
-    public void insert(){
+    public void save(){
         DB.db.relationOfUser().upserter().execute(this);
     }
 

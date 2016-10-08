@@ -4,11 +4,15 @@ import android.support.annotation.Nullable;
 
 import com.mardomsara.social.app.DB;
 import com.mardomsara.social.base.old.Command;
+import com.mardomsara.social.helpers.AndroidUtil;
+import com.mardomsara.social.helpers.AppUtil;
+import com.mardomsara.social.models.tables.ContactsCopy;
 import com.mardomsara.social.models.tables.Message;
 import com.mardomsara.social.models.tables.User;
 import com.mardomsara.social.service.WS_DEP;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Hamid on 9/6/2016.
@@ -27,7 +31,27 @@ public class UserModel {
 
     /////////////////////////////
 
+	public static void insertNewUser_BG(User user) {
+		AppUtil.log("insertNewUser_BG()");
+		AndroidUtil.runInBackgroundNoPanic(()->{
+			if(user == null)return;
+			Map<String,ContactsCopy> map= ContactsCopyModel.getCacheOfContactsCopy();
+			String phone = user.Phone;
+			if( ! user.PhoneNormalizedNumber.equals("")){
+				phone=user.PhoneNormalizedNumber;
+			}
+			if(map.containsKey(phone)){
+				ContactsCopy cc = map.get(phone);
+				user.PhoneContactRowId = cc.PhoneContactRowId;
+				user.PhoneDisplayName = cc.PhoneDisplayName;
+				user.PhoneNumber = cc.PhoneNumber;
+				user.PhoneNormalizedNumber = phone;
+			}
+			user.save();
+		});
+	}
 
+	@Deprecated
     public static void onRecivedNewMsg(Message msg) {
         User user = getByUserId( msg.UserId );
         if(user == null){

@@ -29,11 +29,12 @@ import org.greenrobot.eventbus.EventBus;
  */
 public class MsgCalls {
     public static NetEventHandler MsgAddOne = ( data) ->{
-		MsgAddOneJson d = AppUtil.fromJson(data,MsgAddOneJson.class);
-        if(d==null || d.Message == null )return;
+		MsgAddOneJson jd = AppUtil.fromJson(data,MsgAddOneJson.class);
+        if(jd==null || jd.Message == null )return;
         AppUtil.log("MsgAddOne: cmd -> "+data);
 
-		handleNewMsg(d.Message);
+		handleNewMsg(jd.Message);
+		handleNewUser(jd.User);
     };
 
 	static void handleNewMsg(Message msg){
@@ -42,8 +43,12 @@ public class MsgCalls {
 		handleNewMsgFunctionalitiesForTypes(msg);
 		App.getBus().post(msg);
 
-		DB.db.insertIntoMessage(msg);
+		msg.save();
 //		MessageModel.sendToServerMsgsReceivedToPeerCmd(msg);
+	}
+
+	static void handleNewUser(User user){
+		UserModel.insertNewUser_BG(user);
 	}
 
 

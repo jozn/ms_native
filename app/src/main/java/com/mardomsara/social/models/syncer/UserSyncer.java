@@ -48,7 +48,7 @@ public class UserSyncer {
 	static void saveNewUsers (List<User> newUsers) {
 		DB.db.transactionSync(()->{
 			for(User u: newUsers){
-				u.insert();
+				u.save();
 			}
 		});
 	}

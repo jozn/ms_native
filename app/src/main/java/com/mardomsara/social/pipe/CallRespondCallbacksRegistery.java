@@ -1,6 +1,5 @@
 package com.mardomsara.social.pipe;
 
-import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.TimeUtil;
 
@@ -27,6 +26,7 @@ public class CallRespondCallbacksRegistery {
 			}
 			_mapper.put(handler.clientCallId, handler);
 		}
+		setNextChecker();
 	}
 
     public static void trySucceeded(long ReqId) {
@@ -68,8 +68,40 @@ public class CallRespondCallbacksRegistery {
 				}
 			}
 		}
+
+	}
+	static boolean hasSetInterval = false;
+	static synchronized void setHasSetInterval(boolean val){
+		hasSetInterval = val;
+	}
+	static synchronized boolean getHasSetInterval(){
+		return hasSetInterval;
+	}
+	static void setNextChecker(){
+		if(getHasSetInterval()){
+			return;
+		}
+		setHasSetInterval(true);
+		Runnable runner  = ()->{
+			int n = 0;
+			while (n < 5){ // 5 times * 1 second  = 5sec
+				try {
+					Thread.currentThread().sleep(1000);
+					runErrorOfTimeouts();
+				}catch (Exception e){
+					e.printStackTrace();
+				}
+				n++;
+			}
+			setHasSetInterval(false);
+			if(_mapper.size() >0){
+				setNextChecker();
+			}
+		};
+		Executors.newSingleThreadExecutor().execute(runner);
 	}
 
+	@Deprecated
 	static void intervalRun(){
 		Runnable runer  = ()->{
 			int n = 0;
@@ -83,7 +115,6 @@ public class CallRespondCallbacksRegistery {
 			}
 		};
 
-		Executors.newSingleThreadExecutor().execute(runer);
 
 //		new Thread(runer,"WS Call timeout checker").run();
 	}

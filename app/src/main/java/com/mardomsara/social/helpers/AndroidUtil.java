@@ -46,7 +46,6 @@ import java.util.HashSet;
  * Created by Hamid on 5/9/2016.
  */
 public class AndroidUtil {
-    public static Context _context;
 
     public static Context getContext(){
         return App.getContext();
@@ -102,11 +101,14 @@ public class AndroidUtil {
     }
 
     public static void runInBackgroundNoPanic(Runnable r){
-        try {
-            Singletons.getThreadPool().execute(r);
-        }catch (Exception e){
-            e.printStackTrace();
-        }
+		Runnable runner = ()->{
+			try {
+				r.run();
+			}catch (Exception e){
+				e.printStackTrace();
+			}
+		};
+		Singletons.getThreadPool().execute(runner);
     }
 
     public static void runInSingleBackground(Runnable r){
