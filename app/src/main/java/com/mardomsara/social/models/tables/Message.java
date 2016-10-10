@@ -78,6 +78,9 @@ public class Message {
     @Column(defaultExpr = "0", helpers = Column.Helpers.CONDITION_EQ)
     public int ToPush = 0;
 
+	@Column(defaultExpr = "0", helpers = Column.Helpers.CONDITION_EQ)
+	public int AmISeen = 0;
+
     @Column(defaultExpr = "0" ,helpers = Column.Helpers.CONDITION_EQ)
     public int MediaStatus=0;
 

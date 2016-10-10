@@ -86,6 +86,23 @@ public class RoomModel {
 //        msg.getClass().getAnnotation(Column.class).value();
     }
 
+	public static void messageHasInsertIntoRoomUpdateRoomInfo(Message msg){
+		Room room = getRoomByRoomKey(msg.RoomKey);
+		if(room == null){
+			room = new Room();
+			room.RoomKey = msg.RoomKey;
+			room.RoomTypeId = 1;//todo: extarct from here
+			room.CreatedMs = TimeUtil.getTimeMs();
+		}
+		int count = DB.db.relationOfMessage().RoomKeyEq(msg.RoomKey).AmISeenEq(0).count();
+		room.UnseenMessageCount = count;
+		room.UpdatedMs = msg.CreatedMs;//this one we show to user
+		room.SortTimeMs = TimeUtil.getTimeMs();//just for sorting needs accurte user own device
+		updateOrInsert(room);
+//        room.save();
+//        msg.getClass().getAnnotation(Column.class).value();
+	}
+
     //todo mereg with above func
     public static void onHereNewMsg(Message msg){
         Room room = getRoomByRoomKey(msg.RoomKey);

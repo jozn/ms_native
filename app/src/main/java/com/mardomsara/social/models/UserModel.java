@@ -31,9 +31,9 @@ public class UserModel {
 
     /////////////////////////////
 
-	public static void insertNewUser_BG(User user) {
-		AppUtil.log("insertNewUser_BG()");
-		AndroidUtil.runInBackgroundNoPanic(()->{
+	public static void saveNewUser(User user) {
+		AppUtil.log("saveNewUser()");
+//		AndroidUtil.runInBackgroundNoPanic(()->{
 			if(user == null)return;
 			Map<String,ContactsCopy> map= ContactsCopyModel.getCacheOfContactsCopy();
 			String phone = user.Phone;
@@ -48,7 +48,7 @@ public class UserModel {
 				user.PhoneNormalizedNumber = phone;
 			}
 			user.save();
-		});
+//		});
 	}
 
 	@Deprecated

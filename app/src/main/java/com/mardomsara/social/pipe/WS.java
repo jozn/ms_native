@@ -46,7 +46,7 @@ public class WS {
     BlockingQueue<String> wsSendChannel = new LinkedBlockingQueue<>();
     BlockingQueue<byte[]> wsSendChannelBinary = new LinkedBlockingQueue<>();
     //for now use just single thread, maybe using multi thread could cause data racing or others bug
-    ExecutorService reciverHandlerExecuter = Executors.newSingleThreadExecutor();
+    ExecutorService singleReciverHandlerExecuter = Executors.newSingleThreadExecutor();
     WebSocket webSocket;
 
     private WS() {
@@ -198,7 +198,7 @@ public class WS {
 				e.printStackTrace();
 			}
 		};
-		reciverHandlerExecuter.execute(r);
+		singleReciverHandlerExecuter.execute(r);
 	}
 
 	void sendToServer_CallReceivedToAndroid(long ServerCallId){

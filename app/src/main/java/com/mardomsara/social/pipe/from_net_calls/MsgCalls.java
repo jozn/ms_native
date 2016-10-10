@@ -20,6 +20,7 @@ import com.mardomsara.social.models.events.MsgsSyncMetaSeenByPeer;
 import com.mardomsara.social.models.tables.Message;
 import com.mardomsara.social.models.tables.User;
 import com.mardomsara.social.pipe.NetEventHandler;
+import com.mardomsara.social.pipe.from_net_calls.json.MsgAddManyJson;
 import com.mardomsara.social.pipe.from_net_calls.json.MsgAddOneJson;
 
 import org.greenrobot.eventbus.EventBus;
@@ -31,15 +32,44 @@ public class MsgCalls {
     public static NetEventHandler MsgAddOne = ( data) ->{
 		MsgAddOneJson jd = AppUtil.fromJson(data,MsgAddOneJson.class);
         if(jd==null || jd.Message == null )return;
-        AppUtil.log("MsgAddOne: cmd -> "+data);
+        AppUtil.log("MsgAddOne: -> "+data);
 
 		handleNewMsg(jd.Message);
 		handleNewUser(jd.User);
     };
 
+	public static NetEventHandler MsgAddMany = ( data) ->{
+		MsgAddManyJson jd = AppUtil.fromJson(data,MsgAddManyJson.class);
+		if(jd==null || jd.Messages == null )return;
+		AppUtil.log("MsgAddMany: cmd -> "+data);
+
+		DB.db.transactionSync(()->{
+			for(Message msg: jd.Messages){
+				//Modifications of handleNewMsg
+				MessageModel.setParamsForNewMsgRecivedFromNet(msg);
+//				RoomModel.onRecivedNewMsg(msg);
+				handleNewMsgFunctionalitiesForTypes(msg);
+//				App.getBus().post(msg);
+
+				msg.save();
+			}
+		});
+
+		DB.db.transactionSync(()->{
+			for(User user: jd.Users){
+				UserModel.saveNewUser(user);
+			}
+		});
+
+		for(Message msg: jd.Messages){
+			RoomModel.messageHasInsertIntoRoomUpdateRoomInfo(msg);
+		}
+	};
+
 	static void handleNewMsg(Message msg){
 		MessageModel.setParamsForNewMsgRecivedFromNet(msg);
-		RoomModel.onRecivedNewMsg(msg);
+//		RoomModel.onRecivedNewMsg(msg);
+		RoomModel.messageHasInsertIntoRoomUpdateRoomInfo(msg);
 		handleNewMsgFunctionalitiesForTypes(msg);
 		App.getBus().post(msg);
 
@@ -48,7 +78,7 @@ public class MsgCalls {
 	}
 
 	static void handleNewUser(User user){
-		UserModel.insertNewUser_BG(user);
+		UserModel.saveNewUser(user);
 	}
 
 

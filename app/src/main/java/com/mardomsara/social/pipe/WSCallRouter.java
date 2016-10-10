@@ -49,6 +49,7 @@ public class WSCallRouter {
 //        register("addMsg", MsgCommand_DEP.addSingleMsg);
         //Messages
         register("MsgAddOne", MsgCalls.MsgAddOne);
+        register("MsgAddMany", MsgCalls.MsgAddMany);
 
         register(Constants.MsgsReceivedToServer, MsgCommand_DEP.MsgsReceivedToServer);
         register(Constants.MsgsReceivedToPeer, MsgCommand_DEP.MsgsReceivedToPeer);
