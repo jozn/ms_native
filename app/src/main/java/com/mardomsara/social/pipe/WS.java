@@ -99,6 +99,10 @@ public class WS {
         }
     }*/
 
+	public boolean isOpen(){
+		return status == STATUS.OPEN;
+	}
+
 	void sendCall(Call call){
 		try {
 			wsSendChannel.put(call);//sendString to chanel
