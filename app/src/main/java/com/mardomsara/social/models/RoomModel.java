@@ -26,7 +26,8 @@ public class RoomModel {
 
     //////////////////// CRUD ////////////////////
     public static void update(Room room) {
-        DB.updateAuto(room, Room_Schema.INSTANCE);
+//        DB.updateAuto(room, Room_Schema.INSTANCE);
+		DB.db.prepareInsertIntoRoom(OnConflict.REPLACE,true).execute(room);
     }
 
     public static void updateOrInsert(Room room) {

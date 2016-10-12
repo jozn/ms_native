@@ -57,7 +57,7 @@ public class PresenterFragment extends BaseFragment {
 
     @Override
     public void onResume() {
-        super.onStart();
+        super.onResume();
 //        AppUtil.log("after?? FragmentPresnter onResume()");
         if(presenter!=null) {
             presenter.onResume();

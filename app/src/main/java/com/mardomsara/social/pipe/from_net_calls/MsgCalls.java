@@ -22,8 +22,13 @@ import com.mardomsara.social.models.tables.User;
 import com.mardomsara.social.pipe.NetEventHandler;
 import com.mardomsara.social.pipe.from_net_calls.json.MsgAddManyJson;
 import com.mardomsara.social.pipe.from_net_calls.json.MsgAddOneJson;
+import com.mardomsara.social.pipe.from_net_calls.json.MsgDeletedFromServerJson;
+import com.mardomsara.social.pipe.from_net_calls.json.MsgReceivedToPeerJson;
+import com.mardomsara.social.pipe.from_net_calls.json.MsgSeenByPeerJson;
 
 import org.greenrobot.eventbus.EventBus;
+
+import java.util.List;
 
 /**
  * Created by Hamid on 5/2/2016.
@@ -82,6 +87,51 @@ public class MsgCalls {
 	}
 
 
+	public static NetEventHandler MsgsReceivedToPeerMany = ( data) ->{
+		List<MsgReceivedToPeerJson> res = JsonUtil.fromJsonList(data,MsgReceivedToPeerJson.class);
+		if(res == null || res.size() ==0)return;
+
+		DB.db.transactionSync(()->{
+			for(MsgReceivedToPeerJson meta : res){
+				DB.db.updateMessage()
+					.PeerReceivedTime(meta.AtTime)//updtaed
+					.MessageKeyEq(meta.MsgKey)
+					.RoomKeyEq(meta.RoomKey)
+					.execute();
+			}
+		});
+
+	};
+
+	public static NetEventHandler MsgsDeletedFromServerMany = ( data) ->{
+		List<MsgDeletedFromServerJson> res = JsonUtil.fromJsonList(data,MsgDeletedFromServerJson.class);
+		if(res == null || res.size() ==0)return;
+
+		DB.db.transactionSync(()->{
+			for(MsgDeletedFromServerJson meta : res){
+				DB.db.updateMessage()
+					.ServerDeletedTime(meta.AtTime)//updtaed
+					.MessageKeyEq(meta.MsgKey)
+					.RoomKeyEq(meta.RoomKey)
+					.execute();
+			}
+		});
+	};
+
+	public static NetEventHandler MsgsSeenByPeerMany = ( data) ->{
+		List<MsgSeenByPeerJson> res = JsonUtil.fromJsonList(data, MsgSeenByPeerJson.class);
+		if(res == null || res.size() ==0)return;
+
+		DB.db.transactionSync(()->{
+			for(MsgSeenByPeerJson meta : res){
+				DB.db.updateMessage()
+					.PeerSeenTime(meta.AtTime)//updtaed
+					.MessageKeyEq(meta.MsgKey)
+					.RoomKeyEq(meta.RoomKey)
+					.execute();
+			}
+		});
+	};
 
 	///////////////////// Deps ///////////////////////////////
     public static NetEventHandler SetUserForTable = ( data) -> {

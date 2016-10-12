@@ -3,6 +3,7 @@ package com.mardomsara.social.base.Http;
 import android.support.annotation.NonNull;
 
 import com.mardomsara.social.app.API;
+import com.mardomsara.social.models.Session;
 
 import java.io.File;
 import java.util.HashMap;
@@ -61,7 +62,7 @@ public class Http {
     static Map<String, String> _getDefualturlParams(){
         Map<String, String> h = new HashMap();
         h.put("session","14dsad");
-        h.put("user_id","6");
+        h.put("user_id",""+ Session.getUserId());
         return  h;
     }
 

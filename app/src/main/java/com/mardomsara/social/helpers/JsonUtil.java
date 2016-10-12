@@ -4,6 +4,14 @@ import android.util.Log;
 
 import com.google.gson.Gson;
 import com.mardomsara.social.base.Http.Result;
+import com.mardomsara.social.json.HttpJsonList;
+import com.squareup.moshi.JsonAdapter;
+import com.squareup.moshi.Moshi;
+import com.squareup.moshi.Types;
+
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Hamid on 3/4/2016.
@@ -23,6 +31,24 @@ public class JsonUtil {
         }
         return j;
     }
+
+	static Moshi moshi = new Moshi.Builder().build();
+	//// TODO: 10/12/2016  similer functionality is in http Result.fromJsonList(..)
+	public static <T> List<T> fromJsonList(String str, Class<T> cls ){
+		List<T> j = null;
+		//////// Moshi ////////////
+		Type listOfObjects = Types.newParameterizedType(ArrayList.class, cls);
+
+		JsonAdapter<List<T>> jsonAdapter = moshi.adapter(listOfObjects);
+		try {
+			j = jsonAdapter.fromJson(str);
+		}catch (Exception e){
+			Log.e("JSON: ","error in fromJsonList parsing: "+e.toString() );
+			e.printStackTrace();
+		}
+
+		return j;
+	}
 
     public static <T> T fromJsonHttp(Result result , Class<T> cls){
         T j = null;

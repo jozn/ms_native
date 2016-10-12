@@ -3,6 +3,7 @@ package com.mardomsara.social.base;
 import android.util.Log;
 
 import com.mardomsara.social.helpers.AppUtil;
+import com.mardomsara.social.models.Session;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -187,7 +188,7 @@ public class HttpOld {
     public static Map<String, String> _getDefualturlParams(){
         Map<String, String> h = new HashMap();
         h.put("session","14dsad");
-        h.put("user_id","6");
+        h.put("user_id",""+ Session.getUserId());
         return  h;
     }
 

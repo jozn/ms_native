@@ -50,6 +50,9 @@ public class WSCallRouter {
         //Messages
         register("MsgAddOne", MsgCalls.MsgAddOne);
         register("MsgAddMany", MsgCalls.MsgAddMany);
+        register("MsgsReceivedToPeerMany", MsgCalls.MsgsReceivedToPeerMany);
+        register("MsgsDeletedFromServerMany", MsgCalls.MsgsDeletedFromServerMany);
+        register("MsgsSeenByPeerMany", MsgCalls.MsgsSeenByPeerMany);
 
         register(Constants.MsgsReceivedToServer, MsgCommand_DEP.MsgsReceivedToServer);
         register(Constants.MsgsReceivedToPeer, MsgCommand_DEP.MsgsReceivedToPeer);

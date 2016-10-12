@@ -3,6 +3,7 @@ package com.mardomsara.social.models;
 import android.os.Build;
 
 import com.mardomsara.social.app.API;
+import com.mardomsara.social.app.Config;
 import com.mardomsara.social.app.Constants;
 import com.mardomsara.social.base.HttpOld;
 import com.mardomsara.social.helpers.AndroidUtil;
@@ -45,13 +46,17 @@ public class Session {
         if(userInfo!=null){
             return userInfo.Id;
         }
+
         //// TODO: 7/30/2016 Delete this
         //falback for new installed
-        if(AndroidUtil.getAndroidSdkVersion() >= Build.VERSION_CODES.LOLLIPOP){
-            return 6;
-        }else{
-            return 2;
-        }
+		if(Config.IS_DEBUG){
+			if(AndroidUtil.getAndroidSdkVersion() >= Build.VERSION_CODES.LOLLIPOP){
+				return 6;
+			}else{
+				return 2;
+			}
+		}
+		return 0;
     }
 
     public static UserTableJson getUserInfo(){
