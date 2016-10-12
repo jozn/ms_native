@@ -23,6 +23,10 @@ public class TimeUtil {
         return (new Date().getTime())/1000;
     }
 
+	public static int getTimeInt(){
+		return (int) (new Date().getTime()/1000);
+	}
+
     public static long getTimeU(){
         return System.nanoTime()/1000;
     }

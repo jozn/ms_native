@@ -64,16 +64,16 @@ public class Message {
     public long SortId = TimeUtil.getTimeNano();
 
     @Column(defaultExpr = "0" ,helpers = Column.Helpers.CONDITION_EQ)
-    public int PeerSeenTime = 0;
+    public long PeerSeenTime = 0;
 
     @Column(defaultExpr = "0", helpers = Column.Helpers.CONDITION_EQ)
-    public int ServerReceivedTime = 0;
+    public long ServerReceivedTime = 0;
 
     @Column(defaultExpr = "0", helpers = Column.Helpers.CONDITION_EQ)
-    public int PeerReceivedTime = 0;
+    public long PeerReceivedTime = 0;
 
     @Column(defaultExpr = "0" ,helpers = Column.Helpers.CONDITION_EQ)
-    public int ServerDeletedTime = 0;
+    public long ServerDeletedTime = 0;
 
     @Column(defaultExpr = "0", helpers = Column.Helpers.CONDITION_EQ)
     public int ToPush = 0;

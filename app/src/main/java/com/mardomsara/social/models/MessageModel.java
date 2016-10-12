@@ -25,6 +25,7 @@ import com.mardomsara.social.models.events.MsgsSyncMetaSeenByPeer;
 import com.mardomsara.social.models.extra.MsgExtraPhotoThumbnail;
 import com.mardomsara.social.models.tables.Message;
 import com.mardomsara.social.models.tables.Room;
+import com.mardomsara.social.pipe.from_net_calls.MsgsCallToServer;
 import com.mardomsara.social.service.WS_DEP;
 
 import org.greenrobot.eventbus.EventBus;
@@ -91,12 +92,13 @@ public class MessageModel {
     }
 
     public static void syncToServer(Message msg ) {
-        Command cmd = new Command();
+		MsgsCallToServer.addNewMsg(msg);
+        /*Command cmd = new Command();
         cmd.Name = Constants.MsgsAddNew;
         cmd.Data = JsonUtil.toJson(msg);
 
         WS_DEP.sendCommand(cmd);
-        //onAddedNewMsgEvent(msg);
+        //onAddedNewMsgEvent(msg);*/
     }
 
     public static void sendToServerMsgsSeenByPeerCmd(Message msg){

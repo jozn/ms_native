@@ -28,9 +28,15 @@ public class Call {
 		ClientCallId = TimeUtil.getTimeNano();
 	}
 
-	public Call(String name, String data) {
+	private Call(String name, String data) {
 		Name = name;
 		Data = data;
+		ClientCallId = TimeUtil.getTimeNano();
+	}
+
+	public Call(String name, Object objectToJson) {
+		Name = name;
+		setData(objectToJson);
 		ClientCallId = TimeUtil.getTimeNano();
 	}
 
