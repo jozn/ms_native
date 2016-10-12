@@ -35,9 +35,14 @@ public class CallRespondCallbacksRegistery {
 			if(h.success != null ){
 				h.success.run();
 			}
-			_mapper.remove(ReqId);
+			cleanCall(h.call);
         }
     }
+
+	static void cleanCall(Call call){
+		_mapper.remove(call.ClientCallId);
+		Pipe.cancelCall(call);
+	}
 
 	//just in case of timeout -- or server did't respond
 	public static void tryErr(long ReqId) {
@@ -64,11 +69,11 @@ public class CallRespondCallbacksRegistery {
 				}catch (Exception e){
 					e.printStackTrace();
 				}finally {
-					_mapper.remove(call.clientCallId);
+					cleanCall(call.call);
+//					_mapper.remove(call.clientCallId);
 				}
 			}
 		}
-
 	}
 	static boolean hasSetInterval = false;
 	static synchronized void setHasSetInterval(boolean val){

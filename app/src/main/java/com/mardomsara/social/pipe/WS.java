@@ -44,7 +44,7 @@ public class WS {
     int delayReconnect = 5;//seconds
 
 //    private Thread senderThread;
-    BlockingQueue<String> wsSendChannel = new LinkedBlockingQueue<>();
+    BlockingQueue<Call> wsSendChannel = new LinkedBlockingQueue<>();
     BlockingQueue<byte[]> wsSendChannelBinary = new LinkedBlockingQueue<>();
     //for now use just single thread, maybe using multi thread could cause data racing or others bug
     ExecutorService singleReciverHandlerExecuter = Executors.newSingleThreadExecutor();
@@ -91,13 +91,29 @@ public class WS {
         return instance;
     }
 
-    void sendString(String callString){
+    /*void sendString(String callString){
         try {
             wsSendChannel.put(callString);//sendString to chanel
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
+    }*/
+
+	void sendCall(Call call){
+		try {
+			wsSendChannel.put(call);//sendString to chanel
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	void cancelCall(Call call){
+		try {
+			wsSendChannel.remove(call);//sendString to chanel
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
     void connectToServer(){
         Log.d(LOGTAG, " connectToServer");
@@ -162,7 +178,9 @@ public class WS {
             while (true) {
                 try {
                     if(webSocket != null && status == STATUS.OPEN){
-                        body = wsSendChannel.take();
+                        Call call = wsSendChannel.take();
+						if(call == null) continue;
+						body = JsonUtil.toJson(call);
                         Log.d(LOGTAG, "sending text from WSchanel" + body);
                         req = RequestBody.create(TEXT, body);
                         webSocket.sendMessage(req);
@@ -207,7 +225,7 @@ public class WS {
 		call.ClientCallId = 0;//tell server don't respond
 		call.ServerCallId = ServerCallId;
 
-		sendString(JsonUtil.toJson(call));
+		sendCall(call);
 	}
 
     /////////////////////// Websocket Connection callbacks ////////////////////////////////////

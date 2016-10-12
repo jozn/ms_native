@@ -10,14 +10,16 @@ public class CallRespondCallback {
 	public Runnable error;
 	public long timeoutAtMs = TimeUtil.getTimeMs() + 5000;//5second timeout
 	public long clientCallId;
+	Call call;
 
-	public CallRespondCallback(long clientCallId, Runnable success) {
+	private CallRespondCallback(long clientCallId, Runnable success) {
 		this.clientCallId = clientCallId;
 		this.success = success;
 	}
 
-	public CallRespondCallback(long clientCallId, Runnable success, Runnable error) {
-		this.clientCallId = clientCallId;
+	public CallRespondCallback(Call call, Runnable success, Runnable error) {
+		this.clientCallId = call.ClientCallId;
+		this.call = call;
 		this.success = success;
 		this.error = error;
 	}

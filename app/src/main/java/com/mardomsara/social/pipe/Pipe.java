@@ -10,10 +10,15 @@ public class Pipe {
 
 	public static void sendCall(Call call, Runnable success , Runnable error){
 		AndroidUtil.runInBackgroundNoPanic(()->{
-			CallRespondCallback respondCallback = new CallRespondCallback(call.ClientCallId, success,error);
+			CallRespondCallback respondCallback = new CallRespondCallback(call, success,error);
 			CallRespondCallbacksRegistery.register(respondCallback);
 
-			WS.getInstance().sendString(JsonUtil.toJson(call));
+			WS.getInstance().sendCall(call);
+		});
+	}
+	public static void cancelCall(Call call){
+		AndroidUtil.runInBackgroundNoPanic(()->{
+			WS.getInstance().cancelCall(call);
 		});
 	}
 
