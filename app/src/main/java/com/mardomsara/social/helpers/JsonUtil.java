@@ -35,19 +35,19 @@ public class JsonUtil {
 	static Moshi moshi = new Moshi.Builder().build();
 	//// TODO: 10/12/2016  similer functionality is in http Result.fromJsonList(..)
 	public static <T> List<T> fromJsonList(String str, Class<T> cls ){
-		List<T> j = null;
-		//////// Moshi ////////////
-		Type listOfObjects = Types.newParameterizedType(ArrayList.class, cls);
 
-		JsonAdapter<List<T>> jsonAdapter = moshi.adapter(listOfObjects);
+		Type listOfCardsType = Types.newParameterizedType(List.class, cls);
+		JsonAdapter<List<T>> jsonAdapter = moshi.adapter(listOfCardsType);
+
+		List<T> res = null;
 		try {
-			j = jsonAdapter.fromJson(str);
+			res = jsonAdapter.fromJson(str);
 		}catch (Exception e){
 			Log.e("JSON: ","error in fromJsonList parsing: "+e.toString() );
 			e.printStackTrace();
 		}
 
-		return j;
+		return res;
 	}
 
     public static <T> T fromJsonHttp(Result result , Class<T> cls){

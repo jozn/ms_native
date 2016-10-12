@@ -88,11 +88,13 @@ public class MsgCalls {
 
 
 	public static NetEventHandler MsgsReceivedToPeerMany = ( data) ->{
+		AppUtil.log("MsgsReceivedToPeerMany: cmd -> "+data);
 		List<MsgReceivedToPeerJson> res = JsonUtil.fromJsonList(data,MsgReceivedToPeerJson.class);
 		if(res == null || res.size() ==0)return;
 
 		DB.db.transactionSync(()->{
 			for(MsgReceivedToPeerJson meta : res){
+				AppUtil.log("MsgsReceivedToPeerMany: for  -> "+meta);
 				DB.db.updateMessage()
 					.PeerReceivedTime(meta.AtTime)//updtaed
 					.MessageKeyEq(meta.MsgKey)
