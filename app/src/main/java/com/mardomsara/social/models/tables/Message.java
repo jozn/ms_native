@@ -20,9 +20,11 @@ public class Message {
 
 //    @PrimaryKey(autoincrement = true)
 //    public int id;
+	@PrimaryKey(auto = false)
+	public long _msgKeyNanoId;
 
-//    @Column(unique = true, indexed = true)
-    @PrimaryKey(auto = false)
+    @Column(unique = true, indexed = true)
+//    @PrimaryKey(auto = false)
     @NonNull
     public String MessageKey;
 
@@ -136,11 +138,18 @@ public class Message {
         return (ServerDeletedTime > 0 );
     }
 
+	private void onBeforeSave(){
+		if(_msgKeyNanoId == 0){
+			_msgKeyNanoId = TimeUtil.getTimeNano() * 10000+( (long)(Math.random()*10000));
+		}
+	}
     public void save() {
+		onBeforeSave();
         DB.db.prepareInsertIntoMessage(OnConflict.REPLACE,true).execute(this);
     }
 
     public void insertInBackground() {
+		onBeforeSave();
         AndroidUtil.runInBackgroundNoPanic(()->DB.db.prepareInsertIntoMessage(OnConflict.ABORT,true).execute(this));
     }
 }

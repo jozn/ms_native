@@ -11,7 +11,7 @@ repositories {
 
 android {
     compileSdkVersion 24
-    buildToolsVersion "24.0.0"
+    buildToolsVersion '24.0.2'
 //    dataBinding {
 //        enabled = true
 //    }
@@ -106,6 +106,8 @@ dependencies {
 
     apt 'com.github.gfx.android.orma:orma-processor:2.6.0'
     compile 'com.github.gfx.android.orma:orma:2.6.0'
+//    apt 'com.github.gfx.android.orma:orma-processor:v3.0.0-rc4 '
+//    compile 'com.github.gfx.android.orma:orma:v3.0.0-rc4 '
 
     compile 'com.joanzapata.iconify:android-iconify:2.2.2'
     compile 'com.joanzapata.iconify:android-iconify-ionicons:2.2.2' // (v2.0.1)

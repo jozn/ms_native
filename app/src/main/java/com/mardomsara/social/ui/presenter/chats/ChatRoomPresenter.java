@@ -24,6 +24,7 @@ import com.mardomsara.social.Nav;
 import com.mardomsara.social.R;
 import com.mardomsara.social.app.AppFiles;
 import com.mardomsara.social.app.Constants;
+import com.mardomsara.social.base.Http.Http;
 import com.mardomsara.social.base.HttpOld;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
@@ -33,6 +34,7 @@ import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.ImageUtil;
 import com.mardomsara.social.helpers.IntentHelper;
 import com.mardomsara.social.helpers.JsonUtil;
+import com.mardomsara.social.helpers.TimeUtil;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
 import com.mardomsara.social.models.MessageModel;
 import com.mardomsara.social.models.RoomModel;
@@ -544,7 +546,23 @@ public class ChatRoomPresenter extends BasePresenter implements
         MessageModel.setPhotoParams(msg,resizedPath);
         msg.save();
 
-        HttpOld.Req req = new HttpOld.Req();
+		Http.upload("http://localhost:5000/msgs/v1/add_one",resizedFile)
+			.setFormParam("message",JsonUtil.toJson(msg))
+			.doAsync(
+				(result)->{
+					if (result.isOk()){
+						msg.MediaStatus = (Constants.Msg_Media_Uploaded);
+						msg.ToPush = 0;
+						msg.ServerReceivedTime = TimeUtil.getTime();
+						msg.save();
+						if(deleteOrginal == true){
+							fileOrginal.delete();
+						}
+					};
+		});
+		onHereAddedNewMsgEvent(msg);
+
+        /*HttpOld.Req req = new HttpOld.Req();
         req._finalUrl = AppUtil.toUrl("http://localhost:5000/MsgUpload");
         req.absPath = "http://localhost:5000/MsgUpload";
         req.file = resizedFile;
@@ -562,8 +580,7 @@ public class ChatRoomPresenter extends BasePresenter implements
                 }
             }
 //            res.response.body().byteStream().
-        });
-        onHereAddedNewMsgEvent(msg);
+        });*/
 //        intentHelper.previewCapturedImage(imageView);
 
     }
@@ -607,7 +624,21 @@ public class ChatRoomPresenter extends BasePresenter implements
         MessageModel.setVideoParams(msg,thumbPath,resizedPath);
         msg.save();
 
-        HttpOld.Req req = new HttpOld.Req();
+		Http.upload("http://localhost:5000/msgs/v1/add_one",resizedFile)
+			.setFormParam("message",JsonUtil.toJson(msg))
+			.doAsync(
+				(result)->{
+					if (result.isOk()){
+						msg.MediaStatus = (Constants.Msg_Media_Uploaded);
+						msg.ToPush = 0;
+						msg.ServerReceivedTime = TimeUtil.getTime();
+						msg.save();
+					};
+				});
+
+		onHereAddedNewMsgEvent(msg);
+
+        /*HttpOld.Req req = new HttpOld.Req();
         req._finalUrl = AppUtil.toUrl("http://localhost:5000/MsgUpload");
         req.absPath = "http://localhost:5000/MsgUpload";
         req.file = resizedFile;
@@ -622,8 +653,7 @@ public class ChatRoomPresenter extends BasePresenter implements
 //                tempFile.delete();
             }
 //            res.response.body().byteStream().
-        });
-        onHereAddedNewMsgEvent(msg);
+        });*/
 //        intentHelper.previewCapturedImage(imageView);
     }
 
