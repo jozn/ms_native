@@ -6,6 +6,7 @@ import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.JsonUtil;
 import com.mardomsara.social.models.Session;
+import com.mardomsara.social.pipe.from_net_calls.FlushStoredDataToServer;
 
 import java.io.IOException;
 import java.util.concurrent.BlockingQueue;
@@ -216,6 +217,7 @@ public class WS {
         status = STATUS.OPEN;
         isReconnectingRunning = false;
         delayReconnect = 5;
+		FlushStoredDataToServer.flushAllMessages();
 //        sendStoredCommands();
     }
 

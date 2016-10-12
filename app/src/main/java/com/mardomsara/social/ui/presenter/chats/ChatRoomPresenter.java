@@ -46,6 +46,7 @@ import com.mardomsara.social.models.events.MsgsSyncMetaReceivedToServer;
 import com.mardomsara.social.models.events.MsgsSyncMetaSeenByPeer;
 import com.mardomsara.social.models.tables.Message;
 import com.mardomsara.social.models.tables.Room;
+import com.mardomsara.social.pipe.from_net_calls.MsgsCallToServer;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.cells.chats.lists.MsgsListCell;
 import com.mardomsara.social.ui.views.EmojiKeyboard3;
@@ -546,7 +547,10 @@ public class ChatRoomPresenter extends BasePresenter implements
         MessageModel.setPhotoParams(msg,resizedPath);
         msg.save();
 
-		Http.upload("http://localhost:5000/msgs/v1/add_one",resizedFile)
+		MsgsCallToServer.sendNewPhoto(msg,resizedFile,fileOrginal,deleteOrginal);
+		onHereAddedNewMsgEvent(msg);
+
+		/*Http.upload("http://localhost:5000/msgs/v1/add_one",resizedFile)
 			.setFormParam("message",JsonUtil.toJson(msg))
 			.doAsync(
 				(result)->{
@@ -559,8 +563,7 @@ public class ChatRoomPresenter extends BasePresenter implements
 							fileOrginal.delete();
 						}
 					};
-		});
-		onHereAddedNewMsgEvent(msg);
+		});*/
 
         /*HttpOld.Req req = new HttpOld.Req();
         req._finalUrl = AppUtil.toUrl("http://localhost:5000/MsgUpload");
@@ -624,7 +627,11 @@ public class ChatRoomPresenter extends BasePresenter implements
         MessageModel.setVideoParams(msg,thumbPath,resizedPath);
         msg.save();
 
-		Http.upload("http://localhost:5000/msgs/v1/add_one",resizedFile)
+		MsgsCallToServer.sendNewVideo(msg,resizedFile);
+
+		onHereAddedNewMsgEvent(msg);
+
+		/*Http.upload("http://localhost:5000/msgs/v1/add_one",resizedFile)
 			.setFormParam("message",JsonUtil.toJson(msg))
 			.doAsync(
 				(result)->{
@@ -634,9 +641,8 @@ public class ChatRoomPresenter extends BasePresenter implements
 						msg.ServerReceivedTime = TimeUtil.getTime();
 						msg.save();
 					};
-				});
+				});*/
 
-		onHereAddedNewMsgEvent(msg);
 
         /*HttpOld.Req req = new HttpOld.Req();
         req._finalUrl = AppUtil.toUrl("http://localhost:5000/MsgUpload");
