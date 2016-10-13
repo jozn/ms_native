@@ -25,7 +25,7 @@ public class UserSyncer {
 
 			int last = Store.getInt(StoreConstants.LAST_USER_TABLE_SYNCED);
 
-			Http.getPath("sync_users")
+			Http.getPath("/v1/sync_users")
 				.setQueryParam("last",last)
 				.doAsync((result)->{
 					if(result.isOk()){

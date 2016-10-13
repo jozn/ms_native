@@ -20,7 +20,7 @@ public class Http {
 
     //like: getPath("like")
     public static Req getPath(String path){
-        Req req = new Req(Action.GET, API.BASE_URL_STR+path);
+        Req req = new Req(Action.GET, API.BASE_DOMAIN_URL_STR+path);
         return req;
     }
 
@@ -30,7 +30,7 @@ public class Http {
     }
 
     public static Req postPath(String path){
-        Req req = new Req(Action.POST, API.BASE_URL_STR+path);
+        Req req = new Req(Action.POST, API.BASE_DOMAIN_URL_STR+path);
         return req;
     }
 
@@ -41,7 +41,7 @@ public class Http {
     }
 
     public static Req uploadPath(String path, @NonNull File file){
-        Req req = new Req(Action.UPLOAD, API.BASE_URL_STR+path);
+        Req req = new Req(Action.UPLOAD, API.BASE_DOMAIN_URL_STR+path);
         req.file = file;
         return req;
     }

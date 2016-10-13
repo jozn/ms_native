@@ -61,7 +61,7 @@ public class ContactsCopySyncer {
 		//work around: PhoneNormalizedNumber is alot empty: for noe mobile phone for example
 		DB.db.updateContactsCopy().IsSynced(1).PhoneNormalizedNumberEq("").execute();
 
-		Http.postPath("grab_contacts")
+		Http.postPath("/v1/grab_contacts")
 			.setFormParam("contacts", JsonUtil.toJson(list))
 			.doAsync((result)->{
 				if(result.isOk()){
