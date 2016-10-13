@@ -11,6 +11,8 @@ import com.mardomsara.social.R;
 import com.mardomsara.social.app.Config;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
+import com.mardomsara.social.models.stores.Store;
+import com.mardomsara.social.models.stores.StoreConstants;
 import com.orhanobut.hawk.Hawk;
 
 import java.util.List;
@@ -42,7 +44,8 @@ public class KeywordAttachmentCell implements RecentImagesCell.onRecentImageClic
     RecentImagesCell recentImagesCell;
     PopupWindow attachWindow;
 
-    int keyboardSize = Hawk.get(Config.KEYBOARD_HEIGHT, Config.KEYBOARD_HEIGHT_DEFAULT);
+//    int keyboardSize = Hawk.get(Config.KEYBOARD_HEIGHT, Config.KEYBOARD_HEIGHT_DEFAULT);
+    int keyboardSize = Store.getInt(StoreConstants.KEYBOARD_SIZE, (int) (AndroidUtil.getScreenHeight()/2.5));
 
     public KeywordAttachmentCell(Callbacks listener, View bottom_container) {
         callback_listener = listener;

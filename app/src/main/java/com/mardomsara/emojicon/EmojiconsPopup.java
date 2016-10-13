@@ -33,6 +33,9 @@ import android.widget.PopupWindow;
 import com.mardomsara.social.R;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
+import com.mardomsara.social.helpers.Helper;
+import com.mardomsara.social.models.stores.Store;
+import com.mardomsara.social.models.stores.StoreConstants;
 
 
 /**
@@ -44,7 +47,7 @@ public class EmojiconsPopup extends PopupWindow {
 	private View[] mEmojiTabs;
 	private PagerAdapter mEmojisAdapter;
 	private EmojiconRecentsManager mRecentsManager;
-	private int keyBoardHeight = 400;
+	private int keyBoardHeight = Store.getInt(StoreConstants.KEYBOARD_SIZE, (int) (AndroidUtil.getScreenHeight()/2.5) );//40percent
 	private Boolean pendingOpen = false;
 	private Boolean isOpened = false;
 	OnEmojiconClickedListener onEmojiconClickedListener;
@@ -71,7 +74,8 @@ public class EmojiconsPopup extends PopupWindow {
 		//default size
 		setBackgroundDrawable(new BitmapDrawable());
 
-		setSize((int) mContext.getResources().getDimension(R.dimen.keyboard_height), LayoutParams.MATCH_PARENT);
+//		setSize((int) mContext.getResources().getDimension(R.dimen.keyboard_height), LayoutParams.MATCH_PARENT);
+		setSize(LayoutParams.MATCH_PARENT,keyBoardHeight);
 		currentListner = this;
 	}
 	/**
@@ -178,6 +182,8 @@ public class EmojiconsPopup extends PopupWindow {
 				}
 				if (heightDifference > 100) {
 					keyBoardHeight = heightDifference;
+//					Store.putInt(StoreConstants.KEYBOARD_SIZE,keyBoardHeight);
+//					Helper.showMessage("KEYBOARD_SIZE "+keyBoardHeight);
 					setSize(LayoutParams.MATCH_PARENT, keyBoardHeight);
 					if(isOpened == false){
 						if(onSoftKeyboardOpenCloseListener!=null)
@@ -232,6 +238,8 @@ public class EmojiconsPopup extends PopupWindow {
 	 */
 	public void setSize(int width, int height){
 		height = height < 100 ? 500 :height;
+		Store.putInt(StoreConstants.KEYBOARD_SIZE,height);
+		Helper.showMessage("KEYBOARD_SIZE "+height);
 		setWidth(AndroidUtil.getScreenWidth());
 		setHeight(height);
 	}

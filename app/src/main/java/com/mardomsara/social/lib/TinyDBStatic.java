@@ -195,6 +195,10 @@ public class TinyDBStatic {
         return preferences.getInt(key, 0);
     }
 
+	public static int getInt(String key,int def) {
+		return preferences.getInt(key, def);
+	}
+
     /**
      * Get parsed ArrayList of Integers from SharedPreferences at 'key'
      * @param key SharedPreferences key

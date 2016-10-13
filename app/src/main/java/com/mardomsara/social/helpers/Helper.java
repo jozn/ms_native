@@ -6,6 +6,8 @@ import android.widget.Toast;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.mardomsara.social.app.Config;
+import com.mardomsara.social.models.stores.Store;
+import com.mardomsara.social.models.stores.StoreConstants;
 import com.squareup.picasso.Picasso;
 
 /**
@@ -58,5 +60,9 @@ public class Helper {
             Toast.makeText(AppUtil.getContext(),text,Toast.LENGTH_SHORT).show();
         });
     }
+
+	public static int getAndroidKeyboardSize(){
+		return Store.getInt(StoreConstants.KEYBOARD_SIZE, (int) (AndroidUtil.getScreenHeight()/2.5));
+	}
 
 }
