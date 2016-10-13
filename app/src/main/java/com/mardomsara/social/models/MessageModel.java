@@ -77,7 +77,7 @@ public class MessageModel {
     }
 
     public static String generateMessageKey(){
-        return ""+Session.getUserId()+":"+LangUtil.getRandomString(20);
+        return ""+Session.getUserId()+"@:"+LangUtil.getRandomString(10);
     }
 
     public static  void setParamsForNewMsgRecivedFromNet(Message msg){

@@ -21,7 +21,7 @@ public class Message {
 //    @PrimaryKey(autoincrement = true)
 //    public int id;
 	@PrimaryKey(auto = false)
-	public long _msgKeyNanoId = 0;
+	public long NanoId = 0;
 
     @Column(unique = true, indexed = true)
 //    @PrimaryKey(auto = false)
@@ -139,8 +139,8 @@ public class Message {
     }
 
 	private void onBeforeSave(){
-		if(_msgKeyNanoId == 0){
-			_msgKeyNanoId = TimeUtil.getTimeNano();// * 10000+( (long)(Math.random()*10000));
+		if(NanoId == 0){
+			NanoId = TimeUtil.getTimeNano();// * 10000+( (long)(Math.random()*10000));
 		}
 	}
     public void save() {

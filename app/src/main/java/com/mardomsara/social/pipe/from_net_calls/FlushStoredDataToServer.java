@@ -30,7 +30,7 @@ public class FlushStoredDataToServer {
 					txtMsgs.add(msg);
 				}
 			}
-			MsgsCallToServer.addManyMsgs(msgs);
+			MsgsCallToServer.addManyMsgs(txtMsgs);
 		});
 	}
 
