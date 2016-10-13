@@ -41,6 +41,7 @@ public class MsgCalls {
 
 		handleNewMsg(jd.Message);
 		handleNewUser(jd.User);
+		App.getBus().post(jd);
     };
 
 	public static NetEventHandler MsgAddMany = ( data) ->{

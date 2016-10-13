@@ -115,6 +115,8 @@ dependencies {
 
     compile 'com.squareup.moshi:moshi:1.2.0'
 
+    compile 'org.greenrobot:essentials:3.0.0-RC1'
+
 //    androidTestCompile 'com.android.support:support-annotations:24.2.0'
 
 }

@@ -152,4 +152,22 @@ public class Message {
 		onBeforeSave();
         AndroidUtil.runInBackgroundNoPanic(()->DB.db.prepareInsertIntoMessage(OnConflict.ABORT,true).execute(this));
     }
+
+
+	/// all instannce are equal based on MessageKey
+	@Override
+	public int hashCode() {
+		if(MessageKey != null){
+			return MessageKey.hashCode();
+		}
+		return super.hashCode();
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if(MessageKey != null){
+			return MessageKey.equals(obj);
+		}
+		return super.equals(obj);
+	}
 }

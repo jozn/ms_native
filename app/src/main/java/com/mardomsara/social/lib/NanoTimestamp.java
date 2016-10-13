@@ -1,6 +1,5 @@
 package com.mardomsara.social.lib;
 
-import java.text.Format;
 import java.text.SimpleDateFormat;
 
 /**
