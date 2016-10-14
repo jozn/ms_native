@@ -32,7 +32,7 @@ public abstract class Paginate {
     /**
      * Use this method to indicate that there is or isn't more data to load. If there isn't any more data to load
      * loading root_view, if used, won't be displayed as the last item of the list. Adding/removing loading root_view is done
-     * automatically each time when underlying adapter data is changed. Use this method to explicitly add/remove
+     * automatically each time when underlying adapter data is changed. Use this method to explicitly addStart/remove
      * loading root_view.
      *
      * @param hasMoreDataToLoad true if there is more data to load, false otherwise.

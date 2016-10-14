@@ -8,9 +8,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
 import java.util.Map;
-import java.util.Spliterator;
 import java.util.function.UnaryOperator;
 
 /**
@@ -19,12 +17,12 @@ import java.util.function.UnaryOperator;
 
 public class ArrayListHashSetKey<T,K> {
 
-
 	List<T> data ;
 	Map<K,T> map ;
-	public ArrayListHashSetKey() {
-		data = new ArrayList<T>();
-		map = new HashMap<K, T>();
+	public ArrayListHashSetKey(@NonNull KeyGen<T,K> gen) {
+		data = new ArrayList<T>(30);
+		map = new HashMap<K, T>(30);
+		set_keyGen(gen);
 	}
 
 	public int size() {
@@ -65,7 +63,7 @@ public class ArrayListHashSetKey<T,K> {
 	}
 
 
-	public boolean add(T item) {
+	public boolean addStart(T item) {
 		boolean res = false;
 		synchronized (this){
 			try {
@@ -75,7 +73,49 @@ public class ArrayListHashSetKey<T,K> {
 					return false;
 				}
 				map.put(getKey(item),item);
-				res = data.add(item);
+				data.add(0,item);
+				return true;
+			}catch (Exception e){
+				e.printStackTrace();
+			}
+		}
+		return res;
+	}
+
+	public boolean addEnd(T item) {
+		boolean res = false;
+		synchronized (this){
+			try {
+				K key = getKey(item);
+				if(item == null || key == null) return false;
+				if(map.containsKey(key)){
+					return false;
+				}
+				map.put(getKey(item),item);
+//				data.add(data.size(),item);
+				data.add(item);//ArrayList add(e) adds to end
+			}catch (Exception e){
+				e.printStackTrace();
+			}
+		}
+		return res;
+	}
+
+	public boolean replace(T item) {
+		boolean res = false;
+		synchronized (this){
+			try {
+				K key = getKey(item);
+				if(item == null || key == null) return false;
+				if(!map.containsKey(key)){
+					return false;
+				}
+				map.put(getKey(item),item);
+				int index = indexOf(item);
+				if(index >= 0){
+					data.set(index,item);
+				}
+
 			}catch (Exception e){
 				e.printStackTrace();
 			}
@@ -142,11 +182,25 @@ public class ArrayListHashSetKey<T,K> {
 	}
 
 
-	public boolean addAll(Collection<? extends T> items) {
+	public boolean addAllStart(Collection<? extends T> items) {
 		synchronized (this){
 			try {
 				for(T item :items){
-					add(item);
+					addStart(item);
+				}
+			}catch (Exception e){
+				e.printStackTrace();
+				return false;
+			}
+		}
+		return true;
+	}
+
+	public boolean addAllEnd(Collection<? extends T> items) {
+		synchronized (this){
+			try {
+				for(T item :items){
+					addEnd(item);
 				}
 			}catch (Exception e){
 				e.printStackTrace();
@@ -252,6 +306,14 @@ public class ArrayListHashSetKey<T,K> {
 
 
 	private void sort(Comparator<? super T> c) {
+
+	}
+
+	public void fromList(List<T> list) {
+		if(list == null)return;
+		for(T item: list){
+			addEnd(item);
+		}
 
 	}
 

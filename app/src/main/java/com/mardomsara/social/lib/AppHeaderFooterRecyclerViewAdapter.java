@@ -204,7 +204,7 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
             }
         };
         //ME: somehow if we attach scrollListener in here befor View attached to window it will
-        //crashe. so add it after attached in onAttached
+        //crashe. so addStart it after attached in onAttached
 //        recyclerView.addOnScrollListener(scrollListener);
     }
 

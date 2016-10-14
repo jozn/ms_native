@@ -46,7 +46,7 @@ public class UIPostsList {
 
         PostsAdaptor adaptor = new PostsAdaptor();
         if(posts != null) posts.addAll(posts);
-//        adaptor.posts.addAll(posts);
+//        adaptor.posts.addAllStart(posts);
 
         recycler_view.setLayoutManager(new LinearLayoutManager(AppUtil.getContext()));
         recycler_view.setAdapter(adaptor);

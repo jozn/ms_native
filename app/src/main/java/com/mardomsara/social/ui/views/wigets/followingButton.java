@@ -18,7 +18,7 @@ import com.mardomsara.social.ui.views.FontCache;
 public class FollowingButton extends TextView {
     String icon_isFollowing = "\uf47d";//"\uf213";//ion-person
 //    String icon_isFollowing = "\uf213";//ion-person
-    String icon_notFollowing = "\uf47f" ;//"\uf211";//ion-person-add
+    String icon_notFollowing = "\uf47f" ;//"\uf211";//ion-person-addStart
     String icon_isPravate = "\uf200";//ion-locked
     String icon_isWaiting = "\uf403";//ion-ios-clock
 

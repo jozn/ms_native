@@ -1,6 +1,5 @@
 package com.mardomsara.social.ui.cells.chats.lists;
 
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,7 +8,6 @@ import android.view.ViewGroup;
 import com.mardomsara.social.R;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
-import com.mardomsara.social.lib.ms.ArrayListHashSetKey;
 import com.mardomsara.social.models.events.MessageSyncMeta;
 import com.mardomsara.social.models.tables.Message;
 import com.mardomsara.social.ui.cells.chats.msgs.MsgAbstractViewHolder;
@@ -28,11 +26,11 @@ import java.util.List;
 /**
  * Created by Hamid on 9/8/2016.
  */
-public class MsgsListCell {
+public class MsgsListCell_List {
     View root_view;
     public ChatEntaryAdaptor adaptor;
 
-    public MsgsListCell() {
+    public MsgsListCell_List() {
         this.adaptor = new ChatEntaryAdaptor();
     }
 
@@ -40,10 +38,9 @@ public class MsgsListCell {
 //    public class ChatEntaryAdaptor extends RecyclerView.Adapter<MsgAbstractViewHolder> {
     public class ChatEntaryAdaptor extends AppHeaderFooterRecyclerViewAdapter<MsgAbstractViewHolder> {
 
-        public ArrayListHashSetKey<Message,String> msgs = new ArrayListHashSetKey<>((msg)-> msg.MessageKey);
+        public List<Message> msgs = new ArrayList<>();
         public void setMsgs(List<Message> msgs) {
-			this.msgs.fromList(msgs);
-//            this.msgs = msgs;
+            this.msgs = msgs;
         }
 
         @Override

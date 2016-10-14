@@ -174,7 +174,7 @@ public class Nav {
 //        if(_lastFragmentPage != null){
 //            ft.detach(_lastFragmentPage.fragment);
 //        }
-//        ft.add(R.id.frag1, frag.fragment);
+//        ft.addStart(R.id.frag1, frag.fragment);
         BranchCell bc = _getActiveBranchCell();
         if( bc.fragmentsPageStacks.size()>=2){//will stay in the same branch
             FragmentPage fp = bc.fragmentsPageStacks.pop();

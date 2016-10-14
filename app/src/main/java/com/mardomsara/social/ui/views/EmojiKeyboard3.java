@@ -75,7 +75,7 @@ public class EmojiKeyboard3 {
             }
         });
 
-        //On emoji clicked, add it to edittext
+        //On emoji clicked, addStart it to edittext
         popup.setOnEmojiconClickedListener(new OnEmojiconClickedListener() {
 
             @Override

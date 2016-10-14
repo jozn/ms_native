@@ -13,13 +13,13 @@ public class API {
     public static URL BASE_URL = AppUtil.toUrl(BASE_URL_STR);
 
     public static URL POSTS_GET = AppUtil.toUrl(BASE_URL_STR+"posts");
-    public static URL POST_ADD = AppUtil.toUrl(BASE_URL_STR+"add-post");
+    public static URL POST_ADD = AppUtil.toUrl(BASE_URL_STR+"addStart-post");
     public static URL POST_DELETE = AppUtil.toUrl(BASE_URL_STR+"posts");
 
 //    public static URL COMMENTS_LIST_GET = AppUtil.toUrl(BASE_URL_STR+"comments");
-//    public static URL COMMENT_ADD = AppUtil.toUrl(BASE_URL_STR+"add-comment");
+//    public static URL COMMENT_ADD = AppUtil.toUrl(BASE_URL_STR+"addStart-comment");
 
-    public static URL LIKE_POST_ADD = AppUtil.toUrl(BASE_URL_STR + "add-post-like");
+    public static URL LIKE_POST_ADD = AppUtil.toUrl(BASE_URL_STR + "addStart-post-like");
 
     public static URL UPLOAD_AVATAR = AppUtil.toUrl(BASE_URL_STR+"upload-avatar");
     public static URL AVATAR_REMOVE = AppUtil.toUrl(BASE_URL_STR+"remove-avatar");
@@ -39,7 +39,7 @@ public class API {
     public static URL LIKES_GET = AppUtil.toUrl(BASE_URL_STR+"likes");
 
     public static URL COMMENTS_LIST_GET = AppUtil.toUrl(BASE_URL_STR+"comments/list");
-    public static URL COMMENTS_ADD = AppUtil.toUrl(BASE_URL_STR+"comments/add");
+    public static URL COMMENTS_ADD = AppUtil.toUrl(BASE_URL_STR+"comments/addStart");
     public static URL COMMENTS_DELETE = AppUtil.toUrl(BASE_URL_STR+"comments/delete");
 
     public static URL SESSION_INFO = AppUtil.toUrl(BASE_URL_STR+"session/info");

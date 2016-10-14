@@ -872,9 +872,9 @@ public class Common {
     }
 
     /**
-     * use for add postfix to the number like: 1st, 3rd..
+     * use for addStart postfix to the number like: 1st, 3rd..
      *
-     * @param number which you have to add postfix
+     * @param number which you have to addStart postfix
      * @return number in string with postfix
      */
     public static String getPostFixForNumber(int number) {
@@ -1272,10 +1272,10 @@ public class Common {
     // </shape>
 
     /**
-     * add post fix to any long digit like 10k for 10000
+     * addStart post fix to any long digit like 10k for 10000
      *
      * @param args any digit
-     * @return it will return "", "k", "m", "b", "t" with add post fix to digit.
+     * @return it will return "", "k", "m", "b", "t" with addStart post fix to digit.
      */
     public static String postFixForDigits(long args/* , TextView mTextView */) {
         long[] numbers = new long[]{args};

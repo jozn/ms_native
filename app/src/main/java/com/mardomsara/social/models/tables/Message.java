@@ -14,7 +14,7 @@ import com.mardomsara.social.helpers.TimeUtil;
 /**
  * Created by Hamid on 9/4/2016.
  */
-//TOdo; add: IsSeenByPeer() IsRe....
+//TOdo; addStart: IsSeenByPeer() IsRe....
 @Table
 public class Message {
 

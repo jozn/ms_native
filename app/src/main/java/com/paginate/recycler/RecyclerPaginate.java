@@ -29,7 +29,7 @@ public final class RecyclerPaginate extends Paginate {
         recyclerView.addOnScrollListener(mOnScrollListener);
 
         if (addLoadingListItem) {
-            // Wrap existing adapter with new adapter that will add loading root_view
+            // Wrap existing adapter with new adapter that will addStart loading root_view
             RecyclerView.Adapter adapter = recyclerView.getAdapter();
             wrapperAdapter = new WrapperAdapter(adapter, loadingListItemCreator);
             adapter.registerAdapterDataObserver(mDataObserver);
@@ -180,7 +180,7 @@ public final class RecyclerPaginate extends Paginate {
 
         /**
          * Setup loading root_view. If loading root_view is used original adapter set on RecyclerView will be wrapped with
-         * internal adapter that will add loading root_view as the last item in the list. Paginate will observer the
+         * internal adapter that will addStart loading root_view as the last item in the list. Paginate will observer the
          * changes upon original adapter and remove loading root_view if there is no more data to load. By default loading
          * root_view will be added.
          *

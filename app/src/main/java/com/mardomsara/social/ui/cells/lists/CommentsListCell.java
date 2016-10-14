@@ -130,7 +130,7 @@ if(!isNextPages){
         isNextPages = true;
         if(data != null && data.Status.equalsIgnoreCase("OK") && data.Load!=null){
 
-        adaptor.list.addAll(data.Load);
+        adaptor.list.addAllStart(data.Load);
         adaptor.notifyDataSetChanged();
 //                recyclerView.setAdapter(adaptor);
 //                recyclerView.setLayoutManager(layoutManager);
@@ -141,7 +141,7 @@ if(!isNextPages){
         }
         }else {
         if(data != null && data.Status.equalsIgnoreCase("OK") && data.Load!=null){
-        adaptor.list.addAll(data.Load);
+        adaptor.list.addAllStart(data.Load);
         adaptor.notifyDataSetChanged();
         }else {
         adaptor.setHasMorePage(false);

@@ -26,7 +26,7 @@ public class Old_RoomPresenter_EventBus {
 		if(meta.RoomKey.equals(room.RoomKey)){
 			if(!messagesAdaptor.msgs.contains(msg)){
 				try {
-					messagesAdaptor.msgs.add(0,msg);
+					messagesAdaptor.msgs.addStart(0,msg);
 					messagesAdaptor.notifyDataSetChanged();
 
 				}catch (Exception e){
@@ -47,7 +47,7 @@ public class Old_RoomPresenter_EventBus {
 					if(msg.MessageKey.equals(metaMsgsKey)){
 						Message msg2 = MessageModel.getMessageByKey(metaMsgsKey);
 						messagesAdaptor.msgs.remove(i);
-						messagesAdaptor.msgs.add(i,msg2);
+						messagesAdaptor.msgs.addStart(i,msg2);
 						messagesAdaptor.notifyContentItemChanged(i);
 //                        messagesAdaptor.notifyDataSetChanged();
 					}
@@ -104,7 +104,7 @@ public class Old_RoomPresenter_EventBus {
 					if(msg.MessageKey.equals(metaMsgsKey)){
 						Message msg2 = MessageModel.getMessageByKey(metaMsgsKey);
 						messagesAdaptor.msgs.remove(i);
-						messagesAdaptor.msgs.add(i,msg2);
+						messagesAdaptor.msgs.addStart(i,msg2);
 						messagesAdaptor.notifyContentItemChanged(i);
 //                        messagesAdaptor.notifyDataSetChanged();
 					}
@@ -123,7 +123,7 @@ public class Old_RoomPresenter_EventBus {
 				if(msg.MessageKey.equals(meta.MessageKey)){
 					Message msg2 = MessageModel.getMessageByKey(meta.MessageKey);
 					messagesAdaptor.msgs.remove(i);
-					messagesAdaptor.msgs.add(i,msg2);
+					messagesAdaptor.msgs.addStart(i,msg2);
 					messagesAdaptor.notifyDataSetChanged();
 				}
 			}

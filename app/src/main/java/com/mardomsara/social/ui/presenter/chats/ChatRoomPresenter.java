@@ -24,31 +24,21 @@ import com.mardomsara.social.Nav;
 import com.mardomsara.social.R;
 import com.mardomsara.social.app.AppFiles;
 import com.mardomsara.social.app.Constants;
-import com.mardomsara.social.base.Http.Http;
-import com.mardomsara.social.base.HttpOld;
-import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.FileUtil;
 import com.mardomsara.social.helpers.FormaterUtil;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.ImageUtil;
 import com.mardomsara.social.helpers.IntentHelper;
-import com.mardomsara.social.helpers.JsonUtil;
-import com.mardomsara.social.helpers.TimeUtil;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
+import com.mardomsara.social.lib.ms.ArrayListHashSetKey;
 import com.mardomsara.social.models.MessageModel;
 import com.mardomsara.social.models.RoomModel;
 import com.mardomsara.social.models.events.MessageSyncMeta;
-import com.mardomsara.social.models.events.MsgGeneralChangeChangeEvent;
-import com.mardomsara.social.models.events.MsgsSyncMetaDeletedFromServer;
-import com.mardomsara.social.models.events.MsgsSyncMetaReceivedToPeer;
-import com.mardomsara.social.models.events.MsgsSyncMetaReceivedToServer;
-import com.mardomsara.social.models.events.MsgsSyncMetaSeenByPeer;
 import com.mardomsara.social.models.tables.Message;
 import com.mardomsara.social.models.tables.Room;
 import com.mardomsara.social.pipe.from_net_calls.MsgsCallToServer;
 import com.mardomsara.social.pipe.from_net_calls.json.MsgAddOneJson;
-import com.mardomsara.social.pipe.from_net_calls.json.MsgDeletedFromServerJson;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.cells.chats.lists.MsgsListCell;
 import com.mardomsara.social.ui.views.EmojiKeyboard3;
@@ -61,11 +51,7 @@ import org.greenrobot.eventbus.ThreadMode;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Vector;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -112,6 +98,7 @@ public class ChatRoomPresenter extends BasePresenter implements
     View view;
 
     List<Message> messages;
+	ArrayListHashSetKey<Message,String> messages2;
     MsgsListCell messagesCell;
     MsgsListCell.ChatEntaryAdaptor messagesAdaptor;
 
@@ -143,6 +130,7 @@ public class ChatRoomPresenter extends BasePresenter implements
         messagesAdaptor =messagesCell.adaptor;
 
         messagesAdaptor.setMsgs(messages);
+		messages2 = messagesAdaptor.msgs;
 
         mLayoutManager = new LinearLayoutManager(fragment.getActivity());
 
@@ -267,9 +255,11 @@ public class ChatRoomPresenter extends BasePresenter implements
     }
 
     void onHereAddedNewMsgEvent(Message msg){
-        messages.add(0,msg);
+        messages2.addStart(msg);
+//		Helper.showDebugMessage(JsonUtil.toJson(messages2));
         messagesAdaptor.notifyContentItemInserted(0);
-        mLayoutManager.scrollToPositionWithOffset(0,10000);
+        mLayoutManager.scrollToPosition(0);
+//        mLayoutManager.scrollToPositionWithOffset(0,-10000);
 
         MessageModel.didMsgsAdded(msg);
 
@@ -298,7 +288,7 @@ public class ChatRoomPresenter extends BasePresenter implements
         if(msg.RoomKey.equals(room.RoomKey) == false) return;
         logIt("event new msg: " + msg.toString());
         try {
-            messagesAdaptor.msgs.add(0,msg);
+            messagesAdaptor.msgs.addStart(0,msg);
             messagesAdaptor.notifyDataSetChanged();
 
         }catch (Exception e){
@@ -315,7 +305,7 @@ public class ChatRoomPresenter extends BasePresenter implements
 		if(msg.RoomKey.equals(room.RoomKey)){
 			if(!messagesAdaptor.msgs.contains(msg)){
 				try {
-					messagesAdaptor.msgs.add(0,msg);
+					messagesAdaptor.msgs.addStart(msg);
 					messagesAdaptor.notifyDataSetChanged();
 
 				}catch (Exception e){
@@ -334,7 +324,7 @@ public class ChatRoomPresenter extends BasePresenter implements
                 if(msg.MessageKey.equals(meta.MessageKey)){
                     Message msg2 = MessageModel.getMessageByKey(meta.MessageKey);
                     messagesAdaptor.msgs.remove(i);
-                    messagesAdaptor.msgs.add(i,msg2);
+                    messagesAdaptor.msgs.addStart(i,msg2);
                     messagesAdaptor.notifyDataSetChanged();
                 }
             }
@@ -622,7 +612,7 @@ public class ChatRoomPresenter extends BasePresenter implements
             long lastSortid = messagesAdaptor.msgs.get(size -1).SortId;
             msgs = MessageModel.getRoomMessagesTimeOffset(room.RoomKey,lastSortid);
             if(msgs != null){
-                messagesAdaptor.msgs.addAll(msgs);
+                messagesAdaptor.msgs.addAllEnd(msgs);
                 messagesAdaptor.notifyDataSetChanged();
 
             }

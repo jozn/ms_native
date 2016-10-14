@@ -15,10 +15,10 @@ public class FormaterUtil {
     private static int MAX_LENGTH = 5;
 
     /**
-     * add post fix to any long digit like 10k for 10000
+     * addStart post fix to any long digit like 10k for 10000
      *
      * @param args any digit
-     * @return it will return "", "k", "m", "b", "t" with add post fix to digit.
+     * @return it will return "", "k", "m", "b", "t" with addStart post fix to digit.
      */
     public static String postFixForDigits(long args/* , TextView mTextView */) {
         long[] numbers = new long[]{args};

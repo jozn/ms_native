@@ -45,7 +45,7 @@ public class MessageModel {
         /*AndroidUtil.runInBackgroundNoPanic(()->{
             DB.db.getConnection().execSQL("update Message set SortId = CreatedDeviceMs * 1000000");
         });*/
-        if(deviceCreatedTimeOffset < 1){
+        if(deviceCreatedTimeOffset <= 0){
             return DB.db.selectFromMessage().RoomKeyEq(roomKey).orderBySortIdDesc().limit(MSGS_PER_PAGE).toList();
         }
         return DB.db.selectFromMessage().RoomKeyEq(roomKey).SortIdLt(deviceCreatedTimeOffset).orderBySortIdDesc().limit(MSGS_PER_PAGE).toList();

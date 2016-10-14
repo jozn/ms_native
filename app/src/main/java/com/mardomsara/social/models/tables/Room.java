@@ -67,7 +67,7 @@ public class Room {
     public User User;
 
     public int getUserId(){
-        //todo add support for groups
+        //todo addStart support for groups
         if(RoomTypeId == 1 && false ) return 0;
         Integer id = roomKeyToPeerId(RoomKey);//NumberUtils.createInteger(RoomKey.substring(1));
         return id;

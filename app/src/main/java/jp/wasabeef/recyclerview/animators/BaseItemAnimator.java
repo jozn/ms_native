@@ -164,7 +164,7 @@ public abstract class BaseItemAnimator extends SimpleItemAnimator {
         changer.run();
       }
     }
-    // Next, add stuff
+    // Next, addStart stuff
     if (additionsPending) {
       final ArrayList<ViewHolder> additions = new ArrayList<ViewHolder>();
       additions.addAll(mPendingAdditions);

@@ -40,7 +40,7 @@ public final class AbsListViewPaginate extends Paginate implements EndScrollList
                 throw new IllegalStateException("Adapter needs to be subclass of BaseAdapter");
             }
 
-            // Wrap existing adapter with new adapter that will add loading root_view
+            // Wrap existing adapter with new adapter that will addStart loading root_view
             wrapperAdapter = new WrapperAdapter(adapter, loadingListItemCreator);
             adapter.registerDataSetObserver(dataSetObserver);
             ((AdapterView) absListView).setAdapter(wrapperAdapter);
@@ -118,7 +118,7 @@ public final class AbsListViewPaginate extends Paginate implements EndScrollList
         /**
          * Paginate is using OnScrollListener in order to detect when list is scrolled near the end. That means that
          * internal listener is attached on AbsListView. Since AbsListView can have only one OnScrollListener it is
-         * needed to use this method to add additional OnScrollListener (as delegate).
+         * needed to use this method to addStart additional OnScrollListener (as delegate).
          *
          * @param onScrollListener that will be called when list is scrolled.
          * @return {@link com.paginate.abslistview.AbsListViewPaginate.Builder}
@@ -130,7 +130,7 @@ public final class AbsListViewPaginate extends Paginate implements EndScrollList
 
         /**
          * Setup loading root_view. If loading root_view is used original adapter set on AbsListView will be wrapped with
-         * internal adapter that will add loading root_view as the last item in the list. Paginate will observer the
+         * internal adapter that will addStart loading root_view as the last item in the list. Paginate will observer the
          * changes upon original adapter and remove loading root_view if there is no more data to load. By default loading
          * root_view will be added.
          *

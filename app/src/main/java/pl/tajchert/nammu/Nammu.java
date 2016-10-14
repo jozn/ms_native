@@ -228,7 +228,7 @@ public class Nammu {
     }
 
     /**
-     * Use to ignore to particular Permission - even if user will deny or add it we won't receive a callback.
+     * Use to ignore to particular Permission - even if user will deny or addStart it we won't receive a callback.
      * @param permission Permission to ignore
      */
     public static void ignorePermission(String permission) {

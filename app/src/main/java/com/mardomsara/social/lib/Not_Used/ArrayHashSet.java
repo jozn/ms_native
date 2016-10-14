@@ -169,7 +169,7 @@ public class ArrayHashSet<E>
                 throw new InternalError("Already existing, but checked before: "+element);
             }
             if(!data.add(element)) {
-                throw new InternalError("Couldn't add element: "+element);
+                throw new InternalError("Couldn't addStart element: "+element);
             }
             return true;
         }
@@ -510,13 +510,13 @@ public class ArrayHashSet<E>
 
     /**
      * Identity method allowing to get the identical object, using the internal hash map.<br>
-     * If the <code>element</code> is not yet contained, add it.
+     * If the <code>element</code> is not yet contained, addStart it.
      * <br>
      * This is an O(1) operation.
      *
      * @param element hash source to find the identical Object within this list
      * @return object from this list, identical to the given <code>key</code> hash code,
-     * or add the given <code>key</code> and return it.
+     * or addStart the given <code>key</code> and return it.
      * @throws NullPointerException if {@code element} is {@code null} but {@link #supportsNullValue()} == {@code false}
      */
     public final E getOrAdd(final E element) throws NullPointerException {

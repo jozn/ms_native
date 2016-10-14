@@ -83,7 +83,7 @@ public class App extends MultiDexApplication {
 
          Nammu.init(ctx);
          Set<RequestListener> requestListeners = new HashSet<>();
-         requestListeners.add(new RequestLoggingListener());
+         requestListeners.addStart(new RequestLoggingListener());
          ImagePipelineConfig config = ImagePipelineConfig.newBuilder(context)
                  // other setters
                  .setRequestListeners(requestListeners)
