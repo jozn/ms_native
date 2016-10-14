@@ -104,6 +104,9 @@ public class MsgCalls {
 			}
 		});
 
+		for(MsgReceivedToPeerJson meta : res){
+			App.getBus().post(meta);
+		}
 	};
 
 	public static NetEventHandler MsgsDeletedFromServerMany = ( data) ->{
@@ -119,6 +122,10 @@ public class MsgCalls {
 					.execute();
 			}
 		});
+
+		for(MsgDeletedFromServerJson meta : res){
+			App.getBus().post(meta);
+		}
 	};
 
 	public static NetEventHandler MsgsSeenByPeerMany = ( data) ->{
@@ -134,6 +141,10 @@ public class MsgCalls {
 					.execute();
 			}
 		});
+
+		for(MsgSeenByPeerJson meta : res){
+			App.getBus().post(meta);
+		}
 	};
 
 	///////////////////// Deps ///////////////////////////////

@@ -38,7 +38,11 @@ import com.mardomsara.social.models.events.MessageSyncMeta;
 import com.mardomsara.social.models.tables.Message;
 import com.mardomsara.social.models.tables.Room;
 import com.mardomsara.social.pipe.from_net_calls.MsgsCallToServer;
+import com.mardomsara.social.pipe.from_net_calls.events.MsgReceivedToServerEvent;
 import com.mardomsara.social.pipe.from_net_calls.json.MsgAddOneJson;
+import com.mardomsara.social.pipe.from_net_calls.json.MsgDeletedFromServerJson;
+import com.mardomsara.social.pipe.from_net_calls.json.MsgReceivedToPeerJson;
+import com.mardomsara.social.pipe.from_net_calls.json.MsgSeenByPeerJson;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.cells.chats.lists.MsgsListCell;
 import com.mardomsara.social.ui.views.EmojiKeyboard3;
@@ -315,6 +319,69 @@ public class ChatRoomPresenter extends BasePresenter implements
 		}
 	}
 
+	@Subscribe(threadMode = ThreadMode.MAIN)
+	public void onEvent(MsgReceivedToServerEvent data){
+		logIt("event new: MsgReceivedToServerEvent " + data.toString());
+		if(data.RoomKey.equals(room.RoomKey)){
+			Message msg = messagesAdaptor.msgs.getByKey(data.MsgKey);
+			if(msg != null){
+				try {
+					msg.ServerReceivedTime = data.AtTime;
+					messagesAdaptor.notifyDataSetChanged();
+				}catch (Exception e){
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+
+	@Subscribe(threadMode = ThreadMode.MAIN)
+	public void onEvent(MsgDeletedFromServerJson data){
+		logIt("event new: MsgDeletedFromServerJson " + data.toString());
+		if(data.RoomKey.equals(room.RoomKey)){
+			Message msg = messagesAdaptor.msgs.getByKey(data.MsgKey);
+			if(msg != null){
+				try {
+					msg.ServerDeletedTime = data.AtTime;
+					messagesAdaptor.notifyDataSetChanged();
+				}catch (Exception e){
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+
+	@Subscribe(threadMode = ThreadMode.MAIN)
+	public void onEvent(MsgReceivedToPeerJson data){
+		logIt("event new: MsgReceivedToPeerJson " + data.toString());
+		if(data.RoomKey.equals(room.RoomKey)){
+			Message msg = messagesAdaptor.msgs.getByKey(data.MsgKey);
+			if(msg != null){
+				try {
+					msg.PeerReceivedTime = data.AtTime;
+					messagesAdaptor.notifyDataSetChanged();
+				}catch (Exception e){
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+
+	@Subscribe(threadMode = ThreadMode.MAIN)
+	public void onEvent(MsgSeenByPeerJson data){
+		logIt("event new: MsgSeenByPeerJson " + data.toString());
+		if(data.RoomKey.equals(room.RoomKey)){
+			Message msg = messagesAdaptor.msgs.getByKey(data.MsgKey);
+			if(msg != null){
+				try {
+					msg.PeerSeenTime = data.AtTime;
+					messagesAdaptor.notifyDataSetChanged();
+				}catch (Exception e){
+					e.printStackTrace();
+				}
+			}
+		}
+	}
 
     /*Message getMsgOfAdaptorListByKey(String msgKey){
         if(meta.RoomKey.equals(room.RoomKey)){

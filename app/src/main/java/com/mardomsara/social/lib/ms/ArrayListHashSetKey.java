@@ -1,6 +1,7 @@
 package com.mardomsara.social.lib.ms;
 
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -258,6 +259,18 @@ public class ArrayListHashSetKey<T,K> {
 //				if(map.get(getKey(item)) == item){
 //					return item;
 //				}
+			}catch (Exception e){
+				e.printStackTrace();
+				return null;
+			}
+		}
+	}
+
+	@Nullable
+	public T getByKey(K key) {
+		synchronized (this){
+			try {
+				return map.get(key);
 			}catch (Exception e){
 				e.printStackTrace();
 				return null;

@@ -17,6 +17,7 @@ import com.mardomsara.social.models.MessageModel;
 import com.mardomsara.social.models.tables.Message;
 import com.mardomsara.social.pipe.Call;
 import com.mardomsara.social.pipe.Pipe;
+import com.mardomsara.social.pipe.from_net_calls.events.MsgReceivedToServerEvent;
 
 import java.io.File;
 import java.util.List;
@@ -33,6 +34,8 @@ public class MsgsCallToServer {
 			msg.ToPush = 0;
 			msg.ServerReceivedTime = TimeUtil.getTime();
 			msg.save();
+
+			MsgReceivedToServerEvent.publishNew(msg);
 		};
 
 		Pipe.sendCall(call,succ,null);
@@ -49,6 +52,10 @@ public class MsgsCallToServer {
 					msg.save();
 				}
 			});
+
+			for(Message msg: msgs){
+				MsgReceivedToServerEvent.publishNew(msg);
+			}
 		};
 
 		Pipe.sendCall(call,succ,null);
@@ -67,6 +74,8 @@ public class MsgsCallToServer {
 						if(deleteOrginal == true &&  fileOrginal != null){
 							fileOrginal.delete();
 						}
+
+						MsgReceivedToServerEvent.publishNew(msg);
 					};
 				});
 
@@ -83,6 +92,8 @@ public class MsgsCallToServer {
 						msg.ToPush = 0;
 						msg.ServerReceivedTime = TimeUtil.getTime();
 						msg.save();
+
+						MsgReceivedToServerEvent.publishNew(msg);
 					};
 				});
 
