@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import com.github.gfx.android.orma.annotation.Column;
 import com.github.gfx.android.orma.annotation.PrimaryKey;
 import com.github.gfx.android.orma.annotation.Table;
+import com.mardomsara.social.app.DB;
 import com.mardomsara.social.helpers.TimeUtil;
 import com.mardomsara.social.models.Session;
 
@@ -12,10 +13,13 @@ import com.mardomsara.social.models.Session;
 public class MsgSeen {
 
 	@PrimaryKey(auto = false)
-	public long NanoId = 0;
+	public long NanoId = TimeUtil.getTimeNano();
 
 	@Column(defaultExpr = "0")
 	public int ByUserId = Session.getUserId();
+
+	@Column(defaultExpr = "0")
+	public int ToUserId = 0;
 
 	@Column(defaultExpr = "")
 	@NonNull
@@ -27,4 +31,8 @@ public class MsgSeen {
 
 	@Column(defaultExpr = "0")
 	public long AtTime = TimeUtil.getTime();
+
+	public void save(){
+		DB.db.insertIntoMsgSeen(this);
+	}
 }

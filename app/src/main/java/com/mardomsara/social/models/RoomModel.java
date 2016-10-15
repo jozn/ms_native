@@ -9,9 +9,11 @@ import com.mardomsara.social.helpers.LangUtil;
 import com.mardomsara.social.helpers.TimeUtil;
 import com.mardomsara.social.models.events.RoomInfoChangedEvent;
 import com.mardomsara.social.models.tables.Message;
+import com.mardomsara.social.models.tables.MsgSeen;
 import com.mardomsara.social.models.tables.Room;
 import com.mardomsara.social.models.tables.Room_Schema;
 import com.mardomsara.social.models.tables.User;
+import com.mardomsara.social.pipe.from_net_calls.MsgsCallToServer;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -175,9 +177,50 @@ public class RoomModel {
         room.save();
     }
 
-	public static void updateRoomSeenMsgsToNow(Room room){
+	public static void updateRoomSeenMsgsToNow_BG(Room room){
+		long now = TimeUtil.getTime();
+		long nowMs = TimeUtil.getTimeMs();
+		long nowNano = TimeUtil.getTimeNano();
+		long lastNano = TimeUtil.getTimeNano();
+
 		AndroidUtil.runInBackgroundNoPanic(()->{
-			DB.db.selectFromMessage().RoomKeyEq(room.RoomKey);
+			List<Message> msgs = DB.db.selectFromMessage()
+				.RoomKeyEq(room.RoomKey)
+				.ISeenTimeEq(0)
+				.IsByMeEq(0)
+				.NanoIdGe(room.LastSeenTimeMs*1000000)
+				.toList();
+
+			if(msgs == null || msgs.size() == 0) return;
+
+			List<MsgSeen> msgsSeen = new ArrayList<MsgSeen>(msgs.size());
+			for (Message msg: msgs){
+				MsgSeen mseen = new MsgSeen();
+				mseen.MsgKey = msg.MessageKey;
+				mseen.RoomKey = msg.RoomKey;
+				mseen.ToUserId = msg.UserId;
+				msgsSeen.add(mseen);
+			}
+
+			DB.db.transactionSync(()->{
+				DB.db.updateMessage()
+					.ISeenTime(now)//update
+					.RoomKeyEq(room.RoomKey)//where
+					.ISeenTimeEq(0)
+					.NanoIdGt(room.LastSeenTimeMs*1000000)
+					.execute()
+				;
+
+				room.LastSeenTimeMs = nowMs;
+				room.save();
+
+				for (MsgSeen seen: msgsSeen){
+					seen.save();
+				}
+			});
+
+			MsgsCallToServer.sendSeenMsgs(msgsSeen);
+
 		});
 	}
 

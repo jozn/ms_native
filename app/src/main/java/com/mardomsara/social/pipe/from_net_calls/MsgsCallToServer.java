@@ -15,11 +15,13 @@ import com.mardomsara.social.helpers.JsonUtil;
 import com.mardomsara.social.helpers.TimeUtil;
 import com.mardomsara.social.models.MessageModel;
 import com.mardomsara.social.models.tables.Message;
+import com.mardomsara.social.models.tables.MsgSeen;
 import com.mardomsara.social.pipe.Call;
 import com.mardomsara.social.pipe.Pipe;
 import com.mardomsara.social.pipe.from_net_calls.events.MsgReceivedToServerEvent;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -97,6 +99,22 @@ public class MsgsCallToServer {
 					};
 				});
 
+	}
+
+	public static void sendSeenMsgs(List<MsgSeen> msgsSeen) {
+		Call call = new Call("MsgsSeenMany",msgsSeen);
+
+		Runnable succ =  ()->{
+			DB.db.transactionSync(()->{
+				List<Long> ids = new ArrayList<Long>();
+				for (MsgSeen seen: msgsSeen){
+					ids.add(seen.NanoId);
+				}
+				DB.db.deleteFromMsgSeen().NanoIdIn(ids).execute();
+			});
+		};
+
+		Pipe.sendCall(call,succ,null);
 	}
 
 }

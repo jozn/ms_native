@@ -4,6 +4,7 @@ import com.mardomsara.social.app.Constants;
 import com.mardomsara.social.app.DB;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.models.tables.Message;
+import com.mardomsara.social.models.tables.MsgSeen;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -20,6 +21,7 @@ public class FlushStoredDataToServer {
 		flushMediaMsgs(msgs);
 		flushVideoMessages(msgs);
 
+		flushSeenMessages();
 	}
 
 		public static void flushTextMessages(List<Message> msgs){
@@ -65,19 +67,10 @@ public class FlushStoredDataToServer {
 		});
 	}
 
-	public static void flushSeenMessages(List<Message> msgs){
-		AndroidUtil.runInBackgroundNoPanic(()->{
-			for(Message msg : msgs){
-				try {
-					if(msg.MessageTypeId == Constants.MESSAGE_VIDEO){
-						File file = new File(msg.MediaLocalSrc);
-						MsgsCallToServer.sendNewVideo(msg,file);
-					}
-				}catch (Exception e){
-					e.printStackTrace();
-				}
-			}
-		});
+	public static void flushSeenMessages(){
+		List<MsgSeen> msgsSeen = DB.db.selectFromMsgSeen().toList();
+		if(msgsSeen == null || msgsSeen.size() ==0 )return;
+		MsgsCallToServer.sendSeenMsgs(msgsSeen);
 	}
 
 }

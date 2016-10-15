@@ -39,6 +39,9 @@ public class Room {
     @Column(defaultExpr = "0" , helpers = Column.Helpers.ALL)
     public long LastRoomOpenedTimeMs = 0;
 
+	@Column(defaultExpr = "0" , helpers = Column.Helpers.ALL)
+	public long LastSeenTimeMs = 0;
+
     @Column(defaultExpr = "0", helpers = Column.Helpers.ALL)
     public int UnseenMessageCount = 0;
 

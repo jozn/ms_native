@@ -180,7 +180,10 @@ public class ChatRoomPresenter extends BasePresenter implements
         Picasso.with(AppUtil.getContext())
                 .load(imageUri)
                 .into(avatar);
-        return view;
+
+		RoomModel.updateRoomSeenMsgsToNow_BG(room);
+
+		return view;
     }
 
     @Override
@@ -318,6 +321,7 @@ public class ChatRoomPresenter extends BasePresenter implements
 				}
 			}
 		}
+		RoomModel.updateRoomSeenMsgsToNow_BG(room);
 	}
 
 	@Subscribe(threadMode = ThreadMode.MAIN)
@@ -337,6 +341,8 @@ public class ChatRoomPresenter extends BasePresenter implements
 			}
 		}
 		messagesAdaptor.notifyDataSetChanged();
+
+		RoomModel.updateRoomSeenMsgsToNow_BG(room);
 	}
 
 	@Subscribe(threadMode = ThreadMode.MAIN)

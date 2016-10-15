@@ -33,7 +33,7 @@ import java.util.List;
 /**
  * Created by Hamid on 5/2/2016.
  */
-public class MsgCalls {
+public class MsgCallsFromServer {
     public static NetEventHandler MsgAddOne = ( data) ->{
 		MsgAddOneJson jd = AppUtil.fromJson(data,MsgAddOneJson.class);
         if(jd==null || jd.Message == null )return;

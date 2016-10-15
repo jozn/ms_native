@@ -4,7 +4,7 @@ import com.mardomsara.social.app.Constants;
 import com.mardomsara.social.events.from_server.HelloCommand;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.models.net_events.MsgCommand_DEP;
-import com.mardomsara.social.pipe.from_net_calls.MsgCalls;
+import com.mardomsara.social.pipe.from_net_calls.MsgCallsFromServer;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -48,11 +48,11 @@ public class WSCallRouter {
         //dep
 //        register("addMsg", MsgCommand_DEP.addSingleMsg);
         //Messages
-        register("MsgAddOne", MsgCalls.MsgAddOne);
-        register("MsgAddMany", MsgCalls.MsgAddMany);
-        register("MsgsReceivedToPeerMany", MsgCalls.MsgsReceivedToPeerMany);
-        register("MsgsDeletedFromServerMany", MsgCalls.MsgsDeletedFromServerMany);
-        register("MsgsSeenByPeerMany", MsgCalls.MsgsSeenByPeerMany);
+        register("MsgAddOne", MsgCallsFromServer.MsgAddOne);
+        register("MsgAddMany", MsgCallsFromServer.MsgAddMany);
+        register("MsgsReceivedToPeerMany", MsgCallsFromServer.MsgsReceivedToPeerMany);
+        register("MsgsDeletedFromServerMany", MsgCallsFromServer.MsgsDeletedFromServerMany);
+        register("MsgsSeenByPeerMany", MsgCallsFromServer.MsgsSeenByPeerMany);
 
         register(Constants.MsgsReceivedToServer, MsgCommand_DEP.MsgsReceivedToServer);
         register(Constants.MsgsReceivedToPeer, MsgCommand_DEP.MsgsReceivedToPeer);
