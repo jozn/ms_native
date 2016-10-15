@@ -3,18 +3,11 @@ package com.mardomsara.social.ui.presenter;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.mardomsara.social.App;
 import com.mardomsara.social.Nav;
 import com.mardomsara.social.R;
 import com.mardomsara.social.app.Router;
-import com.mardomsara.social.base.old.Command;
-import com.mardomsara.social.helpers.AndroidUtil;
-import com.mardomsara.social.helpers.JsonUtil;
 import com.mardomsara.social.helpers.LangUtil;
-import com.mardomsara.social.json.social.rows.UserInfoJson;
-import com.mardomsara.social.service.WS_DEP;
 import com.mardomsara.social.ui.BasePresenter;
 
 //import ;
@@ -45,7 +38,7 @@ public class HelloPresenter extends BasePresenter {
         btn3.setOnClickListener((vv)->{
 //            Nav.push(new PlayPresenter());
         });
-        sendWsReqRes();
+//        sendWsReqRes();
 
 //        setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 /*        FrameLayout container = new FrameLayout(getContext());
@@ -99,7 +92,7 @@ public class HelloPresenter extends BasePresenter {
         count +=1;
     }
 
-	void sendWsReqRes(){
+	/*void sendWsReqRes(){
 		Command cmd = Command.getNewForResult("EchoRes");
 		cmd.setData("dasdsad");
 		WS_DEP.sendCommandForResponse(cmd,(data)->{
@@ -110,7 +103,7 @@ public class HelloPresenter extends BasePresenter {
 				}
 			});
 		});
-	}
+	}*/
     /*void sendWsReqRes(){
         Command cmd = Command.getNewForResult("EchoRes");
         cmd.setData("dasdsad");

@@ -149,33 +149,6 @@ public class MsgCallsFromServer {
 		}
 	};
 
-	///////////////////// Deps ///////////////////////////////
-    public static NetEventHandler SetUserForTable = ( data) -> {
-        User c = JsonUtil.fromJson(data,User.class);
-        UserModel.create(c);
-    };
-
-    public static NetEventHandler MsgsAddNew = (data) ->{
-        Message[] msgs = AppUtil.fromJson(data,Message[].class);
-        if(msgs==null)return;
-        AppUtil.log("MsgsAddNew: cmd -> "+data);
-        for (Message msg : msgs) {
-            MessageModel.setParamsForNewMsgRecivedFromNet(msg);
-
-
-            RoomModel.onRecivedNewMsg(msg);
-            UserModel.onRecivedNewMsg(msg);
-//            AppUtil.runInUi(()->{RoomsListAdaptor.up.run();});
-//            EventBus.getDefault().
-//            msg.save();
-            handleNewMsgFunctionalitiesForTypes(msg);
-            EventBus.getDefault().post(msg);
-
-
-            MessageModel.sendToServerMsgsReceivedToPeerCmd(msg);
-        }
-    };
-
     //don't block return fast
     private static void handleNewMsgFunctionalitiesForTypes(Message msg) {
         switch (msg.MessageTypeId){
@@ -232,74 +205,5 @@ public class MsgCallsFromServer {
 
         }
     }
-
-    public static NetEventHandler MsgsReceivedToServer = (data) ->{
-        MsgsSyncMetaReceivedToServer[] metas = JsonUtil.fromJson(data, MsgsSyncMetaReceivedToServer[].class);
-        if(metas == null) return;
-        AppUtil.log("MsgsReceivedToServer size:" + metas.length);
-        for (MsgsSyncMetaReceivedToServer m : metas){
-            Message msg = MessageModel.getMessageByKey(m.MessageKey);
-            AppUtil.log("MsgsReceivedToServer For: " + m.toString() + msg);
-            if(msg != null && msg.RoomKey.equals(m.RoomKey)){
-                msg.ServerReceivedTime = ((int) (m.AtTimeMs/1000));
-                msg.ToPush = 0;
-                msg.save();
-//                MessagesModel.publishEvent(m);
-                EventBus.getDefault().post(m);
-            }
-            //todo: implement event to UI
-        }
-
-    };
-
-    public static NetEventHandler MsgsReceivedToPeer = (data) ->{
-        MsgsSyncMetaReceivedToPeer[] metas = JsonUtil.fromJson(data, MsgsSyncMetaReceivedToPeer[].class);
-        if(metas == null) return;
-        AppUtil.log("MsgsReceivedToPeer" + metas.toString());
-        for (MsgsSyncMetaReceivedToPeer m : metas){
-            Message msg = MessageModel.getMessageByKey(m.MessageKey);
-            if(msg != null && msg.RoomKey.equals(m.RoomKey)){
-                msg.PeerReceivedTime = ((int) (m.AtTimeMs/1000));
-                msg.save();
-//                MessagesModel.publishEvent(m);
-                EventBus.getDefault().post(m);
-            }
-            //todo: implement event to UI
-        }
-    };
-
-    public static NetEventHandler MsgsSeenByPeer = (data) ->{
-        MsgsSyncMetaSeenByPeer[] metas = JsonUtil.fromJson(data, MsgsSyncMetaSeenByPeer[].class);
-        if(metas == null) return;
-        AppUtil.log("MsgsSeenByPeer " + metas.toString());
-        for (MsgsSyncMetaSeenByPeer m : metas){
-            MessageModel.makeMsgsSeen(m.ExtraData ,m);
-            EventBus.getDefault().post(m);
-//            MessagesTable msg = MessagesModel.getMessageByKey(m.MessageKey);
-//            if(msg != null && msg.RoomKey.equals(m.RoomKey)){
-//                msg.setPeerSeenTime((int) (m.AtTimeMs/1000));
-//                msg.save();
-////                MessagesModel.publishEvent(m);
-//                EventBus.getDefault().post(m);
-//            }
-            //todo: implement event to UI
-        }
-    };
-
-    public static NetEventHandler MsgsDeletedFromServer = (data) ->{
-        MessageSyncMeta[] metas = JsonUtil.fromJson(data, MessageSyncMeta[].class);
-        if(metas == null) return;
-        AppUtil.log("MsgsDeletedFromServer " + metas.toString());
-        for (MessageSyncMeta m : metas){
-            Message msg = MessageModel.getMessageByKey(m.MessageKey);
-            if(msg != null && msg.RoomKey.equals(m.RoomKey)){
-                msg.ServerDeletedTime = ((int) (m.AtTimeMs/1000));
-                msg.save();
-//                MessagesTable.publishEvent(m);
-                EventBus.getDefault().post(m);
-            }
-            //todo: implement event to UI
-        }
-    };
 
 }

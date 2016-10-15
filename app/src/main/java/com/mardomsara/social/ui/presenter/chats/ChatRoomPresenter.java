@@ -46,8 +46,8 @@ import com.mardomsara.social.pipe.from_net_calls.json.MsgReceivedToPeerJson;
 import com.mardomsara.social.pipe.from_net_calls.json.MsgSeenByPeerJson;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.cells.chats.lists.MsgsListCell;
-import com.mardomsara.social.ui.views.EmojiKeyboard3;
 import com.mardomsara.social.ui.cells.general.KeywordAttachmentCell;
+import com.mardomsara.social.ui.views.EmojiKeyboard3;
 import com.squareup.picasso.Picasso;
 import com.sw926.imagefileselector.ImageFileSelector;
 
@@ -205,7 +205,7 @@ public class ChatRoomPresenter extends BasePresenter implements
     public void onFocus() {
         super.onFocus();
         AppUtil.log("after?? Chatroom onFocus()");
-        MessageModel.sendToServerAllMsgsSeenbyPeerCmdForRoom(room);
+//        MessageModel.sendToServerAllMsgsSeenbyPeerCmdForRoom(room);
         RoomModel.onRoomOpenedInBackground(room);
     }
 

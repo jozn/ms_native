@@ -10,7 +10,6 @@ import com.mardomsara.social.App;
 import com.mardomsara.social.app.AppFiles;
 import com.mardomsara.social.app.Constants;
 import com.mardomsara.social.app.DB;
-import com.mardomsara.social.base.old.Command;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.FileUtil;
@@ -26,7 +25,6 @@ import com.mardomsara.social.models.extra.MsgExtraPhotoThumbnail;
 import com.mardomsara.social.models.tables.Message;
 import com.mardomsara.social.models.tables.Room;
 import com.mardomsara.social.pipe.from_net_calls.MsgsCallToServer;
-import com.mardomsara.social.service.WS_DEP;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -101,49 +99,6 @@ public class MessageModel {
         //onAddedNewMsgEvent(msg);*/
     }
 
-    public static void sendToServerMsgsSeenByPeerCmd(Message msg){
-        Command cmd = Command.getNew(Constants.MsgsSeenByPeer);
-        ArrayList<String> seenList = new ArrayList<String>();
-        seenList.add(msg.MessageKey);
-
-        MsgsSyncMetaSeenByPeer meta = new MsgsSyncMetaSeenByPeer();
-        meta.ByUserId = Session.getUserId();
-        meta.MessageKey = msg.MessageKey;
-        meta.ExtraData = seenList;
-        meta.RoomKey = msg.RoomKey;
-        meta.AtTimeMs = TimeUtil.getTimeMs();
-
-        cmd.addToDataArray(meta);
-        cmd.makeDataReady();
-        WS_DEP.sendCommand(cmd);
-    }
-
-    public static void sendToServerAllMsgsSeenbyPeerCmdForRoom(Room room){
-        List<Message> msgs =  DB.db.selectFromMessage()
-                .IsByMeEq(0)
-                .RoomKeyEq(room.RoomKey)
-                .CreatedDeviceMsGt(room.LastRoomOpenedTimeMs)
-                .toList();
-
-        if(msgs == null || msgs.size() == 0 ) return;
-
-        List<String> seenMsgKeys = new ArrayList<>();
-        for(Message msg : msgs){
-            seenMsgKeys.add(msg.MessageKey);
-        }
-
-        Command cmd = Command.getNew(Constants.MsgsSeenByPeer);
-        MsgsSyncMetaSeenByPeer meta = new MsgsSyncMetaSeenByPeer();
-        meta.ByUserId = Session.getUserId();
-//        meta.MessageKey = msg.getMessageKey();
-        meta.ExtraData = seenMsgKeys;
-        meta.RoomKey = room.RoomKey;
-        meta.AtTimeMs = TimeUtil.getTimeMs();
-
-        cmd.addToDataArray(meta);
-        cmd.makeDataReady();
-        WS_DEP.sendAnStoreCommand(cmd);
-    }
 
     public static void makeMsgsSeen(List<String> msgKeys, MsgsSyncMetaSeenByPeer meta){
         DB.db.updateMessage()
@@ -232,20 +187,7 @@ public class MessageModel {
             msg.MediaThumb64 = ImageUtil.blurThumbnailToBase64(thumbBitmap);
         }
     }
-
-    public static void sendToServerMsgsReceivedToPeerCmd(Message msg){
-        Command cmd = Command.getNew(Constants.MsgsReceivedToPeer);
-        MessageSyncMeta meta = new MessageSyncMeta();
-        meta.ByUserId = com.mardomsara.social.models.Session.getUserId();
-        meta.MessageKey = msg.MessageKey;
-        meta.RoomKey = msg.RoomKey;
-        meta.AtTimeMs = TimeUtil.getTimeMs();
-
-        cmd.addToDataArray(meta);
-        cmd.makeDataReady();
-        WS_DEP.sendCommand(cmd);
-    }
-
+	
 
     public static void didMsgsAdded(@NonNull Message msg) {
         RoomModel.onHereNewMsg(msg);
