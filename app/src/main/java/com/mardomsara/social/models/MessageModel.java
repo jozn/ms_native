@@ -187,7 +187,7 @@ public class MessageModel {
             msg.MediaThumb64 = ImageUtil.blurThumbnailToBase64(thumbBitmap);
         }
     }
-	
+
 
     public static void didMsgsAdded(@NonNull Message msg) {
         RoomModel.onHereNewMsg(msg);

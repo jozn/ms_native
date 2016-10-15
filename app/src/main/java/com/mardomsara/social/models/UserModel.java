@@ -3,14 +3,10 @@ package com.mardomsara.social.models;
 import android.support.annotation.Nullable;
 
 import com.mardomsara.social.app.DB;
-import com.mardomsara.social.base.old.Command;
-import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.models.memory_store.MemoryStore_Users;
 import com.mardomsara.social.models.tables.ContactsCopy;
-import com.mardomsara.social.models.tables.Message;
 import com.mardomsara.social.models.tables.User;
-import com.mardomsara.social.service.WS_DEP;
 
 import java.util.List;
 import java.util.Map;
@@ -53,17 +49,6 @@ public class UserModel {
 			user.save();
 //		});
 	}
-
-	@Deprecated
-    public static void onRecivedNewMsg(Message msg) {
-        User user = getByUserId( msg.UserId );
-        if(user == null){
-            Command cmd = new Command();
-            cmd.Name = "GetUserForTable";
-            cmd.Data = ""+ msg.UserId;
-            WS_DEP.sendCommand(cmd);
-        }
-    }
 
     public static List<User> getAllFollowings() {
         return DB.db.selectFromUser().FollowingTypeEq(1).toList();
