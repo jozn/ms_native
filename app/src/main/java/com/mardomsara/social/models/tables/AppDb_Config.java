@@ -14,7 +14,8 @@ import com.mardomsara.social.base.old.Command;
                 Message.class,
                 Room.class,
                 User.class,
-                Command.class
+                Command.class,
+				MsgSeen.class,
 //                Item.class
 
         }, // Give model classes to handle

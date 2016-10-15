@@ -70,6 +70,8 @@ public class MsgCalls {
 		for(Message msg: jd.Messages){
 			RoomModel.messageHasInsertIntoRoomUpdateRoomInfo(msg);
 		}
+
+		App.getBus().post(jd);
 	};
 
 	static void handleNewMsg(Message msg){

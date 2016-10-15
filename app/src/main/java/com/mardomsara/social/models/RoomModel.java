@@ -71,6 +71,23 @@ public class RoomModel {
 
     }
 
+	public static Room onRecivedNewMsg2(Message msg){
+		Room room = getRoomByRoomKey(msg.RoomKey);
+		if(room == null){
+			room = new Room();
+			room.RoomKey = msg.RoomKey;
+			room.RoomTypeId = 1;//todo: extarct from here
+			room.CreatedMs = TimeUtil.getTimeMs();
+		}
+		room.UnseenMessageCount = room.UnseenMessageCount +1;
+		room.UpdatedMs = msg.CreatedMs;//this one we show to user
+		room.SortTimeMs = TimeUtil.getTimeMs();//just for sorting needs accurte user own device
+		updateOrInsert(room);
+		return room;
+//        room.save();
+//        msg.getClass().getAnnotation(Column.class).value();
+	}
+
     public static void onRecivedNewMsg(Message msg){
         Room room = getRoomByRoomKey(msg.RoomKey);
         if(room == null){
@@ -95,7 +112,7 @@ public class RoomModel {
 			room.RoomTypeId = 1;//todo: extarct from here
 			room.CreatedMs = TimeUtil.getTimeMs();
 		}
-		int count = DB.db.relationOfMessage().RoomKeyEq(msg.RoomKey).AmISeenEq(0).count();
+		int count = DB.db.relationOfMessage().RoomKeyEq(msg.RoomKey).ISeenTimeEq(0).count();
 		room.UnseenMessageCount = count;
 		room.UpdatedMs = msg.CreatedMs;//this one we show to user
 		room.SortTimeMs = TimeUtil.getTimeMs();//just for sorting needs accurte user own device
@@ -157,6 +174,12 @@ public class RoomModel {
         room.UnseenMessageCount = 0;
         room.save();
     }
+
+	public static void updateRoomSeenMsgsToNow(Room room){
+		AndroidUtil.runInBackgroundNoPanic(()->{
+			DB.db.selectFromMessage().RoomKeyEq(room.RoomKey);
+		});
+	}
 
     ///////////////////////////////////////
     public static void sendRoomInfoChangedEvent(String roomKey){

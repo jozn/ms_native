@@ -21,6 +21,7 @@ import com.mardomsara.social.helpers.FormaterUtil;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.LangUtil;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
+import com.mardomsara.social.lib.ms.ArrayListHashSetKey;
 import com.mardomsara.social.models.LastMsgOfRoomsCache2;
 import com.mardomsara.social.models.RoomModel;
 import com.mardomsara.social.models.events.MessageSyncMeta;
@@ -31,6 +32,8 @@ import com.mardomsara.social.models.events.MsgsSyncMetaSeenByPeer;
 import com.mardomsara.social.models.events.RoomInfoChangedEvent;
 import com.mardomsara.social.models.tables.Message;
 import com.mardomsara.social.models.tables.Room;
+import com.mardomsara.social.pipe.from_net_calls.json.MsgAddManyJson;
+import com.mardomsara.social.pipe.from_net_calls.json.MsgAddOneJson;
 import com.mardomsara.social.play.DividerItemDecoration;
 import com.mardomsara.social.ui.views.wigets.CountView2;
 
@@ -49,6 +52,7 @@ import butterknife.ButterKnife;
 public class RoomsListCell {
     public View root_view;
     List<Room> list;
+    ArrayListHashSetKey<Room,String> listRooms = new ArrayListHashSetKey<>((room)->room.RoomKey);
     RecyclerView rv;
     RoomsListAdaptor adp;
 
@@ -59,10 +63,11 @@ public class RoomsListCell {
     private void init() {
         root_view = AppUtil.inflate(R.layout.list_rooms_presenter);
         list  = RoomModel.getAllRoomsList(0);
-        LastMsgOfRoomsCache2.getInstance().setForRooms(list);
+		listRooms.fromList(list);
+        LastMsgOfRoomsCache2.getInstance().setForRooms(listRooms);
 
         rv = (RecyclerView) root_view.findViewById(R.id.contacts_list);
-        adp = new RoomsListAdaptor(list);
+        adp = new RoomsListAdaptor(listRooms);
 //        EventBus.getDefault().register(adp);
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(AppUtil.getContext());
 //        mLayoutManager.setSmoothScrollbarEnabled(true);
@@ -72,22 +77,57 @@ public class RoomsListCell {
         rv.setAdapter(adp);
         rv.setHasFixedSize(true);
 
-        rv.setLayoutManager(mLayoutManager);
+		App.getBus().register(this);
+
+		rv.setLayoutManager(mLayoutManager);
     }
 
+	@Subscribe(threadMode = ThreadMode.BACKGROUND)
+	public void onEvent(MsgAddOneJson data){
+		Message msg = data.Message;
+		Room roomNew = RoomModel.onRecivedNewMsg2(msg);
+		AndroidUtil.runInUiNoPanic(()->{
+			listRooms.set(0,roomNew);
+			adp.notifyDataSetChanged();
+			/*int index = listRooms.indexOfByKey(msg.RoomKey);
+			if (index >= 0) {
+				adp.notifyContentItemChanged(index);
+			}	*/
+		});
 
-    public static class RoomsListAdaptor extends AppHeaderFooterRecyclerViewAdapter<RoomRowCellHolder> {
-        List<Room> roomsList = new ArrayList<>();
+	}
 
-        public RoomsListAdaptor(List<Room> rooms) {
+	@Subscribe(threadMode = ThreadMode.BACKGROUND)
+	public void onEvent(MsgAddManyJson data){
+		List<Message> msgs = data.Messages;
+		for(Message msg:msgs){
+			Room roomNew = RoomModel.onRecivedNewMsg2(msg);
+			listRooms.set(0,roomNew);
+
+		}
+		AndroidUtil.runInUiNoPanic(()->{
+			adp.notifyDataSetChanged();
+			/*int index = listRooms.indexOfByKey(msg.RoomKey);
+			if (index >= 0) {
+				adp.notifyContentItemChanged(index);
+			}	*/
+		});
+
+	}
+
+	public static class RoomsListAdaptor extends AppHeaderFooterRecyclerViewAdapter<RoomRowCellHolder> {
+		ArrayListHashSetKey<Room,String> roomsList = null;//; new ArrayList<>();
+
+        public RoomsListAdaptor(ArrayListHashSetKey<Room,String> rooms) {
             if(rooms != null){
-                this.roomsList.addAll(rooms);
+                this.roomsList = rooms;
             }
-            App.getBus().register(this);
+//            App.getBus().register(this);
         }
 
         @Override
         protected int getContentItemCount() {
+			Helper.showDebugMessage("rooms size:" + roomsList.size());
             return roomsList.size();
         }
 
@@ -109,95 +149,6 @@ public class RoomsListCell {
 
         //////////// Events ////////////////
 
-        @Subscribe(threadMode = ThreadMode.MAIN)
-        //    public void onEvent(Message msg){
-        public void onNewMsgEvent(Message msg){
-            logIt("event new msg: " + msg.toString());
-            //        notifyItemChanged(0);
-            //remove
-            int size = roomsList.size();
-            Room room;
-            int index = -1;
-            for(int i =0; i< size; i++){
-                room = roomsList.get(i);
-                if(room == null) {size =-1; break;};
-                if(room.RoomKey.equals(msg.RoomKey)){
-                    index = roomsList.indexOf(room);
-                    roomsList.remove(index);
-                    size=-1;//must break loop all -- bug indexOutOfRange
-                }
-            }
-            Room firstRoomRow = RoomModel.getRoomByRoomKeyAndLoadUser(msg.RoomKey);
-            roomsList.add(0,firstRoomRow);
-
-
-            //        if(index>0){//move : 1,2,3
-            //            notifyItemMoved(index,0);
-            //        }else if (index == 0){
-            //
-            //        }
-            //root_view itself update
-
-            //Keep it simple
-            if(index>0){
-                notifyItemRemoved(index);
-            }
-//            notifyItemChanged(0);//buggy
-            notifyDataSetChanged();
-        }
-
-        @Subscribe(threadMode = ThreadMode.MAIN)
-        public void onRoomInfoChangedEvent(RoomInfoChangedEvent event){
-            logIt("event onRoomInfoChangedEvent: " + event.toString());
-            int size = roomsList.size();
-            Room room;
-            Room newRoomRow = RoomModel.getRoomByRoomKeyAndLoadUser(event.RoomKey);
-            int index = -1;
-            int i =0;
-            for(; i< size; i++){
-                room = roomsList.get(i);
-                if(room == null)  break;
-                if(room.RoomKey.equals(event.RoomKey)){
-                    //                roomsList.remove(i);
-                    roomsList.set(i,newRoomRow);
-                    break;//must break loop all -- bug indexOutOfRange
-                }
-            }
-            notifyItemChanged(i);
-        }
-
-        @Subscribe
-        public void onEvent(MessageSyncMeta mete){
-            logIt("event meta: " + mete.toString());
-        }
-
-        @Subscribe
-        public void onEvent(MsgsSyncMetaReceivedToServer mete){
-            logIt("event meta: " + mete.toString());
-            //        for(Room room: roomsList){
-            //            if(room.getRoomKey().equals(mete.RoomKey)){
-            //                int index = roomsList.indexOf(room);
-            //                roomsList.remove(index);
-            //                notifyItemRemoved(index);
-            //            }
-            //        }
-
-        }
-
-        @Subscribe
-        public void onEvent(MsgsSyncMetaReceivedToPeer mete){
-            logIt("event meta: " + mete.toString());
-        }
-
-        @Subscribe
-        public void onEvent(MsgsSyncMetaDeletedFromServer mete){
-            logIt("event meta: " + mete.toString());
-        }
-
-        @Subscribe
-        public void onEvent(MsgsSyncMetaSeenByPeer mete){
-            logIt("event meta: " + mete.toString());
-        }
 
         protected void logIt(String str) {
             Log.d(" "+ this.getClass().getSimpleName() ," "+ str);

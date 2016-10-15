@@ -2,6 +2,10 @@ package com.mardomsara.social.lib.ms;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.util.Log;
+
+import com.mardomsara.social.helpers.AndroidUtil;
+import com.mardomsara.social.helpers.AppUtil;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -10,6 +14,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.function.UnaryOperator;
 
 /**
@@ -27,7 +32,9 @@ public class ArrayListHashSetKey<T,K> {
 	}
 
 	public int size() {
-		return map.size();
+		AppUtil.log("size:"+map.size()+ " "+ data.size());
+
+		return data.size();
 	}
 
 
@@ -266,6 +273,20 @@ public class ArrayListHashSetKey<T,K> {
 		}
 	}
 
+	public Set<K> getKeys() {
+		synchronized (this){
+			try {
+				return map.keySet();
+//				if(map.get(getKey(item)) == item){
+//					return item;
+//				}
+			}catch (Exception e){
+				e.printStackTrace();
+				return null;
+			}
+		}
+	}
+
 	@Nullable
 	public T getByKey(K key) {
 		synchronized (this){
@@ -278,12 +299,13 @@ public class ArrayListHashSetKey<T,K> {
 		}
 	}
 
-	public T set(int index, T element) {
+	public T set(int index, T item) {
 		synchronized (this){
 			try {
-				map.put(getKey(element),element);
-				data.remove(element);
-				return data.set(index,element);
+				T itemOld = map.get(getKey(item));
+				map.put(getKey(item),item);
+				data.remove(itemOld);
+				return data.set(index,item);
 			}catch (Exception e){
 				e.printStackTrace();
 			}
@@ -295,6 +317,8 @@ public class ArrayListHashSetKey<T,K> {
 		synchronized (this){
 			try {
 				T item = data.get(index);
+				if(item == null)return;
+				map.remove(getKey(item));
 				remove(item);
 			}catch (Exception e){
 				e.printStackTrace();
@@ -304,6 +328,12 @@ public class ArrayListHashSetKey<T,K> {
 
 
 	public int indexOf(T item) {
+		return data.indexOf(item);
+	}
+
+	public int indexOfByKey(K key) {
+		T item = map.get(key);
+		if(item == null) return -1;
 		return data.indexOf(item);
 	}
 

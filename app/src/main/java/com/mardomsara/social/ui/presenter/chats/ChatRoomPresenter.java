@@ -39,6 +39,7 @@ import com.mardomsara.social.models.tables.Message;
 import com.mardomsara.social.models.tables.Room;
 import com.mardomsara.social.pipe.from_net_calls.MsgsCallToServer;
 import com.mardomsara.social.pipe.from_net_calls.events.MsgReceivedToServerEvent;
+import com.mardomsara.social.pipe.from_net_calls.json.MsgAddManyJson;
 import com.mardomsara.social.pipe.from_net_calls.json.MsgAddOneJson;
 import com.mardomsara.social.pipe.from_net_calls.json.MsgDeletedFromServerJson;
 import com.mardomsara.social.pipe.from_net_calls.json.MsgReceivedToPeerJson;
@@ -317,6 +318,25 @@ public class ChatRoomPresenter extends BasePresenter implements
 				}
 			}
 		}
+	}
+
+	@Subscribe(threadMode = ThreadMode.MAIN)
+	public void onEvent(MsgAddManyJson data){
+		logIt("event new: MsgAddManyJson " + data.toString());
+		List<Message> msgs = data.Messages;
+		for(Message msg : msgs){
+			if(msg.RoomKey.equals(room.RoomKey)) {
+				if (!messagesAdaptor.msgs.contains(msg)) {
+					try {
+						messagesAdaptor.msgs.addStart(msg);
+
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
+			}
+		}
+		messagesAdaptor.notifyDataSetChanged();
 	}
 
 	@Subscribe(threadMode = ThreadMode.MAIN)

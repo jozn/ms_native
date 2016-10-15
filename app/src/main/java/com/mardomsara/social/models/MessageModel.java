@@ -38,7 +38,7 @@ import java.util.List;
  * Created by Hamid on 9/5/2016.
  */
 public class MessageModel {
-    final static int MSGS_PER_PAGE = 4;
+    final static int MSGS_PER_PAGE = 30;
 
     //TODO: change orderByCreatedDeviceMsDesc() -> orderBySortId()
     public static List<Message> getRoomMessagesTimeOffset(String roomKey, long deviceCreatedTimeOffset){
