@@ -85,7 +85,7 @@ public class ImageFileSelector {
     }
 
     /**
-     * set image compress format
+     * setOrReplace image compress format
      *
      * @param compressFormat compress format
      */

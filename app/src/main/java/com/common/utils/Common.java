@@ -175,7 +175,7 @@ public class Common {
     }
 
     /**
-     * set String Preference Value
+     * setOrReplace String Preference Value
      *
      * @param context
      * @param prefName Preference name
@@ -206,7 +206,7 @@ public class Common {
     // -----------------------------------------------
 
     /**
-     * set Integer Preference Value
+     * setOrReplace Integer Preference Value
      *
      * @param context
      * @param prefName
@@ -236,7 +236,7 @@ public class Common {
     // -----------------------------------------------
 
     /**
-     * set Boolean Preference Value
+     * setOrReplace Boolean Preference Value
      *
      * @param context
      * @param prefName
@@ -266,7 +266,7 @@ public class Common {
     // -----------------------------------------------
 
     /**
-     * set Float Preference Value
+     * setOrReplace Float Preference Value
      *
      * @param context
      * @param prefName
@@ -297,7 +297,7 @@ public class Common {
     // ------------------------------------------------
 
     /**
-     * set Long Preference Value
+     * setOrReplace Long Preference Value
      *
      * @param context
      * @param prefName
@@ -370,7 +370,7 @@ public class Common {
     // ------------------------------
 
     /**
-     * remove all the preferences of your app. Note: only remove all which set
+     * remove all the preferences of your app. Note: only remove all which setOrReplace
      * by using this sdk.
      *
      * @param context
@@ -669,7 +669,7 @@ public class Common {
      * use image from URL.
      *
      * @param imgurl     of the image.
-     * @param mImageView in which you have to set image
+     * @param mImageView in which you have to setOrReplace image
      */
     public static void downloadImageFromURL(final String imgurl,
                                             final ImageView mImageView) {
@@ -704,7 +704,7 @@ public class Common {
      *
      * @param mContext
      * @param format    of the date format
-     * @param mTextView in which you have to set selected date
+     * @param mTextView in which you have to setOrReplace selected date
      */
     public static void showDatePickerDialog(final Context mContext,
                                             final String format, final TextView mTextView) {
@@ -1247,7 +1247,7 @@ public class Common {
 
     // --------------------------------------------------------------
 
-    // scroll color set folowing things in listview
+    // scroll color setOrReplace folowing things in listview
 
     // android:scrollbarSize="10dp"
     // android:scrollbarThumbVertical="@drawable/custom_scroll_style"

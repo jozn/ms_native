@@ -46,7 +46,7 @@ public class EmojiKeyboard3 {
 
     void init(){
         popup = new EmojiconsPopup(rootView, AppUtil.getContext());
-        //Will automatically set size according to the soft keyboard size
+        //Will automatically setOrReplace size according to the soft keyboard size
 //        popup.setSizeForSoftKeyboard_dep();
 //        popup.setSiz();
 

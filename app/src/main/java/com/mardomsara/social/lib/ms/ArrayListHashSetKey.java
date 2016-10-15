@@ -9,6 +9,7 @@ import com.mardomsara.social.helpers.AppUtil;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -21,7 +22,7 @@ import java.util.function.UnaryOperator;
  * Created by Hamid on 10/13/2016.
  */
 
-public class ArrayListHashSetKey<T,K> {
+public class ArrayListHashSetKey<T extends Comparable ,K> {
 
 	List<T> data ;
 	Map<K,T> map ;
@@ -29,6 +30,11 @@ public class ArrayListHashSetKey<T,K> {
 		data = new ArrayList<T>(30);
 		map = new HashMap<K, T>(30);
 		set_keyGen(gen);
+	}
+
+	public ArrayListHashSetKey(@NonNull KeyGen<T,K> gen,Comparator<T> sorter) {
+		this(gen);
+		set_sorter(sorter);
 	}
 
 	public int size() {
@@ -299,13 +305,13 @@ public class ArrayListHashSetKey<T,K> {
 		}
 	}
 
-	public T set(int index, T item) {
+	public T setOrReplace(int index, T item) {
 		synchronized (this){
 			try {
 				T itemOld = map.get(getKey(item));
 				map.put(getKey(item),item);
 				data.remove(itemOld);
-				return data.set(index,item);
+				data.add(index,item);
 			}catch (Exception e){
 				e.printStackTrace();
 			}
@@ -358,6 +364,15 @@ public class ArrayListHashSetKey<T,K> {
 			addEnd(item);
 		}
 
+	}
+
+	Comparator<T> sorter;
+	public void set_sorter(Comparator<T> gen){
+		sorter = gen;
+	}
+	public void sort(){
+		Collections.sort(data);
+//		Collections.sort(data,sorter);
 	}
 
 	//////////// Me /////////////

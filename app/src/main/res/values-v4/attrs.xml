@@ -24,12 +24,12 @@
         <flag name="center" value="0x11" />
         <!-- Grow the horizontal and vertical size of the object if needed so it completely fills its container. -->
         <flag name="fill" value="0x77" />
-        <!-- Additional option that can be set to have the top and/or bottom edges of
+        <!-- Additional option that can be setOrReplace to have the top and/or bottom edges of
              the child clipped to its container's bounds.
              The clip will be based on the vertical gravity: a top gravity will clip the bottom
              edge, a bottom gravity will clip the top edge, and neither will clip both edges. -->
         <flag name="clip_vertical" value="0x80" />
-        <!-- Additional option that can be set to have the left and/or right edges of
+        <!-- Additional option that can be setOrReplace to have the left and/or right edges of
              the child clipped to its container's bounds.
              The clip will be based on the horizontal gravity: a left gravity will clip the right
              edge, a right gravity will clip the left edge, and neither will clip both edges. -->
@@ -40,17 +40,17 @@
     <declare-styleable name="TwoWayAbsListView">
          <!-- Drawable used to indicate the currently selected item in the list. -->
         <attr name="listSelector" format="color|reference" />
-        <!-- When set to true, the selector will be drawn over the selected item.
+        <!-- When setOrReplace to true, the selector will be drawn over the selected item.
              Otherwise the selector is drawn behind the selected item. The default
              value is false. -->
         <attr name="drawSelectorOnTop" format="boolean" />
         <!-- Used by ListView and GridView to stack their content from the bottom. -->
         <attr name="stackFromBottom" format="boolean" />
-        <!-- When set to true, the list uses a drawing cache during scrolling.
+        <!-- When setOrReplace to true, the list uses a drawing cache during scrolling.
              This makes the rendering faster but uses more memory. The default
              value is true. -->
         <attr name="scrollingCache" format="boolean" />
-        <!-- When set to true, the list will filter results as the user types. The
+        <!-- When setOrReplace to true, the list will filter results as the user types. The
              List's adapter must support the Filterable interface for this to work. -->
         <!-- <attr name="textFilterEnabled" format="boolean" /> -->
         <!-- Sets the transcript mode for the list. In transcript mode, the list
@@ -59,7 +59,7 @@
             <!-- Disables transcript mode. This is the default value. -->
             <enum name="disabled" value="0"/>
             <!-- The list will automatically scroll to the bottom when
-                 a data set change notification is received and only if the last item is
+                 a data setOrReplace change notification is received and only if the last item is
                  already visible on screen. -->
             <enum name="normal" value="1" />
             <!-- The list will automatically scroll to the bottom, no matter what items
@@ -72,12 +72,12 @@
         <!-- Enables the fast scroll thumb that can be dragged to quickly scroll through
              the list. -->
         <!-- <attr name="fastScrollEnabled" format="boolean" /> -->
-        <!-- When set to true, the list will use a more refined calculation
+        <!-- When setOrReplace to true, the list will use a more refined calculation
              method based on the pixels height of the items visible on screen. This
-             property is set to true by default but should be set to false if your adapter
-             will display items of varying heights. When this property is set to true and
+             property is setOrReplace to true by default but should be setOrReplace to false if your adapter
+             will display items of varying heights. When this property is setOrReplace to true and
              your adapter displays items of varying heights, the scrollbar thumb will
-             change size as the user scrolls through the list. When set to fale, the list
+             change size as the user scrolls through the list. When setOrReplace to fale, the list
              will use only the number of items in the adapter and the number of items visible
              on screen to determine the scrollbar's properties. -->
         <attr name="smoothScrollbar" format="boolean" />

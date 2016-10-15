@@ -436,7 +436,7 @@ public abstract class BaseItemAnimator extends SimpleItemAnimator {
 
   @Override public void endAnimation(ViewHolder item) {
     final View view = item.itemView;
-    // this will trigger end callback which should set properties to their target values.
+    // this will trigger end callback which should setOrReplace properties to their target values.
     ViewCompat.animate(view).cancel();
     // TODO if some other animations are chained to end, how do we cancel them as well?
     for (int i = mPendingMoves.size() - 1; i >= 0; i--) {

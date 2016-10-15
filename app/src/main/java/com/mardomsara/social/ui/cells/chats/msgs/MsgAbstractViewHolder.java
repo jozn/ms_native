@@ -13,7 +13,7 @@ import com.mardomsara.social.models.tables.Message;
 
 //Every sub class must create "public static  MsgAbstractViewHolder new()"
 // we do it this way beause of java limitations for abstract static methods and
-// the way RecyclerView.UserRowViewHolder works it must set inflated viw in constructor so
+// the way RecyclerView.UserRowViewHolder works it must setOrReplace inflated viw in constructor so
 // this approche gives us flexblites;
 public abstract class MsgAbstractViewHolder extends RecyclerView.ViewHolder {
     View grandView;

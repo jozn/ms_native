@@ -224,6 +224,7 @@ public class RoomModel {
 		});
 	}
 
+
     ///////////////////////////////////////
     public static void sendRoomInfoChangedEvent(String roomKey){
 

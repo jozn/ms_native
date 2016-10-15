@@ -45,7 +45,7 @@ public abstract class Paginate {
      * <p/>
      * Paginate is using scroll listeners and adapter data observers in order to perform required checks. It wraps
      * original (source) adapter with new adapter that provides loading root_view if loading root_view is used. When unbind is
-     * called original adapter will be set on the list and scroll listeners and data observers will be detached.
+     * called original adapter will be setOrReplace on the list and scroll listeners and data observers will be detached.
      */
     abstract public void unbind();
 

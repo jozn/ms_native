@@ -302,7 +302,7 @@ public class ImageUtil {
 
     public static int getVideoLenght(String videoPath){
         MediaMetadataRetriever retriever = new MediaMetadataRetriever();
-    //use one of overloaded setDataSource() functions to set your data source
+    //use one of overloaded setDataSource() functions to setOrReplace your data source
         retriever.setDataSource(AppUtil.getContext(), Uri.fromFile(new File(videoPath)));
         String time = retriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION);
         long timeInMillisec = Long.parseLong(time );

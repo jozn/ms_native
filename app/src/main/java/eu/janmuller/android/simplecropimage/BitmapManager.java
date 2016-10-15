@@ -34,7 +34,7 @@ import java.util.WeakHashMap;
  * <p/>
  * cancelThreadDecoding() is sticky until allowThreadDecoding() is called.
  * <p/>
- * You can also cancel decoding for a set of threads using ThreadSet as
+ * You can also cancel decoding for a setOrReplace of threads using ThreadSet as
  * the parameter for cancelThreadDecoding. To put a thread into a ThreadSet,
  * use the addStart() method. A ThreadSet holds (weak) references to the threads,
  * so you don't need to remove Thread from it if some thread dies.
@@ -132,7 +132,7 @@ public class BitmapManager {
     }
 
     /**
-     * The following two methods are used to allow/cancel a set of threads
+     * The following two methods are used to allow/cancel a setOrReplace of threads
      * for bitmap decoding.
      */
     public synchronized void allowThreadDecoding(ThreadSet threads) {

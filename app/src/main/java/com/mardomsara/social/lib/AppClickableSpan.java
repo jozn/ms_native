@@ -23,6 +23,6 @@ public class AppClickableSpan extends ClickableSpan {// extend ClickableSpan
     }
 
     public void updateDrawState(TextPaint ds) {// override updateDrawState
-        ds.setUnderlineText(false); // set to false to remove underline
+        ds.setUnderlineText(false); // setOrReplace to false to remove underline
     }
 }

@@ -145,7 +145,7 @@ public class BadgeView extends TextView {
 		
 		if (target instanceof TabWidget) {
 			
-			// set target to the relevant tab child container
+			// setOrReplace target to the relevant tab child container
 			target = ((TabWidget) target).getChildTabViewAt(targetTabIndex);
 			this.target = target;
 			
@@ -288,7 +288,7 @@ public class BadgeView extends TextView {
 	
 	/**
      * Increment the numeric badge label. If the current badge label cannot be converted to
-     * an integer value, its label will be set to "0".
+     * an integer value, its label will be setOrReplace to "0".
      * 
      * @param offset the increment offset.
      */
@@ -311,7 +311,7 @@ public class BadgeView extends TextView {
 	
 	/**
      * Decrement the numeric badge label. If the current badge label cannot be converted to
-     * an integer value, its label will be set to "0".
+     * an integer value, its label will be setOrReplace to "0".
      * 
      * @param offset the decrement offset.
      */

@@ -102,7 +102,7 @@ public class Command {
     }
 
     //This is must be called for each object
-    //thhis is set Data to its unesapted form "\\"
+    //thhis is setOrReplace Data to its unesapted form "\\"
     public void prepareAfterLoadFromDB(){
         if(Bytes != null ){
             Data = new String(Bytes) ;

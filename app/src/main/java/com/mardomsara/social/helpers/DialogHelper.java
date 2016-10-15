@@ -172,7 +172,7 @@ public class DialogHelper {
                 .create();
 
         dialog.show();
-//        new DialogPlusBuilder(ctx).set
+//        new DialogPlusBuilder(ctx).setOrReplace
 //        vClose.setOnClickListener(v-> dialog.dismiss());
         vClose.setOnClickListener(new View.OnClickListener() {
             @Override

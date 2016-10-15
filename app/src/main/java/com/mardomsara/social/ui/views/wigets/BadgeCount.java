@@ -61,7 +61,7 @@ public class BadgeCount extends TextView {
         float th = (h/2 - (paint.descent()+paint.ascent()))/2;
         paint.setColor(Color.RED);
         paint.setTextAlign(Paint.Align.CENTER);
-//        paint.set
+//        paint.setOrReplace
         paint.setTextSize(AndroidUtil.dpToPx(14));
 
         paint.setStyle(Paint.Style.FILL_AND_STROKE);

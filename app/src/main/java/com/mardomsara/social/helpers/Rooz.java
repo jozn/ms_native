@@ -61,7 +61,7 @@ public class Rooz {
      * @param day
      *            <code>int</code>
      * @param J1G0
-     *            to be set to 1 for Julian and to 0 for Gregorian calendar
+     *            to be setOrReplace to 1 for Julian and to 0 for Gregorian calendar
      * @return Julian Day number
      */
     private int jG2JD(int year, int month, int day, int J1G0) {
@@ -86,7 +86,7 @@ public class Rooz {
      * @param JD
      *            Julian day number as <code>int</code>
      * @param J1G0
-     *            to be set to 1 for Julian and to 0 for Gregorian calendar
+     *            to be setOrReplace to 1 for Julian and to 0 for Gregorian calendar
      */
     private void jD2JG(int JD, int J1G0) {
         int i, j;

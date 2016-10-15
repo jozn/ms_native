@@ -17,7 +17,7 @@ import org.apache.commons.lang3.math.NumberUtils;
  * Created by Hamid on 9/4/2016.
  */
 @Table
-public class Room {
+public class Room implements Comparable<Room> {
     
 //    @PrimaryKey(autoincrement = true)
 //    public int id;
@@ -117,4 +117,12 @@ public class Room {
 		return 0;
 	}
 
+	@Override
+	public int compareTo(Room room) {
+		if(room == null) return 1;
+
+		if(SortTimeMs == room.SortTimeMs) return 0;
+
+		return (SortTimeMs > room.SortTimeMs) ? 1 : -1;
+	}
 }

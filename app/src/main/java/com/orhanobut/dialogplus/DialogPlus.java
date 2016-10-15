@@ -233,7 +233,7 @@ public class DialogPlus {
   }
 
   /**
-   * It is called to set whether the dialog is cancellable by pressing back button or
+   * It is called to setOrReplace whether the dialog is cancellable by pressing back button or
    * touching the black overlay
    */
   private void initCancelable() {

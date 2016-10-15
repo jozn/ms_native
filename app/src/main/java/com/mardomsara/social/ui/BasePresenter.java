@@ -27,7 +27,7 @@ public  abstract class BasePresenter implements FragmentPage {
 
     protected Fragment fragment ;
 
-    public static Context context;//set thif from App.init()
+    public static Context context;//setOrReplace thif from App.init()
 
     //dep
     @Deprecated

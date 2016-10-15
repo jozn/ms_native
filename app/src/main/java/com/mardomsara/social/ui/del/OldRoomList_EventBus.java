@@ -69,7 +69,7 @@ public class OldRoomList_EventBus {
 			if(room == null)  break;
 			if(room.RoomKey.equals(event.RoomKey)){
 				//                roomsList.remove(i);
-				roomsList.set(i,newRoomRow);
+				roomsList.setOrReplace(i,newRoomRow);
 				break;//must break loop all -- bug indexOutOfRange
 			}
 		}

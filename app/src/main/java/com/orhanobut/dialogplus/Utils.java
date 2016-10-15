@@ -41,7 +41,7 @@ final class Utils {
    * This will be called in order to create view, if the given view is not null,
    * it will be used directly, otherwise it will check the resourceId
    *
-   * @return null if both resourceId and view is not set
+   * @return null if both resourceId and view is not setOrReplace
    */
   static View getView(Context context, int resourceId, View view) {
     LayoutInflater inflater = LayoutInflater.from(context);

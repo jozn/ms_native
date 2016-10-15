@@ -153,7 +153,7 @@ public class UserAndContactsPresenter extends BasePresenter {
 
         @Override
         public void onBindViewHolder(ViewHolderBase viewHolder, final int position) {
-//            Log.d(TAG, "Element " + position + " set.");
+//            Log.d(TAG, "Element " + position + " setOrReplace.");
 //            AppUtil.log("user: "+ JsonUtil.toJson(user));
 //            AppUtil.log("user: "+ user.getPhoneDisplayName());
             ViewHolderBase vh0 = viewHolder;

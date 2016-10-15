@@ -58,7 +58,7 @@ public class PostsListCell
 
     public void loadFromServer(int page) {
         if(endPointAbsPath == null){
-            throw new IllegalArgumentException("In PostsListCell endPointAbsPath url must be set for loading posts");
+            throw new IllegalArgumentException("In PostsListCell endPointAbsPath url must be setOrReplace for loading posts");
         }
         AndroidUtil.runInBackground(()->{
             HttpOld.Req req = new HttpOld.Req();

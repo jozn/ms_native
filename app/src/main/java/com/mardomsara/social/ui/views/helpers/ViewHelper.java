@@ -28,7 +28,7 @@ public class ViewHelper {
         view.setLayoutParams(sizes);
     }
 
-    //set an image with aspect ration
+    //setOrReplace an image with aspect ration
     //Deprectaed -- useless??
     public static void __setImageSizesWithMaxDp(View view, int maxWidth_dp , int width_dp , int height_dp){
         if(maxWidth_dp> width_dp){

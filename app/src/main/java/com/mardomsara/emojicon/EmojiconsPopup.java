@@ -232,7 +232,7 @@ public class EmojiconsPopup extends PopupWindow {
 	}
 
 	/**
-	 * Manually set the popup window size
+	 * Manually setOrReplace the popup window size
 	 * @param width Width of the popup
 	 * @param height Height of the popup
 	 */

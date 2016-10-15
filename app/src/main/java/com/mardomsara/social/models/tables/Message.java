@@ -16,7 +16,7 @@ import com.mardomsara.social.helpers.TimeUtil;
  */
 //TOdo; addStart: IsSeenByPeer() IsRe....
 @Table
-public class Message {
+public class Message  implements Comparable<Message> {
 
 //    @PrimaryKey(autoincrement = true)
 //    public int id;
@@ -169,5 +169,14 @@ public class Message {
 			return MessageKey.equals(obj);
 		}
 		return super.equals(obj);
+	}
+
+	@Override
+	public int compareTo(Message msg) {
+		if(msg == null) return 1;
+
+		if(NanoId == msg.NanoId) return 0;
+
+		return (NanoId > msg.NanoId) ? 1 : -1;
 	}
 }

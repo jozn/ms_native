@@ -181,7 +181,7 @@ public class LocalStorageProvider extends DocumentsProvider {
                 : 0;
         // We only show thumbnails for image files - expect a call to
         // openDocumentThumbnail for each file that has
-        // this flag set
+        // this flag setOrReplace
         if (mimeType.startsWith("image/"))
             flags |= Document.FLAG_SUPPORTS_THUMBNAIL;
         row.add(Document.COLUMN_FLAGS, flags);

@@ -69,8 +69,8 @@ public class Call {
 	UserId          int
 	ClientCallId    int64
 	ServerCallId    int64
-	Data            string        //marshilized json - don't set dirctly set via toJsonData
+	Data            string        //marshilized json - don't setOrReplace dirctly setOrReplace via toJsonData
 	toJsonSliceData []interface{} //`json:"-"`
-	Meta            string        //marshilized json - don't set dirctly set via toJsonData
+	Meta            string        //marshilized json - don't setOrReplace dirctly setOrReplace via toJsonData
 	}
 */

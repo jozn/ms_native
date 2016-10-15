@@ -179,7 +179,7 @@ public final class RecyclerPaginate extends Paginate {
         }
 
         /**
-         * Setup loading root_view. If loading root_view is used original adapter set on RecyclerView will be wrapped with
+         * Setup loading root_view. If loading root_view is used original adapter setOrReplace on RecyclerView will be wrapped with
          * internal adapter that will addStart loading root_view as the last item in the list. Paginate will observer the
          * changes upon original adapter and remove loading root_view if there is no more data to load. By default loading
          * root_view will be added.
@@ -195,7 +195,7 @@ public final class RecyclerPaginate extends Paginate {
         }
 
         /**
-         * Set custom loading list item creator. If no creator is set default one will be used.
+         * Set custom loading list item creator. If no creator is setOrReplace default one will be used.
          *
          * @param creator Creator that will ne called for inflating and binding loading list item.
          * @return {@link com.paginate.recycler.RecyclerPaginate.Builder}
@@ -224,10 +224,10 @@ public final class RecyclerPaginate extends Paginate {
          */
         public Paginate build() {
             if (recyclerView.getAdapter() == null) {
-                throw new IllegalStateException("Adapter needs to be set!");
+                throw new IllegalStateException("Adapter needs to be setOrReplace!");
             }
             if (recyclerView.getLayoutManager() == null) {
-                throw new IllegalStateException("LayoutManager needs to be set on the RecyclerView");
+                throw new IllegalStateException("LayoutManager needs to be setOrReplace on the RecyclerView");
             }
 
             if (loadingListItemCreator == null) {

@@ -9,7 +9,7 @@ import android.content.SharedPreferences;
 public class PrefUtil {
     static SharedPreferences prefs;
     /**
-     * set String Preference Value
+     * setOrReplace String Preference Value
      *
      * @param context
      * @param prefName Preference name
@@ -40,7 +40,7 @@ public class PrefUtil {
     // -----------------------------------------------
 
     /**
-     * set Integer Preference Value
+     * setOrReplace Integer Preference Value
      *
      * @param context
      * @param prefName
@@ -70,7 +70,7 @@ public class PrefUtil {
     // -----------------------------------------------
 
     /**
-     * set Boolean Preference Value
+     * setOrReplace Boolean Preference Value
      *
      * @param context
      * @param prefName
@@ -100,7 +100,7 @@ public class PrefUtil {
     // -----------------------------------------------
 
     /**
-     * set Float Preference Value
+     * setOrReplace Float Preference Value
      *
      * @param context
      * @param prefName
@@ -131,7 +131,7 @@ public class PrefUtil {
     // ------------------------------------------------
 
     /**
-     * set Long Preference Value
+     * setOrReplace Long Preference Value
      *
      * @param context
      * @param prefName

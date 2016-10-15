@@ -178,7 +178,7 @@ public class DialogPlusBuilder {
   }
 
   /**
-   * Add margins to your dialog. They are set to 0 except when gravity is center. In that case basic margins
+   * Add margins to your dialog. They are setOrReplace to 0 except when gravity is center. In that case basic margins
    * are applied
    */
   public DialogPlusBuilder setMargin(int left, int top, int right, int bottom) {

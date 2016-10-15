@@ -24,12 +24,6 @@ import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
 import com.mardomsara.social.lib.ms.ArrayListHashSetKey;
 import com.mardomsara.social.models.LastMsgOfRoomsCache2;
 import com.mardomsara.social.models.RoomModel;
-import com.mardomsara.social.models.events.MessageSyncMeta;
-import com.mardomsara.social.models.events.MsgsSyncMetaDeletedFromServer;
-import com.mardomsara.social.models.events.MsgsSyncMetaReceivedToPeer;
-import com.mardomsara.social.models.events.MsgsSyncMetaReceivedToServer;
-import com.mardomsara.social.models.events.MsgsSyncMetaSeenByPeer;
-import com.mardomsara.social.models.events.RoomInfoChangedEvent;
 import com.mardomsara.social.models.tables.Message;
 import com.mardomsara.social.models.tables.Room;
 import com.mardomsara.social.pipe.from_net_calls.json.MsgAddManyJson;
@@ -87,8 +81,12 @@ public class RoomsListCell {
 		Message msg = data.Message;
 		Room roomNew = RoomModel.onRecivedNewMsg2(msg);
 		AndroidUtil.runInUiNoPanic(()->{
-			listRooms.set(0,roomNew);
+			/*listRooms.setOrReplace(0,roomNew);*/
+			listRooms.addEnd(roomNew);
+			listRooms.sort();
+
 			adp.notifyDataSetChanged();
+
 			/*int index = listRooms.indexOfByKey(msg.RoomKey);
 			if (index >= 0) {
 				adp.notifyContentItemChanged(index);
@@ -102,7 +100,7 @@ public class RoomsListCell {
 		List<Message> msgs = data.Messages;
 		for(Message msg:msgs){
 			Room roomNew = RoomModel.onRecivedNewMsg2(msg);
-			listRooms.set(0,roomNew);
+			listRooms.setOrReplace(0,roomNew);
 
 		}
 		AndroidUtil.runInUiNoPanic(()->{

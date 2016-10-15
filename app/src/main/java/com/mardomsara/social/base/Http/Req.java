@@ -89,7 +89,7 @@ public class Req<T> {
 		}
 	}
 
-    //generics dosn't work, just set for futuer maybe
+    //generics dosn't work, just setOrReplace for futuer maybe
     public <K> Req doAsync(CallBack<K> callBack){
         if(action == Action.DOWNLOAD){
             throw new IllegalArgumentException("In Http2 for uploads actions doAsyncDownload(...) must be called in doAsyncDownload(), not doAsync(...)");

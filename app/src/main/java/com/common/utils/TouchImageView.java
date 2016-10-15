@@ -609,9 +609,9 @@ public class TouchImageView extends ImageView {
 
         } else {
             //
-            // These values should never be 0 or we will set viewWidth and viewHeight
+            // These values should never be 0 or we will setOrReplace viewWidth and viewHeight
             // to NaN in translateMatrixAfterRotate. To avoid this, call savePreviousImageValues
-            // to set them equal to the current values.
+            // to setOrReplace them equal to the current values.
             //
             if (prevMatchViewWidth == 0 || prevMatchViewHeight == 0) {
                 savePreviousImageValues();
@@ -956,7 +956,7 @@ public class TouchImageView extends ImageView {
             }
 
             //
-            // OnTouchImageViewListener is set: TouchImageView dragged by user.
+            // OnTouchImageViewListener is setOrReplace: TouchImageView dragged by user.
             //
             if (touchImageViewListener != null) {
                 touchImageViewListener.onMove();
@@ -986,7 +986,7 @@ public class TouchImageView extends ImageView {
             scaleImage(detector.getScaleFactor(), detector.getFocusX(), detector.getFocusY(), true);
 
             //
-            // OnTouchImageViewListener is set: TouchImageView pinch zoomed by user.
+            // OnTouchImageViewListener is setOrReplace: TouchImageView pinch zoomed by user.
             //
             if (touchImageViewListener != null) {
                 touchImageViewListener.onMove();
@@ -1060,7 +1060,7 @@ public class TouchImageView extends ImageView {
             setImageMatrix(matrix);
 
             //
-            // OnTouchImageViewListener is set: double tap runnable updates listener
+            // OnTouchImageViewListener is setOrReplace: double tap runnable updates listener
             // with every frame.
             //
             if (touchImageViewListener != null) {
@@ -1174,7 +1174,7 @@ public class TouchImageView extends ImageView {
         public void run() {
 
             //
-            // OnTouchImageViewListener is set: TouchImageView listener has been flung by user.
+            // OnTouchImageViewListener is setOrReplace: TouchImageView listener has been flung by user.
             // Listener runnable updated with each frame of fling animation.
             //
             if (touchImageViewListener != null) {

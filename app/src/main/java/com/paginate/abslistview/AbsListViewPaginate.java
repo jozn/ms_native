@@ -129,7 +129,7 @@ public final class AbsListViewPaginate extends Paginate implements EndScrollList
         }
 
         /**
-         * Setup loading root_view. If loading root_view is used original adapter set on AbsListView will be wrapped with
+         * Setup loading root_view. If loading root_view is used original adapter setOrReplace on AbsListView will be wrapped with
          * internal adapter that will addStart loading root_view as the last item in the list. Paginate will observer the
          * changes upon original adapter and remove loading root_view if there is no more data to load. By default loading
          * root_view will be added.
@@ -145,7 +145,7 @@ public final class AbsListViewPaginate extends Paginate implements EndScrollList
         }
 
         /**
-         * Set custom loading list item creator. If no creator is set default one will be used.
+         * Set custom loading list item creator. If no creator is setOrReplace default one will be used.
          *
          * @param loadingListItemCreator Creator that will ne called for inflating and binding loading list item.
          * @return {@link com.paginate.abslistview.AbsListViewPaginate.Builder}
@@ -162,7 +162,7 @@ public final class AbsListViewPaginate extends Paginate implements EndScrollList
          */
         public Paginate build() {
             if (absListView.getAdapter() == null) {
-                throw new IllegalStateException("Adapter needs to be set!");
+                throw new IllegalStateException("Adapter needs to be setOrReplace!");
             }
 
             if (loadingListItemCreator == null) {
