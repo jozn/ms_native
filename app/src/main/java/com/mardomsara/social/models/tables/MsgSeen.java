@@ -16,7 +16,7 @@ public class MsgSeen {
 	public long NanoId = TimeUtil.getTimeNano();
 
 	@Column(defaultExpr = "0")
-	public int ByUserId = Session.getUserId();
+	public int PeerUserId = Session.getUserId();//ByUserId
 
 	@Column(defaultExpr = "0")
 	public int ToUserId = 0;

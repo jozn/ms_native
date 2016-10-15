@@ -13,7 +13,7 @@ public class MsgDeletedFromServerJson {
 /*
 	type MsgDeletedFromServer struct {
 	Id         int    `json:"Id"`         // Id -
-	ByUserId   int    `json:"ByUserId"`   // ByUserId -
+	PeerUserId   int    `json:"PeerUserId"`   // PeerUserId -
 	MsgKey     string `json:"MsgKey"`     // MsgKey -
 	PeerUserId int    `json:"PeerUserId"` // PeerUserId -
 	RoomKey    string `json:"RoomKey"`    // RoomKey -

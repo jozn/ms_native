@@ -27,7 +27,7 @@ public class MessageSyncMeta {
         return "" + this.getClass().getSimpleName()+"{"+
                 "MessageKey='" + MessageKey + '\'' +
                 ", RoomKey='" + RoomKey + '\'' +
-                ", ByUserId=" + ByUserId +
+                ", PeerUserId=" + ByUserId +
                 ", AtTimeMs=" + AtTimeMs +
 //                ", Object=" + ExtraData +
                 '}';
