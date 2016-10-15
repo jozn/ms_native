@@ -1,6 +1,5 @@
 package com.mardomsara.social.pipe;
 
-import com.mardomsara.social.events.from_server.HelloCommand;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.pipe.from_net_calls.MsgCallsFromServer;
 
@@ -40,8 +39,6 @@ public class WSCallRouter {
     }
 
     public static void buildMapper() {
-        register("time", HelloCommand.addMesage);
-        register("hello", HelloCommand.addMesage);
 
         //Messages
         register("MsgAddOne", MsgCallsFromServer.MsgAddOne);
