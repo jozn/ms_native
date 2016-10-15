@@ -1,15 +1,9 @@
 package com.mardomsara.social.models;
 
 import android.support.annotation.Nullable;
-import android.util.Log;
 
 import com.mardomsara.social.app.DB;
 import com.mardomsara.social.lib.ms.ArrayListHashSetKey;
-import com.mardomsara.social.models.events.MessageSyncMeta;
-import com.mardomsara.social.models.events.MsgsSyncMetaDeletedFromServer;
-import com.mardomsara.social.models.events.MsgsSyncMetaReceivedToPeer;
-import com.mardomsara.social.models.events.MsgsSyncMetaReceivedToServer;
-import com.mardomsara.social.models.events.MsgsSyncMetaSeenByPeer;
 import com.mardomsara.social.models.tables.Message;
 import com.mardomsara.social.models.tables.Room;
 import com.mardomsara.social.pipe.from_net_calls.json.MsgAddManyJson;
@@ -92,21 +86,21 @@ public class LastMsgOfRoomsCache2 {
 
 	@Subscribe(threadMode = ThreadMode.MAIN)
 	public void onEvent(MsgAddOneJson data){
-		logIt("event new: MsgAddOneJson " + data.toString());
+//		logIt("event new: MsgAddOneJson " + data.toString());
 		Message msg = data.Message;
 		setForRoom(msg.RoomKey,msg);
 	}
 
 	@Subscribe(threadMode = ThreadMode.MAIN)
 	public void onEvent(MsgAddManyJson data){
-		logIt("event new: MsgAddManyJson " + data.toString());
+//		logIt("event new: MsgAddManyJson " + data.toString());
 		List<Message> msgs = data.Messages;
 		for(Message msg : msgs){
 			setForRoom(msg.RoomKey,msg);
 		}
 	}
 
-
+/*
 	@Subscribe
     public void onEvent(Message msg){
         logIt("event new msg: " + msg.toString());
@@ -155,6 +149,6 @@ public class LastMsgOfRoomsCache2 {
     public void onMsgRevivedToServer(MessageSyncMeta msg) {}
     public void onMsgRevivedToPeer(MessageSyncMeta msg) {}
     public void onMsgSeenByPeer(MessageSyncMeta msg) {}
-    public void onMsgDeletedFromServer(MessageSyncMeta msg) {}
+    public void onMsgDeletedFromServer(MessageSyncMeta msg) {}*/
 
 }

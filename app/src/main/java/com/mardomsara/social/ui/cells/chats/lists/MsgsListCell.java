@@ -1,6 +1,5 @@
 package com.mardomsara.social.ui.cells.chats.lists;
 
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +9,6 @@ import com.mardomsara.social.R;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
 import com.mardomsara.social.lib.ms.ArrayListHashSetKey;
-import com.mardomsara.social.models.events.MessageSyncMeta;
 import com.mardomsara.social.models.tables.Message;
 import com.mardomsara.social.ui.cells.chats.msgs.MsgAbstractViewHolder;
 import com.mardomsara.social.ui.cells.chats.msgs.MsgEmptyView;
@@ -20,9 +18,6 @@ import com.mardomsara.social.ui.cells.chats.msgs.MsgTextMeView;
 import com.mardomsara.social.ui.cells.chats.msgs.MsgTextPeerView;
 import com.mardomsara.social.ui.cells.chats.msgs.MsgVideoMeView;
 
-import org.greenrobot.eventbus.Subscribe;
-
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -141,11 +136,6 @@ public class MsgsListCell {
             if (m == null) return type;
             type = m.MessageTypeId+m.IsByMe;
             return type;
-        }
-
-        @Subscribe
-        public void onEvent(MessageSyncMeta meta){
-            logIt("event meta: XXXXX " + meta.toString());
         }
 
         protected void logIt(String str) {

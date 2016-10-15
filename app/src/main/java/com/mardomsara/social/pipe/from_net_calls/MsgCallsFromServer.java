@@ -13,10 +13,6 @@ import com.mardomsara.social.helpers.JsonUtil;
 import com.mardomsara.social.models.MessageModel;
 import com.mardomsara.social.models.RoomModel;
 import com.mardomsara.social.models.UserModel;
-import com.mardomsara.social.models.events.MessageSyncMeta;
-import com.mardomsara.social.models.events.MsgsSyncMetaReceivedToPeer;
-import com.mardomsara.social.models.events.MsgsSyncMetaReceivedToServer;
-import com.mardomsara.social.models.events.MsgsSyncMetaSeenByPeer;
 import com.mardomsara.social.models.tables.Message;
 import com.mardomsara.social.models.tables.User;
 import com.mardomsara.social.pipe.NetEventHandler;
@@ -25,8 +21,6 @@ import com.mardomsara.social.pipe.from_net_calls.json.MsgAddOneJson;
 import com.mardomsara.social.pipe.from_net_calls.json.MsgDeletedFromServerJson;
 import com.mardomsara.social.pipe.from_net_calls.json.MsgReceivedToPeerJson;
 import com.mardomsara.social.pipe.from_net_calls.json.MsgSeenByPeerJson;
-
-import org.greenrobot.eventbus.EventBus;
 
 import java.util.List;
 

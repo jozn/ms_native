@@ -4,7 +4,6 @@ package com.mardomsara.social.models;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.annotation.NonNull;
-import android.util.Log;
 
 import com.mardomsara.social.App;
 import com.mardomsara.social.app.AppFiles;
@@ -19,14 +18,10 @@ import com.mardomsara.social.helpers.JsonUtil;
 import com.mardomsara.social.helpers.LangUtil;
 import com.mardomsara.social.helpers.TimeUtil;
 import com.mardomsara.social.helpers.VideoMetasHelper;
-import com.mardomsara.social.models.events.MessageSyncMeta;
-import com.mardomsara.social.models.events.MsgsSyncMetaSeenByPeer;
 import com.mardomsara.social.models.extra.MsgExtraPhotoThumbnail;
 import com.mardomsara.social.models.tables.Message;
 import com.mardomsara.social.models.tables.Room;
 import com.mardomsara.social.pipe.from_net_calls.MsgsCallToServer;
-
-import org.greenrobot.eventbus.EventBus;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -97,17 +92,6 @@ public class MessageModel {
 
         WS_DEP.sendCommand(cmd);
         //onAddedNewMsgEvent(msg);*/
-    }
-
-
-    public static void makeMsgsSeen(List<String> msgKeys, MsgsSyncMetaSeenByPeer meta){
-        DB.db.updateMessage()
-                //Update
-                .PeerSeenTime(TimeUtil.timeMsToSec(meta.AtTimeMs))
-                //Where
-                .RoomKeyEq(meta.RoomKey)
-                .MessageKeyIn(msgKeys)
-                .execute();
     }
 
     public static void clearAllMessagesOfRoom(String roomKey){
@@ -193,14 +177,4 @@ public class MessageModel {
         RoomModel.onHereNewMsg(msg);
         App.getBus().post(msg);
     }
-    public static void publishEvent(MessageSyncMeta msg) {
-        Log.d("EVENT", "publishEvent: "+ msg.toString());
-//        LastMsgOfRoomsCache.getInstance().onEvent(msg);
-        EventBus.getDefault().post(msg);
-    }
-
-    public static void onMsgRevivedToServer(MessageSyncMeta msg) {}
-    public static void onMsgRevivedToPeer(MessageSyncMeta msg) {}
-    public static void onMsgSeenByPeer(MessageSyncMeta msg) {}
-    public static void onMsgDeletedFromServer(MessageSyncMeta msg) {}
 }
