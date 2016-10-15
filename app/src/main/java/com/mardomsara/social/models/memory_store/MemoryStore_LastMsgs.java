@@ -4,7 +4,6 @@ import android.database.Cursor;
 import android.support.annotation.Nullable;
 
 import com.mardomsara.social.app.DB;
-import com.mardomsara.social.lib.ms.ArrayListHashSetKey;
 import com.mardomsara.social.models.tables.Message;
 import com.mardomsara.social.models.tables.Room;
 
@@ -14,7 +13,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 /**
  * Created by Hamid on 5/31/2016.
@@ -38,22 +36,23 @@ public class MemoryStore_LastMsgs {
         map.put(roomKey,null);
     }
 
-    private static void setForRoom(String roomkey, Message msg){
+    private static void setAutoForRoom(String roomkey, Message msg){
 		if(roomkey == null || roomkey.equals("") || msg == null) return;
         map.put(roomkey,msg);
     }
 
-    public static void setForRoom(List<Room> rooms){
+    public static void setAutoForRoom(List<Room> rooms){
        List<String> roomKeys = new ArrayList();
        for(Room r : rooms){
            roomKeys.add(r.RoomKey);
        }
-		setForRoomKeys(roomKeys);
+		loadAutoForRoomKeys(roomKeys);
     }
 
-	public static void setForRoomKeys(List<String> roomKeys){
-		if(roomKeys == null || roomKeys.size() ==0)return;
-		String ins = StringUtils.join(roomKeys,",");
+	public static void loadAutoForRoomKeys(Iterable<String> roomKeys){
+		if(roomKeys == null /*|| roomKeys.size() ==0*/)return;
+		String ins = StringUtils.join(roomKeys,"','");
+		ins = "'"+ins+"'";
 		Cursor cursor =  DB.db.getConnection().rawQuery("select * from Message where RoomKey in("+ ins + ") GROUP BY RoomKey order by NanoId Desc ");
 
 		List<Message> msgs = new ArrayList<>();

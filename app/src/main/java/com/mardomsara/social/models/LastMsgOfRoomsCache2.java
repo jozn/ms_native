@@ -28,6 +28,7 @@ import java.util.Set;
 /**
  * Created by Hamid on 5/31/2016.
  */
+@Deprecated
 public class LastMsgOfRoomsCache2 {
     private static LastMsgOfRoomsCache2 _instance;
     private Map<String,Message> _map = new HashMap<>();

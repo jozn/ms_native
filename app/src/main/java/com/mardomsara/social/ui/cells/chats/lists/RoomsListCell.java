@@ -24,6 +24,8 @@ import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
 import com.mardomsara.social.lib.ms.ArrayListHashSetKey;
 import com.mardomsara.social.models.LastMsgOfRoomsCache2;
 import com.mardomsara.social.models.RoomModel;
+import com.mardomsara.social.models.memory_store.MemoryStore_LastMsgs;
+import com.mardomsara.social.models.memory_store.MemoryStore_Users;
 import com.mardomsara.social.models.tables.Message;
 import com.mardomsara.social.models.tables.Room;
 import com.mardomsara.social.pipe.from_net_calls.json.MsgAddManyJson;
@@ -59,6 +61,8 @@ public class RoomsListCell {
         list  = RoomModel.getAllRoomsList(0);
 		listRooms.fromList(list);
         LastMsgOfRoomsCache2.getInstance().setForRooms(listRooms);
+		MemoryStore_LastMsgs.loadAutoForRoomKeys(listRooms.getKeys());
+		MemoryStore_Users.loadAutoForRoomKeys(listRooms.getKeys());
 
         rv = (RecyclerView) root_view.findViewById(R.id.contacts_list);
         adp = new RoomsListAdaptor(listRooms);
@@ -208,7 +212,8 @@ public class RoomsListCell {
         }
 
         public void bind(Room room){
-            Message lastMsg = LastMsgOfRoomsCache2.getInstance().getForRoom(room);
+//            Message lastMsg = LastMsgOfRoomsCache2.getInstance().getForRoom(room);
+            Message lastMsg = MemoryStore_LastMsgs.getForRoom(room);
             this.room = room;
             name_txt.setText(room.getRoomName());
             date_txt.setText(""+ FormaterUtil.frindlyTimeClockOrDay(room.UpdatedMs));//+"قبل");

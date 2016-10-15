@@ -6,6 +6,7 @@ import com.mardomsara.social.app.DB;
 import com.mardomsara.social.base.old.Command;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
+import com.mardomsara.social.models.memory_store.MemoryStore_Users;
 import com.mardomsara.social.models.tables.ContactsCopy;
 import com.mardomsara.social.models.tables.Message;
 import com.mardomsara.social.models.tables.User;
@@ -26,6 +27,8 @@ public class UserModel {
 
     @Nullable
     public static User getByUserId(int id){
+        User user = DB.db.selectFromUser().UserIdEq(id).getOrNull(0);
+		MemoryStore_Users.set(user);
         return DB.db.selectFromUser().UserIdEq(id).getOrNull(0);
     }
 

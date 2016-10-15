@@ -10,6 +10,8 @@ import com.mardomsara.social.app.DB;
 import com.mardomsara.social.helpers.LangUtil;
 import com.mardomsara.social.models.Session;
 import com.mardomsara.social.models.UserModel;
+import com.mardomsara.social.models.memory_store.MemoryStore_Rooms;
+import com.mardomsara.social.models.memory_store.MemoryStore_Users;
 
 import org.apache.commons.lang3.math.NumberUtils;
 
@@ -63,6 +65,7 @@ public class Room implements Comparable<Room> {
     /////////////////////////////////////////////////////////
     ////////////////// Helpers ///////////////////
     public void save() {
+		MemoryStore_Rooms.set(this);
         DB.db.prepareInsertIntoRoom(OnConflict.REPLACE,false).execute(this);
     }
 
@@ -77,14 +80,14 @@ public class Room implements Comparable<Room> {
     }
 
     public User loadAndGetUser(){
-        if(User == null) {
+        if(getUser() == null) {
             User = UserModel.getByUserId(getUserId());
         }
         return User;
     }
 
     public String getRoomName() {
-        if(User != null){
+        if(getUser() != null){
             return User.getFullName();
         }
         return "RoomName";
@@ -92,11 +95,16 @@ public class Room implements Comparable<Room> {
 
     public String getRoomAvatarUrl(){
 //        loadAndGetUser();//todo remove me
-        if(User != null){
+        if(getUser() != null){
             return User.AvatarUrl;
         }
         return "public/avatars/no.jpg";
     }
+
+	User getUser(){
+		User = MemoryStore_Users.getOrNull(getUserId());
+		return User;
+	}
 
 
 	//todo move this somewhere

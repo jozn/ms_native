@@ -4,6 +4,7 @@ import com.github.gfx.android.orma.annotation.Column;
 import com.github.gfx.android.orma.annotation.PrimaryKey;
 import com.github.gfx.android.orma.annotation.Table;
 import com.mardomsara.social.app.DB;
+import com.mardomsara.social.models.memory_store.MemoryStore_Users;
 
 /**
  * Created by Hamid on 9/4/2016.
@@ -87,6 +88,7 @@ public class User {
     ///////////////////////////////////////
 
     public void save(){
+		MemoryStore_Users.set(this);
         DB.db.relationOfUser().upserter().execute(this);
     }
 

@@ -1,8 +1,17 @@
 package com.mardomsara.social.models.memory_store;
 
+import android.database.Cursor;
+
+import com.mardomsara.social.app.DB;
+import com.mardomsara.social.models.tables.Message;
+import com.mardomsara.social.models.tables.Room;
 import com.mardomsara.social.models.tables.User;
 
+import org.greenrobot.essentials.StringUtils;
+
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -22,6 +31,21 @@ public class MemoryStore_Users {
 	public static User getOrNull(int userId){
 		synchronized (map){
 			return map.get(userId);
+		}
+	}
+
+	public static void loadAutoForRoomKeys(Iterable<String> roomKeys){
+		if(roomKeys == null /*|| roomKeys.size() ==0*/)return;
+		List<Integer> ints = new ArrayList<>();
+
+		for(String key : roomKeys) {
+			ints.add(Room.roomKeyToPeerId(key));
+		}
+
+		List<User> users = DB.db.selectFromUser().UserIdIn(ints).toList();
+
+		for (User user : users){
+			set(user);
 		}
 	}
 

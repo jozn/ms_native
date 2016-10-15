@@ -10,6 +10,9 @@ import com.mardomsara.social.app.DB;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.TimeUtil;
+import com.mardomsara.social.models.RoomModel;
+import com.mardomsara.social.models.memory_store.MemoryStore_LastMsgs;
+import com.mardomsara.social.models.memory_store.MemoryStore_Rooms;
 
 /**
  * Created by Hamid on 9/4/2016.
@@ -141,6 +144,14 @@ public class Message  implements Comparable<Message> {
 	private void onBeforeSave(){
 		if(NanoId == 0){
 			NanoId = TimeUtil.getTimeNano();// * 10000+( (long)(Math.random()*10000));
+		}
+
+		MemoryStore_LastMsgs.set(this);
+		Room room = MemoryStore_Rooms.getOrNull(RoomKey);
+		room = RoomModel.onRecivedNewMsg3(this,room);
+		if(room.SortTimeMs < CreatedDeviceMs){
+			room.SortTimeMs = CreatedDeviceMs;
+			room.save();
 		}
 	}
     public void save() {

@@ -73,6 +73,25 @@ public class RoomModel {
 
     }
 
+	public static Room onRecivedNewMsg3(Message msg,Room roomMem){
+		if(roomMem == null){
+			roomMem = getRoomByRoomKey(msg.RoomKey);
+		}
+		if(roomMem == null){
+			roomMem = new Room();
+			roomMem.RoomKey = msg.RoomKey;
+			roomMem.RoomTypeId = 1;//todo: extarct from here
+			roomMem.CreatedMs = TimeUtil.getTimeMs();
+		}
+		roomMem.UnseenMessageCount = roomMem.UnseenMessageCount +1;
+		roomMem.UpdatedMs = msg.CreatedMs;//this one we show to user
+		roomMem.SortTimeMs = TimeUtil.getTimeMs();//just for sorting needs accurte user own device
+		updateOrInsert(roomMem);
+		return roomMem;
+//        roomMem.save();
+//        msg.getClass().getAnnotation(Column.class).value();
+	}
+
 	public static Room onRecivedNewMsg2(Message msg){
 		Room room = getRoomByRoomKey(msg.RoomKey);
 		if(room == null){
