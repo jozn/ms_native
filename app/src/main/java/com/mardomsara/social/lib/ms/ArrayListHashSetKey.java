@@ -371,7 +371,8 @@ public class ArrayListHashSetKey<T extends Comparable ,K> {
 		sorter = gen;
 	}
 	public void sort(){
-		Collections.sort(data);
+		Collections.sort(data,Collections.reverseOrder());
+//		Collections.sort(data);
 //		Collections.sort(data,sorter);
 	}
 

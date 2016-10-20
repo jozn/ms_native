@@ -8,10 +8,10 @@ import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.LangUtil;
 import com.mardomsara.social.helpers.TimeUtil;
 import com.mardomsara.social.models.events.RoomInfoChangedEvent;
+import com.mardomsara.social.models.memory_store.MemoryStore_Rooms;
 import com.mardomsara.social.models.tables.Message;
 import com.mardomsara.social.models.tables.MsgSeen;
 import com.mardomsara.social.models.tables.Room;
-import com.mardomsara.social.models.tables.Room_Schema;
 import com.mardomsara.social.models.tables.User;
 import com.mardomsara.social.pipe.from_net_calls.MsgsCallToServer;
 
@@ -155,6 +155,7 @@ public class RoomModel {
         room.UpdatedMs = msg.CreatedMs;//this one we show to user
         room.SortTimeMs = TimeUtil.getTimeMs();//just for sorting needs accurte user own device
         updateOrInsert(room);
+		MemoryStore_Rooms.sort();
     }
 
     public static List<Room> getAllRoomsList(int page) {

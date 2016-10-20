@@ -24,7 +24,9 @@ import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
 import com.mardomsara.social.lib.ms.ArrayListHashSetKey;
 import com.mardomsara.social.models.LastMsgOfRoomsCache2;
 import com.mardomsara.social.models.RoomModel;
+import com.mardomsara.social.models.events.RoomOrderChanged;
 import com.mardomsara.social.models.memory_store.MemoryStore_LastMsgs;
+import com.mardomsara.social.models.memory_store.MemoryStore_Rooms;
 import com.mardomsara.social.models.memory_store.MemoryStore_Users;
 import com.mardomsara.social.models.tables.Message;
 import com.mardomsara.social.models.tables.Room;
@@ -48,7 +50,7 @@ import butterknife.ButterKnife;
 public class RoomsListCell {
     public View root_view;
     List<Room> list;
-    ArrayListHashSetKey<Room,String> listRooms = new ArrayListHashSetKey<>((room)->room.RoomKey);
+    ArrayListHashSetKey<Room,String> listRooms = MemoryStore_Rooms.getListRooms();//new ArrayListHashSetKey<>((room)->room.RoomKey);
     RecyclerView rv;
     RoomsListAdaptor adp;
 
@@ -60,6 +62,7 @@ public class RoomsListCell {
         root_view = AppUtil.inflate(R.layout.list_rooms_presenter);
         list  = RoomModel.getAllRoomsList(0);
 		listRooms.fromList(list);
+		listRooms.sort();
         LastMsgOfRoomsCache2.getInstance().setForRooms(listRooms);
 		MemoryStore_LastMsgs.loadAutoForRoomKeys(listRooms.getKeys());
 		MemoryStore_Users.loadAutoForRoomKeys(listRooms.getKeys());
@@ -114,7 +117,11 @@ public class RoomsListCell {
 				adp.notifyContentItemChanged(index);
 			}	*/
 		});
+	}
 
+	@Subscribe(threadMode = ThreadMode.MAIN)
+	public void onEvent(RoomOrderChanged data){
+		adp.notifyDataSetChanged();
 	}
 
 	public static class RoomsListAdaptor extends AppHeaderFooterRecyclerViewAdapter<RoomRowCellHolder> {
@@ -153,7 +160,7 @@ public class RoomsListCell {
 
 
         protected void logIt(String str) {
-            Log.d(" "+ this.getClass().getSimpleName() ," "+ str);
+            Log.d(" "+ this.getClass().getSimpleName() ,""+ str);
         }
     }
 

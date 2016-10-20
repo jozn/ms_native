@@ -34,6 +34,7 @@ import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
 import com.mardomsara.social.lib.ms.ArrayListHashSetKey;
 import com.mardomsara.social.models.MessageModel;
 import com.mardomsara.social.models.RoomModel;
+import com.mardomsara.social.models.events.RoomOrderChanged;
 import com.mardomsara.social.models.tables.Message;
 import com.mardomsara.social.models.tables.Room;
 import com.mardomsara.social.pipe.from_net_calls.MsgsCallToServer;
@@ -269,6 +270,9 @@ public class ChatRoomPresenter extends BasePresenter implements
 //        mLayoutManager.scrollToPositionWithOffset(0,-10000);
 
         MessageModel.didMsgsAdded(msg);
+		App.getBus().post(new RoomOrderChanged());
+
+
 
 //        recycler_view.scrollBy(0,100000);
     }
