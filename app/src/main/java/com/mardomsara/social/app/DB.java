@@ -24,7 +24,7 @@ public class DB {
         db = AppDB.builder(AppUtil.getContext())
                 .readOnMainThread(AccessThreadConstraint.WARNING)
                 .writeOnMainThread(AccessThreadConstraint.WARNING)
-                .name("ms19")
+                .name("ms20")
                 .trace(true)
                 .build();
 

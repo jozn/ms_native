@@ -90,6 +90,13 @@ public class User {
     ///////////////////////////////////////
 
     public void save(){
+		if(PhoneNormalizedNumber  == null)PhoneNormalizedNumber = "";
+		if(!PhoneNormalizedNumber.equals("")){
+			IsPhoneContact =1;
+		}else {
+			IsPhoneContact=0;
+		}
+
 		MemoryStore_Users.set(this);
 		AppUtil.log("user: " + JsonUtil.toJson(this));
         DB.db.relationOfUser().upserter().execute(this);
