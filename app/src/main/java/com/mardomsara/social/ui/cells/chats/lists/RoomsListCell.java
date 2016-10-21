@@ -22,12 +22,10 @@ import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.LangUtil;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
 import com.mardomsara.social.lib.ms.ArrayListHashSetKey;
-import com.mardomsara.social.models.LastMsgOfRoomsCache2;
 import com.mardomsara.social.models.RoomModel;
 import com.mardomsara.social.models.events.RoomOrderChanged;
 import com.mardomsara.social.models.memory_store.MemoryStore_LastMsgs;
 import com.mardomsara.social.models.memory_store.MemoryStore_Rooms;
-import com.mardomsara.social.models.memory_store.MemoryStore_Users;
 import com.mardomsara.social.models.tables.Message;
 import com.mardomsara.social.models.tables.Room;
 import com.mardomsara.social.pipe.from_net_calls.json.MsgAddManyJson;
@@ -60,12 +58,14 @@ public class RoomsListCell {
 
     private void init() {
         root_view = AppUtil.inflate(R.layout.list_rooms_presenter);
-        list  = RoomModel.getAllRoomsList(0);
+/*        list  = RoomModel.getAllRoomsList(0);
 		listRooms.fromList(list);
-		listRooms.sort();
-        LastMsgOfRoomsCache2.getInstance().setForRooms(listRooms);
-		MemoryStore_LastMsgs.loadAutoForRoomKeys(listRooms.getKeys());
-		MemoryStore_Users.loadAutoForRoomKeys(listRooms.getKeys());
+		listRooms.sort();*/
+		MemoryStore_Rooms.reloadForAll();
+		listRooms = MemoryStore_Rooms.getListRooms();
+//        LastMsgOfRoomsCache2.getInstance().setForRooms(listRooms);
+		/*MemoryStore_LastMsgs.loadAutoForRoomKeys(listRooms.getKeys());
+		MemoryStore_Users.loadAutoForRoomKeys(listRooms.getKeys());*/
 
         rv = (RecyclerView) root_view.findViewById(R.id.contacts_list);
         adp = new RoomsListAdaptor(listRooms);
@@ -121,6 +121,8 @@ public class RoomsListCell {
 
 	@Subscribe(threadMode = ThreadMode.MAIN)
 	public void onEvent(RoomOrderChanged data){
+		AppUtil.log("event RoomOrderChanged");
+		listRooms = MemoryStore_Rooms.getListRooms();
 		adp.notifyDataSetChanged();
 	}
 
@@ -136,7 +138,7 @@ public class RoomsListCell {
 
         @Override
         protected int getContentItemCount() {
-			Helper.showDebugMessage("rooms size:" + roomsList.size());
+//			Helper.showDebugMessage("rooms size:" + roomsList.size());
             return roomsList.size();
         }
 

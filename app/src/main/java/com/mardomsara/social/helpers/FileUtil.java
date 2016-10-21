@@ -119,7 +119,7 @@ public class FileUtil {
         return file;
     }
 
-    //__saved for many save at same time or reducing IO
+    //__saved for many saveWithRoom at same time or reducing IO
     static Map<String,Boolean> __saved = new HashMap<>();
     //improved version createNextFile(file) -- its work better and dosn't have side effects of create empty files
     public static String createNextName(String $filePath) {

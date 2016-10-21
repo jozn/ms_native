@@ -582,7 +582,7 @@ public class ChatRoomPresenter extends BasePresenter implements
         msg.MediaStatus = Constants.Msg_Media_To_Push;
         msg.MessageTypeId = Constants.MESSAGE_IMAGE;
         MessageModel.setPhotoParams(msg,resizedPath);
-        msg.save();
+        msg.saveWithRoom();
 
 		MsgsCallToServer.sendNewPhoto(msg,resizedFile,fileOrginal,deleteOrginal);
 		onHereAddedNewMsgEvent(msg);
@@ -595,7 +595,7 @@ public class ChatRoomPresenter extends BasePresenter implements
 						msg.MediaStatus = (Constants.Msg_Media_Uploaded);
 						msg.ToPush = 0;
 						msg.ServerReceivedTime = TimeUtil.getTime();
-						msg.save();
+						msg.saveWithRoom();
 						if(deleteOrginal == true){
 							fileOrginal.delete();
 						}
@@ -614,7 +614,7 @@ public class ChatRoomPresenter extends BasePresenter implements
             if(res.ok){
                 msg.MediaStatus = (Constants.Msg_Media_Uploaded);
                 msg.ToPush = 0;
-                msg.save();
+                msg.saveWithRoom();
                 if(deleteOrginal == true){
                     fileOrginal.delete();
                 }
@@ -662,7 +662,7 @@ public class ChatRoomPresenter extends BasePresenter implements
         msg.MediaStatus = (Constants.Msg_Media_To_Push);
         msg.MessageTypeId = (Constants.MESSAGE_VIDEO);
         MessageModel.setVideoParams(msg,thumbPath,resizedPath);
-        msg.save();
+        msg.saveWithRoom();
 
 		MsgsCallToServer.sendNewVideo(msg,resizedFile);
 
@@ -676,7 +676,7 @@ public class ChatRoomPresenter extends BasePresenter implements
 						msg.MediaStatus = (Constants.Msg_Media_Uploaded);
 						msg.ToPush = 0;
 						msg.ServerReceivedTime = TimeUtil.getTime();
-						msg.save();
+						msg.saveWithRoom();
 					};
 				});*/
 
@@ -692,7 +692,7 @@ public class ChatRoomPresenter extends BasePresenter implements
             HttpOld.Result res = HttpOld.uploadFile(req);
             if(res.ok){
                 msg.MediaStatus = (Constants.Msg_Media_Uploaded);
-                msg.save();
+                msg.saveWithRoom();
 //                tempFile.delete();
             }
 //            res.response.body().byteStream().

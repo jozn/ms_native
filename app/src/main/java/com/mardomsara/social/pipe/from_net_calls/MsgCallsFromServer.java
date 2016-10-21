@@ -22,7 +22,9 @@ import com.mardomsara.social.pipe.from_net_calls.json.MsgDeletedFromServerJson;
 import com.mardomsara.social.pipe.from_net_calls.json.MsgReceivedToPeerJson;
 import com.mardomsara.social.pipe.from_net_calls.json.MsgSeenByPeerJson;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Hamid on 5/2/2016.
@@ -31,9 +33,9 @@ public class MsgCallsFromServer {
     public static NetEventHandler MsgAddOne = ( data) ->{
 		MsgAddOneJson jd = AppUtil.fromJson(data,MsgAddOneJson.class);
         if(jd==null || jd.Message == null )return;
-        AppUtil.log("MsgAddOne: -> "+data);
+        AppUtil.log("MsgAddOne: ->"+data);
 
-		handleNewMsg(jd.Message);
+		handleNewSingleMsg(jd.Message);
 		handleNewUser(jd.User);
 		App.getBus().post(jd);
     };
@@ -45,7 +47,7 @@ public class MsgCallsFromServer {
 
 		DB.db.transactionSync(()->{
 			for(Message msg: jd.Messages){
-				//Modifications of handleNewMsg
+				//Modifications of handleNewSingleMsg
 				MessageModel.setParamsForNewMsgRecivedFromNet(msg);
 //				RoomModel.onRecivedNewMsg(msg);
 				handleNewMsgFunctionalitiesForTypes(msg);
@@ -61,21 +63,29 @@ public class MsgCallsFromServer {
 			}
 		});
 
+		Map<String,Message> roomS = new HashMap<>();
 		for(Message msg: jd.Messages){
-			RoomModel.messageHasInsertIntoRoomUpdateRoomInfo(msg);
+//			RoomModel.messageHasInsertIntoRoomUpdateRoomInfo(msg);
+			roomS.put(msg.RoomKey,msg);
 		}
+//		RoomModel.massUpdateOfRoomsForNewMsgs(roomS.keySet());
+		RoomModel.massUpdateOfRoomsForNewMsgs(roomS.values());
+
+
 
 		App.getBus().post(jd);
 	};
 
-	static void handleNewMsg(Message msg){
+	static void handleNewSingleMsg(Message msg){
 		MessageModel.setParamsForNewMsgRecivedFromNet(msg);
 //		RoomModel.onRecivedNewMsg(msg);
-		RoomModel.messageHasInsertIntoRoomUpdateRoomInfo(msg);
+//		RoomModel.messageHasInsertIntoRoomUpdateRoomInfo(msg);
 		handleNewMsgFunctionalitiesForTypes(msg);
+
+		msg.saveWithRoom();
+
 		App.getBus().post(msg);
 
-		msg.save();
 //		MessageModel.sendToServerMsgsReceivedToPeerCmd(msg);
 	}
 
@@ -147,7 +157,7 @@ public class MsgCallsFromServer {
     private static void handleNewMsgFunctionalitiesForTypes(Message msg) {
         switch (msg.MessageTypeId){
             case Constants.MESSAGE_TEXT:
-                msg.save();
+//                msg.saveWithRoom();
                 break;
 
             case Constants.MESSAGE_IMAGE:
@@ -159,11 +169,11 @@ public class MsgCallsFromServer {
                     String fileName = FileUtil.createNextName($fileName);
                     msg.MediaLocalSrc = fileName;
                     msg.MediaStatus = Constants.Msg_Media_To_Upload;
-                    msg.save();
+                    msg.saveWithRoom();
                     HttpOld.downloadFile(msg.MediaServerSrc,fileName,
                             ()->{//callback
                                 msg.MediaStatus = Constants.Msg_Media_Downloaded ;
-                                msg.save();
+                                msg.saveWithRoom();
                                 MessageModel.publishMsgGeneralChangeEvent(msg);
 
                             },
@@ -179,14 +189,14 @@ public class MsgCallsFromServer {
                     String fileName = FileUtil.createNextName($fileName);
                     msg.MediaLocalSrc = fileName;
                     msg.MediaStatus = Constants.Msg_Media_To_Upload;
-                    msg.save();
+                    msg.saveWithRoom();
                     HttpOld.downloadFile(msg.MediaServerSrc ,fileName,
                             ()->{//callback
 //                                String $thumbPath = AppFiles.VIDEO_DIR_PATH + FormaterUtil.getFullyYearToSecondsSolarName() +"$" + msg.getMediaExtension();
 //                                String thumbPath = FileUtil.createNextName($thumbPath);
                                 msg.MediaStatus = Constants.Msg_Media_Downloaded;
                                 MessageModel.setVideoExtraParams(msg,fileName );
-                                msg.save();
+                                msg.saveWithRoom();
                                 MessageModel.publishMsgGeneralChangeEvent(msg);
                             },
                             ()->{//errorback

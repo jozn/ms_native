@@ -50,7 +50,7 @@ public class ImageUtil {
     }
 
     /**
-     * save your bitmap in your preference
+     * saveWithRoom your bitmap in your preference
      *
      * @param bitmap  which you have to store in preference
      * @param context

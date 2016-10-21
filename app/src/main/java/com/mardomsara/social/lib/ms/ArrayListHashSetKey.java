@@ -2,10 +2,6 @@ package com.mardomsara.social.lib.ms;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.util.Log;
-
-import com.mardomsara.social.helpers.AndroidUtil;
-import com.mardomsara.social.helpers.AppUtil;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -38,7 +34,7 @@ public class ArrayListHashSetKey<T extends Comparable ,K> {
 	}
 
 	public int size() {
-		AppUtil.log("size:"+map.size()+ " "+ data.size());
+//		AppUtil.log("size:"+map.size()+ " "+ data.size());
 
 		return data.size();
 	}

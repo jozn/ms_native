@@ -19,6 +19,7 @@ import com.mardomsara.social.helpers.LangUtil;
 import com.mardomsara.social.helpers.TimeUtil;
 import com.mardomsara.social.helpers.VideoMetasHelper;
 import com.mardomsara.social.models.extra.MsgExtraPhotoThumbnail;
+import com.mardomsara.social.models.memory_store.MemoryStore_LastMsgs;
 import com.mardomsara.social.models.tables.Message;
 import com.mardomsara.social.models.tables.Room;
 import com.mardomsara.social.pipe.from_net_calls.MsgsCallToServer;
@@ -108,7 +109,8 @@ public class MessageModel {
                 listMsgs.add(msg.MessageKey);
             }
             DB.db.deleteFromMessage().MessageKeyIn(listMsgs).execute();
-            LastMsgOfRoomsCache2.getInstance().removeForRoom(roomKey);
+			MemoryStore_LastMsgs.removeForRoom(roomKey);
+//            LastMsgOfRoomsCache2.getInstance().removeForRoom(roomKey);
         });
     }
 

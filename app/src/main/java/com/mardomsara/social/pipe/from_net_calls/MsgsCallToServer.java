@@ -1,19 +1,10 @@
 package com.mardomsara.social.pipe.from_net_calls;
 
-import android.support.annotation.Nullable;
-import android.widget.Toast;
-
-import com.mardomsara.social.app.AppFiles;
 import com.mardomsara.social.app.Constants;
 import com.mardomsara.social.app.DB;
 import com.mardomsara.social.base.Http.Http;
-import com.mardomsara.social.helpers.FileUtil;
-import com.mardomsara.social.helpers.FormaterUtil;
-import com.mardomsara.social.helpers.Helper;
-import com.mardomsara.social.helpers.ImageUtil;
 import com.mardomsara.social.helpers.JsonUtil;
 import com.mardomsara.social.helpers.TimeUtil;
-import com.mardomsara.social.models.MessageModel;
 import com.mardomsara.social.models.tables.Message;
 import com.mardomsara.social.models.tables.MsgSeen;
 import com.mardomsara.social.pipe.Call;
@@ -35,7 +26,7 @@ public class MsgsCallToServer {
 		Runnable succ =  ()->{
 			msg.ToPush = 0;
 			msg.ServerReceivedTime = TimeUtil.getTime();
-			msg.save();
+			msg.saveWithRoom();
 
 			MsgReceivedToServerEvent.publishNew(msg);
 		};
@@ -51,7 +42,7 @@ public class MsgsCallToServer {
 				for(Message msg: msgs){
 					msg.ToPush = 0;
 					msg.ServerReceivedTime = TimeUtil.getTime();
-					msg.save();
+					msg.saveWithRoom();
 				}
 			});
 
@@ -72,7 +63,7 @@ public class MsgsCallToServer {
 						msg.MediaStatus = (Constants.Msg_Media_Uploaded);
 						msg.ToPush = 0;
 						msg.ServerReceivedTime = TimeUtil.getTime();
-						msg.save();
+						msg.saveWithRoom();
 						if(deleteOrginal == true &&  fileOrginal != null){
 							fileOrginal.delete();
 						}
@@ -93,7 +84,7 @@ public class MsgsCallToServer {
 						msg.MediaStatus = (Constants.Msg_Media_Uploaded);
 						msg.ToPush = 0;
 						msg.ServerReceivedTime = TimeUtil.getTime();
-						msg.save();
+						msg.saveWithRoom();
 
 						MsgReceivedToServerEvent.publishNew(msg);
 					};

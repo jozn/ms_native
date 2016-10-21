@@ -2,11 +2,11 @@ package com.mardomsara.social.models.memory_store;
 
 import com.mardomsara.social.App;
 import com.mardomsara.social.lib.ms.ArrayListHashSetKey;
+import com.mardomsara.social.models.RoomModel;
 import com.mardomsara.social.models.events.RoomOrderChanged;
 import com.mardomsara.social.models.tables.Room;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 
 /**
  * Created by Hamid on 10/15/2016.
@@ -14,10 +14,10 @@ import java.util.Map;
 
 public class MemoryStore_Rooms {
 //	final static Map<String,Room> map = new HashMap<>();
-	final static ArrayListHashSetKey<Room,String> listRooms = new ArrayListHashSetKey<>((room)->room.RoomKey);
+	static ArrayListHashSetKey<Room,String> listRooms = new ArrayListHashSetKey<>((room)->room.RoomKey);
 
 
-	public static void set(Room room){
+	public static void setAndEmit(Room room){
 		if(room == null || room.RoomKey == null || room.RoomKey.equals(""))return;
 		synchronized (listRooms){
 			listRooms.setOrReplace(0,room);
@@ -42,5 +42,22 @@ public class MemoryStore_Rooms {
 		return listRooms;
 	}
 
+
+
+	public static void reloadForAll(){
+//		listRooms = new ArrayListHashSetKey<>((room)->room.RoomKey);
+		List<Room> list = RoomModel.getAllRoomsList(0);
+		listRooms.clear();
+		listRooms.fromList(list);
+		listRooms.sort();
+
+		MemoryStore_LastMsgs.loadAutoForRoomKeys(listRooms.getKeys());
+		MemoryStore_Users.loadAutoForRoomKeys(listRooms.getKeys());
+	}
+
+	public static void reloadForAllAndEmit() {
+		reloadForAll();
+		App.getBus().post(new RoomOrderChanged());
+	}
 
 }

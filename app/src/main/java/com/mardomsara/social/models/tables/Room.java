@@ -13,8 +13,6 @@ import com.mardomsara.social.models.UserModel;
 import com.mardomsara.social.models.memory_store.MemoryStore_Rooms;
 import com.mardomsara.social.models.memory_store.MemoryStore_Users;
 
-import org.apache.commons.lang3.math.NumberUtils;
-
 /**
  * Created by Hamid on 9/4/2016.
  */
@@ -64,11 +62,15 @@ public class Room implements Comparable<Room> {
 
     /////////////////////////////////////////////////////////
     ////////////////// Helpers ///////////////////
-    public void save() {
-		MemoryStore_Rooms.set(this);
+    public void saveAndEmit() {
+		MemoryStore_Rooms.setAndEmit(this);
         DB.db.prepareInsertIntoRoom(OnConflict.REPLACE,false).execute(this);
     }
 
+	public void save() {
+//		MemoryStore_Rooms.set(this);
+		DB.db.prepareInsertIntoRoom(OnConflict.REPLACE,false).execute(this);
+	}
 
     public User User;
 

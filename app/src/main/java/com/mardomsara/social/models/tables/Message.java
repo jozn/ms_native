@@ -147,17 +147,27 @@ public class Message  implements Comparable<Message> {
 		}
 
 		MemoryStore_LastMsgs.set(this);
+	}
+
+	private void onAfterSave(){
 		Room room = MemoryStore_Rooms.getOrNull(RoomKey);
-		room = RoomModel.onRecivedNewMsg3(this,room);
+		room = RoomModel.onReceivedNewMsg3_NotSave(this,room);
 		if(room.SortTimeMs < CreatedDeviceMs){
 			room.SortTimeMs = CreatedDeviceMs;
-			room.save();
 		}
+		room.saveAndEmit();
 	}
-    public void save() {
+    public void saveWithRoom() {
 		onBeforeSave();
         DB.db.prepareInsertIntoMessage(OnConflict.REPLACE,true).execute(this);
+		onAfterSave();
     }
+
+	public void save() {
+		onBeforeSave();
+		DB.db.prepareInsertIntoMessage(OnConflict.REPLACE,true).execute(this);
+//		onAfterSave();
+	}
 
     public void insertInBackground() {
 		onBeforeSave();

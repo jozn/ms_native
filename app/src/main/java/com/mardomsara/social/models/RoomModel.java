@@ -8,6 +8,7 @@ import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.LangUtil;
 import com.mardomsara.social.helpers.TimeUtil;
 import com.mardomsara.social.models.events.RoomInfoChangedEvent;
+import com.mardomsara.social.models.memory_store.MemoryStore_LastMsgs;
 import com.mardomsara.social.models.memory_store.MemoryStore_Rooms;
 import com.mardomsara.social.models.tables.Message;
 import com.mardomsara.social.models.tables.MsgSeen;
@@ -18,6 +19,7 @@ import com.mardomsara.social.pipe.from_net_calls.MsgsCallToServer;
 import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -73,7 +75,17 @@ public class RoomModel {
 
     }
 
-	public static Room onRecivedNewMsg3(Message msg,Room roomMem){
+	static int getUnseenCountForRoom(String RoomKey, long LastSeenTimeMs ){
+		int count = DB.db.relationOfMessage()
+			.RoomKeyEq(RoomKey)
+			.NanoIdGe(LastSeenTimeMs*1000000)
+			.IsByMeEq(0)
+			.ISeenTimeEq(0)
+			.count();
+		return count;
+	}
+
+	public static Room onReceivedNewMsg3_NotSave(Message msg, Room roomMem){
 		if(roomMem == null){
 			roomMem = getRoomByRoomKey(msg.RoomKey);
 		}
@@ -83,12 +95,16 @@ public class RoomModel {
 			roomMem.RoomTypeId = 1;//todo: extarct from here
 			roomMem.CreatedMs = TimeUtil.getTimeMs();
 		}
-		roomMem.UnseenMessageCount = roomMem.UnseenMessageCount +1;
+
+		int count = getUnseenCountForRoom(msg.RoomKey,roomMem.LastSeenTimeMs);
+		roomMem.UnseenMessageCount = count;
+
 		roomMem.UpdatedMs = msg.CreatedMs;//this one we show to user
 		roomMem.SortTimeMs = TimeUtil.getTimeMs();//just for sorting needs accurte user own device
-		updateOrInsert(roomMem);
+//		updateOrInsert(roomMem);
+//		roomMem.saveAndEmit();
 		return roomMem;
-//        roomMem.save();
+//        roomMem.saveWithRoom();
 //        msg.getClass().getAnnotation(Column.class).value();
 	}
 
@@ -105,7 +121,7 @@ public class RoomModel {
 		room.SortTimeMs = TimeUtil.getTimeMs();//just for sorting needs accurte user own device
 		updateOrInsert(room);
 		return room;
-//        room.save();
+//        room.saveWithRoom();
 //        msg.getClass().getAnnotation(Column.class).value();
 	}
 
@@ -121,9 +137,41 @@ public class RoomModel {
         room.UpdatedMs = msg.CreatedMs;//this one we show to user
         room.SortTimeMs = TimeUtil.getTimeMs();//just for sorting needs accurte user own device
         updateOrInsert(room);
-//        room.save();
+//        room.saveWithRoom();
 //        msg.getClass().getAnnotation(Column.class).value();
     }
+
+	/*public static void massUpdateOfRoomsForNewMsgs(Set<String> roomsKey){
+		for(String roomKey: roomsKey){
+			Room room = getRoomByRoomKey(roomKey);
+			if(room == null){
+				room = new Room();
+				room.RoomKey = roomKey;
+				room.RoomTypeId = 1;//todo: extarct from here
+				room.CreatedMs = TimeUtil.getTimeMs();
+			}
+			int count = DB.db.relationOfMessage().RoomKeyEq(msg.RoomKey).ISeenTimeEq(0).count();
+			room.UnseenMessageCount = count;
+			room.UpdatedMs = msg.CreatedMs;//this one we show to user
+			room.SortTimeMs = TimeUtil.getTimeMs();
+		}
+
+	}*/
+
+	public static void massUpdateOfRoomsForNewMsgs(Collection<Message> LastMsgs){
+		List<Room> rooms = new ArrayList<>();
+		for(Message msg: LastMsgs){
+			Room room = onReceivedNewMsg3_NotSave(msg,null);
+			rooms.add(room);
+		}
+		DB.db.transactionSync(()->{
+			for(Room room: rooms){
+				room.save();
+			}
+		});
+
+		MemoryStore_Rooms.reloadForAllAndEmit();
+	}
 
 	public static void messageHasInsertIntoRoomUpdateRoomInfo(Message msg){
 		Room room = getRoomByRoomKey(msg.RoomKey);
@@ -138,7 +186,7 @@ public class RoomModel {
 		room.UpdatedMs = msg.CreatedMs;//this one we show to user
 		room.SortTimeMs = TimeUtil.getTimeMs();//just for sorting needs accurte user own device
 		updateOrInsert(room);
-//        room.save();
+//        room.saveWithRoom();
 //        msg.getClass().getAnnotation(Column.class).value();
 	}
 
@@ -163,7 +211,8 @@ public class RoomModel {
 //        List<RoomsListTable> roomsRes = new ArrayList<>();
 
         loadAllUserForRooms(rooms);
-        LastMsgOfRoomsCache2.getInstance().setForRooms(rooms);
+		MemoryStore_LastMsgs.setAutoForRoom(rooms);
+//        LastMsgOfRoomsCache2.getInstance().setForRooms(rooms);
         return rooms;
     }
 
@@ -192,9 +241,10 @@ public class RoomModel {
 
     public static void clearRoomMsgs(Room room){
         MessageModel.clearAllMessagesOfRoom(room.RoomKey);
-        LastMsgOfRoomsCache2.getInstance().removeForRoom(room.RoomKey);
+//        LastMsgOfRoomsCache2.getInstance().removeForRoom(room.RoomKey);
+		MemoryStore_LastMsgs.removeForRoom(room.RoomKey);
         room.UnseenMessageCount = 0;
-        room.save();
+        room.saveAndEmit();
     }
 
 	public static void updateRoomSeenMsgsToNow_BG(Room room){
@@ -232,7 +282,7 @@ public class RoomModel {
 				;
 
 				room.LastSeenTimeMs = nowMs;
-				room.save();
+				room.saveAndEmit();
 
 				for (MsgSeen seen: msgsSeen){
 					seen.save();

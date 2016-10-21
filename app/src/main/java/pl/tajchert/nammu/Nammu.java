@@ -190,7 +190,7 @@ public class Nammu {
     }
 
     /**
-     * Refresh currently granted permission list, and save it for later comparing using @permissionCompare()
+     * Refresh currently granted permission list, and saveWithRoom it for later comparing using @permissionCompare()
      */
     public static void refreshMonitoredList() {
         ArrayList<String> permissions = getGrantedPermissions();

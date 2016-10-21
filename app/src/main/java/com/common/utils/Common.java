@@ -1126,7 +1126,7 @@ public class Common {
     }
 
     /**
-     * save your bitmap in your preference
+     * saveWithRoom your bitmap in your preference
      *
      * @param bitmap  which you have to store in preference
      * @param context
@@ -1535,7 +1535,7 @@ public class Common {
     }
 
     public static void onSaveInstanceState(Bundle outState) {
-        // save file _finalUrl in bundle as it will be null on scren orientation
+        // saveWithRoom file _finalUrl in bundle as it will be null on scren orientation
         // changes
         outState.putParcelable("file_uri", fileUri);
     }

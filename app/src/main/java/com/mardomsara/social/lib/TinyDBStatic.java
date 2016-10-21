@@ -81,9 +81,9 @@ public class TinyDBStatic {
 
     /**
      * Saves 'theBitmap' into folder 'theFolder' with the name 'theImageName'
-     * @param theFolder the folder path dir you want to save it to e.g "DropBox/WorkImages"
+     * @param theFolder the folder path dir you want to saveWithRoom it to e.g "DropBox/WorkImages"
      * @param theImageName the name you want to assign to the image file e.g "MeAtLunch.png"
-     * @param theBitmap the image you want to save as a Bitmap
+     * @param theBitmap the image you want to saveWithRoom as a Bitmap
      * @return returns the full path(file system address) of the saved image
      */
     public static String putImage(String theFolder, String theImageName, Bitmap theBitmap) {
@@ -105,7 +105,7 @@ public class TinyDBStatic {
     /**
      * Saves 'theBitmap' into 'fullPath'
      * @param fullPath full path of the image file e.g. "Images/MeAtLunch.png"
-     * @param theBitmap the image you want to save as a Bitmap
+     * @param theBitmap the image you want to saveWithRoom as a Bitmap
      * @return true if image was saved, false otherwise
      */
     public static boolean putImageWithFullPath(String fullPath, Bitmap theBitmap) {
@@ -345,7 +345,7 @@ public class TinyDBStatic {
     // Put methods
 
     /**
-     * Put int value into SharedPreferences with 'key' and save
+     * Put int value into SharedPreferences with 'key' and saveWithRoom
      * @param key SharedPreferences key
      * @param value int value to be added
      */
@@ -355,7 +355,7 @@ public class TinyDBStatic {
     }
 
     /**
-     * Put ArrayList of Integer into SharedPreferences with 'key' and save
+     * Put ArrayList of Integer into SharedPreferences with 'key' and saveWithRoom
      * @param key SharedPreferences key
      * @param intList ArrayList of Integer to be added
      */
@@ -366,7 +366,7 @@ public class TinyDBStatic {
     }
 
     /**
-     * Put long value into SharedPreferences with 'key' and save
+     * Put long value into SharedPreferences with 'key' and saveWithRoom
      * @param key SharedPreferences key
      * @param value long value to be added
      */
@@ -376,7 +376,7 @@ public class TinyDBStatic {
     }
 
     /**
-     * Put float value into SharedPreferences with 'key' and save
+     * Put float value into SharedPreferences with 'key' and saveWithRoom
      * @param key SharedPreferences key
      * @param value float value to be added
      */
@@ -386,7 +386,7 @@ public class TinyDBStatic {
     }
 
     /**
-     * Put double value into SharedPreferences with 'key' and save
+     * Put double value into SharedPreferences with 'key' and saveWithRoom
      * @param key SharedPreferences key
      * @param value double value to be added
      */
@@ -396,7 +396,7 @@ public class TinyDBStatic {
     }
 
     /**
-     * Put ArrayList of Double into SharedPreferences with 'key' and save
+     * Put ArrayList of Double into SharedPreferences with 'key' and saveWithRoom
      * @param key SharedPreferences key
      * @param doubleList ArrayList of Double to be added
      */
@@ -407,7 +407,7 @@ public class TinyDBStatic {
     }
 
     /**
-     * Put String value into SharedPreferences with 'key' and save
+     * Put String value into SharedPreferences with 'key' and saveWithRoom
      * @param key SharedPreferences key
      * @param value String value to be added
      */
@@ -417,7 +417,7 @@ public class TinyDBStatic {
     }
 
     /**
-     * Put ArrayList of String into SharedPreferences with 'key' and save
+     * Put ArrayList of String into SharedPreferences with 'key' and saveWithRoom
      * @param key SharedPreferences key
      * @param stringList ArrayList of String to be added
      */
@@ -428,7 +428,7 @@ public class TinyDBStatic {
     }
 
     /**
-     * Put boolean value into SharedPreferences with 'key' and save
+     * Put boolean value into SharedPreferences with 'key' and saveWithRoom
      * @param key SharedPreferences key
      * @param value boolean value to be added
      */
@@ -438,7 +438,7 @@ public class TinyDBStatic {
     }
 
     /**
-     * Put ArrayList of Boolean into SharedPreferences with 'key' and save
+     * Put ArrayList of Boolean into SharedPreferences with 'key' and saveWithRoom
      * @param key SharedPreferences key
      * @param boolList ArrayList of Boolean to be added
      */
@@ -458,7 +458,7 @@ public class TinyDBStatic {
     }
 
     /**
-     * Put ObJect any type into SharedPrefrences with 'key' and save
+     * Put ObJect any type into SharedPrefrences with 'key' and saveWithRoom
      * @param key SharedPreferences key
      * @param obj is the Object you want to put 
      */
