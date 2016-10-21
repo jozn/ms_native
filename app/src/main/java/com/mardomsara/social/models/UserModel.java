@@ -36,7 +36,7 @@ public class UserModel {
 			if(user == null)return;
 			Map<String,ContactsCopy> map= ContactsCopyModel.getCacheOfContactsCopy();
 			String phone = user.Phone;
-			if( user.PhoneNormalizedNumber != null || ! user.PhoneNormalizedNumber.equals("")){
+			if( user.PhoneNormalizedNumber != null || !user.PhoneNormalizedNumber.equals("")){
 				phone=user.PhoneNormalizedNumber;
 			}
 			if(phone != null && !phone.equals("") && map.containsKey(phone)){

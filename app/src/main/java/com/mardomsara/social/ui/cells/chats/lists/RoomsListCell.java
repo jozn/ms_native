@@ -83,26 +83,26 @@ public class RoomsListCell {
 		rv.setLayoutManager(mLayoutManager);
     }
 
-	@Subscribe(threadMode = ThreadMode.BACKGROUND)
+	/*@Subscribe(threadMode = ThreadMode.BACKGROUND)
 	public void onEvent(MsgAddOneJson data){
 		Message msg = data.Message;
 		Room roomNew = RoomModel.onRecivedNewMsg2(msg);
 		AndroidUtil.runInUiNoPanic(()->{
-			/*listRooms.setOrReplace(0,roomNew);*/
+			*//*listRooms.setOrReplace(0,roomNew);*//*
 			listRooms.addEnd(roomNew);
 			listRooms.sort();
 
 			adp.notifyDataSetChanged();
 
-			/*int index = listRooms.indexOfByKey(msg.RoomKey);
+			*//*int index = listRooms.indexOfByKey(msg.RoomKey);
 			if (index >= 0) {
 				adp.notifyContentItemChanged(index);
-			}	*/
+			}	*//*
 		});
 
-	}
+	}*/
 
-	@Subscribe(threadMode = ThreadMode.BACKGROUND)
+	/*@Subscribe(threadMode = ThreadMode.BACKGROUND)
 	public void onEvent(MsgAddManyJson data){
 		List<Message> msgs = data.Messages;
 		for(Message msg:msgs){
@@ -112,12 +112,12 @@ public class RoomsListCell {
 		}
 		AndroidUtil.runInUiNoPanic(()->{
 			adp.notifyDataSetChanged();
-			/*int index = listRooms.indexOfByKey(msg.RoomKey);
+			*//*int index = listRooms.indexOfByKey(msg.RoomKey);
 			if (index >= 0) {
 				adp.notifyContentItemChanged(index);
-			}	*/
+			}	*//*
 		});
-	}
+	}*/
 
 	@Subscribe(threadMode = ThreadMode.MAIN)
 	public void onEvent(RoomOrderChanged data){
