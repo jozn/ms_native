@@ -5,8 +5,8 @@ package com.mardomsara.social.json.social.rows;
  * @// TODO: 8/25/2016 complete class and switch others to use this
  */
 public class UserSyncJson extends UserInfoJson {
-    public String Phone;
-    public Integer UpdatedTime;
-    public Integer AppVersion;
+    public String Phone = "";
+    public Integer UpdatedTime = 0;
+    public Integer AppVersion = 1;
 
 }

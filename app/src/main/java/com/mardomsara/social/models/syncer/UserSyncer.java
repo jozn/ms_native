@@ -76,6 +76,14 @@ public class UserSyncer {
 				user.PhoneNormalizedNumber = row.Phone;
 			}
 		}
+
+
+		if(user.PhoneContactRowId == 0 ){
+			user.PhoneContactRowId = 0;
+			user.PhoneDisplayName = "";
+			user.PhoneNumber = "";
+			user.PhoneNormalizedNumber = "";
+		}
 		return user;
 	}
 

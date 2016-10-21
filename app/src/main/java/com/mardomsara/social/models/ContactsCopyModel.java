@@ -20,7 +20,7 @@ public class ContactsCopyModel {
 			cacheMap = new HashMap<>();
 			List<ContactsCopy> list = DB.db.selectFromContactsCopy().toList();
 			for (ContactsCopy row: list){
-				if(row.PhoneNormalizedNumber != ""){
+				if(row.PhoneNormalizedNumber != null && !row.PhoneNormalizedNumber.equals("")){
 					cacheMap.put(row.PhoneNormalizedNumber, row);
 				}
 			}

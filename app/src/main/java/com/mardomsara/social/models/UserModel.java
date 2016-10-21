@@ -36,15 +36,22 @@ public class UserModel {
 			if(user == null)return;
 			Map<String,ContactsCopy> map= ContactsCopyModel.getCacheOfContactsCopy();
 			String phone = user.Phone;
-			if( ! user.PhoneNormalizedNumber.equals("")){
+			if( user.PhoneNormalizedNumber != null || ! user.PhoneNormalizedNumber.equals("")){
 				phone=user.PhoneNormalizedNumber;
 			}
-			if(map.containsKey(phone)){
+			if(phone != null && !phone.equals("") && map.containsKey(phone)){
 				ContactsCopy cc = map.get(phone);
+				user.IsPhoneContact = 1;
 				user.PhoneContactRowId = cc.PhoneContactRowId;
 				user.PhoneDisplayName = cc.PhoneDisplayName;
 				user.PhoneNumber = cc.PhoneNumber;
 				user.PhoneNormalizedNumber = phone;
+			}else {
+				user.IsPhoneContact = -1;
+				user.PhoneContactRowId = 0;
+				user.PhoneDisplayName = "";
+				user.PhoneNumber = "";
+				user.PhoneNormalizedNumber = "";
 			}
 			user.save();
 //		});
