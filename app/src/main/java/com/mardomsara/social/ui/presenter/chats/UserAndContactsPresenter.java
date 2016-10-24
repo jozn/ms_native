@@ -234,7 +234,7 @@ public class UserAndContactsPresenter extends BasePresenter {
                 });
 
                 ButterKnife.bind(this,v);
-				
+
                 /*avatar.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View vv) {

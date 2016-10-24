@@ -339,18 +339,11 @@ public class ArrayListHashSetKey<T extends Comparable ,K> {
 		return data.indexOf(item);
 	}
 
-
 	public int lastIndexOf(Object item) {
 		return data.lastIndexOf(item);
 	}
 
-
 	public void replaceAll(UnaryOperator<T> operator) {
-
-	}
-
-
-	private void sort(Comparator<? super T> c) {
 
 	}
 

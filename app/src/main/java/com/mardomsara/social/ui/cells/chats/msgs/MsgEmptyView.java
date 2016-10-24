@@ -17,7 +17,7 @@ public class MsgEmptyView extends MsgAbstractViewHolder {
     }
 
     public static MsgAbstractViewHolder makeNew(){
-        return new MsgEmptyView(AppUtil.inflate(R.layout.empty));
+        return new MsgEmptyView(AppUtil.inflate(R.layout.msg_empty));
     }
 
 

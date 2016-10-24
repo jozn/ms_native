@@ -105,7 +105,7 @@ public class ChatRoomPresenter extends BasePresenter implements
     List<Message> messages;
 	ArrayListHashSetKey<Message,String> messages2;
     MsgsListCell messagesCell;
-    MsgsListCell.ChatEntaryAdaptor messagesAdaptor;
+    MsgsListCell.ChatEntryAdaptor messagesAdaptor;
 
     KeywordAttachmentCell attachment_view;
     LinearLayoutManager mLayoutManager;

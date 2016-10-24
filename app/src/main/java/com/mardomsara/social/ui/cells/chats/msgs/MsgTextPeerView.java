@@ -16,9 +16,8 @@ import butterknife.ButterKnife;
  */
 public class MsgTextPeerView extends MsgAbstractViewHolder {
     @Bind(R.id.msg_time) TextView time_txt;
-    //    @Bind(R.id.msg_delivery_status) TextView msg_delivery_status;
     @Bind(R.id.msg_text) TextView msg_text;
-//    @Bind(R.id.msg_text) LinkerText msg_text;
+
     Message msg;
 
     public MsgTextPeerView(View itemView) {
