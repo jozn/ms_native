@@ -285,30 +285,6 @@ public class ChatRoomPresenter extends BasePresenter implements
         attachment_view = new KeywordAttachmentCell(this,bottom_container);
     }
 
-    ////////////////////////////////////
-    //////////// Events ////////////////
-
-    /*@Subscribe(threadMode = ThreadMode.MAIN)
-    public void onEvent(Message msg){
-        //ignor mssgas added in this chat room
-        for (Message m: messagesAdaptor.msgs){
-            if(m.MessageKey.equals(msg.MessageKey)){
-                return;
-            }
-        }
-        if(msg.RoomKey.equals(room.RoomKey) == false) return;
-        logIt("event new msg: " + msg.toString());
-        try {
-            messagesAdaptor.msgs.addStart(0,msg);
-            messagesAdaptor.notifyDataSetChanged();
-
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-        //todo: if app in not focuesd dont to this, instead in refouce do it
-        MessageModel.sendToServerMsgsSeenByPeerCmd(msg);
-    }*/
-
 	@Subscribe(threadMode = ThreadMode.MAIN)
 	public void onEvent(MsgAddOneJson data){
 		logIt("event new: MsgAddOneJson " + data.toString());
@@ -411,32 +387,6 @@ public class ChatRoomPresenter extends BasePresenter implements
 			}
 		}
 	}
-
-    /*Message getMsgOfAdaptorListByKey(String msgKey){
-        if(meta.RoomKey.equals(room.RoomKey)){
-            int size = messagesAdaptor.msgs.size();
-            for(int i=0; i< size; i++){
-                msg = messagesAdaptor.msgs.get(i);
-                if(msg.MessageKey.equals(meta.MessageKey)){
-                    Message msg2 = MessageModel.getMessageByKey(meta.MessageKey);
-                    messagesAdaptor.msgs.remove(i);
-                    messagesAdaptor.msgs.addStart(i,msg2);
-                    messagesAdaptor.notifyDataSetChanged();
-                }
-            }
-        }
-    }*/
-
-//    void _updateMsgForMetaWithExtraDataList(MessageSyncMeta meta) {
-//
-//    }
-
-    /////////////// End Events /////////////////////
-    ////////////////////////////////////////////////
-//        protected void logIt(String str) {
-//        Log.d(" "+ this.getClass().getSimpleName() ," "+ str);
-//    }
-
 
     //keyborad listener
     @Override
@@ -587,42 +537,6 @@ public class ChatRoomPresenter extends BasePresenter implements
 		MsgsCallToServer.sendNewPhoto(msg,resizedFile,fileOrginal,deleteOrginal);
 		onHereAddedNewMsgEvent(msg);
 
-		/*Http.upload("http://localhost:5000/msgs/v1/add_one",resizedFile)
-			.setFormParam("message",JsonUtil.toJson(msg))
-			.doAsync(
-				(result)->{
-					if (result.isOk()){
-						msg.MediaStatus = (Constants.Msg_Media_Uploaded);
-						msg.ToPush = 0;
-						msg.ServerReceivedTime = TimeUtil.getTime();
-						msg.saveWithRoom();
-						if(deleteOrginal == true){
-							fileOrginal.delete();
-						}
-					};
-		});*/
-
-        /*HttpOld.Req req = new HttpOld.Req();
-        req._finalUrl = AppUtil.toUrl("http://localhost:5000/MsgUpload");
-        req.absPath = "http://localhost:5000/MsgUpload";
-        req.file = resizedFile;
-//        req.urlQueryParams.put("message",JsonUtil.toJson(msg));
-        req.form.put("message",JsonUtil.toJson(msg));
-
-        AndroidUtil.runInBackground(()->{
-            HttpOld.Result res = HttpOld.uploadFile(req);
-            if(res.ok){
-                msg.MediaStatus = (Constants.Msg_Media_Uploaded);
-                msg.ToPush = 0;
-                msg.saveWithRoom();
-                if(deleteOrginal == true){
-                    fileOrginal.delete();
-                }
-            }
-//            res.response.body().byteStream().
-        });*/
-//        intentHelper.previewCapturedImage(imageView);
-
     }
 
     void _sendMsgVideo(String savedPath){
@@ -647,13 +561,6 @@ public class ChatRoomPresenter extends BasePresenter implements
         File resizedFile = new File(resizedPath);
 
 
-        //no need
-//        try {
-//            FileUtils.moveFile(tempFile,resizedFile);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-
         if(!resizedFile.exists()){
             Toast.makeText(getContext(),"فایل موجود نیست",Toast.LENGTH_SHORT).show();
             return;
@@ -668,36 +575,6 @@ public class ChatRoomPresenter extends BasePresenter implements
 
 		onHereAddedNewMsgEvent(msg);
 
-		/*Http.upload("http://localhost:5000/msgs/v1/add_one",resizedFile)
-			.setFormParam("message",JsonUtil.toJson(msg))
-			.doAsync(
-				(result)->{
-					if (result.isOk()){
-						msg.MediaStatus = (Constants.Msg_Media_Uploaded);
-						msg.ToPush = 0;
-						msg.ServerReceivedTime = TimeUtil.getTime();
-						msg.saveWithRoom();
-					};
-				});*/
-
-
-        /*HttpOld.Req req = new HttpOld.Req();
-        req._finalUrl = AppUtil.toUrl("http://localhost:5000/MsgUpload");
-        req.absPath = "http://localhost:5000/MsgUpload";
-        req.file = resizedFile;
-//        req.urlQueryParams.put("message",JsonUtil.toJson(msg));
-        req.form.put("message",JsonUtil.toJson(msg));
-
-        AndroidUtil.runInBackground(()->{
-            HttpOld.Result res = HttpOld.uploadFile(req);
-            if(res.ok){
-                msg.MediaStatus = (Constants.Msg_Media_Uploaded);
-                msg.saveWithRoom();
-//                tempFile.delete();
-            }
-//            res.response.body().byteStream().
-        });*/
-//        intentHelper.previewCapturedImage(imageView);
     }
 
     @Override
@@ -720,12 +597,6 @@ public class ChatRoomPresenter extends BasePresenter implements
         Helper.showDebugMessage("page : "+pageNum);
     }
 
-	void play(){
-		/*Collections.singletonList();
-			Map map = new HashMap<>();
-		map.replace()*/
-
-	}
 }
 
 
