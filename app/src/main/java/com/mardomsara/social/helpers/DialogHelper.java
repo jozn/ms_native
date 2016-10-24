@@ -7,11 +7,9 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.mardomsara.social.R;
 import com.orhanobut.dialogplus.DialogPlus;
-import com.orhanobut.dialogplus.DialogPlusBuilder;
 import com.orhanobut.dialogplus.OnClickListener;
 import com.orhanobut.dialogplus.OnItemClickListener;
 import com.orhanobut.dialogplus.ViewHolder;

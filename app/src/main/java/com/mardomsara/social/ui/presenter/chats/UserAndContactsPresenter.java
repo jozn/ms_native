@@ -234,16 +234,12 @@ public class UserAndContactsPresenter extends BasePresenter {
                 });
 
                 ButterKnife.bind(this,v);
-
-
-                avatar.setOnClickListener(new View.OnClickListener() {
+				
+                /*avatar.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View vv) {
-//                        RoomListRowOptionsPresenter op = new RoomListRowOptionsPresenter();
-//                        DialogHelper.alertViewWithListner(vv.getContext(),op.getGrandView(),op);
-//                        com.orhanobut.dialogplus.ViewHolder vh = new com.orhanobut.dialogplus.ViewHolder(op.getGrandView());
                     }
-                });
+                });*/
             }
 
         }
