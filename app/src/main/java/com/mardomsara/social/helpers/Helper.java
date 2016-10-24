@@ -65,4 +65,17 @@ public class Helper {
 		return Store.getInt(StoreConstants.KEYBOARD_SIZE, (int) (AndroidUtil.getScreenHeight()/2.5));
 	}
 
+	public static void toastLong(String text){
+		AndroidUtil.runInUi(()->{
+			Toast.makeText(AppUtil.getContext(),text,Toast.LENGTH_LONG).show();
+		});
+	}
+
+	public static void toastShort(String text){
+		AndroidUtil.runInUi(()->{
+			Toast.makeText(AppUtil.getContext(),text,Toast.LENGTH_SHORT).show();
+		});
+	}
+
+
 }

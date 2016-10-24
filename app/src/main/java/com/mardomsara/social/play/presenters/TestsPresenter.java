@@ -32,6 +32,10 @@ public class TestsPresenter extends BasePresenter {
 			Nav.push(new WSCallPresenter());
 		}));
 
+		layout.addView(newTitle("Dialogs ",()->{
+			Nav.push(new PlayDiaolgPresenter());
+		}));
+
         return rootView;
     }
 

@@ -28,8 +28,6 @@ import com.mardomsara.social.models.memory_store.MemoryStore_LastMsgs;
 import com.mardomsara.social.models.memory_store.MemoryStore_Rooms;
 import com.mardomsara.social.models.tables.Message;
 import com.mardomsara.social.models.tables.Room;
-import com.mardomsara.social.pipe.from_net_calls.json.MsgAddManyJson;
-import com.mardomsara.social.pipe.from_net_calls.json.MsgAddOneJson;
 import com.mardomsara.social.play.DividerItemDecoration;
 import com.mardomsara.social.ui.views.wigets.CountView2;
 

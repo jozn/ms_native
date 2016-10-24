@@ -218,6 +218,7 @@ public class UserAndContactsPresenter extends BasePresenter {
 
 			User user;
 
+			//TODO: add approprate behaviuer in longPress
             public ViewHolder(View v) {
                 super(v);
                 self = v;
@@ -228,7 +229,7 @@ public class UserAndContactsPresenter extends BasePresenter {
                 });
 
                 v.setOnLongClickListener((vv)-> {
-                    DialogHelper.simpleAlert(vv.getContext(), "ایران ما", "تتای عیشسعی یادشسیاسش یشسیشست ");
+//                    DialogHelper.simpleAlert(vv.getContext(), "ایران ما", "تتای عیشسعی یادشسیاسش یشسیشست ");
                     return true;
                 });
 

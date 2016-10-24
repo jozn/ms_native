@@ -23,21 +23,10 @@ import java.util.List;
  */
 public class DialogHelper {
 
-    public static void toastLong(String text){
-        Toast.makeText(AppUtil.getContext(),text,Toast.LENGTH_LONG).show();
-    }
-
-    public static void toastShort(String text){
-        Toast.makeText(AppUtil.getContext(),text,Toast.LENGTH_SHORT).show();
-    }
-
-    public static void toast(String text){
-        Toast.makeText(AppUtil.getContext(),text,Toast.LENGTH_SHORT).show();
-    }
-
     static float _dialogWidth = 0.80f;
 
-    public static void simpleAlert(Context ctx, String title, String body){
+    public static void simpleAlert(String title, String body){
+		Context ctx = AppUtil.getContext();
 //        alertViewWithListner22(ctx);
         LayoutInflater inf = LayoutInflater.from(ctx);
         LinearLayout simple = (LinearLayout) inf.inflate(R.layout.dialog_simple_alert,null);
@@ -92,26 +81,8 @@ public class DialogHelper {
         dialog.show();
     }
 
-    public static void simpleMenu2(List<String> options){
-        Context ctx = AppUtil.getContext();
-        LayoutInflater inf = LayoutInflater.from(AppUtil.getContext());
-        int margin = AndroidUtil.dpToPx(5);//window is 10dp - 5 is based on fisagores
-
-        ArrayAdapter adapter = new ArrayAdapter(ctx, R.layout.dialog_simple_menu_string);
-        adapter.addAll(new String[]{"Ass", "dff", "Hjj","Ass",});// "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj",});
-
-        DialogPlus dialog = DialogPlus.newDialog(ctx)
-                .setAdapter(adapter)
-                .setExpanded(false)
-                .setGravity(Gravity.CENTER)
-                .setContentWidth((int)Math.round(AndroidUtil.getScreenWidth()*_dialogWidth))
-                .setMargin(margin,margin,margin,margin)
-                .create();
-        dialog.show();
-
-    }
-
-    public static DialogPlus alertView(Context ctx, View v) {
+    public static DialogPlus alertView(View v) {
+		Context ctx = AppUtil.getContext();
         ViewHolder vh = new ViewHolder(v);
         DialogPlus dialog = DialogPlus.newDialog(ctx)
                 .setContentHolder(vh)
@@ -121,7 +92,8 @@ public class DialogHelper {
         return dialog;
     }
 
-    public static DialogPlus alertViewWithListner(Context ctx,View v, OnClickListener clik) {
+    public static DialogPlus alertViewWithListner(View v, OnClickListener clik) {
+		Context ctx = AppUtil.getContext();
         ViewHolder vh = new ViewHolder(v);
         DialogPlus dialog = DialogPlus.newDialog(ctx)
                 .setContentHolder(vh)
@@ -130,56 +102,6 @@ public class DialogHelper {
                 .create();
         dialog.show();
         return dialog;
-    }
-
-    public static DialogPlus alertViewWithListner22(Context ctx) {
-//        UserRowViewHolder vh = new UserRowViewHolder(v);
-        ArrayAdapter adapter = new ArrayAdapter(ctx, R.layout.row_users_unregisterd_contact);
-        adapter.addAll(new String[]{"Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj",});
-
-        DialogPlus dialog = DialogPlus.newDialog(ctx)
-                .setAdapter(adapter)
-                .setExpanded(true)
-
-                .create();
-        dialog.show();
-        return dialog;
-    }
-
-
-
-        //TODO: remove
-    //deprectaed
-    public static void simpleAlert2(Context ctx, String title, String body){
-        LayoutInflater inf = LayoutInflater.from(ctx);
-        TextView vTitle = (TextView) inf.inflate(R.layout.dialog_simple_title, null);
-        TextView vBody = (TextView) inf.inflate(R.layout.dialog_simple_body, null);
-        TextView vClose = (TextView) inf.inflate(R.layout.dialog_simple_close, null);
-        vTitle.setText(title);
-        vBody.setText(body);
-        vClose.setText("بستن");
-
-        ViewHolder vh = new ViewHolder(vBody);
-        final DialogPlus dialog = DialogPlus.newDialog(ctx)
-                .setContentHolder(vh)
-                .setHeader(vTitle)
-                .setFooter(vClose)
-                .setFooter(R.layout.fragment_footer_bar)
-//                .setExpanded(false, 120)  // This will enable the expand feature, (similar to android L share dialog)
-                .setGravity(Gravity.CENTER)
-                .setMargin(10, 10, 10, 10)
-                .setPadding(20, 20, 20, 20)
-                .create();
-
-        dialog.show();
-//        new DialogPlusBuilder(ctx).setOrReplace
-//        vClose.setOnClickListener(v-> dialog.dismiss());
-        vClose.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.dismiss();
-            }
-        });
     }
 
     public static class MenuItem{
