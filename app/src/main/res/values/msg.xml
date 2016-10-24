@@ -85,6 +85,7 @@
     </style>
 
     <style name="msg_text.peer" >
+        <item name="android:textSize">14dp</item>
 
     </style>
 
