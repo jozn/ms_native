@@ -34,7 +34,6 @@ import java.util.List;
 public class MessageModel {
     final static int MSGS_PER_PAGE = 30;
 
-    //TODO: change orderByCreatedDeviceMsDesc() -> orderBySortId()
     public static List<Message> getRoomMessagesTimeOffset(String roomKey, long deviceCreatedTimeOffset){
         /*AndroidUtil.runInBackgroundNoPanic(()->{
             DB.db.getConnection().execSQL("update Message setOrReplace SortId = CreatedDeviceMs * 1000000");
@@ -87,12 +86,6 @@ public class MessageModel {
 
     public static void syncToServer(Message msg ) {
 		MsgsCallToServer.addNewMsg(msg);
-        /*Command cmd = new Command();
-        cmd.Name = Constants.MsgsAddNew;
-        cmd.Data = JsonUtil.toJson(msg);
-
-        WS_DEP.sendCommand(cmd);
-        //onAddedNewMsgEvent(msg);*/
     }
 
     public static void clearAllMessagesOfRoom(String roomKey){
