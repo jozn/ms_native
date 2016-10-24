@@ -1,4 +1,4 @@
-package com.mardomsara.social.models;
+package com.mardomsara.social.del;
 
 /**
  * Created by Hamid on 5/14/2016.

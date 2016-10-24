@@ -1,6 +1,6 @@
 package com.mardomsara.social.json.social.rows;
 
-import com.mardomsara.social.models.IUserAndMe;
+import com.mardomsara.social.models.interfaces.IUserAndMe;
 
 /**
  * Created by Hamid on 7/18/2016.

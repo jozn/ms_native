@@ -4,12 +4,11 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
 import com.mardomsara.social.R;
 import com.mardomsara.social.helpers.AndroidUtil;
-import com.mardomsara.social.models.IUserAndMe;
+import com.mardomsara.social.models.interfaces.IUserAndMe;
 import com.mardomsara.social.ui.views.FontCache;
 
 /**

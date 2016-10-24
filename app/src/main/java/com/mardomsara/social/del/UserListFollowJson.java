@@ -1,4 +1,4 @@
-package com.mardomsara.social.models;
+package com.mardomsara.social.del;
 
 public class UserListFollowJson {
 
