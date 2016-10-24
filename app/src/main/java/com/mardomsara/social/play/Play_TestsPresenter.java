@@ -1,10 +1,12 @@
-package com.mardomsara.social.play.presenters;
+package com.mardomsara.social.play;
 
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.mardomsara.social.Nav;
+import com.mardomsara.social.play.presenters.Play_DiaolgPresenter;
+import com.mardomsara.social.play.presenters.Play_Http2TestPresenter;
+import com.mardomsara.social.play.presenters.Play_WSCallPresenter;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.cells.PageCells;
 import com.mardomsara.social.ui.cells.TitleCellsGroup;
@@ -13,7 +15,7 @@ import com.mardomsara.social.ui.presenter.HelloPresenter;
 /**
  * Created by Hamid on 10/1/2016.
  */
-public class TestsPresenter extends BasePresenter {
+public class Play_TestsPresenter extends BasePresenter {
     @Override
     public View buildView() {
         PageCells.Scroller cell =new PageCells.Scroller();
@@ -25,15 +27,15 @@ public class TestsPresenter extends BasePresenter {
         }));
 
         layout.addView(newTitle("Http2 play test",()->{
-            Nav.push(new Http2TestPresenter());
+            Nav.push(new Play_Http2TestPresenter());
         }));
 
 		layout.addView(newTitle("Ws Call tsest",()->{
-			Nav.push(new WSCallPresenter());
+			Nav.push(new Play_WSCallPresenter());
 		}));
 
 		layout.addView(newTitle("Dialogs ",()->{
-			Nav.push(new PlayDiaolgPresenter());
+			Nav.push(new Play_DiaolgPresenter());
 		}));
 
         return rootView;

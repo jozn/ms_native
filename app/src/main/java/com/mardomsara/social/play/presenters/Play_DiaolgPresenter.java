@@ -21,7 +21,7 @@ import com.orhanobut.dialogplus.ViewHolder;
 /**
  * Created by Hamid on 10/1/2016.
  */
-public class PlayDiaolgPresenter extends BasePresenter {
+public class Play_DiaolgPresenter extends BasePresenter {
     @Override
 	public View buildView() {
 		PageCells.Scroller cell =new PageCells.Scroller();

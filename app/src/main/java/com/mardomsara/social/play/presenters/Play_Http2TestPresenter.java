@@ -22,7 +22,7 @@ import java.util.ArrayList;
 /**
  * Created by Hamid on 10/1/2016.
  */
-public class Http2TestPresenter extends BasePresenter {
+public class Play_Http2TestPresenter extends BasePresenter {
     @Override
     public View buildView() {
         PageCells.Scroller cell =new PageCells.Scroller();

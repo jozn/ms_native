@@ -23,7 +23,7 @@ import java.util.ArrayList;
 /**
  * Created by Hamid on 10/1/2016.
  */
-public class WSCallPresenter extends BasePresenter {
+public class Play_WSCallPresenter extends BasePresenter {
     @Override
     public View buildView() {
         PageCells.Scroller cell =new PageCells.Scroller();

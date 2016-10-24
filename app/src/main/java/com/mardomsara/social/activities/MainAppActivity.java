@@ -26,8 +26,7 @@ import com.mardomsara.social.app.Config;
 import com.mardomsara.social.app.LifeCycle;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.Helper;
-import com.mardomsara.social.play.PlayAdvanced;
-import com.mardomsara.social.play.presenters.TestsPresenter;
+import com.mardomsara.social.play.Play_TestsPresenter;
 import com.mardomsara.social.service.PingService;
 
 import io.fabric.sdk.android.Fabric;
@@ -314,7 +313,7 @@ public class MainAppActivity extends AppActivity {
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         AppUtil.log("called onKeyDown: "+keyCode);
         if(Config.IS_DEBUG && keyCode == KeyEvent.KEYCODE_VOLUME_DOWN){
-            Nav.push(new TestsPresenter());
+            Nav.push(new Play_TestsPresenter());
             return true;
         }
         return super.onKeyDown(keyCode, event);
