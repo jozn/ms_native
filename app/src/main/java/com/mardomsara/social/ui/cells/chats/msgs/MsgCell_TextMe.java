@@ -35,14 +35,21 @@ public class MsgCell_TextMe extends MsgCell_AbstractViewHolder {
     @Override
     public void bindToView(Message msg) {
         Log.d("Msg","bindToView Me");
-        if(EmojiMaper.isJustEmoji(msg.Text)){
-            Log.d("Emoji","isJustEmoji true");
+
+		time_txt.setText(MsgCommon.msgRawTime2(msg));
+		msg_text.setText(""+msg.Text+" ");
+
+		if( msg.Text != null && msg.Text.length() < 1000 && EmojiMaper.isJustEmoji(msg.Text)){
+            Log.d("Emoji","isJustEmoji true: "+msg.Text);
+//			msg_text.setJustEmojiconSize(AndroidUtil.dpToPx(12)*3);
+			msg_text.setSizeMultiple(2f);
 //            msg_text.setJustEmojiconSize(AndroidUtil.dpToPx(40));
+//			grandView.requestLayout();
         }else {
-//            msg_text.restOreEmojiSize();
+			msg_text.restSizes();
+//			msg_text.setSizeMultiple(3);
         }
-        time_txt.setText(MsgCommon.msgRawTime2(msg));
-        msg_text.setText(""+msg.Text);
+//		msg_text.setLineSpacing(200,3);
         MsgCommon.msgDelviryStatusText(msg,msg_delivery_status);
 //        ViewHelper.msgDelviryStatusText(msg,msg_delivery_status);
     }

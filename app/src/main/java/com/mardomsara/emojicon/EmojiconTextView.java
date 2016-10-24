@@ -22,9 +22,11 @@ import android.text.SpannableString;
 import android.text.TextUtils;
 import android.text.style.DynamicDrawableSpan;
 import android.util.AttributeSet;
+import android.util.TypedValue;
 import android.widget.TextView;
 
 import com.mardomsara.social.R;
+import com.mardomsara.social.helpers.AppUtil;
 
 //import android.text.SpannableString;
 
@@ -65,11 +67,15 @@ public class EmojiconTextView extends TextView {
             mTextStart = a.getInteger(R.styleable.Emojicon_emojiconTextStart, 0);
             mTextLength = a.getInteger(R.styleable.Emojicon_emojiconTextLength, -1);
             mUseSystemDefault = a.getBoolean(R.styleable.Emojicon_emojiconUseSystemDefault, false);
-            mEmojiconSize = (int) Math.round(1.5 * mEmojiconSize);//alwase 2
+//            mEmojiconSize = (int) Math.round(1.5 * mEmojiconSize);//alwase 2
+//			setEmojiconSizePolicy((float) mEmojiconSize);//this mEmojiconSize == getTextSize()
+			mEmojiconSize = calEmojiconSizePolicy(mEmojiconSize);
             a.recycle();
         }
-        setText(getText());
-    }
+//		setLineSpacing(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 35.0f,  getResources().getDisplayMetrics()),20f);
+
+		setText(getText());
+	}
 
     @Override
     public void setText(CharSequence text, BufferType type) {
@@ -81,43 +87,68 @@ public class EmojiconTextView extends TextView {
 //            SpannableString builder = new SimpleSpannble00(text);
 //            EmojiconHandler.addEmojis(getContext(), builder, mEmojiconSize, mEmojiconAlignment, mEmojiconTextSize, mTextStart, mTextLength, mUseSystemDefault);
 //            EmojiMaper.addEmojis(getContext(), builder, mEmojiconSize, mEmojiconAlignment, mEmojiconTextSize, mTextStart, mTextLength, mUseSystemDefault);
-
-            EmojiMaper.addEmojis(getContext(), builder, mEmojiconSize, mEmojiconAlignment, mEmojiconTextSize, mTextStart, mTextLength, mUseSystemDefault);
+			if(isSetMultiple){
+				setLineSpacing(multiEmojiSize/2f,1.1f);
+				setPxTextSize(multiTextSize);
+				EmojiMaper.addEmojis(getContext(), builder, multiEmojiSize, mEmojiconAlignment,(int) multiTextSize, mTextStart,mTextLength, mUseSystemDefault);
+			}else {
+//				setPxTextSize(mEmojiconTextSize);
+				setLineSpacing(0,1);
+				EmojiMaper.addEmojis(getContext(), builder, mEmojiconSize, mEmojiconAlignment, mEmojiconTextSize, mTextStart, mTextLength, mUseSystemDefault);
+			}
+//			mEmojiconTextSize  = (int)getTextSize();//Me: mEmojiconTextSize changes based on mEmojiconSize sizes
 
             text = builder;
         }
         super.setText(text, type);
     }
 
-    /**
-     * Set the size of emojicon in pixels.
-     */
-    public void setEmojiconSize(int pixels) {
-        mEmojiconSize = pixels;
-        super.setText(getText());
-    }
+	void setEmojiconSizePolicy(float textSize){
+		AppUtil.log("setEmojiconSizePolicy: "+textSize);
+		mEmojiconSize = (int) Math.round(1.5 * textSize);//alwase 2
+	}
 
-    float _oldTextSize =1;
-    int _oldmEmojiconSize =1;
-    public void setJustEmojiconSize(int pixels) {
-//        getLineHeight();
-        if(_oldTextSize == -1){
-            _oldTextSize = getTextSize();
-            _oldmEmojiconSize = mEmojiconSize;
-        }
-        setTextSize(pixels);
-//        setLineSpacing(pixels,1);
-        mEmojiconSize = pixels;
-//        super.setTex/t(getText());
-    }
+	int calEmojiconSizePolicy(float textSize){
+		AppUtil.log("calEmojiconSizePolicy: "+textSize);
+		return  (int) Math.round(1.5 * textSize);//alwase 2
 
-    public void restOreEmojiSize() {
-        if(_oldTextSize != -1){
-            setTextSize(_oldTextSize);
-            mEmojiconSize = _oldmEmojiconSize;
-        }
-//        super.setText(getText());
-    }
+	}
+
+	boolean isSetMultiple = false;
+	int multiEmojiSize = 0;
+	float multiTextSize = 0;
+	float ratio = 1f;
+	public void setSizeMultiple(float ratio) {
+		isSetMultiple = true;
+		if(multiEmojiSize == 0 && multiTextSize == 0){
+			this.ratio = ratio;
+			multiTextSize = (getTextSize()*ratio);
+			setPxTextSize(multiTextSize);
+			multiEmojiSize = calEmojiconSizePolicy(multiTextSize);
+			super.setText(getText());
+		}
+	}
+
+	public void restSizes() {
+		isSetMultiple = false;
+		multiEmojiSize = 0;
+		multiTextSize = 0;
+		setPxTextSize(mEmojiconTextSize);
+		super.setText(getText());
+	}
+
+	void setPxTextSize(float size){
+		setTextSize(TypedValue.COMPLEX_UNIT_PX,size);
+	}
+
+	@Override
+	public int getLineHeight() {
+		if(isSetMultiple){
+			return super.getLineHeight() + multiEmojiSize;
+		}
+		return super.getLineHeight();
+	}
+
     /**
      * Set whether to use system default emojicon
      */
@@ -125,3 +156,73 @@ public class EmojiconTextView extends TextView {
         mUseSystemDefault = useSystemDefault;
     }
 }
+
+
+
+/*
+
+
+		/////All below are deprecated:
+
+    */
+/**
+ * Set the size of emojicon in pixels.
+ *//*
+
+	@Deprecated
+    public void setEmojiconSize(int pixels) {
+        mEmojiconSize = pixels;
+        super.setText(getText());
+    }
+
+    float _oldTextSize =-1;
+    int _oldmEmojiconSize =-1;
+    public void setJustEmojiconSize(int pixels) {
+//        getLineHeight();
+		backupOldSizes();
+
+        setTextSize(pixels);
+//        setLineSpacing(pixels,1);
+        mEmojiconSize = pixels;
+        super.setText(getText());
+    }
+
+	boolean hasSetMultiple = false;
+	public void setEmojiSizeMultiple(float ratio) {
+		if(hasSetMultiple == true)return;
+
+		hasSetMultiple = true;
+
+		backupOldSizes();
+
+		float pixels = (getTextSize()*ratio);
+		setTextSize(pixels);
+		setEmojiconSizePolicy(pixels);
+		super.setText(getText());
+	}
+
+    public void restOriginalEmojiSize() {
+		hasSetMultiple = false;
+        resetOldSizes();
+		super.setText(getText());
+    }
+
+	private void backupOldSizes(){
+		if(_oldTextSize == -1){
+			_oldTextSize = getTextSize();
+			_oldmEmojiconSize = mEmojiconSize;
+		}
+	}
+
+	private void resetOldSizes(){
+		if(_oldTextSize != -1){
+			setTextSize(_oldTextSize);
+			mEmojiconSize = _oldmEmojiconSize;
+
+			_oldTextSize = -1;
+			_oldmEmojiconSize = -1;
+		}
+	}
+*/
+
+

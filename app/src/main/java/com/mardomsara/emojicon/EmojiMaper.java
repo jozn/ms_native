@@ -2112,6 +2112,7 @@ public class EmojiMaper {
         addEmojis(context, text, emojiSize, emojiAlignment, textSize, 0, -1, useSystemDefault);
     }
 
+	boolean isJustEmoji = false;
 
     public static void addEmojis(Context context, Spannable text, int emojiSize, int emojiAlignment, int textSize, int index, int length, boolean useSystemDefault) {
         if (useSystemDefault) {
@@ -2170,6 +2171,7 @@ public class EmojiMaper {
             if (icon > 0 ){// &&  ((i+ skip) < textLengthToProcess) ) {
 //                text.setSpan(new EmojiconSpan(context, icon, emojiSize, emojiAlignment, textSize), i, i + skip, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 //                text.setSpan(new EmojiconSpan2(context, icon, emojiSize, emojiAlignment, textSize), i, i + skip, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+//                text.setSpan(new EmojiImageSpan(context, icon, emojiSize, emojiAlignment, textSize), i, i + skip, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
                 text.setSpan(new EmojiImageSpan(context, icon, emojiSize, emojiAlignment, textSize), i, i + skip, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 //                text.setSpan( _setSpan(context, icon, emojiSize, emojiAlignment, textSize), i, i + skip, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
             }
@@ -2277,6 +2279,8 @@ public class EmojiMaper {
             mContext = context;
             mResourceId = resourceId;
             mWidth = mHeight = mSize = size;
+			mWidth += 1;
+			mHeight += 1;
             mTextSize = textSize;
         }
 
@@ -2329,12 +2333,16 @@ public class EmojiMaper {
             //super.draw(canvas, text, start, end, x, top, y, bottom, paint);
             Drawable b = getCachedDrawable();
             canvas.save();
+//			paint.setElegantTextHeight(true);
 
             int transY = bottom - b.getBounds().bottom;
 //            if (mVerticalAlignment == ALIGN_BASELINE) {
 //                transY = top + ((bottom - top) / 2) - ((b.getBounds().bottom - b.getBounds().top) / 2) - mTop;
                 transY = top + ((bottom - top) / 2) - ((b.getBounds().bottom - b.getBounds().top) / 2) - mTop;
 //            }
+//			transY = bottom - b.getBounds().bottom;
+//			transY = 50;
+
 
 //            canvas.translate(x, top);
             canvas.translate(x, transY);

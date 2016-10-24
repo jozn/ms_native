@@ -2,14 +2,14 @@
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
     >
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/msg_time"
-            android:textSize="12dp"
-            android:layout_marginLeft="4dp"
-            fontPath="@string/font_iran_light"
-            />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/msg_time"
+        android:textSize="12dp"
+        android:layout_marginLeft="4dp"
+        fontPath="@string/font_iran_light"
+        />
 
 </merge>
 
