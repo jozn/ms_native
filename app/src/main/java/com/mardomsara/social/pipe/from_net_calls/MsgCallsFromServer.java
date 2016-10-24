@@ -33,7 +33,7 @@ public class MsgCallsFromServer {
     public static NetEventHandler MsgAddOne = ( data) ->{
 		MsgAddOneJson jd = AppUtil.fromJson(data,MsgAddOneJson.class);
         if(jd==null || jd.Message == null )return;
-        AppUtil.log("MsgAddOne: ->"+data);
+        AppUtil.log("MsgAddOne: -> "+data);
 
 		handleNewSingleMsg(jd.Message);
 		handleNewUser(jd.User);

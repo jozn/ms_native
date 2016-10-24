@@ -46,23 +46,6 @@ public class RoomModel {
         return room;*/
     }
 
-    @Nullable
-    public static Room getRoomByRoomKeyAndLoadUser(String roomKey){
-        Room room =  getRoomByRoomKey(roomKey);
-
-//        if(room == null){
-//            return null;
-//        }
-        if(room == null) {
-            room = new Room();
-            room.RoomKey = (roomKey);
-        }
-
-        room.loadAndGetUser();
-        return room;
-    }
-
-
     public static void onRoomOpenedInBackground(Room room){
         room.LastRoomOpenedTimeMs = TimeUtil.getTimeMs();
         room.UnseenMessageCount = 0;
@@ -108,56 +91,6 @@ public class RoomModel {
 //        msg.getClass().getAnnotation(Column.class).value();
 	}
 
-	public static Room onRecivedNewMsg2(Message msg){
-		Room room = getRoomByRoomKey(msg.RoomKey);
-		if(room == null){
-			room = new Room();
-			room.RoomKey = msg.RoomKey;
-			room.RoomTypeId = 1;//todo: extarct from here
-			room.CreatedMs = TimeUtil.getTimeMs();
-		}
-		room.UnseenMessageCount = room.UnseenMessageCount +1;
-		room.UpdatedMs = msg.CreatedMs;//this one we show to user
-		room.SortTimeMs = TimeUtil.getTimeMs();//just for sorting needs accurte user own device
-		updateOrInsert(room);
-		return room;
-//        room.saveWithRoom();
-//        msg.getClass().getAnnotation(Column.class).value();
-	}
-
-    public static void onRecivedNewMsg(Message msg){
-        Room room = getRoomByRoomKey(msg.RoomKey);
-        if(room == null){
-            room = new Room();
-            room.RoomKey = msg.RoomKey;
-            room.RoomTypeId = 1;//todo: extarct from here
-            room.CreatedMs = TimeUtil.getTimeMs();
-        }
-        room.UnseenMessageCount = room.UnseenMessageCount +1;
-        room.UpdatedMs = msg.CreatedMs;//this one we show to user
-        room.SortTimeMs = TimeUtil.getTimeMs();//just for sorting needs accurte user own device
-        updateOrInsert(room);
-//        room.saveWithRoom();
-//        msg.getClass().getAnnotation(Column.class).value();
-    }
-
-	/*public static void massUpdateOfRoomsForNewMsgs(Set<String> roomsKey){
-		for(String roomKey: roomsKey){
-			Room room = getRoomByRoomKey(roomKey);
-			if(room == null){
-				room = new Room();
-				room.RoomKey = roomKey;
-				room.RoomTypeId = 1;//todo: extarct from here
-				room.CreatedMs = TimeUtil.getTimeMs();
-			}
-			int count = DB.db.relationOfMessage().RoomKeyEq(msg.RoomKey).ISeenTimeEq(0).count();
-			room.UnseenMessageCount = count;
-			room.UpdatedMs = msg.CreatedMs;//this one we show to user
-			room.SortTimeMs = TimeUtil.getTimeMs();
-		}
-
-	}*/
-
 	public static void massUpdateOfRoomsForNewMsgs(Collection<Message> LastMsgs){
 		List<Room> rooms = new ArrayList<>();
 		for(Message msg: LastMsgs){
@@ -173,24 +106,6 @@ public class RoomModel {
 		MemoryStore_Rooms.reloadForAllAndEmit();
 	}
 
-	public static void messageHasInsertIntoRoomUpdateRoomInfo(Message msg){
-		Room room = getRoomByRoomKey(msg.RoomKey);
-		if(room == null){
-			room = new Room();
-			room.RoomKey = msg.RoomKey;
-			room.RoomTypeId = 1;//todo: extarct from here
-			room.CreatedMs = TimeUtil.getTimeMs();
-		}
-		int count = DB.db.relationOfMessage().RoomKeyEq(msg.RoomKey).ISeenTimeEq(0).count();
-		room.UnseenMessageCount = count;
-		room.UpdatedMs = msg.CreatedMs;//this one we show to user
-		room.SortTimeMs = TimeUtil.getTimeMs();//just for sorting needs accurte user own device
-		updateOrInsert(room);
-//        room.saveWithRoom();
-//        msg.getClass().getAnnotation(Column.class).value();
-	}
-
-    //todo mereg with above func
     public static void onHereNewMsg(Message msg){
         Room room = getRoomByRoomKey(msg.RoomKey);
         if(room == null){
@@ -293,13 +208,6 @@ public class RoomModel {
 
 		});
 	}
-
-
-    ///////////////////////////////////////
-    public static void sendRoomInfoChangedEvent(String roomKey){
-
-    }
-
-
+	
 
 }
