@@ -22,7 +22,7 @@ import butterknife.ButterKnife;
 /**
  * Created by Hamid on 6/13/2016.
  */
-public class MsgVideoMeView extends MsgAbstractViewHolder {
+public class MsgCell_VideoMe extends MsgCell_AbstractViewHolder {
     @Bind(R.id.msg_time) TextView time_txt;
     @Bind(R.id.msg_delivery_status) TextView msg_delivery_status;
     @Bind(R.id.msg_text) TextView msg_text;
@@ -31,13 +31,13 @@ public class MsgVideoMeView extends MsgAbstractViewHolder {
 //    LinkerText msg_text;
     Message msg;
 
-    public MsgVideoMeView(View itemView) {
+    public MsgCell_VideoMe(View itemView) {
         super(itemView);
         ButterKnife.bind(this, itemView);
     }
 
-    public static MsgVideoMeView makeNew(ViewGroup parent){
-        return new MsgVideoMeView(AppUtil.inflate(R.layout.msg_row_video_me,parent));
+    public static MsgCell_VideoMe makeNew(ViewGroup parent){
+        return new MsgCell_VideoMe(AppUtil.inflate(R.layout.msg_row_video_me,parent));
     }
 
     @Override

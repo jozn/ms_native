@@ -17,19 +17,19 @@ import butterknife.ButterKnife;
 /**
  * Created by Hamid on 6/13/2016.
  */
-public class MsgTextMeView extends MsgAbstractViewHolder {
+public class MsgCell_TextMe extends MsgCell_AbstractViewHolder {
     @Bind(R.id.msg_time) TextView time_txt;
     @Bind(R.id.msg_delivery_status) TextView msg_delivery_status;
     @Bind(R.id.msg_text) EmojiconTextView msg_text;
     Message msg;
 
-    public MsgTextMeView(View itemView) {
+    public MsgCell_TextMe(View itemView) {
         super(itemView);
         ButterKnife.bind(this, itemView);
     }
 
-    public static MsgAbstractViewHolder makeNew(ViewGroup parent){
-        return new MsgTextMeView(AppUtil.inflate(R.layout.msg_row_text_me,parent));
+    public static MsgCell_AbstractViewHolder makeNew(ViewGroup parent){
+        return new MsgCell_TextMe(AppUtil.inflate(R.layout.msg_row_text_me,parent));
     }
 
     @Override

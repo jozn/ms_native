@@ -9,15 +9,15 @@ import com.mardomsara.social.models.tables.Message;
 /**
  * Created by Hamid on 6/13/2016.
  */
-public class MsgEmptyView extends MsgAbstractViewHolder {
+public class MsgCell_Empty extends MsgCell_AbstractViewHolder {
 
-    public MsgEmptyView(View itemView) {
+    public MsgCell_Empty(View itemView) {
         super(itemView);
 //        ButterKnife.bind(this, itemView);
     }
 
-    public static MsgAbstractViewHolder makeNew(){
-        return new MsgEmptyView(AppUtil.inflate(R.layout.msg_empty));
+    public static MsgCell_AbstractViewHolder makeNew(){
+        return new MsgCell_Empty(AppUtil.inflate(R.layout.msg_empty));
     }
 
 

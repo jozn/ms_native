@@ -1,6 +1,5 @@
 package com.mardomsara.social.ui.cells.chats.lists;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,13 +9,13 @@ import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
 import com.mardomsara.social.lib.ms.ArrayListHashSetKey;
 import com.mardomsara.social.models.tables.Message;
-import com.mardomsara.social.ui.cells.chats.msgs.MsgAbstractViewHolder;
-import com.mardomsara.social.ui.cells.chats.msgs.MsgEmptyView;
-import com.mardomsara.social.ui.cells.chats.msgs.MsgPhotoMeView;
-import com.mardomsara.social.ui.cells.chats.msgs.MsgPhotoPeerView;
-import com.mardomsara.social.ui.cells.chats.msgs.MsgTextMeView;
-import com.mardomsara.social.ui.cells.chats.msgs.MsgTextPeerView;
-import com.mardomsara.social.ui.cells.chats.msgs.MsgVideoMeView;
+import com.mardomsara.social.ui.cells.chats.msgs.MsgCell_AbstractViewHolder;
+import com.mardomsara.social.ui.cells.chats.msgs.MsgCell_Empty;
+import com.mardomsara.social.ui.cells.chats.msgs.MsgCell_PhotoMe;
+import com.mardomsara.social.ui.cells.chats.msgs.MsgCell_PhotoPeer;
+import com.mardomsara.social.ui.cells.chats.msgs.MsgCell_TextMe;
+import com.mardomsara.social.ui.cells.chats.msgs.MsgCell_TextPeer;
+import com.mardomsara.social.ui.cells.chats.msgs.MsgCell_VideoMe;
 
 import java.util.List;
 
@@ -33,7 +32,7 @@ public class MsgsListCell {
 
 	static LayoutInflater _infl = LayoutInflater.from(AppUtil.getContext());
 
-	public class ChatEntryAdaptor extends AppHeaderFooterRecyclerViewAdapter<MsgAbstractViewHolder> {
+	public class ChatEntryAdaptor extends AppHeaderFooterRecyclerViewAdapter<MsgCell_AbstractViewHolder> {
 
         public ArrayListHashSetKey<Message,String> msgs = new ArrayListHashSetKey<>((msg)-> msg.MessageKey);
 
@@ -47,16 +46,16 @@ public class MsgsListCell {
         }
 
 		@Override
-        protected MsgAbstractViewHolder onCreateContentItemViewHolder(ViewGroup parent, int contentViewType) {
+        protected MsgCell_AbstractViewHolder onCreateContentItemViewHolder(ViewGroup parent, int contentViewType) {
             // Create a new view.
             View rowView =  null ;// _infl.inflate(R.layout.msg_empty, null, false);
             AppUtil.log("onCreateViewHolder: "+contentViewType);
 
-            MsgAbstractViewHolder msgView = MsgEmptyView.makeNew();
+            MsgCell_AbstractViewHolder msgView = MsgCell_Empty.makeNew();
             if(contentViewType % 2 == 0){//even: peer
                 switch (contentViewType) {
                     case 10:
-                        msgView = MsgTextPeerView.makeNew(parent);
+                        msgView = MsgCell_TextPeer.makeNew(parent);
                         break;
                     case 12:
                         rowView = _infl.inflate(R.layout.msg_row_contact_peer, parent, false);
@@ -71,10 +70,10 @@ public class MsgsListCell {
                         rowView = _infl.inflate(R.layout.msg_row_post_peer, parent, false);
                         break;
                     case 40://// TODO: 6/11/2016  :change to msg_row_image_peer
-                        msgView = MsgPhotoPeerView.makeNew(parent);
+                        msgView = MsgCell_PhotoPeer.makeNew(parent);
                         break;
                     case 42:
-                        msgView = MsgVideoMeView.makeNew(parent);
+                        msgView = MsgCell_VideoMe.makeNew(parent);
                         break;
                     case 44:
                         rowView = _infl.inflate(R.layout.msg_row_file_peer, parent, false);
@@ -83,7 +82,7 @@ public class MsgsListCell {
             }else {//odd views: is ME
                 switch (contentViewType-1) {//1 comes from .isByMe()
                     case 10:
-                        msgView = MsgTextMeView.makeNew(parent);
+                        msgView = MsgCell_TextMe.makeNew(parent);
                         break;
                     case 12:
                         rowView = _infl.inflate(R.layout.msg_row_contact_me, parent, false);
@@ -98,10 +97,10 @@ public class MsgsListCell {
                         rowView = _infl.inflate(R.layout.msg_row_post_me, parent, false);
                         break;
                     case 40:
-                        msgView = MsgPhotoMeView.makeNew(parent);
+                        msgView = MsgCell_PhotoMe.makeNew(parent);
                         break;
                     case 42:
-                        msgView = MsgVideoMeView.makeNew(parent);
+                        msgView = MsgCell_VideoMe.makeNew(parent);
                         break;
                     case 44:
                         rowView = _infl.inflate(R.layout.msg_row_file_me, parent, false);
@@ -117,7 +116,7 @@ public class MsgsListCell {
         }
 
         @Override
-        protected void onBindContentItemViewHolder(MsgAbstractViewHolder msgAbstractViewHolder, int position) {
+        protected void onBindContentItemViewHolder(MsgCell_AbstractViewHolder msgAbstractViewHolder, int position) {
             Message msg = msgs.get(position);
             msgAbstractViewHolder.bindToView(msg);
         }

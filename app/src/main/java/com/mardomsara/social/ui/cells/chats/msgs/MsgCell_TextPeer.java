@@ -14,20 +14,20 @@ import butterknife.ButterKnife;
 /**
  * Created by Hamid on 6/13/2016.
  */
-public class MsgTextPeerView extends MsgAbstractViewHolder {
+public class MsgCell_TextPeer extends MsgCell_AbstractViewHolder {
     @Bind(R.id.msg_time) TextView time_txt;
     @Bind(R.id.msg_text) TextView msg_text;
 
     Message msg;
 
-    public MsgTextPeerView(View itemView) {
+    public MsgCell_TextPeer(View itemView) {
         super(itemView);
         ButterKnife.bind(this, itemView);
 //        itemView.((int)(AndroidUtil.getScreenWidth()*.8));
     }
 
-    public static MsgAbstractViewHolder makeNew(ViewGroup parent){
-        return new MsgTextPeerView(AppUtil.inflate(R.layout.msg_row_text_peer,parent));
+    public static MsgCell_AbstractViewHolder makeNew(ViewGroup parent){
+        return new MsgCell_TextPeer(AppUtil.inflate(R.layout.msg_row_text_peer,parent));
     }
 
 
