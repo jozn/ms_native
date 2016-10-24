@@ -46,7 +46,24 @@ public class RoomModel {
         return room;*/
     }
 
-    public static void onRoomOpenedInBackground(Room room){
+	@Nullable
+	public static Room getRoomByForUserAndLoadUser(int peerUserId){
+		String roomKey = roomKeyForPeerUserid(peerUserId);
+		Room room =  getRoomByRoomKey(roomKey);
+
+		if(room == null) {
+			room = new Room();
+			room.RoomKey = roomKey;
+			room.RoomTypeId = 1;//todo: extarct from here
+			room.CreatedMs = TimeUtil.getTimeMs();
+		}
+
+		room.loadAndGetUser();
+		return room;
+	}
+
+
+	public static void onRoomOpenedInBackground(Room room){
         room.LastRoomOpenedTimeMs = TimeUtil.getTimeMs();
         room.UnseenMessageCount = 0;
         AndroidUtil.runInBackgroundNoPanic(()->{
@@ -207,6 +224,15 @@ public class RoomModel {
 			MsgsCallToServer.sendSeenMsgs(msgsSeen);
 
 		});
+	}
+
+	public static String roomKeyForPeerUserid(int PeerUserId){
+		int me = Session.getUserId();
+		if(me < PeerUserId){
+			return "p"+me+"_"+PeerUserId;
+		}
+
+		return "p"+PeerUserId+"_"+me;
 	}
 
 

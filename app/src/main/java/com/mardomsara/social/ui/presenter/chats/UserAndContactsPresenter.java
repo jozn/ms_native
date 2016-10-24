@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.mardomsara.social.R;
+import com.mardomsara.social.app.Router;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.DialogHelper;
 import com.mardomsara.social.helpers.Helper;
@@ -22,7 +23,6 @@ import com.mardomsara.social.models.tables.ContactsCopy;
 import com.mardomsara.social.models.tables.User;
 import com.mardomsara.social.play.DividerItemDecoration;
 import com.mardomsara.social.ui.BasePresenter;
-import com.mardomsara.social.ui.presenter.dialogs.RoomListRowOptionsPresenter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -160,6 +160,7 @@ public class UserAndContactsPresenter extends BasePresenter {
             if(vh0 instanceof ViewHolder && mDataSet.size()> position){
                 User user = mDataSet.get(position);
                 ViewHolder vh = (ViewHolder) vh0;
+				vh.user = user;
                 vh.primary_name.setText(user.FirstName +" "+ user.LastName);
                 vh.second_name.setText(""+user.PhoneDisplayName);
                 vh.self.setTag(user);
@@ -215,17 +216,15 @@ public class UserAndContactsPresenter extends BasePresenter {
             @Bind(R.id.avatar)
             public SimpleDraweeView avatar;
 
+			User user;
 
             public ViewHolder(View v) {
                 super(v);
                 self = v;
                 v.setOnClickListener((vv)-> {
-                    //todo migrate this
-                    /*UsersTable r = (UsersTable) vv.getTag();
-                    Log.d(TAG, "Romm raw list " + r.getUserName() + " clicked.");
-                    ChatEntryPresenter chat = new ChatEntryPresenter();
-                    RoomsListTable room = RoomsListTable.getRoomByRoomKeyAndLoadUser("u"+ usersTable.getUserId());
-                    Nav.push(Router.getRoomEntery(room));*/
+					if(user != null){
+						Router.goToUserChatEntry(user.UserId);
+					}
                 });
 
                 v.setOnLongClickListener((vv)-> {
@@ -239,9 +238,9 @@ public class UserAndContactsPresenter extends BasePresenter {
                 avatar.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View vv) {
-                        RoomListRowOptionsPresenter op = new RoomListRowOptionsPresenter();
-                        DialogHelper.alertViewWithListner(vv.getContext(),op.getGrandView(),op);
-                        com.orhanobut.dialogplus.ViewHolder vh = new com.orhanobut.dialogplus.ViewHolder(op.getGrandView());
+//                        RoomListRowOptionsPresenter op = new RoomListRowOptionsPresenter();
+//                        DialogHelper.alertViewWithListner(vv.getContext(),op.getGrandView(),op);
+//                        com.orhanobut.dialogplus.ViewHolder vh = new com.orhanobut.dialogplus.ViewHolder(op.getGrandView());
                     }
                 });
             }

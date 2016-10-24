@@ -14,6 +14,7 @@ import com.orhanobut.dialogplus.OnClickListener;
 /**
  * Created by Hamid on 2/19/2016.
  */
+@Deprecated
 public class RoomListRowOptionsPresenter  extends BasePresenter implements View.OnClickListener, OnClickListener {
     TextView goProfile;
     TextView delete;
