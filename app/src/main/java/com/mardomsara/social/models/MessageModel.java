@@ -32,7 +32,7 @@ import java.util.List;
  * Created by Hamid on 9/5/2016.
  */
 public class MessageModel {
-    final static int MSGS_PER_PAGE = 30;
+     public final static int MSGS_PER_PAGE = 30;
 
     public static List<Message> getRoomMessagesTimeOffset(String roomKey, long deviceCreatedTimeOffset){
         /*AndroidUtil.runInBackgroundNoPanic(()->{

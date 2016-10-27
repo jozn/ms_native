@@ -1,5 +1,6 @@
 package com.mardomsara.social.lib;
 
+import android.os.Handler;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -107,12 +108,16 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
         footerViews.add(tag);
     }
 
-    public void removeViewFromFooter(View view){
+    public int removeViewFromFooter(View view){
+		int num = -1;
         for(ViewTag tag : footerViews) {
+			num++;
             if (tag.view == view) {
                 footerViews.remove(tag);
+				return num;
             }
         }
+		return -1;
     }
 
     public void appendViewToHeader(View view){
@@ -148,10 +153,14 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
     }
 
     public void hideLoading(){
-        if(loading!= null){
-            loading.setVisibility(View.GONE);
-        }
-//        removeViewFromFooter(loading);
+		getItemCount();
+		if(loading!= null){
+			loading.setVisibility(View.GONE);
+			int num = removeViewFromFooter(loading);
+			if(num >= 0){
+				notifyFooterItemRemoved(num);
+			}
+		}
     }
 
     //// For multi pages ///////////
@@ -197,10 +206,13 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
             @Override
             public void onLoadMore(int page, int totalItemsCount) {
 //                loadNextPage();
-                if(pager!=null){
-                    pager.loadNextPage(page);
-                    pageNum++;
-                }
+				Runnable r  = ()->{
+					if(pager!=null){
+						pager.loadNextPage(page);
+						pageNum++;
+					}
+				};
+                new Handler().post(r);
             }
         };
         //ME: somehow if we attach scrollListener in here befor View attached to window it will

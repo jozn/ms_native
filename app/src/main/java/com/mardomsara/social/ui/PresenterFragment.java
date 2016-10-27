@@ -38,6 +38,7 @@ public class PresenterFragment extends BaseFragment {
 //            presenter.fragment = this;
             View v= presenter.buildView();
             presenterViewHolder.addView(v);
+			presenter.onAfterView();
         }catch (Exception e){
             e.printStackTrace();
             Log.e("Presenter:"," render error:");

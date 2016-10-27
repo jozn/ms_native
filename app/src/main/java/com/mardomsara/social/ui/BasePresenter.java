@@ -82,6 +82,11 @@ public  abstract class BasePresenter implements FragmentPage {
 
     }
 
+
+	public void onAfterView(){
+
+	}
+
     //fragment on onStart
     public void onStart(){
         if(calledInit == false){

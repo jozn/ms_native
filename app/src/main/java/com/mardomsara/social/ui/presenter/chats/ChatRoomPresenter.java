@@ -130,11 +130,11 @@ public class ChatRoomPresenter extends BasePresenter implements
 
         Nav.hideFooter();
 
-        messages = MessageModel.getRoomMessagesTimeOffset(room.RoomKey,0);
+//        messages = MessageModel.getRoomMessagesTimeOffset(room.RoomKey,0);
         messagesCell = new MsgsListCell();
         messagesAdaptor =messagesCell.adaptor;
 
-        messagesAdaptor.setMsgs(messages);
+//        messagesAdaptor.setMsgs(messages);
 		messages2 = messagesAdaptor.msgs;
 
         mLayoutManager = new LinearLayoutManager(fragment.getActivity());
@@ -183,10 +183,18 @@ public class ChatRoomPresenter extends BasePresenter implements
 
 		RoomModel.updateRoomSeenMsgsToNow_BG(room);
 
+
 		return view;
     }
 
-    @Override
+	@Override
+	public void onAfterView() {
+		super.onAfterView();
+
+		loadNextPage(1);
+	}
+
+	@Override
     public void onDestroy() {
         super.onDestroy();
         App.getBus().unregister(this);
@@ -577,23 +585,27 @@ public class ChatRoomPresenter extends BasePresenter implements
 
     }
 
+	//pageNum is actuly is alaways >= 1
     @Override
     public void loadNextPage(int pageNum) {
         int size = messagesAdaptor.msgs.size();
         List<Message> msgs = null;
+		long lastSortId = 0;
         if(size > 0){
-            long lastSortid = messagesAdaptor.msgs.get(size -1).SortId;
-            msgs = MessageModel.getRoomMessagesTimeOffset(room.RoomKey,lastSortid);
-            if(msgs != null){
-                messagesAdaptor.msgs.addAllEnd(msgs);
-                messagesAdaptor.notifyDataSetChanged();
-
-            }
+            lastSortId = messagesAdaptor.msgs.get(size -1).SortId;
         }
-        //pageNum is actuly is never 0
-        if(pageNum != 0  && (msgs == null || msgs.size() == 0)){
+		msgs = MessageModel.getRoomMessagesTimeOffset(room.RoomKey,lastSortId);
+		if(msgs != null){
+			messagesAdaptor.msgs.addAllEnd(msgs);
+//                messagesAdaptor.notifyDataSetChanged();
+		}
+
+        if(msgs == null || msgs.size() == 0 || msgs.size() < MessageModel.MSGS_PER_PAGE){
             messagesAdaptor.setHasMorePage(false);
         }
+
+		messagesAdaptor.notifyDataSetChanged();
+
         Helper.showDebugMessage("page : "+pageNum);
     }
 

@@ -351,6 +351,7 @@ public abstract class HeaderFooterRecyclerViewAdapter<
      * @param position the position.
      */
     public final void notifyFooterItemRemoved(int position) {
+//        if (position < 0 ){//|| position >= getFooterItemCount()){//footerItemCount) {
         if (position < 0 || position >= footerItemCount) {
             throw new IndexOutOfBoundsException("The given position " + position + " is not within the position bounds for footerViews items [0 - " + (footerItemCount - 1) + "].");
         }
