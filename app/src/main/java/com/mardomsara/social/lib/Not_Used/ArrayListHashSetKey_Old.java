@@ -111,6 +111,7 @@ public class ArrayListHashSetKey_Old<T,K> implements List<T> {
 	@Override
 	public boolean addAll(Collection<? extends T> c) {
 		boolean res = false;
+		if(c == null)return false;
 		synchronized (this){
 			try {
 				for(Object _c :c){
@@ -127,6 +128,7 @@ public class ArrayListHashSetKey_Old<T,K> implements List<T> {
 	@Override
 	public boolean addAll(int index, Collection<? extends T> c) {
 		boolean res = false;
+		if(c == null)return false;
 		synchronized (this){
 			try {
 				for(Object _c :c){

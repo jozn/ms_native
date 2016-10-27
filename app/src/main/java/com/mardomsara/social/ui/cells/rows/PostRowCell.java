@@ -2,6 +2,7 @@ package com.mardomsara.social.ui.cells.rows;
 
 import android.graphics.Color;
 import android.net.Uri;
+import android.support.annotation.NonNull;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.mardomsara.social.Nav;
 import com.mardomsara.social.R;
+import com.mardomsara.social.app.API;
 import com.mardomsara.social.app.Router;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
@@ -32,6 +34,7 @@ import butterknife.ButterKnife;
 public class PostRowCell {
     public View rootView;
     PostRowJson post;
+
     @Bind(R.id.text)
     TextView text;
     @Bind(R.id.fullname)
@@ -89,7 +92,7 @@ public class PostRowCell {
 
     }
 
-    public void bind(PostRowJson post) {
+    public void bind(@NonNull PostRowJson post) {
         this.post = post;
         text.setText(LangUtil.limitText(post.Text, 120));
         user_name.setText(post.Sender.getFullName());
@@ -101,7 +104,7 @@ public class PostRowCell {
             int screenSize = AndroidUtil.pxToDp( AndroidUtil.getScreenWidth() )+1;
             ViewHelper.setImageSizesWithMaxPx(image,screenSize,screenSize,post.Width,post.Height);
             image.setVisibility(View.VISIBLE);
-            String urlStr = "http://localhost:5000/"+post.MediaUrl;
+            String urlStr = API.BASE_CDN_DOMAIN_URL_STR+"/"+post.MediaUrl;
             Picasso.with(AppUtil.getContext())
                     .load(urlStr)
                     .placeholder(R.drawable.image_background)

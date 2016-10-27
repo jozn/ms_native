@@ -44,7 +44,7 @@ public class PostsListCell
         refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                Helper.showMessage("re");
+                Helper.showDebugMessage("reload");
                 loadFromServer(0);
             }
         });
@@ -101,7 +101,7 @@ public class PostsListCell
 
     @Override
     public void loadNextPage(int pageNum) {
-        Helper.showMessage("pageNum: "+pageNum);
+        Helper.showDebugMessage("pageNum: "+pageNum);
         loadFromServer(pageNum);
     }
 }

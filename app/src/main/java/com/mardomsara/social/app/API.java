@@ -9,6 +9,7 @@ import java.net.URL;
  */
 public class API {
     public static String BASE_DOMAIN_URL_STR = "http://localhost:5000";// NOTICE NO: "/"
+    public static String BASE_CDN_DOMAIN_URL_STR = "http://localhost:5000";// NOTICE NO: "/"
     public static String BASE_URL_STR = "http://localhost:5000/v1/";
     public static URL BASE_URL = AppUtil.toUrl(BASE_URL_STR);
 
