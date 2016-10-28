@@ -13,6 +13,7 @@ import com.mardomsara.social.Nav;
 import com.mardomsara.social.R;
 import com.mardomsara.social.app.API;
 import com.mardomsara.social.app.Router;
+import com.mardomsara.social.base.Http.Http;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.FormaterUtil;
@@ -77,6 +78,31 @@ public class PostRowCell {
         window.show();
     };
 
+	View.OnClickListener likeListner = (v) -> {
+		if(post.AmIlike){//do unlike
+			Http.postPath("/v1/unlike")
+				.setFormParam("post_id",""+post.Id)
+				.doAsyncUi((result)->{
+
+				});
+			post.AmIlike = false;
+			post.LikesCount -= 1;
+			likeBtnShowUnlike();
+
+		}else {//do like
+			Http.postPath("/v1/like")
+				.setFormParam("post_id",""+post.Id)
+				.doAsyncUi((result)->{
+
+				});
+			post.AmIlike = true;
+			post.LikesCount += 1;
+			likeBtnShowLike();
+		}
+		//update view
+		bind(post);
+	};
+
 
     Runnable getGotoCommentsAdd = () -> {
 
@@ -89,6 +115,7 @@ public class PostRowCell {
 
         user_name.setOnClickListener(gotoProfile);
         avatar.setOnClickListener(gotoProfile);
+        like_btn.setOnClickListener(likeListner);
 
     }
 
@@ -126,15 +153,22 @@ public class PostRowCell {
         comment_count.setOnClickListener(gotoComments);
 
         if(post.AmIlike){
-            like_btn.setTextColor(Color.RED);
-            like_btn.setText("\uf443");
-
+            likeBtnShowLike();
         }else {
-            like_btn.setTextColor(Color.BLACK);
-            like_btn.setText("\uf442");
+            likeBtnShowUnlike();
         }
 
     }
+
+	private void likeBtnShowLike(){
+		like_btn.setTextColor(Color.RED);
+		like_btn.setText("\uf443");
+	}
+
+	private void likeBtnShowUnlike(){
+		like_btn.setTextColor(Color.BLACK);
+		like_btn.setText("\uf442");
+	}
 
     public View getViewRoot() {
         return rootView;
