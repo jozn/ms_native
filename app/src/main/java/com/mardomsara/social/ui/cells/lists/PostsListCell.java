@@ -45,7 +45,7 @@ public class PostsListCell
             @Override
             public void onRefresh() {
                 Helper.showDebugMessage("reload");
-                loadFromServer(0);
+                loadFromServer(1);
             }
         });
 //        loadFromServer();
@@ -99,6 +99,7 @@ public class PostsListCell
         return refreshLayout;
     }
 
+	//pageNum is >= 1
     @Override
     public void loadNextPage(int pageNum) {
         Helper.showDebugMessage("pageNum: "+pageNum);
