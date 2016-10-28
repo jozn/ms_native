@@ -11,4 +11,11 @@ public class HttpJson<T> {
     public Integer ResTime;
     public T Payload;
 
+	public boolean isPayloadNoneEmpty(){
+		if(Payload == null ){
+			return false;
+		}
+		return true;
+	}
+
 }

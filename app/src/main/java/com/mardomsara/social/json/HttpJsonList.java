@@ -12,4 +12,11 @@ public class HttpJsonList<T> { //extends HttpJson {
     public Integer Version;
     public Integer ResTime;
     public List<T> Payload;
+
+	public boolean isPayloadNoneEmpty(){
+		if(Payload == null || Payload.size() == 0 || !Status.equalsIgnoreCase("OK")){
+			return false;
+		}
+		return true;
+	}
 }

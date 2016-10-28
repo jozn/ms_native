@@ -104,6 +104,20 @@ public class Req<T> {
 		return this;
     }
 
+	public <K> Req doAsyncUi(CallBack<K> callBack){
+		if(action == Action.DOWNLOAD){
+			throw new IllegalArgumentException("In Http2 for uploads actions doAsyncDownload(...) must be called in doAsyncDownload(), not doAsync(...)");
+		}
+		AndroidUtil.runInBackgroundNoPanic(()->{
+			Result res = Sender.Send(this);
+
+			if(callBack != null){
+				AndroidUtil.runInUi(()->callBack.callback(res));
+			}
+		});
+		return this;
+	}
+
     //
     public Req doAsyncDownload(CallBack callBack){
         if(action != Action.DOWNLOAD){

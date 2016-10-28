@@ -66,7 +66,7 @@ public class Result<T>{
 
         if(j == null){
             result.ok = false;
-            result.parsedJson = j;
+            result.parsedJson = null;
         }else {
             result.ok = true;
         }
