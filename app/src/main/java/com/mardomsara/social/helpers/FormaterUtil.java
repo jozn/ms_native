@@ -1,5 +1,7 @@
 package com.mardomsara.social.helpers;
 
+import com.mardomsara.social.models.AppModel;
+
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -95,12 +97,25 @@ public class FormaterUtil {
         return fileName;
     }
 
+	public static String timeAgo(long seconds){
+		long diff = (AppModel.getRealGlobalTimestampMs()/1000) - seconds;
+		AppUtil.log("Time diff sec:" +diff);
+		if(diff < 60*1){//60second
+			return diff + " ثانیه قبل";
+		}else if(diff < 60*60) {
+			return (diff/60) + " دقیقه قبل";
+		}else {
+			return (diff/3600) + " ساعت قبل";
+		}
+
+	}
+
     ///////////////////////////////////////////////
     ///////////// For Time Ago ///////////////////
 
-    public static String timeAgo(long milisconds){
-        return "";
-    }
+//    public static String timeAgo(long milisconds){
+//        return "";
+//    }
 
 
 }

@@ -24,7 +24,7 @@ public class FlushStoredDataToServer {
 		flushSeenMessages();
 	}
 
-		public static void flushTextMessages(List<Message> msgs){
+	public static void flushTextMessages(List<Message> msgs){
 		AndroidUtil.runInBackgroundNoPanic(()->{
 			List txtMsgs = new ArrayList();
 			for(Message msg : msgs){

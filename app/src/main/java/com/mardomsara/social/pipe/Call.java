@@ -16,6 +16,7 @@ public class Call {
 	public long ServerCallId;
 	public String Data;
 	public String Meta;
+	public long TimeMs;
 
 	private transient List<Object> _dataArray = null;
 

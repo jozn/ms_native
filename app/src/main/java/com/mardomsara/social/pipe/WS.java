@@ -216,7 +216,7 @@ public class WS {
 					return;
 				}
 
-				WSCallRouter.handle(call.Name, call.Data);
+				WSCallRouter.handle(call.Name, call);
 			}catch (Exception e){
 				e.printStackTrace();
 			}

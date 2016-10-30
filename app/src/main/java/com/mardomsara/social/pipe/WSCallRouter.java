@@ -1,6 +1,8 @@
 package com.mardomsara.social.pipe;
 
 import com.mardomsara.social.helpers.AppUtil;
+import com.mardomsara.social.helpers.TimeUtil;
+import com.mardomsara.social.models.AppModel;
 import com.mardomsara.social.pipe.from_net_calls.MsgCallsFromServer;
 
 import java.util.HashMap;
@@ -24,13 +26,16 @@ public class WSCallRouter {
         mapper.put(command,handler);
     }
 
-    public static void handle(String command, String data){
+    public static void handle(String command, Call call){
+		String data = call.Data;
         AppUtil.log("WS handle: "+ command + " data : "+ data);
         try {
             NetEventHandler handler =  mapper.get(command);
             if(handler != null){
                 handler.handle(data);
-            }else {
+            }else if(command.equals("TimeMs")) {
+				TimeMs(call);
+			}else {
                 AppUtil.error("NetEventRouter for "+ command +" has not been registered. ");
             }
         }catch (Exception e){
@@ -48,5 +53,10 @@ public class WSCallRouter {
         register("MsgsSeenByPeerMany", MsgCallsFromServer.MsgsSeenByPeerMany);
 
     }
+
+	public static void TimeMs(Call call) {
+		AppModel.timeDiffToServer = call.TimeMs - TimeUtil.getTimeMs();
+
+	}
 
 }

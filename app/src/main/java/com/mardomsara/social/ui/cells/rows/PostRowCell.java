@@ -123,7 +123,7 @@ public class PostRowCell {
         this.post = post;
         text.setText(LangUtil.limitText(post.Text, 120));
         user_name.setText(post.Sender.getFullName());
-        date.setText(FormaterUtil.timeToDayTime(post.CreatedTime));
+        date.setText(FormaterUtil.timeAgo(post.CreatedTime));
         Uri imageUri = Helper.PathToUserAvatarUri(post.Sender.AvatarUrl);
         avatar.setImageURI(imageUri);
 
