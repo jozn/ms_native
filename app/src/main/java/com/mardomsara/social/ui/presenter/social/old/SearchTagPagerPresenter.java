@@ -1,4 +1,4 @@
-package com.mardomsara.social.ui.presenter.social;
+package com.mardomsara.social.ui.presenter.social.old;
 
 import android.view.View;
 import android.view.ViewGroup;
