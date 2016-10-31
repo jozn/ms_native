@@ -94,23 +94,6 @@ public class EmojiLinkerText extends EmojiconTextView {
 		limit = size;
 		showMoreLessNextActive = SHOW_MORE;//must reset because of reusing in RV
 		setText(text);
-		/*String txtLimited = LangUtil.limitText(text,size);
-		if(text.length()>size && size >0 ){
-			String txtLimited2 = txtLimited+SHOW_MORE_TEXT;
-			SpannableStringBuilder sb = LinkerText.linkerText(txtLimited,this);
-			ClickableSpan clickableSpan = new ClickableSpan() {
-				@Override
-				public void onClick(View widget) {
-					Helper.showDebugMessage(txtLimited);
-				}
-			};
-			SpannableString s1 = new SpannableString(SHOW_MORE_TEXT);
-			s1.setSpan(clickableSpan,0,s1.length(), Spanned.SPAN_MARK_MARK);
-			sb.append(s1);
-			super.se
-		}else {
-			setText(text);
-		}*/
 	}
 
 	void setShowMoreColor(SpannableString s1){
