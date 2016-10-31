@@ -21,6 +21,7 @@ import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.LangUtil;
 import com.mardomsara.social.json.social.rows.PostRowJson;
 import com.mardomsara.social.ui.presenter.social.ProfilePresenter;
+import com.mardomsara.social.ui.views.EmojiLinkerText;
 import com.mardomsara.social.ui.views.FullScreenImage;
 import com.mardomsara.social.ui.views.helpers.ViewHelper;
 import com.mardomsara.social.ui.views.play.TextViewWithIcon;
@@ -37,7 +38,7 @@ public class PostRowCell {
     PostRowJson post;
 
     @Bind(R.id.text)
-    TextView text;
+	EmojiLinkerText text;
     @Bind(R.id.fullname)
     TextView user_name;
     @Bind(R.id.date)
@@ -121,7 +122,8 @@ public class PostRowCell {
 
     public void bind(@NonNull PostRowJson post) {
         this.post = post;
-        text.setText(LangUtil.limitText(post.Text, 120));
+//        text.setText(LangUtil.limitText(post.Text, 120));
+        text.setTextWithLimit(LangUtil.limitText(post.Text, 12000),120);
         user_name.setText(post.Sender.getFullName());
         date.setText(FormaterUtil.timeAgo(post.CreatedTime));
         Uri imageUri = Helper.PathToUserAvatarUri(post.Sender.AvatarUrl);
@@ -143,11 +145,18 @@ public class PostRowCell {
         }
 
         if (post.LikesCount > 0) {
-            likes_count.setTextAndIcon(post.LikesCount + "پسند", "\uF443");
-        }
+			likes_count.setVisibility(View.VISIBLE);
+			likes_count.setTextAndIcon(post.LikesCount + "پسند", "\uF443");
+        }else {
+			likes_count.setVisibility(View.GONE);
+		}
         if (post.CommentsCount > 0) {
-            comment_count.setTextAndIcon(post.CommentsCount + "نظر", "\uf11e");
-        }
+			comment_count.setVisibility(View.VISIBLE);
+			comment_count.setTextAndIcon(post.CommentsCount + "نظر", "\uf11e");
+        }else {
+			comment_count.setTextAndIcon("نظر دهید", "\uf11e");
+//			comment_count.setVisibility(View.GONE);
+		}
 
         likes_count.setOnClickListener(gotoLikes);
         comment_count.setOnClickListener(gotoComments);

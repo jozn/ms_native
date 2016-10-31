@@ -17,6 +17,7 @@
         android:id="@+id/date"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
+        style="@style/post_row.date"
         />
     <Space
         android:layout_width="match_parent"
@@ -90,6 +91,8 @@
             android:gravity="right|center_vertical"
             android:id="@+id/counts_info"
             android:layout_marginTop="8dp"
+            android:paddingLeft="@dimen/post_row.padding_right"
+            android:paddingRight="@dimen/post_row.padding_right"
             >
             <!--        <TextView
                         android:layout_width="wrap_content"

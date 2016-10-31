@@ -13,6 +13,8 @@ import java.util.Locale;
  * Created by Hamid on 5/9/2016.
  */
 public class FormaterUtil {
+	private static char halfSpace = '\u200A'
+		;
     private static String[] suffix = new String[]{"", "k", "m", "b", "t"};
     private static int MAX_LENGTH = 5;
 
@@ -49,9 +51,10 @@ public class FormaterUtil {
         cal.setTimeInMillis(milisconds);
         String format =dailyTime.format(d);// "2:44"
         if(cal.get(Calendar.HOUR_OF_DAY)<12){
-            format = format+"ق.ظ" ;
+//            format = format+"\u200Aق.ظ" ;
+            format = format+"\u200Aق.ظ" ;
         }else {
-            format = format+"ب.ظ";
+            format = format+"ب.ظ ";
         }
          return format;
 //        return DateFormat.getDateInstance().format(d);
@@ -67,14 +70,14 @@ public class FormaterUtil {
         return ""+r.getDay()+ " " + r.getMonthName();
     }
 
-    public static String frindlyTimeClockOrDay(long milisconds) {
+    public static String friendlyTimeClockOrDayMs(long milisconds) {
         long sec = milisconds/1000;
         long now = new Date().getTime()/1000;
         if(Math.abs(now-sec)< 86400){
               return timeToClockTimeMs(milisconds);
         }//else{
         Rooz r = Rooz.fromTimeMs(milisconds);
-        return ""+r.getDay()+ " " + r.getMonthName();
+        return ""+r.getDay()+ halfSpace + r.getMonthName();
     }
 
         //DEPRECATED use Rooz
@@ -99,15 +102,19 @@ public class FormaterUtil {
 
 	public static String timeAgo(long seconds){
 		long diff = (AppModel.getRealGlobalTimestampMs()/1000) - seconds;
-		AppUtil.log("Time diff sec:" +diff);
+//		AppUtil.log("Time diff sec:" +diff);
+		String res = "";
 		if(diff < 60*1){//60second
-			return diff + " ثانیه قبل";
+			res =  diff + " ثانیه قبل";
 		}else if(diff < 60*60) {
-			return (diff/60) + " دقیقه قبل";
-		}else {
-			return (diff/3600) + " ساعت قبل";
+			res =  (diff/60) + " دقیقه قبل";
+		}else if (diff < 3600*24) {//1 day
+			res = (diff/3600) + " ساعت قبل";
+		}else{
+			res =  friendlyTimeClockOrDayMs(seconds*1000);
 		}
 
+		return res.replace(' ',halfSpace);
 	}
 
     ///////////////////////////////////////////////

@@ -26,6 +26,7 @@ public class LangUtil {
 
     public static String limitText(String txt, int maxSize){
         if(txt == null) return "";
+		if(maxSize <= 0)return txt;
         int len = txt.length();
         if(len>maxSize){
             return txt.substring(0,maxSize);
@@ -33,6 +34,17 @@ public class LangUtil {
             return txt.substring(0,len);
         }
     }
+
+	public static CharSequence limitCharSequence(CharSequence txt, int maxSize){
+		if(txt == null) return "";
+		if(maxSize <= 0)return txt;
+		int len = txt.length();
+		if(len>maxSize){
+			return txt.subSequence(0,maxSize);
+		}else {
+			return txt.subSequence(0,len);
+		}
+	}
 
     public interface  KeyGen<K,V> {
         public K gen(V val);

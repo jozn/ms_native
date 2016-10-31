@@ -223,7 +223,7 @@ public class RoomsListCell {
             Message lastMsg = MemoryStore_LastMsgs.getForRoom(room);
             this.room = room;
             name_txt.setText(room.getRoomName());
-            date_txt.setText(""+ FormaterUtil.frindlyTimeClockOrDay(room.UpdatedMs));//+"قبل");
+            date_txt.setText(""+ FormaterUtil.friendlyTimeClockOrDayMs(room.UpdatedMs));//+"قبل");
             unseen_count_txt.setCount(room.UnseenMessageCount);
 
             if(lastMsg != null){
