@@ -20,18 +20,18 @@ import com.mardomsara.social.lib.AppClickableSpan;
 /**
  * Created by Hamid on 8/5/2016.
  */
-public class EmojiLinkerText extends EmojiconTextView {
-    public EmojiLinkerText(Context context) {
+public class EmojiLinkerTextView extends EmojiconTextView {
+    public EmojiLinkerTextView(Context context) {
         super(context);
         init();
     }
 
-    public EmojiLinkerText(Context context, AttributeSet attrs) {
+    public EmojiLinkerTextView(Context context, AttributeSet attrs) {
         super(context, attrs);
         init();
     }
 
-    public EmojiLinkerText(Context context, AttributeSet attrs, int defStyle) {
+    public EmojiLinkerTextView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         init();
     }
