@@ -39,6 +39,10 @@ public class FontCache {
         return get(AndroidUtil.getString(R.string.font_iran));
     }
 
+	public static Typeface getIranMedium(){
+		return get(AndroidUtil.getString(R.string.font_iran_medium));
+	}
+
     public static Typeface getIranLight(){
         return get(AndroidUtil.getString(R.string.font_iran_light));
     }

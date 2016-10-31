@@ -1,4 +1,4 @@
-package com.mardomsara.social.models;
+package com.mardomsara.social.ui.cells.lists;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -10,8 +10,10 @@ import com.mardomsara.social.R;
 import com.mardomsara.social.app.Router;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.Helper;
+import com.mardomsara.social.helpers.LangUtil;
 import com.mardomsara.social.json.social.rows.UserRowAndMeJson;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
+import com.mardomsara.social.ui.views.FontCache;
 import com.mardomsara.social.ui.views.wigets.FollowingButton;
 
 import java.util.ArrayList;
@@ -22,8 +24,10 @@ import butterknife.ButterKnife;
 
 /**
  * Created by Hamid on 8/7/2016.
+ * This is old one without user about
+ * Todo :move this class to cells
  */
-public class UserList {
+public class UserListWithAboutCell {
 
     public static class Adapter extends AppHeaderFooterRecyclerViewAdapter<UserRowViewHolder> {
 
@@ -36,7 +40,7 @@ public class UserList {
 
         @Override
         protected UserRowViewHolder onCreateContentItemViewHolder(ViewGroup parent, int contentViewType) {
-            return new UserRowViewHolder(AppUtil.inflate(R.layout.wiget_user_list_type_follow_row,parent));
+            return new UserRowViewHolder(AppUtil.inflate(R.layout.cell_list_user_type_follow_about_row,parent));
         }
 
         @Override
@@ -46,12 +50,6 @@ public class UserList {
 }
 
     public static class UserRowViewHolder extends RecyclerView.ViewHolder {
-
-   /*     public
-        static View.OnClickListener onClick = (v)->{
-            Router.goToProfile();
-        };*/
-
         @Bind(R.id.following_button)
         public FollowingButton following_button;
 
@@ -60,6 +58,9 @@ public class UserList {
 
         @Bind(R.id.primary_name)
         public TextView primary_name;
+
+		@Bind(R.id.about)
+		public TextView about;
 
         @Bind(R.id.avatar)
         public SimpleDraweeView avatar;
@@ -75,6 +76,10 @@ public class UserList {
                 Router.goToProfile(row.UserId);
             });
             ButterKnife.bind(this,itemView);
+
+//			about.setTypeface(FontCache.getIranLight());
+//			primary_name.setTypeface(FontCache.getIranMedium());
+//			second_name.setTypeface(FontCache.getIranLight());
         }
 
         public void bind(UserRowAndMeJson row){
@@ -83,6 +88,9 @@ public class UserList {
             second_name.setText("@"+row.UserName);
             Helper.SetAvatar(avatar, row.AvatarUrl);
             following_button.setUser(row);
+			about.setText("\uD83D\uDC78 برگ \uD83D\uDE01 \uD83D\uDE29 \uD83D\uDC66 \uD83D\uDC66\uD83C\uDFFD #عمودی آن و \uD83D\uDE14 کوچک خود \uD83E\uDD17 \uD83D\uDD75️\uD83C\uDFFB @pkht #به \uD83D\uDC71\uD83C\uDFFE الهام \uD83E\uDD11 \uD83D\uDCAA\uD83C\uDFFE کاربرد وزن شده جابه\u200Cجا باقیمانده برای \uD83D\uDC68 سنگینی" +
+				" \uD83D\uDC82\uD83C\uDFFE \uD83C\uDFFF @kjjk" +
+				" ");
         }
     }
 

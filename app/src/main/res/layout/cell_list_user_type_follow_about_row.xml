@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="8dp"
+    android:paddingBottom="3dp"
+    android:paddingRight="8dp"
+    android:paddingLeft="8dp"
+    android:background="@drawable/border_bottom_1px"
+    android:gravity="center_vertical"
+    android:layout_gravity="center"
+
+    >
+
+    <com.mardomsara.social.ui.views.wigets.FollowingButton
+        android:layout_width="80dp"
+        android:layout_height="30dp"
+        android:id="@+id/following_button"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        style="@style/cell_user_list_row_about.follow_btn"
+        />
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:layout_marginLeft="4dp"
+        android:id="@+id/avatar"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        fresco:roundedCornerRadius="5dp"
+        fresco:fadeDuration="200"
+        fresco:roundAsCircle="false"
+
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+
+        style="@style/cell_user_list_row_about.avatar"
+        />
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:id="@+id/top"
+
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@id/avatar"
+        android:layout_toRightOf="@id/following_button"
+        android:layout_alignTop="@id/avatar"
+        >
+
+        <com.mardomsara.emojicon.EmojiconTextView
+            android:id="@+id/primary_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:gravity="right"
+            android:layout_gravity="right"
+
+            style="@style/cell_user_list_row_about.fullname"
+
+            />
+
+        <com.mardomsara.emojicon.EmojiconTextView
+            android:id="@+id/second_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:layout_gravity="right"
+
+            style="@style/cell_user_list_row_about.username"
+
+            />
+
+    </LinearLayout>
+
+
+    <com.mardomsara.emojicon.EmojiconTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/avatar"
+        android:layout_below="@id/top"
+
+        android:id="@+id/about"
+
+        style="@style/cell_user_list_row_about.about"
+
+        />
+
+
+</RelativeLayout>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="cell_user_list_row_about.padding">0dp</dimen>
+
+    <style name="cell_user_list_row_about"></style>
+
+    <style name="cell_user_list_row_about.follow_btn">
+        <item name="android:layout_marginTop">@dimen/cell_user_list_row_about.padding</item>
+        <item name="android:layout_marginLeft">@dimen/cell_user_list_row_about.padding</item>
+    </style>
+
+    <style name="cell_user_list_row_about.avatar">
+        <item name="android:layout_marginTop">@dimen/cell_user_list_row_about.padding</item>
+        <item name="android:layout_marginRight">@dimen/cell_user_list_row_about.padding</item>
+        <item name="android:layout_marginLeft">4dp</item>
+
+    </style>
+
+    <style name="cell_user_list_row_about.about" parent="text_light">
+        <item name="fontPath">@string/font_iran_light</item>
+        <item name="android:layout_marginRight">4dp</item>
+        <item name="android:layout_marginLeft">4dp</item>
+        <item name="android:textSize">12dp</item>
+        <item name="android:textColor">@color/text_black_6</item>
+        <item name="android:maxLines">5</item>
+    </style>
+
+    <style name="cell_user_list_row_about.fullname">
+        <item name="android:layout_gravity">right</item>
+        <item name="android:textSize">14dp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+        <item name="fontPath">@string/font_iran_medium</item>
+
+    </style>
+
+    <style name="cell_user_list_row_about.username">
+        <!--<item name="android:paddingLeft">4dp</item>-->
+        <item name="android:layout_gravity">right</item>
+        <item name="android:textSize">12dp</item>
+        <item name="android:textColor">@color/text_gray_3</item>
+        <item name="android:textStyle">normal</item>
+        <item name="fontPath">@string/font_iran_ultraLight</item>
+        <item name="android:layout_marginTop">-2dp</item>
+        <item name="android:layout_marginBottom">-2dp</item>
+    </style>
+
+
+</resources>

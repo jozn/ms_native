@@ -13,29 +13,31 @@ import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.JsonUtil;
 import com.mardomsara.social.json.social.http.LikesListJson;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
-import com.mardomsara.social.ui.ui.UserListUI;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.cells.PageCells;
+import com.mardomsara.social.ui.cells.lists.UserListWithAboutCell;
+import com.mardomsara.social.ui.ui.UserListUI;
 import com.mardomsara.social.ui.views.helpers.ViewHelper;
 
 /**
  * Created by Hamid on 8/6/2016.
  */
-public class FollowsListPresenter extends BasePresenter implements AppHeaderFooterRecyclerViewAdapter.LoadNextPage {
+public class FollowsListAboutPresenter extends BasePresenter implements AppHeaderFooterRecyclerViewAdapter.LoadNextPage {
 
     public enum Type {
         FOLLOWING,
         FOLLOWERS,
         LIKES
-    };
+    }
 
     PageCells.NavAndRecylerView pageCell;
+
 
     int ObjectId;
     Type listType;
     String urlEndpoint;
 
-    public FollowsListPresenter(int objectId, Type type) {
+    public FollowsListAboutPresenter(int objectId, Type type) {
         ObjectId = objectId;
         this.listType = type;
     }
@@ -50,7 +52,7 @@ public class FollowsListPresenter extends BasePresenter implements AppHeaderFoot
     SwipeRefreshLayout refreshLayout;
     RecyclerView recycler_view;
     LinearLayoutManager layoutManager;
-    UserListUI.Adapter adaptor;
+    UserListWithAboutCell.Adapter adaptor;
     void init() {
         try {
             setTitle();
@@ -61,7 +63,8 @@ public class FollowsListPresenter extends BasePresenter implements AppHeaderFoot
             recycler_view = ViewHelper.newRecyclerViewMatch();
             layoutManager = new LinearLayoutManager(AppUtil.getContext());
             recycler_view.setLayoutManager(layoutManager);
-            adaptor = new UserListUI.Adapter();
+//            adaptor = new UserListUI.Adapter();
+            adaptor = new UserListWithAboutCell.Adapter();
             recycler_view.setAdapter(adaptor);
             adaptor.setUpForPaginationWith(recycler_view,layoutManager,this);
 
@@ -149,23 +152,3 @@ public class FollowsListPresenter extends BasePresenter implements AppHeaderFoot
         }
     }
 }
-
-/*
-AndroidUtil.runInBackground(()->{
-        Http.Req req = new Http.Req();
-        req.urlQueryParams.put("username","abas");
-        req.absUrl = API.FOLLOWERS_GET.toString();
-        Http.Result res = Http.get(req);
-        if(res.ok) {
-        LikesListJson data = JsonUtil.fromJson(res.data, LikesListJson.class);
-        if (data.Status.equalsIgnoreCase("OK")) {
-        AndroidUtil.runInUi(() -> {
-//                        AppUtil.log(data.Load.get(0).FullName);
-//                        AppUtil.log("sssssssssssssss" + data.Load.size());
-//                        generalUserListTypeFollow.adapter.setList(data.Load);
-
-        generalUserListTypeFollow.show(data.Load);
-        });
-        }
-        }
-        });*/
