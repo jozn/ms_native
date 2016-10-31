@@ -65,7 +65,7 @@ public class LinkerText extends TextView {
 
         for(TextParser.LexEntry ent  :lex.chunks){
             SpannableString s1 = new SpannableString(ent.text);
-            Log.d(TAG,ent.text + "-" + ent.type);
+//            Log.d(TAG,ent.text + "-" + ent.type);
             switch (ent.type){
                 case SimpleText:
 

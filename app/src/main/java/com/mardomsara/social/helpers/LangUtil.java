@@ -16,6 +16,8 @@ import java.util.Random;
  */
 public class LangUtil {
 
+	public static char halfSpace = '\u200A';
+
     public static <K,V> Map listToHashMap(List<V> list, KeyGen<K,V> keyGen){
         Map<K,V> map = new HashMap<>();
         for (V val : list){
