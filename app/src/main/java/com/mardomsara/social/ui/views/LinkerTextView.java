@@ -22,19 +22,19 @@ import com.mardomsara.social.ui.presenter.social.TagsPresenter;
 /**
  * Created by Hamid on 2/4/2016.
  */
-public class LinkerText extends TextView {
+public class LinkerTextView extends TextView {
     static String TAG ="LinkerText";
-    public LinkerText(Context context) {
+    public LinkerTextView(Context context) {
         super(context);
         init();
     }
 
-    public LinkerText(Context context, AttributeSet attrs) {
+    public LinkerTextView(Context context, AttributeSet attrs) {
         super(context, attrs);
         init();
     }
 
-    public LinkerText(Context context, AttributeSet attrs, int defStyleAttr) {
+    public LinkerTextView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init();
     }

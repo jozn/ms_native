@@ -67,7 +67,7 @@ public class EmojiLinkerTextView extends EmojiconTextView {
 				s1 = new SpannableString(SHOW_MORE_TEXT);
 				s1.setSpan(clickableSpan,0,s1.length(), Spanned.SPAN_MARK_MARK);
 				setShowMoreColor(s1);
-				sb = LinkerText.linkerText(txtLimited,this);
+				sb = LinkerTextView.linkerText(txtLimited,this);
 			}else {//active: show less -- complete text
 				ClickableSpan clickableSpan = new AppClickableSpan() {
 					@Override
@@ -79,12 +79,12 @@ public class EmojiLinkerTextView extends EmojiconTextView {
 				s1 = new SpannableString(SHOW_LESS_TEXT);
 				s1.setSpan(clickableSpan,0,s1.length(), Spanned.SPAN_MARK_MARK);
 				setShowMoreColor(s1);
-				sb = LinkerText.linkerText(text,this);
+				sb = LinkerTextView.linkerText(text,this);
 			}
 
 			sb.append(s1);
 		}else {//if text is short enough
-			sb = LinkerText.linkerText(text,this);
+			sb = LinkerTextView.linkerText(text,this);
 		}
 
         super.setText(sb,type);
