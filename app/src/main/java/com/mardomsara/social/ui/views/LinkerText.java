@@ -51,42 +51,6 @@ public class LinkerText extends TextView {
 //        linkerText(txt);
     }
 
-    void linkerText(CharSequence txt){
-        SpannableStringBuilder builder = new SpannableStringBuilder();
-        TextParser.Lexing lex=  new TextParser.Lexing(txt.toString());
-        lex.parse();
-
-        ClickableSpan clickableSpan = new ClickableSpan() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(getContext(), "dolor", Toast.LENGTH_LONG).show();
-            }
-        };
-
-        for(TextParser.LexEntry ent  :lex.chunks){
-            SpannableString s1 = new SpannableString(ent.text);
-//            Log.d(TAG,ent.text + "-" + ent.type);
-            switch (ent.type){
-                case SimpleText:
-
-                    break;
-
-                case UserName:
-                    s1.setSpan(buildclick(s1),0,s1.length(), Spanned.SPAN_MARK_MARK);
-                    break;
-
-                case Tag:
-                    s1.setSpan(buildclick(s1),0,s1.length(),Spanned.SPAN_MARK_MARK);
-                    break;
-            }
-            builder.append(s1);
-        }
-
-        setMovementMethod(LinkMovementMethod.getInstance());
-        setText(builder);
-
-    }
-
     ///////////////////////////////////////////////////
     /////////// Stattics //////////////////////////
 
@@ -112,17 +76,11 @@ public class LinkerText extends TextView {
         };
         return clickableSpan;
     }
+
     public static SpannableStringBuilder linkerText(CharSequence txt, TextView textView){
         SpannableStringBuilder builder = new SpannableStringBuilder();
         TextParser.Lexing lex=  new TextParser.Lexing(txt.toString());
         lex.parse();
-
-        ClickableSpan clickableSpan = new ClickableSpan() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(AppUtil.getContext(), "dolor", Toast.LENGTH_LONG).show();
-            }
-        };
 
         for(TextParser.LexEntry ent  :lex.chunks){
             SpannableString s1 = new SpannableString(ent.text);

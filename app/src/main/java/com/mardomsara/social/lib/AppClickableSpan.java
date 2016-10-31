@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.mardomsara.social.helpers.AppUtil;
+import com.mardomsara.social.helpers.Helper;
 
 public class AppClickableSpan extends ClickableSpan {// extend ClickableSpan
 
@@ -19,7 +20,8 @@ public class AppClickableSpan extends ClickableSpan {// extend ClickableSpan
     }
 
     public void onClick(View tv) {
-       Toast.makeText(AppUtil.getContext(),clicked , Toast.LENGTH_SHORT).show();
+//       Toast.makeText(AppUtil.getContext(),clicked , Toast.LENGTH_SHORT).show();
+		Helper.showDebugMessage("Clicked AppClickableSpan: "+clicked);
     }
 
     public void updateDrawState(TextPaint ds) {// override updateDrawState
