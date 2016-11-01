@@ -180,13 +180,13 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
             }
         }else {
 //            footerSize = 0;
-            hideLoading();
             if(scrollListener != null && getContentItemCount() >0){
                 recyclerView.removeOnScrollListener(scrollListener);
                 //ME:dont do this it will crash: reason: child not attached???
 //                notifyFooterItemChanged(0);
             }
-        }
+			hideLoading();
+		}
     }
 
     //
@@ -206,6 +206,10 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
 		if(pager!=null){
 			pager.loadNextPage(1);
 		}
+		if(scrollListener!=null){
+			scrollListener.setcurrentPage(1);
+		}
+
 
 		/*recyclerView.removeOnScrollListener(scrollListener);
 		listenOnScroll();

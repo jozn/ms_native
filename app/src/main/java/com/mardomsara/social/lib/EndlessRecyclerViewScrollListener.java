@@ -18,7 +18,7 @@ public abstract class EndlessRecyclerViewScrollListener extends RecyclerView.OnS
     // True if we are still waiting for the last setOrReplace of data to load.
     private boolean loading = true;
     // Sets the starting page index
-    private int startingPageIndex = 0;
+    private int startingPageIndex = 1;
 
     public void setStopMore(boolean stopMore) {
         this.stopMore = stopMore;
@@ -95,13 +95,14 @@ public abstract class EndlessRecyclerViewScrollListener extends RecyclerView.OnS
 			AppUtil.log("loading: "+ loading + " lastVisibleItemPosition: "+lastVisibleItemPosition
 				+ " previousTotalItemCount: "+previousTotalItemCount
 				+ " totalItemCount: "+totalItemCount
+				+ "  currentPage: "+ currentPage
 				+ " calledCnt: "+ calledCnt);
 		}
 
 		// If the total item count is zero and the previous isn't, assume the
 		// list is invalidated and should be reset back to initial state
 		if (totalItemCount < previousTotalItemCount) {
-			this.currentPage = this.startingPageIndex;
+//			this.currentPage = this.startingPageIndex;
 			this.previousTotalItemCount = totalItemCount;
 			this.loading = false;
 			if (totalItemCount == 0) {
@@ -128,8 +129,8 @@ public abstract class EndlessRecyclerViewScrollListener extends RecyclerView.OnS
 		// If we do need to reloadForAll some more data, we execute onLoadMore to fetch the data.
 		// threshold should reflect how many total columns there are too
 		if (!loading && (lastVisibleItemPosition + visibleThreshold) > totalItemCount) {
-			currentPage++;
 			onLoadMore(currentPage, totalItemCount);
+			currentPage++;
 			loading = true;
 		}
 	}
@@ -141,6 +142,10 @@ public abstract class EndlessRecyclerViewScrollListener extends RecyclerView.OnS
 
 	public void decrCurrentPage(){
 		currentPage--;
+	}
+
+	public void setcurrentPage(int currentPage){
+		this.currentPage = currentPage;
 	}
 
     // Defines the process for actually loading more data based on page
