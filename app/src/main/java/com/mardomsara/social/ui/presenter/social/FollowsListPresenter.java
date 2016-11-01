@@ -100,7 +100,10 @@ public class FollowsListPresenter extends BasePresenter implements AppHeaderFoot
                 if(res.ok) {
                     LikesListJson data = JsonUtil.fromJson(res.data, LikesListJson.class);
                     if (data.Status.equalsIgnoreCase("OK") && data.Payload != null && data.Payload.size() >0) {
-                        if(page <= 1) adaptor.list.clear();
+                        if(page <= 1) {
+							adaptor.list.clear();
+							adaptor.reload();
+						};
                         if(data.Payload != null && data.Payload.size() >0){
                             adaptor.list.addAll(data.Payload);
                             adaptor.notifyDataSetChanged();

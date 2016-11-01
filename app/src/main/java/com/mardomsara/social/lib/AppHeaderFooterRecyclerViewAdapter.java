@@ -200,6 +200,18 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
         }
     }
 
+	boolean isReload = false;
+	public void reload(){
+		isReload=true;
+		if(pager!=null){
+			pager.loadNextPage(1);
+		}
+
+		/*recyclerView.removeOnScrollListener(scrollListener);
+		listenOnScroll();
+		recyclerView.addOnScrollListener(scrollListener);*/
+	}
+
     public void listenOnScroll(){
 
         scrollListener =new EndlessRecyclerViewScrollListener(layoutManager){
@@ -208,8 +220,19 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
 //                loadNextPage();
 				Runnable r  = ()->{
 					if(pager!=null){
-						pager.loadNextPage(page);
-						pageNum++;
+						//workaround: onScroll in Endless... is called page 1 when reloaded
+						// : means we end up calling page 1 twice one ourself like loadfromserver(1)
+						// and another by Endless... scroll checker, so page 1 twice loads
+						// and then they the counts of items has bot changed so page 2 never will
+						// be called, and Endless... scroll remains in not wainting for page 1 complete.
+						if(isReload){
+							pager.loadNextPage(page+1);
+							scrollListener.decrCurrentPage();
+							isReload =false;
+						}else {
+							pager.loadNextPage(page);
+						}
+//						pageNum++;
 					}
 				};
                 new Handler().post(r);

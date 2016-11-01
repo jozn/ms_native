@@ -71,11 +71,12 @@ public class FollowsListAboutPresenter extends BasePresenter implements AppHeade
             refreshLayout.addView(recycler_view);
             pageCell.rootView.addView(refreshLayout);
 
-            loadFromServer(1);
+//            loadFromServer(1);
             refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
                 @Override
                 public void onRefresh() {
-                    loadFromServer(1);
+                    adaptor.reload();
+//                    loadFromServer(1);
                 }
             });
         }catch (Exception e){
@@ -85,16 +86,19 @@ public class FollowsListAboutPresenter extends BasePresenter implements AppHeade
 
     @Override
     public void loadNextPage(int pageNum) {
-//        loadFromServer(pageNum);
+		Helper.showDebugMessage("pageNum:" + pageNum);
+        loadFromServer(pageNum);
     }
 
     private void loadFromServer(int page) {
-        int pageCnt = page -1;
+//        int pageCnt = page ;
 
 		Http.get(urlEndpoint)
 			.setQueryParam("username","abas")
 			.setQueryParam("peer_id",""+ObjectId)
 			.setQueryParam("post_id",""+ObjectId)
+			.setQueryParam("page",""+page)
+			.setQueryParam("limit",""+10)
 			.doAsyncUi((result)->{
 				if(result.isOk()){
 					HttpJsonList<UserInfoJson> data = Result.fromJsonList(result, UserInfoJson.class);
@@ -108,12 +112,12 @@ public class FollowsListAboutPresenter extends BasePresenter implements AppHeade
 						adaptor.setHasMorePage(false);
 					}
 				}else {
-					Helper.showDebugMessage("load next"+pageCnt);
+					Helper.showDebugMessage("load next"+page);
 						adaptor.setHasMorePage(false);
-					}
-					AndroidUtil.runInUiNoPanic(()->{
-						refreshLayout.setRefreshing(false);
-					});
+				}
+				AndroidUtil.runInUiNoPanic(()->{
+					refreshLayout.setRefreshing(false);
+				});
 
 			});
 
