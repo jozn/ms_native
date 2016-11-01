@@ -6,17 +6,17 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.mardomsara.social.app.API;
-import com.mardomsara.social.base.HttpOld;
+import com.mardomsara.social.base.Http.Http;
+import com.mardomsara.social.base.Http.Result;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.Helper;
-import com.mardomsara.social.helpers.JsonUtil;
-import com.mardomsara.social.json.social.http.LikesListJson;
+import com.mardomsara.social.json.HttpJsonList;
+import com.mardomsara.social.json.social.rows.UserInfoJson;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.cells.PageCells;
 import com.mardomsara.social.ui.cells.lists.UserListWithAboutCell;
-import com.mardomsara.social.ui.ui.UserListUI;
 import com.mardomsara.social.ui.views.helpers.ViewHelper;
 
 /**
@@ -90,7 +90,35 @@ public class FollowsListAboutPresenter extends BasePresenter implements AppHeade
 
     private void loadFromServer(int page) {
         int pageCnt = page -1;
-        AndroidUtil.runInBackgroundNoPanic(()->{
+
+		Http.get(urlEndpoint)
+			.setQueryParam("username","abas")
+			.setQueryParam("peer_id",""+ObjectId)
+			.setQueryParam("post_id",""+ObjectId)
+			.doAsyncUi((result)->{
+				if(result.isOk()){
+					HttpJsonList<UserInfoJson> data = Result.fromJsonList(result, UserInfoJson.class);
+					if(data.isPayloadNoneEmpty()){
+						if(page <= 1) adaptor.list.clear();
+						if(data.Payload != null && data.Payload.size() >0){
+							adaptor.list.addAll(data.Payload);
+							adaptor.notifyDataSetChanged();
+						}
+					}else {
+						adaptor.setHasMorePage(false);
+					}
+				}else {
+					Helper.showDebugMessage("load next"+pageCnt);
+						adaptor.setHasMorePage(false);
+					}
+					AndroidUtil.runInUiNoPanic(()->{
+						refreshLayout.setRefreshing(false);
+					});
+
+			});
+
+
+        /*AndroidUtil.runInBackgroundNoPanic(()->{
             HttpOld.Req req = new HttpOld.Req();
             req.urlParams.put("username","abas");
             req.urlParams.put("peer_id",""+ObjectId);// for follows types
@@ -120,7 +148,7 @@ public class FollowsListAboutPresenter extends BasePresenter implements AppHeade
                 });
             });
 
-        });
+        });*/
     }
 
     void setTitle() {

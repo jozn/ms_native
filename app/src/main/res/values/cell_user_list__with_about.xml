@@ -41,8 +41,9 @@
         <item name="android:textColor">@color/text_gray_3</item>
         <item name="android:textStyle">normal</item>
         <item name="fontPath">@string/font_iran_ultraLight</item>
-        <item name="android:layout_marginTop">-2dp</item>
-        <item name="android:layout_marginBottom">-2dp</item>
+        <item name="android:layout_marginTop">-4dp</item>
+        <item name="android:layout_marginBottom">-4dp</item>
+
     </style>
 
 
