@@ -11,6 +11,7 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import com.mardomsara.social.Nav;
 import com.mardomsara.social.R;
 import com.mardomsara.social.app.API;
+import com.mardomsara.social.app.Router;
 import com.mardomsara.social.base.HttpOld;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
@@ -160,13 +161,15 @@ public class ProfilePresenter extends BasePresenter implements AppHeaderFooterRe
 
     public static View.OnClickListener getFollowings_click(int Userid) {
         return (v)->{
-            Nav.push(new FollowsListPresenter(Userid, FollowsListPresenter.Type.FOLLOWING));
+//            Nav.push(new FollowsListPresenter(Userid, FollowsListPresenter.Type.FOLLOWING));
+            Nav.push(Router.getFollowersPage(Userid));
         };
     }
 
     public static View.OnClickListener getFollers_click(int Userid) {
         return (v)->{
-            Nav.push(new FollowsListPresenter(Userid, FollowsListPresenter.Type.FOLLOWERS));
+            Nav.push(Router.getFollowingsPage(Userid));
+//            Nav.push(new FollowsListPresenter(Userid, FollowsListPresenter.Type.FOLLOWERS));
         };
     }
 

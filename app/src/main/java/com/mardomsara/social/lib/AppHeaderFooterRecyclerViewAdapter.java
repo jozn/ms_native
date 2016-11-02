@@ -207,7 +207,7 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
 			pager.loadNextPage(1);
 		}
 		if(scrollListener!=null){
-			scrollListener.setcurrentPage(1);
+			scrollListener.setCurrentPage(1);
 		}
 
 

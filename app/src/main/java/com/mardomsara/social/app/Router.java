@@ -13,7 +13,6 @@ import com.mardomsara.social.ui.presenter.chats.GalleryChooserPresenter;
 import com.mardomsara.social.ui.presenter.social.AcitivityTabPresenter;
 import com.mardomsara.social.ui.presenter.social.CommontsPresnter;
 import com.mardomsara.social.ui.presenter.social.FollowsListAboutPresenter;
-import com.mardomsara.social.ui.presenter.social.FollowsListPresenter;
 import com.mardomsara.social.ui.presenter.social.HomeStream2Presenter;
 import com.mardomsara.social.ui.presenter.social.PostEnteryPresenter;
 import com.mardomsara.social.ui.presenter.social.ProfilePresenter;
@@ -31,11 +30,11 @@ public class Router {
     }
 
     public static FragmentPage getFollowersPage(int UserId) {
-        return new FollowsListPresenter(UserId, FollowsListPresenter.Type.FOLLOWERS);
+        return new FollowsListAboutPresenter(UserId, FollowsListAboutPresenter.Type.FOLLOWERS);
     }
 
     public static FragmentPage getFollowingsPage(int UserId) {
-        return new FollowsListPresenter(UserId, FollowsListPresenter.Type.FOLLOWING);
+        return new FollowsListAboutPresenter(UserId, FollowsListAboutPresenter.Type.FOLLOWING);
     }
 
     public static FragmentPage getCommontsPage(int PostId) {

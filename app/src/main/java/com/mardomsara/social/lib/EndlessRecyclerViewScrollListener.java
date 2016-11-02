@@ -144,7 +144,7 @@ public abstract class EndlessRecyclerViewScrollListener extends RecyclerView.OnS
 		currentPage--;
 	}
 
-	public void setcurrentPage(int currentPage){
+	public void setCurrentPage(int currentPage){
 		this.currentPage = currentPage;
 	}
 
