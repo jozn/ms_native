@@ -212,7 +212,7 @@ public class CommontsPresnter_DEP extends BasePresenter
 
         @Override
         protected RecyclerView.ViewHolder onCreateContentItemViewHolder(ViewGroup parent, int contentViewType) {
-            return new CommentRowViewHolder(AppUtil.inflate(R.layout.row_commont,parent));
+            return new CommentRowViewHolder(AppUtil.inflate(R.layout.cell_row_commont,parent));
         }
 
         @Override
@@ -304,7 +304,7 @@ public static class CommentsAdaptor extends RecyclerView.Adapter<CommentsAdaptor
     public List<CommentRowJson> list;
     @Override
     public CommentRowViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new CommentRowViewHolder(AppUtil.inflate(R.layout.row_commont,parent));
+        return new CommentRowViewHolder(AppUtil.inflate(R.layout.cell_row_commont,parent));
     }
 
     @Override

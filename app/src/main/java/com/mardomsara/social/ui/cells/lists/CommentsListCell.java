@@ -8,10 +8,14 @@ import com.mardomsara.social.app.API;
 import com.mardomsara.social.base.HttpOld;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
+import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.JsonUtil;
+import com.mardomsara.social.helpers.TimeUtil;
+import com.mardomsara.social.json.social.http.CommentSingleJson;
 import com.mardomsara.social.json.social.http.CommentsListJson;
 import com.mardomsara.social.json.social.rows.CommentRowJson;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
+import com.mardomsara.social.models.Session;
 import com.mardomsara.social.ui.cells.rows.CommentRowCell;
 import com.mardomsara.social.ui.views.helpers.ViewHelper;
 import com.mardomsara.social.ui.views.wigets.SimpleAddText;
@@ -26,7 +30,7 @@ public class CommentsListCell implements  AppHeaderFooterRecyclerViewAdapter.Loa
     SimpleAddText simpleAddText;
     boolean isNextPages = false;
     public LinearLayoutManager layoutManager = new LinearLayoutManager(AppUtil.getContext(),LinearLayoutManager.VERTICAL,true);
-    RecyclerView recyclerView = ViewHelper.newRecyclerViewWraped();
+    RecyclerView recyclerView = ViewHelper.newRecyclerViewMatch();
     public CommentsAdaptor adaptor;
 
     int postId;
@@ -42,14 +46,14 @@ public class CommentsListCell implements  AppHeaderFooterRecyclerViewAdapter.Loa
         adaptor.setUpForPaginationWith(recyclerView,layoutManager,this);
 //        adaptor.listenOnScroll();
 
-        loadCommontsFromNet(0);
+        loadCommentsFromNet(0);
     }
 
     public void setLayoutManagerOrintation(int orintation){
         layoutManager.setOrientation(orintation);
     }
 
-    private void loadCommontsFromNet(int page) {
+    private void loadCommentsFromNet(int page) {
         AndroidUtil.runInBackground(()->{
             HttpOld.Req req = new HttpOld.Req();
             req.absPath = API.COMMENTS_LIST_GET.toString();
@@ -76,14 +80,61 @@ public class CommentsListCell implements  AppHeaderFooterRecyclerViewAdapter.Loa
 
     @Override
     public void loadNextPage(int pageNum) {
-        loadCommontsFromNet(pageNum);
+        loadCommentsFromNet(pageNum);
     }
 
     public ViewGroup getViewRoot() {
         return recyclerView;
     }
 
+	public void addNewCommentByme(String text){
+		Helper.showDebugMessage(text);
+		CommentRowJson comment = new CommentRowJson();
+		comment.Sender = Session.buildUserSender();
+		comment.PostId = postId;
+		comment.UserId = Session.getUserId();
+		comment.CreatedTime = (int) TimeUtil.getTime();
+		comment.Text = text;
+		comment._isNew=true;
 
+		adaptor.list.add(0,comment);
+		adaptor.notifyDataSetChanged();
+
+		AndroidUtil.runInBackgroundNoPanic(()->{
+			HttpOld.Req req = new HttpOld.Req();
+			req.absPath = API.COMMENTS_ADD.toString();
+			req.form.put("post_id",""+postId);
+			req.form.put("text",""+text);
+			HttpOld.Result res = HttpOld.masterSendPost(req);
+			boolean isError = false;
+			if(res.ok){
+				CommentSingleJson data = JsonUtil.fromJson(res.data,CommentSingleJson.class);
+				if(data != null && data.Payload != null && data.Status.equalsIgnoreCase("OK")){
+//                    Helper.showMessage(data.Load.toString());
+					comment.Id = data.Payload.Id;
+					comment.CreatedTime = data.Payload.CreatedTime;
+					comment._isNew=false;
+					AndroidUtil.runInUi(()->{
+
+						adaptor.notifyDataSetChanged();
+					});
+				}else {
+					isError = true;
+				}
+			}else {
+				isError = true;
+			}
+
+			if(isError){
+				Helper.showMessage("خطا در ثبت نظر");
+				comment._isNew=false;
+				AndroidUtil.runInUi(()->{
+					adaptor.notifyDataSetChanged();
+				});
+			}
+
+		});
+	}
 
     public static class CommentsAdaptor extends AppHeaderFooterRecyclerViewAdapter<CommentsAdaptor.CommentRowViewHolder> {
         public int postId = 0;
@@ -119,10 +170,6 @@ public class CommentsListCell implements  AppHeaderFooterRecyclerViewAdapter.Loa
         }
 
     }
-
-
-
-
 }
 
 /*

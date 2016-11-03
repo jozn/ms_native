@@ -10,6 +10,7 @@ import com.mardomsara.social.R;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.DialogHelper;
+import com.mardomsara.social.helpers.FormaterUtil;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.json.social.rows.CommentRowJson;
 import com.mardomsara.social.models.Comment;
@@ -53,7 +54,7 @@ public class CommentRowCell {
     int i =0;
 
     public CommentRowCell(ViewGroup parent, CommentsListCell.CommentsAdaptor adaptor) {
-        rootView = (ViewGroup) AppUtil.inflate(R.layout.row_commont,parent);
+        rootView = (ViewGroup) AppUtil.inflate(R.layout.cell_row_commont,parent);
         ButterKnife.bind(this,rootView);
         this.adaptor = adaptor;
         rootView.setOnLongClickListener(onLong);
@@ -61,16 +62,16 @@ public class CommentRowCell {
         avatar.setOnClickListener(gotoProfile);
     }
 
-    public void bind(CommentRowJson commont){
-        this.comment = commont;
+    public void bind(CommentRowJson comment){
+        this.comment = comment;
 
-        fullname.setText(commont.Sender.FullName);
-        date.setText("2 روز قبل"+ i);
+        fullname.setText(comment.Sender.FullName);
+        date.setText(FormaterUtil.timeAgo(comment.CreatedTime));
         i++;
-        text.setText(commont.Text);
-        Helper.SetAvatar(avatar, commont.Sender.AvatarUrl);
+        text.setText(comment.Text);
+        Helper.SetAvatar(avatar, comment.Sender.AvatarUrl);
 
-        if(commont._isNew){
+        if(comment._isNew){
             loading.setVisibility(View.VISIBLE);
         }else {
             loading.setVisibility(View.GONE);

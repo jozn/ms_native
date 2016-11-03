@@ -7,7 +7,9 @@
     xmlns:app="http://schemas.android.com/tools"
     android:layout_marginTop="12dp"
     android:layout_marginRight="4dp"
-    android:layout_marginLeft="4dp">
+    android:layout_marginLeft="4dp"
+    android:background="@drawable/border_bottom_1px"
+    >
     <com.facebook.drawee.view.SimpleDraweeView
         android:layout_width="40dp"
         android:layout_height="40dp"
@@ -39,20 +41,20 @@
         />
 
 
-       <com.github.rahatarmanahmed.cpv.CircularProgressView
-           android:id="@+id/loadingView"
-           android:layout_width="25dp"
-           android:layout_height="25dp"
-           android:layout_alignParentLeft="true"
-           android:layout_below="@id/date"
-           android:layout_centerVertical="true"
-           android:layout_marginTop="10dp"
-           android:background="@color/transparent_0"
+   <com.github.rahatarmanahmed.cpv.CircularProgressView
+       android:id="@+id/loadingView"
+       android:layout_width="25dp"
+       android:layout_height="25dp"
+       android:layout_alignParentLeft="true"
+       android:layout_below="@id/date"
+       android:layout_centerVertical="true"
+       android:layout_marginTop="10dp"
+       android:background="@color/transparent_0"
 
         app:cpv_animAutostart="true"
         app:cpv_indeterminate="true"
 
-        />
+    />
 
     <com.mardomsara.emojicon.EmojiconTextView
         android:layout_width="wrap_content"

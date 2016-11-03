@@ -11,7 +11,7 @@ import com.mardomsara.social.ui.presenter.chats.ChatRoomPresenter;
 import com.mardomsara.social.ui.presenter.chats.ChatTabPresenter;
 import com.mardomsara.social.ui.presenter.chats.GalleryChooserPresenter;
 import com.mardomsara.social.ui.presenter.social.AcitivityTabPresenter;
-import com.mardomsara.social.ui.presenter.social.CommontsPresnter;
+import com.mardomsara.social.ui.presenter.social.CommentsPresenter;
 import com.mardomsara.social.ui.presenter.social.FollowsListAboutPresenter;
 import com.mardomsara.social.ui.presenter.social.HomeStream2Presenter;
 import com.mardomsara.social.ui.presenter.social.PostEnteryPresenter;
@@ -39,7 +39,7 @@ public class Router {
 
     public static FragmentPage getCommontsPage(int PostId) {
 //        return new CommontsPresnter_DEP(PostId);
-        return new CommontsPresnter(PostId);
+        return new CommentsPresenter(PostId);
     }
 
     public static FragmentPage getChatPage() {

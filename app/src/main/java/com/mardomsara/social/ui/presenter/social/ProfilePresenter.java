@@ -74,7 +74,7 @@ public class ProfilePresenter extends BasePresenter implements AppHeaderFooterRe
         refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                Helper.showMessage("re");
+                Helper.showDebugMessage("re");
                 loadPostsAndProfileFromServer(1);
             }
         });
@@ -162,13 +162,13 @@ public class ProfilePresenter extends BasePresenter implements AppHeaderFooterRe
     public static View.OnClickListener getFollowings_click(int Userid) {
         return (v)->{
 //            Nav.push(new FollowsListPresenter(Userid, FollowsListPresenter.Type.FOLLOWING));
-            Nav.push(Router.getFollowersPage(Userid));
+            Nav.push(Router.getFollowingsPage(Userid));
         };
     }
 
-    public static View.OnClickListener getFollers_click(int Userid) {
+    public static View.OnClickListener getFollowers_click(int Userid) {
         return (v)->{
-            Nav.push(Router.getFollowingsPage(Userid));
+            Nav.push(Router.getFollowersPage(Userid));
 //            Nav.push(new FollowsListPresenter(Userid, FollowsListPresenter.Type.FOLLOWERS));
         };
     }
@@ -203,7 +203,7 @@ public class ProfilePresenter extends BasePresenter implements AppHeaderFooterRe
 
             //clicks
             followings_holder.setOnClickListener(getFollowings_click(user.Id));
-            followers_holder.setOnClickListener(getFollers_click(user.Id));
+            followers_holder.setOnClickListener(getFollowers_click(user.Id));
 
             return this;
         }

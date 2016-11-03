@@ -24,7 +24,7 @@
         android:layout_alignParentBottom="true"
         />
 
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/content"
@@ -32,15 +32,11 @@
         android:layout_below="@id/simpleTopNav"
         android:layout_above="@+id/simpleAddText"
         android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:gravity="bottom"
+
         >
-
-        <com.mardomsara.social.ui.views.wigets.LoadingView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/loadingView"
-
-            />
-    </FrameLayout>
+    </LinearLayout>
 
 </RelativeLayout>
 
