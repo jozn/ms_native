@@ -72,11 +72,16 @@ public class CommentsListCell implements  AppHeaderFooterRecyclerViewAdapter.Loa
         CommentsListJson data = JsonUtil.fromJson(res.data, CommentsListJson.class);
         if(data != null && data.Status.equalsIgnoreCase("OK") && data.Payload!=null){
             adaptor.list.addAll(data.Payload);
+			scrollToEnd();
             adaptor.notifyDataSetChanged();
         }else {
             adaptor.setHasMorePage(false);
         }
     }
+
+	void scrollToEnd(){
+		layoutManager.scrollToPositionWithOffset(0,10000);
+	}
 
     @Override
     public void loadNextPage(int pageNum) {
@@ -115,7 +120,7 @@ public class CommentsListCell implements  AppHeaderFooterRecyclerViewAdapter.Loa
 					comment.CreatedTime = data.Payload.CreatedTime;
 					comment._isNew=false;
 					AndroidUtil.runInUi(()->{
-
+						scrollToEnd();
 						adaptor.notifyDataSetChanged();
 					});
 				}else {

@@ -65,8 +65,9 @@ public class CommentsPresenter extends BasePresenter implements SimpleAddText.On
 
 	@Override
 	public void onAddText(String text) {
-		Helper.showDebugMessage(text);
-		CommentRowJson comment = new CommentRowJson();
+		commentsListCell.addNewCommentByme(text);
+//		Helper.showDebugMessage(text);
+		/*CommentRowJson comment = new CommentRowJson();
 		comment.Sender = Session.buildUserSender();
 		comment.PostId = postId;
 		comment.UserId = Session.getUserId();
@@ -109,7 +110,7 @@ public class CommentsPresenter extends BasePresenter implements SimpleAddText.On
 				});
 			}
 
-		});
+		});*/
 
 	}
 }
