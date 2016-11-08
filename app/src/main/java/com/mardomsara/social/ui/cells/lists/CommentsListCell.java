@@ -95,7 +95,7 @@ public class CommentsListCell implements  AppHeaderFooterRecyclerViewAdapter.Loa
         return recyclerView;
     }
 
-	public void addNewCommentByme(String text){
+	public void addNewCommentByMe(String text){
 		Helper.showDebugMessage(text);
 		CommentRowJson comment = new CommentRowJson();
 		comment.Sender = Session.buildUserSender();
@@ -109,7 +109,7 @@ public class CommentsListCell implements  AppHeaderFooterRecyclerViewAdapter.Loa
 		adaptor.notifyDataSetChanged();
 
 		AndroidUtil.runInBackgroundNoPanic(()->{
-			Http.postPath("/comments/add")
+			Http.postPath("/v1/comments/add")
 				.setFormParam("post_id",""+postId)
 				.setFormParam("text",""+text)
 				.doAsyncUi((res -> {

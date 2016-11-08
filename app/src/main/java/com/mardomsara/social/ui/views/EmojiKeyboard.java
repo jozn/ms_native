@@ -20,7 +20,7 @@ import com.mardomsara.social.helpers.AppUtil;
 /**
  * Created by Hamid on 5/15/2016.
  */
-public class EmojiKeyboard3 {
+public class EmojiKeyboard {
     EmojiconEditText emojiconEditText;
     View rootView ;
     ImageView emojiButton;
@@ -34,7 +34,7 @@ public class EmojiKeyboard3 {
     String textIconKeyboard = "\uE837";
     String textIconFace = "\uE854";
 
-    public EmojiKeyboard3(EmojiconEditText emojiconEditText, TextView emojiIcon, View rootView) {
+    public EmojiKeyboard(EmojiconEditText emojiconEditText, TextView emojiIcon, View rootView) {
         this.emojiconEditText = emojiconEditText;
         this.emojiIcon = emojiIcon;
         this.rootView = rootView;
@@ -42,6 +42,7 @@ public class EmojiKeyboard3 {
         emojiIcon.setTextSize(AndroidUtil.dpToPx(12));
         changeTextIcon(textIconFace);
         init();
+		activeEmojiKeyboard = this;
     }
 
     void init(){
@@ -80,6 +81,7 @@ public class EmojiKeyboard3 {
 
             @Override
             public void onEmojiconClicked(Emojicon emojicon) {
+				activeEmojiKeyboard  = EmojiKeyboard.this;
                 if (emojiconEditText == null || emojicon == null) {
                     return;
                 }
@@ -101,6 +103,8 @@ public class EmojiKeyboard3 {
 
             @Override
             public void onEmojiconBackspaceClicked(View v) {
+				activeEmojiKeyboard  = EmojiKeyboard.this;
+
                 KeyEvent event = new KeyEvent(
                         0, 0, 0, KeyEvent.KEYCODE_DEL, 0, 0, 0, 0, KeyEvent.KEYCODE_ENDCALL);
                 emojiconEditText.dispatchKeyEvent(event);
@@ -113,6 +117,8 @@ public class EmojiKeyboard3 {
 
             @Override
             public void onClick(View v) {
+				popup.setCurrentListnerToMe();
+				activeEmojiKeyboard  = EmojiKeyboard.this;
 
                 //If popup is not showing => emoji keyboard is not visible, we need to show it
                 if(!popup.isShowing()){
@@ -157,6 +163,12 @@ public class EmojiKeyboard3 {
         }
         i++;
     }
+
+	public void closeAll() {
+		popup.dismiss();
+		AndroidUtil.hideKeyboard(emojiconEditText);
+	}
+
     //for avoid memory leaks
     public void destroy() {
         popup.dismiss();
@@ -173,5 +185,15 @@ public class EmojiKeyboard3 {
         emojiIcon.setText(txt);
     }
 
+	/////// funcs relateted to closing EmojiKeyboard on bluer
+
+	static EmojiKeyboard activeEmojiKeyboard = null;
+
+	public static void closeEmojiKeyboard(){
+		if(activeEmojiKeyboard != null){
+			activeEmojiKeyboard.closeAll();
+
+		}
+	}
 
 }

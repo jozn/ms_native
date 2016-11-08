@@ -153,6 +153,10 @@ public class EmojiconsPopup extends PopupWindow {
 		currentListner = null;
 	}
 
+	public void setCurrentListnerToMe() {
+		currentListner = this;
+	}
+
 	/**
 	 * Call this function to resize the emoji popup according to your soft keyboard size
 	 */

@@ -47,7 +47,7 @@ import com.mardomsara.social.pipe.from_net_calls.json.MsgSeenByPeerJson;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.cells.chats.lists.MsgsListCell;
 import com.mardomsara.social.ui.cells.general.KeywordAttachmentCell;
-import com.mardomsara.social.ui.views.EmojiKeyboard3;
+import com.mardomsara.social.ui.views.EmojiKeyboard;
 import com.squareup.picasso.Picasso;
 import com.sw926.imagefileselector.ImageFileSelector;
 
@@ -113,7 +113,7 @@ public class ChatRoomPresenter extends BasePresenter implements
 
     IntentHelper intentHelper;
     Uri file_uri;
-    EmojiKeyboard3 emojiKeyboard;
+    EmojiKeyboard emojiKeyboard;
 
     @Override
     public View buildView() {
@@ -165,7 +165,7 @@ public class ChatRoomPresenter extends BasePresenter implements
 //        EventBus.getDefault().register(this);
         App.getBus().register(this);
 
-        emojiKeyboard = new EmojiKeyboard3(edit_filed,emoji_opener_btn, AppUtil.global_window);
+        emojiKeyboard = new EmojiKeyboard(edit_filed,emoji_opener_btn, AppUtil.global_window);
 
         that = this;
         attach.setOnClickListener((v)->{ showAttachmentWindow();});

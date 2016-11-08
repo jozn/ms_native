@@ -11,6 +11,7 @@ import android.util.Log;
 import com.mardomsara.social.app.Router;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.ui.fragments.FooterBarFragment;
+import com.mardomsara.social.ui.views.EmojiKeyboard;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -44,7 +45,9 @@ public class Nav {
     }
 
     public static void push(FragmentPage frag){
-        _attachPage2(frag);
+		EmojiKeyboard.closeEmojiKeyboard();
+
+		_attachPage2(frag);
         _getActiveBranchCell().fragmentsPageStacks.add(frag);
         if(_getActiveBranchCell().fragmentsPageStacks.size()>MAX_BRANCH_STACKE_SIZE){
             FragmentPage frag2 = _getActiveBranchCell().fragmentsPageStacks.remove(1);
@@ -54,6 +57,7 @@ public class Nav {
     }
 
     public static void pop() {
+		EmojiKeyboard.closeEmojiKeyboard();
         onBackPress();//TODo extart functionality
     }
 
@@ -92,6 +96,8 @@ public class Nav {
 
     @DebugLog
     public static void goToBranch(String bra) {
+		EmojiKeyboard.closeEmojiKeyboard();
+
 //        if (bra == _activeBranch ){ return; };
         _activeBranch = bra;
         BranchCell bc = _getActiveBranchCell();

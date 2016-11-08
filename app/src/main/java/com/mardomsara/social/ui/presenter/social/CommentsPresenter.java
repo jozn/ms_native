@@ -4,20 +4,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.mardomsara.social.R;
-import com.mardomsara.social.app.API;
-import com.mardomsara.social.base.HttpOld;
-import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
-import com.mardomsara.social.helpers.Helper;
-import com.mardomsara.social.helpers.JsonUtil;
-import com.mardomsara.social.helpers.TimeUtil;
-import com.mardomsara.social.json.social.http.CommentSingleJson;
-import com.mardomsara.social.json.social.rows.CommentRowJson;
-import com.mardomsara.social.models.Session;
 import com.mardomsara.social.ui.BasePresenter;
-import com.mardomsara.social.ui.cells.PageCells;
 import com.mardomsara.social.ui.cells.lists.CommentsListCell;
-import com.mardomsara.social.ui.views.wigets.LoadingView;
 import com.mardomsara.social.ui.views.wigets.SimpleAddText;
 import com.mardomsara.social.ui.views.wigets.SimpleTopNav;
 
@@ -65,7 +54,7 @@ public class CommentsPresenter extends BasePresenter implements SimpleAddText.On
 
 	@Override
 	public void onAddText(String text) {
-		commentsListCell.addNewCommentByme(text);
+		commentsListCell.addNewCommentByMe(text);
 //		Helper.showDebugMessage(text);
 		/*CommentRowJson comment = new CommentRowJson();
 		comment.Sender = Session.buildUserSender();

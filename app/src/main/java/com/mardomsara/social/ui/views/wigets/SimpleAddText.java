@@ -10,7 +10,7 @@ import android.widget.TextView;
 import com.mardomsara.emojicon.EmojiconEditText;
 import com.mardomsara.social.R;
 import com.mardomsara.social.helpers.AppUtil;
-import com.mardomsara.social.ui.views.EmojiKeyboard3;
+import com.mardomsara.social.ui.views.EmojiKeyboard;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -46,12 +46,12 @@ public class SimpleAddText extends FrameLayout {
 
     OnAddText onAddListener;
 
-    EmojiKeyboard3 emojiKeybord;
+    EmojiKeyboard emojiKeybord;
     private void init() {
         View view = AppUtil.inflate(R.layout.widget_add_simple_text);
         ButterKnife.bind(this,view);
         addView(view);
-        emojiKeybord= new EmojiKeyboard3(input ,emoji_opener_btn, AppUtil.global_window);
+        emojiKeybord= new EmojiKeyboard(input ,emoji_opener_btn, AppUtil.global_window);
 
         send_btn.setOnClickListener((e)->{
             if(onAddListener != null){
@@ -64,6 +64,7 @@ public class SimpleAddText extends FrameLayout {
     public void setOnAddListener(OnAddText onAddListener) {
         this.onAddListener = onAddListener;
     }
+
 
     public interface OnAddText{
         void onAddText(String text);

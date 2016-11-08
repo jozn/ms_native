@@ -17,6 +17,7 @@ import com.mardomsara.social.models.Comment;
 import com.mardomsara.social.models.Session;
 import com.mardomsara.social.ui.cells.lists.CommentsListCell;
 import com.mardomsara.social.ui.presenter.social.ProfilePresenter;
+import com.mardomsara.social.ui.views.EmojiKeyboard;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,6 +49,7 @@ public class CommentRowCell {
     };
 
     View.OnClickListener gotoProfile = (v)->{
+		EmojiKeyboard.closeEmojiKeyboard();
         Nav.push(new ProfilePresenter(comment.UserId));
     };
 
@@ -96,6 +98,5 @@ public class CommentRowCell {
 
         DialogHelper.simpleMenu(items);
     }
-
 
 }
