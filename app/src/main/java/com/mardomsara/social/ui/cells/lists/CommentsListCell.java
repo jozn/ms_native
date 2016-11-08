@@ -5,12 +5,15 @@ import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
 
 import com.mardomsara.social.app.API;
+import com.mardomsara.social.base.Http.Http;
+import com.mardomsara.social.base.Http.Result;
 import com.mardomsara.social.base.HttpOld;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.JsonUtil;
 import com.mardomsara.social.helpers.TimeUtil;
+import com.mardomsara.social.json.HttpJson;
 import com.mardomsara.social.json.social.http.CommentSingleJson;
 import com.mardomsara.social.json.social.http.CommentsListJson;
 import com.mardomsara.social.json.social.rows.CommentRowJson;
@@ -106,38 +109,34 @@ public class CommentsListCell implements  AppHeaderFooterRecyclerViewAdapter.Loa
 		adaptor.notifyDataSetChanged();
 
 		AndroidUtil.runInBackgroundNoPanic(()->{
-			HttpOld.Req req = new HttpOld.Req();
-			req.absPath = API.COMMENTS_ADD.toString();
-			req.form.put("post_id",""+postId);
-			req.form.put("text",""+text);
-			HttpOld.Result res = HttpOld.masterSendPost(req);
-			boolean isError = false;
-			if(res.ok){
-				CommentSingleJson data = JsonUtil.fromJson(res.data,CommentSingleJson.class);
-				if(data != null && data.Payload != null && data.Status.equalsIgnoreCase("OK")){
+			Http.postPath("/comments/add")
+				.setFormParam("post_id",""+postId)
+				.setFormParam("text",""+text)
+				.doAsyncUi((res -> {
+					boolean isError = false;
+					if(res.isOk()){
+
+						HttpJson<CommentRowJson> data = Result.fromJson(res,CommentRowJson.class);
+						if(data != null && data.isPayloadNoneEmpty() && data.Status.equalsIgnoreCase("OK")){
 //                    Helper.showMessage(data.Load.toString());
-					comment.Id = data.Payload.Id;
-					comment.CreatedTime = data.Payload.CreatedTime;
-					comment._isNew=false;
-					AndroidUtil.runInUi(()->{
-						scrollToEnd();
+							comment.Id = data.Payload.Id;
+							comment.CreatedTime = data.Payload.CreatedTime;
+							comment._isNew=false;
+							scrollToEnd();
+							adaptor.notifyDataSetChanged();
+						}else {
+							isError = true;
+						}
+					}else {
+						isError = true;
+					}
+
+					if(isError){
+						Helper.showMessage("خطا در ثبت نظر");
+						comment._isNew=false;
 						adaptor.notifyDataSetChanged();
-					});
-				}else {
-					isError = true;
-				}
-			}else {
-				isError = true;
-			}
-
-			if(isError){
-				Helper.showMessage("خطا در ثبت نظر");
-				comment._isNew=false;
-				AndroidUtil.runInUi(()->{
-					adaptor.notifyDataSetChanged();
-				});
-			}
-
+					}
+				}));
 		});
 	}
 
@@ -199,4 +198,37 @@ if(!isNextPages){
         adaptor.setHasMorePage(false);
         }
         }
+
+
+        HttpOld.Req req = new HttpOld.Req();
+			req.absPath = API.COMMENTS_ADD.toString();
+			req.form.put("post_id",""+postId);
+			req.form.put("text",""+text);
+			HttpOld.Result res = HttpOld.masterSendPost(req);
+			boolean isError = false;
+			if(res.ok){
+				CommentSingleJson data = JsonUtil.fromJson(res.data,CommentSingleJson.class);
+				if(data != null && data.Payload != null && data.Status.equalsIgnoreCase("OK")){
+//                    Helper.showMessage(data.Load.toString());
+					comment.Id = data.Payload.Id;
+					comment.CreatedTime = data.Payload.CreatedTime;
+					comment._isNew=false;
+					AndroidUtil.runInUi(()->{
+						scrollToEnd();
+						adaptor.notifyDataSetChanged();
+					});
+				}else {
+					isError = true;
+				}
+			}else {
+				isError = true;
+			}
+
+			if(isError){
+				Helper.showMessage("خطا در ثبت نظر");
+				comment._isNew=false;
+				AndroidUtil.runInUi(()->{
+					adaptor.notifyDataSetChanged();
+				});
+			}
 */
