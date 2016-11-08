@@ -55,52 +55,6 @@ public class CommentsPresenter extends BasePresenter implements SimpleAddText.On
 	@Override
 	public void onAddText(String text) {
 		commentsListCell.addNewCommentByMe(text);
-//		Helper.showDebugMessage(text);
-		/*CommentRowJson comment = new CommentRowJson();
-		comment.Sender = Session.buildUserSender();
-		comment.PostId = postId;
-		comment.UserId = Session.getUserId();
-		comment.CreatedTime = (int) TimeUtil.getTime();
-		comment.Text = text;
-		comment._isNew=true;
-
-		commentsListCell.adaptor.list.add(0,comment);
-		commentsListCell.adaptor.notifyDataSetChanged();
-
-		AndroidUtil.runInBackgroundNoPanic(()->{
-			HttpOld.Req req = new HttpOld.Req();
-			req.absPath = API.COMMENTS_ADD.toString();
-			req.form.put("post_id",""+postId);
-			req.form.put("text",""+text);
-			HttpOld.Result res = HttpOld.masterSendPost(req);
-			boolean isError = false;
-			if(res.ok){
-				CommentSingleJson data = JsonUtil.fromJson(res.data,CommentSingleJson.class);
-				if(data != null && data.Payload != null && data.Status.equalsIgnoreCase("OK")){
-//                    Helper.showMessage(data.Load.toString());
-					comment.Id = data.Payload.Id;
-					comment.CreatedTime = data.Payload.CreatedTime;
-					comment._isNew=false;
-					AndroidUtil.runInUi(()->{
-						commentsListCell.adaptor.notifyDataSetChanged();
-					});
-				}else {
-					isError = true;
-				}
-			}else {
-				isError = true;
-			}
-
-			if(isError){
-				Helper.showMessage("خطا در ثبت نظر");
-				comment._isNew=false;
-				AndroidUtil.runInUi(()->{
-					commentsListCell.adaptor.notifyDataSetChanged();
-				});
-			}
-
-		});*/
-
 	}
 }
 
