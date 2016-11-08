@@ -45,7 +45,7 @@ public class Nav {
     }
 
     public static void push(FragmentPage frag){
-		EmojiKeyboard.closeEmojiKeyboard();
+		Helper.closeKeyboard();
 
 		_attachPage2(frag);
         _getActiveBranchCell().fragmentsPageStacks.add(frag);
@@ -57,11 +57,12 @@ public class Nav {
     }
 
     public static void pop() {
-		EmojiKeyboard.closeEmojiKeyboard();
+		Helper.closeKeyboard();
         onBackPress();//TODo extart functionality
     }
 
     public static void pop(int size) {
+		Helper.closeKeyboard();
         for(int i=0; i< size;i++){
             onBackPress();//TODo extart functionality
         }
@@ -96,7 +97,7 @@ public class Nav {
 
     @DebugLog
     public static void goToBranch(String bra) {
-		EmojiKeyboard.closeEmojiKeyboard();
+		Helper.closeKeyboard();
 
 //        if (bra == _activeBranch ){ return; };
         _activeBranch = bra;
@@ -145,7 +146,9 @@ public class Nav {
     //Fixme: .pop() events + bug: get longcliked branced not active
     public static void resetBranch(String branch) {
         Helper.showDebugMessage("resetBranch");
-       BranchCell bc =  _getActiveBranchCell();
+		Helper.closeKeyboard();
+
+		BranchCell bc =  _getActiveBranchCell();
         while (bc.fragmentsPageStacks.size()>1){
             bc.fragmentsPageStacks.pop();
         }

@@ -49,7 +49,6 @@ public class CommentRowCell {
     };
 
     View.OnClickListener gotoProfile = (v)->{
-		EmojiKeyboard.closeEmojiKeyboard();
         Nav.push(new ProfilePresenter(comment.UserId));
     };
 
@@ -81,17 +80,17 @@ public class CommentRowCell {
 
     }
 
-    void openMoreOptionDialog(CommentRowJson commont){
+    void openMoreOptionDialog(CommentRowJson comment){
         List<DialogHelper.MenuItem> items = new ArrayList<>();
 
         items.add(new DialogHelper.MenuItem("کپی متن",(v)->{
-            AndroidUtil.copyTextToClipboard(commont.Text,true);
+            AndroidUtil.copyTextToClipboard(comment.Text,true);
         }));
 
-        if(Session.getUserId() == commont.UserId){
+        if(Session.getUserId() == comment.UserId){
             items.add(new DialogHelper.MenuItem("حذف نظر",(v)->{
-                Comment.serverRemoveComment(commont.Id,adaptor.postId);
-                adaptor.list.remove(commont);
+                Comment.serverRemoveComment(comment.Id,adaptor.postId);
+                adaptor.list.remove(comment);
                 adaptor.notifyDataSetChanged();
             }));
         }
