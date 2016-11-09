@@ -23,6 +23,7 @@ import com.mardomsara.social.models.tables.ContactsCopy;
 import com.mardomsara.social.models.tables.User;
 import com.mardomsara.social.play.DividerItemDecoration;
 import com.mardomsara.social.ui.BasePresenter;
+import com.mardomsara.social.ui.views.wigets.FollowingButtonView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -165,6 +166,7 @@ public class UserAndContactsPresenter extends BasePresenter {
                 vh.second_name.setText(""+user.PhoneDisplayName);
                 vh.self.setTag(user);
                 vh.usersTable = user;
+				vh.following_button.setUser(user.getTo_UserInfoJson());
                 Uri imageUri = Helper.PathToUserAvatarUri(user.AvatarUrl);
                 vh.avatar.setImageURI(imageUri);
             }else if(vh0 instanceof ViewHolderForUnregisterd){
@@ -205,7 +207,7 @@ public class UserAndContactsPresenter extends BasePresenter {
             User usersTable;
 
             @Bind(R.id.following_button)
-            public View following_button;
+            public FollowingButtonView following_button;
 
             @Bind(R.id.second_name)
             public TextView second_name;

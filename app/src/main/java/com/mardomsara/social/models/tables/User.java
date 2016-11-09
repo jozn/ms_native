@@ -6,6 +6,8 @@ import com.github.gfx.android.orma.annotation.Table;
 import com.mardomsara.social.app.DB;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.JsonUtil;
+import com.mardomsara.social.json.social.rows.UserInfoJson;
+import com.mardomsara.social.models.UserModel;
 import com.mardomsara.social.models.memory_store.MemoryStore_Users;
 
 /**
@@ -90,6 +92,7 @@ public class User {
     ///////////////////////////////////////
 
     public void save(){
+		userInfoJson = null;//recalculate
 		if(PhoneNormalizedNumber  == null)PhoneNormalizedNumber = "";
 		if(!PhoneNormalizedNumber.equals("")){
 			IsPhoneContact =1;
@@ -106,6 +109,17 @@ public class User {
     public String getFullName() {
         return FirstName + " " + LastName;
     }
+
+	//////////////////////////////////////
+
+	UserInfoJson userInfoJson;
+
+	public UserInfoJson getTo_UserInfoJson(){
+		if(userInfoJson == null){
+			userInfoJson = UserModel.UserTableToUserInfoJson(this);
+		}
+		return userInfoJson;
+	}
 
 }
 //

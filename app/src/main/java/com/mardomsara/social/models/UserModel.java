@@ -107,4 +107,20 @@ public class UserModel {
 		return u;
 	}
 
+	public static UserInfoJson UserTableToUserInfoJson(User user){
+		UserInfoJson uj = new UserInfoJson();
+		uj.UserId = uj.Id = user.UserId;
+		uj.FollowingType = user.FollowingType;
+		uj.About = user.About;
+		uj.FirstName = user.FirstName;
+		uj.LastName = user.LastName;
+		uj.FullName = user.FullName;
+		uj.AvatarUrl = user.AvatarUrl;
+
+		uj.PrivacyProfile = user.PrivacyProfile;
+//		uj.AppVersion = 1;
+
+		return uj;
+	}
+
 }
