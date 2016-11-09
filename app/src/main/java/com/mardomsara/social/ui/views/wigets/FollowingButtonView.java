@@ -19,20 +19,20 @@ import com.mardomsara.social.ui.views.FontCache;
  * Created by Hamid on 6/27/2016.
  */
 public class FollowingButtonView extends TextView {
-    String icon_isFollowing = "\uf47d";//"\uf213";//ion-person
+    final static String icon_isFollowing = "\uf47d";//"\uf213";//ion-person
 //    String icon_isFollowing = "\uf213";//ion-person
-    String icon_notFollowing = "\uf47f" ;//"\uf211";//ion-person-addStart
-    String icon_isPravate = "\uf200";//ion-locked
-    String icon_isWaiting = "\uf403";//ion-ios-clock
+    final static String icon_notFollowing = "\uf47f" ;//"\uf211";//ion-person-addStart
+    final static String icon_isPravate = "\uf200";//ion-locked
+    final static String icon_isWaiting = "\uf403";//ion-ios-clock
 
-    int background_isFollowing = R.drawable.follow_btn_following;
-    int background_notFollowing = R.drawable.follow_btn_not_following;
-    int background_isPravate = R.drawable.follow_btn_following;
-    int background_isWaiting = R.drawable.follow_btn_waiteing;
+    final static int background_isFollowing = R.drawable.follow_btn_following;
+    final static int background_notFollowing = R.drawable.follow_btn_not_following;
+    final static int background_isPravate = R.drawable.follow_btn_following;
+    final static int background_isWaiting = R.drawable.follow_btn_waiteing;
 
-    int coloer_isFollowing =AndroidUtil.getColor(R.color.white);
-    int coloer_notFollowing =AndroidUtil.getColor(R.color.following_blue);
-    int coloer_inactive =AndroidUtil.getColor(R.color.following_inactive);
+    final static int coloer_isFollowing =AndroidUtil.getColor(R.color.white);
+    final static int coloer_notFollowing =AndroidUtil.getColor(R.color.following_blue);
+    final static int coloer_inactive =AndroidUtil.getColor(R.color.following_inactive);
 
 	UserInfoJson userAndMe = null;
 
