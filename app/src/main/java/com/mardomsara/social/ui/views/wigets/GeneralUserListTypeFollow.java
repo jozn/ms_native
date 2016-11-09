@@ -15,7 +15,7 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import com.mardomsara.social.R;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.Helper;
-import com.mardomsara.social.json.social.rows.UserRowAndMeJson;
+import com.mardomsara.social.json.social.rows.UserInfoJson;
 
 import java.util.List;
 
@@ -67,7 +67,7 @@ public class GeneralUserListTypeFollow extends FrameLayout {
 
     }
 
-    public void show(List<UserRowAndMeJson> list){
+    public void show(List<UserInfoJson> list){
         Adapter adapter = new Adapter();
         adapter.setList(list);
         recycler_view.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -79,15 +79,15 @@ public class GeneralUserListTypeFollow extends FrameLayout {
 
     public static class Adapter extends RecyclerView.Adapter<UserRowViewHolder> {
 
-        public void setList(List<UserRowAndMeJson> list) {
+        public void setList(List<UserInfoJson> list) {
             this.list = list;
         }
 
-        public List<UserRowAndMeJson> getList() {
+        public List<UserInfoJson> getList() {
             return list;
         }
 
-        public List<UserRowAndMeJson> list ;//= new ArrayList<>();
+        public List<UserInfoJson> list ;//= new ArrayList<>();
 
         @Override
         public UserRowViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -128,7 +128,7 @@ public class GeneralUserListTypeFollow extends FrameLayout {
 
         }
 
-        public void bind(UserRowAndMeJson row){
+        public void bind(UserInfoJson row){
             primary_name.setText(row.FullName);
             second_name.setText("@"+row.UserName);
             Helper.SetAvatar(avatar, row.AvatarUrl);

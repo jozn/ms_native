@@ -10,11 +10,8 @@ import com.mardomsara.social.R;
 import com.mardomsara.social.app.Router;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.Helper;
-import com.mardomsara.social.helpers.LangUtil;
 import com.mardomsara.social.json.social.rows.UserInfoJson;
-import com.mardomsara.social.json.social.rows.UserRowAndMeJson;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
-import com.mardomsara.social.ui.views.FontCache;
 import com.mardomsara.social.ui.views.wigets.FollowingButton;
 
 import java.util.ArrayList;

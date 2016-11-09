@@ -2,7 +2,6 @@ package com.mardomsara.social.json.social.http;
 
 import com.mardomsara.social.json.HttpBaseProtocol;
 import com.mardomsara.social.json.social.rows.TagRowJson;
-import com.mardomsara.social.json.social.rows.UserRowAndMeJson;
 
 import java.util.List;
 

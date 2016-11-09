@@ -20,6 +20,7 @@ public class UserInfoJson implements IUserAndMe {
 
     public String About = "";
 
+	//with me
     public int FollowingType = 0;
     public int PrivacyProfile = 0;
 

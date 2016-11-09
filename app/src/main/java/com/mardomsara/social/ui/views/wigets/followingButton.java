@@ -7,7 +7,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.mardomsara.social.R;
+import com.mardomsara.social.base.Http.Http;
 import com.mardomsara.social.helpers.AndroidUtil;
+import com.mardomsara.social.json.social.rows.UserInfoJson;
 import com.mardomsara.social.models.interfaces.IUserAndMe;
 import com.mardomsara.social.ui.views.FontCache;
 
@@ -30,7 +32,7 @@ public class FollowingButton extends TextView {
     int coloer_notFollowing =AndroidUtil.getColor(R.color.following_blue);
     int coloer_inactive =AndroidUtil.getColor(R.color.following_inactive);
 
-    IUserAndMe userAndMe = null;
+	UserInfoJson userAndMe = null;
 
     //todo complete http actions
     OnClickListener switchFollowing = (v)->{
@@ -77,7 +79,7 @@ public class FollowingButton extends TextView {
     }
 
     //deprecate
-    public void setUser(IUserAndMe user){
+    public void setUser(UserInfoJson user){
         userAndMe = user;
         updateUi();
     }
@@ -114,6 +116,23 @@ public class FollowingButton extends TextView {
         setTextColor(0xffffff);
         setBackgroundResource(background_isWaiting);
     }
+
+	void switchFolling(){
+		if(userAndMe == null) return;
+		int type =userAndMe.getFollowingType();
+		if(type == 0){//not foolowing - > do follow
+			if(userAndMe.getIsProfilePrivate() == 1){
+
+			}
+			Http.postPath("/v1/follow")
+				.setFormParam("followed_user_id",""+userAndMe);
+
+		}else if(type == 1){//following - unfollow
+
+		}else if(type == 2){//requested following
+
+		}
+	}
 
 //    public void setForUser(int userId, int followingType){
 //        userAndMe = null;

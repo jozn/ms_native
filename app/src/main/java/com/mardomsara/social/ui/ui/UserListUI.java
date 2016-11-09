@@ -10,7 +10,7 @@ import com.mardomsara.social.R;
 import com.mardomsara.social.app.Router;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.Helper;
-import com.mardomsara.social.json.social.rows.UserRowAndMeJson;
+import com.mardomsara.social.json.social.rows.UserInfoJson;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
 import com.mardomsara.social.ui.views.wigets.FollowingButton;
 
@@ -29,7 +29,7 @@ public class UserListUI {
 
     public static class Adapter extends AppHeaderFooterRecyclerViewAdapter<UserRowViewHolder> {
 
-        public List<UserRowAndMeJson> list = new ArrayList<>();
+        public List<UserInfoJson> list = new ArrayList<>();
 
         @Override
         protected int getContentItemCount() {
@@ -68,7 +68,7 @@ public class UserListUI {
 
         View view;
 
-        UserRowAndMeJson row;
+		UserInfoJson row;
 
         public UserRowViewHolder(View itemView) {
             super(itemView);
@@ -79,7 +79,7 @@ public class UserListUI {
             ButterKnife.bind(this,itemView);
         }
 
-        public void bind(UserRowAndMeJson row){
+        public void bind(UserInfoJson row){
             this.row = row;
             primary_name.setText(row.FullName);
             second_name.setText("@"+row.UserName);
