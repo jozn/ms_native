@@ -97,7 +97,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="3dp"
+                android:layout_height="40dp"
                 android:orientation="horizontal"
                 >
                 <com.mardomsara.social.ui.views.wigets.FollowingButtonView
@@ -106,13 +106,18 @@
                     android:layout_gravity="bottom"
                     android:layout_margin="6dp"
                     android:layout_marginBottom="0dp"
-                    android:id="@+id/following_button"
+                    android:id="@+id/follow_button"
 
                     android:layout_below="@id/count_holder"
                     android:layout_toRightOf="@id/avatar"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentBottom="true"
 
+                    />
+                <com.mardomsara.social.ui.views.wigets.ChatButtonView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/chat_button"
                     />
                 <Button
                     android:layout_width="wrap_content"

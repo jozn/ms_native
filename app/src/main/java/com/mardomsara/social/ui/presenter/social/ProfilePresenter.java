@@ -31,6 +31,8 @@ import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.cells.lists.PostsListCell;
 import com.mardomsara.social.ui.ui.UIPostsList;
 import com.mardomsara.social.ui.views.helpers.ViewHelper;
+import com.mardomsara.social.ui.views.wigets.ChatButtonView;
+import com.mardomsara.social.ui.views.wigets.FollowingButtonView;
 import com.mardomsara.social.ui.views.wigets.SimpleTopNav;
 
 import butterknife.Bind;
@@ -212,6 +214,9 @@ public class ProfilePresenter extends BasePresenter implements AppHeaderFooterRe
         @Bind(R.id.followers_holder) View followers_holder;
         @Bind(R.id.followings_holder) View followings_holder;
 
+        @Bind(R.id.chat_button) ChatButtonView chat_button;
+        @Bind(R.id.follow_button) FollowingButtonView follow_button;
+
         public ProfileTopInfo() {
             view = AppUtil.inflate(R.layout.profile_top_info);
             ButterKnife.bind(this,view);
@@ -230,6 +235,9 @@ public class ProfilePresenter extends BasePresenter implements AppHeaderFooterRe
             //clicks
             followings_holder.setOnClickListener(getFollowings_click(user.Id));
             followers_holder.setOnClickListener(getFollowers_click(user.Id));
+
+			chat_button.setUser(user);
+			follow_button.setUser(user);
 
             return this;
         }
