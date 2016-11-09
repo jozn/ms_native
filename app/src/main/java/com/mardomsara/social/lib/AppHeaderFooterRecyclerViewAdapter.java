@@ -299,7 +299,7 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
     }
 
 	String emptyMsg = "آیتمی برای نمایش وجود ندارد";
-	boolean enableAutoShowEmptyView = true;
+	boolean enableAutoShowEmptyView = false;
 	boolean isShowingEmptyView = false;
 	View emptyMsgView;
 

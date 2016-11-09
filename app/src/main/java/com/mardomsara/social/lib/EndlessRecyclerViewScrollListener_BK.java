@@ -1,6 +1,5 @@
 package com.mardomsara.social.lib;
 
-import android.os.Handler;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -8,7 +7,7 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 
 import com.mardomsara.social.helpers.AppUtil;
 
-public abstract class EndlessRecyclerViewScrollListener extends RecyclerView.OnScrollListener {
+public abstract class EndlessRecyclerViewScrollListener_BK extends RecyclerView.OnScrollListener {
     // The minimum amount of items to have below your current scroll position
     // before loading more.
     private int visibleThreshold = 5;
@@ -30,22 +29,22 @@ public abstract class EndlessRecyclerViewScrollListener extends RecyclerView.OnS
     RecyclerView.LayoutManager mLayoutManager;
 	HeaderFooterRecyclerViewAdapter adapter;
 
-    public EndlessRecyclerViewScrollListener(LinearLayoutManager layoutManager) {
+    public EndlessRecyclerViewScrollListener_BK(LinearLayoutManager layoutManager) {
         this.mLayoutManager = layoutManager;
     }
 
 	@Deprecated
-	public EndlessRecyclerViewScrollListener(LinearLayoutManager layoutManager,HeaderFooterRecyclerViewAdapter adapter) {
+	public EndlessRecyclerViewScrollListener_BK(LinearLayoutManager layoutManager, HeaderFooterRecyclerViewAdapter adapter) {
 		this.mLayoutManager = layoutManager;
 		this.adapter = adapter;
 	}
 
-    public EndlessRecyclerViewScrollListener(GridLayoutManager layoutManager) {
+    public EndlessRecyclerViewScrollListener_BK(GridLayoutManager layoutManager) {
         this.mLayoutManager = layoutManager;
         visibleThreshold = visibleThreshold * layoutManager.getSpanCount();
     }
 
-    public EndlessRecyclerViewScrollListener(StaggeredGridLayoutManager layoutManager) {
+    public EndlessRecyclerViewScrollListener_BK(StaggeredGridLayoutManager layoutManager) {
         this.mLayoutManager = layoutManager;
         visibleThreshold = visibleThreshold * layoutManager.getSpanCount();
     }
@@ -65,26 +64,12 @@ public abstract class EndlessRecyclerViewScrollListener extends RecyclerView.OnS
 
 	int calledCnt = 0;
 
-	///////////// For Ticker
-	boolean hastNextTickCheckInQueue = false;
-
-	Runnable tickRunner = ()->{
-		check();
-		hastNextTickCheckInQueue = false;
-	};
-
-	Handler handler = new Handler();
-
     // This happens many times a second during a scroll, so be wary of the code you place here.
     // We are given a few useful parameters to help us work out if we need to load some more data,
     // but first we check if we are waiting for the previous load to finish.
     @Override
     public void onScrolled(RecyclerView view, int dx, int dy) {
-		if(hastNextTickCheckInQueue == false){
-			hastNextTickCheckInQueue = true;
-
-			handler.postDelayed(tickRunner,100);
-		}
+        check();
     }
 
 	void check(){
@@ -118,7 +103,7 @@ public abstract class EndlessRecyclerViewScrollListener extends RecyclerView.OnS
 		// If the total item count is zero and the previous isn't, assume the
 		// list is invalidated and should be reset back to initial state
 		if (totalItemCount < previousTotalItemCount) {
-			this.currentPage = this.startingPageIndex;
+//			this.currentPage = this.startingPageIndex;
 			this.previousTotalItemCount = totalItemCount;
 			this.loading = false;
 			if (totalItemCount == 0) {
