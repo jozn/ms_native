@@ -7,6 +7,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.mardomsara.social.R;
+import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.ui.cells.LoadingCell;
 
 import java.util.ArrayList;
@@ -40,6 +42,20 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
     protected int getFooterItemCount() {
         return footerViews.size();
     }
+
+	@Override
+	protected int getContentItemCount_0() {
+		int s = getContentItemCount();
+		if(s == 0 ){
+			if(enableAutoShowEmptyView) {
+				showEmptyView();
+			}
+		}else {
+			hideEmptyView();
+		}
+		return s;
+	}
+	protected abstract int getContentItemCount();
 
     @Override
     protected int getFooterItemViewType(int position) {
@@ -239,7 +255,7 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
 //						pageNum++;
 					}
 				};
-                new Handler().post(r);
+                new Handler().post(r);;
             }
         };
         //ME: somehow if we attach scrollListener in here befor View attached to window it will
@@ -281,6 +297,48 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
             }
         };
     }
+
+	String emptyMsg = "آیتمی برای نمایش وجود ندارد";
+	boolean enableAutoShowEmptyView = true;
+	boolean isShowingEmptyView = false;
+	View emptyMsgView;
+
+	public void setEmptyMessage(String emptyMsg){
+		this.emptyMsg = emptyMsg;
+	}
+
+	public void showEmptyView(String emptyMsg){
+		if(isShowingEmptyView)return;
+		isShowingEmptyView = true;
+		Runnable r = ()->{
+			setHasMorePage(false);
+			emptyMsgView= AppUtil.inflate(R.layout.wiget_app__headr_footer_recycler_empty_msg);
+			appendViewToHeader(emptyMsgView);
+			notifyDataSetChanged();
+		};
+		new Handler().post(r);
+	}
+
+	public void showEmptyView(){
+		showEmptyView(emptyMsg);
+	}
+
+	public void hideEmptyView(){
+		if(!isShowingEmptyView)return;
+		isShowingEmptyView = false;
+		Runnable r = ()->{
+			removeViewFromHeader(emptyMsgView);
+			notifyDataSetChanged();
+		};
+		new Handler().post(r);
+	}
+	public void setEnableAutoShowEmptyView(boolean autoMsgView){
+		enableAutoShowEmptyView = autoMsgView;
+	}
+
+
+
+
 
     ///////////////////////////////////////////////
     ///// Class ///////////////

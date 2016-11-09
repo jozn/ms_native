@@ -60,7 +60,7 @@ public abstract class HeaderFooterRecyclerViewAdapter<
     public final int getItemCount() {
         // Cache the counts and return the sum of them.
         headerItemCount = getHeaderItemCount();
-        contentItemCount = getContentItemCount();
+        contentItemCount = getContentItemCount_0();
         footerItemCount = getFooterItemCount();
         return headerItemCount + contentItemCount + footerItemCount;
     }
@@ -191,7 +191,7 @@ public abstract class HeaderFooterRecyclerViewAdapter<
      */
     public final void notifyContentItemInserted(int position) {
         int newHeaderItemCount = getHeaderItemCount();
-        int newContentItemCount = getContentItemCount();
+        int newContentItemCount = getContentItemCount_0();
         if (position < 0 || position >= newContentItemCount) {
             throw new IndexOutOfBoundsException("The given position " + position + " is not within the position bounds for content items [0 - " + (newContentItemCount - 1) + "].");
         }
@@ -206,7 +206,7 @@ public abstract class HeaderFooterRecyclerViewAdapter<
      */
     public final void notifyContentItemRangeInserted(int positionStart, int itemCount) {
         int newHeaderItemCount = getHeaderItemCount();
-        int newContentItemCount = getContentItemCount();
+        int newContentItemCount = getContentItemCount_0();
         if (positionStart < 0 || itemCount < 0 || positionStart + itemCount > newContentItemCount) {
             throw new IndexOutOfBoundsException("The given range [" + positionStart + " - " + (positionStart + itemCount - 1) + "] is not within the position bounds for content items [0 - " + (newContentItemCount - 1) + "].");
         }
@@ -283,7 +283,7 @@ public abstract class HeaderFooterRecyclerViewAdapter<
      */
     public final void notifyFooterItemInserted(int position) {
         int newHeaderItemCount = getHeaderItemCount();
-        int newContentItemCount = getContentItemCount();
+        int newContentItemCount = getContentItemCount_0();
         int newFooterItemCount = getFooterItemCount();
         if (position < 0 || position >= newFooterItemCount) {
             throw new IndexOutOfBoundsException("The given position " + position + " is not within the position bounds for footerViews items [0 - " + (newFooterItemCount - 1) + "].");
@@ -299,7 +299,7 @@ public abstract class HeaderFooterRecyclerViewAdapter<
      */
     public final void notifyFooterItemRangeInserted(int positionStart, int itemCount) {
         int newHeaderItemCount = getHeaderItemCount();
-        int newContentItemCount = getContentItemCount();
+        int newContentItemCount = getContentItemCount_0();
         int newFooterItemCount = getFooterItemCount();
         if (positionStart < 0 || itemCount < 0 || positionStart + itemCount > newFooterItemCount) {
             throw new IndexOutOfBoundsException("The given range [" + positionStart + " - " + (positionStart + itemCount - 1) + "] is not within the position bounds for footerViews items [0 - " + (newFooterItemCount - 1) + "].");
@@ -420,7 +420,7 @@ public abstract class HeaderFooterRecyclerViewAdapter<
      *
      * @return the content item count.
      */
-    protected abstract int getContentItemCount();
+    protected abstract int getContentItemCount_0();
 
     /**
      * This method works exactly the same as {@link #onCreateViewHolder(android.view.ViewGroup, int)}, but for header items.

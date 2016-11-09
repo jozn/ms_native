@@ -76,7 +76,7 @@ public abstract class EndlessRecyclerViewScrollListener extends RecyclerView.OnS
 		int lastVisibleItemPosition = 0;
 		int totalItemCount;
 		if(adapter != null){
-			totalItemCount = adapter.getContentItemCount();
+			totalItemCount = adapter.getContentItemCount_0();
 		}else {
 			totalItemCount = mLayoutManager.getItemCount();
 		}
