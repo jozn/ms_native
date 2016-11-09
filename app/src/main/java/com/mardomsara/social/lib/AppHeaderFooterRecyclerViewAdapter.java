@@ -181,7 +181,7 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
 
     //// For multi pages ///////////
 
-    EndlessRecyclerViewScrollListener scrollListener;
+    AppEndlessRecyclerViewScrollListener scrollListener;
     RecyclerView recyclerView;
     LinearLayoutManager layoutManager;
     LoadNextPage pager;
@@ -197,7 +197,8 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
         }else {
 //            footerSize = 0;
             if(scrollListener != null && getContentItemCount() >0){
-                recyclerView.removeOnScrollListener(scrollListener);
+				scrollListener.setDisable(true);
+//                recyclerView.removeOnScrollListener(scrollListener);
                 //ME:dont do this it will crash: reason: child not attached???
 //                notifyFooterItemChanged(0);
             }
@@ -213,46 +214,40 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
         if(this.layoutManager != null && this.pager != null){
             showLoading();
             listenOnScroll();
+			new Handler().post(()->{
+				scrollListener.callNextPage();//call page 1
+			});
         }
     }
 
 	boolean isReload = false;
 	public void reload(){
-		isReload=true;
-		if(pager!=null){
-			pager.loadNextPage(1);
-		}
 		if(scrollListener!=null){
+			scrollListener.setDisable(false);
 			scrollListener.setCurrentPage(1);
+			scrollListener.callNextPage();
+			scrollListener.setLoading(true);
 		}
+//		if(pager!=null){
+//			pager.loadNextPage(1);
+//		}
+	}
 
-
-		/*recyclerView.removeOnScrollListener(scrollListener);
-		listenOnScroll();
-		recyclerView.addOnScrollListener(scrollListener);*/
+	public void nextPageIsLoaded(){
+		if(scrollListener!=null){
+			scrollListener.setLoading(false);
+		}
 	}
 
     public void listenOnScroll(){
 
-        scrollListener =new EndlessRecyclerViewScrollListener(layoutManager){
+        scrollListener =new AppEndlessRecyclerViewScrollListener(layoutManager,this){
             @Override
             public void onLoadMore(int page, int totalItemsCount) {
 //                loadNextPage();
 				Runnable r  = ()->{
 					if(pager!=null){
-						//workaround: onScroll in Endless... is called page 1 when reloaded
-						// : means we end up calling page 1 twice one ourself like loadfromserver(1)
-						// and another by Endless... scroll checker, so page 1 twice loads
-						// and then they the counts of items has bot changed so page 2 never will
-						// be called, and Endless... scroll remains in not wainting for page 1 complete.
-						if(isReload){
-							pager.loadNextPage(page+1);
-							scrollListener.decrCurrentPage();
-							isReload =false;
-						}else {
-							pager.loadNextPage(page);
-						}
-//						pageNum++;
+						pager.loadNextPage(page);
 					}
 				};
                 new Handler().post(r);;
@@ -355,3 +350,26 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
     }*/
 
 }
+
+	/*public void onLoadMore(int page, int totalItemsCount) {
+//                loadNextPage();
+		Runnable r  = ()->{
+			if(pager!=null){
+				//workaround: onScroll in Endless... is called page 1 when reloaded
+				// : means we end up calling page 1 twice one ourself like loadfromserver(1)
+				// and another by Endless... scroll checker, so page 1 twice loads
+				// and then they the counts of items has bot changed so page 2 never will
+				// be called, and Endless... scroll remains in not wainting for page 1 complete.
+				if(isReload){
+					pager.loadNextPage(page+1);
+					scrollListener.decrCurrentPage();
+					isReload =false;
+				}else {
+					pager.loadNextPage(page);
+				}
+//						pageNum++;
+			}
+		};
+		new Handler().post(r);;
+	}*/
+

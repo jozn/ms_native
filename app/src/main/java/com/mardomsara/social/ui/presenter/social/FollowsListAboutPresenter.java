@@ -86,7 +86,7 @@ public class FollowsListAboutPresenter extends BasePresenter implements AppHeade
 
     @Override
     public void loadNextPage(int pageNum) {
-		Helper.showDebugMessage("pageNum:" + pageNum);
+		Helper.showDebugMessage("pageNum: * " + pageNum);
         loadFromServer(pageNum);
     }
 
@@ -100,6 +100,7 @@ public class FollowsListAboutPresenter extends BasePresenter implements AppHeade
 			.setQueryParam("page",""+page)
 			.setQueryParam("limit",""+10)
 			.doAsyncUi((result)->{
+				adaptor.nextPageIsLoaded();
 				if(result.isOk()){
 					HttpJsonList<UserInfoJson> data = Result.fromJsonList(result, UserInfoJson.class);
 					if(data.isPayloadNoneEmpty()){

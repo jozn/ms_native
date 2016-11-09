@@ -62,7 +62,7 @@ public abstract class PagerRecyclerViewAdapter extends HeaderFooterRecyclerViewA
         }
     }
 
-    EndlessRecyclerViewScrollListener listener;
+    AppEndlessRecyclerViewScrollListener listener;
     RecyclerView recyclerView;
     LinearLayoutManager layoutManager;
     LoadNextPage pager;
@@ -74,7 +74,7 @@ public abstract class PagerRecyclerViewAdapter extends HeaderFooterRecyclerViewA
     }
 
     public void listenOnScroll(){
-            listener =new EndlessRecyclerViewScrollListener(layoutManager){
+            listener =new AppEndlessRecyclerViewScrollListener(layoutManager){
             @Override
             public void onLoadMore(int page, int totalItemsCount) {
 //                loadNextPage();

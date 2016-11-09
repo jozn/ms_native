@@ -8,7 +8,7 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 
 import com.mardomsara.social.helpers.AppUtil;
 
-public abstract class EndlessRecyclerViewScrollListener extends RecyclerView.OnScrollListener {
+public abstract class AppEndlessRecyclerViewScrollListener extends RecyclerView.OnScrollListener {
     // The minimum amount of items to have below your current scroll position
     // before loading more.
     private int visibleThreshold = 5;
@@ -21,6 +21,8 @@ public abstract class EndlessRecyclerViewScrollListener extends RecyclerView.OnS
     // Sets the starting page index
     private int startingPageIndex = 1;
 
+	boolean disable =false;
+
     public void setStopMore(boolean stopMore) {
         this.stopMore = stopMore;
     }
@@ -30,22 +32,21 @@ public abstract class EndlessRecyclerViewScrollListener extends RecyclerView.OnS
     RecyclerView.LayoutManager mLayoutManager;
 	HeaderFooterRecyclerViewAdapter adapter;
 
-    public EndlessRecyclerViewScrollListener(LinearLayoutManager layoutManager) {
+    public AppEndlessRecyclerViewScrollListener(LinearLayoutManager layoutManager) {
         this.mLayoutManager = layoutManager;
     }
 
-	@Deprecated
-	public EndlessRecyclerViewScrollListener(LinearLayoutManager layoutManager,HeaderFooterRecyclerViewAdapter adapter) {
+	public AppEndlessRecyclerViewScrollListener(LinearLayoutManager layoutManager, HeaderFooterRecyclerViewAdapter adapter) {
 		this.mLayoutManager = layoutManager;
 		this.adapter = adapter;
 	}
 
-    public EndlessRecyclerViewScrollListener(GridLayoutManager layoutManager) {
+    public AppEndlessRecyclerViewScrollListener(GridLayoutManager layoutManager) {
         this.mLayoutManager = layoutManager;
         visibleThreshold = visibleThreshold * layoutManager.getSpanCount();
     }
 
-    public EndlessRecyclerViewScrollListener(StaggeredGridLayoutManager layoutManager) {
+    public AppEndlessRecyclerViewScrollListener(StaggeredGridLayoutManager layoutManager) {
         this.mLayoutManager = layoutManager;
         visibleThreshold = visibleThreshold * layoutManager.getSpanCount();
     }
@@ -87,6 +88,73 @@ public abstract class EndlessRecyclerViewScrollListener extends RecyclerView.OnS
 		}
     }
 
+	void check(){
+		if(disable) return;
+		int lastVisibleItemPosition = 0;
+		int totalItemCount;
+		if(adapter != null){
+			totalItemCount = adapter.getContentItemCount_0();
+		}else {
+			totalItemCount = mLayoutManager.getItemCount();
+		}
+
+		if (mLayoutManager instanceof StaggeredGridLayoutManager) {
+			int[] lastVisibleItemPositions = ((StaggeredGridLayoutManager) mLayoutManager).findLastVisibleItemPositions(null);
+			// get maximum element within the list
+			lastVisibleItemPosition = getLastVisibleItem(lastVisibleItemPositions);
+		} else if (mLayoutManager instanceof LinearLayoutManager) {
+			lastVisibleItemPosition = ((LinearLayoutManager) mLayoutManager).findLastVisibleItemPosition();
+		} else if (mLayoutManager instanceof GridLayoutManager) {
+			lastVisibleItemPosition = ((GridLayoutManager) mLayoutManager).findLastVisibleItemPosition();
+		}
+
+		if(true){
+			calledCnt++;
+			AppUtil.log("loading: "+ loading + " lastVisibleItemPosition: "+lastVisibleItemPosition
+				+ " previousTotalItemCount: "+previousTotalItemCount
+				+ " totalItemCount: "+totalItemCount
+				+ "  currentPage: "+ currentPage
+				+ " calledCnt: "+ calledCnt);
+		}
+
+		// If it isn’t currently loading, we check to see if we have breached
+		// the visibleThreshold and need to reloadForAll more data.
+		// If we do need to reloadForAll some more data, we execute onLoadMore to fetch the data.
+		// threshold should reflect how many total columns there are too
+		if (!loading && (lastVisibleItemPosition + visibleThreshold) > totalItemCount) {
+			callNextPage();
+		}
+	}
+
+	void callNextPage(){
+		onLoadMore(currentPage, -1);
+		currentPage++;
+		loading = true;
+	}
+
+	//call this when there is error in adding more data to items, like network error
+	public void setLoading(boolean val){
+		loading = val;
+	}
+
+	public void decrCurrentPage(){
+		currentPage--;
+	}
+
+	public void setCurrentPage(int currentPage){
+		this.currentPage = currentPage;
+	}
+
+	public void setDisable(boolean disable) {
+		this.disable = disable;
+	}
+
+	// Defines the process for actually loading more data based on page
+    public abstract void onLoadMore(int page, int totalItemsCount);
+
+}
+
+/* old way
 	void check(){
 		int lastVisibleItemPosition = 0;
 		int totalItemCount;
@@ -131,9 +199,11 @@ public abstract class EndlessRecyclerViewScrollListener extends RecyclerView.OnS
 		if (loading && (totalItemCount > previousTotalItemCount)) {
 			//Me: i have changed this line many times, if there is wired thinhs in pagination its po
 			// posiible that this is causing problem
-//            /*if(stopMore){//BY ME
+//            */
+/*if(stopMore){//BY ME
 			loading = false;
-//            }*/
+//            }*//*
+
 //			if(stopMore){//BY ME
 //				loading = false;
 //            }
@@ -150,21 +220,4 @@ public abstract class EndlessRecyclerViewScrollListener extends RecyclerView.OnS
 			loading = true;
 		}
 	}
-
-	//call this when there is error in adding more data to items, like network error
-	public void setLoading(boolean val){
-		loading = val;
-	}
-
-	public void decrCurrentPage(){
-		currentPage--;
-	}
-
-	public void setCurrentPage(int currentPage){
-		this.currentPage = currentPage;
-	}
-
-    // Defines the process for actually loading more data based on page
-    public abstract void onLoadMore(int page, int totalItemsCount);
-
-}
+*/

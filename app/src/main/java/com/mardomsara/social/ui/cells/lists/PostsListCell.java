@@ -71,6 +71,7 @@ public class PostsListCell
 			.setQueryParam("last",""+getLastPostId(page))
 			.doAsyncUi((result)->{
 				loadedPostsFromNetNew(result,page);
+				adaptor.nextPageIsLoaded();
 			});
     }
 
