@@ -3,7 +3,9 @@ package com.mardomsara.social.models;
 import android.support.annotation.Nullable;
 
 import com.mardomsara.social.app.DB;
+import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
+import com.mardomsara.social.json.social.rows.UserInfoJson;
 import com.mardomsara.social.models.memory_store.MemoryStore_Users;
 import com.mardomsara.social.models.tables.ContactsCopy;
 import com.mardomsara.social.models.tables.User;
@@ -64,5 +66,45 @@ public class UserModel {
     public static List<User> getAllRegisteredContacts() {
         return DB.db.selectFromUser().IsPhoneContactEq(1).or().PhoneNormalizedNumberNotEq("").toList();
     }
+	
+	public static void onFollowedUser(UserInfoJson userJson){
+		if(userJson == null) return;
+		User user = getByUserId(userJson.getUserId());
+		if(user!= null){
+			user.FollowingType = 1;
+			AndroidUtil.runInBackgroundNoPanic(()->{user.save();});
+		}else {//insert new user
+			User u2 = UserInfoJsonToUserTable(userJson);
+			u2.FollowingType = 1;
+			AndroidUtil.runInBackgroundNoPanic(()->{u2.save();});
+		}
+		
+	}
+
+	//dont delete row beacuse we may have do some chat with him: - // TODO: 11/9/2016 some gc for User Table??? 
+	public static void onUnFollowedUser(UserInfoJson userJson){
+		if(userJson == null) return;
+		User user = getByUserId(userJson.getUserId());
+		if(user!= null){
+			user.FollowingType = 0;
+			AndroidUtil.runInBackgroundNoPanic(()->{user.save();});
+		}
+	}
+	
+	public static User UserInfoJsonToUserTable(UserInfoJson userJson){
+		User u = new User();
+		u.UserId = userJson.getUserId();
+		u.FollowingType = userJson.FollowingType;
+		u.About = userJson.About;
+		u.FirstName = userJson.FirstName;
+		u.LastName = userJson.LastName;
+		u.FullName = userJson.FullName;
+		u.AvatarUrl = userJson.AvatarUrl;
+		
+		u.PrivacyProfile = userJson.PrivacyProfile;
+		u.AppVersion = 1;
+		
+		return u;
+	}
 
 }

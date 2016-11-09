@@ -108,7 +108,7 @@ public class GeneralUserListTypeFollow extends FrameLayout {
     public static class UserRowViewHolder extends RecyclerView.ViewHolder {
 
         @Bind(R.id.following_button)
-        public FollowingButton following_button;
+        public FollowingButtonView following_button;
 
         @Bind(R.id.second_name)
         public TextView second_name;

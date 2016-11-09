@@ -8,15 +8,17 @@ import android.widget.TextView;
 
 import com.mardomsara.social.R;
 import com.mardomsara.social.base.Http.Http;
+import com.mardomsara.social.base.Http.Result;
 import com.mardomsara.social.helpers.AndroidUtil;
+import com.mardomsara.social.json.HttpJson;
 import com.mardomsara.social.json.social.rows.UserInfoJson;
-import com.mardomsara.social.models.interfaces.IUserAndMe;
+import com.mardomsara.social.models.UserModel;
 import com.mardomsara.social.ui.views.FontCache;
 
 /**
  * Created by Hamid on 6/27/2016.
  */
-public class FollowingButton extends TextView {
+public class FollowingButtonView extends TextView {
     String icon_isFollowing = "\uf47d";//"\uf213";//ion-person
 //    String icon_isFollowing = "\uf213";//ion-person
     String icon_notFollowing = "\uf47f" ;//"\uf211";//ion-person-addStart
@@ -35,7 +37,7 @@ public class FollowingButton extends TextView {
 	UserInfoJson userAndMe = null;
 
     //todo complete http actions
-    OnClickListener switchFollowing = (v)->{
+    OnClickListener switchFollowing_DEP = (v)->{
         if(userAndMe == null) return;
         int type =userAndMe.getFollowingType();
         if(type == 0){//not foolowing
@@ -50,20 +52,19 @@ public class FollowingButton extends TextView {
         }
     };
 
-    public FollowingButton(Context context) {
+    public FollowingButtonView(Context context) {
         super(context);
         init();
     }
 
-    public FollowingButton(Context context, AttributeSet attrs) {
+    public FollowingButtonView(Context context, AttributeSet attrs) {
         super(context, attrs);
         init();
     }
 
-    public FollowingButton(Context context, AttributeSet attrs, int defStyleAttr) {
+    public FollowingButtonView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init();
-        setOnClickListener(switchFollowing);
     }
 
     private void init() {
@@ -76,6 +77,10 @@ public class FollowingButton extends TextView {
         setGravity(Gravity.CENTER);
 
         setTextSize(AndroidUtil.dpToPx(12));
+
+		setOnClickListener((v)->{
+			switchFollowing();
+		});
     }
 
     //deprecate
@@ -117,17 +122,45 @@ public class FollowingButton extends TextView {
         setBackgroundResource(background_isWaiting);
     }
 
-	void switchFolling(){
+	void switchFollowing(){
 		if(userAndMe == null) return;
 		int type =userAndMe.getFollowingType();
 		if(type == 0){//not foolowing - > do follow
-			if(userAndMe.getIsProfilePrivate() == 1){
-
-			}
+			userAndMe.FollowingType = 1;
+			updateUi();
 			Http.postPath("/v1/follow")
-				.setFormParam("followed_user_id",""+userAndMe);
+				.setFormParam("followed_user_id",""+userAndMe.getUserId())
+				.doAsyncUi((result -> {
+					if(result.isOk()){
+						HttpJson<Integer> res = Result.fromJson(result,Integer.class);
+						if(res.isPayloadNoneEmpty()){
+							userAndMe.FollowingType = res.Payload;//Payload is FoLlowType
+							if(res.Payload == 1){
+								UserModel.onFollowedUser(userAndMe);
+							}
+						}
+					}
+					else {
+						userAndMe.FollowingType = 0;
+					}
+					updateUi();
+				}));
 
-		}else if(type == 1){//following - unfollow
+		}else if(type == 1){//following -> unfollow
+			userAndMe.FollowingType = 0;
+			updateUi();
+			Http.postPath("/v1/unfollow")
+				.setFormParam("followed_user_id",""+userAndMe.getUserId())
+				.doAsyncUi((result -> {
+					if(result.isOk()){
+						UserModel.onUnFollowedUser(userAndMe);
+					}
+					else {
+						userAndMe.FollowingType = 1;
+					}
+					updateUi();
+				}));
+
 
 		}else if(type == 2){//requested following
 

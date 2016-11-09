@@ -53,6 +53,13 @@ public class UserInfoJson implements IUserAndMe {
     public void setIsProfilePrivate(int type) {
 
     }
+
+	public int getUserId(){
+		if(Id < 0){
+			return UserId;
+		}
+		return Id;
+	}
 }
 //UserId: 6,
 //        UserName: "Edris",

@@ -14,7 +14,7 @@
 
     >
 
-    <com.mardomsara.social.ui.views.wigets.FollowingButton
+    <com.mardomsara.social.ui.views.wigets.FollowingButtonView
         android:layout_width="80dp"
         android:layout_height="30dp"
         android:id="@+id/following_button"

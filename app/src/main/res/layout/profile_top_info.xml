@@ -100,7 +100,7 @@
                 android:layout_height="3dp"
                 android:orientation="horizontal"
                 >
-                <com.mardomsara.social.ui.views.wigets.FollowingButton
+                <com.mardomsara.social.ui.views.wigets.FollowingButtonView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_gravity="bottom"

@@ -12,7 +12,7 @@ import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.json.social.rows.UserInfoJson;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
-import com.mardomsara.social.ui.views.wigets.FollowingButton;
+import com.mardomsara.social.ui.views.wigets.FollowingButtonView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,7 +49,7 @@ public class UserListWithAboutCell {
 
     public static class UserRowViewHolder extends RecyclerView.ViewHolder {
         @Bind(R.id.following_button)
-        public FollowingButton following_button;
+        public FollowingButtonView following_button;
 
         @Bind(R.id.second_name)
         public TextView second_name;
