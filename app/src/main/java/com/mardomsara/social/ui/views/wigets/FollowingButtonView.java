@@ -36,22 +36,6 @@ public class FollowingButtonView extends TextView {
 
 	UserInfoJson userAndMe = null;
 
-    //todo complete http actions
-    OnClickListener switchFollowing_DEP = (v)->{
-        if(userAndMe == null) return;
-        int type =userAndMe.getFollowingType();
-        if(type == 0){//not foolowing
-            if(userAndMe.getIsProfilePrivate() == 1){
-
-            }
-
-        }else if(type == 1){//following - unfollow
-
-        }else if(type == 2){//requested following
-
-        }
-    };
-
     public FollowingButtonView(Context context) {
         super(context);
         init();
