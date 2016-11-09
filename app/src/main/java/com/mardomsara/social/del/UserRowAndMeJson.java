@@ -1,4 +1,4 @@
-package com.mardomsara.social.json.social.rows;
+package com.mardomsara.social.del;
 
 import com.mardomsara.social.models.interfaces.IUserAndMe;
 

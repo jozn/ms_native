@@ -7,7 +7,7 @@ import java.util.List;
  */
 public class HttpJsonList<T> { //extends HttpJson {
     public String Status;
-    // public List<com.mardomsara.social.json.UserListFollow> UserListFollow = new ArrayList<com.mardomsara.social.json.UserListFollow>();
+    // public List<com.mardomsara.social.del.UserListFollow> UserListFollow = new ArrayList<com.mardomsara.social.del.UserListFollow>();
     public Integer ServerTime;
     public Integer Version;
     public Integer ResTime;

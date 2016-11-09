@@ -1,5 +1,5 @@
 
-package com.mardomsara.social.json;
+package com.mardomsara.social.del;
 
 @Deprecated
 public class UserListFollow {

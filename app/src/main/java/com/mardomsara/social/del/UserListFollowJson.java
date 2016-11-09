@@ -1,5 +1,7 @@
 
-package com.mardomsara.social.json;
+package com.mardomsara.social.del;
+
+import com.mardomsara.social.json.HttpBaseProtocol;
 
 import java.util.ArrayList;
 import java.util.List;
