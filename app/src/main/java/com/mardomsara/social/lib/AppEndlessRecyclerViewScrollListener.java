@@ -108,7 +108,7 @@ public abstract class AppEndlessRecyclerViewScrollListener extends RecyclerView.
 			lastVisibleItemPosition = ((GridLayoutManager) mLayoutManager).findLastVisibleItemPosition();
 		}
 
-		if(true){
+		if(false){
 			calledCnt++;
 			AppUtil.log("loading: "+ loading + " lastVisibleItemPosition: "+lastVisibleItemPosition
 				+ " previousTotalItemCount: "+previousTotalItemCount

@@ -29,7 +29,7 @@ public class PostsListCell
         implements AppHeaderFooterRecyclerViewAdapter.LoadNextPage {
 
     View loading;
-    UIPostsList.PostsAdaptor adaptor;
+    public UIPostsList.PostsAdaptor adaptor;
     SwipeRefreshLayout refreshLayout;
 
     public PostsListCell() {

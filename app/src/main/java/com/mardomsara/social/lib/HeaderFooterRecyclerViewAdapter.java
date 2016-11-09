@@ -88,7 +88,7 @@ public abstract class HeaderFooterRecyclerViewAdapter<
      */
     private int validateViewType(int viewType) {
         if (viewType < 0 || viewType >= VIEW_TYPE_MAX_COUNT) {
-            throw new IllegalStateException("viewType must be between 0 and " + VIEW_TYPE_MAX_COUNT);
+            throw new IllegalStateException("viewType must be between 0 and " + VIEW_TYPE_MAX_COUNT+ " - viewType given: "+viewType);
         }
         return viewType;
     }

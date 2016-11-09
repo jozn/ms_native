@@ -1,4 +1,4 @@
-package com.mardomsara.social.ui.presenter.social;
+package com.mardomsara.social.ui.presenter.social.old;
 
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
@@ -12,23 +12,16 @@ import com.mardomsara.social.Nav;
 import com.mardomsara.social.R;
 import com.mardomsara.social.app.API;
 import com.mardomsara.social.app.Router;
-import com.mardomsara.social.base.Http.Http;
-import com.mardomsara.social.base.Http.Result;
 import com.mardomsara.social.base.HttpOld;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.JsonUtil;
-import com.mardomsara.social.json.HttpJson;
-import com.mardomsara.social.json.HttpJsonList;
 import com.mardomsara.social.json.social.http.HomeStreamJson;
 import com.mardomsara.social.json.social.http.ProfileAndPostsJson;
-import com.mardomsara.social.json.social.rows.PostRowJson;
-import com.mardomsara.social.json.social.rows.UserInfoJson;
 import com.mardomsara.social.json.social.rows.UserTableJson;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
 import com.mardomsara.social.ui.BasePresenter;
-import com.mardomsara.social.ui.cells.lists.PostsListCell;
 import com.mardomsara.social.ui.ui.UIPostsList;
 import com.mardomsara.social.ui.views.helpers.ViewHelper;
 import com.mardomsara.social.ui.views.wigets.SimpleTopNav;
@@ -39,14 +32,14 @@ import butterknife.ButterKnife;
 /**
  * Created by Hamid on 8/14/2016.
  */
-public class ProfilePresenter extends BasePresenter implements AppHeaderFooterRecyclerViewAdapter.LoadNextPage {
+public class ProfilePresenter_BK extends BasePresenter implements AppHeaderFooterRecyclerViewAdapter.LoadNextPage {
 
 //    @Bind(R.id.fullname) TextView fullname;
 
     ViewGroup viewRoot;
     @Bind(R.id.simpleTopNav) SimpleTopNav nav;
     int UserId;
-    public ProfilePresenter(int userId) {
+    public ProfilePresenter_BK(int userId) {
         UserId = userId;
     }
 
@@ -55,110 +48,64 @@ public class ProfilePresenter extends BasePresenter implements AppHeaderFooterRe
         viewRoot =(ViewGroup) AppUtil.inflate(R.layout.presenter_profile);
         ButterKnife.bind(this,viewRoot);
         nav.setTitle("پروفایل");
-        load2();
+        load();
         return viewRoot;
     }
 
     ProfileTopInfo profileTopInfo;
-//    UIPostsList.PostsAdaptor adaptor;
-	public UIPostsList.PostsAdaptor adaptor;
-	PostsListCell postsListCell;
+    UIPostsList.PostsAdaptor adaptor;
     SwipeRefreshLayout refreshLayout;
+    private void load() {
+        refreshLayout = ViewHelper.newSwipeRefreshLayout(ViewHelper.MATCH_PARENT,ViewHelper.MATCH_PARENT);
+        adaptor = new UIPostsList.PostsAdaptor();
+        profileTopInfo = new ProfileTopInfo();
+        adaptor.appendViewToHeader(profileTopInfo.view);
+//        RecyclerView rv = UIPostsList.buildNew(adaptor);
+        RecyclerView recycler_view = ViewHelper.newRecyclerViewMatch();
+        LinearLayoutManager layoutManager = new LinearLayoutManager(AppUtil.getContext());
+        recycler_view.setLayoutManager(layoutManager);
+        recycler_view.setAdapter(adaptor);
+        adaptor.setUpForPaginationWith(recycler_view,layoutManager,this);
+//        adaptor.setRecyclerView(recycler_view);
+        adaptor.showLoading();
 
-	void load2(){//copy of PostsListCell
-		refreshLayout = ViewHelper.newSwipeRefreshLayout(ViewHelper.MATCH_PARENT,ViewHelper.MATCH_PARENT);
-		adaptor = new UIPostsList.PostsAdaptor();
-		RecyclerView recycler_view = ViewHelper.newRecyclerViewMatch();
-		LinearLayoutManager layoutManager = new LinearLayoutManager(AppUtil.getContext());
-		recycler_view.setLayoutManager(layoutManager);
-		recycler_view.setAdapter(adaptor);
-		adaptor.setUpForPaginationWith(recycler_view,layoutManager,this);
-		adaptor.showLoading();
+        refreshLayout.addView(recycler_view);
+        viewRoot.addView(refreshLayout);
+        refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                Helper.showDebugMessage("re");
+                loadPostsAndProfileFromServer(1);
+            }
+        });
 
-		profileTopInfo = new ProfileTopInfo();
-		adaptor.appendViewToHeader(profileTopInfo.view);
+//        loadPostsAndProfileFromServer();
+    }
 
-		refreshLayout.addView(recycler_view);
+    //////////////////////////////////////////////////////////////////
+    //// For profile ///////////////////
+    private void loadPostsAndProfileFromServer(int page) {
+        int pageCnt = page -1;
+        AndroidUtil.runInBackground(()->{
+            HttpOld.Req req = new HttpOld.Req();
+//            req.absUrl = API.POSTS_STREAM_GET.toString();
+            req.absPath = API.PROFILE_ALL.toString();
+            req.urlParams.put("profile_id",""+UserId);
+            req.urlParams.put("page",""+pageCnt);
+            HttpOld.Result res = HttpOld.get(req);
+            if(res.ok){
+                AndroidUtil.runInUi(()->{
+                   /*TextView tv= (TextView)viewRoot.findViewById(R.id.loading);
+                    tv.setText(res.data);*/
+                    loadedPostsAndProfileFromNet(res);
 
-		viewRoot.addView(refreshLayout);
-		reload();
-		refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-			@Override
-			public void onRefresh() {
-				Helper.showDebugMessage("reload");
-				reload();
-			}
-		});
-	}
-
-	void reload(){
-		loadToInfoFromServer();
-		loadPostsFromServer2(1);
-	}
-
-	private void loadToInfoFromServer() {
-		Http.getPath("/v1/profile/info")
-			.setQueryParam("profile_id",""+UserId)
-			.doAsyncUi((result)->{
-				HttpJson<UserTableJson> data = Result.fromJson(result,UserTableJson.class);
-				if(data.isPayloadNoneEmpty()){
-					profileTopInfo.bind(data.Payload);
-					adaptor.notifyDataSetChanged();
-				}
-			});
-	}
-
-	private void loadPostsFromServer2(int page) {
-		Http.getPath("/v1/profile/posts")
-			.setQueryParam("page",""+page)
-			.setQueryParam("last",""+getLastPostId(page))
-			.setQueryParam("profile_id",""+UserId)
-			.doAsyncUi((result)->{
-				loadedPostsFromNetNew(result,page);
-				adaptor.nextPageIsLoaded();
-			});
-	}
-
-	private int getLastPostId(int page) {
-		if(page == 1)return 0;//fix for refreshing
-		if(adaptor.posts.size() > 0 ){
-			return adaptor.posts.get(adaptor.posts.size()-1).Id;
-		}
-		return 0;
-	}
-
-	private void loadedPostsFromNetNew(Result res, int page) {
-		hideRefreshLoading();
-		HttpJsonList<PostRowJson> data= Result.fromJsonList(res, PostRowJson.class);
-		if(data != null){
-			AndroidUtil.runInUi(()->{
-				if(!data.isPayloadNoneEmpty() ){
-					adaptor.setHasMorePage(false);
-				}
-				if( data.isPayloadNoneEmpty() ){
-					if(page == 1){
-						adaptor.posts.clear();
-					}
-					adaptor.posts.addAll(data.Payload);
-					adaptor.notifyDataSetChanged();
-				}
-			});
-		}
-	}
-
-	private void hideRefreshLoading(){
-		refreshLayout.setRefreshing(false);
-	}
-
-	@Override
-	public void loadNextPage(int pageNum) {
-		Helper.showMessage("load next"+pageNum);
-		if(pageNum <= 1){
-			reload();
-		}else {
-			loadPostsFromServer2(pageNum);
-		}
-	}
+                });
+            }
+            AndroidUtil.runInUiNoPanic(()->{
+                refreshLayout.setRefreshing(false);
+            });
+        });
+    }
 
     private void loadedPostsAndProfileFromNet(HttpOld.Result res) {
         ProfileAndPostsJson data= JsonUtil.fromJson(res.data, ProfileAndPostsJson.class);
@@ -173,16 +120,43 @@ public class ProfilePresenter extends BasePresenter implements AppHeaderFooterRe
     }
     ///////////////////////////////////////////////////////////////////////
 
-/*
+    private void loadPostsFromServer(int page) {
+        int pageCnt = page -1;
+        AndroidUtil.runInBackground(()->{
+            HttpOld.Req req = new HttpOld.Req();
+//            req.absUrl = API.POSTS_STREAM_GET.toString();
+            req.absPath = API.PROFILE_POSTS.toString();
+            req.urlParams.put("profile_id",""+UserId);
+            req.urlParams.put("peer_id",""+UserId);
+            req.urlParams.put("page",""+pageCnt);
+            HttpOld.Result res = HttpOld.get(req);
+            if(res.ok){
+                AndroidUtil.runInUi(()->{
+                    loadedPostsFromNet(res);
+                });
+            }
+        });
+    }
+
+    private void loadedPostsFromNet(HttpOld.Result res) {
+        HomeStreamJson data= JsonUtil.fromJson(res.data, HomeStreamJson.class);
+        if(data != null && data.Payload != null && data.Status.equalsIgnoreCase("OK")){
+            AndroidUtil.runInUiNoPanic(()->{
+                adaptor.posts.addAll(data.Payload);
+                adaptor.notifyDataSetChanged();
+            });
+        }
+    }
+
     @Override
-    public void loadNextPage2(int pageNum) {
+    public void loadNextPage(int pageNum) {
         Helper.showMessage("load next"+pageNum);
         if(pageNum <= 1){
             loadPostsAndProfileFromServer(1);
         }else {
             loadPostsFromServer(pageNum);
         }
-    }*/
+    }
 
 
     public static View.OnClickListener getFollowings_click(int Userid) {
