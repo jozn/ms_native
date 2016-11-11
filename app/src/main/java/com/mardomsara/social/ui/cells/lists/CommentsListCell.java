@@ -81,32 +81,6 @@ public class CommentsListCell implements  AppHeaderFooterRecyclerViewAdapter.Loa
         });
     }
 
-	private void loadCommentsFromNet_old(int page) {
-		AndroidUtil.runInBackground(()->{
-			HttpOld.Req req = new HttpOld.Req();
-			req.absPath = API.COMMENTS_LIST_GET.toString();
-			req.urlParams.put("post_id",""+postId);
-			req.urlParams.put("page",""+page);
-			HttpOld.Result res = HttpOld.get(req);
-			if(res.ok){
-				AndroidUtil.runInUi(()->{
-					loadedCommentsFromNet(res);
-				});
-			}
-		});
-	}
-
-    private void loadedCommentsFromNet(HttpOld.Result res) {
-        CommentsListJson data = JsonUtil.fromJson(res.data, CommentsListJson.class);
-        if(data != null && data.Status.equalsIgnoreCase("OK") && data.Payload!=null){
-            adaptor.list.addAll(data.Payload);
-			scrollToEnd();
-            adaptor.notifyDataSetChanged();
-        }else {
-            adaptor.setHasMorePage(false);
-        }
-    }
-
 	void scrollToEnd(){
 		layoutManager.scrollToPositionWithOffset(0,10000);
 	}
