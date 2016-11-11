@@ -68,6 +68,7 @@ public class ProfilePresenter extends BasePresenter implements AppHeaderFooterRe
     SwipeRefreshLayout refreshLayout;
 
 	void load2(){//copy of PostsListCell
+		profileTopInfo = new ProfileTopInfo();
 		refreshLayout = ViewHelper.newSwipeRefreshLayout(ViewHelper.MATCH_PARENT,ViewHelper.MATCH_PARENT);
 		adaptor = new UIPostsList.PostsAdaptor();
 		RecyclerView recycler_view = ViewHelper.newRecyclerViewMatch();
@@ -77,7 +78,6 @@ public class ProfilePresenter extends BasePresenter implements AppHeaderFooterRe
 		adaptor.setUpForPaginationWith(recycler_view,layoutManager,this);
 		adaptor.showLoading();
 
-		profileTopInfo = new ProfileTopInfo();
 		adaptor.appendViewToHeader(profileTopInfo.view);
 
 		refreshLayout.addView(recycler_view);
@@ -102,10 +102,12 @@ public class ProfilePresenter extends BasePresenter implements AppHeaderFooterRe
 		Http.getPath("/v1/profile/info")
 			.setQueryParam("profile_id",""+UserId)
 			.doAsyncUi((result)->{
-				HttpJson<UserTableJson> data = Result.fromJson(result,UserTableJson.class);
-				if(data.isPayloadNoneEmpty()){
-					profileTopInfo.bind(data.Payload);
-					adaptor.notifyDataSetChanged();
+				if(result.isOk()){
+					HttpJson<UserTableJson> data = Result.fromJson(result,UserTableJson.class);
+					if(data.isPayloadNoneEmpty()){
+						profileTopInfo.bind(data.Payload);
+						adaptor.notifyDataSetChanged();
+					}
 				}
 			});
 	}
@@ -162,30 +164,7 @@ public class ProfilePresenter extends BasePresenter implements AppHeaderFooterRe
 		}
 	}
 
-    private void loadedPostsAndProfileFromNet(HttpOld.Result res) {
-        ProfileAndPostsJson data= JsonUtil.fromJson(res.data, ProfileAndPostsJson.class);
-        if(data != null && data.Status.equalsIgnoreCase("OK")){
-            AndroidUtil.runInUiNoPanic(()->{
-                profileTopInfo.bind(data.Payload.User);
-                adaptor.posts.clear();
-                adaptor.posts.addAll(data.Payload.Posts);
-                adaptor.notifyDataSetChanged();
-            });
-        }
-    }
-    ///////////////////////////////////////////////////////////////////////
-
-/*
-    @Override
-    public void loadNextPage2(int pageNum) {
-        Helper.showMessage("load next"+pageNum);
-        if(pageNum <= 1){
-            loadPostsAndProfileFromServer(1);
-        }else {
-            loadPostsFromServer(pageNum);
-        }
-    }*/
-
+	////////////////////////////////////////////////////////////
 
     public static View.OnClickListener getFollowings_click(int Userid) {
         return (v)->{
@@ -223,7 +202,7 @@ public class ProfilePresenter extends BasePresenter implements AppHeaderFooterRe
         }
 
         ProfileTopInfo bind(UserTableJson user){
-
+			if(user == null)return this;
             Helper.SetAvatar(avatar,user.AvatarUrl);
             fullname.setText(user.getFullName());
             about.setText(""+user.About);

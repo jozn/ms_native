@@ -1,11 +1,13 @@
 package com.mardomsara.social.ui.views.wigets;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.joanzapata.iconify.widget.IconTextView;
 import com.mardomsara.social.R;
 import com.mardomsara.social.base.Http.Http;
 import com.mardomsara.social.base.Http.Result;
@@ -57,7 +59,7 @@ public class FollowingButtonView extends TextView {
         setLayoutParams(new ViewGroup.LayoutParams(AndroidUtil.dpToPx(150),AndroidUtil.dpToPx(20)));
         uiNotFollowing();
 //        uiIsFollowing();
-        setTypeface(FontCache.getIonic());
+        setTypeface(FontCache.getIonic(), Typeface.BOLD);
         setGravity(Gravity.CENTER);
 
         setTextSize(AndroidUtil.dpToPx(12));

@@ -1,4 +1,4 @@
-package com.mardomsara.social.ui;
+package com.mardomsara.social.del;
 
 import android.app.Fragment;
 import android.content.Context;
