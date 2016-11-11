@@ -14,6 +14,7 @@ import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.JsonUtil;
 import com.mardomsara.social.helpers.TimeUtil;
 import com.mardomsara.social.json.HttpJson;
+import com.mardomsara.social.json.HttpJsonList;
 import com.mardomsara.social.json.social.http.CommentSingleJson;
 import com.mardomsara.social.json.social.http.CommentsListJson;
 import com.mardomsara.social.json.social.rows.CommentRowJson;
@@ -49,7 +50,7 @@ public class CommentsListCell implements  AppHeaderFooterRecyclerViewAdapter.Loa
         adaptor.setUpForPaginationWith(recyclerView,layoutManager,this);
 //        adaptor.listenOnScroll();
 
-        loadCommentsFromNet(0);
+//        loadCommentsFromNet(0);
     }
 
     public void setLayoutManagerOrintation(int orintation){
@@ -58,18 +59,42 @@ public class CommentsListCell implements  AppHeaderFooterRecyclerViewAdapter.Loa
 
     private void loadCommentsFromNet(int page) {
         AndroidUtil.runInBackground(()->{
-            HttpOld.Req req = new HttpOld.Req();
-            req.absPath = API.COMMENTS_LIST_GET.toString();
-            req.urlParams.put("post_id",""+postId);
-            req.urlParams.put("page",""+page);
-            HttpOld.Result res = HttpOld.get(req);
-            if(res.ok){
-                AndroidUtil.runInUi(()->{
-                    loadedCommentsFromNet(res);
-                });
-            }
+            Http.getPath("/v1/comments/list")
+				.setQueryParam("post_id",""+postId)
+				.setQueryParam("page",""+page)
+				.doAsyncUi((result -> {
+					if(result.isOk()){
+						HttpJsonList<CommentRowJson> data = Result.fromJsonList(result,CommentRowJson.class);
+						if(data.isPayloadNoneEmpty()){
+							if(page== 1){
+								adaptor.list.clear();
+							}
+							adaptor.list.addAll(data.Payload);
+							scrollToEnd();
+						}else {
+							adaptor.setHasMorePage(false);
+						}
+						adaptor.notifyDataSetChanged();
+					}
+					adaptor.nextPageIsLoaded();
+				}));
         });
     }
+
+	private void loadCommentsFromNet_old(int page) {
+		AndroidUtil.runInBackground(()->{
+			HttpOld.Req req = new HttpOld.Req();
+			req.absPath = API.COMMENTS_LIST_GET.toString();
+			req.urlParams.put("post_id",""+postId);
+			req.urlParams.put("page",""+page);
+			HttpOld.Result res = HttpOld.get(req);
+			if(res.ok){
+				AndroidUtil.runInUi(()->{
+					loadedCommentsFromNet(res);
+				});
+			}
+		});
+	}
 
     private void loadedCommentsFromNet(HttpOld.Result res) {
         CommentsListJson data = JsonUtil.fromJson(res.data, CommentsListJson.class);
@@ -88,6 +113,7 @@ public class CommentsListCell implements  AppHeaderFooterRecyclerViewAdapter.Loa
 
     @Override
     public void loadNextPage(int pageNum) {
+		Helper.showDebugMessage("page comment: "+pageNum);
         loadCommentsFromNet(pageNum);
     }
 

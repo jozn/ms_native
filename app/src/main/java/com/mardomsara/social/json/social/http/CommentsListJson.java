@@ -8,6 +8,7 @@ import java.util.List;
 /**
  * Created by Hamid on 7/25/2016.
  */
+@Deprecated
 public class CommentsListJson extends HttpBaseProtocol {
     public List<CommentRowJson> Payload ;
 }
