@@ -27,6 +27,7 @@ import com.mardomsara.social.json.social.rows.PostRowJson;
 import com.mardomsara.social.json.social.rows.UserInfoJson;
 import com.mardomsara.social.json.social.rows.UserTableJson;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
+import com.mardomsara.social.models.Session;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.cells.lists.PostsListCell;
 import com.mardomsara.social.ui.ui.UIPostsList;
@@ -68,7 +69,7 @@ public class ProfilePresenter extends BasePresenter implements AppHeaderFooterRe
     SwipeRefreshLayout refreshLayout;
 
 	void load2(){//copy of PostsListCell
-		profileTopInfo = new ProfileTopInfo();
+		profileTopInfo = new ProfileTopInfo(UserId);
 		refreshLayout = ViewHelper.newSwipeRefreshLayout(ViewHelper.MATCH_PARENT,ViewHelper.MATCH_PARENT);
 		adaptor = new UIPostsList.PostsAdaptor();
 		RecyclerView recycler_view = ViewHelper.newRecyclerViewMatch();
@@ -164,6 +165,7 @@ public class ProfilePresenter extends BasePresenter implements AppHeaderFooterRe
 		}
 	}
 
+
 	////////////////////////////////////////////////////////////
 
     public static View.OnClickListener getFollowings_click(int Userid) {
@@ -181,6 +183,8 @@ public class ProfilePresenter extends BasePresenter implements AppHeaderFooterRe
     }
 
     static class ProfileTopInfo{
+		int UserId;
+
         View view;
         @Bind(R.id.avatar) SimpleDraweeView avatar;
         @Bind(R.id.fullname) TextView fullname;
@@ -196,13 +200,18 @@ public class ProfilePresenter extends BasePresenter implements AppHeaderFooterRe
         @Bind(R.id.chat_button) ChatButtonView chat_button;
         @Bind(R.id.follow_button) FollowingButtonView follow_button;
 
-        public ProfileTopInfo() {
+        public ProfileTopInfo(int userId) {
             view = AppUtil.inflate(R.layout.profile_top_info);
             ButterKnife.bind(this,view);
+			UserId=userId;
+			hideShowMyButns();
         }
 
         ProfileTopInfo bind(UserTableJson user){
 			if(user == null)return this;
+
+			hideShowMyButns();
+
             Helper.SetAvatar(avatar,user.AvatarUrl);
             fullname.setText(user.getFullName());
             about.setText(""+user.About);
@@ -220,6 +229,17 @@ public class ProfilePresenter extends BasePresenter implements AppHeaderFooterRe
 
             return this;
         }
+
+
+		void hideShowMyButns(){
+			if(Session.isUserIdMe(UserId)){
+				chat_button.setVisibility(View.GONE);
+				follow_button.setVisibility(View.GONE);
+			}else {
+				chat_button.setVisibility(View.VISIBLE);
+				follow_button.setVisibility(View.VISIBLE);
+			}
+		}
     }
 
 }

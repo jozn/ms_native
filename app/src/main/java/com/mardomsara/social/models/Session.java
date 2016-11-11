@@ -59,6 +59,11 @@ public class Session {
 		return 0;
     }
 
+	public static boolean isUserIdMe(int peerId){
+		if(getUserId() == peerId)return true;
+		return false;
+	}
+
     public static UserTableJson getUserInfo(){
         if(userInfo!= null){
             return userInfo;
