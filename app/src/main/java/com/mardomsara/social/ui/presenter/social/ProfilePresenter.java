@@ -229,7 +229,7 @@ public class ProfilePresenter extends BasePresenter implements AppHeaderFooterRe
 
             return this;
         }
-		
+
 		void hideShowMyButns(){
 			if(Session.isUserIdMe(UserId)){
 				chat_button.setVisibility(View.GONE);
