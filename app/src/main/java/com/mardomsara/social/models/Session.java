@@ -5,13 +5,17 @@ import android.os.Build;
 import com.mardomsara.social.app.API;
 import com.mardomsara.social.app.Config;
 import com.mardomsara.social.app.Constants;
+import com.mardomsara.social.base.Http.Http;
+import com.mardomsara.social.base.Http.Result;
 import com.mardomsara.social.base.HttpOld;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.JsonUtil;
+import com.mardomsara.social.json.HttpJson;
 import com.mardomsara.social.json.social.http.ServerUserTableJson;
 import com.mardomsara.social.json.social.rows.UserInfoJson;
 import com.mardomsara.social.json.social.rows.UserTableJson;
 import com.mardomsara.social.models.stores.Store;
+import com.mardomsara.social.models.stores.StoreConstants;
 import com.orhanobut.hawk.Hawk;
 
 /**
@@ -24,7 +28,7 @@ public class Session {
         getUserInfo();
     }
 
-    public static void fetchUserInfoFromServer(){
+    public static void fetchUserInfoFromServer_DEP(){
         AndroidUtil.runInBackgroundNoPanic(()->{
             HttpOld.Req req = new HttpOld.Req();
             req.absPath = API.SESSION_INFO.toString();
@@ -42,6 +46,21 @@ public class Session {
         });
     }
 
+	public static void fetchUserInfoFromServer(){
+		AndroidUtil.runInBackgroundNoPanic(()->{
+			Http.postPath("/v1/session/info")
+				.doAsync(result -> {
+					if(result.isOk()){
+						HttpJson<UserTableJson> data = Result.fromJson(result,UserTableJson.class);
+						if(data.Status.equalsIgnoreCase("OK") && data.isPayloadNoneEmpty()){
+							Store.putString(StoreConstants.SessionUserInfo,JsonUtil.toJson(data.Payload));
+							userInfo = data.Payload;
+						}
+					}
+				});
+		});
+	}
+
     public static int getUserId(){
         if(userInfo!=null){
             return userInfo.Id;
@@ -56,6 +75,16 @@ public class Session {
 				return 2;
 			}
 		}
+
+		String data = Store.getString(StoreConstants.SessionUserInfo);
+		if(data != null && !data.equals("")){
+			UserTableJson json = JsonUtil.fromJson(data,UserTableJson.class);
+			if(json!=null){
+				userInfo = json;
+				return json.Id;
+			}
+		}
+
 		return 0;
     }
 

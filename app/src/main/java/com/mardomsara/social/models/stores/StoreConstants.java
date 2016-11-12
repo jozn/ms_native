@@ -8,4 +8,6 @@ public class StoreConstants {
 	public static final String LAST_USER_TABLE_SYNCED = "LAST_USER_TABLE_SYNCED";
 	public static final String KEYBOARD_SIZE = "KEYBOARD_SIZE";
 
+	public static final String SessionUserInfo = "SessionUserInfo";
+
 }

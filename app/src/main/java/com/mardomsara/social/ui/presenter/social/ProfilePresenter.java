@@ -49,6 +49,7 @@ public class ProfilePresenter extends BasePresenter implements AppHeaderFooterRe
     ViewGroup viewRoot;
     @Bind(R.id.simpleTopNav) SimpleTopNav nav;
     int UserId;
+    boolean isMyProfile =false;
     public ProfilePresenter(int userId) {
         UserId = userId;
     }
@@ -84,6 +85,11 @@ public class ProfilePresenter extends BasePresenter implements AppHeaderFooterRe
 		refreshLayout.addView(recycler_view);
 
 		viewRoot.addView(refreshLayout);
+
+		if(Session.isUserIdMe(UserId)){
+			profileTopInfo.bind(Session.getUserInfo());
+		}
+
 		reload();
 		refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
 			@Override
