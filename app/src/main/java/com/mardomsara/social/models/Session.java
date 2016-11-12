@@ -2,16 +2,13 @@ package com.mardomsara.social.models;
 
 import android.os.Build;
 
-import com.mardomsara.social.app.API;
 import com.mardomsara.social.app.Config;
 import com.mardomsara.social.app.Constants;
 import com.mardomsara.social.base.Http.Http;
 import com.mardomsara.social.base.Http.Result;
-import com.mardomsara.social.base.HttpOld;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.JsonUtil;
 import com.mardomsara.social.json.HttpJson;
-import com.mardomsara.social.json.social.http.ServerUserTableJson;
 import com.mardomsara.social.json.social.rows.UserInfoJson;
 import com.mardomsara.social.json.social.rows.UserTableJson;
 import com.mardomsara.social.models.stores.Store;
@@ -26,24 +23,6 @@ public class Session {
 
     static {
         getUserInfo();
-    }
-
-    public static void fetchUserInfoFromServer_DEP(){
-        AndroidUtil.runInBackgroundNoPanic(()->{
-            HttpOld.Req req = new HttpOld.Req();
-            req.absPath = API.SESSION_INFO.toString();
-            HttpOld.Result res = HttpOld.masterSendPost(req);
-            boolean isError = false;
-            if(res.ok){
-                ServerUserTableJson data = JsonUtil.fromJson(res.data,ServerUserTableJson.class);
-                if(data != null && data.Status.equalsIgnoreCase("OK")){
-                    Hawk.put(Constants.SessionUserInfo,data.Payload);
-                    userInfo = data.Payload;
-                }else {
-                    isError = true;
-                }
-            }
-        });
     }
 
 	public static void fetchUserInfoFromServer(){
