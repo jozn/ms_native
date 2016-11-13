@@ -24,11 +24,13 @@ public class EditProfilePresenter extends BasePresenter {
 
     @Override
     public View buildView() {
-        viewRoot = new PageCells.NavAndEmptyView().rootView;
+		PageCells.NavAndEmptyView page = new PageCells.NavAndEmptyView();
+		page.simpleTopNav.setTitle("فرم");
+        viewRoot = page.rootView;
 		Context ctx = getContext();
 		FormController formController = new FormController(ctx);
 
-		FormSectionController section = new FormSectionController(ctx, "Personal Info");
+		FormSectionController section = new FormSectionController(ctx, "اطلاعات شخصی");
 		section.addElement(new EditTextController(ctx, "firstName", "First name"));
 		section.addElement(new EditTextController(ctx, "lastName", "Last name"));
 		section.addElement(new SelectionController(ctx, "gender", "Gender", true, "Select", Arrays.asList("Male", "Female"), true));

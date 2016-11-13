@@ -5,13 +5,13 @@ import android.view.ViewGroup;
 
 import com.mardomsara.social.Nav;
 import com.mardomsara.social.play.presenters.Play_DiaolgPresenter;
+import com.mardomsara.social.play.presenters.Play_FormsPresenter;
 import com.mardomsara.social.play.presenters.Play_Http2TestPresenter;
 import com.mardomsara.social.play.presenters.Play_WSCallPresenter;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.cells.PageCells;
 import com.mardomsara.social.ui.cells.TitleCellsGroup;
 import com.mardomsara.social.ui.presenter.HelloPresenter;
-import com.mardomsara.social.ui.presenter.social.EditProfilePresenter;
 
 /**
  * Created by Hamid on 10/1/2016.
@@ -40,7 +40,7 @@ public class Play_TestsPresenter extends BasePresenter {
 		}));
 
 		layout.addView(newTitle("Edits ",()->{
-			Nav.push(new EditProfilePresenter());
+			Nav.push(new Play_FormsPresenter());
 		}));
 
         return rootView;

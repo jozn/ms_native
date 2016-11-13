@@ -4,6 +4,7 @@ import android.content.Context;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.EditText;
 
@@ -174,7 +175,7 @@ public class EditTextController extends LabeledFieldController {
     protected View createFieldView() {
         final EditText editText = new EditText(getContext());
         editText.setId(editTextId);
-
+		editText.setGravity(Gravity.RIGHT);
         editText.setSingleLine(!isMultiLine());
         if (placeholder != null) {
             editText.setHint(placeholder);

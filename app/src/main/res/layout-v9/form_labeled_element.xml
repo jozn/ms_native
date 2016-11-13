@@ -9,29 +9,42 @@
     android:paddingLeft="?android:attr/scrollbarSize"
     android:paddingRight="?android:attr/scrollbarSize">
 
-    <TextView
-        android:id="@+id/field_label"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="0" />
-
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_weight="1"
+        >
 
         <FrameLayout
             android:id="@+id/field_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            />
 
         <TextView
             android:id="@+id/field_error"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="#cc0000"
-            android:visibility="gone"/>
+            android:visibility="gone"
+            android:gravity="right"
+
+            style="@style/nexusdialog.error"
+
+            />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/field_label"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:gravity="right"
+
+        style="@style/nexusdialog.label"
+
+        />
 
 </LinearLayout>

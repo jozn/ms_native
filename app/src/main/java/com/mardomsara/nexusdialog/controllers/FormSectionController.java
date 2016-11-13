@@ -180,7 +180,7 @@ public class FormSectionController extends FormElementController {
             view.setOnLongClickListener(null);
             view.setLongClickable(false);
 
-            final TextView sectionView = (TextView) view.findViewById(R.id.list_item_section_text);
+            final TextView sectionView = (TextView) view.findViewById(R.id.title);
             sectionView.setText(title);
         } else {
             view = layoutInflater.inflate(R.layout.separator, null);
