@@ -14,7 +14,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         style="@style/nexusdialog.label"
-        android:id="@+android:id/title"
+        android:id="@+id/title"
         android:clickable="false"
         />
 

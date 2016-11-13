@@ -32,6 +32,7 @@ import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.cells.lists.PostsListCell;
 import com.mardomsara.social.ui.ui.UIPostsList;
 import com.mardomsara.social.ui.views.helpers.ViewHelper;
+import com.mardomsara.social.ui.views.wigets.ButtonGrayView;
 import com.mardomsara.social.ui.views.wigets.ChatButtonView;
 import com.mardomsara.social.ui.views.wigets.FollowingButtonView;
 import com.mardomsara.social.ui.views.wigets.SimpleTopNav;
@@ -205,6 +206,7 @@ public class ProfilePresenter extends BasePresenter implements AppHeaderFooterRe
 
         @Bind(R.id.chat_button) ChatButtonView chat_button;
         @Bind(R.id.follow_button) FollowingButtonView follow_button;
+        @Bind(R.id.button_edit_profile) ButtonGrayView button_edit_profile;
 
         public ProfileTopInfo(int userId) {
             view = AppUtil.inflate(R.layout.profile_top_info);
@@ -226,6 +228,8 @@ public class ProfilePresenter extends BasePresenter implements AppHeaderFooterRe
             followings_count.setText(""+user.FollowingCount);
             followers_count.setText(""+user.FollowersCount);
 
+
+
             //clicks
             followings_holder.setOnClickListener(getFollowings_click(user.Id));
             followers_holder.setOnClickListener(getFollowers_click(user.Id));
@@ -237,12 +241,18 @@ public class ProfilePresenter extends BasePresenter implements AppHeaderFooterRe
         }
 
 		void hideShowMyButns(){
+			button_edit_profile.setIconAndClicker("ویرایش پروفایل {icon-energy 26dp}",()->{
+				Nav.push(new EditProfilePresenter());
+			});
+
 			if(Session.isUserIdMe(UserId)){
 				chat_button.setVisibility(View.GONE);
 				follow_button.setVisibility(View.GONE);
+				button_edit_profile.setVisibility(View.VISIBLE);
 			}else {
 				chat_button.setVisibility(View.VISIBLE);
 				follow_button.setVisibility(View.VISIBLE);
+				button_edit_profile.setVisibility(View.GONE);
 			}
 		}
     }
