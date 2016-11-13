@@ -5,6 +5,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.mardomsara.nexusdialog.FormController;
+import com.mardomsara.nexusdialog.controllers.ButtonController;
+import com.mardomsara.nexusdialog.controllers.ButtonSaveController;
 import com.mardomsara.nexusdialog.controllers.EditTextController;
 import com.mardomsara.nexusdialog.controllers.FormSectionController;
 import com.mardomsara.nexusdialog.controllers.SelectionController;
@@ -61,6 +63,8 @@ public class EditProfilePresenter extends BasePresenter {
 		section.addElement(aboutCtrl);
 
 		section.addElement(new SelectionController(ctx, "gender", "Gender", true, "Select", Arrays.asList("Male", "Female"), true));
+		section.addElement(new ButtonController(ctx, "save1", "Button"));
+		section.addElement(new ButtonSaveController(ctx, "save2", "saven"));
 
 		formController.addSection(section);
 
