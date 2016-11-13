@@ -22,6 +22,9 @@ public class EditTextController extends LabeledFieldController {
     private int inputType;
     private final String placeholder;
 
+    private String defulatText="";
+    private int lines=0;
+
     /**
      * Constructs a new instance of an edit text field.
      *
@@ -81,6 +84,11 @@ public class EditTextController extends LabeledFieldController {
     public EditTextController(Context ctx, String name, String labelText, String placeholder, boolean isRequired) {
         this(ctx, name, labelText, placeholder, isRequired, InputType.TYPE_CLASS_TEXT);
     }
+
+	public EditTextController(Context ctx, String name, String labelText, boolean isRequired, String defeaultvalue) {
+		this(ctx, name, labelText, "", isRequired, InputType.TYPE_CLASS_TEXT);
+		defulatText = defeaultvalue;
+	}
 
     /**
      * Constructs a new instance of an edit text field.
@@ -152,6 +160,10 @@ public class EditTextController extends LabeledFieldController {
         setInputTypeMask(InputType.TYPE_TEXT_FLAG_MULTI_LINE, multiLine);
     }
 
+	public void setLines(int lines) {
+		this.lines = lines;
+	}
+
     /**
      * Indicates whether this text field hides the input text for security reasons.
      *
@@ -197,6 +209,11 @@ public class EditTextController extends LabeledFieldController {
             }
         });
 
+		editText.setText(defulatText);
+		if (lines > 0) {
+			editText.setLines(lines);
+		}
+
         return editText;
     }
 
@@ -205,6 +222,8 @@ public class EditTextController extends LabeledFieldController {
         String valueStr = value != null ? value.toString() : "";
         if (!valueStr.equals(editText.getText().toString()))
             editText.setText(valueStr);
+
+//		getEditText().setText(defulatText);
     }
 
     @Override

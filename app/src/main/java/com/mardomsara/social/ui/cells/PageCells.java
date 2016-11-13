@@ -40,6 +40,20 @@ public class PageCells {
         }
     }
 
+	public static class NavAndScrollContainer {
+		public ViewGroup rootView;
+		@Bind(R.id.simpleTopNav)
+		public SimpleTopNav simpleTopNav;
+
+		@Bind(R.id.container)
+		public ViewGroup container;
+
+		public NavAndScrollContainer() {
+			rootView = (ViewGroup)AppUtil.inflate(R.layout.cell_page_cell_nav_scroll_container_view);
+			ButterKnife.bind(this, rootView);
+		}
+	}
+
     public static class ComingSoon {
         public ViewGroup rootView;
         public ComingSoon() {
