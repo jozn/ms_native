@@ -70,7 +70,8 @@ dependencies {
 
     compile 'org.greenrobot:eventbus:3.0.0'
     compile 'uk.co.chrisjenx:calligraphy:2.1.0'
-    compile 'com.facebook.fresco:fresco:0.12.0'
+//    compile 'com.facebook.fresco:fresco:0.8.1'
+//    compile 'com.facebook.fresco:fresco:0.12.0'
     compile 'com.google.code.gson:gson:2.5'
 
     compile 'com.squareup.okhttp3:okhttp:3.2.0'
@@ -116,6 +117,10 @@ dependencies {
     compile 'com.squareup.moshi:moshi:1.2.0'
 
     compile 'org.greenrobot:essentials:3.0.0-RC1'
+
+//    compile 'com.facebook.react:react-native:0.21.1'
+//    compile 'com.facebook.react:react-native:0.18.+'
+    compile 'com.facebook.react:react-native:+'
 
 //    compile 'com.github.dkharrat.nexusdialog:nexusdialog:0.4.1'
 

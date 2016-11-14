@@ -11,7 +11,9 @@ import com.mardomsara.nexusdialog.controllers.EditTextController;
 import com.mardomsara.nexusdialog.controllers.FormSectionController;
 import com.mardomsara.nexusdialog.controllers.SelectionController;
 import com.mardomsara.social.R;
+import com.mardomsara.social.base.Http.Http;
 import com.mardomsara.social.helpers.AppUtil;
+import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.json.social.rows.UserTableJson;
 import com.mardomsara.social.models.Session;
 import com.mardomsara.social.ui.BasePresenter;
@@ -54,29 +56,47 @@ public class EditProfilePresenter extends BasePresenter {
 
 		FormSectionController section = new FormSectionController(ctx, "اطلاعات شخصی");
 
-		section.addElement(new EditTextController(ctx, "firstName", "نام", true, userTableJson.FirstName ));
-		section.addElement(new EditTextController(ctx, "lastName", "نام خانوادگی",false,userTableJson.LastName));
+		EditTextController firstNameCtrl = new EditTextController(ctx, "firstName", "نام", true, userTableJson.FirstName );
+		EditTextController lastNameCtrl = new EditTextController(ctx, "lastName", "نام خانوادگی",false,userTableJson.LastName);
+
+		section.addElement(firstNameCtrl);
+		section.addElement(lastNameCtrl);
 
 		EditTextController aboutCtrl = new EditTextController(ctx, "about", "درباره",false,userTableJson.About);
 		aboutCtrl.setMultiLine(true);
 		aboutCtrl.setLines(5);
 		section.addElement(aboutCtrl);
 
+		ButtonSaveController save = new ButtonSaveController(ctx, "save2", "saven");
 		section.addElement(new SelectionController(ctx, "gender", "Gender", true, "Select", Arrays.asList("Male", "Female"), true));
 		section.addElement(new ButtonController(ctx, "save1", "Button"));
-		section.addElement(new ButtonSaveController(ctx, "save2", "saven"));
+		section.addElement(save);
 
 		formController.addSection(section);
 
-		FormSectionController section2 = new FormSectionController(ctx, "Personal Info");
-		section2.addElement(new EditTextController(ctx, "firstName", "First name"));
-		section2.addElement(new EditTextController(ctx, "lastName", "Last name"));
-		section2.addElement(new SelectionController(ctx, "gender", "Gender", true, "Select", Arrays.asList("Male", "Female"), true));
 
-		formController.addSection(section2);
-//		ViewGroup containerView = (ViewGroup)findViewById(R.id.form_elements_container);
+		save.setOnClickListener((()-> {
+			Helper.showDebugMessage("valid: "+ formController.isValidInput()
+			+ firstNameCtrl.getValue() + lastNameCtrl.getValue()+ " "+ aboutCtrl.getValue());
+
+			Http.postPath("/v1/profile/edit")
+				.setFormParam("FirstName",firstNameCtrl.getValue())
+				.setFormParam("LastName",lastNameCtrl.getValue())
+				.setFormParam("About",aboutCtrl.getValue())
+				.doAsyncUi((result -> {
+					if(result.isOk()){
+
+					}else {
+						Helper.showMessage("خطا در ذخیره اطلاعات.");
+					}
+				}));
+		}));
+
+
+
 		formController.recreateViews(form_holder);
-        return viewRoot;
+
+		return viewRoot;
     }
 
 

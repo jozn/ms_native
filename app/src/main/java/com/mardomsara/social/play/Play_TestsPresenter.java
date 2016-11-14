@@ -12,6 +12,7 @@ import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.cells.PageCells;
 import com.mardomsara.social.ui.cells.TitleCellsGroup;
 import com.mardomsara.social.ui.presenter.HelloPresenter;
+import com.mardomsara.social.ui.views.ReactPresenter;
 
 /**
  * Created by Hamid on 10/1/2016.
@@ -41,6 +42,10 @@ public class Play_TestsPresenter extends BasePresenter {
 
 		layout.addView(newTitle("Edits ",()->{
 			Nav.push(new Play_FormsPresenter());
+		}));
+
+		layout.addView(newTitle("React ",()->{
+			Nav.push(new ReactPresenter());
 		}));
 
         return rootView;

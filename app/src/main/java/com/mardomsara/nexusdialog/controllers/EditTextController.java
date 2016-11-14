@@ -164,6 +164,10 @@ public class EditTextController extends LabeledFieldController {
 		this.lines = lines;
 	}
 
+	public String getValue(){
+		return getEditText().getText().toString();
+	}
+
     /**
      * Indicates whether this text field hides the input text for security reasons.
      *

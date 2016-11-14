@@ -11,7 +11,9 @@ import com.mardomsara.social.R;
 import com.mardomsara.social.ui.views.wigets.ButtonGrayView;
 
 public class ButtonSaveController extends FormElementController {
-
+	ButtonGrayView btn;
+	ViewGroup view;
+	Runnable runnable;
     public ButtonSaveController(Context ctx, String name, String labelText) {
         super(ctx, name);
     }
@@ -19,12 +21,15 @@ public class ButtonSaveController extends FormElementController {
 	@Override
 	protected View createView() {
 		LayoutInflater layoutInflater = LayoutInflater.from(getContext());
-		final ViewGroup view = (ViewGroup)layoutInflater.inflate(R.layout.form_save_button, null);
-		ButtonGrayView btn = (ButtonGrayView)view.findViewById(R.id.button);
+		view = (ViewGroup)layoutInflater.inflate(R.layout.form_save_button, null);
+		btn = (ButtonGrayView)view.findViewById(R.id.button);
 		btn.setIconAndClicker("{ion-checkmark 24dp} ذخیره" ,null);
 //		btn.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 //		btn.setLa
 //		refresh(textView);
+		btn.setOnClickListener((v)->{
+			run();
+		});
 
 		return view;
 	}
@@ -47,4 +52,14 @@ public class ButtonSaveController extends FormElementController {
     public void refresh() {
         refresh(getTextView());
     }
+
+	public void setOnClickListener(Runnable runnable){
+		this.runnable = runnable;
+	}
+
+	void run(){
+		if(runnable!= null){
+			runnable.run();
+		}
+	}
 }
