@@ -20,6 +20,7 @@ import com.mardomsara.social.app.Singletons;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.PresenterFragment;
 import com.mardomsara.social.ui.SinglePresenterFragment;
+import com.mardomsara.social.ui.react.MSMainReactPackage;
 import com.mardomsara.social.ui.react.ReactFragment;
 
 /**
@@ -44,7 +45,7 @@ public  class ReactPresenter extends BasePresenter{
 				.setApplication(getActivity().getApplication())
 				.setBundleAssetName("index.android.bundle")
 				.setJSMainModuleName("index.android")
-				.addPackage(new MainReactPackage())
+				.addPackage(new MSMainReactPackage())
 				.setUseDeveloperSupport(BuildConfig.DEBUG)
 				.setInitialLifecycleState(LifecycleState.RESUMED)
 				.build();

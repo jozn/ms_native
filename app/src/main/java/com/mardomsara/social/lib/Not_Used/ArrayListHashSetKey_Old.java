@@ -4,14 +4,11 @@ import android.support.annotation.NonNull;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Map;
-import java.util.Spliterator;
-import java.util.function.UnaryOperator;
 
 /**
  * Created by Hamid on 10/13/2016.
@@ -241,7 +238,7 @@ public class ArrayListHashSetKey_Old<T,K> implements List<T> {
 		return null;
 	}
 
-	@Override
+	/*@Override
 	public Spliterator<T> spliterator() {
 		return null;
 	}
@@ -254,7 +251,7 @@ public class ArrayListHashSetKey_Old<T,K> implements List<T> {
 	@Override
 	public void sort(Comparator<? super T> c) {
 
-	}
+	}*/
 
 	//////////// Me /////////////
 	K getKey(T item){

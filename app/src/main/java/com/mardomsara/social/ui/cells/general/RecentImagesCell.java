@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.Context;
 import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -28,7 +29,7 @@ import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import jp.wasabeef.recyclerview.adapters.AlphaInAnimationAdapter;
+//import jp.wasabeef.recyclerview.adapters.AlphaInAnimationAdapter;
 import pl.tajchert.nammu.Nammu;
 import pl.tajchert.nammu.PermissionCallback;
 
@@ -59,8 +60,10 @@ public class RecentImagesCell {
         ImageCursor imageCursor = ImageProviderHelper.getLastImages();
 
         Galley galley = new Galley(AppUtil.getContext(),imageCursor);
-        AlphaInAnimationAdapter anim = new AlphaInAnimationAdapter(galley,0.3f);
-        anim.setStartPosition(6);//disable animating for fisrt six images
+
+		//// TODO: 11/15/2016 add animatio with suport library comtaible
+		/*AlphaInAnimationAdapter anim = new AlphaInAnimationAdapter(galley,0.3f);
+        anim.setStartPosition(6);*///disable animating for fisrt six images
         recycler_view.setAdapter(galley);
 //        recycler_view.setAdapter(anim);
         LinearLayoutManager layoutManager = new LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,true);
@@ -221,7 +224,8 @@ public class RecentImagesCell {
 //                            synchronized (thisViewcurrentId){
                                 if(bm==null){
                                     if(thisRunid.equals(thisViewcurrentId)){
-                                        image.setImageURI(path);
+//                                        image.setImageURI(path);
+                                        image.setImageURI(Uri.parse(path));
                                     }
                                 }else {
                                     if(thisRunid.equals(thisViewcurrentId)) {
