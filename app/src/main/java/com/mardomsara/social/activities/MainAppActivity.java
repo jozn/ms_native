@@ -1,5 +1,6 @@
 package com.mardomsara.social.activities;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -18,6 +19,10 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.crashlytics.android.Crashlytics;
+import com.facebook.react.BuildConfig;
+import com.facebook.react.ReactInstanceManager;
+import com.facebook.react.common.LifecycleState;
+import com.facebook.react.modules.core.DefaultHardwareBackBtnHandler;
 import com.mardomsara.emojicon.EmojiconsPopup;
 import com.mardomsara.social.App;
 import com.mardomsara.social.Nav;
@@ -28,6 +33,7 @@ import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.play.Play_TestsPresenter;
 import com.mardomsara.social.service.PingService;
+import com.mardomsara.social.ui.react.MSMainReactPackage;
 
 import io.fabric.sdk.android.Fabric;
 import pl.tajchert.nammu.Nammu;
@@ -39,11 +45,13 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 /**
  * Created by Hamid on 1/31/2016.
  */
-public class MainAppActivity extends AppActivity {
+public class MainAppActivity extends AppActivity implements DefaultHardwareBackBtnHandler {
     public static MainAppActivity instance;
     TextView st;
 
     boolean isFirstInited = false;
+
+	public static ReactInstanceManager mReactInstanceManager;
 
     @Override
     public void onBackPressed() {
@@ -53,6 +61,26 @@ public class MainAppActivity extends AppActivity {
 //        Spinner
     }
 
+	public static void initReact(Activity activity){
+		if(mReactInstanceManager == null){
+			mReactInstanceManager = ReactInstanceManager.builder()
+				.setApplication(activity.getApplication())
+				.setBundleAssetName("index.android.bundle")
+				.setJSMainModuleName("index.android")
+				.addPackage(new MSMainReactPackage())
+				.setUseDeveloperSupport(true)
+				.setInitialLifecycleState(LifecycleState.RESUMED)
+				.build();
+			/*mReactInstanceManager = ReactInstanceManager.builder()
+				.setApplication(App.getActivity().getApplication())
+				.setBundleAssetName("index.android.bundle")
+				.setJSMainModuleName("index.android")
+				.addPackage(new MSMainReactPackage())
+				.setUseDeveloperSupport(BuildConfig.DEBUG)
+				.setInitialLifecycleState(LifecycleState.RESUMED)
+				.build();*/
+		}
+	}
     @Override
     protected void attachBaseContext(Context newBase) {
         Log.d("Calligraphy"," called");
@@ -88,6 +116,8 @@ public class MainAppActivity extends AppActivity {
 
         EmojiconsPopup.setUpLayoutListnr(global_window);
 
+		initReact(this);
+
 
     }
 
@@ -121,6 +151,11 @@ public class MainAppActivity extends AppActivity {
     @Override
     protected void onResume() {
         super.onResume();
+
+		if (mReactInstanceManager != null) {
+			mReactInstanceManager.onHostResume(this, this);
+		}
+
         logIt("onResume");
     }
 
@@ -179,6 +214,11 @@ public class MainAppActivity extends AppActivity {
     @Override
     public void onPause() {
         super.onPause();
+
+		if (mReactInstanceManager != null) {
+			mReactInstanceManager.onHostPause(this);
+		}
+
         logIt("onPause");
     }
 
@@ -199,6 +239,11 @@ public class MainAppActivity extends AppActivity {
     @Override
     public void onDestroy() {
         super.onDestroy();
+
+		if (mReactInstanceManager != null) {
+			mReactInstanceManager.onHostDestroy(this);
+		}
+
         logIt("onDestroy");
         Nav.reset();
     }
@@ -318,6 +363,12 @@ public class MainAppActivity extends AppActivity {
         }
         return super.onKeyDown(keyCode, event);
     }
+
+	//For React
+	@Override
+	public void invokeDefaultOnBackPressed() {
+		super.onBackPressed();
+	}
 
 /*    @Override
     public void onEmojiconBackspaceClicked(View v) {
