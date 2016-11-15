@@ -4,9 +4,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import com.facebook.react.BuildConfig;
-import com.facebook.react.LifecycleState;
+//import com.facebook.react.LifecycleState;
 import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactRootView;
+import com.facebook.react.common.LifecycleState;
 import com.facebook.react.modules.core.DefaultHardwareBackBtnHandler;
 
 public class MyReactActivity extends AppCompatActivity implements DefaultHardwareBackBtnHandler {
@@ -26,7 +27,7 @@ public class MyReactActivity extends AppCompatActivity implements DefaultHardwar
                 .setUseDeveloperSupport(true)
                 .setInitialLifecycleState(LifecycleState.RESUMED)
                 .build();
-        mReactRootView.startReactApplication(mReactInstanceManager, "HelloWorld", null);
+        mReactRootView.startReactApplication(mReactInstanceManager, "Hello", null);
 
         setContentView(mReactRootView);
     }
@@ -35,7 +36,38 @@ public class MyReactActivity extends AppCompatActivity implements DefaultHardwar
     public void invokeDefaultOnBackPressed() {
         super.onBackPressed();
     }
+
+
 	@Override
+	protected void onPause() {
+		super.onPause();
+
+		if (mReactInstanceManager != null) {
+			mReactInstanceManager.onHostPause(this);
+		}
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+
+		if (mReactInstanceManager != null) {
+			mReactInstanceManager.onHostResume(this, this);
+		}
+	}
+
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+
+		if (mReactInstanceManager != null) {
+			mReactInstanceManager.onHostDestroy(this);
+		}
+	}
+
+
+
+	/*@Override
 	protected void onPause() {
 		super.onPause();
 
@@ -60,6 +92,6 @@ public class MyReactActivity extends AppCompatActivity implements DefaultHardwar
 		} else {
 			super.onBackPressed();
 		}
-	}
+	}*/
 
 }

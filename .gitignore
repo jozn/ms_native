@@ -7,3 +7,5 @@
 /build
 /captures
 /projectFilesBackup
+
+/node_modules

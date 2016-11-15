@@ -5,10 +5,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.mardomsara.social.Nav;
-import com.mardomsara.social.helpers.AndroidUtil;
-import com.mardomsara.social.helpers.AppUtil;
-import com.mardomsara.social.helpers.IntentUtil;
-import com.mardomsara.social.helpers.IntentUtil2;
 import com.mardomsara.social.play.presenters.Play_DiaolgPresenter;
 import com.mardomsara.social.play.presenters.Play_FormsPresenter;
 import com.mardomsara.social.play.presenters.Play_Http2TestPresenter;
@@ -19,7 +15,7 @@ import com.mardomsara.social.ui.cells.TitleCellsGroup;
 import com.mardomsara.social.ui.presenter.HelloPresenter;
 import com.mardomsara.social.ui.react.MSReactActivity2;
 import com.mardomsara.social.ui.react.MyReactActivity;
-import com.mardomsara.social.ui.views.ReactPresenter;
+import com.mardomsara.social.ui.react.ReactPresenter;
 
 /**
  * Created by Hamid on 10/1/2016.

@@ -43,10 +43,16 @@
         <activity android:name="com.mardomsara.photopicker.PhotoPickerActivity" />
         <activity android:name="com.mardomsara.photopicker.PhotoPagerActivity" />
         <activity android:name="com.ipaulpro.afilechooser.FileChooserActivity" />
-        <activity android:name=".ui.react.MyReactActivity" />
-        <activity android:name=".ui.react.MSReactActivity2" />
 
+        <!--React-->
+        <activity android:name=".ui.react.MyReactActivity"
+                  android:label="@string/app_name"
+                  android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name=".ui.react.MSReactActivity2"
+                  android:label="@string/app_name"
+                  android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
+
         <service
             android:name=".service.PingService"
             android:enabled="true"

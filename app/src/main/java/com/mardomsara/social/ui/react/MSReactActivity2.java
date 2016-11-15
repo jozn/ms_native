@@ -11,12 +11,13 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.facebook.common.logging.FLog;
-import com.facebook.react.LifecycleState;
+//import com.facebook.react.LifecycleState;
 import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactRootView;
+import com.facebook.react.common.LifecycleState;
 import com.facebook.react.common.ReactConstants;
 import com.facebook.react.modules.core.DefaultHardwareBackBtnHandler;
-import com.facebook.react.shell.MainReactPackage;
+//import com.facebook.react.shell.MainReactPackage;
 
 import java.util.List;
 
@@ -157,6 +158,36 @@ public class MSReactActivity2 extends Activity implements DefaultHardwareBackBtn
     setContentView(mReactRootView);
   }
 
+
+	@Override
+	protected void onPause() {
+		super.onPause();
+
+		if (mReactInstanceManager != null) {
+			mReactInstanceManager.onHostPause(this);
+		}
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+
+		if (mReactInstanceManager != null) {
+			mReactInstanceManager.onHostResume(this, this);
+		}
+	}
+
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+
+		if (mReactInstanceManager != null) {
+			mReactInstanceManager.onHostDestroy(this);
+		}
+	}
+
+
+/*
   @Override
   protected void onPause() {
     super.onPause();
@@ -194,6 +225,7 @@ public class MSReactActivity2 extends Activity implements DefaultHardwareBackBtn
       mReactInstanceManager.onActivityResult(requestCode, resultCode, data);
     }
   }
+*/
 
   @Override
   public boolean onKeyUp(int keyCode, KeyEvent event) {
