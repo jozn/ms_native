@@ -1,4 +1,4 @@
-package com.mardomsara.social.ui.presenter.social;
+package com.mardomsara.social.ui.presenter.social.keep;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;

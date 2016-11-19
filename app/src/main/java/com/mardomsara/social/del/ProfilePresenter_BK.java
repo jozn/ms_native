@@ -18,7 +18,6 @@ import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.JsonUtil;
 import com.mardomsara.social.json.social.http.HomeStreamJson;
-import com.mardomsara.social.json.social.http.ProfileAndPostsJson;
 import com.mardomsara.social.json.social.rows.UserTableJson;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
 import com.mardomsara.social.ui.BasePresenter;

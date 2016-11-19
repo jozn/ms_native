@@ -8,6 +8,7 @@ import java.util.List;
 /**
  * Created by Hamid on 7/20/2016.
  */
+@Deprecated
 public class LikesListJson extends HttpBaseProtocol {
     public List<UserInfoJson> Payload ;
 }

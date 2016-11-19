@@ -1,4 +1,4 @@
-package com.mardomsara.social.json.social.http;
+package com.mardomsara.social.json.social.rows;
 
 import com.mardomsara.social.json.social.rows.PostRowJson;
 import com.mardomsara.social.json.social.rows.TagRowJson;

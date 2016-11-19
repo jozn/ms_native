@@ -1,4 +1,4 @@
-package com.mardomsara.social.json.social.http;
+package com.mardomsara.social.del;
 
 import com.mardomsara.social.json.HttpBaseProtocol;
 import com.mardomsara.social.json.social.rows.PostRowJson;
@@ -9,6 +9,7 @@ import java.util.List;
 /**
  * Created by Hamid on 7/31/2016.
  */
+@Deprecated
 public class ProfileAndPostsJson extends HttpBaseProtocol {
     public ProfileResponse Payload;
 

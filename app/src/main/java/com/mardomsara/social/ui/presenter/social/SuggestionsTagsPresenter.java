@@ -11,17 +11,13 @@ import android.widget.TextView;
 
 import com.mardomsara.social.Nav;
 import com.mardomsara.social.R;
-import com.mardomsara.social.app.API;
 import com.mardomsara.social.base.Http.Http;
 import com.mardomsara.social.base.Http.Result;
-import com.mardomsara.social.base.HttpOld;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.Helper;
-import com.mardomsara.social.helpers.JsonUtil;
 import com.mardomsara.social.json.HttpJsonList;
-import com.mardomsara.social.json.social.http.TopTagsWithPostsJson;
-import com.mardomsara.social.json.social.http.TopTagsWithPostsRowJson;
+import com.mardomsara.social.json.social.rows.TopTagsWithPostsRowJson;
 import com.mardomsara.social.json.social.rows.PostRowJson;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
 import com.mardomsara.social.ui.BasePresenter;

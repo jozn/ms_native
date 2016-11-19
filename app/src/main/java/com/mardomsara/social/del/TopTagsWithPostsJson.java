@@ -1,6 +1,7 @@
-package com.mardomsara.social.json.social.http;
+package com.mardomsara.social.del;
 
 import com.mardomsara.social.json.HttpBaseProtocol;
+import com.mardomsara.social.json.social.rows.TopTagsWithPostsRowJson;
 
 import java.util.List;
 
