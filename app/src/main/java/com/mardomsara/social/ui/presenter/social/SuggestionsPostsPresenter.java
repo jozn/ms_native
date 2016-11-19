@@ -77,6 +77,7 @@ public class SuggestionsPostsPresenter extends BasePresenter
 				.setQueryParam("last",""+getLastId())
 				.setQueryParam("limit",""+ 45)
 				.doAsyncUi((result -> {
+					refreshLayout.setRefreshing(false);
 					if(result.isOk()){
 						HttpJsonList<PostRowJson> data = Result.fromJsonList(result,PostRowJson.class);
 						if(data.isPayloadNoneEmpty()){
@@ -98,9 +99,10 @@ public class SuggestionsPostsPresenter extends BasePresenter
     }
 
 	int getLastId(){
+		/* Must be Recomendetion Id not post id - use http meta
 		if(adaptor.posts.size()>0){
 			return adaptor.posts.get(adaptor.posts.size()-1).Id;
-		}
+		}*/
 		return 0;
 	}
     @Override
