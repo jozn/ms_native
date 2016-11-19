@@ -8,6 +8,7 @@ import java.util.List;
 /**
  * Created by Hamid on 7/13/2016.
  */
+@Deprecated
 public class HomeStreamJson extends HttpBaseProtocol {
     public List<PostRowJson> Payload ;
 }

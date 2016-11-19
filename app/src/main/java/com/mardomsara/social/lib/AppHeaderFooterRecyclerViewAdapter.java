@@ -274,7 +274,7 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
         }
     }
 
-    public GridLayoutManager.SpanSizeLookup getSpanSizeForSimpleContentGridLayput(int contentSpanSize){
+    public GridLayoutManager.SpanSizeLookup getSpanSizeForSimpleContentGridLayout(int contentSpanSize){
         return new GridLayoutManager.SpanSizeLookup() {
             @Override
             public int getSpanSize(int position) {

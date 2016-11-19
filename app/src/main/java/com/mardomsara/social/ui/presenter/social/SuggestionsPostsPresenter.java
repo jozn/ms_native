@@ -7,12 +7,16 @@ import android.view.View;
 
 import com.mardomsara.social.Nav;
 import com.mardomsara.social.app.API;
+import com.mardomsara.social.base.Http.Http;
+import com.mardomsara.social.base.Http.Result;
 import com.mardomsara.social.base.HttpOld;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.JsonUtil;
+import com.mardomsara.social.json.HttpJsonList;
 import com.mardomsara.social.json.social.http.HomeStreamJson;
+import com.mardomsara.social.json.social.rows.PostRowJson;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.cells.TitleCellsGroup;
@@ -39,22 +43,12 @@ public class SuggestionsPostsPresenter extends BasePresenter
         RecyclerView recycler_view = ViewHelper.newRecyclerViewMatch();
         refreshLayout.addView(recycler_view);
 
-//        LinearLayoutManager layoutManager = new LinearLayoutManager(AppUtil.getContext());
         GridLayoutManager layoutManager = new GridLayoutManager(AppUtil.getContext(),3);
-        /*layoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
-            @Override
-            public int getSpanSize(int position) {
-                int size = adaptor.posts.size();
-                if(position == 0 ) return 3;
-                if(position == size ) return 3;
-                return 1;
-            }
-        });*/
-        layoutManager.setSpanSizeLookup(adaptor.getSpanSizeForSimpleContentGridLayput(3));
+
+        layoutManager.setSpanSizeLookup(adaptor.getSpanSizeForSimpleContentGridLayout(3));
         recycler_view.setLayoutManager(layoutManager);
         recycler_view.setAdapter(adaptor);
         adaptor.setUpForPaginationWith(recycler_view,layoutManager,this);
-//        adaptor.setRecyclerView(recycler_view);
         adaptor.showLoading();
 
         TitleCellsGroup.BigClickAbleTitle recent = new TitleCellsGroup.BigClickAbleTitle(recycler_view);
@@ -64,40 +58,59 @@ public class SuggestionsPostsPresenter extends BasePresenter
         TitleCellsGroup.InfoTitle topTitle = new TitleCellsGroup.InfoTitle(recycler_view);
         topTitle.setText("پست های داغ");
 
-//        TextView txt2 = new TextView(AppUtil.getContext());
-//        View txt = AppUtil.inflate(R.layout.title_string_clickable,recycler_view);
-//        View txt3 = AppUtil.inflate(R.layout.title_string_clickable,recycler_view);
-//        txt2.setText("زنزده");
         recent.rootView.setOnClickListener((v)->{
             Nav.push(new LastPostsPresenter());
         });
         adaptor.appendViewToHeader(recent.rootView);
         adaptor.appendViewToHeader(topTitle.rootView);
-//        txt3.setLayoutParams();
-//        adaptor.appendViewToHeader(txt2);
+
         refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                Helper.showMessage("re");
-                loadFromServer();
+                Helper.showDebugMessage("re");
+                loadFromServer(1);
             }
         });
-        loadFromServer();
     }
 
-    private void loadFromServer() {
+    private void loadFromServer(int page) {
         AndroidUtil.runInBackground(()->{
-            HttpOld.Req req = new HttpOld.Req();
-            req.absPath = API.RECOMMEND_TOP_POST;
-            HttpOld.Result res = HttpOld.get(req);
-            if(res.ok){
-                AndroidUtil.runInUi(()->{
-                    loadedPostsFromNet(res);
-                });
-            }
+			Http.getPath("/v1/recommend/top_posts")
+				.setQueryParam("page",""+page)
+				.doAsyncUi((result -> {
+					if(result.isOk()){
+						HttpJsonList<PostRowJson> data = Result.fromJsonList(result,PostRowJson.class);
+						if(data.isPayloadNoneEmpty()){
+							if(page==1){
+								adaptor.posts.clear();
+							}
+							adaptor.posts.addAll(data.Payload);
+							adaptor.notifyDataSetChanged();
+						}else {
+							adaptor.hideLoading();
+						}
+					}else {
+						adaptor.hideLoading();
+					}
+				}));
         });
     }
 
+	@Deprecated
+	private void loadFromServer_bk() {
+		AndroidUtil.runInBackground(()->{
+			HttpOld.Req req = new HttpOld.Req();
+			req.absPath = API.RECOMMEND_TOP_POST;
+			HttpOld.Result res = HttpOld.get(req);
+			if(res.ok){
+				AndroidUtil.runInUi(()->{
+					loadedPostsFromNet(res);
+				});
+			}
+		});
+	}
+
+	@Deprecated
     private void loadedPostsFromNet(HttpOld.Result res) {
         HomeStreamJson data= JsonUtil.fromJson(res.data, HomeStreamJson.class);
         if(data != null && data.Payload != null && data.Status.equalsIgnoreCase("OK")){
@@ -111,6 +124,7 @@ public class SuggestionsPostsPresenter extends BasePresenter
 
     @Override
     public void loadNextPage(int pageNum) {
-
+		Helper.showDebugMessage("suggestion page: "+pageNum);
+		loadFromServer(1);
     }
 }
