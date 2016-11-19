@@ -49,15 +49,14 @@ public class SuggestionsTagsPresenter extends BasePresenter implements AppHeader
     SwipeRefreshLayout refreshLayout;
 
     private void load() {
-//        adaptor = new UIPostsListGrid.TopTagsAdaptor();
         adaptor = new TopTagsAdaptor();
         RecyclerView recycler_view = ViewHelper.newRecyclerViewMatch();
         LinearLayoutManager layoutManager = new LinearLayoutManager(AppUtil.getContext());
-//        GridLayoutManager layoutManager = new GridLayoutManager(AppUtil.getContext(),3);
+
         recycler_view.setLayoutManager(layoutManager);
         recycler_view.setAdapter(adaptor);
         adaptor.setUpForPaginationWith(recycler_view, layoutManager, this);
-//        adaptor.setRecyclerView(recycler_view);
+
         adaptor.showLoading();
 
         refreshLayout.addView(recycler_view);
@@ -65,11 +64,9 @@ public class SuggestionsTagsPresenter extends BasePresenter implements AppHeader
             @Override
             public void onRefresh() {
                 Helper.showDebugMessage("re");
-//                loadFromServer();
 				adaptor.reload();
             }
         });
-//        loadFromServer();
     }
 
     private void loadFromServer(int pageNum) {
@@ -99,34 +96,15 @@ public class SuggestionsTagsPresenter extends BasePresenter implements AppHeader
 			});
     }
 
-	@Deprecated
-	private void loadFromServer_bk() {
-		AndroidUtil.runInBackground(() -> {
-			HttpOld.Req req = new HttpOld.Req();
-			req.absPath = API.RECOMMEND_TOP_TAGS_DISCOVER;
-			HttpOld.Result res = HttpOld.get(req);
-			if (res.ok) {
-				AndroidUtil.runInUi(() -> {
-					loadedPostsFromNet(res);
-				});
-			}
-		});
-	}
-
-	@Deprecated
-    private void loadedPostsFromNet(HttpOld.Result res) {
-        TopTagsWithPostsJson data = JsonUtil.fromJson(res.data, TopTagsWithPostsJson.class);
-        if (data != null && data.Payload != null && data.Status.equalsIgnoreCase("OK")) {
-
-            if (data.Payload != null) {
-                adaptor.list.addAll(data.Payload);
-                adaptor.notifyDataSetChanged();
-            }
-        }
-    }
-
     @Override
     public void loadNextPage(int pageNum) {
+		Helper.showDebugMessage("page tags: "+ pageNum);
+
+		//for now just one page
+		if(pageNum > 1){
+			adaptor.setHasMorePage(false);
+			return;
+		}
 		loadFromServer(pageNum);
     }
 
@@ -158,6 +136,7 @@ public class SuggestionsTagsPresenter extends BasePresenter implements AppHeader
         @Bind(R.id.image2) ImageView image2;
         @Bind(R.id.image3) ImageView image3;
         @Bind(R.id.text) TextView text;
+        @Bind(R.id.see_more) TextView see_more;
 
         int size =0;
 
@@ -173,6 +152,10 @@ public class SuggestionsTagsPresenter extends BasePresenter implements AppHeader
 
         void bind(TopTagsWithPostsRowJson tagJson){
             text.setText("#"+tagJson.Tag.Name);
+
+			see_more.setOnClickListener((v)->{
+				Nav.push(new TagsPresenter(tagJson.Tag.Name));
+			});
 
             if(tagJson.Posts == null) return;
 
