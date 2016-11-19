@@ -2,7 +2,7 @@ package com.mardomsara.social;
 
 import android.app.Activity;
 import android.content.Context;
-import android.support.multidex.MultiDexApplication;
+//import android.support.multidex.MultiDexApplication;
 import android.support.v4.app.FragmentManager;
 
 import com.mardomsara.social.activities.MainAppActivity;
@@ -20,7 +20,8 @@ import org.greenrobot.eventbus.EventBus;
 /**
  * Created by Hamid on 1/4/2016.
  */
-public class App extends MultiDexApplication {
+//public class App extends MultiDexApplication {
+public class App {
    public static Context getContext() {
       return context;
    }
@@ -37,16 +38,16 @@ public class App extends MultiDexApplication {
 //   public static ReactRootView mReactRootView;
    public static FragmentManager mFragmentManager;
 
-   @Override
+   /*@Override
    public void onCreate() {
       super.onCreate();
-     /* CalligraphyConfig*//*.initDefault(new CalligraphyConfig.Builder()
+     *//* CalligraphyConfig*//**//*.initDefault(new CalligraphyConfig.Builder()
                       .setDefaultFontPath("fonts/Roboto-Light.ttf")
                       .setFontAttrId(R.attr.fontPath)
                       .build()
-     );*/
+     );*//*
       //....
-   }
+   }*/
 
 //   public static WSBase getWS(){
 //      if(ws == null){

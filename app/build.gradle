@@ -21,6 +21,11 @@ android {
 //        enabled true
 //    }
 
+
+    dexOptions{
+        javaMaxHeapSize "2g"
+    }
+
     //for retrolambda
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -32,7 +37,7 @@ android {
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
-        multiDexEnabled true
+        multiDexEnabled false//true
         //renderscript
         renderscriptTargetApi 16
         renderscriptSupportModeEnabled true

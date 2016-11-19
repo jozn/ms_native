@@ -51,12 +51,25 @@ public class Play_TestsPresenter extends BasePresenter {
 			Nav.push(new ReactPresenter());
 		}));
 
-		layout.addView(newTitle("React Activity",()->{
+		layout.addView(newTitle("React Presenter",()->{
+			Nav.push(new ReactPresenter());
+		}));
+
+		layout.addView(newTitle("React Presenter2",()->{
+			Nav.push(new ReactPresenter());
+		}));
+
+
+		layout.addView(newTitle("React Presenter3",()->{
+			Nav.push(new ReactPresenter());
+		}));
+
+		layout.addView(newTitle("React Activity +++++++",()->{
 			Intent intent = new Intent(getContext(), MyReactActivity.class);
 			getActivity().startActivity(intent);
 		}));
 
-		layout.addView(newTitle("React Activity2",()->{
+		layout.addView(newTitle("React Activity2 ",()->{
 			Intent intent = new Intent(getContext(), MSReactActivity2.class);
 			getActivity().startActivity(intent);
 		}));
