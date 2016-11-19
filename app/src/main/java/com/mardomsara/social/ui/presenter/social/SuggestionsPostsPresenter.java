@@ -6,16 +6,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.mardomsara.social.Nav;
-import com.mardomsara.social.app.API;
 import com.mardomsara.social.base.Http.Http;
 import com.mardomsara.social.base.Http.Result;
-import com.mardomsara.social.base.HttpOld;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.Helper;
-import com.mardomsara.social.helpers.JsonUtil;
 import com.mardomsara.social.json.HttpJsonList;
-import com.mardomsara.social.json.social.http.HomeStreamJson;
 import com.mardomsara.social.json.social.rows.PostRowJson;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
 import com.mardomsara.social.ui.BasePresenter;
@@ -68,7 +64,8 @@ public class SuggestionsPostsPresenter extends BasePresenter
             @Override
             public void onRefresh() {
                 Helper.showDebugMessage("re");
-                loadFromServer(1);
+//                loadFromServer(1);
+				adaptor.reload();
             }
         });
     }
@@ -77,6 +74,8 @@ public class SuggestionsPostsPresenter extends BasePresenter
         AndroidUtil.runInBackground(()->{
 			Http.getPath("/v1/recommend/top_posts")
 				.setQueryParam("page",""+page)
+				.setQueryParam("last",""+getLastId())
+				.setQueryParam("limit",""+ 45)
 				.doAsyncUi((result -> {
 					if(result.isOk()){
 						HttpJsonList<PostRowJson> data = Result.fromJsonList(result,PostRowJson.class);
@@ -87,44 +86,26 @@ public class SuggestionsPostsPresenter extends BasePresenter
 							adaptor.posts.addAll(data.Payload);
 							adaptor.notifyDataSetChanged();
 						}else {
-							adaptor.hideLoading();
+							adaptor.setHasMorePage(false);
 						}
 					}else {
-						adaptor.hideLoading();
+						adaptor.setHasMorePage(false);
 					}
+
+					adaptor.nextPageIsLoaded();
 				}));
         });
     }
 
-	@Deprecated
-	private void loadFromServer_bk() {
-		AndroidUtil.runInBackground(()->{
-			HttpOld.Req req = new HttpOld.Req();
-			req.absPath = API.RECOMMEND_TOP_POST;
-			HttpOld.Result res = HttpOld.get(req);
-			if(res.ok){
-				AndroidUtil.runInUi(()->{
-					loadedPostsFromNet(res);
-				});
-			}
-		});
+	int getLastId(){
+		if(adaptor.posts.size()>0){
+			return adaptor.posts.get(adaptor.posts.size()-1).Id;
+		}
+		return 0;
 	}
-
-	@Deprecated
-    private void loadedPostsFromNet(HttpOld.Result res) {
-        HomeStreamJson data= JsonUtil.fromJson(res.data, HomeStreamJson.class);
-        if(data != null && data.Payload != null && data.Status.equalsIgnoreCase("OK")){
-
-            if(data.Payload != null){
-                adaptor.posts.addAll(data.Payload);
-                adaptor.notifyDataSetChanged();
-            }
-        }
-    }
-
     @Override
     public void loadNextPage(int pageNum) {
 		Helper.showDebugMessage("suggestion page: "+pageNum);
-		loadFromServer(1);
+		loadFromServer(pageNum);
     }
 }
