@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.joanzapata.iconify.widget.IconTextView;
 import com.mardomsara.social.Nav;
 import com.mardomsara.social.R;
 import com.mardomsara.social.base.Http.Http;
@@ -17,10 +18,11 @@ import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.json.HttpJsonList;
-import com.mardomsara.social.json.social.rows.TopTagsWithPostsRowJson;
 import com.mardomsara.social.json.social.rows.PostRowJson;
+import com.mardomsara.social.json.social.rows.TopTagsWithPostsRowJson;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
 import com.mardomsara.social.ui.BasePresenter;
+import com.mardomsara.social.ui.views.FontCache;
 import com.mardomsara.social.ui.views.helpers.ViewHelper;
 import com.squareup.picasso.Picasso;
 
@@ -132,7 +134,8 @@ public class SuggestionsTagsPresenter extends BasePresenter implements AppHeader
         @Bind(R.id.image2) ImageView image2;
         @Bind(R.id.image3) ImageView image3;
         @Bind(R.id.text) TextView text;
-        @Bind(R.id.see_more) TextView see_more;
+        @Bind(R.id.see_more)
+		IconTextView see_more;
 
         int size =0;
 
@@ -152,6 +155,8 @@ public class SuggestionsTagsPresenter extends BasePresenter implements AppHeader
 			see_more.setOnClickListener((v)->{
 				Nav.push(new TagsPresenter(tagJson.Tag.Name));
 			});
+			see_more.setTypeface(FontCache.getIranLight());
+			see_more.setText("همه {ion-ios-arrow-left 12dp}");
 
             if(tagJson.Posts == null) return;
 

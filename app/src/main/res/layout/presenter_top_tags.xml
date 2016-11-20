@@ -4,7 +4,6 @@
     android:layout_height="wrap_content"
     android:background="@color/background_image"
     android:layout_marginTop="15dp"
-
     >
 
 
@@ -14,21 +13,24 @@
         android:id="@+id/text"
         style="@style/text.normal.black"
         android:padding="8dp"
+        android:gravity="right"
 
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         />
 
-    <TextView
+    <com.joanzapata.iconify.widget.IconTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/see_more"
-        style="@style/text.normal.black"
+
         android:padding="8dp"
-        android:text="همه"
+
+        android:gravity="left"
 
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
+        android:layout_toRightOf="@id/text"
         />
 
     <LinearLayout

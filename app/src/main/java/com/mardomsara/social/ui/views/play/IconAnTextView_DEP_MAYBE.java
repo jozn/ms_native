@@ -15,18 +15,18 @@ import com.mardomsara.social.ui.views.FontCache;
 /**
  * Created by Hamid on 7/14/2016.
  */
-public class IconAnTextView extends TextView {
-    public IconAnTextView(Context context) {
+public class IconAnTextView_DEP_MAYBE extends TextView {
+    public IconAnTextView_DEP_MAYBE(Context context) {
         super(context);
         init();
     }
 
-    public IconAnTextView(Context context, AttributeSet attrs) {
+    public IconAnTextView_DEP_MAYBE(Context context, AttributeSet attrs) {
         super(context, attrs);
         init();
     }
 
-    public IconAnTextView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public IconAnTextView_DEP_MAYBE(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init();
     }
