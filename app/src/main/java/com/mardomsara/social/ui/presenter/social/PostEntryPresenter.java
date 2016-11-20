@@ -32,7 +32,7 @@ public class PostEntryPresenter extends BasePresenter {
         postCell.bind(postRowJson);
 //        viewRoot.addView(listCell.getViewRoot());
 
-		CommentsWithAddFieldCell commentsWithAddFieldCell = new CommentsWithAddFieldCell(postRowJson.Id);
+		CommentsWithAddFieldCell commentsWithAddFieldCell = new CommentsWithAddFieldCell(postRowJson.Id,viewRoot);
         CommentsListCell commentsListCell = commentsWithAddFieldCell.commentsListCell;
         commentsListCell.adaptor.appendViewToHeader(postCell.getViewRoot());
 
@@ -43,7 +43,7 @@ public class PostEntryPresenter extends BasePresenter {
 
 //		commentsListCell.adaptor.hideLoading();
 
-        viewRoot.addView(commentsListCell.getViewRoot());
+        viewRoot.addView(commentsWithAddFieldCell.getViewRoot());
 //        listCell.loadFromServer(0);
 
         return viewRoot;

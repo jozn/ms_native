@@ -9,13 +9,6 @@
     android:id="@+id/post_row_holder"
     >
 
-    <com.mardomsara.social.ui.views.wigets.SimpleAddText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/simpleAddText"
-        android:layout_alignParentBottom="true"
-        />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -23,12 +16,19 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_above="@+id/simpleAddText"
-        android:layout_centerInParent="true"
         android:orientation="vertical"
-        android:gravity="bottom"
+        android:gravity="top"
 
         >
     </LinearLayout>
+
+    <com.mardomsara.social.ui.views.wigets.SimpleAddText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/simpleAddText"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        />
 
 </RelativeLayout>
 

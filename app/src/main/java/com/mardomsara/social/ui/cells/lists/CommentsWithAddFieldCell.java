@@ -16,9 +16,8 @@ import butterknife.ButterKnife;
 /**
  * Created by Hamid on 7/25/2016.
  */
-public class CommentsWithAddFieldCell extends BasePresenter implements SimpleAddText.OnAddText {
+public class CommentsWithAddFieldCell implements SimpleAddText.OnAddText {
     int postId = 0;
-
 
     @Bind(R.id.simpleAddText)
     SimpleAddText simpleAddText;
@@ -26,29 +25,29 @@ public class CommentsWithAddFieldCell extends BasePresenter implements SimpleAdd
 	@Bind(R.id.content)
 	ViewGroup content;
 
+	View view;
+
 	public CommentsListCell commentsListCell;
 
-    public CommentsWithAddFieldCell(int postId ) {
+    public CommentsWithAddFieldCell(int postId, ViewGroup parent ) {
         this.postId = postId;
-    }
+		commentsListCell = new CommentsListCell(postId);
 
-    @Override
-    public View buildView() {
-        View view = AppUtil.inflate(R.layout.cell_commonts_with_field);
-        ButterKnife.bind(this,view);
+		view = AppUtil.inflate(R.layout.cell_commonts_with_field,parent);
+		ButterKnife.bind(this,view);
 
-        commentsListCell = new CommentsListCell(postId);
+		content.addView(commentsListCell.getViewRoot());
 
-        content.addView(commentsListCell.getViewRoot());
-
-        simpleAddText.setOnAddListener(this);
-        return view;
-    }
-
+		simpleAddText.setOnAddListener(this);
+	}
 
 	@Override
 	public void onAddText(String text) {
 		commentsListCell.addNewCommentByMe(text);
+	}
+
+	public View getViewRoot(){
+		return view;
 	}
 }
 
