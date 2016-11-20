@@ -7,7 +7,9 @@ import com.mardomsara.social.app.API;
 import com.mardomsara.social.json.social.rows.PostRowJson;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.cells.PageCells;
+import com.mardomsara.social.ui.cells.TitleCellsGroup;
 import com.mardomsara.social.ui.cells.lists.CommentsListCell;
+import com.mardomsara.social.ui.cells.lists.CommentsWithAddFieldCell;
 import com.mardomsara.social.ui.cells.lists.PostsListCell;
 import com.mardomsara.social.ui.cells.rows.PostRowCell;
 
@@ -30,8 +32,13 @@ public class PostEntryPresenter extends BasePresenter {
         postCell.bind(postRowJson);
 //        viewRoot.addView(listCell.getViewRoot());
 
-        CommentsListCell commentsListCell = new CommentsListCell(postRowJson.Id);
+		CommentsWithAddFieldCell commentsWithAddFieldCell = new CommentsWithAddFieldCell(postRowJson.Id);
+        CommentsListCell commentsListCell = commentsWithAddFieldCell.commentsListCell;
         commentsListCell.adaptor.appendViewToHeader(postCell.getViewRoot());
+
+		TitleCellsGroup.InfoTitle infoTitle = new TitleCellsGroup.InfoTitle(commentsListCell.getViewRoot(),"نظرات");
+		commentsListCell.adaptor.appendViewToHeader(infoTitle.rootView);
+
         commentsListCell.layoutManager.setReverseLayout(false);
 
 //		commentsListCell.adaptor.hideLoading();
