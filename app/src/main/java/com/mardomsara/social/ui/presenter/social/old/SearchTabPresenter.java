@@ -1,4 +1,4 @@
-package com.mardomsara.social.ui.presenter.social;
+package com.mardomsara.social.ui.presenter.social.old;
 
 import android.content.Context;
 import android.support.design.widget.TabLayout;
@@ -14,7 +14,10 @@ import com.mardomsara.social.Nav;
 import com.mardomsara.social.R;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.ui.BasePresenter;
-import com.mardomsara.social.ui.cells.PageCells;
+import com.mardomsara.social.ui.presenter.social.SearchPresenter;
+import com.mardomsara.social.ui.presenter.social.SuggestionsPostsPresenter;
+import com.mardomsara.social.ui.presenter.social.SuggestionsTagsPresenter;
+import com.mardomsara.social.ui.presenter.social.SuggestionsUsersPresenter;
 
 /**
  * Created by Hamid on 8/23/2016.
@@ -25,37 +28,32 @@ public class SearchTabPresenter extends BasePresenter {
 //        ViewGroup v = (ViewGroup)inflater.inflate(R.layout.hello_world_row,null);
 //        return v;
 
-		PageCells.NavAndPager navAndPager =new PageCells.NavAndPager();
-        /*View l = AppUtil.inflate(R.layout.nav_header_pager_menu);
+        View l = AppUtil.inflate(R.layout.nav_header_pager_menu);
         ViewPager vp = (ViewPager)l.findViewById(R.id.viewpager);
         TabLayout tab = (TabLayout)l.findViewById(R.id.sliding_tabs);
-        tab.setBackgroundColor(0xeeeeee);*/
+        tab.setBackgroundColor(0xeeeeee);
+        SearchTabPagerAdaptor pad = new SearchTabPagerAdaptor(fragment.getChildFragmentManager(),fragment.getActivity());
 
-        SearchTabPagerAdaptor pad = new SearchTabPagerAdaptor(getFragment().getChildFragmentManager(),fragment.getActivity());
-
-        navAndPager.tabLayout.setTabMode(TabLayout.MODE_FIXED);
-//        tab.setTabMode(TabLayout.MODE_FIXED);
+        tab.setTabMode(TabLayout.MODE_FIXED);
 //
-		navAndPager.viewPager.setAdapter(pad);
-//        vp.setAdapter(pad);
-		navAndPager.tabLayout.setupWithViewPager(navAndPager.viewPager);
-//        tab.setupWithViewPager(vp);
+
+        vp.setAdapter(pad);
+        tab.setupWithViewPager(vp);
 
         //must called here
-        for (int i = 0; i < navAndPager.tabLayout.getTabCount(); i++) {
-            TabLayout.Tab t = navAndPager.tabLayout.getTabAt(i);
+        for (int i = 0; i < tab.getTabCount(); i++) {
+            TabLayout.Tab t = tab.getTabAt(i);
             t.setCustomView( pad.getTabView(i) );
         }
 
-		navAndPager.viewPager.setCurrentItem(pad.getCount()-1);
+        vp.setCurrentItem(pad.getCount()-1);
 
         //////TEMP/////////////
-//        View searchBtn = l.findViewById(R.id.search);
-//        searchBtn.setOnClickListener((v)-> Nav.push(new SearchPresenter()));
+        View searchBtn = l.findViewById(R.id.search);
+        searchBtn.setOnClickListener((v)-> Nav.push(new SearchPresenter()));
         /////////////////
-		navAndPager.addIcon("{ion-ios-search-strong 26dp}",()->{ Nav.push(new SearchPresenter());});
 
-        return navAndPager.rootView;
+        return l;
     }
 
     public static class SearchTabPagerAdaptor extends FragmentPagerAdapter {

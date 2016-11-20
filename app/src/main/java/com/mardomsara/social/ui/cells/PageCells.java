@@ -1,9 +1,14 @@
 package com.mardomsara.social.ui.cells;
 
+import android.graphics.Color;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
 
+import com.joanzapata.iconify.widget.IconTextView;
 import com.mardomsara.social.R;
+import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.ui.views.wigets.SimpleTopNav;
 
@@ -69,6 +74,34 @@ public class PageCells {
             layout = (ViewGroup)rootView.findViewById(R.id.layout);
         }
     }
+
+	public static class NavAndPager {
+		public ViewGroup rootView;
+		public ViewPager viewPager;
+		public TabLayout tabLayout;
+		public ViewGroup iconsContainer;
+		public NavAndPager() {
+			rootView = (ViewGroup) AppUtil.inflate(R.layout.nav_header_pager_menu);
+			viewPager = (ViewPager)rootView.findViewById(R.id.viewpager);
+			tabLayout = (TabLayout)rootView.findViewById(R.id.sliding_tabs);
+			iconsContainer = (ViewGroup) rootView.findViewById(R.id.search);
+			tabLayout.setBackgroundColor(0xeeeeee);
+		}
+
+		public void addIcon(String iconIfyIcon, Runnable runnable){
+			int dp10 = AndroidUtil.dpToPx(10);
+			IconTextView iconTextView = new IconTextView(rootView.getContext());
+			iconTextView.setText(iconIfyIcon);
+			iconTextView.setTextColor(Color.BLACK);
+			iconTextView.setPadding(dp10,0,dp10,0);
+			iconTextView.setOnClickListener((v)->{
+				if(runnable!= null) runnable.run();
+			});
+			iconsContainer.addView(iconTextView);
+		}
+
+
+	}
 
 
 }

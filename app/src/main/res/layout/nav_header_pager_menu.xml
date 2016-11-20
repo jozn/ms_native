@@ -24,7 +24,7 @@
             >
             <!--android:paddingLeft="20dp"-->
             <!--android:paddingRight="20dp"-->
-            <TextView
+            <!--<TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="\uf397"
@@ -44,6 +44,11 @@
                 android:text="\uf3aa"
                 style="@style/top_nav.icon_btn"
                 />
+            <com.joanzapata.iconify.widget.IconTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="{ion-plus 24dp}"
+                />-->
 
         </LinearLayout>
 
