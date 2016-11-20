@@ -5,7 +5,6 @@ import android.view.ViewGroup;
 
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.cells.PageCells;
-import com.mardomsara.social.ui.cells.lists.CommentsListCell;
 import com.mardomsara.social.ui.cells.lists.CommentsWithAddFieldCell;
 
 /**
@@ -14,8 +13,6 @@ import com.mardomsara.social.ui.cells.lists.CommentsWithAddFieldCell;
 //TODO merge to
 public class CommentsPresenter extends BasePresenter  {
 	int postId = 0;
-
-	CommentsListCell commentsListCell;
 
 	public CommentsPresenter(int postId ) {
 		this.postId = postId;
@@ -34,7 +31,7 @@ public class CommentsPresenter extends BasePresenter  {
 
 		return pageCell.rootView;
 	}
-	
+
 }
 
 
