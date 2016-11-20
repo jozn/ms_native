@@ -8,12 +8,16 @@ import android.view.ViewGroup;
 
 import com.mardomsara.social.R;
 import com.mardomsara.social.app.API;
+import com.mardomsara.social.base.Http.Http;
+import com.mardomsara.social.base.Http.Result;
 import com.mardomsara.social.base.HttpOld;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.JsonUtil;
+import com.mardomsara.social.json.HttpJsonList;
 import com.mardomsara.social.json.social.http.HomeStreamJson;
+import com.mardomsara.social.json.social.rows.PostRowJson;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.ui.UIPostsList;
@@ -48,7 +52,7 @@ public class TagsPresenter extends BasePresenter
 //        viewRoot = (ViewGroup) AppUtil.inflate(R.layout.preseter_home_stream);
 //        ButterKnife.bind(this, viewRoot);
         PageCells.NavAndEmptyView page = new PageCells.NavAndEmptyView();
-        page.simpleTopNav.setTitle(""+tagName);
+        page.simpleTopNav.setTitle(getTagNameTitle(this.tagName));
         viewRoot = page.rootView;
         load();
 //        loadFromServer();
@@ -71,32 +75,58 @@ public class TagsPresenter extends BasePresenter
         refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                Helper.showMessage("re");
-                loadFromServer();
+                Helper.showDebugMessage("re");
+				adaptor.reload();
+//                loadFromServer();
             }
         });
-        loadFromServer();
+//        loadFromServer();
     }
 
-    private void loadFromServer() {
-        AndroidUtil.runInBackground(()->{
-            HttpOld.Req req = new HttpOld.Req();
+    private void loadFromServer(int pageNum) {
+		Http.getPath("/v1/tags/list")
+			.setQueryParam("tag",tagName)
+			.setQueryParam("limit",30)
+			.setQueryParam("last","")
+			.doAsyncUi((result -> {
+
+				refreshLayout.setRefreshing(false);
+				adaptor.nextPageIsLoaded();
+
+				if(result.isOk()){
+					HttpJsonList<PostRowJson> data = Result.fromJsonList(result,PostRowJson.class);
+					if(data.isPayloadNoneEmpty()){
+						adaptor.posts.addAll(data.Payload);
+						adaptor.notifyDataSetChanged();
+					}else {
+						adaptor.setHasMorePage(false);
+					}
+				}else {
+					adaptor.setHasMorePage(false);
+				}
+
+			}));
+    }
+
+	@Deprecated
+	private void loadFromServer_dep() {
+		AndroidUtil.runInBackground(()->{
+			HttpOld.Req req = new HttpOld.Req();
 //            req.absUrl = API.POSTS_STREAM_GET.toString();
 //            req.absUrl = "http://localhost:5000/v1/post/stream";
-            req.absPath = API.TAGS_LIST;
-            req.urlParams.put("tag",tagName);
-            HttpOld.Result res = HttpOld.get(req);
-            if(res.ok){
-                AndroidUtil.runInUi(()->{
+			req.absPath = API.TAGS_LIST;
+			req.urlParams.put("tag",tagName);
+			HttpOld.Result res = HttpOld.get(req);
+			if(res.ok){
+				AndroidUtil.runInUi(()->{
                    /*TextView tv= (TextView)viewRoot.findViewById(R.id.loading);
                     tv.setText(res.data);*/
-                    loadedPostsFromNet(res);
+					loadedPostsFromNet(res);
 
-                });
-            }
-        });
-    }
-
+				});
+			}
+		});
+	}
     private void loadedPostsFromNet(HttpOld.Result res) {
 //        loading.setVisibility(View.GONE);
 //        content.setVisibility(View.VISIBLE);
@@ -119,8 +149,21 @@ public class TagsPresenter extends BasePresenter
         }
     }
 
+	String getTagNameTitle(String tagName){
+		if(tagName!=null&&tagName.length()>0){
+			if(!tagName.startsWith("#")) {
+				return "#" + tagName;
+			}
+			else {
+				return tagName;
+			}
+		}
+		return "";
+	}
+
     @Override
     public void loadNextPage(int pageNum) {
-
+		Helper.showDebugMessage("tags list: "+pageNum);
+		loadFromServer(pageNum);
     }
 }
