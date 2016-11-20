@@ -37,7 +37,6 @@ public class TagsPresenter extends BasePresenter
     @Bind(R.id.content)
     ViewGroup content;
     @Bind(R.id.loading) View loading;
-//    @Bind(R.id.recycler_view) RecyclerView recycler_view;
 
 
     UIPostsList.PostsAdaptor adaptor;
@@ -49,13 +48,10 @@ public class TagsPresenter extends BasePresenter
 
     @Override
     public View buildView() {
-//        viewRoot = (ViewGroup) AppUtil.inflate(R.layout.preseter_home_stream);
-//        ButterKnife.bind(this, viewRoot);
         PageCells.NavAndEmptyView page = new PageCells.NavAndEmptyView();
         page.simpleTopNav.setTitle(getTagNameTitle(this.tagName));
         viewRoot = page.rootView;
         load();
-//        loadFromServer();
         return viewRoot;
     }
 
@@ -67,7 +63,6 @@ public class TagsPresenter extends BasePresenter
         recycler_view.setLayoutManager(layoutManager);
         recycler_view.setAdapter(adaptor);
         adaptor.setUpForPaginationWith(recycler_view,layoutManager,this);
-//        adaptor.setRecyclerView(recycler_view);
         adaptor.showLoading();
 
         refreshLayout.addView(recycler_view);
@@ -77,10 +72,8 @@ public class TagsPresenter extends BasePresenter
             public void onRefresh() {
                 Helper.showDebugMessage("re");
 				adaptor.reload();
-//                loadFromServer();
             }
         });
-//        loadFromServer();
     }
 
     private void loadFromServer(int pageNum) {
@@ -96,6 +89,9 @@ public class TagsPresenter extends BasePresenter
 				if(result.isOk()){
 					HttpJsonList<PostRowJson> data = Result.fromJsonList(result,PostRowJson.class);
 					if(data.isPayloadNoneEmpty()){
+						if(pageNum==1){
+							adaptor.posts.clear();
+						}
 						adaptor.posts.addAll(data.Payload);
 						adaptor.notifyDataSetChanged();
 					}else {
@@ -106,47 +102,6 @@ public class TagsPresenter extends BasePresenter
 				}
 
 			}));
-    }
-
-	@Deprecated
-	private void loadFromServer_dep() {
-		AndroidUtil.runInBackground(()->{
-			HttpOld.Req req = new HttpOld.Req();
-//            req.absUrl = API.POSTS_STREAM_GET.toString();
-//            req.absUrl = "http://localhost:5000/v1/post/stream";
-			req.absPath = API.TAGS_LIST;
-			req.urlParams.put("tag",tagName);
-			HttpOld.Result res = HttpOld.get(req);
-			if(res.ok){
-				AndroidUtil.runInUi(()->{
-                   /*TextView tv= (TextView)viewRoot.findViewById(R.id.loading);
-                    tv.setText(res.data);*/
-					loadedPostsFromNet(res);
-
-				});
-			}
-		});
-	}
-    private void loadedPostsFromNet(HttpOld.Result res) {
-//        loading.setVisibility(View.GONE);
-//        content.setVisibility(View.VISIBLE);
-        HomeStreamJson data= JsonUtil.fromJson(res.data, HomeStreamJson.class);
-        if(data != null && data.Payload != null && data.Status.equalsIgnoreCase("OK")){
-
-//            content.addView(UIPostsList.buildNew(data.Load));
-
-
-            //////////NEW
-            if(data.Payload != null){
-                adaptor.posts.addAll(data.Payload);
-                adaptor.notifyDataSetChanged();
-            }
-
-//            UIPostsList_DEP.HomeStreamAdaptor_Dep adaptor = new UIPostsList_DEP.HomeStreamAdaptor_Dep();
-//            adaptor.posts = data.Load;
-//            recycler_view.setLayoutManager(new LinearLayoutManager(getContext()));
-//            recycler_view.setAdapter(adaptor);
-        }
     }
 
 	String getTagNameTitle(String tagName){
