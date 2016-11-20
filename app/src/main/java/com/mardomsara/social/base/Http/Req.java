@@ -112,7 +112,7 @@ public class Req<T> {
 			Result res = Sender.Send(this);
 
 			if(callBack != null){
-				AndroidUtil.runInUi(()->callBack.callback(res));
+				AndroidUtil.runInUiNoPanic(()->callBack.callback(res));
 			}
 		});
 		return this;

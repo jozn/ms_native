@@ -14,11 +14,11 @@ import com.mardomsara.social.ui.cells.rows.PostRowCell;
 /**
  * Created by Hamid on 8/26/2016.
  */
-public class PostEnteryPresenter extends BasePresenter {
+public class PostEntryPresenter extends BasePresenter {
     ViewGroup viewRoot;
     PostRowJson postRowJson;
 
-    public PostEnteryPresenter(PostRowJson postJson) {
+    public PostEntryPresenter(PostRowJson postJson) {
         postRowJson = postJson;
     }
 
@@ -33,6 +33,8 @@ public class PostEnteryPresenter extends BasePresenter {
         CommentsListCell commentsListCell = new CommentsListCell(postRowJson.Id);
         commentsListCell.adaptor.appendViewToHeader(postCell.getViewRoot());
         commentsListCell.layoutManager.setReverseLayout(false);
+
+//		commentsListCell.adaptor.hideLoading();
 
         viewRoot.addView(commentsListCell.getViewRoot());
 //        listCell.loadFromServer(0);

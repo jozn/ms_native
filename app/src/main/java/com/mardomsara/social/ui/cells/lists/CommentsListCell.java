@@ -58,6 +58,8 @@ public class CommentsListCell implements  AppHeaderFooterRecyclerViewAdapter.Loa
 				.setQueryParam("post_id",""+postId)
 				.setQueryParam("page",""+page)
 				.doAsyncUi((result -> {
+					adaptor.nextPageIsLoaded();
+
 					if(result.isOk()){
 						HttpJsonList<CommentRowJson> data = Result.fromJsonList(result,CommentRowJson.class);
 						if(data.isPayloadNoneEmpty()){
@@ -65,13 +67,13 @@ public class CommentsListCell implements  AppHeaderFooterRecyclerViewAdapter.Loa
 								adaptor.list.clear();
 							}
 							adaptor.list.addAll(data.Payload);
-							scrollToEnd();
+//							scrollToEnd();
 						}else {
 							adaptor.setHasMorePage(false);
 						}
 						adaptor.notifyDataSetChanged();
 					}
-					adaptor.nextPageIsLoaded();
+
 				}));
         });
     }

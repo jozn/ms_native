@@ -14,7 +14,7 @@ import com.mardomsara.social.ui.presenter.social.AcitivityTabPresenter;
 import com.mardomsara.social.ui.presenter.social.CommentsPresenter;
 import com.mardomsara.social.ui.presenter.social.FollowsListAboutPresenter;
 import com.mardomsara.social.ui.presenter.social.HomeStream2Presenter;
-import com.mardomsara.social.ui.presenter.social.PostEnteryPresenter;
+import com.mardomsara.social.ui.presenter.social.PostEntryPresenter;
 import com.mardomsara.social.ui.presenter.social.ProfilePresenter;
 import com.mardomsara.social.ui.presenter.social.SearchTabPresenter;
 import com.mardomsara.social.ui.presenter.social.TagsPresenter;
@@ -81,7 +81,7 @@ public class Router {
     }
 
     public static void goToPost(PostRowJson postRowJson) {
-        Nav.push(new PostEnteryPresenter(postRowJson));
+        Nav.push(new PostEntryPresenter(postRowJson));
     }
 
     public static void goToTag(String tag) {

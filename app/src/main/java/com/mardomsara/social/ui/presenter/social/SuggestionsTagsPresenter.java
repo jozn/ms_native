@@ -195,7 +195,7 @@ public class SuggestionsTagsPresenter extends BasePresenter implements AppHeader
                     .into(image);
 
             View.OnClickListener onClick = (v)->{
-                Nav.push(new PostEnteryPresenter(post));
+                Nav.push(new PostEntryPresenter(post));
             };
 
             image.setOnClickListener(onClick);

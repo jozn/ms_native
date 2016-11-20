@@ -110,9 +110,9 @@ public class PostRowCell {
     };
 
     public PostRowCell(ViewGroup parent) {
-        View itemView = AppUtil.inflate(R.layout.row_post_stream, parent);
-        ButterKnife.bind(this, itemView);
-        rootView = itemView;
+		rootView = AppUtil.inflate(R.layout.row_post_stream, parent);
+        ButterKnife.bind(this, rootView);
+//        rootView = itemView;
 
         user_name.setOnClickListener(gotoProfile);
         avatar.setOnClickListener(gotoProfile);

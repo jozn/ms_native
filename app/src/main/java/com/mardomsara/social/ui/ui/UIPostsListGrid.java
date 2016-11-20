@@ -14,8 +14,7 @@ import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.json.social.rows.PostRowJson;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
-import com.mardomsara.social.ui.presenter.social.PostEnteryPresenter;
-import com.mardomsara.social.ui.presenter.social.ProfilePresenter;
+import com.mardomsara.social.ui.presenter.social.PostEntryPresenter;
 import com.mardomsara.social.ui.views.FullScreenImage;
 import com.mardomsara.social.ui.views.helpers.ViewHelper;
 import com.squareup.picasso.Picasso;
@@ -80,7 +79,7 @@ public class UIPostsListGrid {
 
         View.OnClickListener gotoProfile = (v) -> {
 //            Nav.push(new ProfilePresenter(post.UserId));
-            Nav.push(new PostEnteryPresenter(post));
+            Nav.push(new PostEntryPresenter(post));
         };
 
         View.OnClickListener imagePopup = (v) -> {
