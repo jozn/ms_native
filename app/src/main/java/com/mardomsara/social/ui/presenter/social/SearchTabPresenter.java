@@ -23,7 +23,7 @@ public class SearchTabPresenter extends BasePresenter {
 //        return v;
 		SearchTabPagerAdaptor pad = new SearchTabPagerAdaptor(getFragment().getChildFragmentManager(),fragment.getActivity());
 
-		PageCells.NavAndPager navAndPager =new PageCells.NavAndPager(pad);
+		PageCells.NavAndPager navAndPager = new PageCells.NavAndPager(pad);
         /*View l = AppUtil.inflate(R.layout.nav_header_pager_menu);
         ViewPager vp = (ViewPager)l.findViewById(R.id.viewpager);
         TabLayout tab = (TabLayout)l.findViewById(R.id.sliding_tabs);
