@@ -1,18 +1,15 @@
 package com.mardomsara.social.ui.presenter.social;
 
 import android.content.Context;
-import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 
 import com.mardomsara.social.Nav;
 import com.mardomsara.social.R;
-import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.cells.PageCells;
 
@@ -24,14 +21,15 @@ public class SearchTabPresenter extends BasePresenter {
     public View buildView() {
 //        ViewGroup v = (ViewGroup)inflater.inflate(R.layout.hello_world_row,null);
 //        return v;
+		SearchTabPagerAdaptor pad = new SearchTabPagerAdaptor(getFragment().getChildFragmentManager(),fragment.getActivity());
 
-		PageCells.NavAndPager navAndPager =new PageCells.NavAndPager();
+		PageCells.NavAndPager navAndPager =new PageCells.NavAndPager(pad);
         /*View l = AppUtil.inflate(R.layout.nav_header_pager_menu);
         ViewPager vp = (ViewPager)l.findViewById(R.id.viewpager);
         TabLayout tab = (TabLayout)l.findViewById(R.id.sliding_tabs);
         tab.setBackgroundColor(0xeeeeee);*/
 
-        SearchTabPagerAdaptor pad = new SearchTabPagerAdaptor(getFragment().getChildFragmentManager(),fragment.getActivity());
+/*
 
         navAndPager.tabLayout.setTabMode(TabLayout.MODE_FIXED);
 //        tab.setTabMode(TabLayout.MODE_FIXED);
@@ -49,6 +47,7 @@ public class SearchTabPresenter extends BasePresenter {
 
 		navAndPager.viewPager.setCurrentItem(pad.getCount()-1);
 
+*/
         //////TEMP/////////////
 //        View searchBtn = l.findViewById(R.id.search);
 //        searchBtn.setOnClickListener((v)-> Nav.push(new SearchPresenter()));
@@ -91,6 +90,7 @@ public class SearchTabPresenter extends BasePresenter {
             return tabTitles[position];
         }
 
+		@Deprecated
         public View getTabView(int position) {
             // Given you have a custom layout in `response/layout/custom_tab.xml` with a TextView and ImageView
             View v = LayoutInflater.from(context).inflate(R.layout.tab_cell_general, null);

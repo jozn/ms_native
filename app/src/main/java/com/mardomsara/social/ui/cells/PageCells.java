@@ -2,9 +2,13 @@ package com.mardomsara.social.ui.cells;
 
 import android.graphics.Color;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.joanzapata.iconify.widget.IconTextView;
 import com.mardomsara.social.R;
@@ -80,12 +84,32 @@ public class PageCells {
 		public ViewPager viewPager;
 		public TabLayout tabLayout;
 		public ViewGroup iconsContainer;
-		public NavAndPager() {
+		/*public NavAndPager() {
 			rootView = (ViewGroup) AppUtil.inflate(R.layout.nav_header_pager_menu);
 			viewPager = (ViewPager)rootView.findViewById(R.id.viewpager);
 			tabLayout = (TabLayout)rootView.findViewById(R.id.sliding_tabs);
 			iconsContainer = (ViewGroup) rootView.findViewById(R.id.search);
 			tabLayout.setBackgroundColor(0xeeeeee);
+		}*/
+
+		public NavAndPager(FragmentPagerAdapter pad) {
+			rootView = (ViewGroup) AppUtil.inflate(R.layout.nav_header_pager_menu);
+			viewPager = (ViewPager)rootView.findViewById(R.id.viewpager);
+			tabLayout = (TabLayout)rootView.findViewById(R.id.sliding_tabs);
+			iconsContainer = (ViewGroup) rootView.findViewById(R.id.search);
+			tabLayout.setBackgroundColor(0xeeeeee);
+
+			tabLayout.setTabMode(TabLayout.MODE_FIXED);
+			viewPager.setAdapter(pad);
+			tabLayout.setupWithViewPager(viewPager);
+//
+			//must called here
+			for (int i = 0; i < tabLayout.getTabCount(); i++) {
+				TabLayout.Tab t = tabLayout.getTabAt(i);
+				t.setCustomView( getTabView(i,pad) );
+			}
+
+			viewPager.setCurrentItem(pad.getCount()-1);
 		}
 
 		public void addIcon(String iconIfyIcon, Runnable runnable){
@@ -100,7 +124,12 @@ public class PageCells {
 			iconsContainer.addView(iconTextView);
 		}
 
-
+		private View getTabView(int position,FragmentPagerAdapter pad) {
+			View v = AppUtil.inflate(R.layout.tab_cell_general, null);
+			TextView tv = (TextView) v.findViewById(R.id.textView);
+			tv.setText(pad.getPageTitle(position));
+			return v;
+		}
 	}
 
 
