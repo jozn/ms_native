@@ -84,15 +84,8 @@ public class PageCells {
 		public ViewPager viewPager;
 		public TabLayout tabLayout;
 		public ViewGroup iconsContainer;
-		/*public NavAndPager() {
-			rootView = (ViewGroup) AppUtil.inflate(R.layout.nav_header_pager_menu);
-			viewPager = (ViewPager)rootView.findViewById(R.id.viewpager);
-			tabLayout = (TabLayout)rootView.findViewById(R.id.sliding_tabs);
-			iconsContainer = (ViewGroup) rootView.findViewById(R.id.search);
-			tabLayout.setBackgroundColor(0xeeeeee);
-		}*/
 
-		public NavAndPager(FragmentPagerAdapter pad) {
+		public NavAndPager(FragmentPagerAdapter pagerAdaptor) {
 			rootView = (ViewGroup) AppUtil.inflate(R.layout.nav_header_pager_menu);
 			viewPager = (ViewPager)rootView.findViewById(R.id.viewpager);
 			tabLayout = (TabLayout)rootView.findViewById(R.id.sliding_tabs);
@@ -100,16 +93,16 @@ public class PageCells {
 			tabLayout.setBackgroundColor(0xeeeeee);
 
 			tabLayout.setTabMode(TabLayout.MODE_FIXED);
-			viewPager.setAdapter(pad);
+			viewPager.setAdapter(pagerAdaptor);
 			tabLayout.setupWithViewPager(viewPager);
 //
 			//must called here
 			for (int i = 0; i < tabLayout.getTabCount(); i++) {
 				TabLayout.Tab t = tabLayout.getTabAt(i);
-				t.setCustomView( getTabView(i,pad) );
+				t.setCustomView( getTabView(i,pagerAdaptor) );
 			}
 
-			viewPager.setCurrentItem(pad.getCount()-1);
+			viewPager.setCurrentItem(pagerAdaptor.getCount()-1);
 		}
 
 		public void addIcon(String iconIfyIcon, Runnable runnable){
@@ -124,10 +117,10 @@ public class PageCells {
 			iconsContainer.addView(iconTextView);
 		}
 
-		private View getTabView(int position,FragmentPagerAdapter pad) {
+		private View getTabView(int position,FragmentPagerAdapter pagerAdaptor) {
 			View v = AppUtil.inflate(R.layout.tab_cell_general, null);
 			TextView tv = (TextView) v.findViewById(R.id.textView);
-			tv.setText(pad.getPageTitle(position));
+			tv.setText(pagerAdaptor.getPageTitle(position));
 			return v;
 		}
 	}
