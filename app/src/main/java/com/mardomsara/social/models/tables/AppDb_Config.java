@@ -13,6 +13,8 @@ import com.mardomsara.social.base.old.Command;
                 Notify.class,
                 Message.class,
                 Room.class,
+				SearchTagHistory.class,
+				SearchUserHistory.class,
                 User.class,
                 Command.class,
 				MsgSeen.class,
