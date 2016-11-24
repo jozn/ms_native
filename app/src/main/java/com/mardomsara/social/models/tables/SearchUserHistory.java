@@ -22,8 +22,8 @@ public class SearchUserHistory {
 	@PrimaryKey(auto = false, onConflict = OnConflict.REPLACE)
 	public int UserId = 0;
 
-	@Column(indexed = true, defaultExpr = "1")
-	public int ReachedType = 1;
+	@Column(indexed = true, defaultExpr = "2")
+	public int ReachedType = 2;
 
 	@Column(defaultExpr = "")
 	public String Data = "";
@@ -32,7 +32,8 @@ public class SearchUserHistory {
 	public long CreatedAt = 0;
 
 	////////// Methods (No sqlite) //////
-
+	public final static int REACHED_SEARCH = 1;
+	public final static int REACHED_CLICK = 2;
 	final static int LIMIT = 50;
 
 	public void save(){
