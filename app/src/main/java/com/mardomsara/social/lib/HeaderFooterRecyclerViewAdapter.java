@@ -3,6 +3,8 @@ package com.mardomsara.social.lib;
 import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
 
+import com.google.gson.reflect.TypeToken;
+
 public abstract class HeaderFooterRecyclerViewAdapter<
         ContentViewHolder extends RecyclerView.ViewHolder,
         HeaderViewHolder extends RecyclerView.ViewHolder,
@@ -37,21 +39,42 @@ public abstract class HeaderFooterRecyclerViewAdapter<
         }
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    @SuppressWarnings("unchecked")
-    @Override
+    /*
+	@SuppressWarnings("unchecked")
+	@Override
     public final void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int position) {
         // Delegate to proper methods based on the viewType ranges.
-        if (headerItemCount > 0 && position < headerItemCount) {
+		viewHolder.getClass().getGenericInterfaces();
+		TypeToken<HeaderViewHolder> typeToken = new TypeToken<HeaderViewHolder>(getClass()) { };
+        if (headerItemCount > 0 && position < headerItemCount ){//&& viewHolder instanceof HeaderViewHolder ) {
             onBindHeaderItemViewHolder((HeaderViewHolder) viewHolder, position);
         } else if (contentItemCount > 0 && position - headerItemCount < contentItemCount) {
             onBindContentItemViewHolder((ContentViewHolder) viewHolder, position - headerItemCount);
         } else {
             onBindFooterItemViewHolder((FooterViewHolder) viewHolder, position - headerItemCount - contentItemCount);
         }
-    }
+    }*/
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public final void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int position) {
+		//ME catch casting - (Section cause panic)
+		try {
+			// Delegate to proper methods based on the viewType ranges.
+			if (headerItemCount > 0 && position < headerItemCount) {
+				onBindHeaderItemViewHolder((HeaderViewHolder) viewHolder, position);
+			} else if (contentItemCount > 0 && position - headerItemCount < contentItemCount) {
+				onBindContentItemViewHolder((ContentViewHolder) viewHolder, position - headerItemCount);
+			} else {
+				onBindFooterItemViewHolder((FooterViewHolder) viewHolder, position - headerItemCount - contentItemCount);
+			}
+		}catch (Exception e){
+			e.printStackTrace();
+		}
+	}
 
     /**
      * {@inheritDoc}

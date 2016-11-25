@@ -33,7 +33,55 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
     int footerTypeId = 0;
     int headerTypeId = 0;
 
-//    RecyclerView recyclerView;
+	Sectioned sectioned;
+
+	public AppHeaderFooterRecyclerViewAdapter() {
+		registerAdapterDataObserver(new RecyclerView.AdapterDataObserver(){
+			@Override
+			public void onChanged() {
+				super.onChanged();
+				check();
+			}
+
+			@Override
+			public void onItemRangeChanged(int positionStart, int itemCount) {
+				super.onItemRangeChanged(positionStart, itemCount);
+				check();
+			}
+
+			@Override
+			public void onItemRangeChanged(int positionStart, int itemCount, Object payload) {
+				super.onItemRangeChanged(positionStart, itemCount, payload);
+				check();
+			}
+
+			@Override
+			public void onItemRangeInserted(int positionStart, int itemCount) {
+				super.onItemRangeInserted(positionStart, itemCount);
+				check();
+			}
+
+			@Override
+			public void onItemRangeRemoved(int positionStart, int itemCount) {
+				super.onItemRangeRemoved(positionStart, itemCount);
+				check();
+			}
+
+			@Override
+			public void onItemRangeMoved(int fromPosition, int toPosition, int itemCount) {
+				super.onItemRangeMoved(fromPosition, toPosition, itemCount);
+				check();
+			}
+
+			void check(){
+				if(sectioned!=null){
+					sectioned.notifyDataChanged();
+				}
+			}
+		});
+	}
+
+	//    RecyclerView recyclerView;
     @Override
     protected int getHeaderItemCount() {
         return headerViews.size();
@@ -56,6 +104,14 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
 		}
 		return s;
 	}
+
+	public void notifyDataChanged(){
+		if(sectioned!=null){
+			sectioned.notifyDataChanged();
+		}
+		super.notifyDataSetChanged();
+	}
+
 	protected abstract int getContentItemCount();
 
     @Override
@@ -310,7 +366,7 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
 			setHasMorePage(false);
 			emptyMsgView= AppUtil.inflate(R.layout.wiget_app__headr_footer_recycler_empty_msg);
 			appendViewToHeader(emptyMsgView);
-			notifyDataSetChanged();
+			notifyDataChanged();
 		};
 		new Handler().post(r);
 	}
@@ -324,7 +380,7 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
 		isShowingEmptyView = false;
 		Runnable r = ()->{
 			removeViewFromHeader(emptyMsgView);
-			notifyDataSetChanged();
+			notifyDataChanged();
 		};
 		new Handler().post(r);
 	}
@@ -352,6 +408,46 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
 		int offset =0;
 		final int SECTION_OFFSET = 10_000;
 
+		public Sectioned() {
+			/*registerAdapterDataObserver( new RecyclerView.AdapterDataObserver(){
+
+				@Override
+				public void onChanged() {
+					notifyDataChanged();
+				}
+
+				@Override
+				public void onItemRangeChanged(int positionStart, int itemCount) {
+					super.onItemRangeChanged(positionStart, itemCount);
+					notifyDataChanged();
+				}
+
+				@Override
+				public void onItemRangeChanged(int positionStart, int itemCount, Object payload) {
+					super.onItemRangeChanged(positionStart, itemCount, payload);
+					notifyDataChanged();
+				}
+
+				@Override
+				public void onItemRangeInserted(int positionStart, int itemCount) {
+					super.onItemRangeInserted(positionStart, itemCount);
+					notifyDataChanged();
+				}
+
+				@Override
+				public void onItemRangeRemoved(int positionStart, int itemCount) {
+					super.onItemRangeRemoved(positionStart, itemCount);
+					notifyDataChanged();
+				}
+
+				@Override
+				public void onItemRangeMoved(int fromPosition, int toPosition, int itemCount) {
+					super.onItemRangeMoved(fromPosition, toPosition, itemCount);
+					notifyDataChanged();
+				}
+			});*/
+		}
+
 		public void add(AppHeaderFooterRecyclerViewAdapter adpator){
 			SectionRow sectionRow = new SectionRow();
 			sectionRow.adapter = adpator;
@@ -360,17 +456,28 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
 			offset += SECTION_OFFSET;
 			AppUtil.log("Section: onBindViewHolder: add "+sectionRow);
 			sections.add(sectionRow);
+			adpator.sectioned = this;
 		}
 
 		@Override
 		public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-			AppUtil.log("Section: onBindViewHolder: viewType "+viewType);
+			AppUtil.log("Section: onCreateViewHolder: viewType "+viewType);
 			SectionRow sectionRow = getSectionRowOrThrow_ByViewTypeId(viewType);
+			RecyclerView.ViewHolder res;
 			if(sectionRow!= null){
 				int vt = viewType - sectionRow.offsetType;
-				return sectionRow.adapter.onCreateViewHolder(parent,vt);
+				AppUtil.log("Section: XXxx vt"+vt);
+
+				res = sectionRow.adapter.onCreateViewHolder(parent,vt);
+//				return sectionRow.adapter.onCreateViewHolder(parent,vt);
+				if(res==null){
+					AppUtil.log("Section: XXX RecyclerView.ViewHolder is null");
+				}else {
+					return res;
+				}
 			}
-			return new SectionHolder(AppUtil.inflate(R.layout.hello_world_row));
+//			res = new SectionHolder(AppUtil.inflate(R.layout.hello_world_row));
+			return new SectionHolder(new View(AppUtil.getContext()));
 //			return null;
 		}
 
@@ -386,11 +493,11 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
 
 		@Override
 		public int getItemViewType(int position) {
-			AppUtil.log("Section: onBindViewHolder: position "+position);
+			AppUtil.log("Section: getItemViewType: position "+position);
 			SectionRow sectionRow = getSectionRowOrThrow_ByPosition(position);
 			if(sectionRow!= null){
 				int pos = position - sectionRow.offsetPosition;
-				return sectionRow.adapter.getItemViewType(pos);
+				return sectionRow.adapter.getItemViewType(pos)+sectionRow.offsetType;
 			}
 			return super.getItemViewType(position);
 		}
@@ -424,7 +531,7 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
 			resetPositions();
 			int sum = 0;
 			for(SectionRow sectionRow: sections ){
-				if(position >= sum  && (position-sum) <= sectionRow.adapter.getItemCount()){
+				if(position >= sum  && (position-sum) < sectionRow.adapter.getItemCount()){
 					return sectionRow;
 				}
 				sum += sectionRow.adapter.getItemCount();
@@ -448,7 +555,7 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
 
 			if(Config.IS_DEBUG){
 //				throw new IllegalArgumentException("In AppHeader... Section getSectionRowOrThrow_ByViewTypeId(int) for viewId: "+viewId);
-				AppUtil.log("section is null getSectionRowOrThrow_ByViewTypeId viewId: "+viewId);
+				AppUtil.log("Section is null getSectionRowOrThrow_ByViewTypeId viewId: "+viewId);
 			}
 			return null;
 		}
@@ -467,6 +574,10 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
 			return sum;
 		}
 
+		public void notifyDataChanged(){
+			resetPositions();
+			super.notifyDataSetChanged();
+		}
 
 		public static class SectionRow {
 			AppHeaderFooterRecyclerViewAdapter adapter;

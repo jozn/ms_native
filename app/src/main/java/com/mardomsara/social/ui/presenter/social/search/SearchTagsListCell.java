@@ -16,6 +16,7 @@ import com.mardomsara.social.helpers.JsonUtil;
 import com.mardomsara.social.json.social.http.TagsListJson;
 import com.mardomsara.social.json.social.rows.TagRowJson;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
+import com.mardomsara.social.ui.cells.TitleCellsGroup;
 import com.mardomsara.social.ui.views.helpers.ViewHelper;
 
 import java.util.ArrayList;
@@ -43,9 +44,9 @@ public class SearchTagsListCell {
         adaptor3 = new TagsAdaptor();
 		sectioned.add(adaptor);
 		sectioned.add(adaptor2);
-		sectioned.add(adaptor3);
-		sectioned.add(new TagsAdaptor());
-		sectioned.add(new TagsAdaptor());
+//		sectioned.add(adaptor3);
+//		sectioned.add(new TagsAdaptor());
+//		sectioned.add(new TagsAdaptor());
         load();
     }
 
@@ -83,18 +84,21 @@ public class SearchTagsListCell {
             adaptor.list.clear();
             adaptor2.list.clear();
             adaptor3.list.clear();
-//            adaptor.list.addAll(data.Payload);
+            adaptor.list.addAll(data.Payload);
             adaptor2.list.addAll(data.Payload);
             adaptor3.list.addAll(data.Payload);
-            adaptor.notifyDataSetChanged();
-            adaptor2.notifyDataSetChanged();
-            adaptor3.notifyDataSetChanged();
-            adaptor.setHasMorePage(false);//just one page
+            adaptor.notifyDataChanged();
+            adaptor2.notifyDataChanged();
+            adaptor3.notifyDataChanged();
+            adaptor.setHasMorePage(true);//just one page
             adaptor2.setHasMorePage(true);//just one page
             adaptor3.setHasMorePage(true);//just one page
         }else {
             adaptor.setHasMorePage(false);
         }
+		adaptor.appendViewToHeader(new TitleCellsGroup.InfoTitle(null,"asd").rootView);
+		adaptor2.appendViewToHeader(new TitleCellsGroup.InfoTitle(null,"asd").rootView);
+		adaptor.notifyDataChanged();
 		sectioned.Changed();
     }
 
