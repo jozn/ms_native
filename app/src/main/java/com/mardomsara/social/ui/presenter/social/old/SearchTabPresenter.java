@@ -14,7 +14,7 @@ import com.mardomsara.social.Nav;
 import com.mardomsara.social.R;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.ui.BasePresenter;
-import com.mardomsara.social.ui.presenter.social.SearchPresenter;
+import com.mardomsara.social.ui.presenter.social.search.SearchPresenter;
 import com.mardomsara.social.ui.presenter.social.SuggestionsPostsPresenter;
 import com.mardomsara.social.ui.presenter.social.SuggestionsTagsPresenter;
 import com.mardomsara.social.ui.presenter.social.SuggestionsUsersPresenter;

@@ -1,4 +1,4 @@
-package com.mardomsara.social.ui.cells.lists;
+package com.mardomsara.social.ui.presenter.social.search;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -27,13 +27,13 @@ import butterknife.ButterKnife;
 /**
  * Created by Hamid on 8/29/2016.
  */
-public class SearchTagsListCell {
+public class SearchTagsListCell_OLD {
     public LinearLayoutManager layoutManager = new LinearLayoutManager(AppUtil.getContext(),LinearLayoutManager.VERTICAL,false);
     RecyclerView recyclerView = ViewHelper.newRecyclerViewWraped();
     public TagsAdaptor adaptor;
 
     String tagName;
-    public SearchTagsListCell(String tagName) {
+    public SearchTagsListCell_OLD(String tagName) {
         this.tagName = tagName;
         adaptor = new TagsAdaptor();
         load();

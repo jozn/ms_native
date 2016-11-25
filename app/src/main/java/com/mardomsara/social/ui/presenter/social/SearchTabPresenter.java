@@ -9,6 +9,7 @@ import android.view.View;
 import com.mardomsara.social.Nav;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.cells.PageCells;
+import com.mardomsara.social.ui.presenter.social.search.SearchPresenter;
 
 /**
  * Created by Hamid on 8/23/2016.

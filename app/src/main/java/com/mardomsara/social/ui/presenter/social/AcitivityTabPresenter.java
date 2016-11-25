@@ -14,7 +14,7 @@ import com.mardomsara.social.Nav;
 import com.mardomsara.social.R;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.ui.BasePresenter;
-import com.mardomsara.social.ui.cells.PageCells;
+import com.mardomsara.social.ui.presenter.social.search.SearchPresenter;
 
 /**
  * Created by Hamid on 8/23/2016.

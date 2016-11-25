@@ -1,4 +1,4 @@
-package com.mardomsara.social.ui.presenter.social;
+package com.mardomsara.social.ui.presenter.social.search;
 
 import android.content.Context;
 import android.support.design.widget.TabLayout;
@@ -17,7 +17,8 @@ import android.widget.TextView;
 import com.mardomsara.social.R;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.ui.BasePresenter;
-import com.mardomsara.social.ui.cells.lists.SearchTagsListCell;
+import com.mardomsara.social.ui.presenter.social.SuggestionsPostsPresenter;
+import com.mardomsara.social.ui.presenter.social.SuggestionsUsersPresenter;
 
 /**
  * Created by Hamid on 8/23/2016.
@@ -83,11 +84,8 @@ public class SearchPresenter extends BasePresenter {
     }
 
     public  class SearchTabPagerAdaptor extends FragmentPagerAdapter {
-        final int PAGE_COUNT = 3;
-        private String tabTitles[] = new String[] { "تگ","کاربر","پست"};//, "Tab3","Tab222","Tab222","Tab222" };
+        private String tabTitles[] = new String[] { "تگ","پست"};//, "Tab3","Tab222","Tab222","Tab222" };
         private Context context;
-        //    private String tabTitles[] = new String[] { "Tab1", "Tab2" };
-        private int[] imageResId = { R.drawable.ic_menu_send, R.drawable.ic_menu_camera};//, R.drawable.ic_menu_manage, R.drawable.ic_menu_manage, R.drawable.ic_menu_manage, R.drawable.ic_menu_manage };
 
         public SearchTabPagerAdaptor(FragmentManager fm, Context context) {
             super(fm);
@@ -96,7 +94,7 @@ public class SearchPresenter extends BasePresenter {
 
         @Override
         public int getCount() {
-            return PAGE_COUNT;
+            return tabTitles.length;
         }
 
         SearchTagPagerPresenter presenter;

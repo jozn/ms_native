@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.mardomsara.social.R;
+import com.mardomsara.social.app.Config;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.ui.cells.LoadingCell;
 
@@ -59,7 +60,7 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
 
     @Override
     protected int getFooterItemViewType(int position) {
-        if(footerViews.get(position) != null){
+        if(footerViews.size() > position && footerViews.get(position) != null){
             return footerViews.get(position).typeId;
         }
         return 0;
@@ -67,7 +68,7 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
 
     @Override
     protected int getHeaderItemViewType(int position) {
-        if(headerViews.get(position) != null){
+        if(headerViews.size() > position && headerViews.get(position) != null){
             return headerViews.get(position).typeId;
         }
         return 0;
@@ -333,8 +334,6 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
 
 
 
-
-
     ///////////////////////////////////////////////
     ///// Class ///////////////
     class ViewTag {
@@ -345,11 +344,223 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
     public interface LoadNextPage{
         void loadNextPage(int pageNum);
     }
+
+
+	public static class Sectioned<T extends RecyclerView.Adapter<RecyclerView.ViewHolder>> extends
+		RecyclerView.Adapter<RecyclerView.ViewHolder>{
+		private List<SectionRow> sections = new ArrayList<SectionRow>();
+		int offset =0;
+		final int SECTION_OFFSET = 10_000;
+
+		public void add(AppHeaderFooterRecyclerViewAdapter adpator){
+			SectionRow sectionRow = new SectionRow();
+			sectionRow.adapter = adpator;
+			sectionRow.offsetType =offset;
+			sectionRow.offsetPosition =resetPositions();
+			offset += SECTION_OFFSET;
+			AppUtil.log("Section: onBindViewHolder: add "+sectionRow);
+			sections.add(sectionRow);
+		}
+
+		@Override
+		public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+			AppUtil.log("Section: onBindViewHolder: viewType "+viewType);
+			SectionRow sectionRow = getSectionRowOrThrow_ByViewTypeId(viewType);
+			if(sectionRow!= null){
+				int vt = viewType - sectionRow.offsetType;
+				return sectionRow.adapter.onCreateViewHolder(parent,vt);
+			}
+			return new SectionHolder(AppUtil.inflate(R.layout.hello_world_row));
+//			return null;
+		}
+
+		@Override
+		public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+			AppUtil.log("Section: onBindViewHolder: pos "+position);
+			SectionRow sectionRow = getSectionRowOrThrow_ByPosition(position);
+			if(sectionRow!= null){
+				int pos = position - sectionRow.offsetPosition;
+				sectionRow.adapter.onBindViewHolder(holder,pos);
+			}
+		}
+
+		@Override
+		public int getItemViewType(int position) {
+			AppUtil.log("Section: onBindViewHolder: position "+position);
+			SectionRow sectionRow = getSectionRowOrThrow_ByPosition(position);
+			if(sectionRow!= null){
+				int pos = position - sectionRow.offsetPosition;
+				return sectionRow.adapter.getItemViewType(pos);
+			}
+			return super.getItemViewType(position);
+		}
+
+		@Override
+		public void setHasStableIds(boolean hasStableIds) {
+			super.setHasStableIds(hasStableIds);
+		}
+
+		@Override
+		public long getItemId(int position) {
+			/*SectionRow sectionRow = getSectionRowOrThrow_ByPosition(position);
+			if(sectionRow!= null){
+				int pos = position - sectionRow.offsetPosition;
+				return sectionRow.adapter.getItemId(pos);
+			}*/
+			return super.getItemId(position);
+		}
+
+		@Override
+		public int getItemCount() {
+			resetPositions();
+			int sum = 0;
+			for(SectionRow sectionRow: sections ){
+				sum += sectionRow.adapter.getItemCount();
+			}
+			return sum;
+		}
+
+		private SectionRow getSectionRowOrThrow_ByPosition(int position){
+			resetPositions();
+			int sum = 0;
+			for(SectionRow sectionRow: sections ){
+				if(position >= sum  && (position-sum) <= sectionRow.adapter.getItemCount()){
+					return sectionRow;
+				}
+				sum += sectionRow.adapter.getItemCount();
+			}
+
+			if(Config.IS_DEBUG){
+				AppUtil.log("section is null getSectionRowOrThrow_ByPosition viewId: "+position + " " +getItemCount());
+
+//				throw new IllegalArgumentException("In AppHeader... Section getSectionRowOrThrow_ByPosition(int) for position: "+position);
+			}
+			return null;
+		}
+
+		private SectionRow getSectionRowOrThrow_ByViewTypeId(int viewId){
+			resetPositions();
+			for(SectionRow sectionRow: sections ){
+				if(viewId >= sectionRow.offsetType && viewId < sectionRow.offsetType +SECTION_OFFSET){
+					return sectionRow;
+				}
+			}
+
+			if(Config.IS_DEBUG){
+//				throw new IllegalArgumentException("In AppHeader... Section getSectionRowOrThrow_ByViewTypeId(int) for viewId: "+viewId);
+				AppUtil.log("section is null getSectionRowOrThrow_ByViewTypeId viewId: "+viewId);
+			}
+			return null;
+		}
+
+		public final void Changed() {
+			resetPositions();
+			super.notifyDataSetChanged();
+		}
+
+		private int resetPositions(){
+			int sum = 0;
+			for(SectionRow sectionRow: sections ){
+				sectionRow.offsetPosition = sum;
+				sum += sectionRow.adapter.getItemCount();
+			}
+			return sum;
+		}
+
+
+		public static class SectionRow {
+			AppHeaderFooterRecyclerViewAdapter adapter;
+			int offsetType;
+			int offsetPosition;
+		}
+
+		public static class SectionHolder extends RecyclerView.ViewHolder{
+
+			public SectionHolder(View itemView) {
+				super(itemView);
+			}
+		}
+	}
+
     /*public interface Binder{
         public void bind(int relativePosition);
     }*/
 
 }
+
+
+		/*protected int getContentItemCount() {
+			int sum = 0;
+			for(SectionRow sectionRow: sections ){
+				sum += sectionRow.adapter.getItemCount();
+			}
+			return sum;
+		}
+
+		@Override
+		protected int getHeaderItemCount() {
+			return 0;
+		}
+
+		@Override
+		protected int getFooterItemCount() {
+			return super.getFooterItemCount();
+		}
+
+		@Override
+		protected int getContentItemCount_0() {
+			return super.getContentItemCount_0();
+		}
+
+		@Override
+		protected int getFooterItemViewType(int position) {
+			return super.getFooterItemViewType(position);
+		}
+
+		@Override
+		protected int getHeaderItemViewType(int position) {
+			return super.getHeaderItemViewType(position);
+		}
+
+		@Override
+		protected void onBindHeaderItemViewHolder(HeaderViewHolder headerViewHolder, int position) {
+			super.onBindHeaderItemViewHolder(headerViewHolder, position);
+		}
+
+		@Override
+		protected void onBindFooterItemViewHolder(FooterViewHolder footerViewHolder, int position) {
+			super.onBindFooterItemViewHolder(footerViewHolder, position);
+		}
+
+		@Override
+		protected FooterViewHolder onCreateFooterItemViewHolder(ViewGroup parent, int footerViewType) {
+			return super.onCreateFooterItemViewHolder(parent, footerViewType);
+		}
+
+		@Override
+		protected HeaderViewHolder onCreateHeaderItemViewHolder(ViewGroup parent, int headerViewType) {
+			return super.onCreateHeaderItemViewHolder(parent, headerViewType);
+		}
+
+		@Override
+		protected int getContentItemViewType(int position) {
+			return super.getContentItemViewType(position);
+		}
+
+		@Override
+		protected SectionHolder onCreateContentItemViewHolder(ViewGroup parent, int contentViewType) {
+			return null;
+		}
+
+		@Override
+		protected void onBindContentItemViewHolder(SectionHolder sectionHolder, int position) {
+
+		}
+
+		@Override
+		public long getItemId(int position) {
+			return super.getItemId(position);
+		}*/
 
 	/*public void onLoadMore(int page, int totalItemsCount) {
 //                loadNextPage();
