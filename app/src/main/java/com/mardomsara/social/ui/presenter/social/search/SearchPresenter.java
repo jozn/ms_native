@@ -12,7 +12,6 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -32,7 +31,6 @@ import com.mardomsara.social.ui.views.helpers.ViewHelper;
  * Created by Hamid on 8/23/2016.
  */
 public class SearchPresenter extends BasePresenter {
-    SearchTagsListCell listCell;
     SearchTabPagerAdaptor pad;
 
     @Override
@@ -134,12 +132,12 @@ public class SearchPresenter extends BasePresenter {
 	public static class SearchTagPagerPresenter extends BasePresenter {
 		RecyclerView recyclerView;
 		LinearLayoutManager layoutManager = new LinearLayoutManager(AppUtil.getContext(),LinearLayoutManager.VERTICAL,false);
-		SearchTagsListCell.TagsAdaptor adapter;
+		SearchResultTagsListCell.TagsAdaptor adapter;
 
 		@Override
 		public View buildView() {
 			recyclerView = ViewHelper.newRecyclerViewMatch();
-			adapter = new SearchTagsListCell.TagsAdaptor();
+			adapter = new SearchResultTagsListCell.TagsAdaptor();
 			recyclerView.setAdapter(adapter);
 			recyclerView.setLayoutManager(layoutManager);
 			adapter.setEmptyMessage("یافت نشد");

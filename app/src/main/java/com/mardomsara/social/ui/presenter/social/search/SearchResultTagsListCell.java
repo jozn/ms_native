@@ -34,7 +34,7 @@ public class SearchResultTagsListCell {
 
 		@Override
 		protected TagRowViewHolder onCreateContentItemViewHolder(ViewGroup parent, int contentViewType) {
-			return new TagRowViewHolder(new SearchTagsListCell.TagRowCell(parent));
+			return new TagRowViewHolder(new TagRowCell(parent));
 		}
 
 		@Override
@@ -45,9 +45,9 @@ public class SearchResultTagsListCell {
 	}
 
 	public static class TagRowViewHolder extends RecyclerView.ViewHolder{
-		SearchTagsListCell.TagRowCell tagRowJson;
+		TagRowCell tagRowJson;
 
-		public TagRowViewHolder(SearchTagsListCell.TagRowCell commentRowCell) {
+		public TagRowViewHolder(TagRowCell commentRowCell) {
 			super(commentRowCell.rootView);
 			this.tagRowJson = commentRowCell;
 		}
