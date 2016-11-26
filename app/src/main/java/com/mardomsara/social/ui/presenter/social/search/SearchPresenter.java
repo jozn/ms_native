@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -15,10 +16,14 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.mardomsara.social.R;
+import com.mardomsara.social.base.Http.Http;
+import com.mardomsara.social.base.Http.Result;
 import com.mardomsara.social.helpers.AppUtil;
+import com.mardomsara.social.json.HttpJsonList;
+import com.mardomsara.social.json.social.rows.UserInfoJson;
 import com.mardomsara.social.ui.BasePresenter;
-import com.mardomsara.social.ui.presenter.social.SuggestionsPostsPresenter;
-import com.mardomsara.social.ui.presenter.social.SuggestionsUsersPresenter;
+import com.mardomsara.social.ui.ui.UserListUI;
+import com.mardomsara.social.ui.views.helpers.ViewHelper;
 
 /**
  * Created by Hamid on 8/23/2016.
@@ -84,7 +89,7 @@ public class SearchPresenter extends BasePresenter {
     }
 
     public  class SearchTabPagerAdaptor extends FragmentPagerAdapter {
-        private String tabTitles[] = new String[] { "تگ","پست"};//, "Tab3","Tab222","Tab222","Tab222" };
+        private String tabTitles[] = new String[] { "تگ","کاربر"};//, "Tab3","Tab222","Tab222","Tab222" };
         private Context context;
 
         public SearchTabPagerAdaptor(FragmentManager fm, Context context) {
@@ -106,10 +111,9 @@ public class SearchPresenter extends BasePresenter {
                     listCell = presenter.listCell;
                     return presenter.getFragment();
 
-                case 1:
-                    return new SuggestionsUsersPresenter().getFragment();
                 default:
-                    return new SuggestionsPostsPresenter().getFragment();
+                    return new SearchUserPresenter().getFragment();
+
             }
         }
 
@@ -141,4 +145,35 @@ public class SearchPresenter extends BasePresenter {
         }
 
     }
+
+	public static class SearchUserPresenter extends BasePresenter {
+		RecyclerView recyclerView;
+		SearchTagsListCell listCell;
+
+		UserListUI.Adapter adapter;
+		@Override
+		public View buildView() {
+			recyclerView = ViewHelper.newRecyclerViewMatch();
+			adapter = new UserListUI.Adapter();
+			recyclerView.setAdapter(adapter);
+			adapter.setEmptyMessage("یافت نشد");
+			load();
+			return recyclerView;
+		}
+
+		void load(){
+			Http.getPath("/v1/search/users")
+				.setQueryParam("q","ح")
+				.doAsyncUi(result -> {
+					if(result.isOk()){
+						HttpJsonList<UserInfoJson> data = Result.fromJsonList(result, UserInfoJson.class);
+						if(data.isPayloadNoneEmpty()){
+							adapter.list.addAll(data.Payload);
+							adapter.notifyDataChanged();
+						}
+					}
+				});
+		}
+
+	}
 }

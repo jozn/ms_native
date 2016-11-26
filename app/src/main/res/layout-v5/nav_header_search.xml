@@ -7,7 +7,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="90dp"
         android:background="@drawable/background_tab"
         android:orientation="vertical"
 
@@ -16,6 +16,10 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:id="@+id/search_input"
+            style="@style/search_presenter_search_filed"
+            android:inputType="text"
+            android:hint="جستجو"
+            android:imeOptions="actionSearch"
             />
 
         <android.support.design.widget.TabLayout
