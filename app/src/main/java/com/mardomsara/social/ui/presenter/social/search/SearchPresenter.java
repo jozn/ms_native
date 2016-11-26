@@ -79,12 +79,6 @@ public class SearchPresenter extends BasePresenter {
     }
 
     void textChanged(String txt){
-        /*if(listCell != null){
-            listCell.setNewTag(txt);
-            pad.tagPresenter.listCell.setNewTag(txt);
-
-        }*/
-
 		if(pad.tagPresenter!= null){
 			pad.tagPresenter.runQuery(txt);
 		}
@@ -92,13 +86,10 @@ public class SearchPresenter extends BasePresenter {
 		if(pad.userPresenter!= null){
 			pad.userPresenter.runQuery(txt);
 		}
-
-//        AppUtil.log("listCell: " +listCell);
-//        AppUtil.log("listCell: " +pad.tagPresenter.listCell);
     }
 
     public  class SearchTabPagerAdaptor extends FragmentPagerAdapter {
-        private String tabTitles[] = new String[] { "تگ","کاربر"};//, "Tab3","Tab222","Tab222","Tab222" };
+        private String tabTitles[] = new String[] { "تگ","کاربر"};
         private Context context;
 
         public SearchTabPagerAdaptor(FragmentManager fm, Context context) {
@@ -118,13 +109,11 @@ public class SearchPresenter extends BasePresenter {
             switch (position){
                 case 0:
                     tagPresenter = new SearchTagPagerPresenter();
-//                    listCell = tagPresenter.listCell;
                     return tagPresenter.getFragment();
 
                 default:
 					userPresenter =  new SearchUserPresenter();
                     return userPresenter.getFragment();
-
             }
         }
 
@@ -134,27 +123,13 @@ public class SearchPresenter extends BasePresenter {
         }
 
         public View getTabView(int position) {
-            // Given you have a custom layout in `response/layout/custom_tab.xml` with a TextView and ImageView
             View v = LayoutInflater.from(context).inflate(R.layout.tab_cell_general, null);
             TextView tv = (TextView) v.findViewById(R.id.textView);
             tv.setText(tabTitles[position]);
-//        ImageView img = (ImageView) v.findViewById(R.id.imgView);
-            //img.setImageResource(imageResId[position]);
             return v;
         }
     }
 
-    public static class SearchTagPagerPresenter_KB extends BasePresenter {
-        ViewGroup viewRoot;
-        SearchTagsListCell listCell;
-
-        @Override
-        public View buildView() {
-            listCell = new SearchTagsListCell("");
-            viewRoot = listCell.getViewRoot();
-            return viewRoot;
-        }
-    }
 
 	public static class SearchTagPagerPresenter extends BasePresenter {
 		RecyclerView recyclerView;
@@ -168,9 +143,7 @@ public class SearchPresenter extends BasePresenter {
 			recyclerView.setAdapter(adapter);
 			recyclerView.setLayoutManager(layoutManager);
 			adapter.setEmptyMessage("یافت نشد");
-//			adapter.appendViewToHeader(AppUtil.inflate(R.layout.hello_world_row));
 			adapter.setEnableAutoShowEmptyView(true);
-//			load();
 			return recyclerView;
 		}
 
@@ -214,9 +187,7 @@ public class SearchPresenter extends BasePresenter {
 			recyclerView.setAdapter(adapter);
 			recyclerView.setLayoutManager(layoutManager);
 			adapter.setEmptyMessage("یافت نشد");
-//			adapter.appendViewToHeader(AppUtil.inflate(R.layout.hello_world_row));
 			adapter.setEnableAutoShowEmptyView(true);
-//			load();
 			return recyclerView;
 		}
 
