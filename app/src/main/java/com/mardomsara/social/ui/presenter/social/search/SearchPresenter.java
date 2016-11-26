@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -19,6 +20,7 @@ import com.mardomsara.social.R;
 import com.mardomsara.social.base.Http.Http;
 import com.mardomsara.social.base.Http.Result;
 import com.mardomsara.social.helpers.AppUtil;
+import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.json.HttpJsonList;
 import com.mardomsara.social.json.social.rows.UserInfoJson;
 import com.mardomsara.social.ui.BasePresenter;
@@ -80,12 +82,21 @@ public class SearchPresenter extends BasePresenter {
     void textChanged(String txt){
         if(listCell != null){
             listCell.setNewTag(txt);
-            pad.presenter.listCell.setNewTag(txt);
+            pad.tagPresenter.listCell.setNewTag(txt);
 
         }
-        pad.presenter.listCell.setNewTag(txt);
-        AppUtil.log("listCell: " +listCell);
-        AppUtil.log("listCell: " +pad.presenter.listCell);
+//        pad.tagPresenter.listCell.setNewTag(txt);
+
+		if(pad.tagPresenter!= null){
+//			pad.userPresenter.runQuery(txt);
+		}
+
+		if(pad.userPresenter!= null){
+			pad.userPresenter.runQuery(txt);
+		}
+
+//        AppUtil.log("listCell: " +listCell);
+//        AppUtil.log("listCell: " +pad.tagPresenter.listCell);
     }
 
     public  class SearchTabPagerAdaptor extends FragmentPagerAdapter {
@@ -102,17 +113,19 @@ public class SearchPresenter extends BasePresenter {
             return tabTitles.length;
         }
 
-        SearchTagPagerPresenter presenter;
+        SearchTagPagerPresenter tagPresenter;
+        SearchUserPresenter userPresenter;
 
         public Fragment getItem(int position) {
             switch (position){
                 case 0:
-                    presenter = new SearchTagPagerPresenter();
-                    listCell = presenter.listCell;
-                    return presenter.getFragment();
+                    tagPresenter = new SearchTagPagerPresenter();
+                    listCell = tagPresenter.listCell;
+                    return tagPresenter.getFragment();
 
                 default:
-                    return new SearchUserPresenter().getFragment();
+					userPresenter =  new SearchUserPresenter();
+                    return userPresenter.getFragment();
 
             }
         }
@@ -149,6 +162,7 @@ public class SearchPresenter extends BasePresenter {
 	public static class SearchUserPresenter extends BasePresenter {
 		RecyclerView recyclerView;
 		SearchTagsListCell listCell;
+		public LinearLayoutManager layoutManager = new LinearLayoutManager(AppUtil.getContext(),LinearLayoutManager.VERTICAL,false);
 
 		UserListUI.Adapter adapter;
 		@Override
@@ -156,21 +170,38 @@ public class SearchPresenter extends BasePresenter {
 			recyclerView = ViewHelper.newRecyclerViewMatch();
 			adapter = new UserListUI.Adapter();
 			recyclerView.setAdapter(adapter);
+			recyclerView.setLayoutManager(layoutManager);
 			adapter.setEmptyMessage("یافت نشد");
-			load();
+//			adapter.appendViewToHeader(AppUtil.inflate(R.layout.hello_world_row));
+			adapter.setEnableAutoShowEmptyView(true);
+//			load();
 			return recyclerView;
 		}
 
-		void load(){
+		void runQuery(String search){
+			if(search!= null && search.length() >0){
+				load(search);
+			}
+		}
+
+		void load(String querey){
 			Http.getPath("/v1/search/users")
-				.setQueryParam("q","ح")
+				.setQueryParam("q",querey)
 				.doAsyncUi(result -> {
+					adapter.nextPageIsLoaded();
+					Helper.showDebugMessage("load users 1");
 					if(result.isOk()){
 						HttpJsonList<UserInfoJson> data = Result.fromJsonList(result, UserInfoJson.class);
 						if(data.isPayloadNoneEmpty()){
+							adapter.list.clear();
+							Helper.showDebugMessage("load users 2 - "+data.Payload.size());
 							adapter.list.addAll(data.Payload);
 							adapter.notifyDataChanged();
+						}else {
+							adapter.list.clear();
+							adapter.showEmptyView();
 						}
+						adapter.notifyDataChanged();
 					}
 				});
 		}
