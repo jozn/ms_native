@@ -22,6 +22,7 @@ import com.mardomsara.social.base.Http.Result;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.json.HttpJsonList;
+import com.mardomsara.social.json.social.rows.TagRowJson;
 import com.mardomsara.social.json.social.rows.UserInfoJson;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.ui.UserListUI;
@@ -78,14 +79,14 @@ public class SearchPresenter extends BasePresenter {
     }
 
     void textChanged(String txt){
-        if(listCell != null){
+        /*if(listCell != null){
             listCell.setNewTag(txt);
             pad.tagPresenter.listCell.setNewTag(txt);
 
-        }
+        }*/
 
 		if(pad.tagPresenter!= null){
-//			pad.userPresenter.runQuery(txt);
+			pad.tagPresenter.runQuery(txt);
 		}
 
 		if(pad.userPresenter!= null){
@@ -117,7 +118,7 @@ public class SearchPresenter extends BasePresenter {
             switch (position){
                 case 0:
                     tagPresenter = new SearchTagPagerPresenter();
-                    listCell = tagPresenter.listCell;
+//                    listCell = tagPresenter.listCell;
                     return tagPresenter.getFragment();
 
                 default:
@@ -143,7 +144,7 @@ public class SearchPresenter extends BasePresenter {
         }
     }
 
-    public static class SearchTagPagerPresenter extends BasePresenter {
+    public static class SearchTagPagerPresenter_KB extends BasePresenter {
         ViewGroup viewRoot;
         SearchTagsListCell listCell;
 
@@ -155,10 +156,55 @@ public class SearchPresenter extends BasePresenter {
         }
     }
 
+	public static class SearchTagPagerPresenter extends BasePresenter {
+		RecyclerView recyclerView;
+		LinearLayoutManager layoutManager = new LinearLayoutManager(AppUtil.getContext(),LinearLayoutManager.VERTICAL,false);
+		SearchTagsListCell.TagsAdaptor adapter;
+
+		@Override
+		public View buildView() {
+			recyclerView = ViewHelper.newRecyclerViewMatch();
+			adapter = new SearchTagsListCell.TagsAdaptor();
+			recyclerView.setAdapter(adapter);
+			recyclerView.setLayoutManager(layoutManager);
+			adapter.setEmptyMessage("یافت نشد");
+//			adapter.appendViewToHeader(AppUtil.inflate(R.layout.hello_world_row));
+			adapter.setEnableAutoShowEmptyView(true);
+//			load();
+			return recyclerView;
+		}
+
+		void runQuery(String search){
+			if(search!= null && search.length() >0){
+				load(search);
+			}
+		}
+
+		void load(String query){
+			Http.getPath("/v1/search/tags")
+				.setQueryParam("q",query)
+				.doAsyncUi(result -> {
+					adapter.nextPageIsLoaded();
+					if(result.isOk()){
+						HttpJsonList<TagRowJson> data = Result.fromJsonList(result, TagRowJson.class);
+						if(data.isPayloadNoneEmpty()){
+							adapter.list.clear();
+							adapter.list.addAll(data.Payload);
+							adapter.notifyDataChanged();
+						}else {
+							adapter.list.clear();
+							adapter.showEmptyView();
+						}
+						adapter.notifyDataChanged();
+					}
+				});
+		}
+
+	}
+
 	public static class SearchUserPresenter extends BasePresenter {
 		RecyclerView recyclerView;
-		SearchTagsListCell listCell;
-		public LinearLayoutManager layoutManager = new LinearLayoutManager(AppUtil.getContext(),LinearLayoutManager.VERTICAL,false);
+		LinearLayoutManager layoutManager = new LinearLayoutManager(AppUtil.getContext(),LinearLayoutManager.VERTICAL,false);
 
 		UserListUI.Adapter adapter;
 		@Override
