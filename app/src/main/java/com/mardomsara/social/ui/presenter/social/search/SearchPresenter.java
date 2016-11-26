@@ -30,6 +30,7 @@ import com.mardomsara.social.ui.views.helpers.ViewHelper;
 /**
  * Created by Hamid on 8/23/2016.
  */
+//keep this for sample of Sectioned
 public class SearchPresenter extends BasePresenter {
     SearchTabPagerAdaptor pad;
 
