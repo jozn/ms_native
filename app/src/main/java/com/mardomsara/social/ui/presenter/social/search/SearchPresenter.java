@@ -36,8 +36,6 @@ public class SearchPresenter extends BasePresenter {
 
     @Override
     public View buildView() {
-//        ViewGroup v = (ViewGroup)inflater.inflate(R.layout.hello_world_row,null);
-//        return v;
 
         View l = AppUtil.inflate(R.layout.nav_header_search);
         EditText search_input = (EditText)l.findViewById(R.id.search_input);
@@ -85,7 +83,6 @@ public class SearchPresenter extends BasePresenter {
             pad.tagPresenter.listCell.setNewTag(txt);
 
         }
-//        pad.tagPresenter.listCell.setNewTag(txt);
 
 		if(pad.tagPresenter!= null){
 //			pad.userPresenter.runQuery(txt);
@@ -156,7 +153,6 @@ public class SearchPresenter extends BasePresenter {
             viewRoot = listCell.getViewRoot();
             return viewRoot;
         }
-
     }
 
 	public static class SearchUserPresenter extends BasePresenter {
