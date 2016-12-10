@@ -1,4 +1,4 @@
-package com.mardomsara.social.ui.presenter.social.search;
+package com.mardomsara.social.ui.presenter.social.old;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;

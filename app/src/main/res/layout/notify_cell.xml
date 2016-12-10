@@ -19,7 +19,7 @@
         <ImageView
             android:layout_width="55dp"
             android:layout_height="55dp"
-            android:src="@drawable/e_1f1e7_1f1fb"
+            android:src="@drawable/spinner_black_76"
             android:id="@+id/image_extra"
             />
         <com.mardomsara.social.ui.views.wigets.FollowingButtonView
@@ -49,7 +49,7 @@
             android:layout_weight="1"
             android:id="@+id/text"
             android:gravity="right"
-            style="@style/notificatin_text"
+            style="@style/notify_row.text"
 
             android:maxLines="2"
             />
@@ -60,7 +60,7 @@
             android:layout_weight="1"
             android:id="@+id/date"
             android:gravity="right"
-            style="@style/post_row.date"
+            style="@style/notify_row.date"
             android:layout_below="@id/text"
             android:layout_toLeftOf="@id/avatar"
             />

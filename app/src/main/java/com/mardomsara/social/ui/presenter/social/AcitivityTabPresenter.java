@@ -73,7 +73,8 @@ public class AcitivityTabPresenter extends BasePresenter {
         public Fragment getItem(int position) {
             switch (position){
                 case 0:
-                    return new ComingSoonPresenter().getFragment();
+                    return new ActivityPresenter().getFragment();
+//                    return new ComingSoonPresenter().getFragment();
                 default:
                     return new NotifyPresenter().getFragment();
             }
