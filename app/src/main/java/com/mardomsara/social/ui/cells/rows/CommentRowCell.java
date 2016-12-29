@@ -31,8 +31,7 @@ import butterknife.ButterKnife;
 public class CommentRowCell {
     public ViewGroup rootView;
 
-    @Bind(R.id.avatar)
-    SimpleDraweeView avatar;
+    @Bind(R.id.avatar) SimpleDraweeView avatar;
     @Bind(R.id.fullname)
     TextView fullname;
     @Bind(R.id.date) TextView date;

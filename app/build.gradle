@@ -9,6 +9,11 @@ repositories {
     maven { url 'https://maven.fabric.io/public' }
 }
 
+task androidXml2Java(type: Exec)  {
+    commandLine 'AndroidXml2Java'
+}
+build.dependsOn androidXml2Java
+
 android {
     compileSdkVersion 24
     buildToolsVersion '24.0.2'
@@ -89,12 +94,14 @@ android {
         exclude 'META-INF/services/javax.annotation.processing.Processor' // butterknife
     }
 
+    preBuild.dependsOn androidXml2Java
 
 //    configurations {
 //        all*.exclude group: 'com.android.support', module: 'support-v4'
 //    }
 
 }
+
 
 
 dependencies {
