@@ -1,0 +1,843 @@
+To honour the JVM settings for this build a new JVM will be forked. Please consider using the daemon: https://docs.gradle.org/2.14.1/userguide/gradle_daemon.html.
+Parallel execution is an incubating feature.
+Jack is disabled, but one of the plugins you are using supports Java 8 language features.
+Jack is disabled, but one of the plugins you are using supports Java 8 language features.
+:tasks
+
+------------------------------------------------------------
+All tasks runnable from root project
+------------------------------------------------------------
+
+Android tasks
+-------------
+app:androidDependencies - Displays the Android dependencies of the project.
+app:signingReport - Displays the signing info for each variant.
+app:sourceSets - Prints out all the source sets defined in this project.
+
+Build tasks
+-----------
+app:assemble - Assembles all variants of all applications and secondary packages. [app:assembleDebug, app:assembleRelease]
+app:assembleAndroidTest - Assembles all the Test applications. [app:compileDebugAndroidTestSources]
+    app:assembleDebugAndroidTest
+    app:compileDebugAndroidTestShaders
+    app:generateDebugAndroidTestAssets
+    app:mergeDebugAndroidTestAssets
+    app:mergeDebugAndroidTestJniLibFolders
+    app:mergeDebugAndroidTestShaders
+    app:packageDebugAndroidTest
+    app:processDebugAndroidTestJavaRes
+    app:transformClassesWithDexForDebugAndroidTest
+    app:transformClassesWithJarMergingForDebugAndroidTest
+    app:transformClassesWithMultidexlistForDebugAndroidTest
+    app:transformNative_libsWithMergeJniLibsForDebugAndroidTest
+    app:transformResourcesWithMergeJavaResForDebugAndroidTest
+    app:validateSigningDebugAndroidTest
+app:assembleDebug - Assembles all Debug builds. [app:compileDebugSources]
+    app:mergeDebugJniLibFolders
+    app:packageDebug
+    app:processDebugJavaRes
+    app:transformClassesWithDexForDebug
+    app:transformClassesWithJarMergingForDebug
+    app:transformClassesWithMultidexlistForDebug
+    app:transformNative_libsWithMergeJniLibsForDebug
+    app:transformResourcesWithMergeJavaResForDebug
+    app:validateSigningDebug
+app:assembleRelease - Assembles all Release builds. [app:compileReleaseSources]
+    app:lintVitalRelease - Runs lint on just the fatal issues in the release build.
+    app:mergeReleaseJniLibFolders
+    app:packageRelease
+    app:processReleaseJavaRes
+    app:transformClassesWithDexForRelease
+    app:transformClassesWithJarMergingForRelease
+    app:transformClassesWithMultidexlistForRelease
+    app:transformNative_libsWithMergeJniLibsForRelease
+    app:transformResourcesWithMergeJavaResForRelease
+app:build - Assembles and tests this project. [app:assemble, app:check]
+app:buildDependents - Assembles and tests this project and all projects that depend on it. [app:build]
+app:buildNeeded - Assembles and tests this project and all projects it depends on. [app:build]
+app:clean - Deletes the build directory.
+app:compileDebugAndroidTestSources
+    app:checkDebugManifest
+    app:compileDebugAidl
+    app:compileDebugAndroidTestAidl
+    app:compileDebugAndroidTestJavaWithJavac
+    app:compileDebugAndroidTestNdk
+    app:compileDebugAndroidTestRenderscript
+    app:compileDebugJavaWithJavac
+    app:compileDebugRenderscript
+    app:compileDebugShaders
+    app:fabricGenerateResourcesDebug - Injects the build id used by the Fabric SDK.
+    app:generateDebugAndroidTestBuildConfig
+    app:generateDebugAndroidTestResValues
+    app:generateDebugAndroidTestResources
+    app:generateDebugAndroidTestSources
+    app:generateDebugAssets
+    app:generateDebugBuildConfig
+    app:generateDebugResValues
+    app:generateDebugResources
+    app:generateDebugSources
+    app:incrementalDebugAndroidTestJavaCompilationSafeguard
+    app:incrementalDebugJavaCompilationSafeguard
+    app:mergeDebugAndroidTestResources
+    app:mergeDebugAssets
+    app:mergeDebugResources
+    app:mergeDebugShaders
+    app:preBuild
+    app:preDebugAndroidTestBuild
+    app:preDebugBuild
+    app:preReleaseBuild
+    app:prepareComAndroidSupportAnimatedVectorDrawable2420Library - Prepare com.android.support:animated-vector-drawable:24.2.0
+    app:prepareComAndroidSupportAppcompatV72420Library - Prepare com.android.support:appcompat-v7:24.2.0
+    app:prepareComAndroidSupportDesign2420Library - Prepare com.android.support:design:24.2.0
+    app:prepareComAndroidSupportMultidex101Library - Prepare com.android.support:multidex:1.0.1
+    app:prepareComAndroidSupportMultidexInstrumentation101Library - Prepare com.android.support:multidex-instrumentation:1.0.1
+    app:prepareComAndroidSupportRecyclerviewV72420Library - Prepare com.android.support:recyclerview-v7:24.2.0
+    app:prepareComAndroidSupportSupportCompat2420Library - Prepare com.android.support:support-compat:24.2.0
+    app:prepareComAndroidSupportSupportCoreUi2420Library - Prepare com.android.support:support-core-ui:24.2.0
+    app:prepareComAndroidSupportSupportCoreUtils2420Library - Prepare com.android.support:support-core-utils:24.2.0
+    app:prepareComAndroidSupportSupportFragment2420Library - Prepare com.android.support:support-fragment:24.2.0
+    app:prepareComAndroidSupportSupportMediaCompat2420Library - Prepare com.android.support:support-media-compat:24.2.0
+    app:prepareComAndroidSupportSupportV132420Library - Prepare com.android.support:support-v13:24.2.0
+    app:prepareComAndroidSupportSupportV42420Library - Prepare com.android.support:support-v4:24.2.0
+    app:prepareComAndroidSupportSupportVectorDrawable2420Library - Prepare com.android.support:support-vector-drawable:24.2.0
+    app:prepareComCrashlyticsSdkAndroidAnswers136Library - Prepare com.crashlytics.sdk.android:answers:1.3.6
+    app:prepareComCrashlyticsSdkAndroidBeta114Library - Prepare com.crashlytics.sdk.android:beta:1.1.4
+    app:prepareComCrashlyticsSdkAndroidCrashlytics255Library - Prepare com.crashlytics.sdk.android:crashlytics:2.5.5
+    app:prepareComCrashlyticsSdkAndroidCrashlyticsCore238Library - Prepare com.crashlytics.sdk.android:crashlytics-core:2.3.8
+    app:prepareComFacebookFrescoDrawee0110Library - Prepare com.facebook.fresco:drawee:0.11.0
+    app:prepareComFacebookFrescoFbcore0110Library - Prepare com.facebook.fresco:fbcore:0.11.0
+    app:prepareComFacebookFrescoFresco0110Library - Prepare com.facebook.fresco:fresco:0.11.0
+    app:prepareComFacebookFrescoImagepipeline0110Library - Prepare com.facebook.fresco:imagepipeline:0.11.0
+    app:prepareComFacebookFrescoImagepipelineBase0110Library - Prepare com.facebook.fresco:imagepipeline-base:0.11.0
+    app:prepareComFacebookFrescoImagepipelineOkhttp30110Library - Prepare com.facebook.fresco:imagepipeline-okhttp3:0.11.0
+    app:prepareComFacebookReactReactNative0370Library - Prepare com.facebook.react:react-native:0.37.0
+    app:prepareComFacebookSoloaderSoloader010Library - Prepare com.facebook.soloader:soloader:0.1.0
+    app:prepareComGithubGfxAndroidOrmaOrma260Library - Prepare com.github.gfx.android.orma:orma:2.6.0
+    app:prepareComGithubGfxAndroidOrmaOrmaMigration260Library - Prepare com.github.gfx.android.orma:orma-migration:2.6.0
+    app:prepareComGithubOrhanobutHawk123Library - Prepare com.github.orhanobut:hawk:1.23
+    app:prepareComGithubRahatarmanahmedCircularprogressview250Library - Prepare com.github.rahatarmanahmed:circularprogressview:2.5.0
+    app:prepareComJakewhartonHugoHugoRuntime121Library - Prepare com.jakewharton.hugo:hugo-runtime:1.2.1
+    app:prepareComJoanzapataIconifyAndroidIconify222Library - Prepare com.joanzapata.iconify:android-iconify:2.2.2
+    app:prepareComJoanzapataIconifyAndroidIconifyIonicons222Library - Prepare com.joanzapata.iconify:android-iconify-ionicons:2.2.2
+    app:prepareComJoanzapataIconifyAndroidIconifySimplelineicons222Library - Prepare com.joanzapata.iconify:android-iconify-simplelineicons:2.2.2
+    app:prepareComSquareupLeakcanaryLeakcanaryAndroid14Beta2Library - Prepare com.squareup.leakcanary:leakcanary-android:1.4-beta2
+    app:prepareDebugAndroidTestDependencies
+    app:prepareDebugDependencies
+    app:prepareIoFabricSdkAndroidFabric1310Library - Prepare io.fabric.sdk.android:fabric:1.3.10
+    app:prepareJpWasabeefRecyclerviewAnimators130Library - Prepare jp.wasabeef:recyclerview-animators:1.3.0
+    app:prepareMeRelexPhotodraweeview100Library - Prepare me.relex:photodraweeview:1.0.0
+    app:prepareOrgWebkitAndroidJscR174650Library - Prepare org.webkit:android-jsc:r174650
+    app:prepareUkCoChrisjenxCalligraphy210Library - Prepare uk.co.chrisjenx:calligraphy:2.1.0
+    app:processDebugAndroidTestManifest
+    app:processDebugAndroidTestResources
+    app:processDebugManifest
+    app:processDebugResources
+app:compileDebugSources
+    app:checkDebugManifest
+    app:compileDebugAidl
+    app:compileDebugJavaWithJavac
+    app:compileDebugNdk
+    app:compileDebugRenderscript
+    app:compileDebugShaders
+    app:fabricGenerateResourcesDebug - Injects the build id used by the Fabric SDK.
+    app:generateDebugAssets
+    app:generateDebugBuildConfig
+    app:generateDebugResValues
+    app:generateDebugResources
+    app:generateDebugSources
+    app:incrementalDebugJavaCompilationSafeguard
+    app:mergeDebugAssets
+    app:mergeDebugResources
+    app:mergeDebugShaders
+    app:preBuild
+    app:preDebugAndroidTestBuild
+    app:preDebugBuild
+    app:preReleaseBuild
+    app:prepareComAndroidSupportAnimatedVectorDrawable2420Library - Prepare com.android.support:animated-vector-drawable:24.2.0
+    app:prepareComAndroidSupportAppcompatV72420Library - Prepare com.android.support:appcompat-v7:24.2.0
+    app:prepareComAndroidSupportDesign2420Library - Prepare com.android.support:design:24.2.0
+    app:prepareComAndroidSupportMultidex101Library - Prepare com.android.support:multidex:1.0.1
+    app:prepareComAndroidSupportRecyclerviewV72420Library - Prepare com.android.support:recyclerview-v7:24.2.0
+    app:prepareComAndroidSupportSupportCompat2420Library - Prepare com.android.support:support-compat:24.2.0
+    app:prepareComAndroidSupportSupportCoreUi2420Library - Prepare com.android.support:support-core-ui:24.2.0
+    app:prepareComAndroidSupportSupportCoreUtils2420Library - Prepare com.android.support:support-core-utils:24.2.0
+    app:prepareComAndroidSupportSupportFragment2420Library - Prepare com.android.support:support-fragment:24.2.0
+    app:prepareComAndroidSupportSupportMediaCompat2420Library - Prepare com.android.support:support-media-compat:24.2.0
+    app:prepareComAndroidSupportSupportV132420Library - Prepare com.android.support:support-v13:24.2.0
+    app:prepareComAndroidSupportSupportV42420Library - Prepare com.android.support:support-v4:24.2.0
+    app:prepareComAndroidSupportSupportVectorDrawable2420Library - Prepare com.android.support:support-vector-drawable:24.2.0
+    app:prepareComCrashlyticsSdkAndroidAnswers136Library - Prepare com.crashlytics.sdk.android:answers:1.3.6
+    app:prepareComCrashlyticsSdkAndroidBeta114Library - Prepare com.crashlytics.sdk.android:beta:1.1.4
+    app:prepareComCrashlyticsSdkAndroidCrashlytics255Library - Prepare com.crashlytics.sdk.android:crashlytics:2.5.5
+    app:prepareComCrashlyticsSdkAndroidCrashlyticsCore238Library - Prepare com.crashlytics.sdk.android:crashlytics-core:2.3.8
+    app:prepareComFacebookFrescoDrawee0110Library - Prepare com.facebook.fresco:drawee:0.11.0
+    app:prepareComFacebookFrescoFbcore0110Library - Prepare com.facebook.fresco:fbcore:0.11.0
+    app:prepareComFacebookFrescoFresco0110Library - Prepare com.facebook.fresco:fresco:0.11.0
+    app:prepareComFacebookFrescoImagepipeline0110Library - Prepare com.facebook.fresco:imagepipeline:0.11.0
+    app:prepareComFacebookFrescoImagepipelineBase0110Library - Prepare com.facebook.fresco:imagepipeline-base:0.11.0
+    app:prepareComFacebookFrescoImagepipelineOkhttp30110Library - Prepare com.facebook.fresco:imagepipeline-okhttp3:0.11.0
+    app:prepareComFacebookReactReactNative0370Library - Prepare com.facebook.react:react-native:0.37.0
+    app:prepareComFacebookSoloaderSoloader010Library - Prepare com.facebook.soloader:soloader:0.1.0
+    app:prepareComGithubGfxAndroidOrmaOrma260Library - Prepare com.github.gfx.android.orma:orma:2.6.0
+    app:prepareComGithubGfxAndroidOrmaOrmaMigration260Library - Prepare com.github.gfx.android.orma:orma-migration:2.6.0
+    app:prepareComGithubOrhanobutHawk123Library - Prepare com.github.orhanobut:hawk:1.23
+    app:prepareComGithubRahatarmanahmedCircularprogressview250Library - Prepare com.github.rahatarmanahmed:circularprogressview:2.5.0
+    app:prepareComJakewhartonHugoHugoRuntime121Library - Prepare com.jakewharton.hugo:hugo-runtime:1.2.1
+    app:prepareComJoanzapataIconifyAndroidIconify222Library - Prepare com.joanzapata.iconify:android-iconify:2.2.2
+    app:prepareComJoanzapataIconifyAndroidIconifyIonicons222Library - Prepare com.joanzapata.iconify:android-iconify-ionicons:2.2.2
+    app:prepareComJoanzapataIconifyAndroidIconifySimplelineicons222Library - Prepare com.joanzapata.iconify:android-iconify-simplelineicons:2.2.2
+    app:prepareComSquareupLeakcanaryLeakcanaryAndroid14Beta2Library - Prepare com.squareup.leakcanary:leakcanary-android:1.4-beta2
+    app:prepareDebugDependencies
+    app:prepareIoFabricSdkAndroidFabric1310Library - Prepare io.fabric.sdk.android:fabric:1.3.10
+    app:prepareJpWasabeefRecyclerviewAnimators130Library - Prepare jp.wasabeef:recyclerview-animators:1.3.0
+    app:prepareMeRelexPhotodraweeview100Library - Prepare me.relex:photodraweeview:1.0.0
+    app:prepareOrgWebkitAndroidJscR174650Library - Prepare org.webkit:android-jsc:r174650
+    app:prepareUkCoChrisjenxCalligraphy210Library - Prepare uk.co.chrisjenx:calligraphy:2.1.0
+    app:processDebugManifest
+    app:processDebugResources
+app:compileDebugUnitTestSources
+    app:checkDebugManifest
+    app:compileDebugAidl
+    app:compileDebugJavaWithJavac
+    app:compileDebugRenderscript
+    app:compileDebugShaders
+    app:compileDebugUnitTestJavaWithJavac
+    app:fabricGenerateResourcesDebug - Injects the build id used by the Fabric SDK.
+    app:generateDebugAssets
+    app:generateDebugBuildConfig
+    app:generateDebugResValues
+    app:generateDebugResources
+    app:generateDebugSources
+    app:incrementalDebugJavaCompilationSafeguard
+    app:incrementalDebugUnitTestJavaCompilationSafeguard
+    app:mergeDebugAssets
+    app:mergeDebugResources
+    app:mergeDebugShaders
+    app:preBuild
+    app:preDebugAndroidTestBuild
+    app:preDebugBuild
+    app:preDebugUnitTestBuild
+    app:preReleaseBuild
+    app:preReleaseUnitTestBuild
+    app:prepareComAndroidSupportAnimatedVectorDrawable2420Library - Prepare com.android.support:animated-vector-drawable:24.2.0
+    app:prepareComAndroidSupportAppcompatV72420Library - Prepare com.android.support:appcompat-v7:24.2.0
+    app:prepareComAndroidSupportDesign2420Library - Prepare com.android.support:design:24.2.0
+    app:prepareComAndroidSupportMultidex101Library - Prepare com.android.support:multidex:1.0.1
+    app:prepareComAndroidSupportRecyclerviewV72420Library - Prepare com.android.support:recyclerview-v7:24.2.0
+    app:prepareComAndroidSupportSupportCompat2420Library - Prepare com.android.support:support-compat:24.2.0
+    app:prepareComAndroidSupportSupportCoreUi2420Library - Prepare com.android.support:support-core-ui:24.2.0
+    app:prepareComAndroidSupportSupportCoreUtils2420Library - Prepare com.android.support:support-core-utils:24.2.0
+    app:prepareComAndroidSupportSupportFragment2420Library - Prepare com.android.support:support-fragment:24.2.0
+    app:prepareComAndroidSupportSupportMediaCompat2420Library - Prepare com.android.support:support-media-compat:24.2.0
+    app:prepareComAndroidSupportSupportV132420Library - Prepare com.android.support:support-v13:24.2.0
+    app:prepareComAndroidSupportSupportV42420Library - Prepare com.android.support:support-v4:24.2.0
+    app:prepareComAndroidSupportSupportVectorDrawable2420Library - Prepare com.android.support:support-vector-drawable:24.2.0
+    app:prepareComCrashlyticsSdkAndroidAnswers136Library - Prepare com.crashlytics.sdk.android:answers:1.3.6
+    app:prepareComCrashlyticsSdkAndroidBeta114Library - Prepare com.crashlytics.sdk.android:beta:1.1.4
+    app:prepareComCrashlyticsSdkAndroidCrashlytics255Library - Prepare com.crashlytics.sdk.android:crashlytics:2.5.5
+    app:prepareComCrashlyticsSdkAndroidCrashlyticsCore238Library - Prepare com.crashlytics.sdk.android:crashlytics-core:2.3.8
+    app:prepareComFacebookFrescoDrawee0110Library - Prepare com.facebook.fresco:drawee:0.11.0
+    app:prepareComFacebookFrescoFbcore0110Library - Prepare com.facebook.fresco:fbcore:0.11.0
+    app:prepareComFacebookFrescoFresco0110Library - Prepare com.facebook.fresco:fresco:0.11.0
+    app:prepareComFacebookFrescoImagepipeline0110Library - Prepare com.facebook.fresco:imagepipeline:0.11.0
+    app:prepareComFacebookFrescoImagepipelineBase0110Library - Prepare com.facebook.fresco:imagepipeline-base:0.11.0
+    app:prepareComFacebookFrescoImagepipelineOkhttp30110Library - Prepare com.facebook.fresco:imagepipeline-okhttp3:0.11.0
+    app:prepareComFacebookReactReactNative0370Library - Prepare com.facebook.react:react-native:0.37.0
+    app:prepareComFacebookSoloaderSoloader010Library - Prepare com.facebook.soloader:soloader:0.1.0
+    app:prepareComGithubGfxAndroidOrmaOrma260Library - Prepare com.github.gfx.android.orma:orma:2.6.0
+    app:prepareComGithubGfxAndroidOrmaOrmaMigration260Library - Prepare com.github.gfx.android.orma:orma-migration:2.6.0
+    app:prepareComGithubOrhanobutHawk123Library - Prepare com.github.orhanobut:hawk:1.23
+    app:prepareComGithubRahatarmanahmedCircularprogressview250Library - Prepare com.github.rahatarmanahmed:circularprogressview:2.5.0
+    app:prepareComJakewhartonHugoHugoRuntime121Library - Prepare com.jakewharton.hugo:hugo-runtime:1.2.1
+    app:prepareComJoanzapataIconifyAndroidIconify222Library - Prepare com.joanzapata.iconify:android-iconify:2.2.2
+    app:prepareComJoanzapataIconifyAndroidIconifyIonicons222Library - Prepare com.joanzapata.iconify:android-iconify-ionicons:2.2.2
+    app:prepareComJoanzapataIconifyAndroidIconifySimplelineicons222Library - Prepare com.joanzapata.iconify:android-iconify-simplelineicons:2.2.2
+    app:prepareComSquareupLeakcanaryLeakcanaryAndroid14Beta2Library - Prepare com.squareup.leakcanary:leakcanary-android:1.4-beta2
+    app:prepareComSquareupLeakcanaryLeakcanaryAndroidNoOp14Beta2Library - Prepare com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2
+    app:prepareDebugDependencies
+    app:prepareDebugUnitTestDependencies
+    app:prepareIoFabricSdkAndroidFabric1310Library - Prepare io.fabric.sdk.android:fabric:1.3.10
+    app:prepareJpWasabeefRecyclerviewAnimators130Library - Prepare jp.wasabeef:recyclerview-animators:1.3.0
+    app:prepareMeRelexPhotodraweeview100Library - Prepare me.relex:photodraweeview:1.0.0
+    app:prepareOrgWebkitAndroidJscR174650Library - Prepare org.webkit:android-jsc:r174650
+    app:prepareUkCoChrisjenxCalligraphy210Library - Prepare uk.co.chrisjenx:calligraphy:2.1.0
+    app:processDebugJavaRes
+    app:processDebugManifest
+    app:processDebugResources
+    app:processDebugUnitTestJavaRes
+app:compileReleaseSources
+    app:checkReleaseManifest
+    app:compileReleaseAidl
+    app:compileReleaseJavaWithJavac
+    app:compileReleaseNdk
+    app:compileReleaseRenderscript
+    app:compileReleaseShaders
+    app:fabricGenerateResourcesRelease - Injects the build id used by the Fabric SDK.
+    app:generateReleaseAssets
+    app:generateReleaseBuildConfig
+    app:generateReleaseResValues
+    app:generateReleaseResources
+    app:generateReleaseSources
+    app:incrementalReleaseJavaCompilationSafeguard
+    app:mergeReleaseAssets
+    app:mergeReleaseResources
+    app:mergeReleaseShaders
+    app:preBuild
+    app:preDebugAndroidTestBuild
+    app:preDebugBuild
+    app:preDebugUnitTestBuild
+    app:preReleaseBuild
+    app:preReleaseUnitTestBuild
+    app:prepareComAndroidSupportAnimatedVectorDrawable2420Library - Prepare com.android.support:animated-vector-drawable:24.2.0
+    app:prepareComAndroidSupportAppcompatV72420Library - Prepare com.android.support:appcompat-v7:24.2.0
+    app:prepareComAndroidSupportDesign2420Library - Prepare com.android.support:design:24.2.0
+    app:prepareComAndroidSupportMultidex101Library - Prepare com.android.support:multidex:1.0.1
+    app:prepareComAndroidSupportRecyclerviewV72420Library - Prepare com.android.support:recyclerview-v7:24.2.0
+    app:prepareComAndroidSupportSupportCompat2420Library - Prepare com.android.support:support-compat:24.2.0
+    app:prepareComAndroidSupportSupportCoreUi2420Library - Prepare com.android.support:support-core-ui:24.2.0
+    app:prepareComAndroidSupportSupportCoreUtils2420Library - Prepare com.android.support:support-core-utils:24.2.0
+    app:prepareComAndroidSupportSupportFragment2420Library - Prepare com.android.support:support-fragment:24.2.0
+    app:prepareComAndroidSupportSupportMediaCompat2420Library - Prepare com.android.support:support-media-compat:24.2.0
+    app:prepareComAndroidSupportSupportV132420Library - Prepare com.android.support:support-v13:24.2.0
+    app:prepareComAndroidSupportSupportV42420Library - Prepare com.android.support:support-v4:24.2.0
+    app:prepareComAndroidSupportSupportVectorDrawable2420Library - Prepare com.android.support:support-vector-drawable:24.2.0
+    app:prepareComCrashlyticsSdkAndroidAnswers136Library - Prepare com.crashlytics.sdk.android:answers:1.3.6
+    app:prepareComCrashlyticsSdkAndroidBeta114Library - Prepare com.crashlytics.sdk.android:beta:1.1.4
+    app:prepareComCrashlyticsSdkAndroidCrashlytics255Library - Prepare com.crashlytics.sdk.android:crashlytics:2.5.5
+    app:prepareComCrashlyticsSdkAndroidCrashlyticsCore238Library - Prepare com.crashlytics.sdk.android:crashlytics-core:2.3.8
+    app:prepareComFacebookFrescoDrawee0110Library - Prepare com.facebook.fresco:drawee:0.11.0
+    app:prepareComFacebookFrescoFbcore0110Library - Prepare com.facebook.fresco:fbcore:0.11.0
+    app:prepareComFacebookFrescoFresco0110Library - Prepare com.facebook.fresco:fresco:0.11.0
+    app:prepareComFacebookFrescoImagepipeline0110Library - Prepare com.facebook.fresco:imagepipeline:0.11.0
+    app:prepareComFacebookFrescoImagepipelineBase0110Library - Prepare com.facebook.fresco:imagepipeline-base:0.11.0
+    app:prepareComFacebookFrescoImagepipelineOkhttp30110Library - Prepare com.facebook.fresco:imagepipeline-okhttp3:0.11.0
+    app:prepareComFacebookReactReactNative0370Library - Prepare com.facebook.react:react-native:0.37.0
+    app:prepareComFacebookSoloaderSoloader010Library - Prepare com.facebook.soloader:soloader:0.1.0
+    app:prepareComGithubGfxAndroidOrmaOrma260Library - Prepare com.github.gfx.android.orma:orma:2.6.0
+    app:prepareComGithubGfxAndroidOrmaOrmaMigration260Library - Prepare com.github.gfx.android.orma:orma-migration:2.6.0
+    app:prepareComGithubOrhanobutHawk123Library - Prepare com.github.orhanobut:hawk:1.23
+    app:prepareComGithubRahatarmanahmedCircularprogressview250Library - Prepare com.github.rahatarmanahmed:circularprogressview:2.5.0
+    app:prepareComJoanzapataIconifyAndroidIconify222Library - Prepare com.joanzapata.iconify:android-iconify:2.2.2
+    app:prepareComJoanzapataIconifyAndroidIconifyIonicons222Library - Prepare com.joanzapata.iconify:android-iconify-ionicons:2.2.2
+    app:prepareComJoanzapataIconifyAndroidIconifySimplelineicons222Library - Prepare com.joanzapata.iconify:android-iconify-simplelineicons:2.2.2
+    app:prepareComSquareupLeakcanaryLeakcanaryAndroidNoOp14Beta2Library - Prepare com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2
+    app:prepareIoFabricSdkAndroidFabric1310Library - Prepare io.fabric.sdk.android:fabric:1.3.10
+    app:prepareJpWasabeefRecyclerviewAnimators130Library - Prepare jp.wasabeef:recyclerview-animators:1.3.0
+    app:prepareMeRelexPhotodraweeview100Library - Prepare me.relex:photodraweeview:1.0.0
+    app:prepareOrgWebkitAndroidJscR174650Library - Prepare org.webkit:android-jsc:r174650
+    app:prepareReleaseDependencies
+    app:prepareUkCoChrisjenxCalligraphy210Library - Prepare uk.co.chrisjenx:calligraphy:2.1.0
+    app:processReleaseManifest
+    app:processReleaseResources
+app:compileReleaseUnitTestSources
+    app:checkReleaseManifest
+    app:compileReleaseAidl
+    app:compileReleaseJavaWithJavac
+    app:compileReleaseRenderscript
+    app:compileReleaseShaders
+    app:compileReleaseUnitTestJavaWithJavac
+    app:fabricGenerateResourcesRelease - Injects the build id used by the Fabric SDK.
+    app:generateReleaseAssets
+    app:generateReleaseBuildConfig
+    app:generateReleaseResValues
+    app:generateReleaseResources
+    app:generateReleaseSources
+    app:incrementalReleaseJavaCompilationSafeguard
+    app:incrementalReleaseUnitTestJavaCompilationSafeguard
+    app:mergeReleaseAssets
+    app:mergeReleaseResources
+    app:mergeReleaseShaders
+    app:preBuild
+    app:preDebugAndroidTestBuild
+    app:preDebugBuild
+    app:preDebugUnitTestBuild
+    app:preReleaseBuild
+    app:preReleaseUnitTestBuild
+    app:prepareComAndroidSupportAnimatedVectorDrawable2420Library - Prepare com.android.support:animated-vector-drawable:24.2.0
+    app:prepareComAndroidSupportAppcompatV72420Library - Prepare com.android.support:appcompat-v7:24.2.0
+    app:prepareComAndroidSupportDesign2420Library - Prepare com.android.support:design:24.2.0
+    app:prepareComAndroidSupportMultidex101Library - Prepare com.android.support:multidex:1.0.1
+    app:prepareComAndroidSupportRecyclerviewV72420Library - Prepare com.android.support:recyclerview-v7:24.2.0
+    app:prepareComAndroidSupportSupportCompat2420Library - Prepare com.android.support:support-compat:24.2.0
+    app:prepareComAndroidSupportSupportCoreUi2420Library - Prepare com.android.support:support-core-ui:24.2.0
+    app:prepareComAndroidSupportSupportCoreUtils2420Library - Prepare com.android.support:support-core-utils:24.2.0
+    app:prepareComAndroidSupportSupportFragment2420Library - Prepare com.android.support:support-fragment:24.2.0
+    app:prepareComAndroidSupportSupportMediaCompat2420Library - Prepare com.android.support:support-media-compat:24.2.0
+    app:prepareComAndroidSupportSupportV132420Library - Prepare com.android.support:support-v13:24.2.0
+    app:prepareComAndroidSupportSupportV42420Library - Prepare com.android.support:support-v4:24.2.0
+    app:prepareComAndroidSupportSupportVectorDrawable2420Library - Prepare com.android.support:support-vector-drawable:24.2.0
+    app:prepareComCrashlyticsSdkAndroidAnswers136Library - Prepare com.crashlytics.sdk.android:answers:1.3.6
+    app:prepareComCrashlyticsSdkAndroidBeta114Library - Prepare com.crashlytics.sdk.android:beta:1.1.4
+    app:prepareComCrashlyticsSdkAndroidCrashlytics255Library - Prepare com.crashlytics.sdk.android:crashlytics:2.5.5
+    app:prepareComCrashlyticsSdkAndroidCrashlyticsCore238Library - Prepare com.crashlytics.sdk.android:crashlytics-core:2.3.8
+    app:prepareComFacebookFrescoDrawee0110Library - Prepare com.facebook.fresco:drawee:0.11.0
+    app:prepareComFacebookFrescoFbcore0110Library - Prepare com.facebook.fresco:fbcore:0.11.0
+    app:prepareComFacebookFrescoFresco0110Library - Prepare com.facebook.fresco:fresco:0.11.0
+    app:prepareComFacebookFrescoImagepipeline0110Library - Prepare com.facebook.fresco:imagepipeline:0.11.0
+    app:prepareComFacebookFrescoImagepipelineBase0110Library - Prepare com.facebook.fresco:imagepipeline-base:0.11.0
+    app:prepareComFacebookFrescoImagepipelineOkhttp30110Library - Prepare com.facebook.fresco:imagepipeline-okhttp3:0.11.0
+    app:prepareComFacebookReactReactNative0370Library - Prepare com.facebook.react:react-native:0.37.0
+    app:prepareComFacebookSoloaderSoloader010Library - Prepare com.facebook.soloader:soloader:0.1.0
+    app:prepareComGithubGfxAndroidOrmaOrma260Library - Prepare com.github.gfx.android.orma:orma:2.6.0
+    app:prepareComGithubGfxAndroidOrmaOrmaMigration260Library - Prepare com.github.gfx.android.orma:orma-migration:2.6.0
+    app:prepareComGithubOrhanobutHawk123Library - Prepare com.github.orhanobut:hawk:1.23
+    app:prepareComGithubRahatarmanahmedCircularprogressview250Library - Prepare com.github.rahatarmanahmed:circularprogressview:2.5.0
+    app:prepareComJoanzapataIconifyAndroidIconify222Library - Prepare com.joanzapata.iconify:android-iconify:2.2.2
+    app:prepareComJoanzapataIconifyAndroidIconifyIonicons222Library - Prepare com.joanzapata.iconify:android-iconify-ionicons:2.2.2
+    app:prepareComJoanzapataIconifyAndroidIconifySimplelineicons222Library - Prepare com.joanzapata.iconify:android-iconify-simplelineicons:2.2.2
+    app:prepareComSquareupLeakcanaryLeakcanaryAndroidNoOp14Beta2Library - Prepare com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2
+    app:prepareIoFabricSdkAndroidFabric1310Library - Prepare io.fabric.sdk.android:fabric:1.3.10
+    app:prepareJpWasabeefRecyclerviewAnimators130Library - Prepare jp.wasabeef:recyclerview-animators:1.3.0
+    app:prepareMeRelexPhotodraweeview100Library - Prepare me.relex:photodraweeview:1.0.0
+    app:prepareOrgWebkitAndroidJscR174650Library - Prepare org.webkit:android-jsc:r174650
+    app:prepareReleaseDependencies
+    app:prepareReleaseUnitTestDependencies
+    app:prepareUkCoChrisjenxCalligraphy210Library - Prepare uk.co.chrisjenx:calligraphy:2.1.0
+    app:processReleaseJavaRes
+    app:processReleaseManifest
+    app:processReleaseResources
+    app:processReleaseUnitTestJavaRes
+app:mockableAndroidJar - Creates a version of android.jar that's suitable for unit tests.
+
+Build Setup tasks
+-----------------
+init - Initializes a new Gradle build. [incubating]
+wrapper - Generates Gradle wrapper files. [incubating]
+
+Help tasks
+----------
+buildEnvironment - Displays all buildscript dependencies declared in root project 'MS_Native'.
+app:buildEnvironment - Displays all buildscript dependencies declared in project ':app'.
+components - Displays the components produced by root project 'MS_Native'. [incubating]
+app:components - Displays the components produced by project ':app'. [incubating]
+dependencies - Displays all dependencies declared in root project 'MS_Native'.
+app:dependencies - Displays all dependencies declared in project ':app'.
+dependencyInsight - Displays the insight into a specific dependency in root project 'MS_Native'.
+app:dependencyInsight - Displays the insight into a specific dependency in project ':app'.
+help - Displays a help message.
+app:help - Displays a help message.
+model - Displays the configuration model of root project 'MS_Native'. [incubating]
+app:model - Displays the configuration model of project ':app'. [incubating]
+projects - Displays the sub-projects of root project 'MS_Native'.
+app:projects - Displays the sub-projects of project ':app'.
+properties - Displays the properties of root project 'MS_Native'.
+app:properties - Displays the properties of project ':app'.
+tasks - Displays the tasks runnable from root project 'MS_Native' (some of the displayed tasks may belong to subprojects).
+app:tasks - Displays the tasks runnable from project ':app'.
+
+Install tasks
+-------------
+app:installDebug - Installs the Debug build. [app:assembleDebug]
+app:installDebugAndroidTest - Installs the android (on device) tests for the Debug build. [app:compileDebugAndroidTestSources]
+    app:assembleDebugAndroidTest
+    app:compileDebugAndroidTestShaders
+    app:generateDebugAndroidTestAssets
+    app:mergeDebugAndroidTestAssets
+    app:mergeDebugAndroidTestJniLibFolders
+    app:mergeDebugAndroidTestShaders
+    app:packageDebugAndroidTest
+    app:processDebugAndroidTestJavaRes
+    app:transformClassesWithDexForDebugAndroidTest
+    app:transformClassesWithJarMergingForDebugAndroidTest
+    app:transformClassesWithMultidexlistForDebugAndroidTest
+    app:transformNative_libsWithMergeJniLibsForDebugAndroidTest
+    app:transformResourcesWithMergeJavaResForDebugAndroidTest
+    app:validateSigningDebugAndroidTest
+app:uninstallAll - Uninstall all applications. [app:uninstallDebug, app:uninstallDebugAndroidTest, app:uninstallRelease]
+app:uninstallDebug - Uninstalls the Debug build.
+app:uninstallDebugAndroidTest - Uninstalls the android (on device) tests for the Debug build.
+app:uninstallRelease - Uninstalls the Release build.
+
+Verification tasks
+------------------
+app:check - Runs all checks. [app:lint, app:test]
+app:connectedAndroidTest - Installs and runs instrumentation tests for all flavors on connected devices. [app:connectedDebugAndroidTest]
+app:connectedCheck - Runs all device checks on currently connected devices. [app:connectedAndroidTest]
+app:connectedDebugAndroidTest - Installs and runs the tests for debug on connected devices. [app:assembleDebug, app:compileDebugAndroidTestSources]
+    app:assembleDebugAndroidTest
+    app:compileDebugAndroidTestShaders
+    app:generateDebugAndroidTestAssets
+    app:mergeDebugAndroidTestAssets
+    app:mergeDebugAndroidTestJniLibFolders
+    app:mergeDebugAndroidTestShaders
+    app:packageDebugAndroidTest
+    app:processDebugAndroidTestJavaRes
+    app:transformClassesWithDexForDebugAndroidTest
+    app:transformClassesWithJarMergingForDebugAndroidTest
+    app:transformClassesWithMultidexlistForDebugAndroidTest
+    app:transformNative_libsWithMergeJniLibsForDebugAndroidTest
+    app:transformResourcesWithMergeJavaResForDebugAndroidTest
+    app:validateSigningDebugAndroidTest
+app:deviceAndroidTest - Installs and runs instrumentation tests using all Device Providers.
+app:deviceCheck - Runs all device checks using Device Providers and Test Servers. [app:deviceAndroidTest]
+app:lint - Runs lint on all variants.
+    app:checkDebugManifest
+    app:checkReleaseManifest
+    app:compileDebugAidl
+    app:compileDebugJavaWithJavac
+    app:compileDebugRenderscript
+    app:compileDebugShaders
+    app:compileReleaseAidl
+    app:compileReleaseJavaWithJavac
+    app:compileReleaseRenderscript
+    app:compileReleaseShaders
+    app:fabricGenerateResourcesDebug - Injects the build id used by the Fabric SDK.
+    app:fabricGenerateResourcesRelease - Injects the build id used by the Fabric SDK.
+    app:generateDebugAssets
+    app:generateDebugBuildConfig
+    app:generateDebugResValues
+    app:generateDebugResources
+    app:generateDebugSources
+    app:generateReleaseAssets
+    app:generateReleaseBuildConfig
+    app:generateReleaseResValues
+    app:generateReleaseResources
+    app:generateReleaseSources
+    app:incrementalDebugJavaCompilationSafeguard
+    app:incrementalReleaseJavaCompilationSafeguard
+    app:mergeDebugAssets
+    app:mergeDebugResources
+    app:mergeDebugShaders
+    app:mergeReleaseAssets
+    app:mergeReleaseResources
+    app:mergeReleaseShaders
+    app:preBuild
+    app:preDebugAndroidTestBuild
+    app:preDebugBuild
+    app:preDebugUnitTestBuild
+    app:preReleaseBuild
+    app:preReleaseUnitTestBuild
+    app:prepareComAndroidSupportAnimatedVectorDrawable2420Library - Prepare com.android.support:animated-vector-drawable:24.2.0
+    app:prepareComAndroidSupportAppcompatV72420Library - Prepare com.android.support:appcompat-v7:24.2.0
+    app:prepareComAndroidSupportDesign2420Library - Prepare com.android.support:design:24.2.0
+    app:prepareComAndroidSupportMultidex101Library - Prepare com.android.support:multidex:1.0.1
+    app:prepareComAndroidSupportRecyclerviewV72420Library - Prepare com.android.support:recyclerview-v7:24.2.0
+    app:prepareComAndroidSupportSupportCompat2420Library - Prepare com.android.support:support-compat:24.2.0
+    app:prepareComAndroidSupportSupportCoreUi2420Library - Prepare com.android.support:support-core-ui:24.2.0
+    app:prepareComAndroidSupportSupportCoreUtils2420Library - Prepare com.android.support:support-core-utils:24.2.0
+    app:prepareComAndroidSupportSupportFragment2420Library - Prepare com.android.support:support-fragment:24.2.0
+    app:prepareComAndroidSupportSupportMediaCompat2420Library - Prepare com.android.support:support-media-compat:24.2.0
+    app:prepareComAndroidSupportSupportV132420Library - Prepare com.android.support:support-v13:24.2.0
+    app:prepareComAndroidSupportSupportV42420Library - Prepare com.android.support:support-v4:24.2.0
+    app:prepareComAndroidSupportSupportVectorDrawable2420Library - Prepare com.android.support:support-vector-drawable:24.2.0
+    app:prepareComCrashlyticsSdkAndroidAnswers136Library - Prepare com.crashlytics.sdk.android:answers:1.3.6
+    app:prepareComCrashlyticsSdkAndroidBeta114Library - Prepare com.crashlytics.sdk.android:beta:1.1.4
+    app:prepareComCrashlyticsSdkAndroidCrashlytics255Library - Prepare com.crashlytics.sdk.android:crashlytics:2.5.5
+    app:prepareComCrashlyticsSdkAndroidCrashlyticsCore238Library - Prepare com.crashlytics.sdk.android:crashlytics-core:2.3.8
+    app:prepareComFacebookFrescoDrawee0110Library - Prepare com.facebook.fresco:drawee:0.11.0
+    app:prepareComFacebookFrescoFbcore0110Library - Prepare com.facebook.fresco:fbcore:0.11.0
+    app:prepareComFacebookFrescoFresco0110Library - Prepare com.facebook.fresco:fresco:0.11.0
+    app:prepareComFacebookFrescoImagepipeline0110Library - Prepare com.facebook.fresco:imagepipeline:0.11.0
+    app:prepareComFacebookFrescoImagepipelineBase0110Library - Prepare com.facebook.fresco:imagepipeline-base:0.11.0
+    app:prepareComFacebookFrescoImagepipelineOkhttp30110Library - Prepare com.facebook.fresco:imagepipeline-okhttp3:0.11.0
+    app:prepareComFacebookReactReactNative0370Library - Prepare com.facebook.react:react-native:0.37.0
+    app:prepareComFacebookSoloaderSoloader010Library - Prepare com.facebook.soloader:soloader:0.1.0
+    app:prepareComGithubGfxAndroidOrmaOrma260Library - Prepare com.github.gfx.android.orma:orma:2.6.0
+    app:prepareComGithubGfxAndroidOrmaOrmaMigration260Library - Prepare com.github.gfx.android.orma:orma-migration:2.6.0
+    app:prepareComGithubOrhanobutHawk123Library - Prepare com.github.orhanobut:hawk:1.23
+    app:prepareComGithubRahatarmanahmedCircularprogressview250Library - Prepare com.github.rahatarmanahmed:circularprogressview:2.5.0
+    app:prepareComJakewhartonHugoHugoRuntime121Library - Prepare com.jakewharton.hugo:hugo-runtime:1.2.1
+    app:prepareComJoanzapataIconifyAndroidIconify222Library - Prepare com.joanzapata.iconify:android-iconify:2.2.2
+    app:prepareComJoanzapataIconifyAndroidIconifyIonicons222Library - Prepare com.joanzapata.iconify:android-iconify-ionicons:2.2.2
+    app:prepareComJoanzapataIconifyAndroidIconifySimplelineicons222Library - Prepare com.joanzapata.iconify:android-iconify-simplelineicons:2.2.2
+    app:prepareComSquareupLeakcanaryLeakcanaryAndroid14Beta2Library - Prepare com.squareup.leakcanary:leakcanary-android:1.4-beta2
+    app:prepareComSquareupLeakcanaryLeakcanaryAndroidNoOp14Beta2Library - Prepare com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2
+    app:prepareDebugDependencies
+    app:prepareIoFabricSdkAndroidFabric1310Library - Prepare io.fabric.sdk.android:fabric:1.3.10
+    app:prepareJpWasabeefRecyclerviewAnimators130Library - Prepare jp.wasabeef:recyclerview-animators:1.3.0
+    app:prepareMeRelexPhotodraweeview100Library - Prepare me.relex:photodraweeview:1.0.0
+    app:prepareOrgWebkitAndroidJscR174650Library - Prepare org.webkit:android-jsc:r174650
+    app:prepareReleaseDependencies
+    app:prepareUkCoChrisjenxCalligraphy210Library - Prepare uk.co.chrisjenx:calligraphy:2.1.0
+    app:processDebugManifest
+    app:processDebugResources
+    app:processReleaseManifest
+    app:processReleaseResources
+app:lintDebug - Runs lint on the Debug build.
+    app:checkDebugManifest
+    app:compileDebugAidl
+    app:compileDebugJavaWithJavac
+    app:compileDebugRenderscript
+    app:compileDebugShaders
+    app:compileLint
+    app:fabricGenerateResourcesDebug - Injects the build id used by the Fabric SDK.
+    app:generateDebugAssets
+    app:generateDebugBuildConfig
+    app:generateDebugResValues
+    app:generateDebugResources
+    app:generateDebugSources
+    app:incrementalDebugJavaCompilationSafeguard
+    app:mergeDebugAssets
+    app:mergeDebugResources
+    app:mergeDebugShaders
+    app:preBuild
+    app:preDebugAndroidTestBuild
+    app:preDebugBuild
+    app:preReleaseBuild
+    app:prepareComAndroidSupportAnimatedVectorDrawable2420Library - Prepare com.android.support:animated-vector-drawable:24.2.0
+    app:prepareComAndroidSupportAppcompatV72420Library - Prepare com.android.support:appcompat-v7:24.2.0
+    app:prepareComAndroidSupportDesign2420Library - Prepare com.android.support:design:24.2.0
+    app:prepareComAndroidSupportMultidex101Library - Prepare com.android.support:multidex:1.0.1
+    app:prepareComAndroidSupportRecyclerviewV72420Library - Prepare com.android.support:recyclerview-v7:24.2.0
+    app:prepareComAndroidSupportSupportCompat2420Library - Prepare com.android.support:support-compat:24.2.0
+    app:prepareComAndroidSupportSupportCoreUi2420Library - Prepare com.android.support:support-core-ui:24.2.0
+    app:prepareComAndroidSupportSupportCoreUtils2420Library - Prepare com.android.support:support-core-utils:24.2.0
+    app:prepareComAndroidSupportSupportFragment2420Library - Prepare com.android.support:support-fragment:24.2.0
+    app:prepareComAndroidSupportSupportMediaCompat2420Library - Prepare com.android.support:support-media-compat:24.2.0
+    app:prepareComAndroidSupportSupportV132420Library - Prepare com.android.support:support-v13:24.2.0
+    app:prepareComAndroidSupportSupportV42420Library - Prepare com.android.support:support-v4:24.2.0
+    app:prepareComAndroidSupportSupportVectorDrawable2420Library - Prepare com.android.support:support-vector-drawable:24.2.0
+    app:prepareComCrashlyticsSdkAndroidAnswers136Library - Prepare com.crashlytics.sdk.android:answers:1.3.6
+    app:prepareComCrashlyticsSdkAndroidBeta114Library - Prepare com.crashlytics.sdk.android:beta:1.1.4
+    app:prepareComCrashlyticsSdkAndroidCrashlytics255Library - Prepare com.crashlytics.sdk.android:crashlytics:2.5.5
+    app:prepareComCrashlyticsSdkAndroidCrashlyticsCore238Library - Prepare com.crashlytics.sdk.android:crashlytics-core:2.3.8
+    app:prepareComFacebookFrescoDrawee0110Library - Prepare com.facebook.fresco:drawee:0.11.0
+    app:prepareComFacebookFrescoFbcore0110Library - Prepare com.facebook.fresco:fbcore:0.11.0
+    app:prepareComFacebookFrescoFresco0110Library - Prepare com.facebook.fresco:fresco:0.11.0
+    app:prepareComFacebookFrescoImagepipeline0110Library - Prepare com.facebook.fresco:imagepipeline:0.11.0
+    app:prepareComFacebookFrescoImagepipelineBase0110Library - Prepare com.facebook.fresco:imagepipeline-base:0.11.0
+    app:prepareComFacebookFrescoImagepipelineOkhttp30110Library - Prepare com.facebook.fresco:imagepipeline-okhttp3:0.11.0
+    app:prepareComFacebookReactReactNative0370Library - Prepare com.facebook.react:react-native:0.37.0
+    app:prepareComFacebookSoloaderSoloader010Library - Prepare com.facebook.soloader:soloader:0.1.0
+    app:prepareComGithubGfxAndroidOrmaOrma260Library - Prepare com.github.gfx.android.orma:orma:2.6.0
+    app:prepareComGithubGfxAndroidOrmaOrmaMigration260Library - Prepare com.github.gfx.android.orma:orma-migration:2.6.0
+    app:prepareComGithubOrhanobutHawk123Library - Prepare com.github.orhanobut:hawk:1.23
+    app:prepareComGithubRahatarmanahmedCircularprogressview250Library - Prepare com.github.rahatarmanahmed:circularprogressview:2.5.0
+    app:prepareComJakewhartonHugoHugoRuntime121Library - Prepare com.jakewharton.hugo:hugo-runtime:1.2.1
+    app:prepareComJoanzapataIconifyAndroidIconify222Library - Prepare com.joanzapata.iconify:android-iconify:2.2.2
+    app:prepareComJoanzapataIconifyAndroidIconifyIonicons222Library - Prepare com.joanzapata.iconify:android-iconify-ionicons:2.2.2
+    app:prepareComJoanzapataIconifyAndroidIconifySimplelineicons222Library - Prepare com.joanzapata.iconify:android-iconify-simplelineicons:2.2.2
+    app:prepareComSquareupLeakcanaryLeakcanaryAndroid14Beta2Library - Prepare com.squareup.leakcanary:leakcanary-android:1.4-beta2
+    app:prepareDebugDependencies
+    app:prepareIoFabricSdkAndroidFabric1310Library - Prepare io.fabric.sdk.android:fabric:1.3.10
+    app:prepareJpWasabeefRecyclerviewAnimators130Library - Prepare jp.wasabeef:recyclerview-animators:1.3.0
+    app:prepareMeRelexPhotodraweeview100Library - Prepare me.relex:photodraweeview:1.0.0
+    app:prepareOrgWebkitAndroidJscR174650Library - Prepare org.webkit:android-jsc:r174650
+    app:prepareUkCoChrisjenxCalligraphy210Library - Prepare uk.co.chrisjenx:calligraphy:2.1.0
+    app:processDebugManifest
+    app:processDebugResources
+app:lintRelease - Runs lint on the Release build.
+    app:checkReleaseManifest
+    app:compileLint
+    app:compileReleaseAidl
+    app:compileReleaseJavaWithJavac
+    app:compileReleaseRenderscript
+    app:compileReleaseShaders
+    app:fabricGenerateResourcesRelease - Injects the build id used by the Fabric SDK.
+    app:generateReleaseAssets
+    app:generateReleaseBuildConfig
+    app:generateReleaseResValues
+    app:generateReleaseResources
+    app:generateReleaseSources
+    app:incrementalReleaseJavaCompilationSafeguard
+    app:mergeReleaseAssets
+    app:mergeReleaseResources
+    app:mergeReleaseShaders
+    app:preBuild
+    app:preDebugAndroidTestBuild
+    app:preDebugBuild
+    app:preDebugUnitTestBuild
+    app:preReleaseBuild
+    app:preReleaseUnitTestBuild
+    app:prepareComAndroidSupportAnimatedVectorDrawable2420Library - Prepare com.android.support:animated-vector-drawable:24.2.0
+    app:prepareComAndroidSupportAppcompatV72420Library - Prepare com.android.support:appcompat-v7:24.2.0
+    app:prepareComAndroidSupportDesign2420Library - Prepare com.android.support:design:24.2.0
+    app:prepareComAndroidSupportMultidex101Library - Prepare com.android.support:multidex:1.0.1
+    app:prepareComAndroidSupportRecyclerviewV72420Library - Prepare com.android.support:recyclerview-v7:24.2.0
+    app:prepareComAndroidSupportSupportCompat2420Library - Prepare com.android.support:support-compat:24.2.0
+    app:prepareComAndroidSupportSupportCoreUi2420Library - Prepare com.android.support:support-core-ui:24.2.0
+    app:prepareComAndroidSupportSupportCoreUtils2420Library - Prepare com.android.support:support-core-utils:24.2.0
+    app:prepareComAndroidSupportSupportFragment2420Library - Prepare com.android.support:support-fragment:24.2.0
+    app:prepareComAndroidSupportSupportMediaCompat2420Library - Prepare com.android.support:support-media-compat:24.2.0
+    app:prepareComAndroidSupportSupportV132420Library - Prepare com.android.support:support-v13:24.2.0
+    app:prepareComAndroidSupportSupportV42420Library - Prepare com.android.support:support-v4:24.2.0
+    app:prepareComAndroidSupportSupportVectorDrawable2420Library - Prepare com.android.support:support-vector-drawable:24.2.0
+    app:prepareComCrashlyticsSdkAndroidAnswers136Library - Prepare com.crashlytics.sdk.android:answers:1.3.6
+    app:prepareComCrashlyticsSdkAndroidBeta114Library - Prepare com.crashlytics.sdk.android:beta:1.1.4
+    app:prepareComCrashlyticsSdkAndroidCrashlytics255Library - Prepare com.crashlytics.sdk.android:crashlytics:2.5.5
+    app:prepareComCrashlyticsSdkAndroidCrashlyticsCore238Library - Prepare com.crashlytics.sdk.android:crashlytics-core:2.3.8
+    app:prepareComFacebookFrescoDrawee0110Library - Prepare com.facebook.fresco:drawee:0.11.0
+    app:prepareComFacebookFrescoFbcore0110Library - Prepare com.facebook.fresco:fbcore:0.11.0
+    app:prepareComFacebookFrescoFresco0110Library - Prepare com.facebook.fresco:fresco:0.11.0
+    app:prepareComFacebookFrescoImagepipeline0110Library - Prepare com.facebook.fresco:imagepipeline:0.11.0
+    app:prepareComFacebookFrescoImagepipelineBase0110Library - Prepare com.facebook.fresco:imagepipeline-base:0.11.0
+    app:prepareComFacebookFrescoImagepipelineOkhttp30110Library - Prepare com.facebook.fresco:imagepipeline-okhttp3:0.11.0
+    app:prepareComFacebookReactReactNative0370Library - Prepare com.facebook.react:react-native:0.37.0
+    app:prepareComFacebookSoloaderSoloader010Library - Prepare com.facebook.soloader:soloader:0.1.0
+    app:prepareComGithubGfxAndroidOrmaOrma260Library - Prepare com.github.gfx.android.orma:orma:2.6.0
+    app:prepareComGithubGfxAndroidOrmaOrmaMigration260Library - Prepare com.github.gfx.android.orma:orma-migration:2.6.0
+    app:prepareComGithubOrhanobutHawk123Library - Prepare com.github.orhanobut:hawk:1.23
+    app:prepareComGithubRahatarmanahmedCircularprogressview250Library - Prepare com.github.rahatarmanahmed:circularprogressview:2.5.0
+    app:prepareComJoanzapataIconifyAndroidIconify222Library - Prepare com.joanzapata.iconify:android-iconify:2.2.2
+    app:prepareComJoanzapataIconifyAndroidIconifyIonicons222Library - Prepare com.joanzapata.iconify:android-iconify-ionicons:2.2.2
+    app:prepareComJoanzapataIconifyAndroidIconifySimplelineicons222Library - Prepare com.joanzapata.iconify:android-iconify-simplelineicons:2.2.2
+    app:prepareComSquareupLeakcanaryLeakcanaryAndroidNoOp14Beta2Library - Prepare com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2
+    app:prepareIoFabricSdkAndroidFabric1310Library - Prepare io.fabric.sdk.android:fabric:1.3.10
+    app:prepareJpWasabeefRecyclerviewAnimators130Library - Prepare jp.wasabeef:recyclerview-animators:1.3.0
+    app:prepareMeRelexPhotodraweeview100Library - Prepare me.relex:photodraweeview:1.0.0
+    app:prepareOrgWebkitAndroidJscR174650Library - Prepare org.webkit:android-jsc:r174650
+    app:prepareReleaseDependencies
+    app:prepareUkCoChrisjenxCalligraphy210Library - Prepare uk.co.chrisjenx:calligraphy:2.1.0
+    app:processReleaseManifest
+    app:processReleaseResources
+app:test - Run unit tests for all variants. [app:testDebugUnitTest, app:testReleaseUnitTest]
+app:testDebugUnitTest - Run unit tests for the debug build. [app:compileDebugUnitTestSources, app:mockableAndroidJar]
+    app:assembleDebugUnitTest
+app:testReleaseUnitTest - Run unit tests for the release build. [app:compileReleaseUnitTestSources, app:mockableAndroidJar]
+    app:assembleReleaseUnitTest
+
+Other tasks
+-----------
+clean
+app:compileRetrolambdaDebug
+app:compileRetrolambdaDebugAndroidTest
+app:compileRetrolambdaRelease
+app:crashlyticsUploadDistributionDebug - Uploads an APK to Crashlytics for distribution.
+app:crashlyticsUploadDistributionRelease - Uploads an APK to Crashlytics for distribution.
+app:extractProguardFiles
+    app:preBuild
+app:jarDebugClasses
+    app:checkDebugManifest
+    app:compileDebugAidl
+    app:compileDebugJavaWithJavac
+    app:compileDebugRenderscript
+    app:compileDebugShaders
+    app:fabricGenerateResourcesDebug - Injects the build id used by the Fabric SDK.
+    app:generateDebugAssets
+    app:generateDebugBuildConfig
+    app:generateDebugResValues
+    app:generateDebugResources
+    app:generateDebugSources
+    app:incrementalDebugJavaCompilationSafeguard
+    app:mergeDebugAssets
+    app:mergeDebugResources
+    app:mergeDebugShaders
+    app:preBuild
+    app:preDebugAndroidTestBuild
+    app:preDebugBuild
+    app:preReleaseBuild
+    app:prepareComAndroidSupportAnimatedVectorDrawable2420Library - Prepare com.android.support:animated-vector-drawable:24.2.0
+    app:prepareComAndroidSupportAppcompatV72420Library - Prepare com.android.support:appcompat-v7:24.2.0
+    app:prepareComAndroidSupportDesign2420Library - Prepare com.android.support:design:24.2.0
+    app:prepareComAndroidSupportMultidex101Library - Prepare com.android.support:multidex:1.0.1
+    app:prepareComAndroidSupportRecyclerviewV72420Library - Prepare com.android.support:recyclerview-v7:24.2.0
+    app:prepareComAndroidSupportSupportCompat2420Library - Prepare com.android.support:support-compat:24.2.0
+    app:prepareComAndroidSupportSupportCoreUi2420Library - Prepare com.android.support:support-core-ui:24.2.0
+    app:prepareComAndroidSupportSupportCoreUtils2420Library - Prepare com.android.support:support-core-utils:24.2.0
+    app:prepareComAndroidSupportSupportFragment2420Library - Prepare com.android.support:support-fragment:24.2.0
+    app:prepareComAndroidSupportSupportMediaCompat2420Library - Prepare com.android.support:support-media-compat:24.2.0
+    app:prepareComAndroidSupportSupportV132420Library - Prepare com.android.support:support-v13:24.2.0
+    app:prepareComAndroidSupportSupportV42420Library - Prepare com.android.support:support-v4:24.2.0
+    app:prepareComAndroidSupportSupportVectorDrawable2420Library - Prepare com.android.support:support-vector-drawable:24.2.0
+    app:prepareComCrashlyticsSdkAndroidAnswers136Library - Prepare com.crashlytics.sdk.android:answers:1.3.6
+    app:prepareComCrashlyticsSdkAndroidBeta114Library - Prepare com.crashlytics.sdk.android:beta:1.1.4
+    app:prepareComCrashlyticsSdkAndroidCrashlytics255Library - Prepare com.crashlytics.sdk.android:crashlytics:2.5.5
+    app:prepareComCrashlyticsSdkAndroidCrashlyticsCore238Library - Prepare com.crashlytics.sdk.android:crashlytics-core:2.3.8
+    app:prepareComFacebookFrescoDrawee0110Library - Prepare com.facebook.fresco:drawee:0.11.0
+    app:prepareComFacebookFrescoFbcore0110Library - Prepare com.facebook.fresco:fbcore:0.11.0
+    app:prepareComFacebookFrescoFresco0110Library - Prepare com.facebook.fresco:fresco:0.11.0
+    app:prepareComFacebookFrescoImagepipeline0110Library - Prepare com.facebook.fresco:imagepipeline:0.11.0
+    app:prepareComFacebookFrescoImagepipelineBase0110Library - Prepare com.facebook.fresco:imagepipeline-base:0.11.0
+    app:prepareComFacebookFrescoImagepipelineOkhttp30110Library - Prepare com.facebook.fresco:imagepipeline-okhttp3:0.11.0
+    app:prepareComFacebookReactReactNative0370Library - Prepare com.facebook.react:react-native:0.37.0
+    app:prepareComFacebookSoloaderSoloader010Library - Prepare com.facebook.soloader:soloader:0.1.0
+    app:prepareComGithubGfxAndroidOrmaOrma260Library - Prepare com.github.gfx.android.orma:orma:2.6.0
+    app:prepareComGithubGfxAndroidOrmaOrmaMigration260Library - Prepare com.github.gfx.android.orma:orma-migration:2.6.0
+    app:prepareComGithubOrhanobutHawk123Library - Prepare com.github.orhanobut:hawk:1.23
+    app:prepareComGithubRahatarmanahmedCircularprogressview250Library - Prepare com.github.rahatarmanahmed:circularprogressview:2.5.0
+    app:prepareComJakewhartonHugoHugoRuntime121Library - Prepare com.jakewharton.hugo:hugo-runtime:1.2.1
+    app:prepareComJoanzapataIconifyAndroidIconify222Library - Prepare com.joanzapata.iconify:android-iconify:2.2.2
+    app:prepareComJoanzapataIconifyAndroidIconifyIonicons222Library - Prepare com.joanzapata.iconify:android-iconify-ionicons:2.2.2
+    app:prepareComJoanzapataIconifyAndroidIconifySimplelineicons222Library - Prepare com.joanzapata.iconify:android-iconify-simplelineicons:2.2.2
+    app:prepareComSquareupLeakcanaryLeakcanaryAndroid14Beta2Library - Prepare com.squareup.leakcanary:leakcanary-android:1.4-beta2
+    app:prepareDebugDependencies
+    app:prepareIoFabricSdkAndroidFabric1310Library - Prepare io.fabric.sdk.android:fabric:1.3.10
+    app:prepareJpWasabeefRecyclerviewAnimators130Library - Prepare jp.wasabeef:recyclerview-animators:1.3.0
+    app:prepareMeRelexPhotodraweeview100Library - Prepare me.relex:photodraweeview:1.0.0
+    app:prepareOrgWebkitAndroidJscR174650Library - Prepare org.webkit:android-jsc:r174650
+    app:prepareUkCoChrisjenxCalligraphy210Library - Prepare uk.co.chrisjenx:calligraphy:2.1.0
+    app:processDebugManifest
+    app:processDebugResources
+app:jarReleaseClasses
+    app:checkReleaseManifest
+    app:compileReleaseAidl
+    app:compileReleaseJavaWithJavac
+    app:compileReleaseRenderscript
+    app:compileReleaseShaders
+    app:fabricGenerateResourcesRelease - Injects the build id used by the Fabric SDK.
+    app:generateReleaseAssets
+    app:generateReleaseBuildConfig
+    app:generateReleaseResValues
+    app:generateReleaseResources
+    app:generateReleaseSources
+    app:incrementalReleaseJavaCompilationSafeguard
+    app:mergeReleaseAssets
+    app:mergeReleaseResources
+    app:mergeReleaseShaders
+    app:preBuild
+    app:preDebugAndroidTestBuild
+    app:preDebugBuild
+    app:preDebugUnitTestBuild
+    app:preReleaseBuild
+    app:preReleaseUnitTestBuild
+    app:prepareComAndroidSupportAnimatedVectorDrawable2420Library - Prepare com.android.support:animated-vector-drawable:24.2.0
+    app:prepareComAndroidSupportAppcompatV72420Library - Prepare com.android.support:appcompat-v7:24.2.0
+    app:prepareComAndroidSupportDesign2420Library - Prepare com.android.support:design:24.2.0
+    app:prepareComAndroidSupportMultidex101Library - Prepare com.android.support:multidex:1.0.1
+    app:prepareComAndroidSupportRecyclerviewV72420Library - Prepare com.android.support:recyclerview-v7:24.2.0
+    app:prepareComAndroidSupportSupportCompat2420Library - Prepare com.android.support:support-compat:24.2.0
+    app:prepareComAndroidSupportSupportCoreUi2420Library - Prepare com.android.support:support-core-ui:24.2.0
+    app:prepareComAndroidSupportSupportCoreUtils2420Library - Prepare com.android.support:support-core-utils:24.2.0
+    app:prepareComAndroidSupportSupportFragment2420Library - Prepare com.android.support:support-fragment:24.2.0
+    app:prepareComAndroidSupportSupportMediaCompat2420Library - Prepare com.android.support:support-media-compat:24.2.0
+    app:prepareComAndroidSupportSupportV132420Library - Prepare com.android.support:support-v13:24.2.0
+    app:prepareComAndroidSupportSupportV42420Library - Prepare com.android.support:support-v4:24.2.0
+    app:prepareComAndroidSupportSupportVectorDrawable2420Library - Prepare com.android.support:support-vector-drawable:24.2.0
+    app:prepareComCrashlyticsSdkAndroidAnswers136Library - Prepare com.crashlytics.sdk.android:answers:1.3.6
+    app:prepareComCrashlyticsSdkAndroidBeta114Library - Prepare com.crashlytics.sdk.android:beta:1.1.4
+    app:prepareComCrashlyticsSdkAndroidCrashlytics255Library - Prepare com.crashlytics.sdk.android:crashlytics:2.5.5
+    app:prepareComCrashlyticsSdkAndroidCrashlyticsCore238Library - Prepare com.crashlytics.sdk.android:crashlytics-core:2.3.8
+    app:prepareComFacebookFrescoDrawee0110Library - Prepare com.facebook.fresco:drawee:0.11.0
+    app:prepareComFacebookFrescoFbcore0110Library - Prepare com.facebook.fresco:fbcore:0.11.0
+    app:prepareComFacebookFrescoFresco0110Library - Prepare com.facebook.fresco:fresco:0.11.0
+    app:prepareComFacebookFrescoImagepipeline0110Library - Prepare com.facebook.fresco:imagepipeline:0.11.0
+    app:prepareComFacebookFrescoImagepipelineBase0110Library - Prepare com.facebook.fresco:imagepipeline-base:0.11.0
+    app:prepareComFacebookFrescoImagepipelineOkhttp30110Library - Prepare com.facebook.fresco:imagepipeline-okhttp3:0.11.0
+    app:prepareComFacebookReactReactNative0370Library - Prepare com.facebook.react:react-native:0.37.0
+    app:prepareComFacebookSoloaderSoloader010Library - Prepare com.facebook.soloader:soloader:0.1.0
+    app:prepareComGithubGfxAndroidOrmaOrma260Library - Prepare com.github.gfx.android.orma:orma:2.6.0
+    app:prepareComGithubGfxAndroidOrmaOrmaMigration260Library - Prepare com.github.gfx.android.orma:orma-migration:2.6.0
+    app:prepareComGithubOrhanobutHawk123Library - Prepare com.github.orhanobut:hawk:1.23
+    app:prepareComGithubRahatarmanahmedCircularprogressview250Library - Prepare com.github.rahatarmanahmed:circularprogressview:2.5.0
+    app:prepareComJoanzapataIconifyAndroidIconify222Library - Prepare com.joanzapata.iconify:android-iconify:2.2.2
+    app:prepareComJoanzapataIconifyAndroidIconifyIonicons222Library - Prepare com.joanzapata.iconify:android-iconify-ionicons:2.2.2
+    app:prepareComJoanzapataIconifyAndroidIconifySimplelineicons222Library - Prepare com.joanzapata.iconify:android-iconify-simplelineicons:2.2.2
+    app:prepareComSquareupLeakcanaryLeakcanaryAndroidNoOp14Beta2Library - Prepare com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2
+    app:prepareIoFabricSdkAndroidFabric1310Library - Prepare io.fabric.sdk.android:fabric:1.3.10
+    app:prepareJpWasabeefRecyclerviewAnimators130Library - Prepare jp.wasabeef:recyclerview-animators:1.3.0
+    app:prepareMeRelexPhotodraweeview100Library - Prepare me.relex:photodraweeview:1.0.0
+    app:prepareOrgWebkitAndroidJscR174650Library - Prepare org.webkit:android-jsc:r174650
+    app:prepareReleaseDependencies
+    app:prepareUkCoChrisjenxCalligraphy210Library - Prepare uk.co.chrisjenx:calligraphy:2.1.0
+    app:processReleaseManifest
+    app:processReleaseResources
+app:transformResourcesWithMergeJavaResForDebugUnitTest
+    app:preBuild
+    app:preDebugUnitTestBuild
+    app:preReleaseBuild
+    app:preReleaseUnitTestBuild
+    app:prepareComSquareupLeakcanaryLeakcanaryAndroidNoOp14Beta2Library - Prepare com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2
+    app:prepareDebugUnitTestDependencies
+    app:processDebugUnitTestJavaRes
+app:transformResourcesWithMergeJavaResForReleaseUnitTest
+    app:preBuild
+    app:preDebugUnitTestBuild
+    app:preReleaseBuild
+    app:preReleaseUnitTestBuild
+    app:prepareComSquareupLeakcanaryLeakcanaryAndroidNoOp14Beta2Library - Prepare com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2
+    app:prepareReleaseUnitTestDependencies
+    app:processReleaseUnitTestJavaRes
+
+BUILD SUCCESSFUL
+
+Total time: 16.925 secs

@@ -26,6 +26,10 @@ android {
         javaMaxHeapSize "2g"
     }
 
+    lintOptions {
+        abortOnError false
+    }
+
     //for retrolambda
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -37,10 +41,12 @@ android {
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
-        multiDexEnabled false//true
+        multiDexEnabled true
         //renderscript
         renderscriptTargetApi 16
         renderscriptSupportModeEnabled true
+
+//        jackOptions.enabled true
 
         //for react-native 64 problem
         //https://corbt.com/posts/2015/09/18/mixing-32-and-64bit-dependencies-in-android.html
@@ -64,7 +70,16 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            buildConfigField "String", "API_URL", "\"http://staging.example.com/api\""
         }
+
+        debug {
+            buildConfigField "String", "API_URL", "\"http://localhost:5555\""
+//            minifyEnabled true
+//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
     }
     packagingOptions {
         pickFirst  'META-INF/license.txt'
