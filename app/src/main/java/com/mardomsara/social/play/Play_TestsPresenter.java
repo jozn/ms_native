@@ -1,6 +1,5 @@
 package com.mardomsara.social.play;
 
-import android.content.Intent;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -14,9 +13,6 @@ import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.cells.PageCells;
 import com.mardomsara.social.ui.cells.TitleCellsGroup;
 import com.mardomsara.social.ui.presenter.HelloPresenter;
-import com.mardomsara.social.ui.react.MSReactActivity2;
-import com.mardomsara.social.ui.react.MyReactActivity;
-import com.mardomsara.social.ui.react.ReactPresenter;
 
 /**
  * Created by Hamid on 10/1/2016.
@@ -52,6 +48,7 @@ public class Play_TestsPresenter extends BasePresenter {
 			Nav.push(new Play_RecipiesPresenter());
 		}));
 
+/*
 		layout.addView(newTitle("React ",()->{
 			Nav.push(new ReactPresenter());
 		}));
@@ -78,6 +75,7 @@ public class Play_TestsPresenter extends BasePresenter {
 			Intent intent = new Intent(getContext(), MSReactActivity2.class);
 			getActivity().startActivity(intent);
 		}));
+*/
 
         return rootView;
     }

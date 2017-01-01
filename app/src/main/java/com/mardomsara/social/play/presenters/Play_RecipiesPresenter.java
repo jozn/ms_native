@@ -41,7 +41,7 @@ public class Play_RecipiesPresenter extends BasePresenter {
 				.setContentText("content text")
 				.setContentTitle("titlw")
 				.setAutoCancel(true)
-				.setSubText("sub text")
+				.setSubText("sub text22222")
 				.setTicker("ticker!!!!! !!!!")
 				.setWhen(System.currentTimeMillis())
 				.setSmallIcon(R.drawable.e_1f18e)

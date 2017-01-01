@@ -26,12 +26,12 @@ allprojects {
     repositories {
         jcenter()
 
-        //ME:REACT
+        /*//ME:REACT
         maven {
             // All of React Native (JS, Android binaries) is installed from npm
             url "./../node_modules/react-native/android"
 //            url "$rootDir/../node_modules/react-native/android"
-        }
+        }*/
 
         maven { url "https://jitpack.io" }
     }
