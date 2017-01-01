@@ -1,0 +1,200 @@
+React native integration:
+
+Important: i think you must remove fresco from dependency - fresco and react-native dont play good togher
+=========================
+build.gradle (project)
+allprojects {
+    repositories {
+    	...
+
+       /*//ME:REACT
+        maven {
+            // All of React Native (JS, Android binaries) is installed from npm
+            url "./../node_modules/react-native/android"
+//            url "$rootDir/../node_modules/react-native/android"
+        }*/
+
+       ...
+    }
+}
+=======================
+build.gradle (app)
+dependencies {
+	......
+
+    compile 'com.facebook.react:react-native:+'
+
+}
+
+
+=======================
+Classes
+=======================
+
+====== ReactPresenter.java ============
+package com.mardomsara.social.ui.react;
+
+...
+public  class ReactPresenter extends BasePresenter{
+	private ReactRootView mReactRootView;
+	private static ReactInstanceManager mReactInstanceManager;
+
+
+	/*ReactFragment reactFragment;
+	public ReactPresenter() {
+		reactFragment= new ReactFragment();
+		reactFragment.setPresenter(this);
+		setFragment(reactFragment);
+	}*/
+
+	@Override
+	public View buildView() {
+		mReactRootView = new ReactRootView(getContext());
+
+		mReactRootView.startReactApplication(MainAppActivity.mReactInstanceManager, "Hello", null);
+		return (mReactRootView);
+	}
+}
+
+====================================
+ ===== MainAppActivity.java ========
+public class MainAppActivity extends AppActivity implements DefaultHardwareBackBtnHandler {
+	public static ReactInstanceManager mReactInstanceManager;
+
+	public static void initReact(Activity activity){
+		if(mReactInstanceManager == null){
+			mReactInstanceManager = ReactInstanceManager.builder()
+				.setApplication(activity.getApplication())
+				.setBundleAssetName("index.android.bundle")
+				.setJSMainModuleName("index.android")
+				.addPackage(new MSMainReactPackage())
+				.setUseDeveloperSupport(true)
+				.setInitialLifecycleState(LifecycleState.RESUMED)
+				.build();
+			/*mReactInstanceManager = ReactInstanceManager.builder()
+				.setApplication(App.getActivity().getApplication())
+				.setBundleAssetName("index.android.bundle")
+				.setJSMainModuleName("index.android")
+				.addPackage(new MSMainReactPackage())
+				.setUseDeveloperSupport(BuildConfig.DEBUG)
+				.setInitialLifecycleState(LifecycleState.RESUMED)
+				.build();*/
+		}
+	}
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+    	....
+
+		initReact(this);
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        logIt("onSaveInstanceState");
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+
+		if (mReactInstanceManager != null) {
+			mReactInstanceManager.onHostPause(this);
+		}
+
+        logIt("onPause");
+    }
+
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+
+		if (mReactInstanceManager != null) {
+			mReactInstanceManager.onHostDestroy(this);
+		}
+
+        logIt("onDestroy");
+        Nav.reset();
+    }
+
+	//For React
+	@Override
+	public void invokeDefaultOnBackPressed() {
+		super.onBackPressed();
+	}
+
+}
+
+==============================
+//sample react activity
+public class MyReactActivity extends AppCompatActivity implements DefaultHardwareBackBtnHandler {
+	private ReactRootView mReactRootView;
+    private ReactInstanceManager mReactInstanceManager;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        mReactRootView = new ReactRootView(this);
+        mReactInstanceManager = ReactInstanceManager.builder()
+                .setApplication(getApplication())
+                .setBundleAssetName("index.android.bundle")
+                .setJSMainModuleName("index.android")
+                .addPackage(new MSMainReactPackage())
+                .setUseDeveloperSupport(true)
+                .setInitialLifecycleState(LifecycleState.RESUMED)
+                .build();
+        mReactRootView.startReactApplication(mReactInstanceManager, "Hello", null);
+
+        setContentView(mReactRootView);
+    }
+
+    //this is for react (override react classes interfaces)
+    @Override
+    public void onBackPressed() {
+        if( !Nav.onBackPress()){
+            super.onBackPressed();
+        };
+//        Spinner
+    }*/
+
+    @Override
+    public void invokeDefaultOnBackPressed() {
+        super.onBackPressed();
+    }
+
+
+	@Override
+	protected void onPause() {
+		super.onPause();
+
+		if (mReactInstanceManager != null) {
+			mReactInstanceManager.onHostPause(this);
+		}
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+
+		if (mReactInstanceManager != null) {
+			mReactInstanceManager.onHostResume(this, this);
+		}
+	}
+
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+
+		if (mReactInstanceManager != null) {
+			mReactInstanceManager.onHostDestroy(this);
+		}
+	}
+}
+
+=================================
+=================================
+=================================
+Nav.push(new ReactPresenter());
