@@ -46,14 +46,14 @@ public class MainAppActivity extends AppActivity{// implements DefaultHardwareBa
     boolean isFirstInited = false;
 
 //	public static ReactInstanceManager mReactInstanceManager;
-/*
+
     @Override
     public void onBackPressed() {
         if( !Nav.onBackPress()){
             super.onBackPressed();
         };
 //        Spinner
-    }*/
+    }
 
 /*
 	public static void initReact(Activity activity){
