@@ -25,11 +25,14 @@
         <item name="colorControlHighlight">@color/light_blue_5</item>
 
         <!-- me:Old ones -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimary">@color/light_geryer_4</item><!--@color/colorPrimary</item>-->
+        <item name="colorPrimaryDark">@color/light_geryer_5</item> <!--@color/colorPrimaryDark</item>-->
         <item name="colorAccent">@color/colorAccent</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:background">#00ffffff</item>
+        <!--<item name="android:windowContentOverlay"></item>-->
 
     </style>
 

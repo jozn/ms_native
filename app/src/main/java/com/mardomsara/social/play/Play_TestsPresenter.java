@@ -8,6 +8,7 @@ import com.mardomsara.social.Nav;
 import com.mardomsara.social.play.presenters.Play_DiaolgPresenter;
 import com.mardomsara.social.play.presenters.Play_FormsPresenter;
 import com.mardomsara.social.play.presenters.Play_Http2TestPresenter;
+import com.mardomsara.social.play.presenters.Play_RecipiesPresenter;
 import com.mardomsara.social.play.presenters.Play_WSCallPresenter;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.cells.PageCells;
@@ -45,6 +46,10 @@ public class Play_TestsPresenter extends BasePresenter {
 
 		layout.addView(newTitle("Edits ",()->{
 			Nav.push(new Play_FormsPresenter());
+		}));
+
+		layout.addView(newTitle("Recipies ",()->{
+			Nav.push(new Play_RecipiesPresenter());
 		}));
 
 		layout.addView(newTitle("React ",()->{

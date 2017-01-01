@@ -14,6 +14,7 @@ import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.Icon;
 import android.location.LocationManager;
 import android.media.AudioManager;
 import android.net.ConnectivityManager;
@@ -154,7 +155,13 @@ public class AndroidUtil {
         }
     }
 
-    public static String getString(int id){
+	public static Icon getIconFromDrawable(int id){
+		return Icon.createWithResource(AppUtil.getContext(),id);
+//		return App.getContext().getResources().getString(id);
+	}
+
+
+	public static String getString(int id){
         return App.getContext().getResources().getString(id);
     }
 

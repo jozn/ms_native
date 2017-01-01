@@ -1,12 +1,22 @@
 package com.mardomsara.social;
 
 import android.app.Activity;
+import android.app.Notification;
 import android.content.Context;
 //import android.support.multidex.MultiDexApplication;
+import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.res.Resources;
+import android.database.Cursor;
+import android.database.CursorWrapper;
+import android.os.Build;
 import android.support.v4.app.FragmentManager;
+import android.support.v7.app.AlertDialog;
+import android.view.View;
 
 import com.mardomsara.social.activities.MainAppActivity;
 import com.mardomsara.social.app.LifeCycle;
+import com.mardomsara.social.helpers.AppUtil;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -115,6 +125,22 @@ public class App {
    }
 
    public static void runStetho(Context ctx){
+		View v = new View(ctx);
+//	   new Notification.Builder(ctx)
+
+//	   _activity.setRequestedOrientation(ActivityInfo.);
+//	   v.setSystemUiVisibility();
+//	   R.style.Theme_FullScreenDialog
+//	   AppUtil.getContext().getPackageManager().queryIntentActivities().get(0).activityInfo.applicationInfo.packageName;
+//	   Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT
+
+//	   FragmentManager
+//	   View
+//	   AppUtil.getContext().getPackageManager().resolveActivity()
+//	   AppUtil.getContext().getAssets().open("").read()
+//	   Intent.ACTION_ANSWER;
+//	   CursorWrapper
+//	   Build.VERSION.SDK_INT
    /*   // Create an InitializerBuilder
       Stetho.InitializerBuilder initializerBuilder =
               Stetho.newInitializerBuilder(ctx);

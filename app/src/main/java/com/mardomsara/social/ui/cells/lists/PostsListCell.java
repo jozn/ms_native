@@ -87,7 +87,7 @@ public class PostsListCell
 		hideRefreshLoading();
 		HttpJsonList<PostRowJson> data= Result.fromJsonList(res, PostRowJson.class);
 		if(data != null){
-			AndroidUtil.runInUi(()->{
+			AndroidUtil.runInUiNoPanic(()->{
 				if(data.Payload.size() == 0){
 					adaptor.setHasMorePage(false);
 				}

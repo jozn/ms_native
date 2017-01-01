@@ -81,6 +81,7 @@ android {
 
         debug {
             buildConfigField "String", "API_URL", "\"http://localhost:5555\""
+            debuggable true
 //            minifyEnabled true
 //            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }

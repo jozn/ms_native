@@ -47,7 +47,7 @@ public class Session {
 
         //// TODO: 7/30/2016 Delete this
         //falback for new installed
-		if(Config.IS_DEBUG&&false){
+		if(Config.IS_DEBUG&&true){
 			if(AndroidUtil.getAndroidSdkVersion() >= Build.VERSION_CODES.LOLLIPOP){
 				return 6;
 			}else{
