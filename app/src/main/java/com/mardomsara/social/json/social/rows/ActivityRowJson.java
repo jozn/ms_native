@@ -4,7 +4,7 @@ package com.mardomsara.social.json.social.rows;
  * Created by Hamid on 9/1/2016.
  */
 public class ActivityRowJson {
-	public long id;
+	public long Id;
 	public int ActorUserId;
 	public int ActionTypeId;
 	public int TargetId;

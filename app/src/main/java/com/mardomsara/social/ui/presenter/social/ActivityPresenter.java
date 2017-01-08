@@ -15,6 +15,7 @@ import com.mardomsara.social.json.social.rows.ActivityRowJson;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
 import com.mardomsara.social.models.tables.Notify;
 import com.mardomsara.social.ui.BasePresenter;
+import com.mardomsara.social.ui.cells.TitleCellsGroup;
 import com.mardomsara.social.ui.cells.lists.ActivityListCell;
 import com.mardomsara.social.ui.views.helpers.ViewHelper;
 
@@ -47,6 +48,10 @@ public class ActivityPresenter extends BasePresenter implements AppHeaderFooterR
 		adaptor.setUpForPaginationWith(recycler_view, layoutManager, this);
 		adaptor.showLoading();
 
+		TitleCellsGroup.InfoTitleLight title = new TitleCellsGroup.InfoTitleLight(recycler_view);
+		title.setText("آخرین فعالیت های دنبال شدگان شما:");
+		adaptor.appendViewToHeader(title.rootView);
+
 		refreshLayout.addView(recycler_view);
 		refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
 			@Override
@@ -58,12 +63,16 @@ public class ActivityPresenter extends BasePresenter implements AppHeaderFooterR
 
 	@Override
 	public void loadNextPage(int pageNum) {
+		if(pageNum>100){
+			adaptor.setHasMorePage(false);
+		}
 		Http.getPath("/v1/activity")
 			.setQueryParam("page",""+pageNum)
 			.setQueryParam("limit",""+100)
-			.setQueryParam("last",""+0)
+			.setQueryParam("last",""+getLast(pageNum))
 			.doAsyncUi((result -> {
 				adaptor.nextPageIsLoaded();
+				refreshLayout.setRefreshing(false);
 				if(result.isOk()){
 					HttpJsonList<ActivityRowJson> data = Result.fromJsonList(result,ActivityRowJson.class);
 
@@ -79,5 +88,15 @@ public class ActivityPresenter extends BasePresenter implements AppHeaderFooterR
 
 			}));
 
+	}
+
+	long getLast(int pageNum){
+		if(pageNum==1){
+			return 0;
+		}
+		if(adaptor.list.size()>0){
+			return adaptor.list.get(adaptor.list.size()-1).Id;
+		}
+		return 0;
 	}
 }

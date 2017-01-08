@@ -132,7 +132,8 @@ public class ActivityListCell {
                 if(nf.ActionTypeId == Constants.NOTIFICATION_TYPE_FOLLOWED_YOU){
                     _bindFollowing(nf);
                 }
-            }catch (Exception e){
+				//// TODO: 1/8/2017 set not supporetd upgrade message
+			}catch (Exception e){
                 e.printStackTrace();
                 viewRoot.setVisibility(View.GONE);//if we break hide view
             }
@@ -216,7 +217,8 @@ public class ActivityListCell {
         }
 
         void _setDate(int time){
-            date.setText(FormaterUtil.timeToDayTime(time));
+//            date.setText(FormaterUtil.timeToDayTime(time));
+            date.setText(FormaterUtil.timeAgo(time));
         }
 
         void _setAvatar(UserInfoJson Actor){

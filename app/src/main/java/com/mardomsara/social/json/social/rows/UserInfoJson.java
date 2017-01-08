@@ -26,7 +26,7 @@ public class UserInfoJson implements IUserAndMe {
 
 
     public String getFullName() {
-        return FullName == null ? FirstName + " " + LastName : FullName;
+        return ( FullName == null || FullName.equals("") ) ? FirstName + " " + LastName : FullName;
     }
 
 //    public int getUserId() {

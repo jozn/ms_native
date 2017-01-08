@@ -30,7 +30,7 @@ public class NotifyPresenter extends BasePresenter {
         NotifyListCell listCell = new NotifyListCell(list0);
         viewRoot = listCell.getViewRoot();
 
-        TitleCellsGroup.InfoTitleLight topTitle = new TitleCellsGroup.InfoTitleLight(viewRoot);
+        TitleCellsGroup.InfoTitleLight topTitle = new TitleCellsGroup.InfoTitleLight(listCell.recycler_view);
         topTitle.setText("فعالیت های دیگران مرتبط به شما:");
         listCell.getAdaptor().appendViewToHeader(topTitle.rootView);
 

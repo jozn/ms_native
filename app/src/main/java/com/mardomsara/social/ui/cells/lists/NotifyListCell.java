@@ -47,6 +47,7 @@ public class NotifyListCell
 
     PostsAdaptor adaptor;
     SwipeRefreshLayout refreshLayout;
+	public RecyclerView recycler_view;
 
     List<Notify> list;
 
@@ -58,7 +59,7 @@ public class NotifyListCell
     private void init() {
         refreshLayout = ViewHelper.newSwipeRefreshLayout(ViewHelper.MATCH_PARENT, ViewHelper.MATCH_PARENT);
         adaptor = new PostsAdaptor(list);
-        RecyclerView recycler_view = ViewHelper.newRecyclerViewMatch();
+        recycler_view = ViewHelper.newRecyclerViewMatch();
         LinearLayoutManager layoutManager = new LinearLayoutManager(AppUtil.getContext());
         recycler_view.setLayoutManager(layoutManager);
         recycler_view.setAdapter(adaptor);
