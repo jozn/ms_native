@@ -29,9 +29,12 @@ android {
 
     dexOptions{
         javaMaxHeapSize "2g"
+        preDexLibraries true
+        incremental true
     }
 
     lintOptions {
+        quiet true
         abortOnError false
     }
 
@@ -71,6 +74,19 @@ android {
         }
 
     }
+
+    productFlavors {
+        dev {
+            // Enable pre-dexing to produce an APK that can be tested on
+            // Android 5.0+ without the time-consuming DEX build processes.
+            minSdkVersion 21
+        }
+        prod {
+            // The actual minSdkVersion for the production version.
+            minSdkVersion 16
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -82,6 +98,8 @@ android {
         debug {
             buildConfigField "String", "API_URL", "\"http://localhost:5555\""
             debuggable true
+
+//            minSdkVersion 21
 //            minifyEnabled true
 //            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }

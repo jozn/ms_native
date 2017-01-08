@@ -2,19 +2,19 @@ package com.mardomsara.social;
 
 import android.app.Application;
 import android.content.Context;
-import android.support.multidex.MultiDexApplication;
-//import android.support.multidex.MultiDexApplication;
 
 import com.joanzapata.iconify.Iconify;
 import com.joanzapata.iconify.fonts.IoniconsModule;
 import com.joanzapata.iconify.fonts.SimpleLineIconsModule;
 import com.squareup.leakcanary.RefWatcher;
 
+//import android.support.multidex.MultiDexApplication;
+
 /**
  * Created by Hamid on 6/17/2016.
  */
 //public class AppAplication extends MultiDexApplication  {
-public class AppAplication extends MultiDexApplication {
+public class AppAplication extends Application {
 
     public static RefWatcher getRefWatcher(Context context) {
 //        AppAplication application = (AppAplication) context.getApplicationContext();

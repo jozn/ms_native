@@ -25,7 +25,7 @@ public class API {
 
     public static URL SESSION_INFO = AppUtil.toUrl(BASE_URL_STR+"session/info");
 
-    public static URL PROFILE_ALL = AppUtil.toUrl(BASE_URL_STR+"profile/all");
+    public static URL PROFILE_ALL = AppUtil.toUrl(BASE_URL_STR+"profile/all/dep2122");
     public static URL PROFILE_POSTS = AppUtil.toUrl(BASE_URL_STR+"profile/posts");
 
     public static URL FOLLOW_ADD = AppUtil.toUrl(BASE_URL_STR+"follow");
