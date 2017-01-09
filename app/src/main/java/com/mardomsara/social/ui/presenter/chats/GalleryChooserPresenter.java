@@ -55,14 +55,12 @@ public class GalleryChooserPresenter extends BasePresenter {
     Map<String, Integer> folder_count_cache = new HashMap<>();;
     Map<String, Integer> folder_count_video_cache = new HashMap<>();;
 
-//    public ChatEntryPresenter chatEntryPresenter;
     public ChatRoomPresenter chatEntryPresenter;
 
     @Bind(R.id.view_pager)
     ViewPager view_pager;
     @Bind(R.id.tab_layout)
     TabLayout tab_layout;
-//    GalleryChooserPresenterPagerAdaptor pagerAdaptor;
 
     View v;
     @Override
@@ -80,7 +78,6 @@ public class GalleryChooserPresenter extends BasePresenter {
         TabLayout tabs = (TabLayout) v.findViewById(R.id.tab_layout);
         ButterKnife.bind(this, v);
 
-//        pagerAdaptor = new GalleryChooserPresenterPagerAdaptor(getFragment().getChildFragmentManager(),getContext());
         TabPagerAdaptor tabsPager = new TabPagerAdaptor();
 		tabsPager.addTab( new TabPagerAdaptor.Tab("ویدیو", new MediaExplorer(MediaType.VIDEO)) );
 		tabsPager.addTab( new TabPagerAdaptor.Tab("عکس", new MediaExplorer(MediaType.IMAGE)) );
@@ -91,11 +88,6 @@ public class GalleryChooserPresenter extends BasePresenter {
         view_pager.setCurrentItem(1);
 
 		tabsPager.setTabLayout(tab_layout);
-        /*//must be here
-        for (int i = 0; i < tabs.getTabCount(); i++) {
-            TabLayout.Tab t = tabs.getTabAt(i);
-            t.setCustomView(pagerAdaptor.getTabView(i) );
-        }*/
     }
 
     private void askPermissions() {
@@ -141,47 +133,6 @@ public class GalleryChooserPresenter extends BasePresenter {
         }
         if(cnt == null) cnt = 0;
         return cnt;
-    }
-
-
-    public class GalleryChooserPresenterPagerAdaptor extends FragmentPagerAdapter {
-        final int PAGE_COUNT = 2;
-        Context context;
-        private String tabTitles[] = new String[]{"ویدیو", "عکس"};//, "Tab3","Tab222","Tab222","Tab222" };
-        public GalleryChooserPresenterPagerAdaptor(FragmentManager fm, Context context) {
-            super(fm);
-            this.context = context;
-        }
-
-        @Override
-        public int getCount() {
-            return PAGE_COUNT;
-        }
-
-        public Fragment getItem(int position) {
-            switch (position) {
-                case 0:
-                    return new MediaExplorer(MediaType.VIDEO).getFragment();
-                case 1:
-                    return new MediaExplorer(MediaType.IMAGE).getFragment();
-            }
-            return null;
-        }
-
-        @Override
-        public CharSequence getPageTitle(int position) {
-            return tabTitles[position];
-        }
-
-        public View getTabView(int position) {
-            // Given you have a custom layout in `response/layout/custom_tab.xml` with a TextView and ImageView
-            View v = AppUtil.inflate(R.layout.tab_cell_general);
-            TextView tv = (TextView) v.findViewById(R.id.textView);
-            tv.setText(tabTitles[position]);
-            ImageView img = (ImageView) v.findViewById(R.id.imgView);
-            //img.setImageResource(imageResId[position]);
-            return v;
-        }
     }
 
     /////////////////////////////////////////////////////////////////////////
