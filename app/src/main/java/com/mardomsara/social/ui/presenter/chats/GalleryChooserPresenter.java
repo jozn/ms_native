@@ -29,6 +29,7 @@ import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.CursorRecyclerViewAdapter;
+import com.mardomsara.social.ui.ui.TabPagerAdaptor;
 import com.mardomsara.social.ui.views.FontCache;
 
 import java.io.File;
@@ -61,7 +62,7 @@ public class GalleryChooserPresenter extends BasePresenter {
     ViewPager view_pager;
     @Bind(R.id.tab_layout)
     TabLayout tab_layout;
-    GalleryChooserPresenterPagerAdaptor pagerAdaptor;
+//    GalleryChooserPresenterPagerAdaptor pagerAdaptor;
 
     View v;
     @Override
@@ -79,18 +80,22 @@ public class GalleryChooserPresenter extends BasePresenter {
         TabLayout tabs = (TabLayout) v.findViewById(R.id.tab_layout);
         ButterKnife.bind(this, v);
 
-        pagerAdaptor = new GalleryChooserPresenterPagerAdaptor(getFragment().getChildFragmentManager(),getContext());
+//        pagerAdaptor = new GalleryChooserPresenterPagerAdaptor(getFragment().getChildFragmentManager(),getContext());
+        TabPagerAdaptor tabsPager = new TabPagerAdaptor();
+		tabsPager.addTab( new TabPagerAdaptor.Tab("ویدیو", new MediaExplorer(MediaType.VIDEO)) );
+		tabsPager.addTab( new TabPagerAdaptor.Tab("عکس", new MediaExplorer(MediaType.IMAGE)) );
 
-        view_pager.setAdapter(pagerAdaptor);
+        view_pager.setAdapter(tabsPager);
         tab_layout.setupWithViewPager(view_pager);
         tab_layout.setTabMode(TabLayout.MODE_FIXED);
         view_pager.setCurrentItem(1);
 
-        //must be here
+		tabsPager.setTabLayout(tab_layout);
+        /*//must be here
         for (int i = 0; i < tabs.getTabCount(); i++) {
             TabLayout.Tab t = tabs.getTabAt(i);
             t.setCustomView(pagerAdaptor.getTabView(i) );
-        }
+        }*/
     }
 
     private void askPermissions() {
