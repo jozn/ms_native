@@ -25,6 +25,7 @@ public  abstract class BasePresenter implements FragmentPage {
         return frag;
     }
 
+	@Deprecated
     protected Fragment fragment ;
 
     public static Context context;//setOrReplace thif from App.init()
@@ -74,6 +75,7 @@ public  abstract class BasePresenter implements FragmentPage {
     }
 
 
+	@Deprecated
     public void setFragment(Fragment fragment) {
         this.fragment = fragment;
     }
