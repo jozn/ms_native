@@ -33,7 +33,6 @@ import com.mardomsara.social.ui.views.helpers.ViewHelper;
  */
 //keep this for sample of Sectioned
 public class SearchPresenter extends BasePresenter {
-//    SearchTabPagerAdaptor pad;
 
 	SearchTagPagerPresenter tagPresenter = new SearchTagPagerPresenter();
 	SearchUserPresenter userPresenter = new SearchUserPresenter();
@@ -48,21 +47,10 @@ public class SearchPresenter extends BasePresenter {
 		tabs.addTab(new TabPagerAdaptor.Tab("تگ", ()-> tagPresenter.buildView() ));
 		tabs.addTab(new TabPagerAdaptor.Tab("کاربر", ()-> userPresenter.buildView() ));
 
-//        tab.setBackgroundColor(0xeeeeee);
-//        pad = new SearchTabPagerAdaptor(fragment.getChildFragmentManager(),fragment.getActivity());
-
-//        tab.setTabMode(TabLayout.MODE_FIXED);
-//
-//        vp.setAdapter(pad);
 		vp.setAdapter(tabs);
         tabLayout.setupWithViewPager(vp);
 
 		tabs.setTabLayout(tabLayout);
-       /* //must called here
-        for (int i = 0; i < tabLayout.getTabCount(); i++) {
-            TabLayout.Tab t = tabLayout.getTabAt(i);
-            t.setCustomView( pad.getTabView(i) );
-        }*/
 
         search_input.addTextChangedListener(new TextWatcher(){
 
@@ -95,49 +83,6 @@ public class SearchPresenter extends BasePresenter {
 			userPresenter.runQuery(txt);
 		}
     }
-
-    public  class SearchTabPagerAdaptor extends FragmentPagerAdapter {
-        private String tabTitles[] = new String[] { "تگ","کاربر"};
-        private Context context;
-
-        public SearchTabPagerAdaptor(FragmentManager fm, Context context) {
-            super(fm);
-            this.context = context;
-        }
-
-        @Override
-        public int getCount() {
-            return tabTitles.length;
-        }
-
-        SearchTagPagerPresenter tagPresenter;
-        SearchUserPresenter userPresenter;
-
-        public Fragment getItem(int position) {
-            switch (position){
-                case 0:
-                    tagPresenter = new SearchTagPagerPresenter();
-                    return tagPresenter.getFragment();
-
-                default:
-					userPresenter =  new SearchUserPresenter();
-                    return userPresenter.getFragment();
-            }
-        }
-
-        @Override
-        public CharSequence getPageTitle(int position) {
-            return tabTitles[position];
-        }
-
-        public View getTabView(int position) {
-            View v = LayoutInflater.from(context).inflate(R.layout.tab_cell_general, null);
-            TextView tv = (TextView) v.findViewById(R.id.textView);
-            tv.setText(tabTitles[position]);
-            return v;
-        }
-    }
-
 
 	public static class SearchTagPagerPresenter extends BasePresenter {
 		RecyclerView recyclerView;
