@@ -33,5 +33,5 @@ public class SearchTabPresenter extends BasePresenter {
 
         return navAndPager.rootView;
     }
-	
+
 }

@@ -24,6 +24,7 @@ import com.mardomsara.social.json.HttpJsonList;
 import com.mardomsara.social.json.social.rows.TagRowJson;
 import com.mardomsara.social.json.social.rows.UserInfoJson;
 import com.mardomsara.social.ui.BasePresenter;
+import com.mardomsara.social.ui.ui.TabPagerAdaptor;
 import com.mardomsara.social.ui.ui.UserListUI;
 import com.mardomsara.social.ui.views.helpers.ViewHelper;
 
@@ -32,28 +33,36 @@ import com.mardomsara.social.ui.views.helpers.ViewHelper;
  */
 //keep this for sample of Sectioned
 public class SearchPresenter extends BasePresenter {
-    SearchTabPagerAdaptor pad;
+//    SearchTabPagerAdaptor pad;
 
+	SearchTagPagerPresenter tagPresenter = new SearchTagPagerPresenter();
+	SearchUserPresenter userPresenter = new SearchUserPresenter();
     @Override
     public View buildView() {
 
         View l = AppUtil.inflate(R.layout.nav_header_search);
         EditText search_input = (EditText)l.findViewById(R.id.search_input);
         ViewPager vp = (ViewPager)l.findViewById(R.id.viewpager);
-        TabLayout tab = (TabLayout)l.findViewById(R.id.sliding_tabs);
-        tab.setBackgroundColor(0xeeeeee);
-        pad = new SearchTabPagerAdaptor(fragment.getChildFragmentManager(),fragment.getActivity());
+        TabLayout tabLayout = (TabLayout)l.findViewById(R.id.sliding_tabs);
+		TabPagerAdaptor tabs = new TabPagerAdaptor();
+		tabs.addTab(new TabPagerAdaptor.Tab("تگ", ()-> tagPresenter.buildView() ));
+		tabs.addTab(new TabPagerAdaptor.Tab("کاربر", ()-> userPresenter.buildView() ));
 
-        tab.setTabMode(TabLayout.MODE_FIXED);
+//        tab.setBackgroundColor(0xeeeeee);
+//        pad = new SearchTabPagerAdaptor(fragment.getChildFragmentManager(),fragment.getActivity());
+
+//        tab.setTabMode(TabLayout.MODE_FIXED);
 //
-        vp.setAdapter(pad);
-        tab.setupWithViewPager(vp);
+//        vp.setAdapter(pad);
+		vp.setAdapter(tabs);
+        tabLayout.setupWithViewPager(vp);
 
-        //must called here
-        for (int i = 0; i < tab.getTabCount(); i++) {
-            TabLayout.Tab t = tab.getTabAt(i);
+		tabs.setTabLayout(tabLayout);
+       /* //must called here
+        for (int i = 0; i < tabLayout.getTabCount(); i++) {
+            TabLayout.Tab t = tabLayout.getTabAt(i);
             t.setCustomView( pad.getTabView(i) );
-        }
+        }*/
 
         search_input.addTextChangedListener(new TextWatcher(){
 
@@ -73,17 +82,17 @@ public class SearchPresenter extends BasePresenter {
             }
         });
 
-        vp.setCurrentItem(pad.getCount()-1);
+        vp.setCurrentItem(tabs.getCount()-1);
         return l;
     }
 
     void textChanged(String txt){
-		if(pad.tagPresenter!= null){
-			pad.tagPresenter.runQuery(txt);
+		if(tagPresenter!= null){
+			tagPresenter.runQuery(txt);
 		}
 
-		if(pad.userPresenter!= null){
-			pad.userPresenter.runQuery(txt);
+		if(userPresenter!= null){
+			userPresenter.runQuery(txt);
 		}
     }
 
