@@ -44,8 +44,9 @@ public class TabPagerAdaptor extends PagerAdapter {
 	public Object instantiateItem(ViewGroup container, int position) {
 		Tab tab = tabList.get(position);
 		View tabView = tab.getView();
-//		tabView = new X.HelloWorldRow().root;
-		container.addView(tabView);
+		if(tabView!=null){
+			container.addView(tabView);
+		}
 		return tab;
 	}
 

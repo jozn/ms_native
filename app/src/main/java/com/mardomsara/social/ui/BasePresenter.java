@@ -70,6 +70,7 @@ public  abstract class BasePresenter implements FragmentPage {
         return  (ImageView) grandView.findViewById(id);
     }
 
+	@Deprecated
     public Fragment getFragment() {
         return fragment;
     }

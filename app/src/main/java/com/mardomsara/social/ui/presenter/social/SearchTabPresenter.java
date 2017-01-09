@@ -14,6 +14,7 @@ import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.X;
 import com.mardomsara.social.ui.cells.PageCells;
 import com.mardomsara.social.ui.presenter.social.search.SearchPresenter;
+import com.mardomsara.social.ui.ui.TabPagerAdaptor;
 
 /**
  * Created by Hamid on 8/23/2016.
@@ -22,9 +23,14 @@ public class SearchTabPresenter extends BasePresenter {
     @Override
     public View buildView() {
 //		SearchTabPagerAdaptor pad = new SearchTabPagerAdaptor(getFragment().getChildFragmentManager(),fragment.getActivity());
-		SearchTabPagerAdaptor pad = new SearchTabPagerAdaptor();
+//		SearchTabPagerAdaptor pad = new SearchTabPagerAdaptor();
 
-		PageCells.NavAndPager navAndPager = new PageCells.NavAndPager(pad);
+		TabPagerAdaptor tabs = new TabPagerAdaptor();
+		tabs.addTab(new TabPagerAdaptor.Tab("تگ",()-> new SuggestionsTagsPresenter().buildView() ));
+		tabs.addTab(new TabPagerAdaptor.Tab("کاربر",()-> new SuggestionsUsersPresenter().buildView() ));
+		tabs.addTab(new TabPagerAdaptor.Tab("پست",()-> new SuggestionsPostsPresenter().buildView() ));
+
+		PageCells.NavAndPager navAndPager = new PageCells.NavAndPager(tabs);
 
 		navAndPager.addIcon("{ion-ios-search-strong 26dp}",()->{ Nav.push(new SearchPresenter());});
 
