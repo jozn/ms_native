@@ -137,7 +137,7 @@ public class ChatRoomPresenter extends BasePresenter implements
 //        messagesAdaptor.setMsgs(messages);
 		messages2 = messagesAdaptor.msgs;
 
-        mLayoutManager = new LinearLayoutManager(fragment.getActivity());
+        mLayoutManager = new LinearLayoutManager(AppUtil.getContext());
 
         mLayoutManager.setSmoothScrollbarEnabled(true);
         mLayoutManager.setReverseLayout(true);

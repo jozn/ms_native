@@ -85,10 +85,10 @@ public class Nav {
         _activeBranch = bra;
         BranchCell bc = _getActiveBranchCell();
         Log.d(TAG, "Branch "+bra + " stacke size " +bc.fragmentsPageStacks.size());
-//        if(bc.fragmentsPageStacks.size() == 0 ){
+//        if(bc.pageStacks.size() == 0 ){
             push(bc.defaultRoute);
 //        }else{
-//            /_attachPage2(bc.fragmentsPageStacks.peek());
+//            /_attachPage2(bc.pageStacks.peek());
 //        }
         footFrag.activateBranch(_activeBranch);
     }

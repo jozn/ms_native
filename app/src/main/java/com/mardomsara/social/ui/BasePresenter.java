@@ -153,4 +153,11 @@ public  abstract class BasePresenter implements FragmentPage {
     public Context getContext(){
         return getFragment().getActivity();
     }
+
+	/////////////// just for new funcs
+
+	@Override
+	public View getFinalView() {
+		return null;
+	}
 }

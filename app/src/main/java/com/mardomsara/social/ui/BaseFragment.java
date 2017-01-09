@@ -151,4 +151,5 @@ public class BaseFragment extends Fragment {
         String cls = classTag.equals("") ? getClass().getSimpleName() : classTag;
         Log.v("BaseFragment: ", cls + " : "+ str);
     }
+
 }
