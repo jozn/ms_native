@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.mardomsara.social.R;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.ui.BasePresenter;
+import com.mardomsara.social.ui.ui.TabPagerAdaptor;
 
 /**
  * Created by Hamid on 5/2/2016.
@@ -22,19 +23,24 @@ public class ChatTabPresenter extends BasePresenter {
     public View buildView() {
         View l = AppUtil.inflate(R.layout.main_branch_chat);
         ViewPager vp = (ViewPager)l.findViewById(R.id.viewpager);
-        TabLayout tab = (TabLayout)l.findViewById(R.id.sliding_tabs);
-        tab.setBackgroundColor(0xeeeeee);
-        ChatBranchPagerAdaptor pad = new ChatBranchPagerAdaptor(fragment.getChildFragmentManager(),fragment.getActivity());
+        TabLayout tabLayout = (TabLayout)l.findViewById(R.id.sliding_tabs);
+        tabLayout.setBackgroundColor(0xeeeeee);
 
-        tab.setTabMode(TabLayout.MODE_FIXED);
-        vp.setAdapter(pad);
-        tab.setupWithViewPager(vp);
+		TabPagerAdaptor tabsPager = new TabPagerAdaptor();
+		tabsPager.addTab(new TabPagerAdaptor.Tab("کاربران", new UserAndContactsPresenter()));
+		tabsPager.addTab(new TabPagerAdaptor.Tab("گفتگو ها", new RoomsListPresenter()));
+
+//        ChatBranchPagerAdaptor pad = new ChatBranchPagerAdaptor(fragment.getChildFragmentManager(),fragment.getActivity());
+
+        tabLayout.setTabMode(TabLayout.MODE_FIXED);
+        vp.setAdapter(tabsPager);
+        tabLayout.setupWithViewPager(vp);
 
         //must called here
-        for (int i = 0; i < tab.getTabCount(); i++) {
-            TabLayout.Tab t = tab.getTabAt(i);
+        /*for (int i = 0; i < tabLayout.getTabCount(); i++) {
+            TabLayout.Tab t = tabLayout.getTabAt(i);
             t.setCustomView( pad.getTabView(i) );
-        }
+        }*/
 //        tab.setBackgroundResource(R.drawable.chat_content_bubble_me);
 //        tab.setSelectedTabIndicatorColor(AndroidUtil.getColor(R.color.light_blue_1));
 //        tab.setSelectedTabIndicatorHeight(AndroidUtil.dpToPx(4));
