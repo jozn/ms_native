@@ -64,13 +64,13 @@ public class UserAndContactsPresenter extends BasePresenter {
 
         ButterKnife.bind(this,view);
 
-        LinearLayoutManager layoutManager1 = new LinearLayoutManager(fragment.getActivity());
-        LinearLayoutManager layoutManager2 = new LinearLayoutManager(fragment.getActivity());
+        LinearLayoutManager layoutManager1 = new LinearLayoutManager(AppUtil.getContext());
+        LinearLayoutManager layoutManager2 = new LinearLayoutManager(AppUtil.getContext());
 //        mLayoutManager.setSmoothScrollbarEnabled(true);
         RecyclerView.ItemDecoration itemDecoration = new
-                DividerItemDecoration(fragment.getActivity(), DividerItemDecoration.VERTICAL_LIST);
+                DividerItemDecoration(AppUtil.getContext(), DividerItemDecoration.VERTICAL_LIST);
         RecyclerView.ItemDecoration dec__followings = new
-                DividerItemDecoration(fragment.getActivity(), DividerItemDecoration.VERTICAL_LIST);
+                DividerItemDecoration(AppUtil.getContext(), DividerItemDecoration.VERTICAL_LIST);
 
 //        RecyclerView.ItemDecoration itemDecoration=
 //                new DividerItemDecoration (getContext().getResources().getDrawable(R.drawable.general_border_bottom_1px));//R.drawable.abc_list_divider_mtrl_alpha));
