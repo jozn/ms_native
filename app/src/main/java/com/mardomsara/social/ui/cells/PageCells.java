@@ -3,6 +3,7 @@ package com.mardomsara.social.ui.cells;
 import android.graphics.Color;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -85,7 +86,7 @@ public class PageCells {
 		public TabLayout tabLayout;
 		public ViewGroup iconsContainer;
 
-		public NavAndPager(FragmentPagerAdapter pagerAdaptor) {
+		public NavAndPager(PagerAdapter pagerAdaptor) {
 			rootView = (ViewGroup) AppUtil.inflate(R.layout.nav_header_pager_menu);
 			viewPager = (ViewPager)rootView.findViewById(R.id.viewpager);
 			tabLayout = (TabLayout)rootView.findViewById(R.id.sliding_tabs);
@@ -117,7 +118,7 @@ public class PageCells {
 			iconsContainer.addView(iconTextView);
 		}
 
-		private View getTabView(int position,FragmentPagerAdapter pagerAdaptor) {
+		private View getTabView(int position,PagerAdapter pagerAdaptor) {
 			View v = AppUtil.inflate(R.layout.tab_cell_general, null);
 			TextView tv = (TextView) v.findViewById(R.id.textView);
 			tv.setText(pagerAdaptor.getPageTitle(position));
