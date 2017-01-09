@@ -14,7 +14,6 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import com.mardomsara.social.R;
 import com.mardomsara.social.app.Router;
 import com.mardomsara.social.helpers.AppUtil;
-import com.mardomsara.social.helpers.DialogHelper;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.IntentUtil;
 import com.mardomsara.social.models.ContactsCopyModel;

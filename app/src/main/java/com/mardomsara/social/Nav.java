@@ -11,7 +11,6 @@ import android.util.Log;
 import com.mardomsara.social.app.Router;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.ui.fragments.FooterBarFragment;
-import com.mardomsara.social.ui.views.EmojiKeyboard;
 
 import java.util.ArrayList;
 import java.util.HashMap;
