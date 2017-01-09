@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.view.View;
+import android.view.ViewGroup;
 
 import com.mardomsara.social.app.Router;
 import com.mardomsara.social.ui.fragments.FooterBarFragment;
@@ -121,7 +123,12 @@ public class Nav2 {
 	public static class BranchCell {
 		public Stack<PresenterPage> pageStacks = new Stack<>();//all contents hsbeen attched so we can call attach/deattach
 		public Branch name;
-		public PresenterPage defaultRoute;
+		public PresenterPage defaultPage;
+
+		void setDefaultPage(PresenterPage defaultPage){
+			this.defaultPage = defaultPage;
+			pageStacks.add(0,defaultPage);
+		}
 	}
 
 	//used for ordering backstack of active branches
@@ -156,25 +163,25 @@ public class Nav2 {
 	}
 
 
-	static void setDefultBranc2(Map<Branch,BranchCell> branchMapHolder){
+	static void setDefultBranc(Map<Branch,BranchCell> branchMapHolder){
 		for (Branch b : Branch.values()){
 			BranchCell cell = new BranchCell();
 			cell.name = b;
 			switch (b){
 				case Chat:
-					cell.defaultRoute = Router.getChatPage();
+					cell.setDefaultPage(Router.getChatPage());
 					break;
 				case Home:
-					cell.defaultRoute = Router.getHomePage();
+					cell.setDefaultPage(Router.getHomePage());
 					break;
 				case Search:
-					cell.defaultRoute = Router.getSearchPage();
+					cell.setDefaultPage(Router.getSearchPage());
 					break;
 				case Activity:
-					cell.defaultRoute = Router.getAactivityPage();
+					cell.setDefaultPage(Router.getAactivityPage());
 					break;
 				case Profile:
-					cell.defaultRoute = Router.getMyProfile();
+					cell.setDefaultPage(Router.getMyProfile());
 					break;
 			}
 			branchMapHolder.put(b,cell);
@@ -183,26 +190,35 @@ public class Nav2 {
 
 	static class NavTree {
 		static String TAG = "Nav";
-		static int MAX_BRANCH_STACKE_SIZE = 10;
-		public String _activeBranch;
-		public PresenterPage _lastFragmentPage;
+		int MAX_BRANCH_STACKE_SIZE = 10;
 
-		public Map<Branch,BranchCell> branchMapHolder = new HashMap<>();
-		public FooterBarFragment footFrag;
+		PresenterPage lastPage;
+		Map<Branch,BranchCell> branchMapHolder = new HashMap<>();
+		FooterBarFragment footFrag;
 		private static List<OnBackPressHandler> customOnBackPressHandler = new ArrayList();
-
 		Branch activeBranch = Branch.Chat;
+		ViewGroup containerFrame;
+		View footerFrame;
 
-		public NavTree() {
-			setDefultBranc2(branchMapHolder);
+		public NavTree(ViewGroup containerFrame,View footerFrame) {
+			Nav2.setDefultBranc(branchMapHolder);
+			this.containerFrame = containerFrame;
+			this.footerFrame = footerFrame;
 		}
 
+		//todo pagelimits
 		public void push(PresenterPage frag){
-
+			_getActiveBranchCell().pageStacks.add(frag);
+			getContainerFrame().addView(frag.getFinalView());
+//			getContainerFrame().addView(frag.getFinalView());
 		}
 
 		public void pop() {
-
+			//stay on branch
+			if (_getActiveBranchCell().pageStacks.size()>1){
+				getContainerFrame().removeView(_getActiveBranchCell().pageStacks.pop().getFinalView());
+			}
+			//go to another branch
 		}
 
 		public void pop(int size) {
@@ -210,11 +226,11 @@ public class Nav2 {
 		}
 
 		public void hideFooter(){
-
+			footerFrame.setVisibility(View.GONE);
 		}
 
 		public void showFooter(){
-
+			footerFrame.setVisibility(View.VISIBLE);
 		}
 
 		public void goToBranch(Branch bra) {
@@ -228,6 +244,10 @@ public class Nav2 {
 
 		public void detachaLstOne(){
 
+		}
+
+		ViewGroup getContainerFrame(){
+			return containerFrame;
 		}
 
 		//Fixme: .pop() events + bug: get longcliked branced not active
@@ -257,7 +277,7 @@ public class Nav2 {
 		}
 
 		private Nav2.BranchCell _getActiveBranchCell(){
-			return null;
+			return branchMapHolder.get(activeBranch);
 		}
 
 
