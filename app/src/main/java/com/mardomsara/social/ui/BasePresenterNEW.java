@@ -5,18 +5,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
 
-import com.mardomsara.social.FragmentPage;
-import com.mardomsara.social.app.Singletons;
+import com.mardomsara.social.PresenterPage;
 
 /**
  * Created by Hamid on 2/19/2016.
  */
-public  abstract class BasePresenterNEW implements FragmentPage {
+public  abstract class BasePresenterNEW implements PresenterPage {
     //todo: remove-migrate this
     boolean calledInit = false;
 

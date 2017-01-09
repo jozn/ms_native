@@ -1,6 +1,6 @@
 package com.mardomsara.social.app;
 
-import com.mardomsara.social.FragmentPage;
+import com.mardomsara.social.PresenterPage;
 import com.mardomsara.social.Nav;
 import com.mardomsara.social.json.social.rows.PostRowJson;
 import com.mardomsara.social.models.RoomModel;
@@ -23,31 +23,31 @@ import com.mardomsara.social.ui.presenter.social.TagsPresenter;
  * Created by Hamid on 1/30/2016.
  */
 public class Router {
-    public static FragmentPage getLikesPage(int PostId) {
+    public static PresenterPage getLikesPage(int PostId) {
 //        return new LikesPresenter(PostId);
 //        return new FollowsListPresenter(PostId, FollowsListPresenter.Type.LIKES);
         return new FollowsListAboutPresenter(PostId, FollowsListAboutPresenter.Type.LIKES);
     }
 
-    public static FragmentPage getFollowersPage(int UserId) {
+    public static PresenterPage getFollowersPage(int UserId) {
         return new FollowsListAboutPresenter(UserId, FollowsListAboutPresenter.Type.FOLLOWERS);
     }
 
-    public static FragmentPage getFollowingsPage(int UserId) {
+    public static PresenterPage getFollowingsPage(int UserId) {
         return new FollowsListAboutPresenter(UserId, FollowsListAboutPresenter.Type.FOLLOWING);
     }
 
-    public static FragmentPage getCommontsPage(int PostId) {
+    public static PresenterPage getCommontsPage(int PostId) {
 //        return new CommontsPresnter_DEP(PostId);
         return new CommentsPresenter(PostId);
     }
 
-    public static FragmentPage getChatPage() {
+    public static PresenterPage getChatPage() {
         return new ChatTabPresenter();
 //        return new ChatMainBranch();
     }
 
-    public static FragmentPage getHomePage() {
+    public static PresenterPage getHomePage() {
         return new HomeStream2Presenter();
     }
 
@@ -58,21 +58,21 @@ public class Router {
         return p;
     }*/
 
-    public static FragmentPage getRoomEntery(Room room) {
+    public static PresenterPage getRoomEntery(Room room) {
         ChatRoomPresenter p = new ChatRoomPresenter();
         p.room = room;
         return p;
     }
 
-    public static FragmentPage getSearchPage() {
+    public static PresenterPage getSearchPage() {
         return new SearchTabPresenter();
     }
 
-    public static FragmentPage getHelloWolrdPage() {
+    public static PresenterPage getHelloWolrdPage() {
         return new HelloPresenter();
     }
 
-    public static FragmentPage getGalleryChooserPage() {
+    public static PresenterPage getGalleryChooserPage() {
         return new GalleryChooserPresenter();
     }
 
@@ -93,14 +93,14 @@ public class Router {
         Nav.push(Router.getRoomEntery(room));
     }
 
-    public static FragmentPage getMyProfile() {
+    public static PresenterPage getMyProfile() {
         return new ProfilePresenter(Session.getUserId());
     }
     public static void goToMyProfile() {
         Nav.push(new ProfilePresenter(Session.getUserId()));
     }
 
-    public static FragmentPage getAactivityPage() {
+    public static PresenterPage getAactivityPage() {
         return new AcitivityTabPresenter();
 //        return new HelloPresenter();
 //        return new ProfilePresenter(Session.getUserId());

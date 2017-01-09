@@ -28,10 +28,10 @@ import hugo.weaving.DebugLog;
 public class Nav {
     static String TAG = "Nav";
     static int MAX_BRANCH_STACKE_SIZE = 10;
-    public static Map<String,FragmentPage> branchsDef;
-    public static List<FragmentPage> branchsPageStacks;
+    public static Map<String,PresenterPage> branchsDef;
+    public static List<PresenterPage> branchsPageStacks;
     public static String _activeBranch;
-    public static FragmentPage _lastFragmentPage;
+    public static PresenterPage _lastFragmentPage;
     public static Map<String,BranchCell> branchMapHolder = new HashMap<>();
     public static FooterBarFragment footFrag;
 
@@ -43,13 +43,13 @@ public class Nav {
         _activeBranch= "home";
     }
 
-    public static void push(FragmentPage frag){
+    public static void push(PresenterPage frag){
 		Helper.closeKeyboard();
 
 		_attachPage2(frag);
         _getActiveBranchCell().fragmentsPageStacks.add(frag);
         if(_getActiveBranchCell().fragmentsPageStacks.size()>MAX_BRANCH_STACKE_SIZE){
-            FragmentPage frag2 = _getActiveBranchCell().fragmentsPageStacks.remove(1);
+            PresenterPage frag2 = _getActiveBranchCell().fragmentsPageStacks.remove(1);
             removePageFromGlobaFragment(frag2);
             Log.d(TAG, " removed max extra:");
         }
@@ -111,7 +111,7 @@ public class Nav {
     }
 
     @DebugLog
-    public static void  _attachPage2(FragmentPage frag){
+    public static void  _attachPage2(PresenterPage frag){
         BranchOrderStacks.push(_activeBranch);
 //        if(frag == _lastFragmentPage ) {return;};//fix bug: happens when we are in 'home' and clikks home
         try {
@@ -185,10 +185,10 @@ public class Nav {
 //        ft.addStart(R.id.frag1, frag.fragment);
         BranchCell bc = _getActiveBranchCell();
         if( bc.fragmentsPageStacks.size()>=2){//will stay in the same branch
-            FragmentPage fp = bc.fragmentsPageStacks.pop();
+            PresenterPage fp = bc.fragmentsPageStacks.pop();
             fp.onBlur();
             ft.remove(fp.getFragment());
-            FragmentPage fp2 = bc.fragmentsPageStacks.peek();
+            PresenterPage fp2 = bc.fragmentsPageStacks.peek();
             _lastFragmentPage = fp2;
             ft.show(fp2.getFragment());
         }else if(bc.fragmentsPageStacks.size()==1){
@@ -206,7 +206,7 @@ public class Nav {
         ft.commit();
         return res;
     }
-    static void  removePageFromGlobaFragment(FragmentPage fp){
+    static void  removePageFromGlobaFragment(PresenterPage fp){
         FragmentTransaction ft = App.mFragmentManager.beginTransaction();
         fp.onBlur();
         ft.remove(fp.getFragment());
@@ -226,9 +226,9 @@ public class Nav {
     }
 
     public static class BranchCell{
-        public Stack<FragmentPage> fragmentsPageStacks = new Stack<>();//all contents hsbeen attched so we can call attach/deattach
+        public Stack<PresenterPage> fragmentsPageStacks = new Stack<>();//all contents hsbeen attched so we can call attach/deattach
         public String name;
-        public FragmentPage defaultRoute;
+        public PresenterPage defaultRoute;
     }
 
     //just _attachPage() will call this

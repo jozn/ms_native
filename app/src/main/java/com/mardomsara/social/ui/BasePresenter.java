@@ -10,13 +10,13 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.mardomsara.social.FragmentPage;
+import com.mardomsara.social.PresenterPage;
 import com.mardomsara.social.app.Singletons;
 
 /**
  * Created by Hamid on 2/19/2016.
  */
-public  abstract class BasePresenter implements FragmentPage {
+public  abstract class BasePresenter implements PresenterPage {
     //todo: remove-migrate this
     boolean calledInit = false;
     public static Fragment presenterToFragment(BasePresenter presenter) {

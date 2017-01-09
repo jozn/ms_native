@@ -8,7 +8,7 @@ import android.view.View;
  * Created by Hamid on 5/9/2016.
  */
 //// TODO: 1/9/2017 rename to PresenterPage
-public interface FragmentPage  {
+public interface PresenterPage {
 
 	@Deprecated
     public Fragment getFragment();

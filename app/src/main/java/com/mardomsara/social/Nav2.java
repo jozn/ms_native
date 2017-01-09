@@ -6,11 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.util.Log;
 
 import com.mardomsara.social.app.Router;
-import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.ui.fragments.FooterBarFragment;
 
 import java.util.ArrayList;
@@ -38,7 +35,7 @@ public class Nav2 {
 
 	static NavTree defaultTree;
 
-    public static void push(FragmentPage page){
+    public static void push(PresenterPage page){
 		getDefaultTree().push(page);
     }
 
@@ -64,7 +61,7 @@ public class Nav2 {
     }
 
     @DebugLog
-    public static void  _attachPage2(FragmentPage frag){
+    public static void  _attachPage2(PresenterPage frag){
 
     }
 
@@ -122,9 +119,9 @@ public class Nav2 {
 	///////////////////////////////////////////////////
 
 	public static class BranchCell {
-		public Stack<FragmentPage> pageStacks = new Stack<>();//all contents hsbeen attched so we can call attach/deattach
+		public Stack<PresenterPage> pageStacks = new Stack<>();//all contents hsbeen attched so we can call attach/deattach
 		public Branch name;
-		public FragmentPage defaultRoute;
+		public PresenterPage defaultRoute;
 	}
 
 	//used for ordering backstack of active branches
@@ -188,7 +185,7 @@ public class Nav2 {
 		static String TAG = "Nav";
 		static int MAX_BRANCH_STACKE_SIZE = 10;
 		public String _activeBranch;
-		public FragmentPage _lastFragmentPage;
+		public PresenterPage _lastFragmentPage;
 
 		public Map<Branch,BranchCell> branchMapHolder = new HashMap<>();
 		public FooterBarFragment footFrag;
@@ -200,7 +197,7 @@ public class Nav2 {
 			setDefultBranc2(branchMapHolder);
 		}
 
-		public void push(FragmentPage frag){
+		public void push(PresenterPage frag){
 
 		}
 
@@ -225,7 +222,7 @@ public class Nav2 {
 		}
 
 		@DebugLog
-		public void  _attachPage2(FragmentPage frag){
+		public void  _attachPage2(PresenterPage frag){
 
 		}
 
@@ -247,7 +244,7 @@ public class Nav2 {
 		public boolean onBackPress() {
 			return false;
 		}
-		static void  removePageFromGlobaFragment(FragmentPage fp){
+		static void  removePageFromGlobaFragment(PresenterPage fp){
 
 		}
 
