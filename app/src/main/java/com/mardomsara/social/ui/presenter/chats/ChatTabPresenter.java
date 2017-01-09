@@ -30,67 +30,14 @@ public class ChatTabPresenter extends BasePresenter {
 		tabsPager.addTab(new TabPagerAdaptor.Tab("کاربران", new UserAndContactsPresenter()));
 		tabsPager.addTab(new TabPagerAdaptor.Tab("گفتگو ها", new RoomsListPresenter()));
 
-//        ChatBranchPagerAdaptor pad = new ChatBranchPagerAdaptor(fragment.getChildFragmentManager(),fragment.getActivity());
-
-        tabLayout.setTabMode(TabLayout.MODE_FIXED);
         vp.setAdapter(tabsPager);
         tabLayout.setupWithViewPager(vp);
-
-        //must called here
-        /*for (int i = 0; i < tabLayout.getTabCount(); i++) {
-            TabLayout.Tab t = tabLayout.getTabAt(i);
-            t.setCustomView( pad.getTabView(i) );
-        }*/
-//        tab.setBackgroundResource(R.drawable.chat_content_bubble_me);
-//        tab.setSelectedTabIndicatorColor(AndroidUtil.getColor(R.color.light_blue_1));
-//        tab.setSelectedTabIndicatorHeight(AndroidUtil.dpToPx(4));
+		tabsPager.setTabLayout(tabLayout);
 
         vp.setCurrentItem(1);
         return l;
     }
-
-    public static class ChatBranchPagerAdaptor extends FragmentPagerAdapter {
-        final int PAGE_COUNT = 2;
-        private String tabTitles[] = new String[] {  "کاربران" ,"گفتگو ها"};//, "Tab3","Tab222","Tab222","Tab222" };
-        private Context context;
-        //    private String tabTitles[] = new String[] { "Tab1", "Tab2" };
-        private int[] imageResId = { R.drawable.ic_menu_send, R.drawable.ic_menu_camera};//, R.drawable.ic_menu_manage, R.drawable.ic_menu_manage, R.drawable.ic_menu_manage, R.drawable.ic_menu_manage };
-
-        public ChatBranchPagerAdaptor(FragmentManager fm, Context context) {
-            super(fm);
-            this.context = context;
-        }
-
-        @Override
-        public int getCount() {
-            return PAGE_COUNT;
-        }
-
-        public Fragment getItem(int position) {
-            switch (position){
-                case 0:
-                    return new UserAndContactsPresenter().getFragment();
-                case 1:
-                default:
-                return new RoomsListPresenter().getFragment();
-            }
-        }
-
-        @Override
-        public CharSequence getPageTitle(int position) {
-            return tabTitles[position];
-        }
-
-        public View getTabView(int position) {
-            // Given you have a custom layout in `response/layout/custom_tab.xml` with a TextView and ImageView
-            View v = LayoutInflater.from(context).inflate(R.layout.tab_cell_general, null);
-            TextView tv = (TextView) v.findViewById(R.id.textView);
-            tv.setText(tabTitles[position]);
-//        ImageView img = (ImageView) v.findViewById(R.id.imgView);
-            //img.setImageResource(imageResId[position]);
-            return v;
-        }
-    }
+	
 }
 
 
