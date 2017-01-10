@@ -110,7 +110,7 @@ public class MainAppActivity extends AppActivity{// implements DefaultHardwareBa
 		///////// Nav ////////////
 		ViewGroup container = (ViewGroup)findViewById(R.id.frag1);
 		ViewGroup foooter = (ViewGroup)findViewById(R.id.footerbar_holder);
-		Nav.setUpDefualt(container,foooter);
+		Nav.setUpDefault(container,foooter);
 		Nav.setUpFooterBar();
 		/////////////////////////
 

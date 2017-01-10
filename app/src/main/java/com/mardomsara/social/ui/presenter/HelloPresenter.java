@@ -7,6 +7,7 @@ import android.widget.TextView;
 import com.mardomsara.social.Nav;
 import com.mardomsara.social.R;
 import com.mardomsara.social.app.Router;
+import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.LangUtil;
 import com.mardomsara.social.ui.BasePresenter;
 
@@ -19,7 +20,7 @@ public class HelloPresenter extends BasePresenter {
     Integer count = 0;
     @Override
     public View buildView() {
-       ViewGroup v = (ViewGroup)inflater.inflate(R.layout.hello_world_row,null);
+       ViewGroup v = (ViewGroup) AppUtil.inflate(R.layout.hello_world_row,null);
         View btn = v.findViewById(R.id.btn);
         View btn2 = v.findViewById(R.id.btn2);
         View btn3 = v.findViewById(R.id.btn3);

@@ -25,7 +25,7 @@ import hugo.weaving.DebugLog;
 public class Nav {
 
 	static NavTree defaultTree;
-	public static void setUpDefualt(ViewGroup containerFrame, ViewGroup footerFrame) {
+	public static void setUpDefault(ViewGroup containerFrame, ViewGroup footerFrame) {
 		defaultTree = new NavTree(containerFrame,footerFrame);
 	}
 
@@ -38,7 +38,7 @@ public class Nav {
     }
 
     public static void pop() {
-		getDefaultTree().onBackPress();
+		getDefaultTree().pop();
     }
 
     public static void pop(int size) {

@@ -5,14 +5,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.mardomsara.social.PresenterPage;
-import com.mardomsara.social.app.Singletons;
 
 /**
  * Created by Hamid on 2/19/2016.
@@ -20,76 +16,42 @@ import com.mardomsara.social.app.Singletons;
 public  abstract class BasePresenter implements PresenterPage {
     //todo: remove-migrate this
     boolean calledInit = false;
-    public static Fragment presenterToFragment(BasePresenter presenter) {
-        SinglePresenterFragment frag = new SinglePresenterFragment();
-        frag.setPresenter(presenter);
-        return frag;
-    }
-
-	@Deprecated
-    protected Fragment fragment ;
-
+	
     public static Context context;//setOrReplace thif from App.init()
+    public Activity activity;//setOrReplace thif from App.init()
 
-    //dep
-    @Deprecated
-    public static LayoutInflater inflater;
 
-    @Deprecated
-    protected View grandView;
+    private View grandView;
 
     public BasePresenter() {
-        PresenterFragment presenterFrag = new PresenterFragment();
-        presenterFrag.setPresenter(this);
-        presenterFrag.setClassTag(this.getClass().getSimpleName());//for debug
-        setFragment(presenterFrag);
+
     }
 
     public View getGrandView(){
-        return buildGrandView();
+        return grandView;
     }
 
-    protected void runInBackgeound(Runnable r){
-        Singletons.getThreadPool().execute(r);
-    }
-
-    //deprecated
-    protected  View buildGrandView(){
-        return null;
-    };
-
+	//subclass must overight thi
     public abstract View buildView();
 
-    //needed ? use ButterKingh
-    //dep todo: extract this ti ViewHelper
-    protected TextView getTextView(int id){
-       return  (TextView) grandView.findViewById(id);
-    }
-
-    //dep
-    protected ImageView getImageView(int id){
-        return  (ImageView) grandView.findViewById(id);
-    }
-
-	@Deprecated
-    public Fragment getFragment() {
-        return fragment;
-    }
-
-
-	@Deprecated
-    public void setFragment(Fragment fragment) {
-        this.fragment = fragment;
-    }
-
-    public void onDestroy(){
-
-    }
-
-
-	public void onAfterView(){
-
+	@Override
+	public View getFinalView(ViewGroup parent) {
+		if(grandView == null){
+			grandView = buildView();
+		}
+		return grandView;
 	}
+
+	//todo remove
+	@Deprecated
+	@Override
+	public Fragment getFragment() {
+		return null;
+	}
+
+	public void onDestroy(){
+
+    }
 
     //fragment on onStart
     public void onStart(){
@@ -98,16 +60,14 @@ public  abstract class BasePresenter implements PresenterPage {
             onFocus();
         }
     }
-    public void onResume(){}
+    public void onResume(){
+
+	}
 //    public void onFocus(){}
 
     @Override
     public void onFocus() {
         logIt("onFocus");
-        if(fragment != null){
-            View v = ((PresenterFragment) fragment).presenterViewHolder;
-            v.setVisibility(View.VISIBLE);
-        }
     }
 
     @Override
@@ -120,12 +80,7 @@ public  abstract class BasePresenter implements PresenterPage {
     @Override
     public void onBlur() {
         logIt("onBlur");
-        if(fragment != null){
-           View v = ((PresenterFragment) fragment).presenterViewHolder;
-            if(v != null){
-                v.setVisibility(View.GONE);
-            }
-        }
+
     }
 
     @Override
@@ -148,24 +103,16 @@ public  abstract class BasePresenter implements PresenterPage {
     }
 
     public Activity getActivity(){
-        return getFragment().getActivity();
+        return activity;
     }
 
     public Context getContext(){
-        return getFragment().getActivity();
+        return activity;
     }
 
-	/////////////// just for new funcs
+	//todo remove this
+	@Deprecated
+	public void onAfterView() {
 
-	ViewGroup paernt;
-	@Override
-	public View getFinalView(ViewGroup paernt) {
-		this.paernt = paernt;
-		if(grandView == null){
-			grandView = buildView();
-			grandView.setBackgroundColor(0xFFFFFF);
-
-		}
-		return grandView;
 	}
 }

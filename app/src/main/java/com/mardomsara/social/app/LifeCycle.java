@@ -84,7 +84,7 @@ public class LifeCycle {
                     .build();
 
             BasePresenter.context = ctx;
-            BasePresenter.inflater = LayoutInflater.from(ctx);
+//            BasePresenter.inflater = LayoutInflater.from(ctx);
 
             DB.init();
 
