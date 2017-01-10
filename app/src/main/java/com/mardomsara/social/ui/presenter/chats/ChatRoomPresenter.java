@@ -187,12 +187,12 @@ public class ChatRoomPresenter extends BasePresenter implements
 		return view;
     }
 
-	@Override
+	/*@Override
 	public void onAfterView() {
 		super.onAfterView();
 
 		loadNextPage(1);
-	}
+	}*/
 
 	@Override
     public void onDestroy() {
@@ -204,12 +204,12 @@ public class ChatRoomPresenter extends BasePresenter implements
     }
 
 
-    @Override
+    /*@Override
     public void onResume() {
         super.onResume();
         AppUtil.log("after?? Chatroom onResume()");
 //        showMeas();
-    }
+    }*/
     public void onFocus() {
         super.onFocus();
         AppUtil.log("after?? Chatroom onFocus()");

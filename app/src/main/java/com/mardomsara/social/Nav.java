@@ -107,6 +107,19 @@ public class Nav {
 			this.defaultPage = defaultPage;
 			pageStacks.add(0,defaultPage);
 		}
+
+		PresenterPage popPage(){
+			PresenterPage page = pageStacks.get(pageStacks.size()-1);
+			page.onBlur();
+			page.onDestroy();
+			return page;
+		}
+
+		PresenterPage getLastPage(){
+			PresenterPage page = pageStacks.get(pageStacks.size()-1);
+			return page;
+		}
+
 	}
 
 	//used for ordering backstack of active branches
@@ -167,7 +180,7 @@ public class Nav {
 
 	static class NavTree {
 		static String TAG = "Nav";
-		int MAX_BRANCH_STACKE_SIZE = 10;
+		int MAX_BRANCH_STACKE_SIZE = 8;
 
 		Map<Branch,BranchCell> branchMapHolder = new HashMap<>();
 
@@ -186,12 +199,22 @@ public class Nav {
 
 		//todo pagelimits
 		public void push(PresenterPage page){
-			_getActiveBranchCell().pageStacks.add(page);
+			PresenterPage last = getLastPage();
+			if(last!=null){
+				last.onBlur();
+			}
+//			_addPageToContainer(page);
 			if (getContainerFrame().getChildCount()>0){
 				getContainerFrame().removeViewAt(0);
 			}
+
+			BranchCell bc = _getActiveBranchCell();
+			if(bc.pageStacks.size()>= MAX_BRANCH_STACKE_SIZE){
+				_removePage(bc.pageStacks.get(1),bc);
+			}
+			bc.pageStacks.add(page);
 			getContainerFrame().addView(page.getFinalView(containerFrame));
-//			getContainerFrame().addView(page.getFinalView());
+			page.onFocus();
 		}
 
 		public void pop() {
@@ -214,24 +237,47 @@ public class Nav {
 		}
 
 		public void goToBranch(Branch bra) {
-//			push(Router.getFollowingsPage(2));
 			branchOrderStacks.push(bra);
 			if (getContainerFrame().getChildCount()>0){
 				getContainerFrame().removeViewAt(0);
 			}
+
+			PresenterPage last = _getActiveBranchCell().getLastPage();
+			if(last.isInitiated()){
+				last.onBlur();
+				last.onBack();
+			}
+
 			activeBranch = bra;
 			footerCell.activateBranch(bra);
-			getContainerFrame().addView(_getActiveBranchCell().pageStacks.get(_getActiveBranchCell().pageStacks.size()-1).getFinalView(containerFrame));
+
+			BranchCell bc = _getActiveBranchCell();
+			PresenterPage page = bc.pageStacks.get(_getActiveBranchCell().pageStacks.size()-1);
+			getContainerFrame().addView(page.getFinalView(containerFrame));
+			page.onFocus();
 		}
 
 		boolean goOnePageBack(){
 			//stay on branch
 			BranchCell bc = _getActiveBranchCell();
 			if ( bc.pageStacks.size() >= 2){//default page ust remain
-				getContainerFrame().removeView(bc.pageStacks.pop().getFinalView(containerFrame));
-				getContainerFrame().addView(bc.pageStacks.peek().getFinalView(containerFrame));
+				PresenterPage page = bc.pageStacks.pop();
+				page.onBlur();
+				page.onBack();
+				page.onDestroy();
+				getContainerFrame().removeView(page.getFinalView(containerFrame));
+
+				PresenterPage page2 = bc.pageStacks.peek();
+				getContainerFrame().addView(page2.getFinalView(containerFrame));
+				page2.onFocus();
+
 				return true;
 			}else if(branchOrderStacks.branchList.size() >= 2) {//go to another branch
+				//event of root of branch
+				PresenterPage page = _getActiveBranchCell().pageStacks.peek();
+				page.onBlur();
+				page.onBack();
+
 				branchOrderStacks.pop();
 				goToBranch(branchOrderStacks.peek());
 				return true;
@@ -247,8 +293,10 @@ public class Nav {
 		//Fixme: .pop() events + bug: get longcliked branced not active
 		public void resetBranch(Branch branch) {
 			BranchCell bc = branchMapHolder.get(branch);
+			PresenterPage page;
 			while (bc.pageStacks.size() >1 ){
-				bc.pageStacks.remove(bc.pageStacks.get(bc.pageStacks.size()-1));
+				page = bc.pageStacks.get(bc.pageStacks.size()-1);
+				_removePage(page,bc);
 			}
 		}
 
@@ -297,6 +345,22 @@ public class Nav {
 		PresenterPage getLastPage(){
 			BranchCell bc = _getActiveBranchCell();
 			return bc.pageStacks.peek();
+		}
+
+		void _addPageToContainer(PresenterPage page){
+			if (getContainerFrame().getChildCount()>0){
+				getContainerFrame().removeViewAt(0);
+			}
+
+			_getActiveBranchCell().pageStacks.add(page);
+			getContainerFrame().addView(page.getFinalView(containerFrame));
+			page.onFocus();
+		}
+
+		void _removePage(PresenterPage page, BranchCell bc){
+			bc.pageStacks.remove(page);
+			page.onBlur();
+			page.onDestroy();
 		}
 
 	}

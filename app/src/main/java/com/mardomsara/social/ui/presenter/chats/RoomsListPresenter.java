@@ -17,9 +17,9 @@ public class RoomsListPresenter extends BasePresenter {
 
     }
 
-    @Override
+    /*@Override
     public void onResume() {
         super.onResume();
-    }
+    }*/
 
 }

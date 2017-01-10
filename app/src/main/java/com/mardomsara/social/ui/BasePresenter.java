@@ -14,22 +14,13 @@ import com.mardomsara.social.PresenterPage;
  * Created by Hamid on 2/19/2016.
  */
 public  abstract class BasePresenter implements PresenterPage {
-    //todo: remove-migrate this
-    boolean calledInit = false;
-
+	boolean isInited = false;
     public static Context context;//setOrReplace thif from App.init()
     public Activity activity;//setOrReplace thif from App.init()
 
-
     private View grandView;
 
-    public BasePresenter() {
-
-    }
-
-    public View getGrandView(){
-        return grandView;
-    }
+    public BasePresenter() {}
 
 	//subclass must overight thi
     public abstract View buildView();
@@ -37,44 +28,31 @@ public  abstract class BasePresenter implements PresenterPage {
 	@Override
 	public View getFinalView(ViewGroup parent) {
 		if(grandView == null){
+			onInit();
+			isInited =true;
 			grandView = buildView();
 		}
 		return grandView;
 	}
 
-	//todo remove
-	@Deprecated
 	@Override
-	public Fragment getFragment() {
-		return null;
+	public boolean isInitiated() {
+		return isInited;
 	}
 
+	@Override
 	public void onDestroy(){
 
     }
 
-    //fragment on onStart
-    public void onStart(){
-        if(calledInit == false){
-            calledInit = true;
-            onFocus();
-        }
-    }
-    public void onResume(){
-
+	@Override
+	public void onInit() {
+		logIt("onFocus");
 	}
-//    public void onFocus(){}
 
     @Override
     public void onFocus() {
         logIt("onFocus");
-    }
-
-    @Override
-    public void callOnFocus() {
-        if(calledInit == true){//only call onFocus() when fragment has been added to view in next event loop from Fragment Transactions
-            onFocus();
-        }
     }
 
     @Override
@@ -86,11 +64,6 @@ public  abstract class BasePresenter implements PresenterPage {
     @Override
     public void onBack() {
         logIt("onBack");
-    }
-
-    @Override
-    public void onKeyDown() {
-        logIt("onKeyDown");
     }
 
     public void logIt(String str){
@@ -110,9 +83,9 @@ public  abstract class BasePresenter implements PresenterPage {
         return activity;
     }
 
-	//todo remove this
+	/*//todo remove this
 	@Deprecated
 	public void onAfterView() {
 
-	}
+	}*/
 }
