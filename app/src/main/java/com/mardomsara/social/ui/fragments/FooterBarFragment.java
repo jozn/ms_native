@@ -13,7 +13,7 @@ import com.mardomsara.social.ui.BaseFragment;
 
 import java.util.HashMap;
 import java.util.Map;
-
+@Deprecated
 public class FooterBarFragment extends BaseFragment {
     TextView profile;
     TextView activity;

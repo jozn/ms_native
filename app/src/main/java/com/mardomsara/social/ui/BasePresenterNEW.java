@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 
 import com.mardomsara.social.PresenterPage;
 
@@ -35,7 +36,7 @@ public  abstract class BasePresenterNEW implements PresenterPage {
     public abstract View buildView();
 
 	@Override
-	public View getFinalView() {
+	public View getFinalView(ViewGroup parent) {
 		if(grandView == null){
 			grandView = buildView();
 		}

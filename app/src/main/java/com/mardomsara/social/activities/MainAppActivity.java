@@ -95,7 +95,10 @@ public class MainAppActivity extends AppActivity{// implements DefaultHardwareBa
         ViewGroup global_window = (ViewGroup)findViewById(R.id.global_window);
         AppUtil.global_window = global_window;
 
-        App.init(getApplicationContext());
+		//Important: set context to this activity not getContext(), beacuse some
+		//libs like:Calligraphy and android TabLayout seems to use Acticity stuffs based on
+		//context for their work
+        App.init(this);//(getApplicationContext())
 //        LeakCanary.install(this);
         App.activity(this);
         App.mFragmentManager = getSupportFragmentManager();
@@ -104,7 +107,13 @@ public class MainAppActivity extends AppActivity{// implements DefaultHardwareBa
         startService(new Intent(this, PingService.class));
         logIt("onCreate");
 
-        Nav.setUpFooetrBar();
+		///////// Nav ////////////
+		ViewGroup container = (ViewGroup)findViewById(R.id.frag1);
+		ViewGroup foooter = (ViewGroup)findViewById(R.id.footerbar_holder);
+		Nav.setUp(container,foooter);
+		Nav.setUpFooetrBar();
+		/////////////////////////
+
         Crashlytics.log("Higgs-Boson detected! Bailing out...");
         Crashlytics.getInstance().core.setUserEmail("aSa@gmail.com");
         Crashlytics.getInstance().core.setUserIdentifier("158");

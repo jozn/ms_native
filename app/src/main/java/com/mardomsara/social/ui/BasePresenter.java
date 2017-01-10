@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -156,8 +157,15 @@ public  abstract class BasePresenter implements PresenterPage {
 
 	/////////////// just for new funcs
 
+	ViewGroup paernt;
 	@Override
-	public View getFinalView() {
-		return null;
+	public View getFinalView(ViewGroup paernt) {
+		this.paernt = paernt;
+		if(grandView == null){
+			grandView = buildView();
+			grandView.setBackgroundColor(0xFFFFFF);
+
+		}
+		return grandView;
 	}
 }
