@@ -13,6 +13,7 @@ import com.mardomsara.social.R;
 /**
  * Created by Hamid on 5/2/2016.
  */
+@Deprecated
 public class PresenterFragment extends BaseFragment {
 
 

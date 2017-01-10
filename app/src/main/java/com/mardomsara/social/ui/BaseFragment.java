@@ -25,6 +25,7 @@ import hugo.weaving.DebugLog;
 /**
  * Created by Hamid on 2/1/2016.
  */
+@Deprecated
 public class BaseFragment extends Fragment {
     public Map<String, Object> params = new HashMap<>();
 

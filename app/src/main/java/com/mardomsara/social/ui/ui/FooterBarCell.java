@@ -61,7 +61,8 @@ public class FooterBarCell {
                 @Override
                 public boolean onLongClick(View v) {
 //                    Nav.goToBranch(k);
-//                    Nav.resetBranch(k);
+                    Nav.resetBranch(k);
+					Nav.goToBranch(k);
                     return true;
                 }
             });
@@ -70,7 +71,7 @@ public class FooterBarCell {
         }
     }
 
-    public void activateBranch(String bra){
+    public void activateBranch(Branch bra){
         for (Branch k: cellsMap.keySet()){
             cellsMap.get(k).setBackgroundColor(getResources().getColor(R.color.navbar_background));
             cellsMap.get(k).setTextColor(getResources().getColor(R.color.navbar_icon_font));

@@ -1,16 +1,12 @@
 package com.mardomsara.social;
 
-//import android.app.Fragment;
-
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.mardomsara.social.app.Router;
-import com.mardomsara.social.ui.fragments.FooterBarFragment;
+import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.ui.ui.FooterBarCell;
 
 import java.util.ArrayList;
@@ -28,19 +24,14 @@ import hugo.weaving.DebugLog;
  */
 public class Nav {
 
-	public Nav() {
-
-	}
-
-	public static void setUp(ViewGroup containerFrame,ViewGroup footerFrame) {
+	static NavTree defaultTree;
+	public static void setUpDefualt(ViewGroup containerFrame, ViewGroup footerFrame) {
 		defaultTree = new NavTree(containerFrame,footerFrame);
 	}
 
 	public static NavTree getDefaultTree() {
 		return defaultTree;
 	}
-
-	static NavTree defaultTree;
 
     public static void push(PresenterPage page){
 		getDefaultTree().push(page);
@@ -62,7 +53,6 @@ public class Nav {
 		getDefaultTree().showFooter();
     }
 
-    @DebugLog
     public static void goToBranch(Branch bra) {
 		getDefaultTree().goToBranch(bra);
     }
@@ -72,46 +62,27 @@ public class Nav {
 		getDefaultTree().goToBranch(Branch.Chat);
 	}
 
-    @DebugLog
-    public static void  _attachPage2(PresenterPage frag){
-
-    }
-
-    public static void detachaLstOne(){
-
-    }
-
     //Fixme: .pop() events + bug: get longcliked branced not active
     public static void resetBranch(Branch branch) {
 		getDefaultTree().resetBranch(branch);
     }
-
 
     //returns means: true Nav handeld - activit don't do anything --- false: we didn't handle activity handle it
     public static boolean onBackPress() {
 		return getDefaultTree().onBackPress();
     }
 
-
     public static void addCustomOnBackPressHandler(OnBackPressHandler handler) {
-		getDefaultTree().customOnBackPressHandler.add(handler);
+		getDefaultTree().addCustomOnBackPressHandler(handler);
     }
 
     public static void removeCustomOnBackPressHandler(OnBackPressHandler handler) {
-		getDefaultTree().customOnBackPressHandler.remove(handler);
+		getDefaultTree().removeCustomOnBackPressHandler(handler);
     }
 
-	public static void setUpFooetrBar() {
-		getDefaultTree().setUpFooetrBar();
+	public static void setUpFooterBar() {
+		getDefaultTree().setUpFooterBar();
 	}
-
-	public static class FooterBar extends Fragment {
-        @Override
-        public void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-        }
-
-    }
 
     public static void reset(){
 		getDefaultTree().reset();
@@ -125,14 +96,7 @@ public class Nav {
         boolean handle();
     }
 
-
-
-
-
-
-	///////////////////////////////////////////////////
-	////////////////////////////////////////////////////
-	///////////////////////////////////////////////////
+	////////////// Implementation /////////////
 
 	public static class BranchCell {
 		public Stack<PresenterPage> pageStacks = new Stack<>();//all contents hsbeen attched so we can call attach/deattach
@@ -148,15 +112,15 @@ public class Nav {
 	//used for ordering backstack of active branches
 	static class BranchOrderStacks {
 		Set<String> branchSet = new LinkedHashSet<>();
-		static List<Branch> branchList = new ArrayList<>();
+		List<Branch> branchList = new ArrayList<>();
 
-		public static void push(Branch bra) {
+		public void push(Branch bra) {
 			branchList.remove(bra);//remove older
 			branchList.add(bra); //apend
 		}
 
 		@Nullable
-		public static Branch peek() {
+		public Branch peek() {
 			Branch res = null;
 			if (branchList.size()>0){
 				res = branchList.get(branchList.size()-1);
@@ -165,7 +129,7 @@ public class Nav {
 		}
 
 		@Nullable
-		public static Branch pop() {
+		public Branch pop() {
 			int size = branchList.size();
 			Branch res = null;
 			if (size > 0) {
@@ -176,15 +140,13 @@ public class Nav {
 		}
 	}
 
-
 	static void setDefultBranc(Map<Branch,BranchCell> branchMapHolder){
 		for (Branch b : Branch.values()){
 			BranchCell cell = new BranchCell();
 			cell.name = b;
 			switch (b){
 				case Chat:
-//					cell.setDefaultPage(Router.getChatPage());
-					cell.setDefaultPage(Router.getFollowingsPage(2));
+					cell.setDefaultPage(Router.getChatPage());
 					break;
 				case Home:
 					cell.setDefaultPage(Router.getHomePage());
@@ -207,13 +169,14 @@ public class Nav {
 		static String TAG = "Nav";
 		int MAX_BRANCH_STACKE_SIZE = 10;
 
-		PresenterPage lastPage;
 		Map<Branch,BranchCell> branchMapHolder = new HashMap<>();
-		FooterBarFragment footFrag;
-		private static List<OnBackPressHandler> customOnBackPressHandler = new ArrayList();
+
+		private List<OnBackPressHandler> customOnBackPressHandler = new ArrayList();
+		BranchOrderStacks branchOrderStacks = new BranchOrderStacks();
 		Branch activeBranch = Branch.Chat;
 		ViewGroup containerFrame;
 		ViewGroup footerFrame;
+		FooterBarCell footerCell;
 
 		public NavTree(ViewGroup containerFrame,ViewGroup footerFrame) {
 			Nav.setDefultBranc(branchMapHolder);
@@ -222,25 +185,24 @@ public class Nav {
 		}
 
 		//todo pagelimits
-		public void push(PresenterPage frag){
-			_getActiveBranchCell().pageStacks.add(frag);
+		public void push(PresenterPage page){
+			_getActiveBranchCell().pageStacks.add(page);
 			if (getContainerFrame().getChildCount()>0){
 				getContainerFrame().removeViewAt(0);
 			}
-			getContainerFrame().addView(frag.getFinalView(containerFrame));
-//			getContainerFrame().addView(frag.getFinalView());
+			getContainerFrame().addView(page.getFinalView(containerFrame));
+//			getContainerFrame().addView(page.getFinalView());
 		}
 
 		public void pop() {
-			//stay on branch
-			if (_getActiveBranchCell().pageStacks.size()>1){
-				getContainerFrame().removeView(_getActiveBranchCell().pageStacks.pop().getFinalView(containerFrame));
-			}
-			//go to another branch
+			onBackPress();
 		}
 
 		public void pop(int size) {
-
+			Helper.closeKeyboard();
+			for(int i=0; i< size;i++){
+				onBackPress();
+			}
 		}
 
 		public void hideFooter(){
@@ -253,21 +215,30 @@ public class Nav {
 
 		public void goToBranch(Branch bra) {
 //			push(Router.getFollowingsPage(2));
+			branchOrderStacks.push(bra);
 			if (getContainerFrame().getChildCount()>0){
 				getContainerFrame().removeViewAt(0);
 			}
 			activeBranch = bra;
+			footerCell.activateBranch(bra);
 			getContainerFrame().addView(_getActiveBranchCell().pageStacks.get(_getActiveBranchCell().pageStacks.size()-1).getFinalView(containerFrame));
 		}
 
-		@DebugLog
-		public void  _attachPage2(PresenterPage frag){
-
+		boolean goOnePageBack(){
+			//stay on branch
+			BranchCell bc = _getActiveBranchCell();
+			if ( bc.pageStacks.size() >= 2){//default page ust remain
+				getContainerFrame().removeView(bc.pageStacks.pop().getFinalView(containerFrame));
+				getContainerFrame().addView(bc.pageStacks.peek().getFinalView(containerFrame));
+				return true;
+			}else if(branchOrderStacks.branchList.size() >= 2) {//go to another branch
+				branchOrderStacks.pop();
+				goToBranch(branchOrderStacks.peek());
+				return true;
+			}
+			return false;
 		}
 
-		public void detachaLstOne(){
-
-		}
 
 		ViewGroup getContainerFrame(){
 			return containerFrame;
@@ -275,47 +246,57 @@ public class Nav {
 
 		//Fixme: .pop() events + bug: get longcliked branced not active
 		public void resetBranch(Branch branch) {
-
+			BranchCell bc = branchMapHolder.get(branch);
+			while (bc.pageStacks.size() >1 ){
+				bc.pageStacks.remove(bc.pageStacks.get(bc.pageStacks.size()-1));
+			}
 		}
 
 		@DebugLog
-		public void setUpFooetrBar(){
-			FooterBarCell footFrag = new FooterBarCell(footerFrame);
-			footerFrame.addView(footFrag.getRoot());
-
+		public void setUpFooterBar(){
+			footerCell = new FooterBarCell(footerFrame);
+			footerFrame.addView(footerCell.getRoot());
 		}
 
 		//returns means: true Nav handeld - activit don't do anything --- false: we didn't handle activity handle it
 		public boolean onBackPress() {
-			return false;
-		}
-		static void  removePageFromGlobaFragment(PresenterPage fp){
+			//handle customs
+			boolean customHandled = false;
+			for(OnBackPressHandler handler : customOnBackPressHandler){
+				customHandled = handler.handle();
+				if(customHandled == true) return true;
+			}
 
+			return goOnePageBack();
 		}
 
 		public void addCustomOnBackPressHandler(OnBackPressHandler handler) {
-
+			customOnBackPressHandler.add(handler);
 		}
 
 		public void removeCustomOnBackPressHandler(OnBackPressHandler handler) {
-
+			customOnBackPressHandler.remove(handler);
 		}
 
 		private Nav.BranchCell _getActiveBranchCell(){
 			return branchMapHolder.get(activeBranch);
 		}
 
-
-		static void setDefultBranc(){
-
-		}
-
 		public void reset(){
-
+			branchMapHolder = new HashMap<>();
+			setDefultBranc(branchMapHolder);
+			activeBranch = Branch.Chat;
 		}
 
 		public void onActivityResult(int requestCode, int resultCode, Intent data){
+			if( getLastPage() != null) {
+				getLastPage().onActivityResult(requestCode, resultCode,data);
+			}
+		}
 
+		PresenterPage getLastPage(){
+			BranchCell bc = _getActiveBranchCell();
+			return bc.pageStacks.peek();
 		}
 
 	}

@@ -110,8 +110,8 @@ public class MainAppActivity extends AppActivity{// implements DefaultHardwareBa
 		///////// Nav ////////////
 		ViewGroup container = (ViewGroup)findViewById(R.id.frag1);
 		ViewGroup foooter = (ViewGroup)findViewById(R.id.footerbar_holder);
-		Nav.setUp(container,foooter);
-		Nav.setUpFooetrBar();
+		Nav.setUpDefualt(container,foooter);
+		Nav.setUpFooterBar();
 		/////////////////////////
 
         Crashlytics.log("Higgs-Boson detected! Bailing out...");
@@ -140,7 +140,7 @@ public class MainAppActivity extends AppActivity{// implements DefaultHardwareBa
 //
 //        startService(new Intent(this, PingService.class));
 //
-//        Nav.setUpFooetrBar();
+//        Nav.setUpFooterBar();
 //        AsyncTask?
 ////////////////////////////////////////
 
@@ -411,7 +411,7 @@ public class MainAppActivity extends AppActivity{// implements DefaultHardwareBa
 //        startService(new Intent(this, PingService.class));
 //        ReactFragment f2 =  new ReactFragment();
 //
-//        Nav.setUpFooetrBar();
+//        Nav.setUpFooterBar();
 //
 //        Button btn = (Button)findViewById(R.id.btn1);
 //        btn.setOnClickListener((v)->{
