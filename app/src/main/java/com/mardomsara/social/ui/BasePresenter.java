@@ -16,7 +16,7 @@ import com.mardomsara.social.PresenterPage;
 public  abstract class BasePresenter implements PresenterPage {
     //todo: remove-migrate this
     boolean calledInit = false;
-	
+
     public static Context context;//setOrReplace thif from App.init()
     public Activity activity;//setOrReplace thif from App.init()
 
