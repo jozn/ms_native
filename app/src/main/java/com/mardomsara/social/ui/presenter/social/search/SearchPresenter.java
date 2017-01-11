@@ -1,19 +1,14 @@
 package com.mardomsara.social.ui.presenter.social.search;
 
-import android.content.Context;
+import android.graphics.Color;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import com.mardomsara.social.R;
 import com.mardomsara.social.base.Http.Http;
@@ -95,6 +90,7 @@ public class SearchPresenter extends BasePresenter {
 			adapter = new SearchResultTagsListCell.TagsAdaptor();
 			recyclerView.setAdapter(adapter);
 			recyclerView.setLayoutManager(layoutManager);
+			adapter.setRecyclerView(recyclerView);
 			adapter.setEmptyMessage("یافت نشد");
 			adapter.setEnableAutoShowEmptyView(true);
 			return recyclerView;

@@ -364,7 +364,7 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
 		isShowingEmptyView = true;
 		Runnable r = ()->{
 			setHasMorePage(false);
-			emptyMsgView= AppUtil.inflate(R.layout.wiget_app__headr_footer_recycler_empty_msg);
+			emptyMsgView= AppUtil.inflate(R.layout.wiget_app__headr_footer_recycler_empty_msg,recyclerView);
 			appendViewToHeader(emptyMsgView);
 			notifyDataChanged();
 		};

@@ -14,7 +14,6 @@ import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.DialogHelper;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.cells.PageCells;
-import com.mardomsara.social.ui.cells.TitleCellsGroup;
 import com.orhanobut.dialogplus.DialogPlus;
 import com.orhanobut.dialogplus.ViewHolder;
 
@@ -61,7 +60,7 @@ public class Play_DiaolgPresenter extends BasePresenter {
 	}
 
 	View newTitle(String title, Runnable runnable){
-		ViewGroup view = new TitleCellsGroup.BigClickAbleTitle(null,title).rootView;
+		ViewGroup view = new PageCells.BigClickAbleTitle(null,title).rootView;
 		view.setOnClickListener((v)->{
 			runnable.run();
 		});

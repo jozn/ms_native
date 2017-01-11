@@ -11,7 +11,6 @@ import com.mardomsara.social.play.presenters.Play_RecipiesPresenter;
 import com.mardomsara.social.play.presenters.Play_WSCallPresenter;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.cells.PageCells;
-import com.mardomsara.social.ui.cells.TitleCellsGroup;
 import com.mardomsara.social.ui.presenter.HelloPresenter;
 
 /**
@@ -81,7 +80,7 @@ public class Play_TestsPresenter extends BasePresenter {
     }
 
     View newTitle(String title, Runnable runnable){
-        ViewGroup view = new TitleCellsGroup.InfoTitle(null,title).rootView;
+        ViewGroup view = new PageCells.InfoTitle(null,title).rootView;
         view.setOnClickListener((v)->{
             runnable.run();
         });

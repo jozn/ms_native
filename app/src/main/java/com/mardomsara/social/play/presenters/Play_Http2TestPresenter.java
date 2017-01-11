@@ -14,7 +14,6 @@ import com.mardomsara.social.json.HttpJsonList;
 import com.mardomsara.social.json.social.rows.TagRowJson;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.cells.PageCells;
-import com.mardomsara.social.ui.cells.TitleCellsGroup;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -65,7 +64,7 @@ public class Play_Http2TestPresenter extends BasePresenter {
     }
 
     View newTitle(String title, Runnable runnable){
-        ViewGroup view = new TitleCellsGroup.BigClickAbleTitle(null,title).rootView;
+        ViewGroup view = new PageCells.BigClickAbleTitle(null,title).rootView;
         view.setOnClickListener((v)->{
             runnable.run();
         });
