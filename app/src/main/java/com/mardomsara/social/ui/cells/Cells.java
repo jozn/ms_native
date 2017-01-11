@@ -3,11 +3,9 @@ package com.mardomsara.social.ui.cells;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -25,7 +23,7 @@ import butterknife.ButterKnife;
 /**
  * Created by Hamid on 8/6/2016.
  */
-public class PageCells {
+public class Cells {
 
     public static class NavAndRecylerView {
         public ViewGroup rootView;
@@ -129,7 +127,10 @@ public class PageCells {
 	}
 
 
-	public static class BigClickAbleTitle {
+	//////////////////////////////////////////////////////
+	///////////////////// Title //////////////////////////
+
+	public static class Title_BigClickAble {
 		public ViewGroup rootView;
 		@Bind(R.id.text_view)
 		TextView text_view;
@@ -137,12 +138,12 @@ public class PageCells {
 		@Bind(R.id.icon)
 		TextView icon;
 
-		public BigClickAbleTitle(ViewGroup parent){
+		public Title_BigClickAble(ViewGroup parent){
 			rootView = (ViewGroup)AppUtil.inflate(R.layout.title_string_clickable,parent);
 			ButterKnife.bind(this,rootView);
 		}
 
-		public BigClickAbleTitle(ViewGroup parent,String title){
+		public Title_BigClickAble(ViewGroup parent, String title){
 			this(parent);
 			text_view.setText(title);
 		}
@@ -156,16 +157,16 @@ public class PageCells {
 		}
 	}
 
-	public static class InfoTitle {
+	public static class Title_Info {
 		public ViewGroup rootView;
 		@Bind(R.id.text_view)
 		TextView text_view;
 
-		public InfoTitle(ViewGroup parent){
+		public Title_Info(ViewGroup parent){
 			rootView =(ViewGroup) AppUtil.inflate(R.layout.title_info,parent);
 			ButterKnife.bind(this,rootView);
 		}
-		public InfoTitle(ViewGroup parent,String title){
+		public Title_Info(ViewGroup parent, String title){
 			this(parent);
 			text_view.setText(title);
 		}
@@ -175,17 +176,17 @@ public class PageCells {
 		}
 	}
 
-	public static class InfoTitleLight {
+	public static class Title_InfoLight {
 		public ViewGroup rootView;
 		@Bind(R.id.text_view)
 		TextView text_view;
 
-		public InfoTitleLight(ViewGroup parent){
+		public Title_InfoLight(ViewGroup parent){
 			rootView =(ViewGroup) AppUtil.inflate(R.layout.title_info_light,parent);
 			ButterKnife.bind(this,rootView);
 		}
 
-		public InfoTitleLight(ViewGroup parent,String title){
+		public Title_InfoLight(ViewGroup parent, String title){
 			this(parent);
 			text_view.setText(title);
 		}

@@ -13,7 +13,7 @@ import com.mardomsara.social.json.HttpJsonList;
 import com.mardomsara.social.json.social.rows.ActivityRowJson;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
 import com.mardomsara.social.ui.BasePresenter;
-import com.mardomsara.social.ui.cells.PageCells;
+import com.mardomsara.social.ui.cells.Cells;
 import com.mardomsara.social.ui.cells.lists.ActivityListCell;
 import com.mardomsara.social.ui.views.helpers.ViewHelper;
 
@@ -46,7 +46,7 @@ public class ActivityPresenter extends BasePresenter implements AppHeaderFooterR
 		adaptor.setUpForPaginationWith(recycler_view, layoutManager, this);
 		adaptor.showLoading();
 
-		PageCells.InfoTitleLight title = new PageCells.InfoTitleLight(recycler_view);
+		Cells.Title_InfoLight title = new Cells.Title_InfoLight(recycler_view);
 		title.setText("آخرین فعالیت های دنبال شدگان شما:");
 		adaptor.appendViewToHeader(title.rootView);
 

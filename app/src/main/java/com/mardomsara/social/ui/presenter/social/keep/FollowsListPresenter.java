@@ -15,7 +15,7 @@ import com.mardomsara.social.json.social.http.LikesListJson;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
 import com.mardomsara.social.ui.ui.UserListUI;
 import com.mardomsara.social.ui.BasePresenter;
-import com.mardomsara.social.ui.cells.PageCells;
+import com.mardomsara.social.ui.cells.Cells;
 import com.mardomsara.social.ui.views.helpers.ViewHelper;
 
 /**
@@ -29,7 +29,7 @@ public class FollowsListPresenter extends BasePresenter implements AppHeaderFoot
         LIKES
     };
 
-    PageCells.NavAndRecylerView pageCell;
+    Cells.NavAndRecylerView pageCell;
 
     int ObjectId;
     Type listType;
@@ -42,7 +42,7 @@ public class FollowsListPresenter extends BasePresenter implements AppHeaderFoot
 
     @Override
     public View buildView() {
-        pageCell = new PageCells.NavAndRecylerView();
+        pageCell = new Cells.NavAndRecylerView();
         init();
         return pageCell.rootView;
     }

@@ -7,7 +7,7 @@ import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.pipe.Pipe;
 import com.mardomsara.social.ui.BasePresenter;
-import com.mardomsara.social.ui.cells.PageCells;
+import com.mardomsara.social.ui.cells.Cells;
 
 /**
  * Created by Hamid on 10/1/2016.
@@ -15,7 +15,7 @@ import com.mardomsara.social.ui.cells.PageCells;
 public class Play_WSCallPresenter extends BasePresenter {
     @Override
     public View buildView() {
-        PageCells.Scroller cell =new PageCells.Scroller();
+        Cells.Scroller cell =new Cells.Scroller();
         ViewGroup rootView =cell.rootView;
         ViewGroup layout =cell.layout;
 
@@ -38,7 +38,7 @@ public class Play_WSCallPresenter extends BasePresenter {
 	}
 
 	View newTitle(String title, Runnable runnable){
-		ViewGroup view = new PageCells.BigClickAbleTitle(null,title).rootView;
+		ViewGroup view = new Cells.Title_BigClickAble(null,title).rootView;
 		view.setOnClickListener((v)->{
 			runnable.run();
 		});

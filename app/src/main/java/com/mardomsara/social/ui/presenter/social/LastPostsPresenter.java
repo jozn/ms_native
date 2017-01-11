@@ -5,7 +5,7 @@ import android.view.ViewGroup;
 
 import com.mardomsara.social.app.API;
 import com.mardomsara.social.ui.BasePresenter;
-import com.mardomsara.social.ui.cells.PageCells;
+import com.mardomsara.social.ui.cells.Cells;
 import com.mardomsara.social.ui.cells.lists.PostsListCell;
 
 /**
@@ -16,7 +16,7 @@ public class LastPostsPresenter extends BasePresenter {
 
     @Override
     public View buildView() {
-        viewRoot = new PageCells.NavAndEmptyView().rootView;
+        viewRoot = new Cells.NavAndEmptyView().rootView;
 
         PostsListCell listCell = new PostsListCell();
         listCell.setLoadingEndPoint(API.LATEST_POSTS_GET);

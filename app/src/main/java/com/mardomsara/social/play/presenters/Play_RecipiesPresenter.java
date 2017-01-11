@@ -3,20 +3,14 @@ package com.mardomsara.social.play.presenters;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.content.Context;
-import android.graphics.Color;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
-import android.view.ViewGroup;
 import android.webkit.WebView;
 
 import com.mardomsara.social.R;
-import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.Helper;
-import com.mardomsara.social.pipe.Pipe;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.X;
-import com.mardomsara.social.ui.cells.PageCells;
-import com.mardomsara.social.ui.cells.TitleCellsGroup;
 
 /**
  * Created by Hamid on 10/1/2016.

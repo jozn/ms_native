@@ -16,7 +16,7 @@ import com.mardomsara.social.helpers.JsonUtil;
 import com.mardomsara.social.json.social.http.TagsListJson;
 import com.mardomsara.social.json.social.rows.TagRowJson;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
-import com.mardomsara.social.ui.cells.PageCells;
+import com.mardomsara.social.ui.cells.Cells;
 import com.mardomsara.social.ui.views.helpers.ViewHelper;
 
 import java.util.ArrayList;
@@ -96,8 +96,8 @@ public class SearchTagsListCell {
         }else {
             adaptor.setHasMorePage(false);
         }
-		adaptor.appendViewToHeader(new PageCells.InfoTitle(null,"asd").rootView);
-		adaptor2.appendViewToHeader(new PageCells.InfoTitle(null,"asd").rootView);
+		adaptor.appendViewToHeader(new Cells.Title_Info(null,"asd").rootView);
+		adaptor2.appendViewToHeader(new Cells.Title_Info(null,"asd").rootView);
 		adaptor.notifyDataChanged();
 		sectioned.Changed();
     }

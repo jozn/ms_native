@@ -3,14 +3,8 @@ package com.mardomsara.social.ui.presenter.social;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.mardomsara.social.models.NotifyModel;
-import com.mardomsara.social.models.tables.Notify;
 import com.mardomsara.social.ui.BasePresenter;
-import com.mardomsara.social.ui.cells.PageCells;
-import com.mardomsara.social.ui.cells.lists.NotifyListCell;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.mardomsara.social.ui.cells.Cells;
 
 /**
  * Created by Hamid on 7/13/2016.
@@ -20,7 +14,7 @@ public class ComingSoonPresenter extends BasePresenter {
 
     @Override
     public View buildView() {
-        PageCells.ComingSoon listCell = new PageCells.ComingSoon();
+        Cells.ComingSoon listCell = new Cells.ComingSoon();
 
         return listCell.rootView;
     }

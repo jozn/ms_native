@@ -15,7 +15,7 @@ import com.mardomsara.social.json.HttpJsonList;
 import com.mardomsara.social.json.social.rows.UserInfoJson;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
 import com.mardomsara.social.ui.BasePresenter;
-import com.mardomsara.social.ui.cells.PageCells;
+import com.mardomsara.social.ui.cells.Cells;
 import com.mardomsara.social.ui.cells.lists.UserListWithAboutCell;
 import com.mardomsara.social.ui.views.helpers.ViewHelper;
 
@@ -30,7 +30,7 @@ public class FollowsListAboutPresenter extends BasePresenter implements AppHeade
         LIKES
     }
 
-    PageCells.NavAndRecylerView pageCell;
+    Cells.NavAndRecylerView pageCell;
 
 
     int ObjectId;
@@ -44,7 +44,7 @@ public class FollowsListAboutPresenter extends BasePresenter implements AppHeade
 
     @Override
     public View buildView() {
-        pageCell = new PageCells.NavAndRecylerView();
+        pageCell = new Cells.NavAndRecylerView();
         init();
         return pageCell.rootView;
     }

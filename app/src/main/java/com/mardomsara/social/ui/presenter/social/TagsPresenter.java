@@ -7,21 +7,16 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.mardomsara.social.R;
-import com.mardomsara.social.app.API;
 import com.mardomsara.social.base.Http.Http;
 import com.mardomsara.social.base.Http.Result;
-import com.mardomsara.social.base.HttpOld;
-import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.Helper;
-import com.mardomsara.social.helpers.JsonUtil;
 import com.mardomsara.social.json.HttpJsonList;
-import com.mardomsara.social.json.social.http.HomeStreamJson;
 import com.mardomsara.social.json.social.rows.PostRowJson;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
 import com.mardomsara.social.ui.BasePresenter;
+import com.mardomsara.social.ui.cells.Cells;
 import com.mardomsara.social.ui.ui.UIPostsList;
-import com.mardomsara.social.ui.cells.PageCells;
 import com.mardomsara.social.ui.views.helpers.ViewHelper;
 
 import butterknife.Bind;
@@ -48,7 +43,7 @@ public class TagsPresenter extends BasePresenter
 
     @Override
     public View buildView() {
-        PageCells.NavAndEmptyView page = new PageCells.NavAndEmptyView();
+        Cells.NavAndEmptyView page = new Cells.NavAndEmptyView();
         page.simpleTopNav.setTitle(getTagNameTitle(this.tagName));
         viewRoot = page.rootView;
         load();

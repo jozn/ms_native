@@ -5,7 +5,7 @@ import android.view.ViewGroup;
 
 import com.mardomsara.social.json.social.rows.PostRowJson;
 import com.mardomsara.social.ui.BasePresenter;
-import com.mardomsara.social.ui.cells.PageCells;
+import com.mardomsara.social.ui.cells.Cells;
 import com.mardomsara.social.ui.cells.lists.CommentsListCell;
 import com.mardomsara.social.ui.cells.lists.CommentsWithAddFieldCell;
 import com.mardomsara.social.ui.cells.rows.PostRowCell;
@@ -23,7 +23,7 @@ public class PostEntryPresenter extends BasePresenter {
 
     @Override
     public View buildView() {
-        viewRoot = new PageCells.NavAndEmptyView().rootView;
+        viewRoot = new Cells.NavAndEmptyView().rootView;
 
         PostRowCell postCell = new PostRowCell(viewRoot);
         postCell.bind(postRowJson);
@@ -33,7 +33,7 @@ public class PostEntryPresenter extends BasePresenter {
         CommentsListCell commentsListCell = commentsWithAddFieldCell.commentsListCell;
         commentsListCell.adaptor.appendViewToHeader(postCell.getViewRoot());
 
-		PageCells.InfoTitle infoTitle = new PageCells.InfoTitle(commentsListCell.getViewRoot(),"نظرات");
+		Cells.Title_Info infoTitle = new Cells.Title_Info(commentsListCell.getViewRoot(),"نظرات");
 		commentsListCell.adaptor.appendViewToHeader(infoTitle.rootView);
 
         commentsListCell.layoutManager.setReverseLayout(false);

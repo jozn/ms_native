@@ -10,7 +10,7 @@ import com.mardomsara.social.play.presenters.Play_Http2TestPresenter;
 import com.mardomsara.social.play.presenters.Play_RecipiesPresenter;
 import com.mardomsara.social.play.presenters.Play_WSCallPresenter;
 import com.mardomsara.social.ui.BasePresenter;
-import com.mardomsara.social.ui.cells.PageCells;
+import com.mardomsara.social.ui.cells.Cells;
 import com.mardomsara.social.ui.presenter.HelloPresenter;
 
 /**
@@ -19,7 +19,7 @@ import com.mardomsara.social.ui.presenter.HelloPresenter;
 public class Play_TestsPresenter extends BasePresenter {
     @Override
     public View buildView() {
-        PageCells.Scroller cell =new PageCells.Scroller();
+        Cells.Scroller cell =new Cells.Scroller();
         ViewGroup rootView =cell.rootView;
         ViewGroup layout =cell.layout;
 
@@ -80,7 +80,7 @@ public class Play_TestsPresenter extends BasePresenter {
     }
 
     View newTitle(String title, Runnable runnable){
-        ViewGroup view = new PageCells.InfoTitle(null,title).rootView;
+        ViewGroup view = new Cells.Title_Info(null,title).rootView;
         view.setOnClickListener((v)->{
             runnable.run();
         });

@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import com.mardomsara.social.models.NotifyModel;
 import com.mardomsara.social.models.tables.Notify;
 import com.mardomsara.social.ui.BasePresenter;
-import com.mardomsara.social.ui.cells.PageCells;
+import com.mardomsara.social.ui.cells.Cells;
 import com.mardomsara.social.ui.cells.lists.NotifyListCell;
 
 import java.util.ArrayList;
@@ -30,7 +30,7 @@ public class NotifyPresenter extends BasePresenter {
         NotifyListCell listCell = new NotifyListCell(list0);
         viewRoot = listCell.getViewRoot();
 
-        PageCells.InfoTitleLight topTitle = new PageCells.InfoTitleLight(listCell.recycler_view);
+        Cells.Title_InfoLight topTitle = new Cells.Title_InfoLight(listCell.recycler_view);
         topTitle.setText("فعالیت های دیگران مرتبط به شما:");
         listCell.getAdaptor().appendViewToHeader(topTitle.rootView);
 

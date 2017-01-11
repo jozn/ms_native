@@ -15,7 +15,7 @@ import com.mardomsara.social.json.HttpJsonList;
 import com.mardomsara.social.json.social.rows.PostRowJson;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
 import com.mardomsara.social.ui.BasePresenter;
-import com.mardomsara.social.ui.cells.PageCells;
+import com.mardomsara.social.ui.cells.Cells;
 import com.mardomsara.social.ui.ui.UIPostsListGrid;
 import com.mardomsara.social.ui.views.helpers.ViewHelper;
 
@@ -47,11 +47,11 @@ public class SuggestionsPostsPresenter extends BasePresenter
         adaptor.setUpForPaginationWith(recycler_view,layoutManager,this);
         adaptor.showLoading();
 
-        PageCells.BigClickAbleTitle recent = new PageCells.BigClickAbleTitle(recycler_view);
+        Cells.Title_BigClickAble recent = new Cells.Title_BigClickAble(recycler_view);
         recent.setText("مشاهده جدیدترین پست ها");
         recent.setIcon("\uf2ca");
 
-        PageCells.InfoTitle topTitle = new PageCells.InfoTitle(recycler_view);
+        Cells.Title_Info topTitle = new Cells.Title_Info(recycler_view);
         topTitle.setText("پست های داغ");
 
         recent.rootView.setOnClickListener((v)->{

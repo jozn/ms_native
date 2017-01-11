@@ -17,7 +17,6 @@ import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.json.social.rows.UserTableJson;
 import com.mardomsara.social.models.Session;
 import com.mardomsara.social.ui.BasePresenter;
-import com.mardomsara.social.ui.cells.PageCells;
 import com.mardomsara.social.ui.views.wigets.SimpleTopNav;
 
 import java.util.Arrays;

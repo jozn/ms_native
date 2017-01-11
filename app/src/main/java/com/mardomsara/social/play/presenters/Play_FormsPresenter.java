@@ -9,7 +9,7 @@ import com.mardomsara.nexusdialog.controllers.EditTextController;
 import com.mardomsara.nexusdialog.controllers.FormSectionController;
 import com.mardomsara.nexusdialog.controllers.SelectionController;
 import com.mardomsara.social.ui.BasePresenter;
-import com.mardomsara.social.ui.cells.PageCells;
+import com.mardomsara.social.ui.cells.Cells;
 
 import java.util.Arrays;
 
@@ -24,7 +24,7 @@ public class Play_FormsPresenter extends BasePresenter {
 
     @Override
     public View buildView() {
-		PageCells.NavAndEmptyView page = new PageCells.NavAndEmptyView();
+		Cells.NavAndEmptyView page = new Cells.NavAndEmptyView();
 		page.simpleTopNav.setTitle("فرم");
         viewRoot = page.rootView;
 		Context ctx = getContext();

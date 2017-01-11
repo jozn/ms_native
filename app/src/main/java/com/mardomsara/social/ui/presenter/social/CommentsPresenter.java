@@ -4,7 +4,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.mardomsara.social.ui.BasePresenter;
-import com.mardomsara.social.ui.cells.PageCells;
+import com.mardomsara.social.ui.cells.Cells;
 import com.mardomsara.social.ui.cells.lists.CommentsWithAddFieldCell;
 
 /**
@@ -21,7 +21,7 @@ public class CommentsPresenter extends BasePresenter  {
 	ViewGroup viewRoot;
 	@Override
 	public View buildView() {
-		PageCells.NavAndEmptyView pageCell = new PageCells.NavAndEmptyView();
+		Cells.NavAndEmptyView pageCell = new Cells.NavAndEmptyView();
 		viewRoot = pageCell.rootView;
 
 		CommentsWithAddFieldCell commentsWithAddFieldCell = new CommentsWithAddFieldCell(postId,viewRoot);
