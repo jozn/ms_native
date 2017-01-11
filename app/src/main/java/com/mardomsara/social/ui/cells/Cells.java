@@ -23,6 +23,9 @@ import butterknife.ButterKnife;
 /**
  * Created by Hamid on 8/6/2016.
  */
+
+//Use this class for wrapping general more advanced view cell functionality,
+// most old class in this class are not necessary now thanks to new X.java class
 public class Cells {
 
     public static class NavAndRecylerView {
