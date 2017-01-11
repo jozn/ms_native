@@ -197,4 +197,28 @@ public class Cells {
 			text_view.setText(spanny);
 		}
 	}
+
+	/**
+	 * Created by Hamid on 8/6/2016.
+	 */
+	public static class LoadingCell {
+		public ViewGroup rootView;
+	//    @Bind(R.id.progress_wheel)
+	//    ProgressWheel progressWheel;
+
+		public LoadingCell() {
+			rootView = (ViewGroup) AppUtil.inflate(R.layout.loading_row);
+	//        ButterKnife.bind(this, rootView);
+	//        progressWheel.
+		}
+		public LoadingCell(ViewGroup parent) {
+			rootView = (ViewGroup) AppUtil.inflate(R.layout.cell_loading,parent);
+			ButterKnife.bind(this, rootView);
+	//        progressWheel.spin();
+	//        progressWheel.setBarColor(Color.GREEN);
+	//        progressWheel.setProgress(0.8f);
+	//        progressWheel.
+		}
+
+	}
 }

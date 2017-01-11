@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import com.mardomsara.social.R;
 import com.mardomsara.social.app.Config;
 import com.mardomsara.social.helpers.AppUtil;
-import com.mardomsara.social.ui.cells.LoadingCell;
+import com.mardomsara.social.ui.cells.Cells;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -219,7 +219,7 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
     boolean isShowingLoading = false;
     public void showLoading(){
         if( ! isShowingLoading){
-            loading = new LoadingCell(recyclerView).rootView;
+            loading = new Cells.LoadingCell(recyclerView).rootView;
             appendViewToFooter(loading);
             isShowingLoading =true;
         }
