@@ -1,0 +1,2 @@
+day 605 - 11/1/2017
+remove in long term libs: calligraphy, fresco, butterknife
