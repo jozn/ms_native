@@ -1569,6 +1569,21 @@ public class X {
     }
 
 
+    public static class Rv_EmptyNote {
+        public RelativeLayout root;
+        public IconTextView empty_note;
+
+        public Rv_EmptyNote(ViewGroup parent) {
+            root = (RelativeLayout) AppUtil.inflate(R.layout.rv__empty_note,parent);
+            empty_note = (IconTextView) root.findViewById( R.id.empty_note);
+        }
+
+        public Rv_EmptyNote() {
+            this(null);
+        }
+    }
+
+
     public static class TabCellGeneral {
         public LinearLayout root;
         public TextView textView;

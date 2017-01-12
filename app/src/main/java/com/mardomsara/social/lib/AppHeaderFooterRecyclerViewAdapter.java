@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import com.mardomsara.social.R;
 import com.mardomsara.social.app.Config;
 import com.mardomsara.social.helpers.AppUtil;
+import com.mardomsara.social.ui.X;
 import com.mardomsara.social.ui.cells.Cells;
 
 import java.util.ArrayList;
@@ -350,6 +351,7 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
         };
     }
 
+	////////////////// Empty message  funcs ////////////////
 	String emptyMsg = "آیتمی برای نمایش وجود ندارد";
 	boolean enableAutoShowEmptyView = false;
 	boolean isShowingEmptyView = false;
@@ -359,12 +361,21 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
 		this.emptyMsg = emptyMsg;
 	}
 
+	public void setEmptyMsgView(View emptyView){
+		this.emptyMsgView = emptyView;
+	}
+
 	public void showEmptyView(String emptyMsg){
 		if(isShowingEmptyView)return;
 		isShowingEmptyView = true;
 		Runnable r = ()->{
 			setHasMorePage(false);
-			emptyMsgView= AppUtil.inflate(R.layout.wiget_app__headr_footer_recycler_empty_msg,recyclerView);
+			if(emptyMsgView == null){
+				X.Rv_EmptyNote emptyNote = new X.Rv_EmptyNote(recyclerView);
+				emptyNote.empty_note.setText(emptyMsg);
+				emptyMsgView = emptyNote.root;
+				//emptyMsgView= AppUtil.inflate(R.layout.wiget_app__headr_footer_recycler_empty_msg,recyclerView);
+			}
 			appendViewToHeader(emptyMsgView);
 			notifyDataChanged();
 		};
