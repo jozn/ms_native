@@ -323,19 +323,19 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
 	@Override
     public void onViewAttachedToWindow(RecyclerView.ViewHolder holder) {
         super.onViewAttachedToWindow(holder);
-		AppUtil.log("RV: onViewAttachedToWindow"+holder.getItemId());
-        if(scrollListener != null){
+		AppUtil.log("RV: onViewAttachedToWindow "+holder.toString());
+        /*if(scrollListener != null){
             recyclerView.addOnScrollListener(scrollListener);
-        }
+        }*/
     }
 
     @Override
     public void onViewDetachedFromWindow(RecyclerView.ViewHolder holder) {
         super.onViewDetachedFromWindow(holder);
-		AppUtil.log("RV: onViewAttachedToWindow"+holder.getItemId());
-        if(scrollListener != null){
+		AppUtil.log("RV: onViewAttachedToWindow "+holder.getLayoutPosition());
+        /*if(scrollListener != null){
             recyclerView.removeOnScrollListener(scrollListener);
-        }
+        }*/
     }
 
     public GridLayoutManager.SpanSizeLookup getSpanSizeForSimpleContentGridLayout(int contentSpanSize){
