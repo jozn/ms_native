@@ -101,7 +101,7 @@ public class PostsListCell
 				});
 			}
 		}else {
-//			adaptor.showReloader(res);
+//			adaptor.showFullTryReload(res);
 		}
 
 	}

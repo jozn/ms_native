@@ -24,6 +24,10 @@ import java.util.List;
 
 ///NOTICE: notify**Changed() shoulld not be called in here (we should not manuplate views in
 // here) it must be called from apps code -- it will be bugy
+
+//How to use:
+//in  Http result handler call nextPageLoaded(result) to check if http is wrong and it set "try reload view",
+//after trying unjsonized result call autoCheckAndSetEmptyView() to set empty view if view is empty
 public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.ViewHolder> extends
         HeaderFooterRecyclerViewAdapter<
                 T,
@@ -117,6 +121,7 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
 		return cnt;
 	}
 
+	@Deprecated
 	protected void policyOfEmptyKindOfViews(){
 		AndroidUtil.runInUiNoPanic(()->{
 			int cnt = getContentItemCount();
@@ -353,9 +358,9 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
 		}
 		if(result !=null && !result.isOk()){
 			if(getContentItemCount()==0){
-				showReloader(result);
+				showFullTryReload(result);
 			}
-			showReloader(result);
+			showFullTryReload(result);
 		}
 	}
 
@@ -432,7 +437,7 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
 	}
 
 	public void showEmptyView(String emptyMsg){
-		if(isShowingEmptyNoteView)return;
+//		if(isShowingEmptyNoteView)return;
 		isShowingEmptyNoteView = true;
 		setHasMorePage(false);
 		if(emptyNoteView == null){
@@ -440,7 +445,7 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
 			emptyNote.empty_note.setText(emptyMsg);
 			emptyNoteView = emptyNote.root;
 		}
-		appendViewToHeader(emptyNoteView);
+		appendViewToHeaderIfNotExist(emptyNoteView);
 		notifyDataChanged();
 	}
 
@@ -449,7 +454,7 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
 	}
 
 	public void hideEmptyView(){
-		if(!isShowingEmptyNoteView)return;
+//		if(!isShowingEmptyNoteView)return;
 		isShowingEmptyNoteView = false;
 		removeViewFromHeader(emptyNoteView);
 		notifyDataChanged();
@@ -461,7 +466,11 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
 
 	X.Rv_FailedReload emptyReloader;
 	boolean isShowingFullReloaderNote;
-	public void showReloader(Result result){
+	public void showFullTryReload(Result result){
+		//if we have content dont set a full page
+		if(getContentItemCount() > 0){
+			return;
+		}
 		isShowingFullReloaderNote = true;
 		setHasMorePage(false);
 		hideEmptyView();

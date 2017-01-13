@@ -118,7 +118,7 @@ public class SearchPresenter extends BasePresenter {
 						}
 						adapter.notifyDataChanged();
 					}else {
-						adapter.showReloader(result);
+						adapter.showFullTryReload(result);
 					}
 				});
 		}
