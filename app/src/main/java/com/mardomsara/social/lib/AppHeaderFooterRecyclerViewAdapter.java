@@ -46,7 +46,6 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
 	RecyclerView recyclerView;
 	LinearLayoutManager layoutManager;
 	LoadNextPage pager;
-	int pageNum = 0;
 
 	////////////////// Empty message  funcs ////////////////
 	String emptyNoteMsg = "آیتمی برای نمایش وجود ندارد";
@@ -60,12 +59,12 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
 			public void onChanged() {
 				super.onChanged();
 				check();
-				policyOfEmptyKindOfViews();
+//				policyOfEmptyKindOfViews();
 			}
 
 			@Override
 			public void onItemRangeChanged(int positionStart, int itemCount) {
-//				super.onItemRangeChanged(positionStart, itemCount);
+				super.onItemRangeChanged(positionStart, itemCount);
 				check();
 			}
 
@@ -101,7 +100,6 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
 		});
 	}
 
-	//    RecyclerView recyclerView;
     @Override
     protected int getHeaderItemCount() {
         return headerViews.size();
@@ -115,14 +113,7 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
 	@Override
 	protected int getContentItemCount_0() {
 		int cnt = getContentItemCount();
-		policyOfEmptyKindOfViews();
-		/*if(cnt == 0 ){
-			if(enableAutoShowEmptyView) {
-				showEmptyView();
-			}
-		}else {
-			hideEmptyView();
-		}*/
+//		policyOfEmptyKindOfViews();
 		return cnt;
 	}
 
@@ -288,11 +279,6 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
 
     //////////////// For LoadingView ///////////////////////////////
     public void showLoading(){
-        if( ! isShowingLoading){
-            /*loadingView = new Cells.LoadingCell(recyclerView).rootView;
-            appendViewToFooter(loadingView);
-            isShowingLoading =true;*/
-        }
 		if(loadingView==null){
 			loadingView = new Cells.LoadingCell(recyclerView).rootView;
 		}
@@ -315,19 +301,13 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
 
     public  void setHasMorePage(boolean hasMore){
         if(hasMore){
-//            footerSize = 1;
 			//FIxme is getContentItemCount() >0 neccesory
             if(scrollListener != null && getContentItemCount() >0){
                 recyclerView.addOnScrollListener(scrollListener);
-//                notifyFooterItemChanged(0);
             }
         }else {
-//            footerSize = 0;
             if(scrollListener != null && getContentItemCount() >0){
 				scrollListener.setDisable(true);
-//                recyclerView.removeOnScrollListener(scrollListener);
-                //ME:dont do this it will crash: reason: child not attached???
-//                notifyFooterItemChanged(0);
             }
 			hideLoading();
 		}
@@ -379,6 +359,23 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
 		}
 	}
 
+	public void autoCheckAndSetEmptyView(){
+		int cnt = getContentItemCount();
+		if( !isLoadingContent()
+			&& enableAutoShowEmptyView == true
+			&& isShowingFullReloaderNote ==false
+			&& cnt == 0
+			) {
+			showEmptyView();
+		}else if ( !isLoadingContent() ) {
+
+		}
+
+		if(cnt!=0){
+			hideEmptyView();
+		}
+	}
+
 	protected boolean isLoadingContent(){
 		if(scrollListener != null){
 			return scrollListener.isLoading();
@@ -391,7 +388,6 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
         scrollListener =new AppEndlessRecyclerViewScrollListener(layoutManager,this){
             @Override
             public void onLoadMore(int page, int totalItemsCount) {
-//                loadNextPage();
 				Runnable r  = ()->{
 					if(pager!=null){
 						pager.loadNextPage(page);
@@ -400,30 +396,10 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
                 new Handler().post(r);
             }
         };
-        //ME: somehow if we attach scrollListener in here befor View attached to window it will
-        //crashe. so addStart it after attached in onAttached
+
 		if(recyclerView!=null){
 			recyclerView.addOnScrollListener(scrollListener);
 		}
-    }
-
-	//// FIXME: 1/13/2017 onViewAttachedToWindow is irvelent to
-	@Override
-    public void onViewAttachedToWindow(RecyclerView.ViewHolder holder) {
-//        super.onViewAttachedToWindow(holder);
-//		AppUtil.log("RV: onViewAttachedToWindow "+holder.toString());
-        /*if(scrollListener != null){
-            recyclerView.addOnScrollListener(scrollListener);
-        }*/
-    }
-
-    @Override
-    public void onViewDetachedFromWindow(RecyclerView.ViewHolder holder) {
-//        super.onViewDetachedFromWindow(holder);
-//		AppUtil.log("RV: onViewAttachedToWindow "+holder.getLayoutPosition());
-        /*if(scrollListener != null){
-            recyclerView.removeOnScrollListener(scrollListener);
-        }*/
     }
 
     public GridLayoutManager.SpanSizeLookup getSpanSizeForSimpleContentGridLayout(int contentSpanSize){
@@ -477,12 +453,6 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
 		isShowingEmptyNoteView = false;
 		removeViewFromHeader(emptyNoteView);
 		notifyDataChanged();
-
-//		Runnable r = ()->{
-
-//		};
-//		AndroidUtil.runInUiNoPanic(r);
-//		new Handler().post(r);
 	}
 
 	public void setEnableAutoShowEmptyView(boolean autoMsgView){
@@ -492,30 +462,27 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
 	X.Rv_FailedReload emptyReloader;
 	boolean isShowingFullReloaderNote;
 	public void showReloader(Result result){
-//		AndroidUtil.runInUiNoPanic(()->{
-//			if(isShowingFullReloaderNote)return;
-			isShowingFullReloaderNote = true;
-			setHasMorePage(false);
-			hideEmptyView();
-			if(emptyReloader == null){
-				emptyReloader = new X.Rv_FailedReload(recyclerView);
-			}
+		isShowingFullReloaderNote = true;
+		setHasMorePage(false);
+		hideEmptyView();
+		if(emptyReloader == null){
+			emptyReloader = new X.Rv_FailedReload(recyclerView);
+		}
 
-			if(result == null){
-				emptyReloader.reload.setText("No connection  "+ " net: "+AndroidUtil.isNetworkAvailable() + " ");
-			}else if(result.response != null && !result.response.isSuccessful()){
-				emptyReloader.reload.setText("re  "+ " net: "+AndroidUtil.isNetworkAvailable() + " " +result.response.code());
-			}else {
+		if(result == null){
+			emptyReloader.reload.setText("No connection  "+ " net: "+AndroidUtil.isNetworkAvailable() + " ");
+		}else if(result.response != null && !result.response.isSuccessful()){
+			emptyReloader.reload.setText("re  "+ " net: "+AndroidUtil.isNetworkAvailable() + " " +result.response.code());
+		}else {
 
-				emptyReloader.reload.setText("re 222 "+result.isOk() + " net: "+AndroidUtil.isNetworkAvailable() + " ");
-			}
-			emptyReloader.root.setBackgroundColor(Color.GREEN);
-			emptyReloader.reload.setOnClickListener((v)->{
-				reload();
-			});
-			appendViewToFooterIfNotExist(emptyReloader.root);
-			notifyDataChanged();
-//		});
+			emptyReloader.reload.setText("re 222 "+result.isOk() + " net: "+AndroidUtil.isNetworkAvailable() + " ");
+		}
+		emptyReloader.root.setBackgroundColor(Color.GREEN);
+		emptyReloader.reload.setOnClickListener((v)->{
+			reload();
+		});
+		appendViewToFooterIfNotExist(emptyReloader.root);
+		notifyDataChanged();
 	}
 
 	void hideFullReloader(){
@@ -527,9 +494,9 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
 	}
 
 
-
     ///////////////////////////////////////////////
-    ///// Class ///////////////
+    /////////////////// Class ////////////////////
+
     class ViewTag {
         View view;
         int typeId;
@@ -547,43 +514,7 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
 		final int SECTION_OFFSET = 10_000;
 
 		public Sectioned() {
-			/*registerAdapterDataObserver( new RecyclerView.AdapterDataObserver(){
 
-				@Override
-				public void onChanged() {
-					notifyDataChanged();
-				}
-
-				@Override
-				public void onItemRangeChanged(int positionStart, int itemCount) {
-					super.onItemRangeChanged(positionStart, itemCount);
-					notifyDataChanged();
-				}
-
-				@Override
-				public void onItemRangeChanged(int positionStart, int itemCount, Object payload) {
-					super.onItemRangeChanged(positionStart, itemCount, payload);
-					notifyDataChanged();
-				}
-
-				@Override
-				public void onItemRangeInserted(int positionStart, int itemCount) {
-					super.onItemRangeInserted(positionStart, itemCount);
-					notifyDataChanged();
-				}
-
-				@Override
-				public void onItemRangeRemoved(int positionStart, int itemCount) {
-					super.onItemRangeRemoved(positionStart, itemCount);
-					notifyDataChanged();
-				}
-
-				@Override
-				public void onItemRangeMoved(int fromPosition, int toPosition, int itemCount) {
-					super.onItemRangeMoved(fromPosition, toPosition, itemCount);
-					notifyDataChanged();
-				}
-			});*/
 		}
 
 		public void add(AppHeaderFooterRecyclerViewAdapter adpator){
@@ -731,105 +662,4 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
 		}
 	}
 
-    /*public interface Binder{
-        public void bind(int relativePosition);
-    }*/
-
 }
-
-
-		/*protected int getContentItemCount() {
-			int sum = 0;
-			for(SectionRow sectionRow: sections ){
-				sum += sectionRow.adapter.getItemCount();
-			}
-			return sum;
-		}
-
-		@Override
-		protected int getHeaderItemCount() {
-			return 0;
-		}
-
-		@Override
-		protected int getFooterItemCount() {
-			return super.getFooterItemCount();
-		}
-
-		@Override
-		protected int getContentItemCount_0() {
-			return super.getContentItemCount_0();
-		}
-
-		@Override
-		protected int getFooterItemViewType(int position) {
-			return super.getFooterItemViewType(position);
-		}
-
-		@Override
-		protected int getHeaderItemViewType(int position) {
-			return super.getHeaderItemViewType(position);
-		}
-
-		@Override
-		protected void onBindHeaderItemViewHolder(HeaderViewHolder headerViewHolder, int position) {
-			super.onBindHeaderItemViewHolder(headerViewHolder, position);
-		}
-
-		@Override
-		protected void onBindFooterItemViewHolder(FooterViewHolder footerViewHolder, int position) {
-			super.onBindFooterItemViewHolder(footerViewHolder, position);
-		}
-
-		@Override
-		protected FooterViewHolder onCreateFooterItemViewHolder(ViewGroup parent, int footerViewType) {
-			return super.onCreateFooterItemViewHolder(parent, footerViewType);
-		}
-
-		@Override
-		protected HeaderViewHolder onCreateHeaderItemViewHolder(ViewGroup parent, int headerViewType) {
-			return super.onCreateHeaderItemViewHolder(parent, headerViewType);
-		}
-
-		@Override
-		protected int getContentItemViewType(int position) {
-			return super.getContentItemViewType(position);
-		}
-
-		@Override
-		protected SectionHolder onCreateContentItemViewHolder(ViewGroup parent, int contentViewType) {
-			return null;
-		}
-
-		@Override
-		protected void onBindContentItemViewHolder(SectionHolder sectionHolder, int position) {
-
-		}
-
-		@Override
-		public long getItemId(int position) {
-			return super.getItemId(position);
-		}*/
-
-	/*public void onLoadMore(int page, int totalItemsCount) {
-//                loadNextPage();
-		Runnable r  = ()->{
-			if(pager!=null){
-				//workaround: onScroll in Endless... is called page 1 when reloaded
-				// : means we end up calling page 1 twice one ourself like loadfromserver(1)
-				// and another by Endless... scroll checker, so page 1 twice loads
-				// and then they the counts of items has bot changed so page 2 never will
-				// be called, and Endless... scroll remains in not wainting for page 1 complete.
-				if(isReload){
-					pager.loadNextPage(page+1);
-					scrollListener.decrCurrentPage();
-					isReload =false;
-				}else {
-					pager.loadNextPage(page);
-				}
-//						pageNum++;
-			}
-		};
-		new Handler().post(r);;
-	}*/
-

@@ -97,11 +97,13 @@ public class PostsListCell
 						adaptor.posts.addAll(data.Payload);
 						adaptor.notifyDataSetChanged();
 					}
+					adaptor.autoCheckAndSetEmptyView();
 				});
 			}
 		}else {
-			adaptor.showReloader(res);
+//			adaptor.showReloader(res);
 		}
+
 	}
 
 	private void hideRefreshLoading(){
