@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.mardomsara.social.R;
 import com.mardomsara.social.app.Config;
 import com.mardomsara.social.base.Http.Result;
 import com.mardomsara.social.helpers.AndroidUtil;
@@ -478,15 +479,21 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
 			emptyReloader = new X.Rv_FailedReload(recyclerView);
 		}
 
-		if(result == null){
+		if(AndroidUtil.isNetworkAvailable()){
+			emptyReloader.not_internet.setVisibility(View.GONE);
+		}else {
+			emptyReloader.not_internet.setVisibility(View.VISIBLE);
+			emptyReloader.not_internet.setText(R.string.rv_no_internet);
+		}
+		/*if(result == null){
 			emptyReloader.reload.setText("No connection  "+ " net: "+AndroidUtil.isNetworkAvailable() + " ");
 		}else if(result.response != null && !result.response.isSuccessful()){
 			emptyReloader.reload.setText("re  "+ " net: "+AndroidUtil.isNetworkAvailable() + " " +result.response.code());
 		}else {
 
 			emptyReloader.reload.setText("re 222 "+result.isOk() + " net: "+AndroidUtil.isNetworkAvailable() + " ");
-		}
-		emptyReloader.root.setBackgroundColor(Color.GREEN);
+		}*/
+//		emptyReloader.root.setBackgroundColor(Color.GREEN);
 		emptyReloader.reload.setOnClickListener((v)->{
 			reload();
 		});

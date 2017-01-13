@@ -127,4 +127,6 @@
     <string name="sms_join_inviation" > عضو شبکه اجتماعی و ارتباطی مردم سرا شو:
     https://cafebazaar.ir/app/com.mardomsara.social/?l=fa
     </string>
+    <string name="rv_network_error">خطا در دریافت</string>
+    <string name="rv_no_internet">به اینترنت متصل نیستید</string>
 </resources>

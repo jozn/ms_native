@@ -1571,11 +1571,13 @@ public class X {
 
     public static class Rv_EmptyNote {
         public RelativeLayout root;
-        public IconTextView empty_note;
+        public LinearLayout reload;
+        public TextView empty_note;
 
         public Rv_EmptyNote(ViewGroup parent) {
             root = (RelativeLayout) AppUtil.inflate(R.layout.rv__empty_note,parent);
-            empty_note = (IconTextView) root.findViewById( R.id.empty_note);
+            reload = (LinearLayout) root.findViewById( R.id.reload);
+            empty_note = (TextView) root.findViewById( R.id.empty_note);
         }
 
         public Rv_EmptyNote() {
@@ -1586,11 +1588,13 @@ public class X {
 
     public static class Rv_FailedReload {
         public RelativeLayout root;
-        public IconTextView reload;
+        public LinearLayout reload;
+        public IconTextView not_internet;
 
         public Rv_FailedReload(ViewGroup parent) {
             root = (RelativeLayout) AppUtil.inflate(R.layout.rv__failed_reload,parent);
-            reload = (IconTextView) root.findViewById( R.id.reload);
+            reload = (LinearLayout) root.findViewById( R.id.reload);
+            not_internet = (IconTextView) root.findViewById( R.id.not_internet);
         }
 
         public Rv_FailedReload() {

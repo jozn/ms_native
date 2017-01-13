@@ -7,15 +7,63 @@
     android:background="@color/white"
     >
 
-    <com.joanzapata.iconify.widget.IconTextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/reload"
+        android:minHeight="100dp"
+        android:minWidth="100dp"
+        android:padding="40dp"
         android:layout_gravity="center"
+        android:orientation="vertical"
+        android:layout_centerInParent="true"
         android:gravity="center"
-        android:text="empt msg connetion"
-        android:textAlignment="center"
-        style="@style/text_bold.black"
-        />
+        android:background="@color/light_geryer_2"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/reload"
+        >
+
+        <com.joanzapata.iconify.widget.IconTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="{ion-sad-outline 50dp}"
+            android:textAlignment="center"
+            style="@style/text_bold.black"
+            android:layout_marginBottom="12dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/rv_network_error"
+            android:layout_gravity="center"
+            android:gravity="center"
+            style="@style/text.normal.black"
+            />
+        <com.joanzapata.iconify.widget.IconTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/not_internet"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text=""
+            android:textAlignment="center"
+            style="@style/text_light"
+            />
+        <com.joanzapata.iconify.widget.IconTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="{ion-ios-reload 26dp} دوباره امتحان کن"
+            android:textAlignment="center"
+            style="@style/text_normal0.gray"
+            />
+
+    </LinearLayout>
+
 
 </RelativeLayout>
