@@ -21,7 +21,7 @@ public class LastPostsPresenter extends BasePresenter {
         PostsListCell listCell = new PostsListCell();
         listCell.setLoadingEndPoint(API.LATEST_POSTS_GET);
         viewRoot.addView(listCell.getViewRoot());
-        listCell.loadFromServer(0);
+        listCell.loadFromServer(1);
 
         return viewRoot;
     }

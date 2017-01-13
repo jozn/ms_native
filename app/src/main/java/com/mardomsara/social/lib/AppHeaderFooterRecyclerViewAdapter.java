@@ -1,5 +1,6 @@
 package com.mardomsara.social.lib;
 
+import android.graphics.Color;
 import android.os.Handler;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -37,9 +38,6 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
 
 	Sectioned sectioned;
 
-	@Deprecated
-	boolean isLoadingNextPage = false;
-
 	View loadingView;
 	boolean isShowingLoading = false;
 
@@ -51,10 +49,10 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
 	int pageNum = 0;
 
 	////////////////// Empty message  funcs ////////////////
-	String emptyMsg = "آیتمی برای نمایش وجود ندارد";
+	String emptyNoteMsg = "آیتمی برای نمایش وجود ندارد";
 	boolean enableAutoShowEmptyView = false;
-	boolean isShowingEmptyView = false;
-	View emptyMsgView;
+	boolean isShowingEmptyNoteView = false;
+	View emptyNoteView;
 
 	public AppHeaderFooterRecyclerViewAdapter() {
 		registerAdapterDataObserver(new RecyclerView.AdapterDataObserver(){
@@ -129,20 +127,22 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
 	}
 
 	protected void policyOfEmptyKindOfViews(){
-		int cnt = getContentItemCount();
-		if( !isLoadingContent()
-			&& enableAutoShowEmptyView == true
-			&& isShowingFullReloaderNote ==false
-			&& cnt == 0
-			) {
-			showEmptyView();
-		}else if ( !isLoadingContent() ) {
+		AndroidUtil.runInUiNoPanic(()->{
+			int cnt = getContentItemCount();
+			if( !isLoadingContent()
+				&& enableAutoShowEmptyView == true
+				&& isShowingFullReloaderNote ==false
+				&& cnt == 1000
+				) {
+				showEmptyView();
+			}else if ( !isLoadingContent() ) {
 
-		}
+			}
 
-		if(cnt!=0){
-			hideEmptyView();
-		}
+			if(cnt!=0){
+				hideEmptyView();
+			}
+		});
 	}
 
 	public void notifyDataChanged(){
@@ -235,6 +235,15 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
         footerViews.add(tag);
     }
 
+	public void appendViewToFooterIfNotExist(View view){
+		for(ViewTag tag : footerViews) {
+			if (tag.view == view) {
+				return;
+			}
+		}
+		appendViewToFooter(view);
+	}
+
     public int removeViewFromFooter(View view){
 		int num = -1;
         for(ViewTag tag : footerViews) {
@@ -246,6 +255,15 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
         }
 		return -1;
     }
+
+	public void appendViewToHeaderIfNotExist(View view){
+		for(ViewTag tag : headerViews) {
+			if (tag.view == view) {
+				return;
+			}
+		}
+		appendViewToHeader(view);
+	}
 
     public void appendViewToHeader(View view){
         headerTypeId++;
@@ -271,14 +289,21 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
     //////////////// For LoadingView ///////////////////////////////
     public void showLoading(){
         if( ! isShowingLoading){
-            loadingView = new Cells.LoadingCell(recyclerView).rootView;
+            /*loadingView = new Cells.LoadingCell(recyclerView).rootView;
             appendViewToFooter(loadingView);
-            isShowingLoading =true;
+            isShowingLoading =true;*/
         }
+		if(loadingView==null){
+			loadingView = new Cells.LoadingCell(recyclerView).rootView;
+		}
+		loadingView.setVisibility(View.VISIBLE);
+		appendViewToFooterIfNotExist(loadingView);
+		isShowingLoading =true;
     }
 
     public void hideLoading(){
-		getItemCount();
+		isShowingLoading =false;
+		getItemCount();//workaround?
 		if(loadingView != null){
 			loadingView.setVisibility(View.GONE);
 			int num = removeViewFromFooter(loadingView);
@@ -291,6 +316,7 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
     public  void setHasMorePage(boolean hasMore){
         if(hasMore){
 //            footerSize = 1;
+			//FIxme is getContentItemCount() >0 neccesory
             if(scrollListener != null && getContentItemCount() >0){
                 recyclerView.addOnScrollListener(scrollListener);
 //                notifyFooterItemChanged(0);
@@ -328,11 +354,28 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
 			scrollListener.callNextPage();
 			scrollListener.setLoading(true);
 		}
+		hideFullReloader();
+		hideEmptyView();
+		showLoading();
+
+		setHasMorePage(true);
 	}
 
 	public void nextPageIsLoaded(){
 		if(scrollListener!=null){
 			scrollListener.setLoading(false);
+		}
+	}
+
+	public void nextPageIsLoaded(Result result){
+		if(scrollListener!=null){
+			scrollListener.setLoading(false);
+		}
+		if(result !=null && !result.isOk()){
+			if(getContentItemCount()==0){
+				showReloader(result);
+			}
+			showReloader(result);
 		}
 	}
 
@@ -405,42 +448,40 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
 	////////////////// Empty message  funcs ////////////////
 
 	public void setEmptyMessage(String emptyMsg){
-		this.emptyMsg = emptyMsg;
+		this.emptyNoteMsg = emptyMsg;
 	}
 
-	public void setEmptyMsgView(View emptyView){
-		this.emptyMsgView = emptyView;
+	public void setEmptyNoteView(View emptyView){
+		this.emptyNoteView = emptyView;
 	}
 
 	public void showEmptyView(String emptyMsg){
-		if(isShowingEmptyView)return;
-		isShowingEmptyView = true;
-//		Runnable r = ()->{
-			setHasMorePage(false);
-			if(emptyMsgView == null){
-				X.Rv_EmptyNote emptyNote = new X.Rv_EmptyNote(recyclerView);
-				emptyNote.empty_note.setText(emptyMsg);
-				emptyMsgView = emptyNote.root;
-				//emptyMsgView= AppUtil.inflate(R.layout.wiget_app__headr_footer_recycler_empty_msg,recyclerView);
-			}
-			appendViewToHeader(emptyMsgView);
-			notifyDataChanged();
-//		};
-//		new Handler().post(r);
+		if(isShowingEmptyNoteView)return;
+		isShowingEmptyNoteView = true;
+		setHasMorePage(false);
+		if(emptyNoteView == null){
+			X.Rv_EmptyNote emptyNote = new X.Rv_EmptyNote(recyclerView);
+			emptyNote.empty_note.setText(emptyMsg);
+			emptyNoteView = emptyNote.root;
+		}
+		appendViewToHeader(emptyNoteView);
+		notifyDataChanged();
 	}
 
 	public void showEmptyView(){
-		showEmptyView(emptyMsg);
+		showEmptyView(emptyNoteMsg);
 	}
 
 	public void hideEmptyView(){
-		if(!isShowingEmptyView)return;
-		isShowingEmptyView = false;
-		Runnable r = ()->{
-			removeViewFromHeader(emptyMsgView);
-			notifyDataChanged();
-		};
-		AndroidUtil.runInUiNoPanic(r);
+		if(!isShowingEmptyNoteView)return;
+		isShowingEmptyNoteView = false;
+		removeViewFromHeader(emptyNoteView);
+		notifyDataChanged();
+
+//		Runnable r = ()->{
+
+//		};
+//		AndroidUtil.runInUiNoPanic(r);
 //		new Handler().post(r);
 	}
 
@@ -448,33 +489,41 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
 		enableAutoShowEmptyView = autoMsgView;
 	}
 
-	X.Rv_FailedReload emptyNote;
+	X.Rv_FailedReload emptyReloader;
 	boolean isShowingFullReloaderNote;
 	public void showReloader(Result result){
-		AndroidUtil.runInUiNoPanic(()->{
-			if(isShowingFullReloaderNote)return;
-
+//		AndroidUtil.runInUiNoPanic(()->{
+//			if(isShowingFullReloaderNote)return;
 			isShowingFullReloaderNote = true;
 			setHasMorePage(false);
 			hideEmptyView();
-			if(emptyNote == null){
-				emptyNote = new X.Rv_FailedReload(recyclerView);
+			if(emptyReloader == null){
+				emptyReloader = new X.Rv_FailedReload(recyclerView);
 			}
 
 			if(result == null){
-				emptyNote.reload.setText("No connection  "+ " net: "+AndroidUtil.isNetworkAvailable() + " ");
+				emptyReloader.reload.setText("No connection  "+ " net: "+AndroidUtil.isNetworkAvailable() + " ");
 			}else if(result.response != null && !result.response.isSuccessful()){
-				emptyNote.reload.setText("re  "+ " net: "+AndroidUtil.isNetworkAvailable() + " " +result.response.code());
+				emptyReloader.reload.setText("re  "+ " net: "+AndroidUtil.isNetworkAvailable() + " " +result.response.code());
 			}else {
 
-				emptyNote.reload.setText("re 222 "+result.isOk() + " net: "+AndroidUtil.isNetworkAvailable() + " ");
+				emptyReloader.reload.setText("re 222 "+result.isOk() + " net: "+AndroidUtil.isNetworkAvailable() + " ");
 			}
-			emptyNote.reload.setOnClickListener((v)->{
+			emptyReloader.root.setBackgroundColor(Color.GREEN);
+			emptyReloader.reload.setOnClickListener((v)->{
 				reload();
 			});
-			appendViewToFooter(emptyNote.root);
+			appendViewToFooterIfNotExist(emptyReloader.root);
 			notifyDataChanged();
-		});
+//		});
+	}
+
+	void hideFullReloader(){
+		isShowingFullReloaderNote = false;
+		if(emptyReloader != null){
+			removeViewFromFooter(emptyReloader.root);
+			notifyDataChanged();
+		}
 	}
 
 

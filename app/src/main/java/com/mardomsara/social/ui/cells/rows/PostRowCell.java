@@ -123,7 +123,7 @@ public class PostRowCell {
     public void bind(@NonNull PostRowJson post) {
         this.post = post;
 //        text.setText(LangUtil.limitText(post.Text, 120));
-        text.setTextWithLimits(LangUtil.limitText(post.Text, 12000),120);
+        text.setTextWithLimits(LangUtil.limitText(post.Text, 1600),160);
         user_name.setText(post.Sender.getFullName());
         date.setText(FormaterUtil.timeAgo(post.CreatedTime));
         Uri imageUri = Helper.PathToUserAvatarUri(post.Sender.AvatarUrl);

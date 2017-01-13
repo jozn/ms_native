@@ -366,7 +366,7 @@ public class ChatRoomPresenter extends BasePresenter implements
 
 	@Subscribe(threadMode = ThreadMode.MAIN)
 	public void onEvent(MsgReceivedToPeerJson data){
-		logIt("event new: MsgReceivedToPeerJson " + data.toString());
+		logIt("event new: MsgReceivedToPeerJson  " + data.toString());
 		if(data.RoomKey.equals(room.RoomKey)){
 			Message msg = messagesAdaptor.msgs.getByKey(data.MsgKey);
 			if(msg != null){

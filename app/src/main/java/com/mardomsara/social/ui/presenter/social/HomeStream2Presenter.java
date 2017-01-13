@@ -21,7 +21,7 @@ public class HomeStream2Presenter extends BasePresenter {
         PostsListCell listCell = new PostsListCell();
         listCell.setLoadingEndPoint(API.BASE_DOMAIN_URL_STR+"/v1/post/stream");
         viewRoot.addView(listCell.getViewRoot());
-        listCell.loadFromServer(0);
+        listCell.loadFromServer(1);
 
         return viewRoot;
     }

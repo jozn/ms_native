@@ -52,7 +52,7 @@
     </style>
 
     <style name="text_bold">
-        <item name="fontPath">@string/font_iran_bold</item>
+        <item name="fontPath">@string/font_iran_medium</item>
     </style>
 
     <style name="text_bold.black">
@@ -60,7 +60,7 @@
     </style>
 
     <style name="text_normal0">
-        <item name="fontPath">@string/font_iran_light</item>
+        <item name="fontPath">@string/font_iran</item>
         <item name="android:textSize">14dp</item>
     </style>
 

@@ -82,6 +82,7 @@ public class PostsListCell
 	private void loadedPostsFromNetNew(Result res, int page) {
 		hideRefreshLoading();
 		Helper.showDebugMessage("Http isOk?:  " + res.isOk());
+		adaptor.nextPageIsLoaded(res);
 		if(res.isOk()) {
 			HttpJsonList<PostRowJson> data= Result.fromJsonList(res, PostRowJson.class);
 			if(data != null){

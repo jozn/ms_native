@@ -5,6 +5,7 @@
     <string name="font_linear">fonts/linear.ttf</string>
     <string name="linear_font">fonts/linear.ttf</string>
     <string name="font_iran_medium">fonts/IRAN_Sans_Medium.ttf</string>
+    <string name="font_iran_medium2">fonts/IRAN_Sans_Medium2.ttf</string>
     <string name="font_iran_light">fonts/IRAN_Sans_Light.ttf</string>
     <string name="font_iran_bold">fonts/IRAN_Sans_Bold.ttf</string>
     <string name="font_iran_ultraLight">fonts/IRAN_Sans_UltraLight.ttf</string>
