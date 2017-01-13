@@ -1,5 +1,6 @@
 package com.mardomsara.social.base.Http;
 
+import android.support.annotation.Nullable;
 import android.util.Log;
 
 import com.google.gson.Gson;
@@ -17,7 +18,7 @@ public class Result<T>{
     protected boolean ok = false;
     public String data = "";
     public T parsedJson = null;
-    public Response response;
+    @Nullable public Response response;
     public byte[] bytes;
 
     public boolean isOk(){
@@ -63,8 +64,8 @@ public class Result<T>{
             Log.e("JSON: ","error in Result.fromJsonList parsing: "+e.toString() );
             e.printStackTrace();
         }
-
-        if(j == null){
+		//// TODO: 1/12/2017 check for list.size == 0 set ok to false
+		if(j == null){
             result.ok = false;
             result.parsedJson = null;
         }else {

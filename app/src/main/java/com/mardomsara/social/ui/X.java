@@ -1584,6 +1584,21 @@ public class X {
     }
 
 
+    public static class Rv_FailedReload {
+        public RelativeLayout root;
+        public IconTextView reload;
+
+        public Rv_FailedReload(ViewGroup parent) {
+            root = (RelativeLayout) AppUtil.inflate(R.layout.rv__failed_reload,parent);
+            reload = (IconTextView) root.findViewById( R.id.reload);
+        }
+
+        public Rv_FailedReload() {
+            this(null);
+        }
+    }
+
+
     public static class TabCellGeneral {
         public LinearLayout root;
         public TextView textView;

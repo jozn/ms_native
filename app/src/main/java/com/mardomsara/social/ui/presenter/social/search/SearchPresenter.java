@@ -1,6 +1,5 @@
 package com.mardomsara.social.ui.presenter.social.search;
 
-import android.graphics.Color;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -115,9 +114,11 @@ public class SearchPresenter extends BasePresenter {
 							adapter.notifyDataChanged();
 						}else {
 							adapter.list.clear();
-							adapter.showEmptyView();
+//							adapter.showEmptyView();
 						}
 						adapter.notifyDataChanged();
+					}else {
+						adapter.showReloader(result);
 					}
 				});
 		}

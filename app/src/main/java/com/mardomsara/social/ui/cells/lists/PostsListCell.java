@@ -8,19 +8,14 @@ import android.view.ViewGroup;
 
 import com.mardomsara.social.base.Http.Http;
 import com.mardomsara.social.base.Http.Result;
-import com.mardomsara.social.base.HttpOld;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.Helper;
-import com.mardomsara.social.helpers.JsonUtil;
 import com.mardomsara.social.json.HttpJsonList;
-import com.mardomsara.social.json.social.http.HomeStreamJson;
 import com.mardomsara.social.json.social.rows.PostRowJson;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
 import com.mardomsara.social.ui.ui.UIPostsList;
 import com.mardomsara.social.ui.views.helpers.ViewHelper;
-
-import java.util.List;
 
 /**
  * Created by Hamid on 8/26/2016.
@@ -85,20 +80,25 @@ public class PostsListCell
 
 	private void loadedPostsFromNetNew(Result res, int page) {
 		hideRefreshLoading();
-		HttpJsonList<PostRowJson> data= Result.fromJsonList(res, PostRowJson.class);
-		if(data != null){
-			AndroidUtil.runInUiNoPanic(()->{
-				if(data.Payload.size() == 0){
-					adaptor.setHasMorePage(false);
-				}
-				if( data.isPayloadNoneEmpty() ){
-					if(page == 1){
-						adaptor.posts.clear();
+		Helper.showDebugMessage("Http isOk?:  " + res.isOk());
+		if(res.isOk()) {
+			HttpJsonList<PostRowJson> data= Result.fromJsonList(res, PostRowJson.class);
+			if(data != null){
+				AndroidUtil.runInUiNoPanic(()->{
+					if(data.Payload.size() == 0){
+						adaptor.setHasMorePage(false);
 					}
-					adaptor.posts.addAll(data.Payload);
-					adaptor.notifyDataSetChanged();
-				}
-			});
+					if( data.isPayloadNoneEmpty() ){
+						if(page == 1){
+							adaptor.posts.clear();
+						}
+						adaptor.posts.addAll(data.Payload);
+						adaptor.notifyDataSetChanged();
+					}
+				});
+			}
+		}else {
+			adaptor.showReloader(res);
 		}
 	}
 

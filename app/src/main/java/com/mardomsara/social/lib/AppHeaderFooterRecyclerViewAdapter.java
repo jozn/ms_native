@@ -7,8 +7,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.mardomsara.social.R;
 import com.mardomsara.social.app.Config;
+import com.mardomsara.social.base.Http.Result;
+import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.ui.X;
 import com.mardomsara.social.ui.cells.Cells;
@@ -40,13 +41,13 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
 		registerAdapterDataObserver(new RecyclerView.AdapterDataObserver(){
 			@Override
 			public void onChanged() {
-				super.onChanged();
+//				super.onChanged();
 				check();
 			}
 
 			@Override
 			public void onItemRangeChanged(int positionStart, int itemCount) {
-				super.onItemRangeChanged(positionStart, itemCount);
+//				super.onItemRangeChanged(positionStart, itemCount);
 				check();
 			}
 
@@ -95,15 +96,15 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
 
 	@Override
 	protected int getContentItemCount_0() {
-		int s = getContentItemCount();
-		if(s == 0 ){
+		int cnt = getContentItemCount();
+		if(cnt == 0 ){
 			if(enableAutoShowEmptyView) {
 				showEmptyView();
 			}
 		}else {
 			hideEmptyView();
 		}
-		return s;
+		return cnt;
 	}
 
 	public void notifyDataChanged(){
@@ -216,21 +217,21 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
     }
 
     //////////////// For LoadingView ///////////////////////////////
-    View loading;
+    View loadingView;
     boolean isShowingLoading = false;
     public void showLoading(){
         if( ! isShowingLoading){
-            loading = new Cells.LoadingCell(recyclerView).rootView;
-            appendViewToFooter(loading);
+            loadingView = new Cells.LoadingCell(recyclerView).rootView;
+            appendViewToFooter(loadingView);
             isShowingLoading =true;
         }
     }
 
     public void hideLoading(){
 		getItemCount();
-		if(loading!= null){
-			loading.setVisibility(View.GONE);
-			int num = removeViewFromFooter(loading);
+		if(loadingView != null){
+			loadingView.setVisibility(View.GONE);
+			int num = removeViewFromFooter(loadingView);
 			if(num >= 0){
 				notifyFooterItemRemoved(num);
 			}
@@ -297,7 +298,7 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
 		}
 	}
 
-    public void listenOnScroll(){
+    protected void listenOnScroll(){
 
         scrollListener =new AppEndlessRecyclerViewScrollListener(layoutManager,this){
             @Override
@@ -313,12 +314,16 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
         };
         //ME: somehow if we attach scrollListener in here befor View attached to window it will
         //crashe. so addStart it after attached in onAttached
-//        recyclerView.addOnScrollListener(scrollListener);
+		if(recyclerView!=null){
+			recyclerView.addOnScrollListener(scrollListener);
+		}
     }
 
-    @Override
+	//// FIXME: 1/13/2017 onViewAttachedToWindow is irvelent to
+	@Override
     public void onViewAttachedToWindow(RecyclerView.ViewHolder holder) {
         super.onViewAttachedToWindow(holder);
+		AppUtil.log("RV: onViewAttachedToWindow"+holder.getItemId());
         if(scrollListener != null){
             recyclerView.addOnScrollListener(scrollListener);
         }
@@ -327,6 +332,7 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
     @Override
     public void onViewDetachedFromWindow(RecyclerView.ViewHolder holder) {
         super.onViewDetachedFromWindow(holder);
+		AppUtil.log("RV: onViewAttachedToWindow"+holder.getItemId());
         if(scrollListener != null){
             recyclerView.removeOnScrollListener(scrollListener);
         }
@@ -393,10 +399,41 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
 			removeViewFromHeader(emptyMsgView);
 			notifyDataChanged();
 		};
-		new Handler().post(r);
+		AndroidUtil.runInUiNoPanic(r);
+//		new Handler().post(r);
 	}
+
 	public void setEnableAutoShowEmptyView(boolean autoMsgView){
 		enableAutoShowEmptyView = autoMsgView;
+	}
+
+	X.Rv_FailedReload emptyNote;
+	boolean isShowingReloaderNote;
+	public void showReloader(Result result){
+		AndroidUtil.runInUiNoPanic(()->{
+			if(isShowingReloaderNote)return;
+
+			isShowingReloaderNote = true;
+			setHasMorePage(false);
+			hideEmptyView();
+			if(emptyNote == null){
+				emptyNote = new X.Rv_FailedReload(recyclerView);
+			}
+
+			if(result == null){
+				emptyNote.reload.setText("No connection  "+ " net: "+AndroidUtil.isNetworkAvailable() + " ");
+			}else if(result.response != null && !result.response.isSuccessful()){
+				emptyNote.reload.setText("re  "+ " net: "+AndroidUtil.isNetworkAvailable() + " " +result.response.code());
+			}else {
+
+				emptyNote.reload.setText("re 222 "+result.isOk() + " net: "+AndroidUtil.isNetworkAvailable() + " ");
+			}
+			emptyNote.reload.setOnClickListener((v)->{
+				reload();
+			});
+			appendViewToFooter(emptyNote.root);
+			notifyDataChanged();
+		});
 	}
 
 

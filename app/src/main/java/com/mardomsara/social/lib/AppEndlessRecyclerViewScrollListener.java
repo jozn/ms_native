@@ -10,7 +10,7 @@ import com.mardomsara.social.helpers.AppUtil;
 
 public abstract class AppEndlessRecyclerViewScrollListener extends RecyclerView.OnScrollListener {
     // The minimum amount of items to have below your current scroll position
-    // before loading more.
+    // before loadingView more.
     private int visibleThreshold = 5;
     // The current offsetType index of data you have loaded
     private int currentPage = 1;
@@ -110,14 +110,14 @@ public abstract class AppEndlessRecyclerViewScrollListener extends RecyclerView.
 
 		if(false){
 			calledCnt++;
-			AppUtil.log("loading: "+ loading + " lastVisibleItemPosition: "+lastVisibleItemPosition
+			AppUtil.log("loadingView: "+ loading + " lastVisibleItemPosition: "+lastVisibleItemPosition
 				+ " previousTotalItemCount: "+previousTotalItemCount
 				+ " totalItemCount: "+totalItemCount
 				+ "  currentPage: "+ currentPage
 				+ " calledCnt: "+ calledCnt);
 		}
 
-		// If it isn’t currently loading, we check to see if we have breached
+		// If it isn’t currently loadingView, we check to see if we have breached
 		// the visibleThreshold and need to reloadForAll more data.
 		// If we do need to reloadForAll some more data, we execute onLoadMore to fetch the data.
 		// threshold should reflect how many total columns there are too
@@ -149,7 +149,7 @@ public abstract class AppEndlessRecyclerViewScrollListener extends RecyclerView.
 		this.disable = disable;
 	}
 
-	// Defines the process for actually loading more data based on page
+	// Defines the process for actually loadingView more data based on page
     public abstract void onLoadMore(int page, int totalItemsCount);
 
 }
@@ -176,7 +176,7 @@ public abstract class AppEndlessRecyclerViewScrollListener extends RecyclerView.
 
 		if(true){
 			calledCnt++;
-			AppUtil.log("loading: "+ loading + " lastVisibleItemPosition: "+lastVisibleItemPosition
+			AppUtil.log("loadingView: "+ loadingView + " lastVisibleItemPosition: "+lastVisibleItemPosition
 				+ " previousTotalItemCount: "+previousTotalItemCount
 				+ " totalItemCount: "+totalItemCount
 				+ "  currentPage: "+ currentPage
@@ -188,36 +188,36 @@ public abstract class AppEndlessRecyclerViewScrollListener extends RecyclerView.
 		if (totalItemCount < previousTotalItemCount) {
 			this.currentPage = this.startingPageIndex;
 			this.previousTotalItemCount = totalItemCount;
-			this.loading = false;
+			this.loadingView = false;
 			if (totalItemCount == 0) {
-//                this.loading = true;
+//                this.loadingView = true;
 			}
 		}
-		// If it’s still loading, we check to see if the dataset count has
-		// changed, if so we conclude it has finished loading and update the current page
+		// If it’s still loadingView, we check to see if the dataset count has
+		// changed, if so we conclude it has finished loadingView and update the current page
 		// number and total item count.
-		if (loading && (totalItemCount > previousTotalItemCount)) {
+		if (loadingView && (totalItemCount > previousTotalItemCount)) {
 			//Me: i have changed this line many times, if there is wired thinhs in pagination its po
 			// posiible that this is causing problem
 //            */
 /*if(stopMore){//BY ME
-			loading = false;
+			loadingView = false;
 //            }*//*
 
 //			if(stopMore){//BY ME
-//				loading = false;
+//				loadingView = false;
 //            }
 			previousTotalItemCount = totalItemCount;
 		}
 
-		// If it isn’t currently loading, we check to see if we have breached
+		// If it isn’t currently loadingView, we check to see if we have breached
 		// the visibleThreshold and need to reloadForAll more data.
 		// If we do need to reloadForAll some more data, we execute onLoadMore to fetch the data.
 		// threshold should reflect how many total columns there are too
-		if (!loading && (lastVisibleItemPosition + visibleThreshold) > totalItemCount) {
+		if (!loadingView && (lastVisibleItemPosition + visibleThreshold) > totalItemCount) {
 			onLoadMore(currentPage, totalItemCount);
 			currentPage++;
-			loading = true;
+			loadingView = true;
 		}
 	}
 */

@@ -9,7 +9,7 @@ import com.mardomsara.social.helpers.AppUtil;
 
 public abstract class EndlessRecyclerViewScrollListener_BK extends RecyclerView.OnScrollListener {
     // The minimum amount of items to have below your current scroll position
-    // before loading more.
+    // before loadingView more.
     private int visibleThreshold = 5;
     // The current offsetType index of data you have loaded
     private int currentPage = 1;
@@ -93,7 +93,7 @@ public abstract class EndlessRecyclerViewScrollListener_BK extends RecyclerView.
 
 		if(true){
 			calledCnt++;
-			AppUtil.log("loading: "+ loading + " lastVisibleItemPosition: "+lastVisibleItemPosition
+			AppUtil.log("loadingView: "+ loading + " lastVisibleItemPosition: "+lastVisibleItemPosition
 				+ " previousTotalItemCount: "+previousTotalItemCount
 				+ " totalItemCount: "+totalItemCount
 				+ "  currentPage: "+ currentPage
@@ -107,11 +107,11 @@ public abstract class EndlessRecyclerViewScrollListener_BK extends RecyclerView.
 			this.previousTotalItemCount = totalItemCount;
 			this.loading = false;
 			if (totalItemCount == 0) {
-//                this.loading = true;
+//                this.loadingView = true;
 			}
 		}
-		// If it’s still loading, we check to see if the dataset count has
-		// changed, if so we conclude it has finished loading and update the current page
+		// If it’s still loadingView, we check to see if the dataset count has
+		// changed, if so we conclude it has finished loadingView and update the current page
 		// number and total item count.
 		if (loading && (totalItemCount > previousTotalItemCount)) {
 			//Me: i have changed this line many times, if there is wired thinhs in pagination its po
@@ -120,12 +120,12 @@ public abstract class EndlessRecyclerViewScrollListener_BK extends RecyclerView.
 			loading = false;
 //            }*/
 //			if(stopMore){//BY ME
-//				loading = false;
+//				loadingView = false;
 //            }
 			previousTotalItemCount = totalItemCount;
 		}
 
-		// If it isn’t currently loading, we check to see if we have breached
+		// If it isn’t currently loadingView, we check to see if we have breached
 		// the visibleThreshold and need to reloadForAll more data.
 		// If we do need to reloadForAll some more data, we execute onLoadMore to fetch the data.
 		// threshold should reflect how many total columns there are too
@@ -149,7 +149,7 @@ public abstract class EndlessRecyclerViewScrollListener_BK extends RecyclerView.
 		this.currentPage = currentPage;
 	}
 
-    // Defines the process for actually loading more data based on page
+    // Defines the process for actually loadingView more data based on page
     public abstract void onLoadMore(int page, int totalItemsCount);
 
 }
