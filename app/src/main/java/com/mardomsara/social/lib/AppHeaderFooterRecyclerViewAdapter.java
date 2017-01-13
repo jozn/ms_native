@@ -37,12 +37,32 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
 
 	Sectioned sectioned;
 
+	@Deprecated
+	boolean isLoadingNextPage = false;
+
+	View loadingView;
+	boolean isShowingLoading = false;
+
+	//// For multi pages ///////////
+	AppEndlessRecyclerViewScrollListener scrollListener;
+	RecyclerView recyclerView;
+	LinearLayoutManager layoutManager;
+	LoadNextPage pager;
+	int pageNum = 0;
+
+	////////////////// Empty message  funcs ////////////////
+	String emptyMsg = "آیتمی برای نمایش وجود ندارد";
+	boolean enableAutoShowEmptyView = false;
+	boolean isShowingEmptyView = false;
+	View emptyMsgView;
+
 	public AppHeaderFooterRecyclerViewAdapter() {
 		registerAdapterDataObserver(new RecyclerView.AdapterDataObserver(){
 			@Override
 			public void onChanged() {
-//				super.onChanged();
+				super.onChanged();
 				check();
+				policyOfEmptyKindOfViews();
 			}
 
 			@Override
@@ -97,17 +117,49 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
 	@Override
 	protected int getContentItemCount_0() {
 		int cnt = getContentItemCount();
-		if(cnt == 0 ){
+		policyOfEmptyKindOfViews();
+		/*if(cnt == 0 ){
 			if(enableAutoShowEmptyView) {
 				showEmptyView();
 			}
 		}else {
 			hideEmptyView();
-		}
+		}*/
 		return cnt;
 	}
 
+	protected void policyOfEmptyKindOfViews(){
+		int cnt = getContentItemCount();
+		if( !isLoadingContent()
+			&& enableAutoShowEmptyView == true
+			&& isShowingFullReloaderNote ==false
+			&& cnt == 0
+			) {
+			showEmptyView();
+		}else if ( !isLoadingContent() ) {
+
+		}
+
+		if(cnt!=0){
+			hideEmptyView();
+		}
+	}
+
 	public void notifyDataChanged(){
+		if(recyclerView != null){
+			if(recyclerView.isComputingLayout()){
+				AndroidUtil.runInUi(()->{
+					__notifyDataChanged();
+				});
+			} else {
+				__notifyDataChanged();
+			}
+		}else {
+			__notifyDataChanged();
+		}
+	}
+
+	private void __notifyDataChanged(){
 		if(sectioned!=null){
 			sectioned.notifyDataChanged();
 		}
@@ -217,8 +269,6 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
     }
 
     //////////////// For LoadingView ///////////////////////////////
-    View loadingView;
-    boolean isShowingLoading = false;
     public void showLoading(){
         if( ! isShowingLoading){
             loadingView = new Cells.LoadingCell(recyclerView).rootView;
@@ -237,14 +287,6 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
 			}
 		}
     }
-
-    //// For multi pages ///////////
-
-    AppEndlessRecyclerViewScrollListener scrollListener;
-    RecyclerView recyclerView;
-    LinearLayoutManager layoutManager;
-    LoadNextPage pager;
-    int pageNum = 0;
 
     public  void setHasMorePage(boolean hasMore){
         if(hasMore){
@@ -279,7 +321,6 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
         }
     }
 
-	boolean isReload = false;
 	public void reload(){
 		if(scrollListener!=null){
 			scrollListener.setDisable(false);
@@ -287,15 +328,19 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
 			scrollListener.callNextPage();
 			scrollListener.setLoading(true);
 		}
-//		if(pager!=null){
-//			pager.loadNextPage(1);
-//		}
 	}
 
 	public void nextPageIsLoaded(){
 		if(scrollListener!=null){
 			scrollListener.setLoading(false);
 		}
+	}
+
+	protected boolean isLoadingContent(){
+		if(scrollListener != null){
+			return scrollListener.isLoading();
+		}
+		return false;
 	}
 
     protected void listenOnScroll(){
@@ -309,7 +354,7 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
 						pager.loadNextPage(page);
 					}
 				};
-                new Handler().post(r);;
+                new Handler().post(r);
             }
         };
         //ME: somehow if we attach scrollListener in here befor View attached to window it will
@@ -358,10 +403,6 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
     }
 
 	////////////////// Empty message  funcs ////////////////
-	String emptyMsg = "آیتمی برای نمایش وجود ندارد";
-	boolean enableAutoShowEmptyView = false;
-	boolean isShowingEmptyView = false;
-	View emptyMsgView;
 
 	public void setEmptyMessage(String emptyMsg){
 		this.emptyMsg = emptyMsg;
@@ -374,7 +415,7 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
 	public void showEmptyView(String emptyMsg){
 		if(isShowingEmptyView)return;
 		isShowingEmptyView = true;
-		Runnable r = ()->{
+//		Runnable r = ()->{
 			setHasMorePage(false);
 			if(emptyMsgView == null){
 				X.Rv_EmptyNote emptyNote = new X.Rv_EmptyNote(recyclerView);
@@ -384,8 +425,8 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
 			}
 			appendViewToHeader(emptyMsgView);
 			notifyDataChanged();
-		};
-		new Handler().post(r);
+//		};
+//		new Handler().post(r);
 	}
 
 	public void showEmptyView(){
@@ -408,12 +449,12 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
 	}
 
 	X.Rv_FailedReload emptyNote;
-	boolean isShowingReloaderNote;
+	boolean isShowingFullReloaderNote;
 	public void showReloader(Result result){
 		AndroidUtil.runInUiNoPanic(()->{
-			if(isShowingReloaderNote)return;
+			if(isShowingFullReloaderNote)return;
 
-			isShowingReloaderNote = true;
+			isShowingFullReloaderNote = true;
 			setHasMorePage(false);
 			hideEmptyView();
 			if(emptyNote == null){

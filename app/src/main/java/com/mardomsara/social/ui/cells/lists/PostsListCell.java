@@ -40,6 +40,7 @@ public class PostsListCell
         recycler_view.setAdapter(adaptor);
         adaptor.setUpForPaginationWith(recycler_view,layoutManager,this);
         adaptor.showLoading();
+		adaptor.setEnableAutoShowEmptyView(true);
 
         refreshLayout.addView(recycler_view);
         refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {

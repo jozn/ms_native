@@ -16,7 +16,8 @@ public abstract class AppEndlessRecyclerViewScrollListener extends RecyclerView.
     private int currentPage = 1;
     // The total number of items in the dataset after the last load
     private int previousTotalItemCount = 0;
-    // True if we are still waiting for the last setOrReplace of data to load.
+
+	// True if we are still waiting for the last setOrReplace of data to load.
     private boolean loading = true;
     // Sets the starting page index
     private int startingPageIndex = 1;
@@ -149,6 +150,9 @@ public abstract class AppEndlessRecyclerViewScrollListener extends RecyclerView.
 		this.disable = disable;
 	}
 
+	public boolean isLoading() {
+		return loading;
+	}
 	// Defines the process for actually loadingView more data based on page
     public abstract void onLoadMore(int page, int totalItemsCount);
 

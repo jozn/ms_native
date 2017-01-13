@@ -67,6 +67,7 @@ public class FollowsListAboutPresenter extends BasePresenter implements AppHeade
             adaptor = new UserListWithAboutCell.Adapter();
             recycler_view.setAdapter(adaptor);
             adaptor.setUpForPaginationWith(recycler_view,layoutManager,this);
+			adaptor.setEnableAutoShowEmptyView(true);
 
             refreshLayout.addView(recycler_view);
             pageCell.rootView.addView(refreshLayout);
