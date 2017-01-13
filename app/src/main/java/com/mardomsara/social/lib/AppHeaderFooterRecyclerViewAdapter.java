@@ -322,8 +322,8 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
 	//// FIXME: 1/13/2017 onViewAttachedToWindow is irvelent to
 	@Override
     public void onViewAttachedToWindow(RecyclerView.ViewHolder holder) {
-        super.onViewAttachedToWindow(holder);
-		AppUtil.log("RV: onViewAttachedToWindow "+holder.toString());
+//        super.onViewAttachedToWindow(holder);
+//		AppUtil.log("RV: onViewAttachedToWindow "+holder.toString());
         /*if(scrollListener != null){
             recyclerView.addOnScrollListener(scrollListener);
         }*/
@@ -331,8 +331,8 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
 
     @Override
     public void onViewDetachedFromWindow(RecyclerView.ViewHolder holder) {
-        super.onViewDetachedFromWindow(holder);
-		AppUtil.log("RV: onViewAttachedToWindow "+holder.getLayoutPosition());
+//        super.onViewDetachedFromWindow(holder);
+//		AppUtil.log("RV: onViewAttachedToWindow "+holder.getLayoutPosition());
         /*if(scrollListener != null){
             recyclerView.removeOnScrollListener(scrollListener);
         }*/
