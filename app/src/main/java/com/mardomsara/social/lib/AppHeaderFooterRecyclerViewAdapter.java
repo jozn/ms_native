@@ -64,7 +64,6 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
 			public void onChanged() {
 				super.onChanged();
 				check();
-//				policyOfEmptyKindOfViews();
 			}
 
 			@Override
@@ -118,30 +117,9 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
 	@Override
 	protected int getContentItemCount_0() {
 		int cnt = getContentItemCount();
-//		policyOfEmptyKindOfViews();
 		return cnt;
 	}
-
-	@Deprecated
-	protected void policyOfEmptyKindOfViews(){
-		AndroidUtil.runInUiNoPanic(()->{
-			int cnt = getContentItemCount();
-			if( !isLoadingContent()
-				&& enableAutoShowEmptyView == true
-				&& isShowingFullReloaderNote ==false
-				&& cnt == 1000
-				) {
-				showEmptyView();
-			}else if ( !isLoadingContent() ) {
-
-			}
-
-			if(cnt!=0){
-				hideEmptyView();
-			}
-		});
-	}
-
+	
 	public void notifyDataChanged(){
 		if(recyclerView != null){
 			if(recyclerView.isComputingLayout()){
@@ -485,7 +463,7 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
 			emptyReloader.not_internet.setVisibility(View.VISIBLE);
 			emptyReloader.not_internet.setText(R.string.rv_no_internet);
 		}
-		
+
 		emptyReloader.reload.setOnClickListener((v)->{
 			reload();
 		});
