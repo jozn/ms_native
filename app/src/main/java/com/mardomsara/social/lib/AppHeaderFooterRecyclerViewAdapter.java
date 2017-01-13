@@ -485,15 +485,7 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
 			emptyReloader.not_internet.setVisibility(View.VISIBLE);
 			emptyReloader.not_internet.setText(R.string.rv_no_internet);
 		}
-		/*if(result == null){
-			emptyReloader.reload.setText("No connection  "+ " net: "+AndroidUtil.isNetworkAvailable() + " ");
-		}else if(result.response != null && !result.response.isSuccessful()){
-			emptyReloader.reload.setText("re  "+ " net: "+AndroidUtil.isNetworkAvailable() + " " +result.response.code());
-		}else {
-
-			emptyReloader.reload.setText("re 222 "+result.isOk() + " net: "+AndroidUtil.isNetworkAvailable() + " ");
-		}*/
-//		emptyReloader.root.setBackgroundColor(Color.GREEN);
+		
 		emptyReloader.reload.setOnClickListener((v)->{
 			reload();
 		});
