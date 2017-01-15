@@ -12,7 +12,7 @@ import com.mardomsara.social.ui.presenter.tabs.ChatTab;
 import com.mardomsara.social.ui.presenter.chats.GalleryChooserPresenter;
 import com.mardomsara.social.ui.presenter.tabs.AcitivityTab;
 import com.mardomsara.social.ui.presenter.pages.CommentsPage;
-import com.mardomsara.social.ui.presenter.social.FollowsListAboutPage;
+import com.mardomsara.social.ui.presenter.pages.FollowsListAboutPage;
 import com.mardomsara.social.ui.presenter.tabs.HomeTab;
 import com.mardomsara.social.ui.presenter.pages.PostEntryPage;
 import com.mardomsara.social.ui.presenter.pages.ProfilePage;
