@@ -22,6 +22,7 @@ import com.mardomsara.social.json.social.rows.PostRowJson;
 import com.mardomsara.social.json.social.rows.TopTagsWithPostsRowJson;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
 import com.mardomsara.social.ui.BasePresenter;
+import com.mardomsara.social.ui.cells.Cells;
 import com.mardomsara.social.ui.presenter.pages.PostEntryPage;
 import com.mardomsara.social.ui.presenter.pages.TagsPage;
 import com.mardomsara.social.ui.views.FontCache;
@@ -57,6 +58,10 @@ public class SuggestionsTagsPresenter extends BasePresenter implements AppHeader
         recycler_view.setAdapter(adaptor);
         adaptor.setUpForPaginationWith(recycler_view, layoutManager, this);
 
+		Cells.Title_Info topTitle = new Cells.Title_Info(recycler_view);
+		topTitle.setText("تگ های داغ");
+		adaptor.appendViewToHeaderIfNotExist(topTitle.rootView);
+
         adaptor.showLoading();
 
         refreshLayout.addView(recycler_view);
@@ -74,7 +79,7 @@ public class SuggestionsTagsPresenter extends BasePresenter implements AppHeader
 			.setFormParam("page",""+pageNum)
 			.doAsyncUi(result -> {
 
-				adaptor.nextPageIsLoaded();
+				adaptor.nextPageIsLoaded(result);
 				refreshLayout.setRefreshing(false);
 
 				if(result.isOk()){
