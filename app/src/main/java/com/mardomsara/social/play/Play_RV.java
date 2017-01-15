@@ -1,5 +1,7 @@
 package com.mardomsara.social.play;
 
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.ColorDrawable;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +20,9 @@ public class Play_RV extends RecyclerView.Adapter {
 	@Override
 	public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
 
+//		ColorDrawable
+//		BitmapDrawable
+//		android.R.dimen.dialog_min_width_major
 	}
 
 	@Override

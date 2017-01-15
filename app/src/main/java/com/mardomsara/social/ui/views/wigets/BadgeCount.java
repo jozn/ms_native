@@ -1,6 +1,7 @@
 package com.mardomsara.social.ui.views.wigets;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -10,6 +11,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.widget.TextView;
 
+import com.mardomsara.social.R;
 import com.mardomsara.social.helpers.AndroidUtil;
 
 /**
@@ -25,6 +27,8 @@ public class BadgeCount extends TextView {
 
     public BadgeCount(Context context, AttributeSet attrs) {
         super(context, attrs);
+		TypedArray att = context.obtainStyledAttributes(attrs, R.styleable.CountView2);
+    	att.getBoolean(R.styleable.CountView2_be_fast,false);
         init();
     }
 

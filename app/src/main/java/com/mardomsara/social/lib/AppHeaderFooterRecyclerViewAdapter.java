@@ -119,7 +119,7 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
 		int cnt = getContentItemCount();
 		return cnt;
 	}
-	
+
 	public void notifyDataChanged(){
 		if(recyclerView != null){
 			if(recyclerView.isComputingLayout()){

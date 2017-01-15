@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <attr name="fontPath" format="string" />
+    <!--<attr name="fontPath" format="string" />-->
+
+    <declare-styleable name="CountView2">
+        <attr name="be_fast" format="boolean" />
+
+    </declare-styleable>
 </resources>
