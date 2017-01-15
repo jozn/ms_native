@@ -16,7 +16,7 @@ import com.mardomsara.social.json.social.rows.CommentRowJson;
 import com.mardomsara.social.models.Comment;
 import com.mardomsara.social.models.Session;
 import com.mardomsara.social.ui.cells.lists.CommentsListCell;
-import com.mardomsara.social.ui.presenter.social.ProfilePage;
+import com.mardomsara.social.ui.presenter.pages.ProfilePage;
 
 import java.util.ArrayList;
 import java.util.List;

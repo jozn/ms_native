@@ -22,6 +22,8 @@ import com.mardomsara.social.json.social.rows.PostRowJson;
 import com.mardomsara.social.json.social.rows.TopTagsWithPostsRowJson;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
 import com.mardomsara.social.ui.BasePresenter;
+import com.mardomsara.social.ui.presenter.pages.PostEntryPage;
+import com.mardomsara.social.ui.presenter.pages.TagsPage;
 import com.mardomsara.social.ui.views.FontCache;
 import com.mardomsara.social.ui.views.helpers.ViewHelper;
 import com.squareup.picasso.Picasso;

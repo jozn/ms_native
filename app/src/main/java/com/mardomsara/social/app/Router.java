@@ -11,13 +11,13 @@ import com.mardomsara.social.ui.presenter.chats.ChatRoomPresenter;
 import com.mardomsara.social.ui.presenter.tabs.ChatTab;
 import com.mardomsara.social.ui.presenter.chats.GalleryChooserPresenter;
 import com.mardomsara.social.ui.presenter.tabs.AcitivityTab;
-import com.mardomsara.social.ui.presenter.social.CommentsPage;
+import com.mardomsara.social.ui.presenter.pages.CommentsPage;
 import com.mardomsara.social.ui.presenter.social.FollowsListAboutPage;
 import com.mardomsara.social.ui.presenter.tabs.HomeTab;
-import com.mardomsara.social.ui.presenter.social.PostEntryPage;
-import com.mardomsara.social.ui.presenter.social.ProfilePage;
+import com.mardomsara.social.ui.presenter.pages.PostEntryPage;
+import com.mardomsara.social.ui.presenter.pages.ProfilePage;
 import com.mardomsara.social.ui.presenter.tabs.SearchTab;
-import com.mardomsara.social.ui.presenter.social.TagsPage;
+import com.mardomsara.social.ui.presenter.pages.TagsPage;
 
 /**
  * Created by Hamid on 1/30/2016.

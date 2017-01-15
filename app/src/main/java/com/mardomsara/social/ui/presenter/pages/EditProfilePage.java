@@ -1,4 +1,4 @@
-package com.mardomsara.social.ui.presenter.social;
+package com.mardomsara.social.ui.presenter.pages;
 
 import android.content.Context;
 import android.view.View;

@@ -16,6 +16,7 @@ import com.mardomsara.social.json.social.rows.PostRowJson;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.cells.Cells;
+import com.mardomsara.social.ui.presenter.pages.LastPostsPage;
 import com.mardomsara.social.ui.ui.UIPostsListGrid;
 import com.mardomsara.social.ui.views.helpers.ViewHelper;
 
