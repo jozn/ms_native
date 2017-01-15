@@ -13,11 +13,11 @@ import com.mardomsara.social.ui.cells.rows.PostRowCell;
 /**
  * Created by Hamid on 8/26/2016.
  */
-public class PostEntryPresenter extends BasePresenter {
+public class PostEntryPage extends BasePresenter {
     ViewGroup viewRoot;
     PostRowJson postRowJson;
 
-    public PostEntryPresenter(PostRowJson postJson) {
+    public PostEntryPage(PostRowJson postJson) {
         postRowJson = postJson;
     }
 

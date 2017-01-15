@@ -11,10 +11,10 @@ import com.mardomsara.social.ui.cells.lists.CommentsWithAddFieldCell;
  * Created by Hamid on 7/25/2016.
  */
 //TODO merge to
-public class CommentsPresenter extends BasePresenter  {
+public class CommentsPage extends BasePresenter  {
 	int postId = 0;
 
-	public CommentsPresenter(int postId ) {
+	public CommentsPage(int postId ) {
 		this.postId = postId;
 	}
 

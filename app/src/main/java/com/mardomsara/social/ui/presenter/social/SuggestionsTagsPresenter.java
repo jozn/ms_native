@@ -153,7 +153,7 @@ public class SuggestionsTagsPresenter extends BasePresenter implements AppHeader
             text.setText("#"+tagJson.Tag.Name);
 
 			see_more.setOnClickListener((v)->{
-				Nav.push(new TagsPresenter(tagJson.Tag.Name));
+				Nav.push(new TagsPage(tagJson.Tag.Name));
 			});
 			see_more.setTypeface(FontCache.getIranLight());
 			see_more.setText("همه {ion-ios-arrow-left 12dp}");
@@ -195,7 +195,7 @@ public class SuggestionsTagsPresenter extends BasePresenter implements AppHeader
                     .into(image);
 
             View.OnClickListener onClick = (v)->{
-                Nav.push(new PostEntryPresenter(post));
+                Nav.push(new PostEntryPage(post));
             };
 
             image.setOnClickListener(onClick);

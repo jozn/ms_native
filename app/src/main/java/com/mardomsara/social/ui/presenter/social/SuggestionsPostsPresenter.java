@@ -55,7 +55,7 @@ public class SuggestionsPostsPresenter extends BasePresenter
         topTitle.setText("پست های داغ");
 
         recent.rootView.setOnClickListener((v)->{
-            Nav.push(new LastPostsPresenter());
+            Nav.push(new LastPostsPage());
         });
         adaptor.appendViewToHeader(recent.rootView);
         adaptor.appendViewToHeader(topTitle.rootView);

@@ -16,8 +16,7 @@ import com.mardomsara.social.json.social.rows.CommentRowJson;
 import com.mardomsara.social.models.Comment;
 import com.mardomsara.social.models.Session;
 import com.mardomsara.social.ui.cells.lists.CommentsListCell;
-import com.mardomsara.social.ui.presenter.social.ProfilePresenter;
-import com.mardomsara.social.ui.views.EmojiKeyboard;
+import com.mardomsara.social.ui.presenter.social.ProfilePage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,7 +47,7 @@ public class CommentRowCell {
     };
 
     View.OnClickListener gotoProfile = (v)->{
-        Nav.push(new ProfilePresenter(comment.UserId));
+        Nav.push(new ProfilePage(comment.UserId));
     };
 
     int i =0;

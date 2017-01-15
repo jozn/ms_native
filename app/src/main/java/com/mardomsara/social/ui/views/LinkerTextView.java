@@ -17,7 +17,7 @@ import android.widget.Toast;
 import com.mardomsara.social.Nav;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.lib.AppClickableSpan;
-import com.mardomsara.social.ui.presenter.social.TagsPresenter;
+import com.mardomsara.social.ui.presenter.social.TagsPage;
 
 /**
  * Created by Hamid on 2/4/2016.
@@ -71,7 +71,7 @@ public class LinkerTextView extends TextView {
             @Override
             public void onClick(View view) {
 //                Toast.makeText(AppUtil.getContext(), s, Toast.LENGTH_LONG).show();
-                Nav.push(new TagsPresenter(s.toString()));
+                Nav.push(new TagsPage(s.toString()));
             }
         };
         return clickableSpan;

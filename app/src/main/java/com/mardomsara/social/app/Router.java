@@ -11,13 +11,13 @@ import com.mardomsara.social.ui.presenter.chats.ChatRoomPresenter;
 import com.mardomsara.social.ui.presenter.tabs.ChatTab;
 import com.mardomsara.social.ui.presenter.chats.GalleryChooserPresenter;
 import com.mardomsara.social.ui.presenter.tabs.AcitivityTab;
-import com.mardomsara.social.ui.presenter.social.CommentsPresenter;
-import com.mardomsara.social.ui.presenter.social.FollowsListAboutPresenter;
+import com.mardomsara.social.ui.presenter.social.CommentsPage;
+import com.mardomsara.social.ui.presenter.social.FollowsListAboutPage;
 import com.mardomsara.social.ui.presenter.tabs.HomeTab;
-import com.mardomsara.social.ui.presenter.social.PostEntryPresenter;
-import com.mardomsara.social.ui.presenter.social.ProfilePresenter;
+import com.mardomsara.social.ui.presenter.social.PostEntryPage;
+import com.mardomsara.social.ui.presenter.social.ProfilePage;
 import com.mardomsara.social.ui.presenter.tabs.SearchTab;
-import com.mardomsara.social.ui.presenter.social.TagsPresenter;
+import com.mardomsara.social.ui.presenter.social.TagsPage;
 
 /**
  * Created by Hamid on 1/30/2016.
@@ -26,20 +26,20 @@ public class Router {
     public static PresenterPage getLikesPage(int PostId) {
 //        return new LikesPresenter(PostId);
 //        return new FollowsListPresenter(PostId, FollowsListPresenter.Type.LIKES);
-        return new FollowsListAboutPresenter(PostId, FollowsListAboutPresenter.Type.LIKES);
+        return new FollowsListAboutPage(PostId, FollowsListAboutPage.Type.LIKES);
     }
 
     public static PresenterPage getFollowersPage(int UserId) {
-        return new FollowsListAboutPresenter(UserId, FollowsListAboutPresenter.Type.FOLLOWERS);
+        return new FollowsListAboutPage(UserId, FollowsListAboutPage.Type.FOLLOWERS);
     }
 
     public static PresenterPage getFollowingsPage(int UserId) {
-        return new FollowsListAboutPresenter(UserId, FollowsListAboutPresenter.Type.FOLLOWING);
+        return new FollowsListAboutPage(UserId, FollowsListAboutPage.Type.FOLLOWING);
     }
 
     public static PresenterPage getCommontsPage(int PostId) {
 //        return new CommontsPresnter_DEP(PostId);
-        return new CommentsPresenter(PostId);
+        return new CommentsPage(PostId);
     }
 
     public static PresenterPage getChatPage() {
@@ -77,15 +77,15 @@ public class Router {
     }
 
     public static void goToProfile(int userId) {
-        Nav.push(new ProfilePresenter(userId));
+        Nav.push(new ProfilePage(userId));
     }
 
     public static void goToPost(PostRowJson postRowJson) {
-        Nav.push(new PostEntryPresenter(postRowJson));
+        Nav.push(new PostEntryPage(postRowJson));
     }
 
     public static void goToTag(String tag) {
-        Nav.push(new TagsPresenter(tag));
+        Nav.push(new TagsPage(tag));
     }
 
     public static void goToUserChatEntry(int UserId){
@@ -94,10 +94,10 @@ public class Router {
     }
 
     public static PresenterPage getMyProfile() {
-        return new ProfilePresenter(Session.getUserId());
+        return new ProfilePage(Session.getUserId());
     }
     public static void goToMyProfile() {
-        Nav.push(new ProfilePresenter(Session.getUserId()));
+        Nav.push(new ProfilePage(Session.getUserId()));
     }
 
     public static PresenterPage getAactivityPage() {

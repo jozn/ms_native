@@ -27,7 +27,7 @@ import butterknife.ButterKnife;
 /**
  * Created by Hamid on 8/14/2016.
  */
-public class EditProfilePresenter extends BasePresenter {
+public class EditProfilePage extends BasePresenter {
 
 //    @Bind(R.id.fullname) TextView fullname;
 

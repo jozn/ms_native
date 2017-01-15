@@ -11,7 +11,7 @@ import com.mardomsara.social.ui.cells.lists.PostsListCell;
 /**
  * Created by Hamid on 7/13/2016.
  */
-public class LastPostsPresenter extends BasePresenter {
+public class LastPostsPage extends BasePresenter {
     ViewGroup viewRoot;
 
     @Override

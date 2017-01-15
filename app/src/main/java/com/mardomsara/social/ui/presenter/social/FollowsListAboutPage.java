@@ -22,7 +22,7 @@ import com.mardomsara.social.ui.views.helpers.ViewHelper;
 /**
  * Created by Hamid on 8/6/2016.
  */
-public class FollowsListAboutPresenter extends BasePresenter implements AppHeaderFooterRecyclerViewAdapter.LoadNextPage {
+public class FollowsListAboutPage extends BasePresenter implements AppHeaderFooterRecyclerViewAdapter.LoadNextPage {
 
     public enum Type {
         FOLLOWING,
@@ -37,7 +37,7 @@ public class FollowsListAboutPresenter extends BasePresenter implements AppHeade
     Type listType;
     String urlEndpoint;
 
-    public FollowsListAboutPresenter(int objectId, Type type) {
+    public FollowsListAboutPage(int objectId, Type type) {
         ObjectId = objectId;
         this.listType = type;
     }

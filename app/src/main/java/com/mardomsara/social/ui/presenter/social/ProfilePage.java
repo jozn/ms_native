@@ -37,7 +37,7 @@ import butterknife.ButterKnife;
 /**
  * Created by Hamid on 8/14/2016.
  */
-public class ProfilePresenter extends BasePresenter implements AppHeaderFooterRecyclerViewAdapter.LoadNextPage {
+public class ProfilePage extends BasePresenter implements AppHeaderFooterRecyclerViewAdapter.LoadNextPage {
 
 //    @Bind(R.id.fullname) TextView fullname;
 
@@ -45,7 +45,7 @@ public class ProfilePresenter extends BasePresenter implements AppHeaderFooterRe
     @Bind(R.id.simpleTopNav) SimpleTopNav nav;
     int UserId;
     boolean isMyProfile =false;
-    public ProfilePresenter(int userId) {
+    public ProfilePage(int userId) {
         UserId = userId;
     }
 
@@ -236,7 +236,7 @@ public class ProfilePresenter extends BasePresenter implements AppHeaderFooterRe
 
 		void hideShowMyButns(){
 			button_edit_profile.setIconAndClicker("ویرایش پروفایل {icon-energy 26dp}",()->{
-				Nav.push(new EditProfilePresenter());
+				Nav.push(new EditProfilePage());
 			});
 
 			if(Session.isUserIdMe(UserId)){

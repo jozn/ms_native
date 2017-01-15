@@ -24,7 +24,7 @@ import butterknife.Bind;
 /**
  * Created by Hamid on 8/24/2016.
  */
-public class TagsPresenter extends BasePresenter
+public class TagsPage extends BasePresenter
         implements AppHeaderFooterRecyclerViewAdapter.LoadNextPage{
     String tagName = "";
 
@@ -37,7 +37,7 @@ public class TagsPresenter extends BasePresenter
     UIPostsList.PostsAdaptor adaptor;
     SwipeRefreshLayout refreshLayout;
 
-    public TagsPresenter(String tagName) {
+    public TagsPage(String tagName) {
         this.tagName = tagName;
     }
 
