@@ -1,17 +1,20 @@
-package com.mardomsara.social.ui.presenter.social;
+package com.mardomsara.social.ui.presenter.tabs;
 
 import android.view.View;
 
 import com.mardomsara.social.Nav;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.cells.Cells;
+import com.mardomsara.social.ui.presenter.social.SuggestionsPostsPresenter;
+import com.mardomsara.social.ui.presenter.social.SuggestionsTagsPresenter;
+import com.mardomsara.social.ui.presenter.social.SuggestionsUsersPresenter;
 import com.mardomsara.social.ui.presenter.social.search.SearchPresenter;
 import com.mardomsara.social.ui.ui.TabPagerAdaptor;
 
 /**
  * Created by Hamid on 8/23/2016.
  */
-public class SearchTabPresenter extends BasePresenter {
+public class SearchTab extends BasePresenter {
     @Override
     public View buildView() {
 		TabPagerAdaptor tabs = new TabPagerAdaptor();

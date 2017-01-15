@@ -1,4 +1,4 @@
-package com.mardomsara.social.ui.presenter.social;
+package com.mardomsara.social.ui.presenter.tabs;
 
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +11,7 @@ import com.mardomsara.social.ui.cells.lists.PostsListCell;
 /**
  * Created by Hamid on 7/13/2016.
  */
-public class HomeStream2Presenter extends BasePresenter {
+public class HomeTab extends BasePresenter {
     ViewGroup viewRoot;
 
     @Override

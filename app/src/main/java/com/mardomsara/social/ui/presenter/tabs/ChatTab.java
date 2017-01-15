@@ -1,4 +1,4 @@
-package com.mardomsara.social.ui.presenter.chats;
+package com.mardomsara.social.ui.presenter.tabs;
 
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -7,12 +7,14 @@ import android.view.View;
 import com.mardomsara.social.R;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.ui.BasePresenter;
+import com.mardomsara.social.ui.presenter.chats.RoomsListPresenter;
+import com.mardomsara.social.ui.presenter.chats.UserAndContactsPresenter;
 import com.mardomsara.social.ui.ui.TabPagerAdaptor;
 
 /**
  * Created by Hamid on 5/2/2016.
  */
-public class ChatTabPresenter extends BasePresenter {
+public class ChatTab extends BasePresenter {
     @Override
     public View buildView() {
         View l = AppUtil.inflate(R.layout.main_branch_chat);

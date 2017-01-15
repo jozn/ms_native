@@ -1,0 +1,5 @@
+15/1/2047
+Page is Presenter
+Tab is Page
+so: Tab > Page > Presenter -- in naming convention drop Presenter for Pages and Tabs
+===============

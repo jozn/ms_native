@@ -8,15 +8,15 @@ import com.mardomsara.social.models.Session;
 import com.mardomsara.social.models.tables.Room;
 import com.mardomsara.social.ui.presenter.HelloPresenter;
 import com.mardomsara.social.ui.presenter.chats.ChatRoomPresenter;
-import com.mardomsara.social.ui.presenter.chats.ChatTabPresenter;
+import com.mardomsara.social.ui.presenter.tabs.ChatTab;
 import com.mardomsara.social.ui.presenter.chats.GalleryChooserPresenter;
-import com.mardomsara.social.ui.presenter.social.AcitivityTabPresenter;
+import com.mardomsara.social.ui.presenter.tabs.AcitivityTab;
 import com.mardomsara.social.ui.presenter.social.CommentsPresenter;
 import com.mardomsara.social.ui.presenter.social.FollowsListAboutPresenter;
-import com.mardomsara.social.ui.presenter.social.HomeStream2Presenter;
+import com.mardomsara.social.ui.presenter.tabs.HomeTab;
 import com.mardomsara.social.ui.presenter.social.PostEntryPresenter;
 import com.mardomsara.social.ui.presenter.social.ProfilePresenter;
-import com.mardomsara.social.ui.presenter.social.SearchTabPresenter;
+import com.mardomsara.social.ui.presenter.tabs.SearchTab;
 import com.mardomsara.social.ui.presenter.social.TagsPresenter;
 
 /**
@@ -43,12 +43,12 @@ public class Router {
     }
 
     public static PresenterPage getChatPage() {
-        return new ChatTabPresenter();
+        return new ChatTab();
 //        return new ChatMainBranch();
     }
 
     public static PresenterPage getHomePage() {
-        return new HomeStream2Presenter();
+        return new HomeTab();
     }
 
     /*@Deprecated
@@ -65,7 +65,7 @@ public class Router {
     }
 
     public static PresenterPage getSearchPage() {
-        return new SearchTabPresenter();
+        return new SearchTab();
     }
 
     public static PresenterPage getHelloWolrdPage() {
@@ -101,7 +101,7 @@ public class Router {
     }
 
     public static PresenterPage getAactivityPage() {
-        return new AcitivityTabPresenter();
+        return new AcitivityTab();
 //        return new HelloPresenter();
 //        return new ProfilePresenter(Session.getUserId());
     }
