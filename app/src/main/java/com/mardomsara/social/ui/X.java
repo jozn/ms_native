@@ -7,6 +7,7 @@ import android.webkit.WebView;
 
 
 import android.support.design.widget.TabLayout;
+import android.support.percent.PercentRelativeLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.RecyclerView;
 import com.facebook.drawee.view.SimpleDraweeView;
@@ -298,6 +299,21 @@ public class X {
         }
 
         public ChatListRow_Realative() {
+            this(null);
+        }
+    }
+
+
+    public static class Common_OneThirdImage {
+        public FrameLayout root;
+        public ImageView img;
+
+        public Common_OneThirdImage(ViewGroup parent) {
+            root = (FrameLayout) AppUtil.inflate(R.layout.common__one_third_image,parent);
+            img = (ImageView) root.findViewById( R.id.img);
+        }
+
+        public Common_OneThirdImage() {
             this(null);
         }
     }
@@ -1382,17 +1398,17 @@ public class X {
         public RelativeLayout root;
         public TextView text;
         public IconTextView see_more;
+        public ImageView image1;
         public ImageView image3;
         public ImageView image2;
-        public ImageView image1;
 
         public PresenterTopTags(ViewGroup parent) {
             root = (RelativeLayout) AppUtil.inflate(R.layout.presenter_top_tags,parent);
             text = (TextView) root.findViewById( R.id.text);
             see_more = (IconTextView) root.findViewById( R.id.see_more);
+            image1 = (ImageView) root.findViewById( R.id.image1);
             image3 = (ImageView) root.findViewById( R.id.image3);
             image2 = (ImageView) root.findViewById( R.id.image2);
-            image1 = (ImageView) root.findViewById( R.id.image1);
         }
 
         public PresenterTopTags() {

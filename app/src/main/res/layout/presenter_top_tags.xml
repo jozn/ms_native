@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/background_image"
     android:layout_marginTop="15dp"
+
     >
 
 
@@ -33,7 +36,7 @@
         android:layout_toRightOf="@id/text"
         />
 
-    <LinearLayout
+    <android.support.percent.PercentRelativeLayout
         android:layout_width="match_parent"
         android:layout_height="130dp"
 
@@ -43,20 +46,28 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/image1"
+            app:layout_widthPercent="33%"
+            android:layout_alignParentRight="true"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:id="@+id/image3"
+            app:layout_widthPercent="33%"
+            android:layout_toLeftOf="@id/image1"
             />
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/image2"
-            />
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/image1"
+            app:layout_widthPercent="33%"
+            android:layout_toLeftOf="@id/image2"
             />
 
-    </LinearLayout>
+
+    </android.support.percent.PercentRelativeLayout>
 
 
 </RelativeLayout>

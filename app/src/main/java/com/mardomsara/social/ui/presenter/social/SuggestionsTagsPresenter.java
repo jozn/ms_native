@@ -148,7 +148,7 @@ public class SuggestionsTagsPresenter extends BasePresenter implements AppHeader
 
             size = AndroidUtil.getScreenWidth()/3;
 
-            image1.setLayoutParams(new LinearLayout.LayoutParams(size,size));
+//            image1.setLayoutParams(new LinearLayout.LayoutParams(size,size));
         }
 
         void bind(TopTagsWithPostsRowJson tagJson){

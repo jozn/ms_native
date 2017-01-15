@@ -339,6 +339,9 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
 			if(getContentItemCount()==0){
 				showFullTryReload(result);
 			}
+			if(scrollListener!=null){
+				scrollListener.setDisable(true);
+			}
 			showFullTryReload(result);
 		}
 	}

@@ -72,6 +72,7 @@ public class SuggestionsPostsPresenter extends BasePresenter
     }
 
     private void loadFromServer(int page) {
+		Helper.showDebugMessage("suggestion page: "+page);
         AndroidUtil.runInBackground(()->{
 			Http.getPath("/v1/recommend/top_posts")
 				.setQueryParam("page",""+page)
@@ -79,6 +80,7 @@ public class SuggestionsPostsPresenter extends BasePresenter
 				.setQueryParam("limit",""+ 45)
 				.doAsyncUi((result -> {
 					refreshLayout.setRefreshing(false);
+					adaptor.nextPageIsLoaded(result);
 					if(result.isOk()){
 						HttpJsonList<PostRowJson> data = Result.fromJsonList(result,PostRowJson.class);
 						if(data.isPayloadNoneEmpty()){
@@ -94,7 +96,7 @@ public class SuggestionsPostsPresenter extends BasePresenter
 						adaptor.setHasMorePage(false);
 					}
 
-					adaptor.nextPageIsLoaded();
+//					adaptor.nextPageIsLoaded();
 				}));
         });
     }

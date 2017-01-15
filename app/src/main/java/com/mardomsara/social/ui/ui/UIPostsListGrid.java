@@ -14,9 +14,9 @@ import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.json.social.rows.PostRowJson;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
+import com.mardomsara.social.ui.X;
 import com.mardomsara.social.ui.presenter.pages.PostEntryPage;
 import com.mardomsara.social.ui.views.FullScreenImage;
-import com.mardomsara.social.ui.views.helpers.ViewHelper;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -47,7 +47,8 @@ public class UIPostsListGrid {
 //            View v = AppUtil.inflate(R.layout.row_post_stream, parent);
             int screenSize = AndroidUtil.getScreenWidth()/3;
 //            ImageView v = ViewHelper.newImageView(ViewHelper.MATCH_PARENT,ViewHelper.MATCH_PARENT);
-            ImageView v = ViewHelper.newImageView(screenSize,screenSize);
+//            ImageView v = ViewHelper.newImageView(screenSize,screenSize);
+			X.Common_OneThirdImage v = new X.Common_OneThirdImage(parent);//ViewHelper.newImageView(screenSize,screenSize);
             return new PostStreamHolder(v);
         }
 
@@ -63,7 +64,8 @@ public class UIPostsListGrid {
 
 
     public static class PostStreamHolder extends RecyclerView.ViewHolder {
-        ImageView rootView;
+        ImageView imageView;
+		ViewGroup root;
         PostRowJson post;
 
         Uri imageUri2;
@@ -94,11 +96,12 @@ public class UIPostsListGrid {
 
         };
 
-        public PostStreamHolder(ImageView itemView) {
-            super(itemView);
-            rootView = itemView;
+        public PostStreamHolder(X.Common_OneThirdImage itemView) {
+            super(itemView.root);
+            imageView = itemView.img;
+			root = itemView.root;
 
-            itemView.setOnClickListener(gotoProfile);
+            root.setOnClickListener(gotoProfile);
 
         }
 
@@ -107,8 +110,8 @@ public class UIPostsListGrid {
             Uri imageUri = Helper.PathToUserAvatarUri(post.Sender.AvatarUrl);
             if (post.TypeId == 2) {
                 int screenSize = AndroidUtil.getScreenWidth()/ 3;
-//                ViewHelper.setImageSizesWithMaxPx(rootView,screenSize,screenSize,post.Width,post.Height);
-                rootView.setVisibility(View.VISIBLE);
+//                ViewHelper.setImageSizesWithMaxPx(imageView,screenSize,screenSize,post.Width,post.Height);
+                imageView.setVisibility(View.VISIBLE);
                 String urlStr = "http://localhost:5000/"+post.MediaUrl;
 
                 Picasso.with(AppUtil.getContext())
@@ -117,12 +120,12 @@ public class UIPostsListGrid {
                         .placeholder(R.drawable.image_background)
 //                        .fit()
                         .centerCrop()
-                        .into(rootView);
+                        .into(imageView);
 
 
             } else {
-                rootView.setVisibility(View.GONE);
-                rootView.setOnClickListener(null);
+                imageView.setVisibility(View.GONE);
+                imageView.setOnClickListener(null);
             }
 
             itemView.requestLayout();

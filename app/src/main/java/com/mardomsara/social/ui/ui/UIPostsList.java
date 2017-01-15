@@ -98,7 +98,7 @@ public class UIPostsList {
 /*
 
 public static class PostStreamHolder2 extends RecyclerView.ViewHolder {
-    View rootView;
+    View imageView;
     PostRowJson post;
     @Bind(R.id.text)
     TextView text;
@@ -159,7 +159,7 @@ public static class PostStreamHolder2 extends RecyclerView.ViewHolder {
         ButterKnife.bind(this, itemView);
         __i++;
         AppUtil.log("xxx: count of ui instance: " + __i);
-        rootView = itemView;
+        imageView = itemView;
 
         user_name.setOnClickListener(gotoProfile);
         avatar.setOnClickListener(gotoProfile);

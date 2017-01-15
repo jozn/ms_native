@@ -32,7 +32,7 @@
         <item name="windowNoTitle">true</item>
         <item name="android:windowFullscreen">false</item>
         <item name="android:background">#00ffffff</item>
-        <item name="android:colorControlHighlight">#afcdff</item>
+        <item name="android:colorControlHighlight">#e1e1e1</item>
         <!--<item name="android:windowContentOverlay"></item>-->
 
     </style>
