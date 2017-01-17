@@ -114,14 +114,20 @@ public class Cells {
 
 		public void addIcon(String iconIfyIcon, Runnable runnable){
 			int dp10 = AndroidUtil.dpToPx(10);
+			X.Nav_IconHolder iconHolder =new X.Nav_IconHolder(iconsContainer);
+			iconHolder.icon_text.setText(iconIfyIcon);
+			iconHolder.root.setOnClickListener((v)->{
+				if(runnable!= null) runnable.run();
+			});
+			iconsContainer.addView(iconHolder.root);
+			/*
 			IconTextView iconTextView = new IconTextView(rootView.getContext());
-			iconTextView.setText(iconIfyIcon);
 			iconTextView.setTextColor(Color.BLACK);
 			iconTextView.setPadding(dp10,0,dp10,0);
 			iconTextView.setOnClickListener((v)->{
 				if(runnable!= null) runnable.run();
-			});
-			iconsContainer.addView(iconTextView);
+			});*/
+
 		}
 
 		private View getTabView(int position,PagerAdapter pagerAdaptor) {

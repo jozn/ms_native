@@ -1191,6 +1191,21 @@ public class X {
     }
 
 
+    public static class Nav_IconHolder {
+        public FrameLayout root;
+        public IconTextView icon_text;
+
+        public Nav_IconHolder(ViewGroup parent) {
+            root = (FrameLayout) AppUtil.inflate(R.layout.nav__icon_holder,parent);
+            icon_text = (IconTextView) root.findViewById( R.id.icon_text);
+        }
+
+        public Nav_IconHolder() {
+            this(null);
+        }
+    }
+
+
     public static class NavHeaderPagerMenu {
         public LinearLayout root;
         public LinearLayout search;
