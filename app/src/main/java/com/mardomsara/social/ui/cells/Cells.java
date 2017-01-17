@@ -86,13 +86,13 @@ public class Cells {
         }
     }
 
-	public static class NavAndPager {
+	public static class NavAndPagerSwipe {
 		public ViewGroup rootView;
 		public ViewPager viewPager;
 		public TabLayout tabLayout;
 		public ViewGroup iconsContainer;
 
-		public NavAndPager(PagerAdapter pagerAdaptor) {
+		public NavAndPagerSwipe(PagerAdapter pagerAdaptor) {
 			rootView = (ViewGroup) AppUtil.inflate(R.layout.nav_header_pager_menu);
 			viewPager = (ViewPager)rootView.findViewById(R.id.viewpager);
 			tabLayout = (TabLayout)rootView.findViewById(R.id.sliding_tabs);

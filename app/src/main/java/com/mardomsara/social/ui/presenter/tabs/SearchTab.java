@@ -22,7 +22,7 @@ public class SearchTab extends BasePresenter {
 		tabs.addTab(new TabPagerAdaptor.Tab("کاربر",()-> new SuggestionsUsersPresenter().buildView() ));
 		tabs.addTab(new TabPagerAdaptor.Tab("پست",()-> new SuggestionsPostsPresenter().buildView() ));
 
-		Cells.NavAndPager navAndPager = new Cells.NavAndPager(tabs);
+		Cells.NavAndPagerSwipe navAndPager = new Cells.NavAndPagerSwipe(tabs);
 
 		navAndPager.addIcon("{ion-ios-search-strong 26dp}",()->{ Nav.push(new SearchPresenter());});
 
