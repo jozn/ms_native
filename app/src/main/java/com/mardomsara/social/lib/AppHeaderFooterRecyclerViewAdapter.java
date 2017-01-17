@@ -466,7 +466,6 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
 			emptyReloader.not_internet.setVisibility(View.VISIBLE);
 			emptyReloader.not_internet.setText(R.string.rv_no_internet);
 		}
-
 		emptyReloader.reload.setOnClickListener((v)->{
 			reload();
 		});

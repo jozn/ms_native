@@ -9,6 +9,7 @@ import android.webkit.WebView;
 import android.support.design.widget.TabLayout;
 import android.support.percent.PercentRelativeLayout;
 import android.support.v4.view.ViewPager;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.github.rahatarmanahmed.cpv.CircularProgressView;
@@ -1234,6 +1235,23 @@ public class X {
     }
 
 
+    public static class Pager_RecyclerviewWithRefresher {
+        public SwipeRefreshLayout root;
+        public SwipeRefreshLayout refresh_layout;
+        public RecyclerView recycler_view;
+
+        public Pager_RecyclerviewWithRefresher(ViewGroup parent) {
+            root = (SwipeRefreshLayout) AppUtil.inflate(R.layout.pager__recyclerview_with_refresher,parent);
+            refresh_layout = (SwipeRefreshLayout) root.findViewById( R.id.refresh_layout);
+            recycler_view = (RecyclerView) root.findViewById( R.id.recycler_view);
+        }
+
+        public Pager_RecyclerviewWithRefresher() {
+            this(null);
+        }
+    }
+
+
     public static class PlayActivityFontsScrolling {
         public ScrollView root;
         public Button btn;
@@ -1508,6 +1526,33 @@ public class X {
         }
 
         public RecentImagesImageItem() {
+            this(null);
+        }
+    }
+
+
+    public static class Recommendation_UserRow {
+        public RelativeLayout root;
+        public FollowingButtonView following_button;
+        public IconTextView ignore;
+        public ImageView avatar;
+        public LinearLayout top;
+        public EmojiconTextView primary_name;
+        public EmojiconTextView second_name;
+        public EmojiconTextView about;
+
+        public Recommendation_UserRow(ViewGroup parent) {
+            root = (RelativeLayout) AppUtil.inflate(R.layout.recommendation__user_row,parent);
+            following_button = (FollowingButtonView) root.findViewById( R.id.following_button);
+            ignore = (IconTextView) root.findViewById( R.id.ignore);
+            avatar = (ImageView) root.findViewById( R.id.avatar);
+            top = (LinearLayout) root.findViewById( R.id.top);
+            primary_name = (EmojiconTextView) root.findViewById( R.id.primary_name);
+            second_name = (EmojiconTextView) root.findViewById( R.id.second_name);
+            about = (EmojiconTextView) root.findViewById( R.id.about);
+        }
+
+        public Recommendation_UserRow() {
             this(null);
         }
     }

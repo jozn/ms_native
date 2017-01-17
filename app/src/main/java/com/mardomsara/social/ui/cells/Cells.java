@@ -5,6 +5,7 @@ import android.graphics.Typeface;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +15,9 @@ import com.joanzapata.iconify.widget.IconTextView;
 import com.mardomsara.social.R;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
+import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
 import com.mardomsara.social.lib.Spanny;
+import com.mardomsara.social.ui.X;
 import com.mardomsara.social.ui.views.wigets.SimpleTopNav;
 
 import butterknife.Bind;
@@ -24,7 +27,7 @@ import butterknife.ButterKnife;
  * Created by Hamid on 8/6/2016.
  */
 
-//Use this class for wrapping general more advanced view cell functionality,
+//Use this class for wrapping general more advanced view wrapView functionality,
 // most old class in this class are not necessary now thanks to new X.java class
 public class Cells {
 
@@ -223,5 +226,23 @@ public class Cells {
 	//        progressWheel.
 		}
 
+	}
+
+	public static class Pager_RecyclerViewWithRefresher {
+
+	}
+
+	public static class Pager_RecyclerView {
+		public X.Pager_RecyclerviewWithRefresher wrapView;
+		LinearLayoutManager layoutManager;
+
+		public Pager_RecyclerView(AppHeaderFooterRecyclerViewAdapter adaptor, AppHeaderFooterRecyclerViewAdapter.LoadNextPage pager) {
+			wrapView = new X.Pager_RecyclerviewWithRefresher();
+			layoutManager = new LinearLayoutManager(AppUtil.getContext());
+			wrapView.recycler_view.setLayoutManager(layoutManager);
+			wrapView.recycler_view.setAdapter(adaptor);
+			adaptor.setUpForPaginationWith(wrapView.recycler_view,layoutManager,pager);
+			adaptor.setEnableAutoShowEmptyView(true);
+		}
 	}
 }
