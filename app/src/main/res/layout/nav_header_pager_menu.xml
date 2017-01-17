@@ -19,6 +19,7 @@
             android:minWidth="50dp"
             android:background="@drawable/border_left"
             android:layout_marginRight="0dp"
+            android:visibility="gone"
             android:gravity="center"
             android:id="@+id/search"
             >

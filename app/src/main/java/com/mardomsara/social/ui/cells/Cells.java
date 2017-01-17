@@ -97,6 +97,7 @@ public class Cells {
 			viewPager = (ViewPager)rootView.findViewById(R.id.viewpager);
 			tabLayout = (TabLayout)rootView.findViewById(R.id.sliding_tabs);
 			iconsContainer = (ViewGroup) rootView.findViewById(R.id.search);
+			iconsContainer.setVisibility(View.GONE);
 			tabLayout.setBackgroundColor(0xeeeeee);
 
 			tabLayout.setTabMode(TabLayout.MODE_FIXED);
@@ -114,6 +115,7 @@ public class Cells {
 
 		public void addIcon(String iconIfyIcon, Runnable runnable){
 			int dp10 = AndroidUtil.dpToPx(10);
+			iconsContainer.setVisibility(View.VISIBLE);
 			X.Nav_IconHolder iconHolder =new X.Nav_IconHolder(iconsContainer);
 			iconHolder.icon_text.setText(iconIfyIcon);
 			iconHolder.root.setOnClickListener((v)->{
