@@ -34,6 +34,9 @@ public class SuggestionsUsersPresenter extends BasePresenter implements AppHeade
 		pager = new Cells.Pager_RecyclerView(adaptor,this);
 		pager.wrapView.refresh_layout.setEnabled(false);
 
+		Cells.Title_InfoLight title=new Cells.Title_InfoLight(pager.wrapView.recycler_view,"اشخاص پیشنهادی برای دنبال کردن:");
+		adaptor.appendViewToHeader(title.rootView);
+
 		return pager.wrapView.root;
     }
 
@@ -60,13 +63,8 @@ public class SuggestionsUsersPresenter extends BasePresenter implements AppHeade
 					}else {
 						adaptor.setHasMorePage(false);
 					}
-				}/*else {
-					Helper.showDebugMessage("load next"+page);
-					adaptor.setHasMorePage(false);
-				}*/
-//				AndroidUtil.runInUiNoPanic(()->{
+				}
 				pager.wrapView.refresh_layout.setRefreshing(false);
-//				});
 			});
 	}
 
@@ -112,6 +110,7 @@ public class SuggestionsUsersPresenter extends BasePresenter implements AppHeade
 			Helper.SetAvatar(cell.avatar, row.AvatarUrl);
 			cell.following_button.setUser(row);
 			cell.about.setText(row.About);
+//			cell.about.setText("");
 		}
 	}
 
