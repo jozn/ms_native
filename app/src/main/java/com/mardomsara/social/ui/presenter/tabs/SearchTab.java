@@ -8,7 +8,7 @@ import com.mardomsara.social.ui.cells.Cells;
 import com.mardomsara.social.ui.presenter.social.SuggestionsPostsPresenter;
 import com.mardomsara.social.ui.presenter.social.SuggestionsTagsPresenter;
 import com.mardomsara.social.ui.presenter.social.SuggestionsUsersPresenter;
-import com.mardomsara.social.ui.presenter.social.search.SearchPresenter;
+import com.mardomsara.social.ui.presenter.social.search.SearchUserAndTagPage;
 import com.mardomsara.social.ui.ui.TabPagerAdaptor;
 
 /**
@@ -24,7 +24,7 @@ public class SearchTab extends BasePresenter {
 
 		Cells.NavAndPagerSwipe navAndPager = new Cells.NavAndPagerSwipe(tabs);
 
-		navAndPager.addIcon("{ion-ios-search-strong 26dp}",()->{ Nav.push(new SearchPresenter());});
+		navAndPager.addIcon("{ion-ios-search-strong 26dp}",()->{ Nav.push(new SearchUserAndTagPage());});
 
         return navAndPager.rootView;
     }

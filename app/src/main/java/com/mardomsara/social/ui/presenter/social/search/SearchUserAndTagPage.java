@@ -26,7 +26,9 @@ import com.mardomsara.social.ui.views.helpers.ViewHelper;
  * Created by Hamid on 8/23/2016.
  */
 //keep this for sample of Sectioned
-public class SearchPresenter extends BasePresenter {
+public class SearchUserAndTagPage extends BasePresenter {
+	final static String TRY_SEARCH = "جستجو کنید...";
+	final static String NO_RESULT = "یافت نشد";
 
 	SearchTagPagerPresenter tagPresenter = new SearchTagPagerPresenter();
 	SearchUserPresenter userPresenter = new SearchUserPresenter();
@@ -90,35 +92,44 @@ public class SearchPresenter extends BasePresenter {
 			recyclerView.setAdapter(adapter);
 			recyclerView.setLayoutManager(layoutManager);
 			adapter.setRecyclerView(recyclerView);
-			adapter.setEmptyMessage("یافت نشد");
+			adapter.setEmptyMessage("جستجو کنید...");
 			adapter.setEnableAutoShowEmptyView(true);
+			itIsEmpty(TRY_SEARCH);
 			return recyclerView;
 		}
 
 		void runQuery(String search){
 			if(search!= null && search.length() >0){
 				load(search);
+			} else {
+				itIsEmpty(TRY_SEARCH);
 			}
+		}
+
+		void itIsEmpty(String msg){
+			adapter.list.clear();
+			adapter.showEmptyView(msg);
 		}
 
 		void load(String query){
 			Http.getPath("/v1/search/tags")
 				.setQueryParam("q",query)
 				.doAsyncUi(result -> {
-					adapter.nextPageIsLoaded();
+					adapter.nextPageIsLoaded(result);
 					if(result.isOk()){
 						HttpJsonList<TagRowJson> data = Result.fromJsonList(result, TagRowJson.class);
 						if(data.isPayloadNoneEmpty()){
+							adapter.hideEmptyView();
 							adapter.list.clear();
 							adapter.list.addAll(data.Payload);
 							adapter.notifyDataChanged();
 						}else {
-							adapter.list.clear();
-//							adapter.showEmptyView();
+							itIsEmpty(NO_RESULT);
+
 						}
 						adapter.notifyDataChanged();
 					}else {
-						adapter.showFullTryReload(result);
+//						adapter.showFullTryReload(result);
 					}
 				});
 		}
@@ -126,6 +137,7 @@ public class SearchPresenter extends BasePresenter {
 	}
 
 	public static class SearchUserPresenter extends BasePresenter {
+
 		RecyclerView recyclerView;
 		LinearLayoutManager layoutManager = new LinearLayoutManager(AppUtil.getContext(),LinearLayoutManager.VERTICAL,false);
 
@@ -136,33 +148,42 @@ public class SearchPresenter extends BasePresenter {
 			adapter = new UserListUI.Adapter();
 			recyclerView.setAdapter(adapter);
 			recyclerView.setLayoutManager(layoutManager);
-			adapter.setEmptyMessage("یافت نشد");
+			adapter.setEmptyMessage(TRY_SEARCH);
+			adapter.setRecyclerView(recyclerView);
 			adapter.setEnableAutoShowEmptyView(true);
+			itIsEmpty(TRY_SEARCH);
 			return recyclerView;
 		}
 
 		void runQuery(String search){
 			if(search!= null && search.length() >0){
 				load(search);
+			}else {
+				itIsEmpty(TRY_SEARCH);
 			}
+		}
+
+		void itIsEmpty(String msg){
+			adapter.list.clear();
+			adapter.showEmptyView(msg);
 		}
 
 		void load(String querey){
 			Http.getPath("/v1/search/users")
 				.setQueryParam("q",querey)
 				.doAsyncUi(result -> {
-					adapter.nextPageIsLoaded();
+					adapter.nextPageIsLoaded(result);
 					Helper.showDebugMessage("load users 1");
 					if(result.isOk()){
 						HttpJsonList<UserInfoJson> data = Result.fromJsonList(result, UserInfoJson.class);
 						if(data.isPayloadNoneEmpty()){
-							adapter.list.clear();
 							Helper.showDebugMessage("load users 2 - "+data.Payload.size());
+							adapter.list.clear();
+							adapter.hideEmptyView();
 							adapter.list.addAll(data.Payload);
 							adapter.notifyDataChanged();
 						}else {
-							adapter.list.clear();
-							adapter.showEmptyView();
+							itIsEmpty(NO_RESULT);
 						}
 						adapter.notifyDataChanged();
 					}

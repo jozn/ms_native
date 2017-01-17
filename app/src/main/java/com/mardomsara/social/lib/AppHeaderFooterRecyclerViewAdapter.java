@@ -418,15 +418,16 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
 		this.emptyNoteView = emptyView;
 	}
 
+	X.Rv_EmptyNote emptyNote;
 	public void showEmptyView(String emptyMsg){
 //		if(isShowingEmptyNoteView)return;
 		isShowingEmptyNoteView = true;
 		setHasMorePage(false);
 		if(emptyNoteView == null){
-			X.Rv_EmptyNote emptyNote = new X.Rv_EmptyNote(recyclerView);
-			emptyNote.empty_note.setText(emptyMsg);
+			emptyNote = new X.Rv_EmptyNote(recyclerView);
 			emptyNoteView = emptyNote.root;
 		}
+		emptyNote.empty_note.setText(emptyMsg);
 		appendViewToHeaderIfNotExist(emptyNoteView);
 		notifyDataChanged();
 	}

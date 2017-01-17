@@ -1,14 +1,8 @@
 package com.mardomsara.social.ui.presenter.tabs;
 
-import android.content.Context;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.TextView;
 
 import com.mardomsara.social.Nav;
 import com.mardomsara.social.R;
@@ -16,7 +10,7 @@ import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.presenter.social.ActivityPresenter;
 import com.mardomsara.social.ui.presenter.social.NotifyPresenter;
-import com.mardomsara.social.ui.presenter.social.search.SearchPresenter;
+import com.mardomsara.social.ui.presenter.social.search.SearchUserAndTagPage;
 import com.mardomsara.social.ui.ui.TabPagerAdaptor;
 
 /**
@@ -42,7 +36,7 @@ public class AcitivityTab extends BasePresenter {
 
         //////TEMP/////////////
         View searchBtn = l.findViewById(R.id.search);
-        searchBtn.setOnClickListener((v)-> Nav.push(new SearchPresenter()));
+        searchBtn.setOnClickListener((v)-> Nav.push(new SearchUserAndTagPage()));
         /////////////////
 
         return l;
