@@ -33,7 +33,7 @@ public class NotifyModel {
         return DB.db.selectFromNotify().orderByIdDesc().toList();
     }
 
-    public static void getSyncLasts(){
+    public static void fetchSyncLasts(){
         loadFromServer();
     }
 

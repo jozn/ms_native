@@ -2,7 +2,6 @@ package com.mardomsara.social.app;
 
 import android.content.Context;
 import android.content.Intent;
-import android.view.LayoutInflater;
 
 import com.facebook.common.logging.FLog;
 import com.facebook.drawee.backends.pipeline.Fresco;
@@ -96,7 +95,7 @@ public class LifeCycle {
 //        Sync.checkSyncContacts();
 //        Sync.syncAllFollowings();
 
-        NotifyModel.getSyncLasts();
+        NotifyModel.fetchSyncLasts();
     }
 
     static boolean _afterActivityCalled = false;

@@ -28,21 +28,21 @@ public class NotifyPresenter extends BasePresenter {
 	@Override
     public View buildView() {
 
-        List<Notify> list0 = NotifyModel.getAllReverse();
+//        List<Notify> list0 = NotifyModel.getAllReverse();
         /*List<String> list = new ArrayList<>();
         for (Notify n: list0){
             list.add(n.PayloadStored);
         }*/
 
 
-        listCell = new NotifyListCell(list0);
+        listCell = new NotifyListCell();
         viewRoot = listCell.getViewRoot();
 
         Cells.Title_InfoLight topTitle = new Cells.Title_InfoLight(listCell.recycler_view);
         topTitle.setText("فعالیت های دیگران مرتبط به شما:");
         listCell.getAdaptor().appendViewToHeader(topTitle.rootView);
 
-		App.getBus().register(this);
+//		App.getBus().register(this);
 
 		return viewRoot;
     }
@@ -50,9 +50,9 @@ public class NotifyPresenter extends BasePresenter {
 	@Override
 	public void onDestroy() {
 		super.onDestroy();
-		App.getBus().unregister(this);
+		listCell.destroy();
 	}
-
+/*
 	@Subscribe(threadMode = ThreadMode.MAIN)
 	void event(NotifyChanged notifyChanged){
 		load();
@@ -71,6 +71,6 @@ public class NotifyPresenter extends BasePresenter {
 		listCell.refreshLayout.setRefreshing(false);
 		listCell.adaptor.notifyDataChanged();
 
-	}
+	}*/
 
 }

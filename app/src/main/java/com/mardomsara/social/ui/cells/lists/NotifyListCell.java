@@ -1,6 +1,7 @@
 package com.mardomsara.social.ui.cells.lists;
 
 import android.graphics.Typeface;
+import android.support.annotation.NonNull;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -14,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.mardomsara.social.App;
 import com.mardomsara.social.R;
 import com.mardomsara.social.app.Constants;
 import com.mardomsara.social.app.Router;
@@ -27,9 +29,14 @@ import com.mardomsara.social.json.social.rows.UserInfoJson;
 import com.mardomsara.social.lib.AppClickableSpan;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
 import com.mardomsara.social.lib.Spanny;
+import com.mardomsara.social.models.NotifyModel;
+import com.mardomsara.social.models.events.NotifyChanged;
 import com.mardomsara.social.models.tables.Notify;
 import com.mardomsara.social.ui.views.helpers.ViewHelper;
 import com.squareup.picasso.Picasso;
+
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,42 +50,53 @@ import butterknife.ButterKnife;
 public class NotifyListCell
         implements AppHeaderFooterRecyclerViewAdapter.LoadNextPage {
 
-    public PostsAdaptor adaptor;
+    public NotifyRVAdaptor adaptor;
     public SwipeRefreshLayout refreshLayout;
 	public RecyclerView recycler_view;
 
     public List<Notify> list = new ArrayList<>();
 
-    public NotifyListCell(List<Notify> list) {
-        this.list = list;
+    public NotifyListCell() {
         init();
     }
 
     private void init() {
         refreshLayout = ViewHelper.newSwipeRefreshLayout(ViewHelper.MATCH_PARENT, ViewHelper.MATCH_PARENT);
-        adaptor = new PostsAdaptor(list);
+        adaptor = new NotifyRVAdaptor(list);
         recycler_view = ViewHelper.newRecyclerViewMatch();
         LinearLayoutManager layoutManager = new LinearLayoutManager(AppUtil.getContext());
         recycler_view.setLayoutManager(layoutManager);
         recycler_view.setAdapter(adaptor);
+        adaptor.setRecyclerView(recycler_view);
         adaptor.setUpForPaginationWith(recycler_view, layoutManager, this);
         adaptor.showLoading();
 
-        refreshLayout.addView(recycler_view);
+		App.getBus().register(this);
+
+		refreshLayout.addView(recycler_view);
         refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
+				NotifyModel.fetchSyncLasts();
                 Helper.showDebugMessage("re");
             }
         });
+		AndroidUtil.runInUi(()->{
+			load();
+		});
+
     }
+
+	public void destroy(){
+		App.getBus().unregister(this);
+	}
 
     public ViewGroup getViewRoot() {
         return refreshLayout;
     }
 
 
-    public PostsAdaptor getAdaptor() {
+    public NotifyRVAdaptor getAdaptor() {
         return adaptor;
     }
 
@@ -88,17 +106,34 @@ public class NotifyListCell
         Helper.showDebugMessage("pageNum: "+pageNum);
     }
 
+	@Subscribe(threadMode = ThreadMode.MAIN)
+	void event(NotifyChanged notifyChanged){
+		load();
+		Helper.showDebugMessage("event: NotifyChanged");
+	}
+
+	void load(){
+		List<Notify> list0 = NotifyModel.getAllReverse();
+
+		list.clear();
+		list.addAll(list0);
+
+
+		refreshLayout.setRefreshing(false);
+		adaptor.hideLoading();
+		adaptor.notifyDataChanged();
+	}
+
+
 	//////////////////////////////////////////////////////////
 	///////////////////// Other Classes //////////////////////
 
-    public static class PostsAdaptor extends AppHeaderFooterRecyclerViewAdapter<TextHolder> {
+    public static class NotifyRVAdaptor extends AppHeaderFooterRecyclerViewAdapter<TextHolder> {
 
         List<Notify> list = new ArrayList<>();
-        public PostsAdaptor(List<Notify> list){
+        public NotifyRVAdaptor(@NonNull List<Notify> list){
             super();
-            if(list != null){
-                this.list.addAll(list);
-            }
+			this.list = list;
         }
 
 
@@ -110,6 +145,7 @@ public class NotifyListCell
 
         @Override
         protected int getContentItemCount() {
+//			Helper.showDebugMessage("size: "+list.size());
             return list.size();
         }
 
