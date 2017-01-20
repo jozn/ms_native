@@ -45,11 +45,11 @@ public class NotifyListCell
 
     View loading;
 
-    PostsAdaptor adaptor;
-    SwipeRefreshLayout refreshLayout;
+    public PostsAdaptor adaptor;
+    public SwipeRefreshLayout refreshLayout;
 	public RecyclerView recycler_view;
 
-    List<Notify> list;
+    public List<Notify> list = new ArrayList<>();
 
     public NotifyListCell(List<Notify> list) {
         this.list = list;
