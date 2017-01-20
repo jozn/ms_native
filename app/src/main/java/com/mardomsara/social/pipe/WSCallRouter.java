@@ -4,6 +4,7 @@ import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.TimeUtil;
 import com.mardomsara.social.models.AppModel;
 import com.mardomsara.social.pipe.from_net_calls.MsgCallsFromServer;
+import com.mardomsara.social.pipe.from_net_calls.NotifyCallsFromServer;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -46,12 +47,14 @@ public class WSCallRouter {
     public static void buildMapper() {
 
         //Messages
-        register("MsgAddOne", MsgCallsFromServer.MsgAddOne);
-        register("MsgAddMany", MsgCallsFromServer.MsgAddMany);
+        register("NotifyRemoveMany", MsgCallsFromServer.MsgAddOne);
+        register("NotifyAddOne", MsgCallsFromServer.MsgAddMany);
         register("MsgsReceivedToPeerMany", MsgCallsFromServer.MsgsReceivedToPeerMany);
         register("MsgsDeletedFromServerMany", MsgCallsFromServer.MsgsDeletedFromServerMany);
         register("MsgsSeenByPeerMany", MsgCallsFromServer.MsgsSeenByPeerMany);
 
+        register("NotifyAddOne", NotifyCallsFromServer.NotifyAddOne);
+        register("NotifyRemoveMany", NotifyCallsFromServer.NotifyRemoveMany);
     }
 
 	public static void TimeMs(Call call) {

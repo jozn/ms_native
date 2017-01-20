@@ -33,7 +33,7 @@ public class MsgCallsFromServer {
     public static NetEventHandler MsgAddOne = ( data) ->{
 		MsgAddOneJson jd = AppUtil.fromJson(data,MsgAddOneJson.class);
         if(jd==null || jd.Message == null )return;
-        AppUtil.log("MsgAddOne: -> "+data);
+        AppUtil.log("NotifyRemoveMany: -> "+data);
 
 		handleNewSingleMsg(jd.Message);
 		handleNewUser(jd.User);
@@ -43,7 +43,7 @@ public class MsgCallsFromServer {
 	public static NetEventHandler MsgAddMany = ( data) ->{
 		MsgAddManyJson jd = AppUtil.fromJson(data,MsgAddManyJson.class);
 		if(jd==null || jd.Messages == null )return;
-		AppUtil.log("MsgAddMany: cmd -> "+data);
+		AppUtil.log("NotifyAddOne: cmd -> "+data);
 
 		DB.db.transactionSync(()->{
 			for(Message msg: jd.Messages){

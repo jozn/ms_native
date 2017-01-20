@@ -30,6 +30,7 @@ import com.mardomsara.social.lib.AppClickableSpan;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
 import com.mardomsara.social.lib.Spanny;
 import com.mardomsara.social.models.NotifyModel;
+import com.mardomsara.social.models.events.NotifyAddedEvent;
 import com.mardomsara.social.models.events.NotifyChanged;
 import com.mardomsara.social.models.tables.Notify;
 import com.mardomsara.social.ui.views.helpers.ViewHelper;
@@ -110,6 +111,17 @@ public class NotifyListCell
 	void event(NotifyChanged notifyChanged){
 		load();
 		Helper.showDebugMessage("event: NotifyChanged");
+	}
+
+	@Subscribe(threadMode = ThreadMode.MAIN)
+	void event(NotifyAddedEvent notifyChanged){
+		Helper.showDebugMessage("event: NotifyAddedEvent");
+		if(notifyChanged.notify == null){
+			Helper.showDebugMessage("event: NotifyAddedEvent is null");
+			return;
+		}
+		list.add(0,notifyChanged.notify);
+		adaptor.notifyDataChanged();
 	}
 
 	void load(){

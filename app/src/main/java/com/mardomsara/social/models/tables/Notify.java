@@ -4,6 +4,7 @@ import com.github.gfx.android.orma.annotation.Column;
 import com.github.gfx.android.orma.annotation.OnConflict;
 import com.github.gfx.android.orma.annotation.PrimaryKey;
 import com.github.gfx.android.orma.annotation.Table;
+import com.mardomsara.social.app.DB;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.json.social.rows.NotifyPayloadJson;
 
@@ -51,5 +52,14 @@ public class Notify {
     public void setloadFromStored(){
         Load = AppUtil.fromJson(PayloadStored,NotifyPayloadJson.class);
     }
+
+	////////// Instance methods ///////
+
+	public void save(){
+		if(PayloadStored == null || PayloadStored.length() ==0){
+			setPayloadStored();
+		}
+		DB.db.insertIntoNotify(this);
+	}
 
 }
