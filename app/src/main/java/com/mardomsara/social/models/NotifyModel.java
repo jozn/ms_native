@@ -87,38 +87,4 @@ public class NotifyModel {
 		return 0;
 	}
 
-	@Deprecated
-	private static void loadFromServer_dep() {
-        AndroidUtil.runInBackgroundNoPanic(()->{
-            HttpOld.Req req = new HttpOld.Req();
-
-            req.absPath = API.NOTIFICATIONS;
-            req.urlParams.put("page",""+0);
-            req.urlParams.put("last","");
-            HttpOld.Result res = HttpOld.get(req);
-            if(res.ok){
-                    loadedPostsFromNet_dep(res);
-            }
-        });
-    }
-
-    //in background thread
-    private static void loadedPostsFromNet_dep(HttpOld.Result res) {
-        NotifysListJson data= JsonUtil.fromJson(res.data, NotifysListJson.class);
-        if(data != null && data.Payload != null && data.Status.equalsIgnoreCase("OK")){
-            if(data.Payload != null){
-                DB.db.transactionSync(()->{
-                    for(Notify n : data.Payload){
-                        n.PayloadStored = AppUtil.toJson(n.Load);
-//                        AppUtil.log("PayloadStored " + n.PayloadStored);
-//                        AppUtil.log("Load " + n.Load);
-                        DB.db.insertIntoNotify(n);
-//                        DB.db.prepareInsertIntoNotify().executeAll();
-
-                    }
-                });
-            }
-        }
-    }
-
 }
