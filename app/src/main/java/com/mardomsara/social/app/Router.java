@@ -84,6 +84,10 @@ public class Router {
         Nav.push(new PostEntryPage(postRowJson));
     }
 
+	public static void goToPost_PartialData(PostRowJson postRowJson) {
+		Nav.push(new PostEntryPage(postRowJson,false));
+	}
+
     public static void goToTag(String tag) {
         Nav.push(new TagsPage(tag));
     }

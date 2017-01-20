@@ -204,7 +204,11 @@ public class NotifyListCell
                 viewRoot.setVisibility(View.VISIBLE);
                 _hideExtra();
                 _setDate(nf.CreatedTime);
-                text_main.setMovementMethod(LinkMovementMethod.getInstance());
+
+				//// FIXME: 1/20/2017 dont set to not macke problem for to go or post entry
+				/// must set .setMovementMethod to something custom to pass tap to higher views if
+				//not handeled
+//				text_main.setMovementMethod(LinkMovementMethod.getInstance());
 
                 UserInfoJson actor = nf.Load.Actor;
                 _setAvatar(actor);
@@ -253,9 +257,9 @@ public class NotifyListCell
                     tp = tp.replace("@$",nf.Load.Comment.Text);
                 }
                 spanny.append(tp);
-                viewRoot.setOnClickListener((v)->Router.goToPost(nf.Load.Post));
+//                viewRoot.setOnClickListener((v)->Router.goToPost_PartialData(nf.Load.Post));
                 text_main.setText(spanny);
-                viewRoot.setOnClickListener((v)->Router.goToPost(nf.Load.Post));
+                viewRoot.setOnClickListener((v)->Router.goToPost_PartialData(nf.Load.Post));
             }
         }
 
@@ -279,7 +283,7 @@ public class NotifyListCell
                 }
                 spanny.append(tp);
                 text_main.setText(spanny);
-                viewRoot.setOnClickListener((v)->Router.goToPost(nf.Load.Post));
+                viewRoot.setOnClickListener((v)->Router.goToPost_PartialData(nf.Load.Post));
             }
         }
         void _bindFollowing(Notify nf){
@@ -289,7 +293,7 @@ public class NotifyListCell
             tp = " شما را دنبال می کند.";
             spanny.append(tp);
             _showExtraFollowing();
-            viewRoot.setOnClickListener((v)->Router.goToProfile(actor.UserId));
+            viewRoot.setOnClickListener((v)->Router.goToProfile(actor.getUserId()));
             text_main.setText(spanny);
         }
 
@@ -334,8 +338,10 @@ public class NotifyListCell
         Spanny _getProfileSpany(UserInfoJson Actor){
             /////////////////////////
             String s = Actor.getFullName();
-            int uid = Actor.UserId;
-            Spanny spanny = new Spanny(s, new StyleSpan(Typeface.BOLD), goToProfileSpan(uid));
+            int uid = Actor.getUserId();
+			//// FIXME: 1/20/2017 if we set profile instan
+//            Spanny spanny = new Spanny(s, new StyleSpan(Typeface.BOLD), goToProfileSpan(uid));
+            Spanny spanny = new Spanny(s, new StyleSpan(Typeface.BOLD));
             return spanny;
         }
 

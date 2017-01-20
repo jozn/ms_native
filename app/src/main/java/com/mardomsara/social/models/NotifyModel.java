@@ -62,6 +62,7 @@ public class NotifyModel {
 			});
 	}
 
+	@Deprecated
 	private static void loadFromServer_simple() {
 		App.getBus().post(new NotifyChanged());
 		Http.getPath("/v1/notify")

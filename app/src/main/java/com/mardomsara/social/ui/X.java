@@ -305,6 +305,21 @@ public class X {
     }
 
 
+    public static class Common_ContainerLoading {
+        public FrameLayout root;
+        public LoadingView loading;
+
+        public Common_ContainerLoading(ViewGroup parent) {
+            root = (FrameLayout) AppUtil.inflate(R.layout.common__container_loading,parent);
+            loading = (LoadingView) root.findViewById( R.id.loading);
+        }
+
+        public Common_ContainerLoading() {
+            this(null);
+        }
+    }
+
+
     public static class Common_OneThirdImage {
         public FrameLayout root;
         public ImageView img;
@@ -1250,6 +1265,25 @@ public class X {
     }
 
 
+    public static class Page_PostSingleEntry {
+        public LinearLayout root;
+        public SimpleTopNav simpleTopNav;
+        public FrameLayout post_row_holder;
+        public FrameLayout comments_holder;
+
+        public Page_PostSingleEntry(ViewGroup parent) {
+            root = (LinearLayout) AppUtil.inflate(R.layout.page__post_single_entry,parent);
+            simpleTopNav = (SimpleTopNav) root.findViewById( R.id.simpleTopNav);
+            post_row_holder = (FrameLayout) root.findViewById( R.id.post_row_holder);
+            comments_holder = (FrameLayout) root.findViewById( R.id.comments_holder);
+        }
+
+        public Page_PostSingleEntry() {
+            this(null);
+        }
+    }
+
+
     public static class Pager_RecyclerviewWithRefresher {
         public SwipeRefreshLayout root;
         public SwipeRefreshLayout refresh_layout;
@@ -1321,6 +1355,21 @@ public class X {
         }
 
         public PlayRecipies() {
+            this(null);
+        }
+    }
+
+
+    public static class Post_SingleEntryHolder {
+        public FrameLayout root;
+        public LoadingView loading;
+
+        public Post_SingleEntryHolder(ViewGroup parent) {
+            root = (FrameLayout) AppUtil.inflate(R.layout.post__single_entry_holder,parent);
+            loading = (LoadingView) root.findViewById( R.id.loading);
+        }
+
+        public Post_SingleEntryHolder() {
             this(null);
         }
     }
