@@ -43,8 +43,6 @@ import butterknife.ButterKnife;
 public class NotifyListCell
         implements AppHeaderFooterRecyclerViewAdapter.LoadNextPage {
 
-    View loading;
-
     public PostsAdaptor adaptor;
     public SwipeRefreshLayout refreshLayout;
 	public RecyclerView recycler_view;
@@ -87,8 +85,11 @@ public class NotifyListCell
 
     @Override
     public void loadNextPage(int pageNum) {
-        Helper.showMessage("pageNum: "+pageNum);
+        Helper.showDebugMessage("pageNum: "+pageNum);
     }
+
+	//////////////////////////////////////////////////////////
+	///////////////////// Other Classes //////////////////////
 
     public static class PostsAdaptor extends AppHeaderFooterRecyclerViewAdapter<TextHolder> {
 
@@ -119,12 +120,8 @@ public class NotifyListCell
 
         @Override
         protected void onBindContentItemViewHolder(TextHolder textHolder, int position) {
-//            textHolder.view.setText(LangUtil.limitText(list.get(position).PayloadStored,120));
             Notify nf =list.get(position);
             textHolder.notifyCell.bind(nf);
-//            nf.setloadFromStored();
-//            String s = nf.Load.Actor.getFullName();
-//            textHolder.view.setText(LangUtil.limitText(s,120));
         }
     }
 
@@ -318,93 +315,4 @@ public class NotifyListCell
     }
 }
 
-/*
 
-    void bind(Notify nf){
-        nf.setloadFromStored();
-        _setDate(nf.CreatedTime);
-        text_main.setMovementMethod(LinkMovementMethod.getInstance());
-
-        UserInfoJson actor = nf.Load.Actor;
-        _setAvatar(actor);
-        /////////////////////////
-        String s = nf.Load.Actor.getFullName();
-        int uid = nf.Load.Actor.UserId;
-        Spanny spanny = new Spanny(s, new StyleSpan(Typeface.BOLD), goToProfileSpan(uid));
-
-        ////////////////////////////////////////////////
-        // Posts: text_main,Photo,
-        String tp ="";
-        if(nf.ActionTypeId == Constants.NOTIFICATION_TYPE_POST_LIKED){
-            _bindLiked(nf);
-                */
-/*PostRowJson post = nf.Load.Post;
-                if(post != null){//must never happen
-                    tp = " پست شما: \"%\" را پسندید.";
-                    tp = tp.replace("%",LangUtil.limitText(nf.Load.Post.Text,40));
-                    if(post.TypeId == Constants.POST_TYPE_PHOTO){
-                        tp = " عکس شما: \"%\" را پسندید.";
-                        tp = tp.replace("%",LangUtil.limitText(nf.Load.Post.Text,40));
-                        Picasso.with(AppUtil.getContext())
-                                .load("http://localhost:5000/"+post.MediaUrl)
-                                .into(image_extra);
-                        image_extra.setVisibility(View.VISIBLE);
-                    }else {
-                        image_extra.setVisibility(View.GONE);
-                    }
-                    spanny.append(tp);
-                    viewRoot.setOnClickListener((v)->Router.goToPost(nf.Load.Post));
-                }*//*
-
-        }
-
-        if(nf.ActionTypeId == Constants.NOTIFICATION_TYPE_POST_COMMENTED){
-            _bindComment(nf);
-                */
-/*PostRowJson post = nf.Load.Post;
-                if(post != null){//must never happen
-                    tp = " بر روی پست شما: \"%\" نظر داد: \"@$\".";
-                    tp = tp.replace("%",LangUtil.limitText(nf.Load.Post.Text,40));
-                    if(post.TypeId == Constants.POST_TYPE_PHOTO){
-                        tp = " بر روی عکس شما: \"%\" نظر داد: \"@$\".";
-                        tp = tp.replace("%",LangUtil.limitText(nf.Load.Post.Text,40));
-                        Picasso.with(AppUtil.getContext())
-                                .load("http://localhost:5000/"+post.MediaUrl)
-                                .into(image_extra);
-                        image_extra.setVisibility(View.VISIBLE);
-                    }else {
-                        image_extra.setVisibility(View.GONE);
-                    }
-                    if(nf.Load.Comment!= null){
-                        tp = tp.replace("@$",nf.Load.Comment.Text);
-                    }
-                    spanny.append(tp);
-                    viewRoot.setOnClickListener((v)->Router.goToPost(nf.Load.Post));
-                }*//*
-
-        }
-
-        if(nf.ActionTypeId == Constants.NOTIFICATION_TYPE_FOLLOWED_YOU){
-            _bindFollowing(nf);
-                */
-/*PostRowJson post = nf.Load.Post;
-
-                    tp = "شما را دنبال می کند.";
-                    spanny.append(tp);
-                    viewRoot.setOnClickListener((v)->Router.goToPost(nf.Load.Post));*//*
-
-
-        }
-
-            */
-/*text_main.setText(spanny);
-            text_main.setMovementMethod(LinkMovementMethod.getInstance());
-            /////////////////
-            avatar_image.setOnClickListener((v)-> Router.goToProfile(uid));
-
-            Helper.SetAvatar(avatar_image, nf.Load.Actor.AvatarUrl);
-            date.setText(FormaterUtil.timeToDayTime(1425654125));*//*
-
-    }
-
-*/
