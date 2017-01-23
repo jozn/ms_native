@@ -240,6 +240,10 @@ public class Cells {
 
 	}
 
+	public static class Pager_NavRecyclerViewWithRefresher {
+
+	}
+
 	public static class Pager_RecyclerView {
 		public X.Pager_RecyclerviewWithRefresher wrapView;
 		LinearLayoutManager layoutManager;

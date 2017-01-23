@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    android:gravity="right|center_vertical"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
+    android:background="@drawable/light_border_below"
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:background="@color/yellow"
+        style="@style/text.normal.black"
+        android:text="به نظر می رسد این ورژن از مردم سرا قدیمی است. به اخرین نسخه ارتقا دهید تا بتوانید این آگاه سازی رو ببینید."
+        />
+
+</LinearLayout>

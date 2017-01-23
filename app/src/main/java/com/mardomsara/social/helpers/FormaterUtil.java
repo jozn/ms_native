@@ -104,7 +104,9 @@ public class FormaterUtil {
 		long diff = (AppModel.getRealGlobalTimestampMs()/1000) - seconds;
 //		AppUtil.log("Time diff sec:" +diff);
 		String res = "";
-		if(diff < 60*1){//60second
+		if(diff < 1){
+			res =  "همین لحظه";
+		}else if(diff < 60*1){//60second
 			res =  diff + " ثانیه قبل";
 		}else if(diff < 60*60) {
 			res =  (diff/60) + " دقیقه قبل";
@@ -116,6 +118,29 @@ public class FormaterUtil {
 
 		return res.replace(' ',halfSpace);
 	}
+
+	public static String timeAgoWithDateForTooFar(long seconds){
+		long diff = (AppModel.getRealGlobalTimestampMs()/1000) - seconds;
+//		AppUtil.log("Time diff sec:" +diff);
+		String res = "";
+		if(diff < 1){
+			res =  "همین لحظه";
+		}else if(diff < 60*1){//60second
+			res =  diff + " ثانیه قبل";
+		}else if(diff < 60*60) {
+			res =  (diff/60) + " دقیقه قبل";
+		}else if (diff < 3600*24) {//1 day
+			res = (diff/3600) + " ساعت قبل";
+		}else if (diff < 3600*24*30) {//30 day
+			res = (diff/3600) + " روز قبل";
+		} else{
+			res =  friendlyTimeClockOrDayMs(seconds*1000);
+		}
+
+		return res.replace(' ',halfSpace);
+	}
+
+
 
     ///////////////////////////////////////////////
     ///////////// For Time Ago ///////////////////

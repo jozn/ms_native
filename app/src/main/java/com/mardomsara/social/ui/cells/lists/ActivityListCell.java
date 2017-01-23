@@ -30,6 +30,7 @@ import com.mardomsara.social.lib.AppClickableSpan;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
 import com.mardomsara.social.lib.Spanny;
 import com.mardomsara.social.models.tables.Notify;
+import com.mardomsara.social.ui.X;
 import com.mardomsara.social.ui.views.helpers.ViewHelper;
 import com.squareup.picasso.Picasso;
 
@@ -69,17 +70,23 @@ public class ActivityListCell {
 
         @Override
         protected TextHolder onCreateContentItemViewHolder(ViewGroup parent, int contentViewType) {
-            return new TextHolder(new NotifyCell(parent));
+			if (contentViewType == Constants.NOTIFICATION_TYPE_POST_LIKED ||
+				contentViewType == Constants.NOTIFICATION_TYPE_POST_COMMENTED ||
+				contentViewType == Constants.NOTIFICATION_TYPE_FOLLOWED_YOU) {
+				return new TextHolder(new NotifyCell(parent,contentViewType));
+			} else {
+				return new TextHolder(new X.NotifyNotSuportedCell(parent).root);
+			}
+
         }
 
         @Override
         protected void onBindContentItemViewHolder(TextHolder textHolder, int position) {
 //            textHolder.view.setText(LangUtil.limitText(list.get(position).PayloadStored,120));
 			ActivityRowJson nf =list.get(position);
-            textHolder.notifyCell.bind(nf);
-//            nf.setloadFromStored();
-//            String s = nf.Load.Actor.getFullName();
-//            textHolder.view.setText(LangUtil.limitText(s,120));
+			if(textHolder.notifyCell != null){
+				textHolder.notifyCell.bind(nf);
+			}
         }
     }
 
@@ -90,7 +97,12 @@ public class ActivityListCell {
             super(notifyCell.viewRoot);
             this.notifyCell = notifyCell;
         }
-    }
+
+		//or empty
+		public TextHolder(View itemView) {
+			super(itemView);
+		}
+	}
 
     public static class NotifyCell {
         View viewRoot;
@@ -102,9 +114,9 @@ public class ActivityListCell {
         @Bind(R.id.text) TextView text_main;
         @Bind(R.id.date) TextView date;
 
-        public NotifyCell(ViewGroup parent) {
-            viewRoot = AppUtil.inflate(R.layout.notify_cell ,parent);
-            ButterKnife.bind(this,viewRoot);
+        public NotifyCell(ViewGroup parent,int contentViewType) {
+			viewRoot = AppUtil.inflate(R.layout.notify_cell, parent);
+			ButterKnife.bind(this, viewRoot);
         }
 
 

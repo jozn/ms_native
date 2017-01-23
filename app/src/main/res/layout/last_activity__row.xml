@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:layout_height="70dp"
+              android:gravity="right|center_vertical"
+              android:layout_marginLeft="5dp"
+              android:layout_marginRight="5dp"
+              android:background="@drawable/light_border_below"
+    >
+
+    <FrameLayout
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:visibility="visible"
+        android:layout_marginLeft="2dp"
+        android:id="@+id/frame_layout"
+        >
+        <ImageView
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:src="@drawable/spinner_black_76"
+            android:id="@+id/image_extra"
+            />
+        <com.mardomsara.social.ui.views.wigets.FollowingButtonView
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:visibility="gone"
+            android:id="@+id/following_button"
+            />
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_toRightOf="@id/frame_layout"
+        android:layout_toLeftOf="@id/avatar"
+        android:layout_centerVertical="true"
+        android:orientation="vertical"
+        android:gravity="right"
+        android:layout_weight="1"
+        >
+
+        <com.mardomsara.emojicon.EmojiconTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/text"
+            android:gravity="right"
+            style="@style/notify_row.text"
+
+            android:maxLines="2"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/date"
+            android:gravity="right"
+            style="@style/notify_row.date"
+            android:layout_below="@id/text"
+            android:layout_toLeftOf="@id/avatar"
+            />
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/avatar"
+        android:layout_marginLeft="10dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        />
+
+</LinearLayout>

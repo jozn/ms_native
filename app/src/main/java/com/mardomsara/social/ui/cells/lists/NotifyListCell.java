@@ -33,6 +33,7 @@ import com.mardomsara.social.models.NotifyModel;
 import com.mardomsara.social.models.events.NotifyAddedEvent;
 import com.mardomsara.social.models.events.NotifyChanged;
 import com.mardomsara.social.models.tables.Notify;
+import com.mardomsara.social.ui.X;
 import com.mardomsara.social.ui.views.helpers.ViewHelper;
 import com.squareup.picasso.Picasso;
 
@@ -140,7 +141,7 @@ public class NotifyListCell
 	//////////////////////////////////////////////////////////
 	///////////////////// Other Classes //////////////////////
 
-    public static class NotifyRVAdaptor extends AppHeaderFooterRecyclerViewAdapter<TextHolder> {
+    public static class NotifyRVAdaptor extends AppHeaderFooterRecyclerViewAdapter<RecyclerView.ViewHolder> {
 
         List<Notify> list = new ArrayList<>();
         public NotifyRVAdaptor(@NonNull List<Notify> list){
@@ -162,14 +163,23 @@ public class NotifyListCell
         }
 
         @Override
-        protected TextHolder onCreateContentItemViewHolder(ViewGroup parent, int contentViewType) {
-            return new TextHolder(new NotifyCell(parent));
+        protected RecyclerView.ViewHolder onCreateContentItemViewHolder(ViewGroup parent, int contentViewType) {
+			if (contentViewType == Constants.NOTIFICATION_TYPE_POST_LIKED ||
+				contentViewType == Constants.NOTIFICATION_TYPE_POST_COMMENTED ||
+				contentViewType == Constants.NOTIFICATION_TYPE_FOLLOWED_YOU){
+
+				return new TextHolder(new NotifyCell(parent));
+			}else {
+				return  new NotSupported(new X.NotifyNotSuportedCell(parent).root);
+			}
         }
 
         @Override
-        protected void onBindContentItemViewHolder(TextHolder textHolder, int position) {
-            Notify nf =list.get(position);
-            textHolder.notifyCell.bind(nf);
+        protected void onBindContentItemViewHolder(RecyclerView.ViewHolder textHolder, int position) {
+			if(textHolder instanceof TextHolder){
+				Notify nf =list.get(position);
+				((TextHolder) textHolder).notifyCell.bind(nf);
+			}
         }
     }
 
@@ -181,6 +191,12 @@ public class NotifyListCell
             this.notifyCell = notifyCell;
         }
     }
+
+	public static class NotSupported extends RecyclerView.ViewHolder{
+		public NotSupported(View notifyCell) {
+			super(notifyCell);
+		}
+	}
 
     public static class NotifyCell {
         View viewRoot;
@@ -310,7 +326,8 @@ public class NotifyListCell
         }
 
         void _setDate(int time){
-            date.setText(FormaterUtil.timeToDayTime(time));
+//            date.setText(FormaterUtil.timeToDayTime(time));
+            date.setText(FormaterUtil.timeAgoWithDateForTooFar(time));
         }
 
         void _setAvatar(UserInfoJson Actor){

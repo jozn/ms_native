@@ -754,6 +754,31 @@ public class X {
     }
 
 
+    public static class LastActivity_Row {
+        public LinearLayout root;
+        public FrameLayout frame_layout;
+        public ImageView image_extra;
+        public FollowingButtonView following_button;
+        public EmojiconTextView text;
+        public TextView date;
+        public ImageView avatar;
+
+        public LastActivity_Row(ViewGroup parent) {
+            root = (LinearLayout) AppUtil.inflate(R.layout.last_activity__row,parent);
+            frame_layout = (FrameLayout) root.findViewById( R.id.frame_layout);
+            image_extra = (ImageView) root.findViewById( R.id.image_extra);
+            following_button = (FollowingButtonView) root.findViewById( R.id.following_button);
+            text = (EmojiconTextView) root.findViewById( R.id.text);
+            date = (TextView) root.findViewById( R.id.date);
+            avatar = (ImageView) root.findViewById( R.id.avatar);
+        }
+
+        public LastActivity_Row() {
+            this(null);
+        }
+    }
+
+
     public static class ListRoomsPresenter {
         public LinearLayout root;
         public FrameLayout layout1;
@@ -1265,6 +1290,19 @@ public class X {
     }
 
 
+    public static class NotifyNotSuportedCell {
+        public LinearLayout root;
+
+        public NotifyNotSuportedCell(ViewGroup parent) {
+            root = (LinearLayout) AppUtil.inflate(R.layout.notify_not_suported_cell,parent);
+        }
+
+        public NotifyNotSuportedCell() {
+            this(null);
+        }
+    }
+
+
     public static class Page_PostSingleEntry {
         public LinearLayout root;
         public SimpleTopNav simpleTopNav;
@@ -1279,6 +1317,25 @@ public class X {
         }
 
         public Page_PostSingleEntry() {
+            this(null);
+        }
+    }
+
+
+    public static class Pager_NavRecyclerviewWithRefresher {
+        public LinearLayout root;
+        public SimpleTopNav nav;
+        public SwipeRefreshLayout refresh_layout;
+        public RecyclerView recycler_view;
+
+        public Pager_NavRecyclerviewWithRefresher(ViewGroup parent) {
+            root = (LinearLayout) AppUtil.inflate(R.layout.pager__nav_recyclerview_with_refresher,parent);
+            nav = (SimpleTopNav) root.findViewById( R.id.nav);
+            refresh_layout = (SwipeRefreshLayout) root.findViewById( R.id.refresh_layout);
+            recycler_view = (RecyclerView) root.findViewById( R.id.recycler_view);
+        }
+
+        public Pager_NavRecyclerviewWithRefresher() {
             this(null);
         }
     }
