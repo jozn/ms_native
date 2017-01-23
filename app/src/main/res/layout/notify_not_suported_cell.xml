@@ -14,7 +14,7 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:background="@color/yellow"
-        style="@style/text.normal.black"
+        style="@style/text_light"
         android:text="به نظر می رسد این ورژن از مردم سرا قدیمی است. به اخرین نسخه ارتقا دهید تا بتوانید این آگاه سازی رو ببینید."
         />
 

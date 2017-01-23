@@ -132,7 +132,7 @@ public class FormaterUtil {
 		}else if (diff < 3600*24) {//1 day
 			res = (diff/3600) + " ساعت قبل";
 		}else if (diff < 3600*24*30) {//30 day
-			res = (diff/3600) + " روز قبل";
+			res = (diff/(3600*24)) + " روز قبل";
 		} else{
 			res =  friendlyTimeClockOrDayMs(seconds*1000);
 		}
