@@ -109,6 +109,10 @@ public class AppUtil {
         return LayoutInflater.from(_context).inflate(id,parent,false);
     }
 
+	public static View inflate(int id, ViewGroup parent,boolean attach){
+		return LayoutInflater.from(_context).inflate(id,parent,attach);
+	}
+
     public static void runInUi(Runnable r)
     {
         new AsyncTask<Void,Void,Void>(){

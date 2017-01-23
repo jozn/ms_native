@@ -11,6 +11,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewStub;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -45,6 +46,7 @@ import com.mardomsara.social.pipe.from_net_calls.json.MsgDeletedFromServerJson;
 import com.mardomsara.social.pipe.from_net_calls.json.MsgReceivedToPeerJson;
 import com.mardomsara.social.pipe.from_net_calls.json.MsgSeenByPeerJson;
 import com.mardomsara.social.ui.BasePresenter;
+import com.mardomsara.social.ui.X;
 import com.mardomsara.social.ui.cells.chats.lists.MsgsListCell;
 import com.mardomsara.social.ui.cells.general.KeywordAttachmentCell;
 import com.mardomsara.social.ui.views.EmojiKeyboard;
@@ -117,6 +119,7 @@ public class ChatRoomPresenter extends BasePresenter implements
 
     @Override
     public View buildView() {
+//		new ViewStub()
         view = AppUtil.inflate(R.layout.presenter_chat_room);
         ButterKnife.bind(this,view);
 

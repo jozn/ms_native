@@ -50,7 +50,6 @@ public class X {
             take_picture = (Button) root.findViewById( R.id.take_picture);
             image = (ImageView) root.findViewById( R.id.image);
         }
-
         public ActivityCrop() {
             this(null);
         }
@@ -71,7 +70,6 @@ public class X {
             footerbar_holder = (FrameLayout) root.findViewById( R.id.footerbar_holder);
             dialog = (FrameLayout) root.findViewById( R.id.dialog);
         }
-
         public ActivityMainApp() {
             this(null);
         }
@@ -86,7 +84,6 @@ public class X {
             root = (ScrollView) AppUtil.inflate(R.layout.activity_play_advanced,parent);
             output = (TextView) root.findViewById( R.id.output);
         }
-
         public ActivityPlayAdvanced() {
             this(null);
         }
@@ -105,7 +102,6 @@ public class X {
             content = (LinearLayout) root.findViewById( R.id.content);
             simpleAddText = (SimpleAddText) root.findViewById( R.id.simpleAddText);
         }
-
         public CellCommontsWithField() {
             this(null);
         }
@@ -130,7 +126,6 @@ public class X {
             second_name = (EmojiconTextView) root.findViewById( R.id.second_name);
             about = (EmojiconTextView) root.findViewById( R.id.about);
         }
-
         public CellListUserTypeFollowAboutRow() {
             this(null);
         }
@@ -145,7 +140,6 @@ public class X {
             root = (RelativeLayout) AppUtil.inflate(R.layout.cell_loading,parent);
             loadingView = (CircularProgressView) root.findViewById( R.id.loadingView);
         }
-
         public CellLoading() {
             this(null);
         }
@@ -162,7 +156,6 @@ public class X {
             simpleTopNav = (SimpleTopNav) root.findViewById( R.id.simpleTopNav);
             recycler_view = (RecyclerView) root.findViewById( R.id.recycler_view);
         }
-
         public CellPageCellNavRecylcerView() {
             this(null);
         }
@@ -175,7 +168,6 @@ public class X {
         public CellPageCommingSoon(ViewGroup parent) {
             root = (RelativeLayout) AppUtil.inflate(R.layout.cell_page_comming_soon,parent);
         }
-
         public CellPageCommingSoon() {
             this(null);
         }
@@ -198,7 +190,6 @@ public class X {
             loadingView = (CircularProgressView) root.findViewById( R.id.loadingView);
             text = (EmojiconTextView) root.findViewById( R.id.text);
         }
-
         public CellRowCommont() {
             this(null);
         }
@@ -233,7 +224,6 @@ public class X {
             close_icon = (TextView) root.findViewById( R.id.close_icon);
             close_text = (TextView) root.findViewById( R.id.close_text);
         }
-
         public CellsKeywoardAttachment() {
             this(null);
         }
@@ -256,7 +246,6 @@ public class X {
             last_msg_txt = (EmojiconTextView) root.findViewById( R.id.last_msg_txt);
             avatar = (SimpleDraweeView) root.findViewById( R.id.avatar);
         }
-
         public ChatListRow() {
             this(null);
         }
@@ -275,7 +264,6 @@ public class X {
             top_txt = (TextView) root.findViewById( R.id.top_txt);
             bottom_txt = (TextView) root.findViewById( R.id.bottom_txt);
         }
-
         public ChatListRow2() {
             this(null);
         }
@@ -298,7 +286,6 @@ public class X {
             unseen_count_txt = (CountView) root.findViewById( R.id.unseen_count_txt);
             last_msg_txt = (EmojiconTextView) root.findViewById( R.id.last_msg_txt);
         }
-
         public ChatListRow_Realative() {
             this(null);
         }
@@ -313,7 +300,6 @@ public class X {
             root = (FrameLayout) AppUtil.inflate(R.layout.common__container_loading,parent);
             loading = (LoadingView) root.findViewById( R.id.loading);
         }
-
         public Common_ContainerLoading() {
             this(null);
         }
@@ -328,7 +314,6 @@ public class X {
             root = (FrameLayout) AppUtil.inflate(R.layout.common__one_third_image,parent);
             img = (ImageView) root.findViewById( R.id.img);
         }
-
         public Common_OneThirdImage() {
             this(null);
         }
@@ -349,7 +334,6 @@ public class X {
             rotateRight = (ImageButton) root.findViewById( R.id.rotateRight);
             save = (Button) root.findViewById( R.id.save);
         }
-
         public Cropimage() {
             this(null);
         }
@@ -366,7 +350,6 @@ public class X {
             dialogplus_outmost_container = (FrameLayout) root.findViewById( R.id.dialogplus_outmost_container);
             dialogplus_content_container = (FrameLayout) root.findViewById( R.id.dialogplus_content_container);
         }
-
         public DialogBaseContainer() {
             this(null);
         }
@@ -387,7 +370,6 @@ public class X {
             dialogplus_list = (GridView) root.findViewById( R.id.dialogplus_list);
             dialogplus_footer_container = (FrameLayout) root.findViewById( R.id.dialogplus_footer_container);
         }
-
         public DialogGrid() {
             this(null);
         }
@@ -404,7 +386,6 @@ public class X {
             dialogplus_outmost_container = (LinearLayout) root.findViewById( R.id.dialogplus_outmost_container);
             dialogplus_list = (ListView) root.findViewById( R.id.dialogplus_list);
         }
-
         public DialogList() {
             this(null);
         }
@@ -421,7 +402,6 @@ public class X {
             text = (TextView) root.findViewById( R.id.text);
             list_view = (ListView) root.findViewById( R.id.list_view);
         }
-
         public DialogOptionsRoomRow() {
             this(null);
         }
@@ -440,7 +420,6 @@ public class X {
             delete = (TextView) root.findViewById( R.id.delete);
             clear = (TextView) root.findViewById( R.id.clear);
         }
-
         public DialogOptionsRoomRow2() {
             this(null);
         }
@@ -459,7 +438,6 @@ public class X {
             body = (TextView) root.findViewById( R.id.body);
             close = (TextView) root.findViewById( R.id.close);
         }
-
         public DialogSimpleAlert() {
             this(null);
         }
@@ -472,7 +450,6 @@ public class X {
         public DialogSimpleBody(ViewGroup parent) {
             root = (TextView) AppUtil.inflate(R.layout.dialog_simple_body,parent);
         }
-
         public DialogSimpleBody() {
             this(null);
         }
@@ -485,7 +462,6 @@ public class X {
         public DialogSimpleClose(ViewGroup parent) {
             root = (TextView) AppUtil.inflate(R.layout.dialog_simple_close,parent);
         }
-
         public DialogSimpleClose() {
             this(null);
         }
@@ -498,7 +474,6 @@ public class X {
         public DialogSimpleMenuString(ViewGroup parent) {
             root = (TextView) AppUtil.inflate(R.layout.dialog_simple_menu_string,parent);
         }
-
         public DialogSimpleMenuString() {
             this(null);
         }
@@ -511,7 +486,6 @@ public class X {
         public DialogSimpleTitle(ViewGroup parent) {
             root = (TextView) AppUtil.inflate(R.layout.dialog_simple_title,parent);
         }
-
         public DialogSimpleTitle() {
             this(null);
         }
@@ -532,7 +506,6 @@ public class X {
             dialogplus_view_container = (FrameLayout) root.findViewById( R.id.dialogplus_view_container);
             dialogplus_footer_container = (FrameLayout) root.findViewById( R.id.dialogplus_footer_container);
         }
-
         public DialogView() {
             this(null);
         }
@@ -541,6 +514,9 @@ public class X {
 
     public static class FragmentChatEnteryPage {
         public LinearLayout root;
+        public TextView room_name;
+        public ImageView avatar;
+        public TextView back;
         public ImageView imageView;
         public RecyclerView recycler_view;
         public LinearLayout bottom_container;
@@ -552,6 +528,9 @@ public class X {
 
         public FragmentChatEnteryPage(ViewGroup parent) {
             root = (LinearLayout) AppUtil.inflate(R.layout.fragment_chat_entery_page,parent);
+            room_name = (TextView) root.findViewById( R.id.room_name);
+            avatar = (ImageView) root.findViewById( R.id.avatar);
+            back = (TextView) root.findViewById( R.id.back);
             imageView = (ImageView) root.findViewById( R.id.imageView);
             recycler_view = (RecyclerView) root.findViewById( R.id.recycler_view);
             bottom_container = (LinearLayout) root.findViewById( R.id.bottom_container);
@@ -561,7 +540,6 @@ public class X {
             send_msg = (Button) root.findViewById( R.id.send_msg);
             emoji_window_holder = (FrameLayout) root.findViewById( R.id.emoji_window_holder);
         }
-
         public FragmentChatEnteryPage() {
             this(null);
         }
@@ -584,7 +562,6 @@ public class X {
             home = (TextView) root.findViewById( R.id.home);
             chat = (TextView) root.findViewById( R.id.chat);
         }
-
         public FragmentFooterBar() {
             this(null);
         }
@@ -601,7 +578,6 @@ public class X {
             sliding_tabs = (TabLayout) root.findViewById( R.id.sliding_tabs);
             viewpager = (ViewPager) root.findViewById( R.id.viewpager);
         }
-
         public FragmentHomePage() {
             this(null);
         }
@@ -616,7 +592,6 @@ public class X {
             root = (RelativeLayout) AppUtil.inflate(R.layout.fragment_main,parent);
             section_label = (TextView) root.findViewById( R.id.section_label);
         }
-
         public FragmentMain() {
             this(null);
         }
@@ -629,7 +604,6 @@ public class X {
         public FragmentSinglePresenter(ViewGroup parent) {
             root = (FrameLayout) AppUtil.inflate(R.layout.fragment_single_presenter,parent);
         }
-
         public FragmentSinglePresenter() {
             this(null);
         }
@@ -644,7 +618,6 @@ public class X {
             root = (LinearLayout) AppUtil.inflate(R.layout.gallery_chooser_folders_recyicler_view,parent);
             recycler_view = (RecyclerView) root.findViewById( R.id.recycler_view);
         }
-
         public GalleryChooserFoldersRecyiclerView() {
             this(null);
         }
@@ -663,7 +636,6 @@ public class X {
             avatar = (ImageView) root.findViewById( R.id.avatar);
             back = (TextView) root.findViewById( R.id.back);
         }
-
         public HeaderChatEntary() {
             this(null);
         }
@@ -676,9 +648,22 @@ public class X {
         public HelloWorld(ViewGroup parent) {
             root = (LinearLayout) AppUtil.inflate(R.layout.hello_world,parent);
         }
-
         public HelloWorld() {
             this(null);
+        }
+    }
+
+
+    public static class HelloWorldMerge {
+        public Button root;
+        public Button follow_button;
+        public Button followings_btn;
+
+        public HelloWorldMerge(ViewGroup parent) {
+            root = (Button) AppUtil.inflate(R.layout.hello_world_merge,parent,true);//for Compound Views
+            
+            follow_button = (Button) root.findViewById( R.id.follow_button);
+            followings_btn = (Button) root.findViewById( R.id.followings_btn);
         }
     }
 
@@ -703,7 +688,6 @@ public class X {
             anvil = (LinearLayout) root.findViewById( R.id.anvil);
             anvil2 = (LinearLayout) root.findViewById( R.id.anvil2);
         }
-
         public HelloWorldRow() {
             this(null);
         }
@@ -730,7 +714,6 @@ public class X {
             attach_file = (LinearLayout) root.findViewById( R.id.attach_file);
             close_send_btn = (LinearLayout) root.findViewById( R.id.close_send_btn);
         }
-
         public KeywoardAttachment2() {
             this(null);
         }
@@ -747,7 +730,6 @@ public class X {
             attachment_top = (LinearLayout) root.findViewById( R.id.attachment_top);
             emoji_window_holder2 = (LinearLayout) root.findViewById( R.id.emoji_window_holder2);
         }
-
         public KeywoardEmoji() {
             this(null);
         }
@@ -772,7 +754,6 @@ public class X {
             date = (TextView) root.findViewById( R.id.date);
             avatar = (ImageView) root.findViewById( R.id.avatar);
         }
-
         public LastActivity_Row() {
             this(null);
         }
@@ -789,7 +770,6 @@ public class X {
             layout1 = (FrameLayout) root.findViewById( R.id.layout1);
             contacts_list = (RecyclerView) root.findViewById( R.id.contacts_list);
         }
-
         public ListRoomsPresenter() {
             this(null);
         }
@@ -810,7 +790,6 @@ public class X {
             user = (TextView) root.findViewById( R.id.user);
             my_image_view = (SimpleDraweeView) root.findViewById( R.id.my_image_view);
         }
-
         public ListUserFollowRow() {
             this(null);
         }
@@ -825,7 +804,6 @@ public class X {
             root = (TextView) AppUtil.inflate(R.layout.listview_planet_textview,parent);
             listViewText = (TextView) root.findViewById( R.id.listViewText);
         }
-
         public ListviewPlanetTextview() {
             this(null);
         }
@@ -840,7 +818,6 @@ public class X {
             root = (FrameLayout) AppUtil.inflate(R.layout.loading,parent);
             loading = (CircularProgressView) root.findViewById( R.id.loading);
         }
-
         public Loading() {
             this(null);
         }
@@ -855,7 +832,6 @@ public class X {
             root = (LinearLayout) AppUtil.inflate(R.layout.main,parent);
             textView = (TextView) root.findViewById( R.id.textView);
         }
-
         public Main() {
             this(null);
         }
@@ -872,7 +848,6 @@ public class X {
             sliding_tabs = (TabLayout) root.findViewById( R.id.sliding_tabs);
             viewpager = (ViewPager) root.findViewById( R.id.viewpager);
         }
-
         public MainBranchChat() {
             this(null);
         }
@@ -885,7 +860,6 @@ public class X {
         public MainPageChatPresenter(ViewGroup parent) {
             root = (LinearLayout) AppUtil.inflate(R.layout.main_page_chat_presenter,parent);
         }
-
         public MainPageChatPresenter() {
             this(null);
         }
@@ -908,7 +882,6 @@ public class X {
             back_btn = (TextView) root.findViewById( R.id.back_btn);
             title = (TextView) root.findViewById( R.id.title);
         }
-
         public MediaChooserTopNav() {
             this(null);
         }
@@ -921,7 +894,6 @@ public class X {
         public MsgEmpty(ViewGroup parent) {
             root = (FrameLayout) AppUtil.inflate(R.layout.msg_empty,parent);
         }
-
         public MsgEmpty() {
             this(null);
         }
@@ -936,7 +908,6 @@ public class X {
             root = (LinearLayout) AppUtil.inflate(R.layout.msg_row_all_me,parent);
             txt = (TextView) root.findViewById( R.id.txt);
         }
-
         public MsgRowAllMe() {
             this(null);
         }
@@ -951,7 +922,6 @@ public class X {
             root = (LinearLayout) AppUtil.inflate(R.layout.msg_row_all_peer,parent);
             txt = (TextView) root.findViewById( R.id.txt);
         }
-
         public MsgRowAllPeer() {
             this(null);
         }
@@ -964,7 +934,6 @@ public class X {
         public MsgRowAudioMe(ViewGroup parent) {
             root = (LinearLayout) AppUtil.inflate(R.layout.msg_row_audio_me,parent);
         }
-
         public MsgRowAudioMe() {
             this(null);
         }
@@ -977,7 +946,6 @@ public class X {
         public MsgRowAudioPeer(ViewGroup parent) {
             root = (LinearLayout) AppUtil.inflate(R.layout.msg_row_audio_peer,parent);
         }
-
         public MsgRowAudioPeer() {
             this(null);
         }
@@ -990,7 +958,6 @@ public class X {
         public MsgRowContactMe(ViewGroup parent) {
             root = (LinearLayout) AppUtil.inflate(R.layout.msg_row_contact_me,parent);
         }
-
         public MsgRowContactMe() {
             this(null);
         }
@@ -1003,7 +970,6 @@ public class X {
         public MsgRowContactPeer(ViewGroup parent) {
             root = (LinearLayout) AppUtil.inflate(R.layout.msg_row_contact_peer,parent);
         }
-
         public MsgRowContactPeer() {
             this(null);
         }
@@ -1016,7 +982,6 @@ public class X {
         public MsgRowFileMe(ViewGroup parent) {
             root = (LinearLayout) AppUtil.inflate(R.layout.msg_row_file_me,parent);
         }
-
         public MsgRowFileMe() {
             this(null);
         }
@@ -1029,7 +994,6 @@ public class X {
         public MsgRowFilePeer(ViewGroup parent) {
             root = (LinearLayout) AppUtil.inflate(R.layout.msg_row_file_peer,parent);
         }
-
         public MsgRowFilePeer() {
             this(null);
         }
@@ -1041,14 +1005,17 @@ public class X {
         public LinearLayout msg_content_holder;
         public SimpleDraweeView msg_image;
         public EmojiconTextView msg_text;
+        public TextView msg_time;
+        public TextView msg_delivery_status;
 
         public MsgRowImageMe(ViewGroup parent) {
             root = (LinearLayout) AppUtil.inflate(R.layout.msg_row_image_me,parent);
             msg_content_holder = (LinearLayout) root.findViewById( R.id.msg_content_holder);
             msg_image = (SimpleDraweeView) root.findViewById( R.id.msg_image);
             msg_text = (EmojiconTextView) root.findViewById( R.id.msg_text);
+            msg_time = (TextView) root.findViewById( R.id.msg_time);
+            msg_delivery_status = (TextView) root.findViewById( R.id.msg_delivery_status);
         }
-
         public MsgRowImageMe() {
             this(null);
         }
@@ -1059,13 +1026,14 @@ public class X {
         public LinearLayout root;
         public LinearLayout msg_content_holder;
         public SimpleDraweeView msg_image;
+        public TextView msg_time;
 
         public MsgRowImagePeer(ViewGroup parent) {
             root = (LinearLayout) AppUtil.inflate(R.layout.msg_row_image_peer,parent);
             msg_content_holder = (LinearLayout) root.findViewById( R.id.msg_content_holder);
             msg_image = (SimpleDraweeView) root.findViewById( R.id.msg_image);
+            msg_time = (TextView) root.findViewById( R.id.msg_time);
         }
-
         public MsgRowImagePeer() {
             this(null);
         }
@@ -1078,7 +1046,6 @@ public class X {
         public MsgRowLocationMe(ViewGroup parent) {
             root = (LinearLayout) AppUtil.inflate(R.layout.msg_row_location_me,parent);
         }
-
         public MsgRowLocationMe() {
             this(null);
         }
@@ -1091,7 +1058,6 @@ public class X {
         public MsgRowLocationPeer(ViewGroup parent) {
             root = (LinearLayout) AppUtil.inflate(R.layout.msg_row_location_peer,parent);
         }
-
         public MsgRowLocationPeer() {
             this(null);
         }
@@ -1104,7 +1070,6 @@ public class X {
         public MsgRowPostMe(ViewGroup parent) {
             root = (LinearLayout) AppUtil.inflate(R.layout.msg_row_post_me,parent);
         }
-
         public MsgRowPostMe() {
             this(null);
         }
@@ -1117,7 +1082,6 @@ public class X {
         public MsgRowPostPeer(ViewGroup parent) {
             root = (LinearLayout) AppUtil.inflate(R.layout.msg_row_post_peer,parent);
         }
-
         public MsgRowPostPeer() {
             this(null);
         }
@@ -1130,7 +1094,6 @@ public class X {
         public MsgRowStickerMe(ViewGroup parent) {
             root = (LinearLayout) AppUtil.inflate(R.layout.msg_row_sticker_me,parent);
         }
-
         public MsgRowStickerMe() {
             this(null);
         }
@@ -1143,7 +1106,6 @@ public class X {
         public MsgRowStickerPeer(ViewGroup parent) {
             root = (LinearLayout) AppUtil.inflate(R.layout.msg_row_sticker_peer,parent);
         }
-
         public MsgRowStickerPeer() {
             this(null);
         }
@@ -1156,7 +1118,6 @@ public class X {
         public MsgRowSystem(ViewGroup parent) {
             root = (LinearLayout) AppUtil.inflate(R.layout.msg_row_system,parent);
         }
-
         public MsgRowSystem() {
             this(null);
         }
@@ -1166,12 +1127,15 @@ public class X {
     public static class MsgRowTextMe {
         public LinearLayout root;
         public LinearLayout msg_content_holder;
+        public TextView msg_time;
+        public TextView msg_delivery_status;
 
         public MsgRowTextMe(ViewGroup parent) {
             root = (LinearLayout) AppUtil.inflate(R.layout.msg_row_text_me,parent);
             msg_content_holder = (LinearLayout) root.findViewById( R.id.msg_content_holder);
+            msg_time = (TextView) root.findViewById( R.id.msg_time);
+            msg_delivery_status = (TextView) root.findViewById( R.id.msg_delivery_status);
         }
-
         public MsgRowTextMe() {
             this(null);
         }
@@ -1182,13 +1146,14 @@ public class X {
         public LinearLayout root;
         public LinearLayout msg_content_holder;
         public EmojiconTextView msg_text;
+        public TextView msg_time;
 
         public MsgRowTextPeer(ViewGroup parent) {
             root = (LinearLayout) AppUtil.inflate(R.layout.msg_row_text_peer,parent);
             msg_content_holder = (LinearLayout) root.findViewById( R.id.msg_content_holder);
             msg_text = (EmojiconTextView) root.findViewById( R.id.msg_text);
+            msg_time = (TextView) root.findViewById( R.id.msg_time);
         }
-
         public MsgRowTextPeer() {
             this(null);
         }
@@ -1200,16 +1165,45 @@ public class X {
         public RelativeLayout msg_content_holder;
         public SimpleDraweeView msg_image;
         public EmojiconTextView msg_text;
+        public TextView msg_time;
+        public TextView msg_delivery_status;
 
         public MsgRowVideoMe(ViewGroup parent) {
             root = (LinearLayout) AppUtil.inflate(R.layout.msg_row_video_me,parent);
             msg_content_holder = (RelativeLayout) root.findViewById( R.id.msg_content_holder);
             msg_image = (SimpleDraweeView) root.findViewById( R.id.msg_image);
             msg_text = (EmojiconTextView) root.findViewById( R.id.msg_text);
+            msg_time = (TextView) root.findViewById( R.id.msg_time);
+            msg_delivery_status = (TextView) root.findViewById( R.id.msg_delivery_status);
         }
-
         public MsgRowVideoMe() {
             this(null);
+        }
+    }
+
+
+    public static class MsgSharedTime {
+        public TextView root;
+        public TextView msg_time;
+
+        public MsgSharedTime(ViewGroup parent) {
+            root = (TextView) AppUtil.inflate(R.layout.msg_shared_time,parent,true);//for Compound Views
+            
+            msg_time = (TextView) root.findViewById( R.id.msg_time);
+        }
+    }
+
+
+    public static class MsgSharedTimeAndDelivery {
+        public LinearLayout root;
+        public TextView msg_time;
+        public TextView msg_delivery_status;
+
+        public MsgSharedTimeAndDelivery(ViewGroup parent) {
+            root = (LinearLayout) AppUtil.inflate(R.layout.msg_shared_time_and_delivery,parent,true);//for Compound Views
+            
+            msg_time = (TextView) root.findViewById( R.id.msg_time);
+            msg_delivery_status = (TextView) root.findViewById( R.id.msg_delivery_status);
         }
     }
 
@@ -1224,7 +1218,6 @@ public class X {
             msg_time = (TextView) root.findViewById( R.id.msg_time);
             msg_delivery_status = (TextView) root.findViewById( R.id.msg_delivery_status);
         }
-
         public MsgSharedTimeStatus() {
             this(null);
         }
@@ -1239,7 +1232,6 @@ public class X {
             root = (FrameLayout) AppUtil.inflate(R.layout.nav__icon_holder,parent);
             icon_text = (IconTextView) root.findViewById( R.id.icon_text);
         }
-
         public Nav_IconHolder() {
             this(null);
         }
@@ -1258,7 +1250,6 @@ public class X {
             sliding_tabs = (TabLayout) root.findViewById( R.id.sliding_tabs);
             viewpager = (ViewPager) root.findViewById( R.id.viewpager);
         }
-
         public NavHeaderPagerMenu() {
             this(null);
         }
@@ -1283,7 +1274,6 @@ public class X {
             date = (TextView) root.findViewById( R.id.date);
             avatar = (ImageView) root.findViewById( R.id.avatar);
         }
-
         public NotifyCell() {
             this(null);
         }
@@ -1296,7 +1286,6 @@ public class X {
         public NotifyNotSuportedCell(ViewGroup parent) {
             root = (LinearLayout) AppUtil.inflate(R.layout.notify_not_suported_cell,parent);
         }
-
         public NotifyNotSuportedCell() {
             this(null);
         }
@@ -1315,7 +1304,6 @@ public class X {
             post_row_holder = (FrameLayout) root.findViewById( R.id.post_row_holder);
             comments_holder = (FrameLayout) root.findViewById( R.id.comments_holder);
         }
-
         public Page_PostSingleEntry() {
             this(null);
         }
@@ -1334,7 +1322,6 @@ public class X {
             refresh_layout = (SwipeRefreshLayout) root.findViewById( R.id.refresh_layout);
             recycler_view = (RecyclerView) root.findViewById( R.id.recycler_view);
         }
-
         public Pager_NavRecyclerviewWithRefresher() {
             this(null);
         }
@@ -1351,7 +1338,6 @@ public class X {
             refresh_layout = (SwipeRefreshLayout) root.findViewById( R.id.refresh_layout);
             recycler_view = (RecyclerView) root.findViewById( R.id.recycler_view);
         }
-
         public Pager_RecyclerviewWithRefresher() {
             this(null);
         }
@@ -1366,7 +1352,6 @@ public class X {
             root = (ScrollView) AppUtil.inflate(R.layout.play_activity_fonts_scrolling,parent);
             btn = (Button) root.findViewById( R.id.btn);
         }
-
         public PlayActivityFontsScrolling() {
             this(null);
         }
@@ -1391,7 +1376,6 @@ public class X {
             dl = (Button) root.findViewById( R.id.dl);
             openpopup = (Button) root.findViewById( R.id.openpopup);
         }
-
         public PlayMainPopup() {
             this(null);
         }
@@ -1410,7 +1394,6 @@ public class X {
             p_navigation = (Button) root.findViewById( R.id.p_navigation);
             webview = (WebView) root.findViewById( R.id.webview);
         }
-
         public PlayRecipies() {
             this(null);
         }
@@ -1425,7 +1408,6 @@ public class X {
             root = (FrameLayout) AppUtil.inflate(R.layout.post__single_entry_holder,parent);
             loading = (LoadingView) root.findViewById( R.id.loading);
         }
-
         public Post_SingleEntryHolder() {
             this(null);
         }
@@ -1446,7 +1428,6 @@ public class X {
             simpleAddText = (SimpleAddText) root.findViewById( R.id.simpleAddText);
             content = (LinearLayout) root.findViewById( R.id.content);
         }
-
         public PresenterCommonts() {
             this(null);
         }
@@ -1463,7 +1444,6 @@ public class X {
             tab_layout = (TabLayout) root.findViewById( R.id.tab_layout);
             view_pager = (ViewPager) root.findViewById( R.id.view_pager);
         }
-
         public PresenterGalleryChooser() {
             this(null);
         }
@@ -1482,7 +1462,6 @@ public class X {
             simpleTopNav = (SimpleTopNav) root.findViewById( R.id.simpleTopNav);
             loadingView = (LoadingView) root.findViewById( R.id.loadingView);
         }
-
         public PresenterGeneralUserListTypeFollow() {
             this(null);
         }
@@ -1511,7 +1490,6 @@ public class X {
             empty_followings_msg = (TextView) root.findViewById( R.id.empty_followings_msg);
             followings_list = (RecyclerView) root.findViewById( R.id.followings_list);
         }
-
         public PresenterListContactsFollowings() {
             this(null);
         }
@@ -1526,7 +1504,6 @@ public class X {
             root = (LinearLayout) AppUtil.inflate(R.layout.presenter_profile,parent);
             simpleTopNav = (SimpleTopNav) root.findViewById( R.id.simpleTopNav);
         }
-
         public PresenterProfile() {
             this(null);
         }
@@ -1549,7 +1526,6 @@ public class X {
             image3 = (ImageView) root.findViewById( R.id.image3);
             image2 = (ImageView) root.findViewById( R.id.image2);
         }
-
         public PresenterTopTags() {
             this(null);
         }
@@ -1559,38 +1535,18 @@ public class X {
     public static class PreseterHomeStream {
         public RelativeLayout root;
         public LinearLayout top_nav;
-        public FrameLayout loading;
+        public FrameLayout loading_container;
+        public CircularProgressView loading;
         public LinearLayout content;
 
         public PreseterHomeStream(ViewGroup parent) {
             root = (RelativeLayout) AppUtil.inflate(R.layout.preseter_home_stream,parent);
             top_nav = (LinearLayout) root.findViewById( R.id.top_nav);
-            loading = (FrameLayout) root.findViewById( R.id.loading);
+            loading_container = (FrameLayout) root.findViewById( R.id.loading_container);
+            loading = (CircularProgressView) root.findViewById( R.id.loading);
             content = (LinearLayout) root.findViewById( R.id.content);
         }
-
         public PreseterHomeStream() {
-            this(null);
-        }
-    }
-
-
-    public static class PreseterHomeStream_Bk {
-        public RelativeLayout root;
-        public LinearLayout top_nav;
-        public FrameLayout loading;
-        public LinearLayout content;
-        public RecyclerView recycler_view;
-
-        public PreseterHomeStream_Bk(ViewGroup parent) {
-            root = (RelativeLayout) AppUtil.inflate(R.layout.preseter_home_stream__bk,parent);
-            top_nav = (LinearLayout) root.findViewById( R.id.top_nav);
-            loading = (FrameLayout) root.findViewById( R.id.loading);
-            content = (LinearLayout) root.findViewById( R.id.content);
-            recycler_view = (RecyclerView) root.findViewById( R.id.recycler_view);
-        }
-
-        public PreseterHomeStream_Bk() {
             this(null);
         }
     }
@@ -1626,7 +1582,6 @@ public class X {
             fullname = (EmojiconTextView) root.findViewById( R.id.fullname);
             about = (EmojiconTextView) root.findViewById( R.id.about);
         }
-
         public ProfileTopInfo() {
             this(null);
         }
@@ -1645,7 +1600,6 @@ public class X {
             text_holder = (FrameLayout) root.findViewById( R.id.text_holder);
             text_icon = (TextView) root.findViewById( R.id.text_icon);
         }
-
         public RecentImagesImageItem() {
             this(null);
         }
@@ -1672,7 +1626,6 @@ public class X {
             second_name = (EmojiconTextView) root.findViewById( R.id.second_name);
             about = (EmojiconTextView) root.findViewById( R.id.about);
         }
-
         public Recommendation_UserRow() {
             this(null);
         }
@@ -1705,7 +1658,6 @@ public class X {
             likes_count = (TextViewWithIcon) root.findViewById( R.id.likes_count);
             like_btn = (TextView) root.findViewById( R.id.like_btn);
         }
-
         public RowPostStream() {
             this(null);
         }
@@ -1724,7 +1676,6 @@ public class X {
             text = (TextView) root.findViewById( R.id.text);
             count = (TextView) root.findViewById( R.id.count);
         }
-
         public RowTagSimple() {
             this(null);
         }
@@ -1745,7 +1696,6 @@ public class X {
             primary_name = (EmojiconTextView) root.findViewById( R.id.primary_name);
             avatar = (SimpleDraweeView) root.findViewById( R.id.avatar);
         }
-
         public RowUsersContacts() {
             this(null);
         }
@@ -1762,7 +1712,6 @@ public class X {
             reload = (LinearLayout) root.findViewById( R.id.reload);
             empty_note = (TextView) root.findViewById( R.id.empty_note);
         }
-
         public Rv_EmptyNote() {
             this(null);
         }
@@ -1779,7 +1728,6 @@ public class X {
             reload = (LinearLayout) root.findViewById( R.id.reload);
             not_internet = (IconTextView) root.findViewById( R.id.not_internet);
         }
-
         public Rv_FailedReload() {
             this(null);
         }
@@ -1796,7 +1744,6 @@ public class X {
             textView = (TextView) root.findViewById( R.id.textView);
             imgView = (ImageView) root.findViewById( R.id.imgView);
         }
-
         public TabCellGeneral() {
             this(null);
         }
@@ -1811,7 +1758,6 @@ public class X {
             root = (RelativeLayout) AppUtil.inflate(R.layout.title_info,parent);
             text_view = (TextView) root.findViewById( R.id.text_view);
         }
-
         public TitleInfo() {
             this(null);
         }
@@ -1828,7 +1774,6 @@ public class X {
             icon = (TextView) root.findViewById( R.id.icon);
             text_view = (TextView) root.findViewById( R.id.text_view);
         }
-
         public TitleStringClickable() {
             this(null);
         }
@@ -1841,7 +1786,6 @@ public class X {
         public ViewRecyclerView(ViewGroup parent) {
             root = (RecyclerView) AppUtil.inflate(R.layout.view_recycler_view,parent);
         }
-
         public ViewRecyclerView() {
             this(null);
         }
@@ -1862,7 +1806,6 @@ public class X {
             top_nav = (LinearLayout) root.findViewById( R.id.top_nav);
             text_view = (EmojiconTextView) root.findViewById( R.id.text_view);
         }
-
         public Widget_PlaySample() {
             this(null);
         }
@@ -1883,7 +1826,6 @@ public class X {
             input = (EmojiconEditText) root.findViewById( R.id.input);
             send_btn = (Button) root.findViewById( R.id.send_btn);
         }
-
         public WidgetAddSimpleText() {
             this(null);
         }
@@ -1904,9 +1846,48 @@ public class X {
             top_nav = (LinearLayout) root.findViewById( R.id.top_nav);
             text_view = (EmojiconTextView) root.findViewById( R.id.text_view);
         }
-
         public WidgetFullScreenImage() {
             this(null);
+        }
+    }
+
+
+    public static class WidgetGeneralUserListYtypeFollow {
+        public RecyclerView root;
+        public RecyclerView recycler_view;
+
+        public WidgetGeneralUserListYtypeFollow(ViewGroup parent) {
+            root = (RecyclerView) AppUtil.inflate(R.layout.widget_general_user_list_ytype_follow,parent,true);//for Compound Views
+            
+            recycler_view = (RecyclerView) root.findViewById( R.id.recycler_view);
+        }
+    }
+
+
+    public static class WidgetSimpleTopNav {
+        public TextView root;
+        public TextView left_text;
+        public TextView title_text;
+
+        public WidgetSimpleTopNav(ViewGroup parent) {
+            root = (TextView) AppUtil.inflate(R.layout.widget_simple_top_nav,parent,true);//for Compound Views
+            
+            left_text = (TextView) root.findViewById( R.id.left_text);
+            title_text = (TextView) root.findViewById( R.id.title_text);
+        }
+    }
+
+
+    public static class WidgetTextAndIcon {
+        public TextView root;
+        public TextView text;
+        public TextView icon;
+
+        public WidgetTextAndIcon(ViewGroup parent) {
+            root = (TextView) AppUtil.inflate(R.layout.widget_text_and_icon,parent,true);//for Compound Views
+            
+            text = (TextView) root.findViewById( R.id.text);
+            icon = (TextView) root.findViewById( R.id.icon);
         }
     }
 
@@ -1917,7 +1898,6 @@ public class X {
         public WigetApp_HeadrFooterRecyclerEmptyMsg(ViewGroup parent) {
             root = (RelativeLayout) AppUtil.inflate(R.layout.wiget_app__headr_footer_recycler_empty_msg,parent);
         }
-
         public WigetApp_HeadrFooterRecyclerEmptyMsg() {
             this(null);
         }
@@ -1938,7 +1918,6 @@ public class X {
             second_name = (EmojiconTextView) root.findViewById( R.id.second_name);
             avatar = (SimpleDraweeView) root.findViewById( R.id.avatar);
         }
-
         public WigetUserListTypeFollowRow() {
             this(null);
         }
