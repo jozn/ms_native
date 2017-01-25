@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.mardomsara.social.App;
 import com.mardomsara.social.PresenterPage;
 
 /**
@@ -76,7 +77,7 @@ public  abstract class BasePresenter implements PresenterPage {
     }
 
     public Activity getActivity(){
-        return activity;
+        return App.getActivity();
     }
 
     public Context getContext(){

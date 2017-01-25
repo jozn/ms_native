@@ -110,19 +110,21 @@ public class Room implements Comparable<Room> {
 
 
 	//todo move this somewhere
-	public static int roomKeyToPeerId(String RoomKey){
-		int myId = Session.getUserId();
-		String[] users = RoomKey.substring(1).split("_");
-		if(users.length != 2) return 0;
-		int user1 = LangUtil.stringToInt(users[0],0);
-		int user2 = LangUtil.stringToInt(users[1],0);
+	public static int roomKeyToPeerId(@NonNull String RoomKey){
+		if(RoomKey != null && RoomKey.length() > 2){
+			int myId = Session.getUserId();
+			String[] users = RoomKey.substring(1).split("_");
+			if(users.length != 2) return 0;
+			int user1 = LangUtil.stringToInt(users[0],0);
+			int user2 = LangUtil.stringToInt(users[1],0);
 
-		if(user1 == myId){
-			return user2;
-		}
+			if(user1 == myId){
+				return user2;
+			}
 
-		if(user2 == myId){
-			return user1;
+			if(user2 == myId){
+				return user1;
+			}
 		}
 		return 0;
 	}

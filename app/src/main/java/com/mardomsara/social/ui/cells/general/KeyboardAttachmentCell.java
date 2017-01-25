@@ -25,7 +25,7 @@ import butterknife.OnClick;
  * Created by Hamid on 6/15/2016.
  */
 //todo [update DON'T] migrate to dataBinding: on xml setOrReplace onClick={callback_listener.onPhotoClick()}
-public class KeywordAttachmentCell implements RecentImagesCell.onRecentImageClicked{
+public class KeyboardAttachmentCell implements RecentImagesCell.onRecentImageClicked{
     @Bind(R.id.attach_video) View attach_video;
     @Bind(R.id.attach_gallery) View attach_gallery;
     @Bind(R.id.attach_camera) View attach_camera;
@@ -47,7 +47,7 @@ public class KeywordAttachmentCell implements RecentImagesCell.onRecentImageClic
 //    int keyboardSize = Hawk.get(Config.KEYBOARD_HEIGHT, Config.KEYBOARD_HEIGHT_DEFAULT);
     int keyboardSize = Store.getInt(StoreConstants.KEYBOARD_SIZE, (int) (AndroidUtil.getScreenHeight()/2.5));
 
-    public KeywordAttachmentCell(Callbacks listener, View bottom_container) {
+    public KeyboardAttachmentCell(Callbacks listener, View bottom_container) {
         callback_listener = listener;
         View popupView = AppUtil.inflate(R.layout.cells_keywoard_attachment);
         ButterKnife.bind(this,popupView);

@@ -11,8 +11,6 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewStub;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -46,9 +44,8 @@ import com.mardomsara.social.pipe.from_net_calls.json.MsgDeletedFromServerJson;
 import com.mardomsara.social.pipe.from_net_calls.json.MsgReceivedToPeerJson;
 import com.mardomsara.social.pipe.from_net_calls.json.MsgSeenByPeerJson;
 import com.mardomsara.social.ui.BasePresenter;
-import com.mardomsara.social.ui.X;
 import com.mardomsara.social.ui.cells.chats.lists.MsgsListCell;
-import com.mardomsara.social.ui.cells.general.KeywordAttachmentCell;
+import com.mardomsara.social.ui.cells.general.KeyboardAttachmentCell;
 import com.mardomsara.social.ui.views.EmojiKeyboard;
 import com.squareup.picasso.Picasso;
 import com.sw926.imagefileselector.ImageFileSelector;
@@ -67,15 +64,15 @@ import butterknife.ButterKnife;
  * Created by Hamid on 5/4/2016.
  */
 public class ChatRoomPresenter extends BasePresenter implements
-        KeywordAttachmentCell.Callbacks , AppHeaderFooterRecyclerViewAdapter.LoadNextPage{
+        KeyboardAttachmentCell.Callbacks , AppHeaderFooterRecyclerViewAdapter.LoadNextPage{
     public Room room;
 
     ////// Views Bindings//////
     @Bind(R.id.emoji_opener_btn)
     TextView emoji_opener_btn;
 
-    @Bind(R.id.emoji_window_holder)
-    FrameLayout emoji_window_holder;
+  /*  @Bind(R.id.emoji_window_holder)
+    FrameLayout emoji_window_holder;*/
 
     @Bind(R.id.edit_filed)
     EmojiconEditText edit_filed;
@@ -109,7 +106,7 @@ public class ChatRoomPresenter extends BasePresenter implements
     MsgsListCell messagesCell;
     MsgsListCell.ChatEntryAdaptor messagesAdaptor;
 
-    KeywordAttachmentCell attachment_view;
+    KeyboardAttachmentCell attachment_view;
     LinearLayoutManager mLayoutManager;
     ChatRoomPresenter that;
 
@@ -293,7 +290,7 @@ public class ChatRoomPresenter extends BasePresenter implements
     }
 
     public void showAttachmentWindow(){
-        attachment_view = new KeywordAttachmentCell(this,bottom_container);
+        attachment_view = new KeyboardAttachmentCell(this,bottom_container);
     }
 
 	@Subscribe(threadMode = ThreadMode.MAIN)
