@@ -31,7 +31,7 @@ public interface LoadingListItemCreator {
     LoadingListItemCreator DEFAULT = new LoadingListItemCreator() {
         @Override
         public View newView(int position, ViewGroup parent) {
-            return LayoutInflater.from(parent.getContext()).inflate(R.layout.loading_row, parent, false);
+            return LayoutInflater.from(parent.getContext()).inflate(R.layout.common__loading_row, parent, false);
         }
 
         @Override

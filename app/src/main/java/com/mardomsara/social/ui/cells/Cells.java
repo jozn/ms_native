@@ -1,6 +1,5 @@
 package com.mardomsara.social.ui.cells;
 
-import android.graphics.Color;
 import android.graphics.Typeface;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.PagerAdapter;
@@ -11,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.joanzapata.iconify.widget.IconTextView;
 import com.mardomsara.social.R;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
@@ -51,7 +49,7 @@ public class Cells {
         public SimpleTopNav simpleTopNav;
 
         public NavAndEmptyView() {
-            rootView = (ViewGroup)AppUtil.inflate(R.layout.cell_page_cell_nav_linear_view);
+            rootView = (ViewGroup)AppUtil.inflate(R.layout.pager__cell_nav_linear_view);
             ButterKnife.bind(this, rootView);
         }
     }
@@ -221,12 +219,12 @@ public class Cells {
 	//    ProgressWheel progressWheel;
 
 		public LoadingCell() {
-			rootView = (ViewGroup) AppUtil.inflate(R.layout.loading_row);
+			rootView = (ViewGroup) AppUtil.inflate(R.layout.common__loading_row);
 	//        ButterKnife.bind(this, rootView);
 	//        progressWheel.
 		}
 		public LoadingCell(ViewGroup parent) {
-			rootView = (ViewGroup) AppUtil.inflate(R.layout.cell_loading,parent);
+			rootView = (ViewGroup) AppUtil.inflate(R.layout.common__cell_loading,parent);
 			ButterKnife.bind(this, rootView);
 	//        progressWheel.spin();
 	//        progressWheel.setBarColor(Color.GREEN);

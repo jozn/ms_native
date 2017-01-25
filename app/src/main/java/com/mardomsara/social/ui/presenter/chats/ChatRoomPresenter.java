@@ -117,7 +117,7 @@ public class ChatRoomPresenter extends BasePresenter implements
     @Override
     public View buildView() {
 //		new ViewStub()
-        view = AppUtil.inflate(R.layout.presenter_chat_room);
+        view = AppUtil.inflate(R.layout.chat__entry_room);
         ButterKnife.bind(this,view);
 
         send_msg.setOnClickListener((v)->addNewMsg());

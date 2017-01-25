@@ -21,7 +21,7 @@ import com.mardomsara.social.ui.views.play.TextViewWithIcon;
 import com.mardomsara.social.ui.views.wigets.BadgeCount;
 import com.mardomsara.social.ui.views.wigets.ButtonGrayView;
 import com.mardomsara.social.ui.views.wigets.ChatButtonView;
-import com.mardomsara.social.ui.views.wigets.ChatListRowWhithBorderLinearLayout;
+import com.mardomsara.social.ui.views.wigets.ChatListRowWhithBorderRelativeLayout;
 import com.mardomsara.social.ui.views.wigets.CountView;
 import com.mardomsara.social.ui.views.wigets.CountView2;
 import com.mardomsara.social.ui.views.wigets.FollowingButtonView;
@@ -132,20 +132,6 @@ public class X {
     }
 
 
-    public static class CellLoading {
-        public RelativeLayout root;
-        public CircularProgressView loadingView;
-
-        public CellLoading(ViewGroup parent) {
-            root = (RelativeLayout) AppUtil.inflate(R.layout.cell_loading,parent);
-            loadingView = (CircularProgressView) root.findViewById( R.id.loadingView);
-        }
-        public CellLoading() {
-            this(null);
-        }
-    }
-
-
     public static class CellPageCellNavRecylcerView {
         public LinearLayout root;
         public SimpleTopNav simpleTopNav;
@@ -230,63 +216,69 @@ public class X {
     }
 
 
-    public static class ChatListRow {
-        public ChatListRowWhithBorderLinearLayout root;
-        public TextView date_txt;
-        public EmojiconTextView name_txt;
-        public CountView unseen_count_txt;
-        public EmojiconTextView last_msg_txt;
-        public SimpleDraweeView avatar;
+    public static class Chat_EntryRoom {
+        public LinearLayout root;
+        public TextView room_name;
+        public ImageView avatar;
+        public TextView back;
+        public RecyclerView recycler_view;
+        public LinearLayout bottom_container;
+        public TextView emoji_opener_btn;
+        public EmojiconEditText edit_filed;
+        public IconTextView attach;
+        public IconTextView attach2;
+        public IconTextView send_msg;
 
-        public ChatListRow(ViewGroup parent) {
-            root = (ChatListRowWhithBorderLinearLayout) AppUtil.inflate(R.layout.chat_list_row,parent);
-            date_txt = (TextView) root.findViewById( R.id.date_txt);
-            name_txt = (EmojiconTextView) root.findViewById( R.id.name_txt);
-            unseen_count_txt = (CountView) root.findViewById( R.id.unseen_count_txt);
-            last_msg_txt = (EmojiconTextView) root.findViewById( R.id.last_msg_txt);
-            avatar = (SimpleDraweeView) root.findViewById( R.id.avatar);
+        public Chat_EntryRoom(ViewGroup parent) {
+            root = (LinearLayout) AppUtil.inflate(R.layout.chat__entry_room,parent);
+            room_name = (TextView) root.findViewById( R.id.room_name);
+            avatar = (ImageView) root.findViewById( R.id.avatar);
+            back = (TextView) root.findViewById( R.id.back);
+            recycler_view = (RecyclerView) root.findViewById( R.id.recycler_view);
+            bottom_container = (LinearLayout) root.findViewById( R.id.bottom_container);
+            emoji_opener_btn = (TextView) root.findViewById( R.id.emoji_opener_btn);
+            edit_filed = (EmojiconEditText) root.findViewById( R.id.edit_filed);
+            attach = (IconTextView) root.findViewById( R.id.attach);
+            attach2 = (IconTextView) root.findViewById( R.id.attach2);
+            send_msg = (IconTextView) root.findViewById( R.id.send_msg);
         }
-        public ChatListRow() {
+        public Chat_EntryRoom() {
             this(null);
         }
     }
 
 
-    public static class ChatListRow2 {
+    public static class Chat_ListRow {
+        public ChatListRowWhithBorderRelativeLayout root;
+        public SimpleDraweeView avatar;
+        public EmojiconTextView name_txt;
+        public TextView date_txt;
+        public CountView2 unseen_count_txt;
+        public EmojiconTextView last_msg_txt;
+
+        public Chat_ListRow(ViewGroup parent) {
+            root = (ChatListRowWhithBorderRelativeLayout) AppUtil.inflate(R.layout.chat__list_row,parent);
+            avatar = (SimpleDraweeView) root.findViewById( R.id.avatar);
+            name_txt = (EmojiconTextView) root.findViewById( R.id.name_txt);
+            date_txt = (TextView) root.findViewById( R.id.date_txt);
+            unseen_count_txt = (CountView2) root.findViewById( R.id.unseen_count_txt);
+            last_msg_txt = (EmojiconTextView) root.findViewById( R.id.last_msg_txt);
+        }
+        public Chat_ListRow() {
+            this(null);
+        }
+    }
+
+
+    public static class Common_CellLoading {
         public RelativeLayout root;
-        public SimpleDraweeView avatar;
-        public TextView top_txt;
-        public TextView bottom_txt;
+        public CircularProgressView loadingView;
 
-        public ChatListRow2(ViewGroup parent) {
-            root = (RelativeLayout) AppUtil.inflate(R.layout.chat_list_row2,parent);
-            avatar = (SimpleDraweeView) root.findViewById( R.id.avatar);
-            top_txt = (TextView) root.findViewById( R.id.top_txt);
-            bottom_txt = (TextView) root.findViewById( R.id.bottom_txt);
+        public Common_CellLoading(ViewGroup parent) {
+            root = (RelativeLayout) AppUtil.inflate(R.layout.common__cell_loading,parent);
+            loadingView = (CircularProgressView) root.findViewById( R.id.loadingView);
         }
-        public ChatListRow2() {
-            this(null);
-        }
-    }
-
-
-    public static class ChatListRow_Realative {
-        public ChatListRowWhithBorderLinearLayout root;
-        public SimpleDraweeView avatar;
-        public EmojiconTextView name_txt;
-        public TextView date_txt;
-        public CountView unseen_count_txt;
-        public EmojiconTextView last_msg_txt;
-
-        public ChatListRow_Realative(ViewGroup parent) {
-            root = (ChatListRowWhithBorderLinearLayout) AppUtil.inflate(R.layout.chat_list_row___realative,parent);
-            avatar = (SimpleDraweeView) root.findViewById( R.id.avatar);
-            name_txt = (EmojiconTextView) root.findViewById( R.id.name_txt);
-            date_txt = (TextView) root.findViewById( R.id.date_txt);
-            unseen_count_txt = (CountView) root.findViewById( R.id.unseen_count_txt);
-            last_msg_txt = (EmojiconTextView) root.findViewById( R.id.last_msg_txt);
-        }
-        public ChatListRow_Realative() {
+        public Common_CellLoading() {
             this(null);
         }
     }
@@ -301,6 +293,18 @@ public class X {
             loading = (LoadingView) root.findViewById( R.id.loading);
         }
         public Common_ContainerLoading() {
+            this(null);
+        }
+    }
+
+
+    public static class Common_LoadingRow {
+        public FrameLayout root;
+
+        public Common_LoadingRow(ViewGroup parent) {
+            root = (FrameLayout) AppUtil.inflate(R.layout.common__loading_row,parent);
+        }
+        public Common_LoadingRow() {
             this(null);
         }
     }
@@ -1310,6 +1314,20 @@ public class X {
     }
 
 
+    public static class Pager_CellNavLinearView {
+        public LinearLayout root;
+        public SimpleTopNav simpleTopNav;
+
+        public Pager_CellNavLinearView(ViewGroup parent) {
+            root = (LinearLayout) AppUtil.inflate(R.layout.pager__cell_nav_linear_view,parent);
+            simpleTopNav = (SimpleTopNav) root.findViewById( R.id.simpleTopNav);
+        }
+        public Pager_CellNavLinearView() {
+            this(null);
+        }
+    }
+
+
     public static class Pager_NavRecyclerviewWithRefresher {
         public LinearLayout root;
         public SimpleTopNav nav;
@@ -1764,6 +1782,20 @@ public class X {
     }
 
 
+    public static class TitleInfoLight {
+        public RelativeLayout root;
+        public TextView text_view;
+
+        public TitleInfoLight(ViewGroup parent) {
+            root = (RelativeLayout) AppUtil.inflate(R.layout.title_info_light,parent);
+            text_view = (TextView) root.findViewById( R.id.text_view);
+        }
+        public TitleInfoLight() {
+            this(null);
+        }
+    }
+
+
     public static class TitleStringClickable {
         public RelativeLayout root;
         public TextView icon;
@@ -1934,6 +1966,7 @@ public class X {
 //import android.widget.ImageView;
 //import android.widget.LinearLayout;
 //import android.widget.ListView;
+//import android.widget.ProgressBar;
 //import android.widget.RelativeLayout;
 //import android.widget.ScrollView;
 //import android.widget.Space;

@@ -32,7 +32,7 @@ public interface LoadingListItemCreator {
     LoadingListItemCreator DEFAULT = new LoadingListItemCreator() {
         @Override
         public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.loading_row, parent, false);
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.common__loading_row, parent, false);
             return new RecyclerView.ViewHolder(view) {
             };
         }

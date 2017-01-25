@@ -202,7 +202,7 @@ public class RoomsListCell {
         @Bind(R.id.last_msg_txt)public TextView last_msg_txt;
 
         public RoomRowCell(ViewGroup parent, RoomsListAdaptor adaptor) {
-            root_view = AppUtil.inflate(R.layout.chat_list_row_new_rel2,parent);
+            root_view = AppUtil.inflate(R.layout.chat__list_row,parent);
             ButterKnife.bind(this,root_view);
             this.adaptor = adaptor;
 
