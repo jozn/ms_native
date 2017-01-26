@@ -1924,18 +1924,6 @@ public class X {
     }
 
 
-    public static class WigetApp_HeadrFooterRecyclerEmptyMsg {
-        public RelativeLayout root;
-
-        public WigetApp_HeadrFooterRecyclerEmptyMsg(ViewGroup parent) {
-            root = (RelativeLayout) AppUtil.inflate(R.layout.wiget_app__headr_footer_recycler_empty_msg,parent);
-        }
-        public WigetApp_HeadrFooterRecyclerEmptyMsg() {
-            this(null);
-        }
-    }
-
-
     public static class WigetUserListTypeFollowRow {
         public UserListGeneralFollowRowWhithBorderLinearLayout root;
         public FollowingButtonView following_button;
