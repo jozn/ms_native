@@ -1404,13 +1404,11 @@ public class X {
         public LinearLayout root;
         public Button _status_bar;
         public Button p_navigation;
-        public WebView webview;
 
         public PlayRecipies(ViewGroup parent) {
             root = (LinearLayout) AppUtil.inflate(R.layout.play_recipies,parent);
             _status_bar = (Button) root.findViewById( R.id._status_bar);
             p_navigation = (Button) root.findViewById( R.id.p_navigation);
-            webview = (WebView) root.findViewById( R.id.webview);
         }
         public PlayRecipies() {
             this(null);
@@ -1960,4 +1958,3 @@ public class X {
 //import android.widget.Space;
 //import android.widget.TextView;
 //import android.widget.View;
-//import android.widget.WebView;
