@@ -6,12 +6,9 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -57,7 +54,6 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
 import butterknife.ButterKnife;
 
 /**
@@ -67,38 +63,15 @@ public class ChatRoomPresenter extends BasePresenter implements
         KeyboardAttachmentCell.Callbacks , AppHeaderFooterRecyclerViewAdapter.LoadNextPage{
     public Room room;
 
-    /*@Bind(R.id.emoji_opener_btn)
-    TextView emoji_opener_btn;*/
-
-    /*@Bind(R.id.edit_field)
-    EmojiconEditText edit_field;*/
-
-    /*@Bind(R.id.send_msg_btn)
-    TextView send_msg_btn;*/
-
-    /*@Bind(R.id.bottom_container)
-    View bottom_container;*/
-
-    /*@Bind(R.id.attach_btn)
-    View attach_btn;*/
-
-    /*@Bind(R.id.recycler_view)
-    RecyclerView recycler_view;*/
-
-    /*@Bind(R.id.avatar)
-    ImageView avatar;*/
-
     //constants
     final int ATTACH_CAMERA_IMAGE = 1001;
     final int ATTACH_CAMERA_VIDEO = 1002;
     final int ATTACH_FILE = 1003;
 
     private ImageFileSelector mImageFileSelector;
-    ViewGroup.LayoutParams vv;
     View view;
 
-    List<Message> messages;
-	ArrayListHashSetKey<Message,String> messages2;
+	ArrayListHashSetKey<Message,String> messages;
     MsgsListCell messagesCell;
     MsgsListCell.ChatEntryAdaptor messagesAdaptor;
 
@@ -114,54 +87,43 @@ public class ChatRoomPresenter extends BasePresenter implements
 
     @Override
     public View buildView() {
-//		new ViewStub()
 		x = new X.Chat_EntryRoom();
-        view = AppUtil.inflate(R.layout.chat__entry_room);
-        ButterKnife.bind(this,view);
+        view = x.root;
 
         x.send_msg_btn.setOnClickListener((v)->addNewMsg());
 
         x.edit_field.setOnClickListener((v)->{
             AppUtil.log("Keybord");
-            showMeas();
         });
         x.edit_field.requestFocus();
 
         Nav.hideFooter();
 
-//        messages = MessageModel.getRoomMessagesTimeOffset(room.RoomKey,0);
         messagesCell = new MsgsListCell();
         messagesAdaptor =messagesCell.adaptor;
 
-//        messagesAdaptor.setMsgs(messages);
-		messages2 = messagesAdaptor.msgs;
+		messages = messagesAdaptor.msgs;
 
         mLayoutManager = new LinearLayoutManager(AppUtil.getContext());
 
-        mLayoutManager.setSmoothScrollbarEnabled(true);
+        mLayoutManager.setSmoothScrollbarEnabled(false);
         mLayoutManager.setReverseLayout(true);
         mLayoutManager.setStackFromEnd(true);
         mLayoutManager.scrollToPositionWithOffset(0,10000);
 
         x.recycler_view.setAdapter(messagesAdaptor);
         x.recycler_view.setLayoutManager(mLayoutManager);
-        x.recycler_view.setHasFixedSize(true);
+        x.recycler_view.setHasFixedSize(false);
 
-//        messagesAdaptor.showLoading();
         messagesAdaptor.setUpForPaginationWith(x.recycler_view,mLayoutManager,this);
+		messagesAdaptor.setRecyclerView(x.recycler_view);
 
-        view.findViewById(R.id.back).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        x.back.setOnClickListener((v)-> {
                 Nav.pop();
-//                Nav.showFooter();*/
                 onBack();
-            }
-        });
+		});
 
-        TextView roomTitle = (TextView) view.findViewById(R.id.room_name);
-        roomTitle.setText(room.getRoomName());
-//        EventBus.getDefault().register(this);
+        x.room_name.setText(room.getRoomName());
         App.getBus().register(this);
 
         emojiKeyboard = new EmojiKeyboard(x.edit_field,x.emoji_opener_btn, AppUtil.global_window);
@@ -174,24 +136,14 @@ public class ChatRoomPresenter extends BasePresenter implements
         setUpInputOnTextTextChanged();
 
         Uri imageUri = Helper.PathToUserAvatarUri(room.getRoomAvatarUrl());
-//            Helper.SetAvatar(vh.avatar, room.getRoomAvatarUrl());
-//        avatar.setImageURI(imageUri);
         Picasso.with(AppUtil.getContext())
                 .load(imageUri)
                 .into(x.avatar);
 
 		RoomModel.updateRoomSeenMsgsToNow_BG(room);
 
-
 		return view;
     }
-
-	/*@Override
-	public void onAfterView() {
-		super.onAfterView();
-
-		loadNextPage(1);
-	}*/
 
 	@Override
     public void onDestroy() {
@@ -202,17 +154,9 @@ public class ChatRoomPresenter extends BasePresenter implements
         if(emojiKeyboard != null) emojiKeyboard.destroy();
     }
 
-
-    /*@Override
-    public void onResume() {
-        super.onResume();
-        AppUtil.log("after?? Chatroom onResume()");
-//        showMeas();
-    }*/
     public void onFocus() {
         super.onFocus();
-        AppUtil.log("after?? Chatroom onFocus()");
-//        MessageModel.sendToServerAllMsgsSeenbyPeerCmdForRoom(room);
+        AppUtil.log("chatroom onFocus()");
         RoomModel.onRoomOpenedInBackground(room);
     }
 
@@ -220,15 +164,10 @@ public class ChatRoomPresenter extends BasePresenter implements
     public void onBack() {
         super.onBack();
         Nav.showFooter();
-//        emojiKeyboard.unregisterOnBackListener();
         if(emojiKeyboard != null){
             emojiKeyboard.destroy();
         }
 
-    }
-
-    private void endThis() {
-        Nav.pop();
     }
 
     void setUpInputOnTextTextChanged(){
@@ -270,27 +209,19 @@ public class ChatRoomPresenter extends BasePresenter implements
     }
 
     void onHereAddedNewMsgEvent(Message msg){
-        messages2.addStart(msg);
-//		Helper.showDebugMessage(JsonUtil.toJson(messages2));
+        messages.addStart(msg);
         messagesAdaptor.notifyContentItemInserted(0);
         mLayoutManager.scrollToPosition(0);
-//        mLayoutManager.scrollToPositionWithOffset(0,-10000);
 
         MessageModel.didMsgsAdded(msg);
 		App.getBus().post(new RoomOrderChanged());
-
-
-
-//        x.recycler_view.scrollBy(0,100000);
-    }
-
-    void showMeas(){
-        return;
     }
 
     public void showAttachmentWindow(){
         attachment_view = new KeyboardAttachmentCell(this,x.bottom_container);
     }
+
+	/////////////////// Events /////////////////////////
 
 	@Subscribe(threadMode = ThreadMode.MAIN)
 	public void onEvent(MsgAddOneJson data){
