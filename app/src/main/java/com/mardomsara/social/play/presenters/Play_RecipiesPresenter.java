@@ -76,9 +76,9 @@ public class Play_RecipiesPresenter extends BasePresenter {
 			}*/
 		});
 
-		WebView w= rootView.webview;
+		/*WebView w= rootView.webview;
 		w.getSettings().setJavaScriptEnabled(false);
-		w.loadUrl("http://mardomsara.com/");
+		w.loadUrl("http://mardomsara.com/");*/
         return rootView.root;
     }
 

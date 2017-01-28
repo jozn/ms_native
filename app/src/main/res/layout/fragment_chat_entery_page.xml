@@ -58,21 +58,21 @@
                 android:maxHeight="150dp"
                 android:isScrollContainer="true"
                 android:layout_weight="1"
-                android:id="@+id/edit_filed"
+                android:id="@+id/edit_field"
                 android:layout_marginLeft="15dp"
                 android:inputType="textMultiLine"
                 />
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/attach"
+                android:id="@+id/attach_btn"
                 android:layout_gravity="bottom"
                 android:text="Attach"
                 />
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/send_msg"
+                android:id="@+id/send_msg_btn"
                 android:layout_gravity="bottom"
                 android:text="Send"
                 />

@@ -224,10 +224,10 @@ public class X {
         public RecyclerView recycler_view;
         public LinearLayout bottom_container;
         public TextView emoji_opener_btn;
-        public EmojiconEditText edit_filed;
-        public IconTextView attach;
+        public EmojiconEditText edit_field;
+        public IconTextView attach_btn;
         public IconTextView attach2;
-        public IconTextView send_msg;
+        public IconTextView send_msg_btn;
 
         public Chat_EntryRoom(ViewGroup parent) {
             root = (LinearLayout) AppUtil.inflate(R.layout.chat__entry_room,parent);
@@ -237,10 +237,10 @@ public class X {
             recycler_view = (RecyclerView) root.findViewById( R.id.recycler_view);
             bottom_container = (LinearLayout) root.findViewById( R.id.bottom_container);
             emoji_opener_btn = (TextView) root.findViewById( R.id.emoji_opener_btn);
-            edit_filed = (EmojiconEditText) root.findViewById( R.id.edit_filed);
-            attach = (IconTextView) root.findViewById( R.id.attach);
+            edit_field = (EmojiconEditText) root.findViewById( R.id.edit_field);
+            attach_btn = (IconTextView) root.findViewById( R.id.attach_btn);
             attach2 = (IconTextView) root.findViewById( R.id.attach2);
-            send_msg = (IconTextView) root.findViewById( R.id.send_msg);
+            send_msg_btn = (IconTextView) root.findViewById( R.id.send_msg_btn);
         }
         public Chat_EntryRoom() {
             this(null);
@@ -525,9 +525,9 @@ public class X {
         public RecyclerView recycler_view;
         public LinearLayout bottom_container;
         public TextView emoji_opener_btn;
-        public EmojiconEditText edit_filed;
-        public Button attach;
-        public Button send_msg;
+        public EmojiconEditText edit_field;
+        public Button attach_btn;
+        public Button send_msg_btn;
         public FrameLayout emoji_window_holder;
 
         public FragmentChatEnteryPage(ViewGroup parent) {
@@ -539,9 +539,9 @@ public class X {
             recycler_view = (RecyclerView) root.findViewById( R.id.recycler_view);
             bottom_container = (LinearLayout) root.findViewById( R.id.bottom_container);
             emoji_opener_btn = (TextView) root.findViewById( R.id.emoji_opener_btn);
-            edit_filed = (EmojiconEditText) root.findViewById( R.id.edit_filed);
-            attach = (Button) root.findViewById( R.id.attach);
-            send_msg = (Button) root.findViewById( R.id.send_msg);
+            edit_field = (EmojiconEditText) root.findViewById( R.id.edit_field);
+            attach_btn = (Button) root.findViewById( R.id.attach_btn);
+            send_msg_btn = (Button) root.findViewById( R.id.send_msg_btn);
             emoji_window_holder = (FrameLayout) root.findViewById( R.id.emoji_window_holder);
         }
         public FragmentChatEnteryPage() {

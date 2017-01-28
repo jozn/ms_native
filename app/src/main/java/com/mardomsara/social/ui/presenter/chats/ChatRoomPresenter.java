@@ -17,7 +17,6 @@ import android.widget.Toast;
 
 import com.ipaulpro.afilechooser.FileChooserActivity;
 import com.ipaulpro.afilechooser.utils.FileChooserFileUtils;
-import com.mardomsara.emojicon.EmojiconEditText;
 import com.mardomsara.social.App;
 import com.mardomsara.social.Nav;
 import com.mardomsara.social.R;
@@ -44,6 +43,7 @@ import com.mardomsara.social.pipe.from_net_calls.json.MsgDeletedFromServerJson;
 import com.mardomsara.social.pipe.from_net_calls.json.MsgReceivedToPeerJson;
 import com.mardomsara.social.pipe.from_net_calls.json.MsgSeenByPeerJson;
 import com.mardomsara.social.ui.BasePresenter;
+import com.mardomsara.social.ui.X;
 import com.mardomsara.social.ui.cells.chats.lists.MsgsListCell;
 import com.mardomsara.social.ui.cells.general.KeyboardAttachmentCell;
 import com.mardomsara.social.ui.views.EmojiKeyboard;
@@ -67,30 +67,26 @@ public class ChatRoomPresenter extends BasePresenter implements
         KeyboardAttachmentCell.Callbacks , AppHeaderFooterRecyclerViewAdapter.LoadNextPage{
     public Room room;
 
-    ////// Views Bindings//////
-    @Bind(R.id.emoji_opener_btn)
-    TextView emoji_opener_btn;
+    /*@Bind(R.id.emoji_opener_btn)
+    TextView emoji_opener_btn;*/
 
-  /*  @Bind(R.id.emoji_window_holder)
-    FrameLayout emoji_window_holder;*/
+    /*@Bind(R.id.edit_field)
+    EmojiconEditText edit_field;*/
 
-    @Bind(R.id.edit_filed)
-    EmojiconEditText edit_filed;
+    /*@Bind(R.id.send_msg_btn)
+    TextView send_msg_btn;*/
 
-    @Bind(R.id.send_msg)
-    TextView send_msg;
+    /*@Bind(R.id.bottom_container)
+    View bottom_container;*/
 
-    @Bind(R.id.bottom_container)
-    View bottom_container;
+    /*@Bind(R.id.attach_btn)
+    View attach_btn;*/
 
-    @Bind(R.id.attach)
-    View attach;
+    /*@Bind(R.id.recycler_view)
+    RecyclerView recycler_view;*/
 
-    @Bind(R.id.recycler_view)
-    RecyclerView recycler_view;
-
-    @Bind(R.id.avatar)
-    ImageView avatar;
+    /*@Bind(R.id.avatar)
+    ImageView avatar;*/
 
     //constants
     final int ATTACH_CAMERA_IMAGE = 1001;
@@ -114,19 +110,22 @@ public class ChatRoomPresenter extends BasePresenter implements
     Uri file_uri;
     EmojiKeyboard emojiKeyboard;
 
+	X.Chat_EntryRoom x;
+
     @Override
     public View buildView() {
 //		new ViewStub()
+		x = new X.Chat_EntryRoom();
         view = AppUtil.inflate(R.layout.chat__entry_room);
         ButterKnife.bind(this,view);
 
-        send_msg.setOnClickListener((v)->addNewMsg());
+        x.send_msg_btn.setOnClickListener((v)->addNewMsg());
 
-        edit_filed.setOnClickListener((v)->{
+        x.edit_field.setOnClickListener((v)->{
             AppUtil.log("Keybord");
             showMeas();
         });
-        edit_filed.requestFocus();
+        x.edit_field.requestFocus();
 
         Nav.hideFooter();
 
@@ -144,12 +143,12 @@ public class ChatRoomPresenter extends BasePresenter implements
         mLayoutManager.setStackFromEnd(true);
         mLayoutManager.scrollToPositionWithOffset(0,10000);
 
-        recycler_view.setAdapter(messagesAdaptor);
-        recycler_view.setLayoutManager(mLayoutManager);
-        recycler_view.setHasFixedSize(true);
+        x.recycler_view.setAdapter(messagesAdaptor);
+        x.recycler_view.setLayoutManager(mLayoutManager);
+        x.recycler_view.setHasFixedSize(true);
 
 //        messagesAdaptor.showLoading();
-        messagesAdaptor.setUpForPaginationWith(recycler_view,mLayoutManager,this);
+        messagesAdaptor.setUpForPaginationWith(x.recycler_view,mLayoutManager,this);
 
         view.findViewById(R.id.back).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -165,10 +164,10 @@ public class ChatRoomPresenter extends BasePresenter implements
 //        EventBus.getDefault().register(this);
         App.getBus().register(this);
 
-        emojiKeyboard = new EmojiKeyboard(edit_filed,emoji_opener_btn, AppUtil.global_window);
+        emojiKeyboard = new EmojiKeyboard(x.edit_field,x.emoji_opener_btn, AppUtil.global_window);
 
         that = this;
-        attach.setOnClickListener((v)->{ showAttachmentWindow();});
+        x.attach_btn.setOnClickListener((v)->{ showAttachmentWindow();});
         //todo later fix this for G
 //        AppUtil.listanAndSaveKewordSize(view);
 
@@ -179,7 +178,7 @@ public class ChatRoomPresenter extends BasePresenter implements
 //        avatar.setImageURI(imageUri);
         Picasso.with(AppUtil.getContext())
                 .load(imageUri)
-                .into(avatar);
+                .into(x.avatar);
 
 		RoomModel.updateRoomSeenMsgsToNow_BG(room);
 
@@ -233,7 +232,7 @@ public class ChatRoomPresenter extends BasePresenter implements
     }
 
     void setUpInputOnTextTextChanged(){
-        edit_filed.addTextChangedListener(new TextWatcher(){
+        x.edit_field.addTextChangedListener(new TextWatcher(){
 
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -243,11 +242,11 @@ public class ChatRoomPresenter extends BasePresenter implements
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 if(charSequence.length()>0){
-                    attach.setVisibility(View.GONE);
-                    send_msg.setVisibility(View.VISIBLE);
+                    x.attach_btn.setVisibility(View.GONE);
+                    x.send_msg_btn.setVisibility(View.VISIBLE);
                 }else {
-                    attach.setVisibility(View.VISIBLE);
-                    send_msg.setVisibility(View.GONE);
+                    x.attach_btn.setVisibility(View.VISIBLE);
+                    x.send_msg_btn.setVisibility(View.GONE);
                 }
             }
 
@@ -261,10 +260,10 @@ public class ChatRoomPresenter extends BasePresenter implements
     void addNewMsg(){
         Message msg =  MessageModel.newTextMsgForRoom(room);
         msg.MessageTypeId = Constants.MESSAGE_TEXT;
-        msg.Text = edit_filed.getText().toString();
+        msg.Text = x.edit_field.getText().toString();
         msg.insertInBackground();
 
-        edit_filed.setText("");
+        x.edit_field.setText("");
         MessageModel.syncToServer(msg);
 
         onHereAddedNewMsgEvent(msg);
@@ -282,7 +281,7 @@ public class ChatRoomPresenter extends BasePresenter implements
 
 
 
-//        recycler_view.scrollBy(0,100000);
+//        x.recycler_view.scrollBy(0,100000);
     }
 
     void showMeas(){
@@ -290,7 +289,7 @@ public class ChatRoomPresenter extends BasePresenter implements
     }
 
     public void showAttachmentWindow(){
-        attachment_view = new KeyboardAttachmentCell(this,bottom_container);
+        attachment_view = new KeyboardAttachmentCell(this,x.bottom_container);
     }
 
 	@Subscribe(threadMode = ThreadMode.MAIN)

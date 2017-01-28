@@ -8,17 +8,11 @@
     >
 
     <include layout="@layout/header_chat_entary"
-        android:id="@+id/header"></include>
+        android:id="@+id/header">
 
+    </include>
 
-    <!--<LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:gravity="bottom"
-        >-->
-
-        <android.support.v7.widget.RecyclerView
+    <android.support.v7.widget.RecyclerView
             android:id="@+id/recycler_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -28,10 +22,7 @@
             android:layout_weight="1"
             android:background="@color/white"
             android:layout_gravity="bottom"
-
-            />
-
-    <!--</LinearLayout>-->
+    />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -52,72 +43,51 @@
             android:gravity="center_vertical"
             >
 
-                <TextView
-                    android:layout_marginLeft="4dp"
-                    style="@style/input_bar_icon"
-                    android:id="@+id/emoji_opener_btn"
-                    />
-                <com.mardomsara.emojicon.EmojiconEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:minHeight="40dp"
-                    android:maxHeight="150dp"
-                    android:isScrollContainer="true"
-                    android:layout_weight="1"
-                    android:id="@+id/edit_filed"
-                    android:layout_marginLeft="5dp"
-                    android:inputType="textMultiLine"
-                    android:gravity="right|center_vertical"
-                    android:layout_gravity="right|center_vertical"
-                    android:paddingRight="5dp"
-                    android:layout_marginRight="5dp"
-                    android:soundEffectsEnabled="true"
-                    android:hint="پیام..."
-                    style="@style/text_light"
-                    />
-                <com.joanzapata.iconify.widget.IconTextView
-                    style="@style/input_bar_icon"
-                    android:id="@+id/attach"
-                    android:text="{ion-paperclip}"
-                    />
+            <TextView
+                android:layout_marginLeft="4dp"
+                style="@style/input_bar_icon"
+                android:id="@+id/emoji_opener_btn"
+                />
+            <com.mardomsara.emojicon.EmojiconEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:minHeight="40dp"
+                android:maxHeight="150dp"
+                android:isScrollContainer="true"
+                android:layout_weight="1"
+                android:id="@+id/edit_field"
+                android:layout_marginLeft="5dp"
+                android:inputType="textMultiLine"
+                android:gravity="right|center_vertical"
+                android:layout_gravity="right|center_vertical"
+                android:paddingRight="5dp"
+                android:layout_marginRight="5dp"
+                android:soundEffectsEnabled="true"
+                android:hint="پیام..."
+                style="@style/text_light"
+                />
+            <com.joanzapata.iconify.widget.IconTextView
+                style="@style/input_bar_icon"
+                android:id="@+id/attach_btn"
+                android:text="{ion-paperclip}"
+                />
 
-                <com.joanzapata.iconify.widget.IconTextView
-                    style="@style/input_bar_icon"
-                    android:id="@+id/attach2"
-                    android:text="{ion-ios-mic-outline}"
-                    android:visibility="gone"
-                    />
+            <com.joanzapata.iconify.widget.IconTextView
+                style="@style/input_bar_icon"
+                android:id="@+id/attach2"
+                android:text="{ion-ios-mic-outline}"
+                android:visibility="gone"
+                />
 
-                <com.joanzapata.iconify.widget.IconTextView
-                   style="@style/input_bar_icon"
-                    android:id="@+id/send_msg"
-                    android:text="{ion-android-send}"
-                    android:visibility="gone"
-                    android:textColor="@color/light_blue_2"
-                    />
-            </LinearLayout>
+            <com.joanzapata.iconify.widget.IconTextView
+               style="@style/input_bar_icon"
+                android:id="@+id/send_msg_btn"
+                android:text="{ion-android-send}"
+                android:visibility="gone"
+                android:textColor="@color/light_blue_2"
+                />
+        </LinearLayout>
     </LinearLayout>
 
-        <!--<FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:id="@+id/emoji_window_holder"
-            >
-
-        </FrameLayout>-->
-
-
-
 </LinearLayout>
-
-    <!--<fragment-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="match_parent"-->
-    <!--android:name="com.mardomsara.emojicon.dep.EmojiconsFragment"-->
-    <!--android:id="@+id/emoji_frag"-->
-    <!--android:layout_marginTop="1dp"-->
-    <!--android:layout_weight="1"-->
-    <!--android:layout_marginBottom="0dp"-->
-
-    <!--/>-->
