@@ -21,13 +21,10 @@ import com.mardomsara.social.models.memory_store.MemoryStore_Rooms;
 @Table
 public class Message  implements Comparable<Message> {
 
-//    @PrimaryKey(autoincrement = true)
-//    public int id;
-	@PrimaryKey(auto = false)
+	@PrimaryKey(auto = false,autoincrement = false)
 	public long NanoId = 0;
 
     @Column(unique = true, indexed = true)
-//    @PrimaryKey(auto = false)
     @NonNull
     public String MessageKey;
 
@@ -175,7 +172,7 @@ public class Message  implements Comparable<Message> {
     }
 
 
-	/// all instannce are equal based on MessageKey
+	/// all instances are equal based on MessageKey
 	@Override
 	public int hashCode() {
 		if(MessageKey != null){

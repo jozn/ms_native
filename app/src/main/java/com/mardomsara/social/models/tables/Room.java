@@ -6,6 +6,7 @@ import com.github.gfx.android.orma.annotation.Column;
 import com.github.gfx.android.orma.annotation.OnConflict;
 import com.github.gfx.android.orma.annotation.PrimaryKey;
 import com.github.gfx.android.orma.annotation.Table;
+import com.mardomsara.social.BuildConfig;
 import com.mardomsara.social.app.DB;
 import com.mardomsara.social.helpers.LangUtil;
 import com.mardomsara.social.models.Session;
@@ -18,11 +19,7 @@ import com.mardomsara.social.models.memory_store.MemoryStore_Users;
  */
 @Table
 public class Room implements Comparable<Room> {
-    
-//    @PrimaryKey(autoincrement = true)
-//    public int id;
-//
-//    @Column(indexed = true)
+
     @PrimaryKey(auto = false)
     @NonNull
     public String RoomKey;
@@ -92,7 +89,10 @@ public class Room implements Comparable<Room> {
         if(getUser() != null){
             return User.getFullName();
         }
-        return "RoomName";
+		if (BuildConfig.DEBUG){
+			return "RoomName";
+		}
+		return "";
     }
 
     public String getRoomAvatarUrl(){

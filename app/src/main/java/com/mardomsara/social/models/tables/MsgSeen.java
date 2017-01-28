@@ -21,7 +21,7 @@ public class MsgSeen {
 	@Column(defaultExpr = "0")
 	public int ToUserId = 0;
 
-	@Column(defaultExpr = "")
+	@Column(defaultExpr = "''")
 	@NonNull
 	public String MsgKey="";
 

@@ -9,14 +9,12 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ipaulpro.afilechooser.FileChooserActivity;
 import com.ipaulpro.afilechooser.utils.FileChooserFileUtils;
 import com.mardomsara.social.App;
 import com.mardomsara.social.Nav;
-import com.mardomsara.social.R;
 import com.mardomsara.social.app.AppFiles;
 import com.mardomsara.social.app.Constants;
 import com.mardomsara.social.helpers.AppUtil;
@@ -53,8 +51,6 @@ import org.greenrobot.eventbus.ThreadMode;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-
-import butterknife.ButterKnife;
 
 /**
  * Created by Hamid on 5/4/2016.
@@ -106,7 +102,7 @@ public class ChatRoomPresenter extends BasePresenter implements
 
         mLayoutManager = new LinearLayoutManager(AppUtil.getContext());
 
-        mLayoutManager.setSmoothScrollbarEnabled(false);
+        mLayoutManager.setSmoothScrollbarEnabled(true);
         mLayoutManager.setReverseLayout(true);
         mLayoutManager.setStackFromEnd(true);
         mLayoutManager.scrollToPositionWithOffset(0,10000);
@@ -157,7 +153,7 @@ public class ChatRoomPresenter extends BasePresenter implements
     public void onFocus() {
         super.onFocus();
         AppUtil.log("chatroom onFocus()");
-        RoomModel.onRoomOpenedInBackground(room);
+        RoomModel.onRoomOpened_InBackground(room);
     }
 
     @Override
@@ -197,7 +193,7 @@ public class ChatRoomPresenter extends BasePresenter implements
     }
 
     void addNewMsg(){
-        Message msg =  MessageModel.newTextMsgForRoom(room);
+        Message msg =  MessageModel.newTextMsgForRoom_ByMe(room);
         msg.MessageTypeId = Constants.MESSAGE_TEXT;
         msg.Text = x.edit_field.getText().toString();
         msg.insertInBackground();
@@ -213,7 +209,7 @@ public class ChatRoomPresenter extends BasePresenter implements
         messagesAdaptor.notifyContentItemInserted(0);
         mLayoutManager.scrollToPosition(0);
 
-        MessageModel.didMsgsAdded(msg);
+        MessageModel.didMsgAddedByMe(msg);
 		App.getBus().post(new RoomOrderChanged());
     }
 
@@ -466,7 +462,7 @@ public class ChatRoomPresenter extends BasePresenter implements
             Toast.makeText(getContext(),"فایل موجود نیست",Toast.LENGTH_SHORT).show();
             return;
         }
-        Message msg =  MessageModel.newTextMsgForRoom(room);
+        Message msg =  MessageModel.newTextMsgForRoom_ByMe(room);
         msg.MediaStatus = Constants.Msg_Media_To_Push;
         msg.MessageTypeId = Constants.MESSAGE_IMAGE;
         MessageModel.setPhotoParams(msg,resizedPath);
@@ -503,7 +499,7 @@ public class ChatRoomPresenter extends BasePresenter implements
             Toast.makeText(getContext(),"فایل موجود نیست",Toast.LENGTH_SHORT).show();
             return;
         }
-        Message msg =  MessageModel.newTextMsgForRoom(room);
+        Message msg =  MessageModel.newTextMsgForRoom_ByMe(room);
         msg.MediaStatus = (Constants.Msg_Media_To_Push);
         msg.MessageTypeId = (Constants.MESSAGE_VIDEO);
         MessageModel.setVideoParams(msg,thumbPath,resizedPath);

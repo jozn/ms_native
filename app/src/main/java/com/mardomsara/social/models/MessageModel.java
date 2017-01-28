@@ -44,17 +44,15 @@ public class MessageModel {
         return DB.db.selectFromMessage().RoomKeyEq(roomKey).SortIdLt(deviceCreatedTimeOffset).orderBySortIdDesc().limit(MSGS_PER_PAGE).toList();
     }
 
-    public static List<Message> getAllRoomsMessages(String roomKey) {
+    private static List<Message> getAllRoomsMessages(String roomKey) {
         return DB.db.selectFromMessage().RoomKeyEq(roomKey).orderByCreatedDeviceMsDesc().toList();
     }
 
-    //FIXME: Primery key??
     public static Message getMessageByKey(String msgKey) {
         return DB.db.selectFromMessage().MessageKeyEq(msgKey).getOrNull(0);
-//        return null;
     }
 
-    public static Message newTextMsgForRoom(Room room) {
+    public static Message newTextMsgForRoom_ByMe(@NonNull Room room) {
         Message msg = new Message();
         msg.RoomKey = room.RoomKey;
         msg.DeliveryStatus = 0;
@@ -80,16 +78,12 @@ public class MessageModel {
         msg.MediaStatus =0 ;
     }
 
-    public static  int getUserId(Message msg) {
-        return msg.UserId;
-    }
-
-    public static void syncToServer(Message msg ) {
+    public static void syncToServer(@NonNull Message msg ) {
 		MsgsCallToServer.addNewMsg(msg);
     }
 
-    public static void clearAllMessagesOfRoom(String roomKey){
-        AndroidUtil.runInBackground(()->{
+    public static void clearAllMessagesOfRoom_BG(String roomKey){
+        AndroidUtil.runInBackgroundNoPanic(()->{
             List<Message> msgs = getAllRoomsMessages(roomKey);
             for(Message msg : msgs){
                 String src = msg.MediaLocalSrc;
@@ -103,7 +97,6 @@ public class MessageModel {
             }
             DB.db.deleteFromMessage().MessageKeyIn(listMsgs).execute();
 			MemoryStore_LastMsgs.removeForRoom(roomKey);
-//            LastMsgOfRoomsCache2.getInstance().removeForRoom(roomKey);
         });
     }
 
@@ -167,9 +160,8 @@ public class MessageModel {
         }
     }
 
-
-    public static void didMsgsAdded(@NonNull Message msg) {
-        RoomModel.onHereNewMsg(msg);
+    public static void didMsgAddedByMe(@NonNull Message msg) {
+        RoomModel.onByMeNewMsg(msg);
         App.getBus().post(msg);
     }
 }

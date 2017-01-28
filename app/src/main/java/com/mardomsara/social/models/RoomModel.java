@@ -1,5 +1,6 @@
 package com.mardomsara.social.models;
 
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import com.github.gfx.android.orma.annotation.OnConflict;
@@ -30,7 +31,6 @@ public class RoomModel {
 
     //////////////////// CRUD ////////////////////
     public static void update(Room room) {
-//        DB.updateAuto(room, Room_Schema.INSTANCE);
 		DB.db.prepareInsertIntoRoom(OnConflict.REPLACE,true).execute(room);
     }
 
@@ -39,16 +39,13 @@ public class RoomModel {
     }
 
     @Nullable
-    public static Room getRoomByRoomKey(String roomKey){
+    public static Room getRoomByRoomKey(@NonNull String roomKey){
         return DB.db.selectFromRoom().RoomKeyEq(roomKey).getOrNull(0);
-     /*   RoomsListTable room = SQLite.select().from(RoomsListTable.class)
-                .where(RoomsListTable_Table.RoomKey.eq(roomKey)).querySingle();
-        return room;*/
     }
 
 	@Nullable
 	public static Room getRoomByForUserAndLoadUser(int peerUserId){
-		String roomKey = roomKeyForPeerUserid(peerUserId);
+		String roomKey = roomKeyForPeerUserId(peerUserId);
 		Room room =  getRoomByRoomKey(roomKey);
 
 		if(room == null) {
@@ -63,7 +60,7 @@ public class RoomModel {
 	}
 
 
-	public static void onRoomOpenedInBackground(Room room){
+	public static void onRoomOpened_InBackground(Room room){
         room.LastRoomOpenedTimeMs = TimeUtil.getTimeMs();
         room.UnseenMessageCount = 0;
         AndroidUtil.runInBackgroundNoPanic(()->{
@@ -85,7 +82,7 @@ public class RoomModel {
 		return count;
 	}
 
-	public static Room onReceivedNewMsg3_NotSave(Message msg, Room roomMem){
+	public static Room onReceivedNewMsg3_NotSave(@NonNull Message msg, Room roomMem){
 		if(roomMem == null){
 			roomMem = getRoomByRoomKey(msg.RoomKey);
 		}
@@ -101,11 +98,7 @@ public class RoomModel {
 
 		roomMem.UpdatedMs = msg.CreatedMs;//this one we show to user
 		roomMem.SortTimeMs = TimeUtil.getTimeMs();//just for sorting needs accurte user own device
-//		updateOrInsert(roomMem);
-//		roomMem.saveAndEmit();
 		return roomMem;
-//        roomMem.saveWithRoom();
-//        msg.getClass().getAnnotation(Column.class).value();
 	}
 
 	public static void massUpdateOfRoomsForNewMsgs(Collection<Message> LastMsgs){
@@ -123,7 +116,7 @@ public class RoomModel {
 		MemoryStore_Rooms.reloadForAllAndEmit();
 	}
 
-    public static void onHereNewMsg(Message msg){
+    public static void onByMeNewMsg(@NonNull Message msg){
         Room room = getRoomByRoomKey(msg.RoomKey);
         if(room == null){
             room = new Room();
@@ -140,11 +133,8 @@ public class RoomModel {
 
     public static List<Room> getAllRoomsList(int page) {
         List<Room> rooms = DB.db.selectFromRoom().orderBySortTimeMsDesc().toList();
-//        List<RoomsListTable> roomsRes = new ArrayList<>();
-
         loadAllUserForRooms(rooms);
 		MemoryStore_LastMsgs.setAutoForRoom(rooms);
-//        LastMsgOfRoomsCache2.getInstance().setForRooms(rooms);
         return rooms;
     }
 
@@ -154,6 +144,7 @@ public class RoomModel {
         for (Room room : rooms){
             in.add(room.getUserId());
         }
+		if(in.size() == 0)return;
         List<User> users = DB.db.selectFromUser().UserIdIn(in).toList();
         Map<Integer,User> usersMap = LangUtil.listToHashMap(users,(u)->u.UserId);
         for (Room room : rooms) {
@@ -167,13 +158,12 @@ public class RoomModel {
             clearRoomMsgs(room);
             DB.db.deleteFromRoom().RoomKeyEq(room.RoomKey).execute();
         }
-        //???for safety if room somehow dosent exit
-        MessageModel.clearAllMessagesOfRoom(roomKey);
+        //???for safety if room somehow doesn't exit
+        MessageModel.clearAllMessagesOfRoom_BG(roomKey);
     }
 
     public static void clearRoomMsgs(Room room){
-        MessageModel.clearAllMessagesOfRoom(room.RoomKey);
-//        LastMsgOfRoomsCache2.getInstance().removeForRoom(room.RoomKey);
+        MessageModel.clearAllMessagesOfRoom_BG(room.RoomKey);
 		MemoryStore_LastMsgs.removeForRoom(room.RoomKey);
         room.UnseenMessageCount = 0;
         room.saveAndEmit();
@@ -226,7 +216,7 @@ public class RoomModel {
 		});
 	}
 
-	public static String roomKeyForPeerUserid(int PeerUserId){
+	public static String roomKeyForPeerUserId(int PeerUserId){
 		int me = Session.getUserId();
 		if(me < PeerUserId){
 			return "p"+me+"_"+PeerUserId;
