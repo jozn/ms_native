@@ -1,5 +1,6 @@
 package com.mardomsara.social.ui.cells.general;
 
+import android.support.annotation.NonNull;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,11 +41,10 @@ public class KeyboardAttachmentCell implements RecentImagesCell.onRecentImageCli
     @Bind(R.id.frame_layout) ViewGroup frame_layout;
 
 
-    Callbacks callback_listener;
-    RecentImagesCell recentImagesCell;
-    PopupWindow attachWindow;
+    @NonNull Callbacks callback_listener;
+    @NonNull RecentImagesCell recentImagesCell;
+    @NonNull PopupWindow attachWindow;
 
-//    int keyboardSize = Hawk.get(Config.KEYBOARD_HEIGHT, Config.KEYBOARD_HEIGHT_DEFAULT);
     int keyboardSize = Store.getInt(StoreConstants.KEYBOARD_SIZE, (int) (AndroidUtil.getScreenHeight()/2.5));
 
     public KeyboardAttachmentCell(Callbacks listener, View bottom_container) {
@@ -60,9 +60,7 @@ public class KeyboardAttachmentCell implements RecentImagesCell.onRecentImageCli
         //view containg icons
         View main_content = popupView.findViewById(R.id.attachment_main);
         main_content.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, keyboardSize));
-//        close_send_btn.setOnClickListener((v)->{
-//                attachWindow.close_send_btn();
-//            });
+
         setRecentImages();
         _updateCloseBtn();
 
@@ -75,9 +73,6 @@ public class KeyboardAttachmentCell implements RecentImagesCell.onRecentImageCli
         recentImagesCell.setListener(this);
     }
 
-    /*public void bindToView(MessagesTable msg) {
-
-    }*/
 
     //// Recent Images callbacks //////////////
     @Override
@@ -143,15 +138,21 @@ public class KeyboardAttachmentCell implements RecentImagesCell.onRecentImageCli
         callback_listener.onGalleryClick();
     }
 
-    @OnClick(R.id.attach_file)
-    public void setAttach_file(){
-        callback_listener.onFileClick();
+    @OnClick(R.id.attach_audio)
+    public void setAttach_audio(){
+        callback_listener.onAudioClick();
     }
 
-    @OnClick(R.id.attach_location)
+	@OnClick(R.id.attach_file)
+	public void setAttach_file(){
+		callback_listener.onFileClick();
+	}
+
+    /*@OnClick(R.id.attach_location)
     public void setAttach_location(){
         callback_listener.onLocationClick();
-    }
+    }*/
+
 
     public interface Callbacks {
         void onCameraPhotoClick();
@@ -166,7 +167,3 @@ public class KeyboardAttachmentCell implements RecentImagesCell.onRecentImageCli
 
     }
 }
-//dep
-//    private static KeywordAttachmentView makeNew(){
-////        return new KeywordAttachmentView(AppUtil.inflate(R.layout.empty));
-//    }

@@ -2,15 +2,10 @@ package com.mardomsara.social.ui.views.wigets;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.view.Gravity;
-import android.view.ViewGroup;
-import android.widget.TextView;
 
-import com.joanzapata.iconify.Iconify;
-import com.joanzapata.iconify.widget.IconButton;
 import com.joanzapata.iconify.widget.IconTextView;
 import com.mardomsara.social.Nav;
 import com.mardomsara.social.R;
@@ -21,7 +16,6 @@ import com.mardomsara.social.models.RoomModel;
 import com.mardomsara.social.models.UserModel;
 import com.mardomsara.social.models.tables.Room;
 import com.mardomsara.social.models.tables.User;
-import com.mardomsara.social.ui.views.FontCache;
 
 /**
  * Created by Hamid on 11/10/2016.
@@ -82,7 +76,7 @@ public class ChatButtonView extends IconTextView {
 		User u = UserModel.UserInfoJsonToUserTable(userAndMe);
 		u.save();
 		Room room = RoomModel.getRoomByForUserAndLoadUser(u.UserId);
-		Nav.push(Router.getRoomEntery(room));
+		Nav.push(Router.getRoomEntry(room));
 	}
 
 

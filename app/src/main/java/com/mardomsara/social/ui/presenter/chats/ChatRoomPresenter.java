@@ -1,18 +1,16 @@
 package com.mardomsara.social.ui.presenter.chats;
 
 import android.app.Activity;
-import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Toast;
 
-import com.ipaulpro.afilechooser.FileChooserActivity;
-import com.ipaulpro.afilechooser.utils.FileChooserFileUtils;
 import com.mardomsara.social.App;
 import com.mardomsara.social.Nav;
 import com.mardomsara.social.app.AppFiles;
@@ -39,7 +37,7 @@ import com.mardomsara.social.pipe.from_net_calls.json.MsgReceivedToPeerJson;
 import com.mardomsara.social.pipe.from_net_calls.json.MsgSeenByPeerJson;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.X;
-import com.mardomsara.social.ui.cells.chats.lists.MsgsListCell;
+import com.mardomsara.social.ui.cells.chats.adaptors.ChatEntryAdaptor;
 import com.mardomsara.social.ui.cells.general.KeyboardAttachmentCell;
 import com.mardomsara.social.ui.views.EmojiKeyboard;
 import com.squareup.picasso.Picasso;
@@ -68,8 +66,7 @@ public class ChatRoomPresenter extends BasePresenter implements
     View view;
 
 	ArrayListHashSetKey<Message,String> messages;
-    MsgsListCell messagesCell;
-    MsgsListCell.ChatEntryAdaptor messagesAdaptor;
+    ChatEntryAdaptor messagesAdaptor;
 
     KeyboardAttachmentCell attachment_view;
     LinearLayoutManager mLayoutManager;
@@ -95,8 +92,7 @@ public class ChatRoomPresenter extends BasePresenter implements
 
         Nav.hideFooter();
 
-        messagesCell = new MsgsListCell();
-        messagesAdaptor =messagesCell.adaptor;
+        messagesAdaptor = new ChatEntryAdaptor();
 
 		messages = messagesAdaptor.msgs;
 
@@ -220,7 +216,7 @@ public class ChatRoomPresenter extends BasePresenter implements
 	/////////////////// Events /////////////////////////
 
 	@Subscribe(threadMode = ThreadMode.MAIN)
-	public void onEvent(MsgAddOneJson data){
+	public void onEvent(@NonNull MsgAddOneJson data){
 		logIt("event new: MsgAddOneJson " + data.toString());
 		Message msg = data.Message;
 		if(msg.RoomKey.equals(room.RoomKey)){
@@ -238,7 +234,7 @@ public class ChatRoomPresenter extends BasePresenter implements
 	}
 
 	@Subscribe(threadMode = ThreadMode.MAIN)
-	public void onEvent(MsgAddManyJson data){
+	public void onEvent(@NonNull MsgAddManyJson data){
 		logIt("event new: MsgAddManyJson " + data.toString());
 		List<Message> msgs = data.Messages;
 		for(Message msg : msgs){
@@ -259,7 +255,7 @@ public class ChatRoomPresenter extends BasePresenter implements
 	}
 
 	@Subscribe(threadMode = ThreadMode.MAIN)
-	public void onEvent(MsgReceivedToServerEvent data){
+	public void onEvent(@NonNull MsgReceivedToServerEvent data){
 		logIt("event new: MsgReceivedToServerEvent " + data.toString());
 		if(data.RoomKey.equals(room.RoomKey)){
 			Message msg = messagesAdaptor.msgs.getByKey(data.MsgKey);
@@ -275,7 +271,7 @@ public class ChatRoomPresenter extends BasePresenter implements
 	}
 
 	@Subscribe(threadMode = ThreadMode.MAIN)
-	public void onEvent(MsgDeletedFromServerJson data){
+	public void onEvent(@NonNull MsgDeletedFromServerJson data){
 		logIt("event new: MsgDeletedFromServerJson " + data.toString());
 		if(data.RoomKey.equals(room.RoomKey)){
 			Message msg = messagesAdaptor.msgs.getByKey(data.MsgKey);
@@ -291,7 +287,7 @@ public class ChatRoomPresenter extends BasePresenter implements
 	}
 
 	@Subscribe(threadMode = ThreadMode.MAIN)
-	public void onEvent(MsgReceivedToPeerJson data){
+	public void onEvent(@NonNull MsgReceivedToPeerJson data){
 		logIt("event new: MsgReceivedToPeerJson  " + data.toString());
 		if(data.RoomKey.equals(room.RoomKey)){
 			Message msg = messagesAdaptor.msgs.getByKey(data.MsgKey);
@@ -307,7 +303,7 @@ public class ChatRoomPresenter extends BasePresenter implements
 	}
 
 	@Subscribe(threadMode = ThreadMode.MAIN)
-	public void onEvent(MsgSeenByPeerJson data){
+	public void onEvent(@NonNull MsgSeenByPeerJson data){
 		logIt("event new: MsgSeenByPeerJson " + data.toString());
 		if(data.RoomKey.equals(room.RoomKey)){
 			Message msg = messagesAdaptor.msgs.getByKey(data.MsgKey);
@@ -322,11 +318,10 @@ public class ChatRoomPresenter extends BasePresenter implements
 		}
 	}
 
-    //keyborad listener
+    //keyboard listener
     @Override
     public void onCameraPhotoClick() {
         intentHelper = new IntentHelper();
-//        attachWindow.dismiss();
         attachment_view.dismiss();
         file_uri =  intentHelper.captureImage(getActivity(), ATTACH_CAMERA_IMAGE,"back");
     }
@@ -354,38 +349,30 @@ public class ChatRoomPresenter extends BasePresenter implements
 
     @Override
     public void onAudioClick() {
-
+		comingSoon();
     }
 
     @Override
     public void onLocationClick() {
-        Intent target = new Intent(getActivity(), FileChooserActivity.class);
-        // Create the chooser Intent
-        Intent intent = Intent.createChooser(
-                target, "CCCCCCCC");
-        try {
-            getActivity().startActivityForResult(target, 555);
-        } catch (ActivityNotFoundException e) {
-            // The reason for the existence of aFileChooser
-        }
-//        ContentProvider
+
     }
 
     @Override
     public void onFileClick() {
-//        private void showChooser() {
-            // Use the GET_CONTENT intent from the utility class
-            Intent target = FileChooserFileUtils.createGetContentIntent();
-            // Create the chooser Intent
-            Intent intent = Intent.createChooser(
-                    target, "CCCCCCCC");
-            try {
-                getActivity().startActivityForResult(intent, 555);
-            } catch (ActivityNotFoundException e) {
-                // The reason for the existence of aFileChooser
-            }
-//        }
+		comingSoon();
+/*       Intent target = FileChooserFileUtils.createGetContentIntent();
+		Intent intent = Intent.createChooser(
+				target, "CCCCCCCC");
+		try {
+			getActivity().startActivityForResult(intent, 555);
+		} catch (ActivityNotFoundException e) {
+			// The reason for the existence of aFileChooser
+		}*/
     }
+
+	void comingSoon(){
+		Helper.showMessage("به زودی در نسخه های بعد ...");
+	}
 
     @Override
     public void onContactClick() {

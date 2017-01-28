@@ -3,7 +3,6 @@ package com.mardomsara.social.ui.cells.chats.lists;
 import android.net.Uri;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -45,7 +44,6 @@ import butterknife.ButterKnife;
  */
 public class RoomsListCell {
     public View root_view;
-    List<Room> list;
     ArrayListHashSetKey<Room,String> listRooms = MemoryStore_Rooms.getListRooms();//new ArrayListHashSetKey<>((room)->room.RoomKey);
     RecyclerView rv;
     RoomsListAdaptor adp;
@@ -56,20 +54,12 @@ public class RoomsListCell {
 
     private void init() {
         root_view = AppUtil.inflate(R.layout.list_rooms_presenter);
-/*        list  = RoomModel.getAllRoomsList(0);
-		listRooms.fromList(list);
-		listRooms.sort();*/
 		MemoryStore_Rooms.reloadForAll();
 		listRooms = MemoryStore_Rooms.getListRooms();
-//        LastMsgOfRoomsCache2.getInstance().setForRooms(listRooms);
-		/*MemoryStore_LastMsgs.loadAutoForRoomKeys(listRooms.getKeys());
-		MemoryStore_Users.loadAutoForRoomKeys(listRooms.getKeys());*/
 
         rv = (RecyclerView) root_view.findViewById(R.id.contacts_list);
         adp = new RoomsListAdaptor(listRooms);
-//        EventBus.getDefault().register(adp);
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(AppUtil.getContext());
-//        mLayoutManager.setSmoothScrollbarEnabled(true);
         RecyclerView.ItemDecoration itemDecoration = new
                 DividerItemDecoration(AppUtil.getContext(), DividerItemDecoration.VERTICAL_LIST);
 //        rv.addItemDecoration(itemDecoration);
@@ -80,42 +70,6 @@ public class RoomsListCell {
 
 		rv.setLayoutManager(mLayoutManager);
     }
-
-	/*@Subscribe(threadMode = ThreadMode.BACKGROUND)
-	public void onEvent(MsgAddOneJson data){
-		Message msg = data.Message;
-		Room roomNew = RoomModel.onRecivedNewMsg2(msg);
-		AndroidUtil.runInUiNoPanic(()->{
-			*//*listRooms.setOrReplace(0,roomNew);*//*
-			listRooms.addEnd(roomNew);
-			listRooms.sort();
-
-			adp.notifyDataSetChanged();
-
-			*//*int index = listRooms.indexOfByKey(msg.RoomKey);
-			if (index >= 0) {
-				adp.notifyContentItemChanged(index);
-			}	*//*
-		});
-
-	}*/
-
-	/*@Subscribe(threadMode = ThreadMode.BACKGROUND)
-	public void onEvent(MsgAddManyJson data){
-		List<Message> msgs = data.Messages;
-		for(Message msg:msgs){
-			Room roomNew = RoomModel.onRecivedNewMsg2(msg);
-			listRooms.setOrReplace(0,roomNew);
-
-		}
-		AndroidUtil.runInUiNoPanic(()->{
-			adp.notifyDataSetChanged();
-			*//*int index = listRooms.indexOfByKey(msg.RoomKey);
-			if (index >= 0) {
-				adp.notifyContentItemChanged(index);
-			}	*//*
-		});
-	}*/
 
 	@Subscribe(threadMode = ThreadMode.MAIN)
 	public void onEvent(RoomOrderChanged data){
@@ -131,7 +85,6 @@ public class RoomsListCell {
             if(rooms != null){
                 this.roomsList = rooms;
             }
-//            App.getBus().register(this);
         }
 
         @Override
@@ -156,21 +109,12 @@ public class RoomsListCell {
             App.getBus().unregister(this);
         }
 
-        //////////// Events ////////////////
-
-
-        protected void logIt(String str) {
-            Log.d(" "+ this.getClass().getSimpleName() ,""+ str);
-        }
     }
 
     public static class RoomRowCellHolder extends RecyclerView.ViewHolder{
         public Room room;
         public View root_view;
         RoomRowCell roomRowCell;
-
-        RoomsListAdaptor adaptor;
-
 
         public RoomRowCellHolder(RoomRowCell rowCell) {
             super(rowCell.root_view);
@@ -207,9 +151,7 @@ public class RoomsListCell {
             this.adaptor = adaptor;
 
             root_view.setOnClickListener((vv)->{
-//                Room r = room;//(RoomsListTable) vv.getTag();
-//                AppUtil.log("Romm raw list " + r.RoomName + " clicked.");
-                if (room!= null) Nav.push(Router.getRoomEntery(room));
+                if (room!= null) Nav.push(Router.getRoomEntry(room));
             });
 
             root_view.setOnLongClickListener((vv)->{
@@ -219,7 +161,6 @@ public class RoomsListCell {
         }
 
         public void bind(Room room){
-//            Message lastMsg = LastMsgOfRoomsCache2.getInstance().getForRoom(room);
             Message lastMsg = MemoryStore_LastMsgs.getForRoom(room);
             this.room = room;
             name_txt.setText(room.getRoomName());
@@ -227,15 +168,11 @@ public class RoomsListCell {
             unseen_count_txt.setCount(room.UnseenMessageCount);
 
             if(lastMsg != null){
-//                AppUtil.log(lastMsg.toString());
                 last_msg_txt.setText(RoomHelper.getLastMsgFormatedText(lastMsg));
             }else {//clear from previus
                 last_msg_txt.setText("");
             }
-
-//            self.setTag(room);
             Uri imageUri = Helper.PathToUserAvatarUri(room.getRoomAvatarUrl());
-//            Helper.SetAvatar(vh.avatar, room.getRoomAvatarUrl());
             avatar.setImageURI(imageUri);
         }
     }

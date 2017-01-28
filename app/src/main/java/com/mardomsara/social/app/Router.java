@@ -52,13 +52,13 @@ public class Router {
     }
 
     /*@Deprecated
-    public static FragmentPage getRoomEntery(RoomsListTable room) {
+    public static FragmentPage getRoomEntry(RoomsListTable room) {
         ChatEntryPresenter p = new ChatEntryPresenter();
         p.room = room;
         return p;
     }*/
 
-    public static PresenterPage getRoomEntery(Room room) {
+    public static PresenterPage getRoomEntry(Room room) {
         ChatRoomPresenter p = new ChatRoomPresenter();
         p.room = room;
         return p;
@@ -94,7 +94,7 @@ public class Router {
 
     public static void goToUserChatEntry(int UserId){
         Room room = RoomModel.getRoomByForUserAndLoadUser(UserId);
-        Nav.push(Router.getRoomEntery(room));
+        Nav.push(Router.getRoomEntry(room));
     }
 
     public static PresenterPage getMyProfile() {

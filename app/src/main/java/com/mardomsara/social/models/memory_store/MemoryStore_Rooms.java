@@ -45,7 +45,6 @@ public class MemoryStore_Rooms {
 
 
 	public static void reloadForAll(){
-//		listRooms = new ArrayListHashSetKey<>((room)->room.RoomKey);
 		List<Room> list = RoomModel.getAllRoomsList(0);
 		listRooms.clear();
 		listRooms.fromList(list);

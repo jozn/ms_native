@@ -190,7 +190,7 @@ public class X {
         public LinearLayout attach_video;
         public LinearLayout attach_gallery;
         public LinearLayout attach_camera;
-        public LinearLayout attach_location;
+        public LinearLayout attach_audio;
         public LinearLayout attach_file;
         public LinearLayout close_send_btn;
         public TextView close_icon;
@@ -204,7 +204,7 @@ public class X {
             attach_video = (LinearLayout) root.findViewById( R.id.attach_video);
             attach_gallery = (LinearLayout) root.findViewById( R.id.attach_gallery);
             attach_camera = (LinearLayout) root.findViewById( R.id.attach_camera);
-            attach_location = (LinearLayout) root.findViewById( R.id.attach_location);
+            attach_audio = (LinearLayout) root.findViewById( R.id.attach_audio);
             attach_file = (LinearLayout) root.findViewById( R.id.attach_file);
             close_send_btn = (LinearLayout) root.findViewById( R.id.close_send_btn);
             close_icon = (TextView) root.findViewById( R.id.close_icon);

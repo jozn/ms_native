@@ -58,7 +58,7 @@
                     />
                 <TextView
                     style="@style/attachment_cell_text"
-                    android:text="1ویدیو"
+                    android:text="ویدیو"
                     />
             </LinearLayout>
 
@@ -105,16 +105,16 @@
             <!-- Cells first column -->
             <LinearLayout
                 style="@style/attachment_cell_holder"
-                android:id="@+id/attach_location"
+                android:id="@+id/attach_audio"
                 >
                 <TextView
-                    android:text="\uf4cd"
+                    android:text="\uf20c"
                     style="@style/attachment_cell_icon"
                     android:textColor="#00ffff"
                     />
                 <TextView
                     style="@style/attachment_cell_text"
-                    android:text="file 2"
+                    android:text="صوت"
                     />
             </LinearLayout>
 
