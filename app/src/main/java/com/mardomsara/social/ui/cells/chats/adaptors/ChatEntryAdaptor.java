@@ -26,7 +26,7 @@ public class ChatEntryAdaptor extends AppHeaderFooterRecyclerViewAdapter<MsgCell
 
 	static LayoutInflater _infl = LayoutInflater.from(AppUtil.getContext());
 
-	public ArrayListHashSetKey<Message, String> msgs = new ArrayListHashSetKey<>((msg) -> msg.MessageKey);
+	public final ArrayListHashSetKey<Message, String> msgs = new ArrayListHashSetKey<>((msg) -> msg.MessageKey);
 
 	public void setMsgs(List<Message> msgs) {
 		this.msgs.fromList(msgs);

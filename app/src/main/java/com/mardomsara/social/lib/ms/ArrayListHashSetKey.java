@@ -207,6 +207,7 @@ public class ArrayListHashSetKey<T extends Comparable ,K> {
 	}
 
 	public boolean addAllEnd(Collection<? extends T> items) {
+		if(items == null)return  false;
 		synchronized (this){
 			try {
 				for(T item :items){

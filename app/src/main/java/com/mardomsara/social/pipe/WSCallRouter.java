@@ -44,17 +44,21 @@ public class WSCallRouter {
         }
     }
 
-    public static void buildMapper() {
+    private static void buildMapper() {
 
         //Messages
-        register("NotifyRemoveMany", MsgCallsFromServer.MsgAddOne);
-        register("NotifyAddOne", MsgCallsFromServer.MsgAddMany);
+		register("MsgAddOne", MsgCallsFromServer.MsgAddOne);
+		register("MsgAddMany", MsgCallsFromServer.MsgAddMany);
         register("MsgsReceivedToPeerMany", MsgCallsFromServer.MsgsReceivedToPeerMany);
         register("MsgsDeletedFromServerMany", MsgCallsFromServer.MsgsDeletedFromServerMany);
         register("MsgsSeenByPeerMany", MsgCallsFromServer.MsgsSeenByPeerMany);
 
+		//Notify
         register("NotifyAddOne", NotifyCallsFromServer.NotifyAddOne);
         register("NotifyRemoveMany", NotifyCallsFromServer.NotifyRemoveMany);
+
+//		register("NotifyRemoveMany", MsgCallsFromServer.MsgAddOne);
+//		register("NotifyAddOne", MsgCallsFromServer.MsgAddMany);
     }
 
 	public static void TimeMs(Call call) {

@@ -34,7 +34,7 @@ import java.util.List;
 public class MessageModel {
      public final static int MSGS_PER_PAGE = 30;
 
-    public static List<Message> getRoomMessagesTimeOffset(String roomKey, long deviceCreatedTimeOffset){
+    public static @NonNull List<Message> getRoomMessagesTimeOffset(String roomKey, long deviceCreatedTimeOffset){
         /*AndroidUtil.runInBackgroundNoPanic(()->{
             DB.db.getConnection().execSQL("update Message setOrReplace SortId = CreatedDeviceMs * 1000000");
         });*/

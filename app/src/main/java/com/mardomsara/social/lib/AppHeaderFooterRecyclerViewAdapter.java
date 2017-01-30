@@ -138,6 +138,10 @@ public abstract class AppHeaderFooterRecyclerViewAdapter<T extends RecyclerView.
 		if(sectioned!=null){
 			sectioned.notifyDataChanged();
 		}
+		//automaticly hide empty view if items count is larger than 0
+		if(getContentItemCount()>0 && isShowingEmptyNoteView){
+			hideEmptyView();
+		}
 		super.notifyDataSetChanged();
 	}
 

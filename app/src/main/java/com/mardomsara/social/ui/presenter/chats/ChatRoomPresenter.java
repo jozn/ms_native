@@ -223,7 +223,7 @@ public class ChatRoomPresenter extends BasePresenter implements
 			if(!messagesAdaptor.msgs.contains(msg)){
 				try {
 					messagesAdaptor.msgs.addStart(msg);
-					messagesAdaptor.notifyDataSetChanged();
+					messagesAdaptor.notifyDataChanged();
 
 				}catch (Exception e){
 					e.printStackTrace();
@@ -249,7 +249,7 @@ public class ChatRoomPresenter extends BasePresenter implements
 				}
 			}
 		}
-		messagesAdaptor.notifyDataSetChanged();
+		messagesAdaptor.notifyDataChanged();
 
 		RoomModel.updateRoomSeenMsgsToNow_BG(room);
 	}
@@ -262,7 +262,7 @@ public class ChatRoomPresenter extends BasePresenter implements
 			if(msg != null){
 				try {
 					msg.ServerReceivedTime = data.AtTime;
-					messagesAdaptor.notifyDataSetChanged();
+					messagesAdaptor.notifyDataChanged();
 				}catch (Exception e){
 					e.printStackTrace();
 				}
@@ -278,7 +278,7 @@ public class ChatRoomPresenter extends BasePresenter implements
 			if(msg != null){
 				try {
 					msg.ServerDeletedTime = data.AtTime;
-					messagesAdaptor.notifyDataSetChanged();
+					messagesAdaptor.notifyDataChanged();
 				}catch (Exception e){
 					e.printStackTrace();
 				}
@@ -294,7 +294,7 @@ public class ChatRoomPresenter extends BasePresenter implements
 			if(msg != null){
 				try {
 					msg.PeerReceivedTime = data.AtTime;
-					messagesAdaptor.notifyDataSetChanged();
+					messagesAdaptor.notifyDataChanged();
 				}catch (Exception e){
 					e.printStackTrace();
 				}
@@ -310,7 +310,7 @@ public class ChatRoomPresenter extends BasePresenter implements
 			if(msg != null){
 				try {
 					msg.PeerSeenTime = data.AtTime;
-					messagesAdaptor.notifyDataSetChanged();
+					messagesAdaptor.notifyDataChanged();
 				}catch (Exception e){
 					e.printStackTrace();
 				}
@@ -498,9 +498,12 @@ public class ChatRoomPresenter extends BasePresenter implements
 
     }
 
+	//// TODO: 1/30/2017 do in background
 	//pageNum is actuly is alaways >= 1
     @Override
     public void loadNextPage(int pageNum) {
+		messagesAdaptor.nextPageIsLoaded();
+
         int size = messagesAdaptor.msgs.size();
         List<Message> msgs = null;
 		long lastSortId = 0;
@@ -508,16 +511,20 @@ public class ChatRoomPresenter extends BasePresenter implements
             lastSortId = messagesAdaptor.msgs.get(size -1).SortId;
         }
 		msgs = MessageModel.getRoomMessagesTimeOffset(room.RoomKey,lastSortId);
-		if(msgs != null){
+		if(msgs.size() >0){
 			messagesAdaptor.msgs.addAllEnd(msgs);
-//                messagesAdaptor.notifyDataSetChanged();
+//                messagesAdaptor.notifyDataChanged();
+		}else if (pageNum == 1){
+			messagesAdaptor.showEmptyView();
+		}else {
+			messagesAdaptor.setHasMorePage(false);
 		}
 
-        if(msgs == null || msgs.size() == 0 || msgs.size() < MessageModel.MSGS_PER_PAGE){
+        /*if(msgs == null || msgs.size() == 0 || msgs.size() < MessageModel.MSGS_PER_PAGE){
             messagesAdaptor.setHasMorePage(false);
-        }
+        }*/
 
-		messagesAdaptor.notifyDataSetChanged();
+		messagesAdaptor.notifyDataChanged();
 
         Helper.showDebugMessage("page : "+pageNum);
     }
