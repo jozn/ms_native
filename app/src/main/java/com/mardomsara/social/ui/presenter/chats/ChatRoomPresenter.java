@@ -521,9 +521,10 @@ public class ChatRoomPresenter extends BasePresenter implements
 			messagesAdaptor.setHasMorePage(false);
 		}
 
-        /*if(msgs == null || msgs.size() == 0 || msgs.size() < MessageModel.MSGS_PER_PAGE){
+		//fix for no jumping for first few msgs
+        if(msgs.size() < MessageModel.MSGS_PER_PAGE){
             messagesAdaptor.setHasMorePage(false);
-        }*/
+        }
 
 		messagesAdaptor.notifyDataChanged();
 
