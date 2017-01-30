@@ -129,4 +129,5 @@
     </string>
     <string name="rv_network_error">خطا در دریافت</string>
     <string name="rv_no_internet">به اینترنت متصل نیستید</string>
+    <string name="msg_full_page_empty_note">می توانید شروع به گفتگو کنید.</string>
 </resources>

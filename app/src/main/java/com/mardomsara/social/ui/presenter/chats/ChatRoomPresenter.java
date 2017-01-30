@@ -515,6 +515,7 @@ public class ChatRoomPresenter extends BasePresenter implements
 			messagesAdaptor.msgs.addAllEnd(msgs);
 //                messagesAdaptor.notifyDataChanged();
 		}else if (pageNum == 1){
+			messagesAdaptor.setEmptyNoteView(new X.Msg_FullPageEmptyNote(x.recycler_view).root);
 			messagesAdaptor.showEmptyView();
 		}else {
 			messagesAdaptor.setHasMorePage(false);

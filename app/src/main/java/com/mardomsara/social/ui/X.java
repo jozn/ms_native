@@ -17,6 +17,7 @@ import com.joanzapata.iconify.widget.IconTextView;
 import com.mardomsara.emojicon.EmojiconEditText;
 import com.mardomsara.emojicon.EmojiconTextView;
 import com.mardomsara.social.ui.views.EmojiLinkerTextView;
+import com.mardomsara.social.ui.views.LinkerTextView;
 import com.mardomsara.social.ui.views.play.TextViewWithIcon;
 import com.mardomsara.social.ui.views.wigets.BadgeCount;
 import com.mardomsara.social.ui.views.wigets.ButtonGrayView;
@@ -887,6 +888,18 @@ public class X {
             title = (TextView) root.findViewById( R.id.title);
         }
         public MediaChooserTopNav() {
+            this(null);
+        }
+    }
+
+
+    public static class Msg_FullPageEmptyNote {
+        public RelativeLayout root;
+
+        public Msg_FullPageEmptyNote(ViewGroup parent) {
+            root = (RelativeLayout) AppUtil.inflate(R.layout.msg__full_page_empty_note,parent);
+        }
+        public Msg_FullPageEmptyNote() {
             this(null);
         }
     }
