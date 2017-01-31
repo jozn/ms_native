@@ -100,6 +100,8 @@ public class ChatEntryAdaptor extends AppHeaderFooterRecyclerViewAdapter<MsgCell
 				case 44:
 					rowView = _infl.inflate(R.layout.msg__row_file_me, parent, false);
 					break;
+				default://todo needs it's kind of file( user cant do something that is not no his devise)
+					msgView = MsgCell_NotSupported.makeNew(parent);
 			}
 		}
 
@@ -113,7 +115,9 @@ public class ChatEntryAdaptor extends AppHeaderFooterRecyclerViewAdapter<MsgCell
 	@Override
 	protected void onBindContentItemViewHolder(MsgCell_AbstractViewHolder msgAbstractViewHolder, int position) {
 		Message msg = msgs.get(position);
-		msgAbstractViewHolder.bindToView(msg);
+		if(msgAbstractViewHolder != null){
+			msgAbstractViewHolder.bindToView(msg);
+		}
 	}
 
 	@Override
