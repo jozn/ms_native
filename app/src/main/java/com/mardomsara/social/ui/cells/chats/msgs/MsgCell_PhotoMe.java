@@ -2,30 +2,18 @@ package com.mardomsara.social.ui.cells.chats.msgs;
 
 import android.support.annotation.NonNull;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
-import com.facebook.drawee.view.SimpleDraweeView;
-import com.mardomsara.social.R;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.models.tables.Message;
 import com.mardomsara.social.ui.X;
 import com.mardomsara.social.ui.views.helpers.ViewHelper;
 
-import butterknife.Bind;
-
 /**
  * Created by Hamid on 6/13/2016.
  */
 public class MsgCell_PhotoMe extends MsgCell_AbstractViewHolder {
-    /*@Bind(R.id.msg_time) TextView msg_time;
-    @Bind(R.id.msg_delivery_status) TextView msg_delivery_status;
-    @Bind(R.id.msg_text) TextView msg_text;
-    @Bind(R.id.msg_image) SimpleDraweeView msg_image;
-    @Bind(R.id.msg_content_holder) ViewGroup msg_content_holder;*/
-//    LinkerText msg_text;
-    @NonNull
-	Message msg;
 
+	@NonNull
 	X.Msg_RowImageMe x;
 
     public MsgCell_PhotoMe(X.Msg_RowImageMe xv) {

@@ -1,19 +1,12 @@
 package com.mardomsara.social.ui.cells.chats.msgs;
 
 import android.support.annotation.NonNull;
-import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.mardomsara.emojicon.EmojiMaper;
-import com.mardomsara.emojicon.EmojiconTextView;
-import com.mardomsara.social.R;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.models.tables.Message;
 import com.mardomsara.social.ui.X;
-
-import butterknife.Bind;
-import butterknife.ButterKnife;
 
 /**
  * Created by Hamid on 6/13/2016.
