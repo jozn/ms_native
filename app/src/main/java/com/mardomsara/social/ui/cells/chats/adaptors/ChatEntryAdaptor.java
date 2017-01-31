@@ -11,6 +11,7 @@ import com.mardomsara.social.lib.ms.ArrayListHashSetKey;
 import com.mardomsara.social.models.tables.Message;
 import com.mardomsara.social.ui.cells.chats.msgs.MsgCell_AbstractViewHolder;
 import com.mardomsara.social.ui.cells.chats.msgs.MsgCell_Empty;
+import com.mardomsara.social.ui.cells.chats.msgs.MsgCell_NotSupported;
 import com.mardomsara.social.ui.cells.chats.msgs.MsgCell_PhotoMe;
 import com.mardomsara.social.ui.cells.chats.msgs.MsgCell_PhotoPeer;
 import com.mardomsara.social.ui.cells.chats.msgs.MsgCell_TextMe;
@@ -70,6 +71,8 @@ public class ChatEntryAdaptor extends AppHeaderFooterRecyclerViewAdapter<MsgCell
 				case 44:
 					rowView = _infl.inflate(R.layout.msg__row_file_peer, parent, false);
 					break;
+				default:
+					msgView = MsgCell_NotSupported.makeNew(parent);
 			}
 		} else {//odd views: is ME
 			switch (contentViewType - 1) {//1 comes from .isByMe()

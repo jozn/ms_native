@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              style="@style/msg_row"
+    >
+    <LinearLayout
+        android:id="@+id/msg_content_holder"
+        style="@style/msg.content_holder.peer"
+        >
+        <com.mardomsara.emojicon.EmojiconTextView
+            style="@style/msg_text.peer"
+            android:id="@+id/msg_text"
+            android:background="@color/yellow_light"
+            android:text="این پیام را نمی توان نمایش داد, اگر از نسخه قدیمی مردم سرا استفاده میکنید به آخرین نسخه ارتقا دهید."
+            />
+    </LinearLayout>
+
+</LinearLayout>
+

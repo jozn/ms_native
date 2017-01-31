@@ -1083,6 +1083,22 @@ public class X {
     }
 
 
+    public static class Msg_RowNotSupportedPeer {
+        public LinearLayout root;
+        public LinearLayout msg_content_holder;
+        public EmojiconTextView msg_text;
+
+        public Msg_RowNotSupportedPeer(ViewGroup parent) {
+            root = (LinearLayout) AppUtil.inflate(R.layout.msg__row_not_supported_peer,parent);
+            msg_content_holder = (LinearLayout) root.findViewById( R.id.msg_content_holder);
+            msg_text = (EmojiconTextView) root.findViewById( R.id.msg_text);
+        }
+        public Msg_RowNotSupportedPeer() {
+            this(null);
+        }
+    }
+
+
     public static class Msg_RowPostMe {
         public LinearLayout root;
 

@@ -14,7 +14,8 @@ import com.mardomsara.social.ui.X;
 public class MsgCell_TextPeer extends MsgCell_AbstractViewHolder {
     Message msg;
 
-	@NonNull X.Msg_RowTextPeer x;
+	@NonNull
+	X.Msg_RowTextPeer x;
 
     public MsgCell_TextPeer(X.Msg_RowTextPeer xv) {
         super(xv.root);
