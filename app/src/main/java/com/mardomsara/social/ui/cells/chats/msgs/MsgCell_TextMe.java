@@ -19,17 +19,11 @@ import butterknife.ButterKnife;
  * Created by Hamid on 6/13/2016.
  */
 public class MsgCell_TextMe extends MsgCell_AbstractViewHolder {
-	//    @Bind(R.id.msg_time) TextView msg_time;
-//    @Bind(R.id.msg_delivery_status) TextView msg_delivery_status;
-//    @Bind(R.id.msg_text) EmojiconTextView msg_text;
-	Message msg;
-
 	X.Msg_RowTextMe x;
 
 	public MsgCell_TextMe(X.Msg_RowTextMe xv) {
 		super(xv.root);
 		x = xv;
-//        ButterKnife.bind(this, itemView);
 	}
 
 	public static MsgCell_AbstractViewHolder makeNew(ViewGroup parent){
@@ -45,17 +39,11 @@ public class MsgCell_TextMe extends MsgCell_AbstractViewHolder {
 
 		if( msg.Text != null && msg.Text.length() < 1000 && EmojiMaper.isJustEmoji(msg.Text)){
             Log.d("Emoji","isJustEmoji true: "+msg.Text);
-//			msg_text.setJustEmojiconSize(AndroidUtil.dpToPx(12)*3);
 			x.msg_text.setSizeMultiple(2f);
-//            msg_text.setJustEmojiconSize(AndroidUtil.dpToPx(40));
-//			grandView.requestLayout();
         }else {
 			x.msg_text.restSizes();
-//			msg_text.setSizeMultiple(3);
         }
-//		msg_text.setLineSpacing(200,3);
         MsgCommon.msgDelviryStatusText(msg,x.msg_delivery_status);
-//        ViewHelper.msgDelviryStatusText(msg,msg_delivery_status);
     }
 
 

@@ -19,17 +19,13 @@ import butterknife.ButterKnife;
  * Created by Hamid on 6/13/2016.
  */
 public class MsgCell_TextPeer extends MsgCell_AbstractViewHolder {
-//    @Bind(R.id.msg_time) TextView msg_time;
-//    @Bind(R.id.msg_text) EmojiconTextView msg_text;
     Message msg;
 
 	@NonNull X.Msg_RowTextPeer x;
 
     public MsgCell_TextPeer(X.Msg_RowTextPeer xv) {
         super(xv.root);
-//        ButterKnife.bind(this, itemView);
 		x = xv;
-//        itemView.((int)(AndroidUtil.getScreenWidth()*.8));
     }
 
     public static MsgCell_AbstractViewHolder makeNew(ViewGroup parent){
