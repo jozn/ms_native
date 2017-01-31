@@ -1,6 +1,6 @@
 package com.mardomsara.social.ui.cells.chats.msgs;
 
-import android.view.View;
+import android.support.annotation.NonNull;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
@@ -8,43 +8,47 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import com.mardomsara.social.R;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.models.tables.Message;
+import com.mardomsara.social.ui.X;
 import com.mardomsara.social.ui.views.helpers.ViewHelper;
 
 import butterknife.Bind;
-import butterknife.ButterKnife;
 
 /**
  * Created by Hamid on 6/13/2016.
  */
 public class MsgCell_PhotoMe extends MsgCell_AbstractViewHolder {
-    @Bind(R.id.msg_time) TextView time_txt;
+    /*@Bind(R.id.msg_time) TextView msg_time;
     @Bind(R.id.msg_delivery_status) TextView msg_delivery_status;
     @Bind(R.id.msg_text) TextView msg_text;
     @Bind(R.id.msg_image) SimpleDraweeView msg_image;
-    @Bind(R.id.msg_content_holder) ViewGroup msg_content_holder;
+    @Bind(R.id.msg_content_holder) ViewGroup msg_content_holder;*/
 //    LinkerText msg_text;
-    Message msg;
+    @NonNull
+	Message msg;
 
-    public MsgCell_PhotoMe(View itemView) {
-        super(itemView);
-        ButterKnife.bind(this, itemView);
+	X.Msg_RowImageMe x;
+
+    public MsgCell_PhotoMe(X.Msg_RowImageMe xv) {
+        super(xv.root);
+		x = xv;
+//        ButterKnife.bind(this, itemView);
     }
 
     public static MsgCell_PhotoMe makeNew(ViewGroup parent){
-        return new MsgCell_PhotoMe(AppUtil.inflate(R.layout.msg__row_image_me,parent));
+        return new MsgCell_PhotoMe(new X.Msg_RowImageMe(parent));
     }
 
     @Override
     public void bindToView(Message msg) {
         AppUtil.log("bindToView Peer");
-        time_txt.setText(MsgCommon.msgRawTime2(msg));
+        x.msg_time.setText(MsgCommon.msgRawTime2(msg));
 //        msg_text.setText(msg.getText());
-        MsgCommon.setImage(msg,msg_image);
+        MsgCommon.setImage(msg,x.msg_image);
 //        MsgCommon.setContentMaxwhidth(msg,msg_image);
-        MsgCommon.setTextForImages(msg,msg_text);
-        ViewHelper.setViewSizesPrecentaion(msg_content_holder,0.8f);
+        MsgCommon.setTextForImages(msg,x.msg_text);
+        ViewHelper.setViewSizesPrecentaion(x.msg_content_holder,0.8f);
 
-        MsgCommon.msgDelviryStatusText(msg,msg_delivery_status);
+        MsgCommon.msgDelviryStatusText(msg,x.msg_delivery_status);
 
 
     }

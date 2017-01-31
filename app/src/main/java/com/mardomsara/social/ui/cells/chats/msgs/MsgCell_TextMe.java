@@ -46,6 +46,4 @@ public class MsgCell_TextMe extends MsgCell_AbstractViewHolder {
         MsgCommon.msgDelviryStatusText(msg,x.msg_delivery_status);
     }
 
-
-
 }
