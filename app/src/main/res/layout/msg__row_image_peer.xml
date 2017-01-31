@@ -17,6 +17,7 @@
 
         <com.mardomsara.emojicon.EmojiconTextView
             style="@style/msg_text.peer"
+            android:id="@+id/msg_text"
 
             />
 
