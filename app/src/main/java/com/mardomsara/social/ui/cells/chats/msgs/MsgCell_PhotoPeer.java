@@ -33,7 +33,7 @@ public class MsgCell_PhotoPeer extends MsgCell_AbstractViewHolder {
     }
 
     public static MsgCell_PhotoPeer makeNew(ViewGroup parent){
-        return new MsgCell_PhotoPeer(AppUtil.inflate(R.layout.msg_row_image_peer,parent));
+        return new MsgCell_PhotoPeer(AppUtil.inflate(R.layout.msg__row_image_peer,parent));
     }
 
     @Override

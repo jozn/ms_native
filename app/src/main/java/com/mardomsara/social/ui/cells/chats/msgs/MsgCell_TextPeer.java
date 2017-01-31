@@ -1,6 +1,5 @@
 package com.mardomsara.social.ui.cells.chats.msgs;
 
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -30,7 +29,7 @@ public class MsgCell_TextPeer extends MsgCell_AbstractViewHolder {
     }
 
     public static MsgCell_AbstractViewHolder makeNew(ViewGroup parent){
-        return new MsgCell_TextPeer(AppUtil.inflate(R.layout.msg_row_text_peer,parent));
+        return new MsgCell_TextPeer(AppUtil.inflate(R.layout.msg__row_text_peer,parent));
     }
 
 

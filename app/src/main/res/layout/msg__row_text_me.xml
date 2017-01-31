@@ -11,7 +11,7 @@
 
             />
 
-        <include layout="@layout/msg_shared_time_and_delivery"/>
+        <include layout="@layout/msg__shared_time_and_delivery"/>
     </LinearLayout>
 
 </LinearLayout>

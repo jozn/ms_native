@@ -31,7 +31,7 @@ public class MsgCell_PhotoMe extends MsgCell_AbstractViewHolder {
     }
 
     public static MsgCell_PhotoMe makeNew(ViewGroup parent){
-        return new MsgCell_PhotoMe(AppUtil.inflate(R.layout.msg_row_image_me,parent));
+        return new MsgCell_PhotoMe(AppUtil.inflate(R.layout.msg__row_image_me,parent));
     }
 
     @Override

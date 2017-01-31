@@ -17,7 +17,7 @@
             android:id="@+id/msg_text"
             />
 
-        <include layout="@layout/msg_shared_time_status"/>
+        <include layout="@layout/msg__shared_time_status"/>
 
 
     </LinearLayout>

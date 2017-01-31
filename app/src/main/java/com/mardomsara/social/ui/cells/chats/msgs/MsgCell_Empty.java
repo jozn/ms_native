@@ -17,7 +17,7 @@ public class MsgCell_Empty extends MsgCell_AbstractViewHolder {
     }
 
     public static MsgCell_AbstractViewHolder makeNew(){
-        return new MsgCell_Empty(AppUtil.inflate(R.layout.msg_empty));
+        return new MsgCell_Empty(AppUtil.inflate(R.layout.msg__empty));
     }
 
 

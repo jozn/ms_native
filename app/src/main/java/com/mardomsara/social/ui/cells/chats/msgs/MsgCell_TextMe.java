@@ -29,7 +29,7 @@ public class MsgCell_TextMe extends MsgCell_AbstractViewHolder {
     }
 
     public static MsgCell_AbstractViewHolder makeNew(ViewGroup parent){
-        return new MsgCell_TextMe(AppUtil.inflate(R.layout.msg_row_text_me,parent));
+        return new MsgCell_TextMe(AppUtil.inflate(R.layout.msg__row_text_me,parent));
     }
 
     @Override

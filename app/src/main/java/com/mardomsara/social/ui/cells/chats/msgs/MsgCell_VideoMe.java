@@ -37,7 +37,7 @@ public class MsgCell_VideoMe extends MsgCell_AbstractViewHolder {
     }
 
     public static MsgCell_VideoMe makeNew(ViewGroup parent){
-        return new MsgCell_VideoMe(AppUtil.inflate(R.layout.msg_row_video_me,parent));
+        return new MsgCell_VideoMe(AppUtil.inflate(R.layout.msg__row_video_me,parent));
     }
 
     @Override

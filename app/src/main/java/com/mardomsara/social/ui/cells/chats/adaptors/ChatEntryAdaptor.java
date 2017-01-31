@@ -40,7 +40,7 @@ public class ChatEntryAdaptor extends AppHeaderFooterRecyclerViewAdapter<MsgCell
 	@Override
 	protected MsgCell_AbstractViewHolder onCreateContentItemViewHolder(ViewGroup parent, int contentViewType) {
 		// Create a new view.
-		View rowView = null;// _infl.inflate(R.layout.msg_empty, null, false);
+		View rowView = null;// _infl.inflate(R.layout.msg__empty, null, false);
 		AppUtil.log("onCreateViewHolder: " + contentViewType);
 
 		MsgCell_AbstractViewHolder msgView = MsgCell_Empty.makeNew();
@@ -50,25 +50,25 @@ public class ChatEntryAdaptor extends AppHeaderFooterRecyclerViewAdapter<MsgCell
 					msgView = MsgCell_TextPeer.makeNew(parent);
 					break;
 				case 12:
-					rowView = _infl.inflate(R.layout.msg_row_contact_peer, parent, false);
+					rowView = _infl.inflate(R.layout.msg__row_contact_peer, parent, false);
 					break;
 				case 14:
-					rowView = _infl.inflate(R.layout.msg_row_location_peer, parent, false);
+					rowView = _infl.inflate(R.layout.msg__row_location_peer, parent, false);
 					break;
 				case 16:
-					rowView = _infl.inflate(R.layout.msg_row_sticker_peer, parent, false);
+					rowView = _infl.inflate(R.layout.msg__row_sticker_peer, parent, false);
 					break;
 				case 30:
-					rowView = _infl.inflate(R.layout.msg_row_post_peer, parent, false);
+					rowView = _infl.inflate(R.layout.msg__row_post_peer, parent, false);
 					break;
-				case 40://// TODO: 6/11/2016  :change to msg_row_image_peer
+				case 40://// TODO: 6/11/2016  :change to msg__row_image_peer
 					msgView = MsgCell_PhotoPeer.makeNew(parent);
 					break;
 				case 42:
 					msgView = MsgCell_VideoMe.makeNew(parent);
 					break;
 				case 44:
-					rowView = _infl.inflate(R.layout.msg_row_file_peer, parent, false);
+					rowView = _infl.inflate(R.layout.msg__row_file_peer, parent, false);
 					break;
 			}
 		} else {//odd views: is ME
@@ -77,16 +77,16 @@ public class ChatEntryAdaptor extends AppHeaderFooterRecyclerViewAdapter<MsgCell
 					msgView = MsgCell_TextMe.makeNew(parent);
 					break;
 				case 12:
-					rowView = _infl.inflate(R.layout.msg_row_contact_me, parent, false);
+					rowView = _infl.inflate(R.layout.msg__row_contact_me, parent, false);
 					break;
 				case 14:
-					rowView = _infl.inflate(R.layout.msg_row_location_me, parent, false);
+					rowView = _infl.inflate(R.layout.msg__row_location_me, parent, false);
 					break;
 				case 16:
-					rowView = _infl.inflate(R.layout.msg_row_sticker_me, parent, false);
+					rowView = _infl.inflate(R.layout.msg__row_sticker_me, parent, false);
 					break;
 				case 30:
-					rowView = _infl.inflate(R.layout.msg_row_post_me, parent, false);
+					rowView = _infl.inflate(R.layout.msg__row_post_me, parent, false);
 					break;
 				case 40:
 					msgView = MsgCell_PhotoMe.makeNew(parent);
@@ -95,13 +95,13 @@ public class ChatEntryAdaptor extends AppHeaderFooterRecyclerViewAdapter<MsgCell
 					msgView = MsgCell_VideoMe.makeNew(parent);
 					break;
 				case 44:
-					rowView = _infl.inflate(R.layout.msg_row_file_me, parent, false);
+					rowView = _infl.inflate(R.layout.msg__row_file_me, parent, false);
 					break;
 			}
 		}
 
 		if (contentViewType == 1 || contentViewType == 2) {
-			rowView = _infl.inflate(R.layout.msg_row_system, parent, false);
+			rowView = _infl.inflate(R.layout.msg__row_system, parent, false);
 		}
 		return msgView;
 

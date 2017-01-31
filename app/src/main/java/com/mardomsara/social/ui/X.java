@@ -893,6 +893,18 @@ public class X {
     }
 
 
+    public static class Msg_Empty {
+        public FrameLayout root;
+
+        public Msg_Empty(ViewGroup parent) {
+            root = (FrameLayout) AppUtil.inflate(R.layout.msg__empty,parent);
+        }
+        public Msg_Empty() {
+            this(null);
+        }
+    }
+
+
     public static class Msg_FullPageEmptyNote {
         public RelativeLayout root;
 
@@ -905,119 +917,107 @@ public class X {
     }
 
 
-    public static class MsgEmpty {
-        public FrameLayout root;
-
-        public MsgEmpty(ViewGroup parent) {
-            root = (FrameLayout) AppUtil.inflate(R.layout.msg_empty,parent);
-        }
-        public MsgEmpty() {
-            this(null);
-        }
-    }
-
-
-    public static class MsgRowAllMe {
+    public static class Msg_RowAllMe {
         public LinearLayout root;
         public TextView txt;
 
-        public MsgRowAllMe(ViewGroup parent) {
-            root = (LinearLayout) AppUtil.inflate(R.layout.msg_row_all_me,parent);
+        public Msg_RowAllMe(ViewGroup parent) {
+            root = (LinearLayout) AppUtil.inflate(R.layout.msg__row_all_me,parent);
             txt = (TextView) root.findViewById( R.id.txt);
         }
-        public MsgRowAllMe() {
+        public Msg_RowAllMe() {
             this(null);
         }
     }
 
 
-    public static class MsgRowAllPeer {
+    public static class Msg_RowAllPeer {
         public LinearLayout root;
         public TextView txt;
 
-        public MsgRowAllPeer(ViewGroup parent) {
-            root = (LinearLayout) AppUtil.inflate(R.layout.msg_row_all_peer,parent);
+        public Msg_RowAllPeer(ViewGroup parent) {
+            root = (LinearLayout) AppUtil.inflate(R.layout.msg__row_all_peer,parent);
             txt = (TextView) root.findViewById( R.id.txt);
         }
-        public MsgRowAllPeer() {
+        public Msg_RowAllPeer() {
             this(null);
         }
     }
 
 
-    public static class MsgRowAudioMe {
+    public static class Msg_RowAudioMe {
         public LinearLayout root;
 
-        public MsgRowAudioMe(ViewGroup parent) {
-            root = (LinearLayout) AppUtil.inflate(R.layout.msg_row_audio_me,parent);
+        public Msg_RowAudioMe(ViewGroup parent) {
+            root = (LinearLayout) AppUtil.inflate(R.layout.msg__row_audio_me,parent);
         }
-        public MsgRowAudioMe() {
+        public Msg_RowAudioMe() {
             this(null);
         }
     }
 
 
-    public static class MsgRowAudioPeer {
+    public static class Msg_RowAudioPeer {
         public LinearLayout root;
 
-        public MsgRowAudioPeer(ViewGroup parent) {
-            root = (LinearLayout) AppUtil.inflate(R.layout.msg_row_audio_peer,parent);
+        public Msg_RowAudioPeer(ViewGroup parent) {
+            root = (LinearLayout) AppUtil.inflate(R.layout.msg__row_audio_peer,parent);
         }
-        public MsgRowAudioPeer() {
+        public Msg_RowAudioPeer() {
             this(null);
         }
     }
 
 
-    public static class MsgRowContactMe {
+    public static class Msg_RowContactMe {
         public LinearLayout root;
 
-        public MsgRowContactMe(ViewGroup parent) {
-            root = (LinearLayout) AppUtil.inflate(R.layout.msg_row_contact_me,parent);
+        public Msg_RowContactMe(ViewGroup parent) {
+            root = (LinearLayout) AppUtil.inflate(R.layout.msg__row_contact_me,parent);
         }
-        public MsgRowContactMe() {
+        public Msg_RowContactMe() {
             this(null);
         }
     }
 
 
-    public static class MsgRowContactPeer {
+    public static class Msg_RowContactPeer {
         public LinearLayout root;
 
-        public MsgRowContactPeer(ViewGroup parent) {
-            root = (LinearLayout) AppUtil.inflate(R.layout.msg_row_contact_peer,parent);
+        public Msg_RowContactPeer(ViewGroup parent) {
+            root = (LinearLayout) AppUtil.inflate(R.layout.msg__row_contact_peer,parent);
         }
-        public MsgRowContactPeer() {
+        public Msg_RowContactPeer() {
             this(null);
         }
     }
 
 
-    public static class MsgRowFileMe {
+    public static class Msg_RowFileMe {
         public LinearLayout root;
 
-        public MsgRowFileMe(ViewGroup parent) {
-            root = (LinearLayout) AppUtil.inflate(R.layout.msg_row_file_me,parent);
+        public Msg_RowFileMe(ViewGroup parent) {
+            root = (LinearLayout) AppUtil.inflate(R.layout.msg__row_file_me,parent);
         }
-        public MsgRowFileMe() {
+        public Msg_RowFileMe() {
             this(null);
         }
     }
 
 
-    public static class MsgRowFilePeer {
+    public static class Msg_RowFilePeer {
         public LinearLayout root;
 
-        public MsgRowFilePeer(ViewGroup parent) {
-            root = (LinearLayout) AppUtil.inflate(R.layout.msg_row_file_peer,parent);
+        public Msg_RowFilePeer(ViewGroup parent) {
+            root = (LinearLayout) AppUtil.inflate(R.layout.msg__row_file_peer,parent);
         }
-        public MsgRowFilePeer() {
+        public Msg_RowFilePeer() {
             this(null);
         }
     }
 
 
-    public static class MsgRowImageMe {
+    public static class Msg_RowImageMe {
         public LinearLayout root;
         public LinearLayout msg_content_holder;
         public SimpleDraweeView msg_image;
@@ -1025,159 +1025,159 @@ public class X {
         public TextView msg_time;
         public TextView msg_delivery_status;
 
-        public MsgRowImageMe(ViewGroup parent) {
-            root = (LinearLayout) AppUtil.inflate(R.layout.msg_row_image_me,parent);
+        public Msg_RowImageMe(ViewGroup parent) {
+            root = (LinearLayout) AppUtil.inflate(R.layout.msg__row_image_me,parent);
             msg_content_holder = (LinearLayout) root.findViewById( R.id.msg_content_holder);
             msg_image = (SimpleDraweeView) root.findViewById( R.id.msg_image);
             msg_text = (EmojiconTextView) root.findViewById( R.id.msg_text);
             msg_time = (TextView) root.findViewById( R.id.msg_time);
             msg_delivery_status = (TextView) root.findViewById( R.id.msg_delivery_status);
         }
-        public MsgRowImageMe() {
+        public Msg_RowImageMe() {
             this(null);
         }
     }
 
 
-    public static class MsgRowImagePeer {
+    public static class Msg_RowImagePeer {
         public LinearLayout root;
         public LinearLayout msg_content_holder;
         public SimpleDraweeView msg_image;
         public TextView msg_time;
 
-        public MsgRowImagePeer(ViewGroup parent) {
-            root = (LinearLayout) AppUtil.inflate(R.layout.msg_row_image_peer,parent);
+        public Msg_RowImagePeer(ViewGroup parent) {
+            root = (LinearLayout) AppUtil.inflate(R.layout.msg__row_image_peer,parent);
             msg_content_holder = (LinearLayout) root.findViewById( R.id.msg_content_holder);
             msg_image = (SimpleDraweeView) root.findViewById( R.id.msg_image);
             msg_time = (TextView) root.findViewById( R.id.msg_time);
         }
-        public MsgRowImagePeer() {
+        public Msg_RowImagePeer() {
             this(null);
         }
     }
 
 
-    public static class MsgRowLocationMe {
+    public static class Msg_RowLocationMe {
         public LinearLayout root;
 
-        public MsgRowLocationMe(ViewGroup parent) {
-            root = (LinearLayout) AppUtil.inflate(R.layout.msg_row_location_me,parent);
+        public Msg_RowLocationMe(ViewGroup parent) {
+            root = (LinearLayout) AppUtil.inflate(R.layout.msg__row_location_me,parent);
         }
-        public MsgRowLocationMe() {
+        public Msg_RowLocationMe() {
             this(null);
         }
     }
 
 
-    public static class MsgRowLocationPeer {
+    public static class Msg_RowLocationPeer {
         public LinearLayout root;
 
-        public MsgRowLocationPeer(ViewGroup parent) {
-            root = (LinearLayout) AppUtil.inflate(R.layout.msg_row_location_peer,parent);
+        public Msg_RowLocationPeer(ViewGroup parent) {
+            root = (LinearLayout) AppUtil.inflate(R.layout.msg__row_location_peer,parent);
         }
-        public MsgRowLocationPeer() {
+        public Msg_RowLocationPeer() {
             this(null);
         }
     }
 
 
-    public static class MsgRowPostMe {
+    public static class Msg_RowPostMe {
         public LinearLayout root;
 
-        public MsgRowPostMe(ViewGroup parent) {
-            root = (LinearLayout) AppUtil.inflate(R.layout.msg_row_post_me,parent);
+        public Msg_RowPostMe(ViewGroup parent) {
+            root = (LinearLayout) AppUtil.inflate(R.layout.msg__row_post_me,parent);
         }
-        public MsgRowPostMe() {
+        public Msg_RowPostMe() {
             this(null);
         }
     }
 
 
-    public static class MsgRowPostPeer {
+    public static class Msg_RowPostPeer {
         public LinearLayout root;
 
-        public MsgRowPostPeer(ViewGroup parent) {
-            root = (LinearLayout) AppUtil.inflate(R.layout.msg_row_post_peer,parent);
+        public Msg_RowPostPeer(ViewGroup parent) {
+            root = (LinearLayout) AppUtil.inflate(R.layout.msg__row_post_peer,parent);
         }
-        public MsgRowPostPeer() {
+        public Msg_RowPostPeer() {
             this(null);
         }
     }
 
 
-    public static class MsgRowStickerMe {
+    public static class Msg_RowStickerMe {
         public LinearLayout root;
 
-        public MsgRowStickerMe(ViewGroup parent) {
-            root = (LinearLayout) AppUtil.inflate(R.layout.msg_row_sticker_me,parent);
+        public Msg_RowStickerMe(ViewGroup parent) {
+            root = (LinearLayout) AppUtil.inflate(R.layout.msg__row_sticker_me,parent);
         }
-        public MsgRowStickerMe() {
+        public Msg_RowStickerMe() {
             this(null);
         }
     }
 
 
-    public static class MsgRowStickerPeer {
+    public static class Msg_RowStickerPeer {
         public LinearLayout root;
 
-        public MsgRowStickerPeer(ViewGroup parent) {
-            root = (LinearLayout) AppUtil.inflate(R.layout.msg_row_sticker_peer,parent);
+        public Msg_RowStickerPeer(ViewGroup parent) {
+            root = (LinearLayout) AppUtil.inflate(R.layout.msg__row_sticker_peer,parent);
         }
-        public MsgRowStickerPeer() {
+        public Msg_RowStickerPeer() {
             this(null);
         }
     }
 
 
-    public static class MsgRowSystem {
+    public static class Msg_RowSystem {
         public LinearLayout root;
 
-        public MsgRowSystem(ViewGroup parent) {
-            root = (LinearLayout) AppUtil.inflate(R.layout.msg_row_system,parent);
+        public Msg_RowSystem(ViewGroup parent) {
+            root = (LinearLayout) AppUtil.inflate(R.layout.msg__row_system,parent);
         }
-        public MsgRowSystem() {
+        public Msg_RowSystem() {
             this(null);
         }
     }
 
 
-    public static class MsgRowTextMe {
+    public static class Msg_RowTextMe {
         public LinearLayout root;
         public LinearLayout msg_content_holder;
         public TextView msg_time;
         public TextView msg_delivery_status;
 
-        public MsgRowTextMe(ViewGroup parent) {
-            root = (LinearLayout) AppUtil.inflate(R.layout.msg_row_text_me,parent);
+        public Msg_RowTextMe(ViewGroup parent) {
+            root = (LinearLayout) AppUtil.inflate(R.layout.msg__row_text_me,parent);
             msg_content_holder = (LinearLayout) root.findViewById( R.id.msg_content_holder);
             msg_time = (TextView) root.findViewById( R.id.msg_time);
             msg_delivery_status = (TextView) root.findViewById( R.id.msg_delivery_status);
         }
-        public MsgRowTextMe() {
+        public Msg_RowTextMe() {
             this(null);
         }
     }
 
 
-    public static class MsgRowTextPeer {
+    public static class Msg_RowTextPeer {
         public LinearLayout root;
         public LinearLayout msg_content_holder;
         public EmojiconTextView msg_text;
         public TextView msg_time;
 
-        public MsgRowTextPeer(ViewGroup parent) {
-            root = (LinearLayout) AppUtil.inflate(R.layout.msg_row_text_peer,parent);
+        public Msg_RowTextPeer(ViewGroup parent) {
+            root = (LinearLayout) AppUtil.inflate(R.layout.msg__row_text_peer,parent);
             msg_content_holder = (LinearLayout) root.findViewById( R.id.msg_content_holder);
             msg_text = (EmojiconTextView) root.findViewById( R.id.msg_text);
             msg_time = (TextView) root.findViewById( R.id.msg_time);
         }
-        public MsgRowTextPeer() {
+        public Msg_RowTextPeer() {
             this(null);
         }
     }
 
 
-    public static class MsgRowVideoMe {
+    public static class Msg_RowVideoMe {
         public LinearLayout root;
         public RelativeLayout msg_content_holder;
         public SimpleDraweeView msg_image;
@@ -1185,39 +1185,39 @@ public class X {
         public TextView msg_time;
         public TextView msg_delivery_status;
 
-        public MsgRowVideoMe(ViewGroup parent) {
-            root = (LinearLayout) AppUtil.inflate(R.layout.msg_row_video_me,parent);
+        public Msg_RowVideoMe(ViewGroup parent) {
+            root = (LinearLayout) AppUtil.inflate(R.layout.msg__row_video_me,parent);
             msg_content_holder = (RelativeLayout) root.findViewById( R.id.msg_content_holder);
             msg_image = (SimpleDraweeView) root.findViewById( R.id.msg_image);
             msg_text = (EmojiconTextView) root.findViewById( R.id.msg_text);
             msg_time = (TextView) root.findViewById( R.id.msg_time);
             msg_delivery_status = (TextView) root.findViewById( R.id.msg_delivery_status);
         }
-        public MsgRowVideoMe() {
+        public Msg_RowVideoMe() {
             this(null);
         }
     }
 
 
-    public static class MsgSharedTime {
+    public static class Msg_SharedTime {
         public TextView root;
         public TextView msg_time;
 
-        public MsgSharedTime(ViewGroup parent) {
-            root = (TextView) AppUtil.inflate(R.layout.msg_shared_time,parent,true);//for Compound Views
+        public Msg_SharedTime(ViewGroup parent) {
+            root = (TextView) AppUtil.inflate(R.layout.msg__shared_time,parent,true);//for Compound Views
             
             msg_time = (TextView) root.findViewById( R.id.msg_time);
         }
     }
 
 
-    public static class MsgSharedTimeAndDelivery {
+    public static class Msg_SharedTimeAndDelivery {
         public LinearLayout root;
         public TextView msg_time;
         public TextView msg_delivery_status;
 
-        public MsgSharedTimeAndDelivery(ViewGroup parent) {
-            root = (LinearLayout) AppUtil.inflate(R.layout.msg_shared_time_and_delivery,parent,true);//for Compound Views
+        public Msg_SharedTimeAndDelivery(ViewGroup parent) {
+            root = (LinearLayout) AppUtil.inflate(R.layout.msg__shared_time_and_delivery,parent,true);//for Compound Views
             
             msg_time = (TextView) root.findViewById( R.id.msg_time);
             msg_delivery_status = (TextView) root.findViewById( R.id.msg_delivery_status);
@@ -1225,17 +1225,17 @@ public class X {
     }
 
 
-    public static class MsgSharedTimeStatus {
+    public static class Msg_SharedTimeStatus {
         public LinearLayout root;
         public TextView msg_time;
         public TextView msg_delivery_status;
 
-        public MsgSharedTimeStatus(ViewGroup parent) {
-            root = (LinearLayout) AppUtil.inflate(R.layout.msg_shared_time_status,parent);
+        public Msg_SharedTimeStatus(ViewGroup parent) {
+            root = (LinearLayout) AppUtil.inflate(R.layout.msg__shared_time_status,parent);
             msg_time = (TextView) root.findViewById( R.id.msg_time);
             msg_delivery_status = (TextView) root.findViewById( R.id.msg_delivery_status);
         }
-        public MsgSharedTimeStatus() {
+        public Msg_SharedTimeStatus() {
             this(null);
         }
     }

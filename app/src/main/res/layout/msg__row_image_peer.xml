@@ -20,7 +20,7 @@
 
             />
 
-        <include layout="@layout/msg_shared_time"/>
+        <include layout="@layout/msg__shared_time"/>
 
 
     </LinearLayout>
