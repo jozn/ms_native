@@ -180,7 +180,7 @@ dependencies {
     compile 'com.squareup.picasso:picasso:2.5.2'
 
     apt 'com.github.gfx.android.orma:orma-processor:2.6.0'
-    compile 'com.github.gfx.android.orma:orma:2.6.0'
+    compile 'com.github.gfx.android.orma:orma:2.6.0'//4.1.1
 //    apt 'com.github.gfx.android.orma:orma-processor:v3.0.0-rc4 '
 //    compile 'com.github.gfx.android.orma:orma:v3.0.0-rc4 '
 

@@ -19,6 +19,10 @@ import com.mardomsara.social.base.old.Command;
 				SearchUserHistory.class,
                 User.class,
                 Command.class,
+
+				KeyValuePair.class,
+				KeyValuePair1.class,
+
 //                Item.class
 
         }, // Give model classes to handle

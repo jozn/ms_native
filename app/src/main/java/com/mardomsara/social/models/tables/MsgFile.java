@@ -14,15 +14,15 @@ import com.mardomsara.social.app.DB;
 @Table
 public class MsgFile {
 
-    @PrimaryKey(auto = false)
-    @NonNull
-    public String Hash;
-
 	@NonNull
-	@Column(defaultExpr = "''" , helpers = Column.Helpers.CONDITION_EQ)
+	@PrimaryKey(auto = false)
 	public String LocalSrc = "";
 
-	@Column(defaultExpr = "''" , helpers = Column.Helpers.CONDITION_EQ)
+    @NonNull
+	@Column(defaultExpr = "''" , indexed = true)
+    public String Hash;
+
+	@Column(defaultExpr = "''" , indexed = true)
 	public String ServerSrc = "";
 
 	@Column(defaultExpr = "0")
