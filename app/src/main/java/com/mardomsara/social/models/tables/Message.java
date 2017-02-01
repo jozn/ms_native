@@ -1,6 +1,7 @@
 package com.mardomsara.social.models.tables;
 
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 
 import com.github.gfx.android.orma.annotation.Column;
 import com.github.gfx.android.orma.annotation.OnConflict;
@@ -88,6 +89,13 @@ public class Message  implements Comparable<Message> {
 
 	public MsgFile msgFile;
 
+	public @Nullable MsgFile getMsgFile(){
+		if(msgFile == null){
+			msgFile = DB.db.selectFromMsgFile().LocalSrcEq(MsgFile_LocalSrc).getOrNull(0);
+		}
+		return msgFile;
+	}
+
 	@Deprecated
     @Column(defaultExpr = "0" ,helpers = Column.Helpers.CONDITION_EQ)
     public int MediaStatus=0;
@@ -169,22 +177,33 @@ public class Message  implements Comparable<Message> {
 		}
 		room.saveAndEmit();
 	}
+
+	/////////// Saves funcs ///////////
     public void saveWithRoom() {
 		onBeforeSave();
+		trySaveMsgFile();
         DB.db.prepareInsertIntoMessage(OnConflict.REPLACE,true).execute(this);
 		onAfterSave();
     }
 
 	public void save() {
 		onBeforeSave();
+		trySaveMsgFile();
 		DB.db.prepareInsertIntoMessage(OnConflict.REPLACE,true).execute(this);
 //		onAfterSave();
 	}
 
     public void insertInBackground() {
 		onBeforeSave();
+		trySaveMsgFile();
         AndroidUtil.runInBackgroundNoPanic(()->DB.db.prepareInsertIntoMessage(OnConflict.ABORT,true).execute(this));
     }
+
+	private void trySaveMsgFile(){
+		if(msgFile != null){
+			msgFile.save();
+		}
+	}
 
 
 	/// all instances are equal based on MessageKey

@@ -20,8 +20,7 @@ import com.mardomsara.social.base.old.Command;
                 User.class,
                 Command.class,
 
-				KeyValuePair.class,
-				KeyValuePair1.class,
+
 
 //                Item.class
 
