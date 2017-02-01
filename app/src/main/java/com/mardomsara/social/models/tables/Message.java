@@ -107,48 +107,6 @@ public class Message  implements Comparable<Message> {
 		return MsgFile;
 	}
 
-
-	@Deprecated
-    @Column(defaultExpr = "0" ,helpers = Column.Helpers.CONDITION_EQ)
-    public int MediaStatus=0;
-
-	@Deprecated
-    /// Media
-    @Column(defaultExpr = "''")
-    public String MediaThumb64 = "";
-
-	@Deprecated
-    @Column(defaultExpr = "''")
-    public String MediaName = "";
-
-	@Deprecated
-    @Column(defaultExpr = "''" , helpers = Column.Helpers.CONDITION_EQ)
-    public String MediaLocalSrc = "";
-
-	@Deprecated
-    @Column(defaultExpr = "''" , helpers = Column.Helpers.CONDITION_EQ)
-    public String MediaServerSrc = "";
-
-	@Deprecated
-    @Column(defaultExpr = "0")
-    public int MediaSize = 0;
-
-	@Deprecated
-    @Column(defaultExpr = "0")
-    public int MediaDuration = 0;
-
-	@Deprecated
-    @Column(defaultExpr = "0")
-    public int MediaHeight = 0;
-
-	@Deprecated
-    @Column(defaultExpr = "0")
-    public int MediaWidth = 0;
-
-	@Deprecated
-    @Column(defaultExpr = "''")
-    public String MediaExtension = "";
-
     public Message() {
         AppUtil.log("time: "+ TimeUtil.getTimeNano());
     }
