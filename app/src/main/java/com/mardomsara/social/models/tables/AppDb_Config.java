@@ -12,12 +12,13 @@ import com.mardomsara.social.base.old.Command;
                 ContactsCopy.class,
                 Notify.class,
                 Message.class,
+                MsgFile.class,
+				MsgSeen.class,
                 Room.class,
 				SearchTagHistory.class,
 				SearchUserHistory.class,
                 User.class,
                 Command.class,
-				MsgSeen.class,
 //                Item.class
 
         }, // Give model classes to handle

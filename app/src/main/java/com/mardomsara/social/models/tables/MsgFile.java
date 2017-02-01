@@ -1,0 +1,72 @@
+package com.mardomsara.social.models.tables;
+
+import android.support.annotation.NonNull;
+
+import com.github.gfx.android.orma.annotation.Column;
+import com.github.gfx.android.orma.annotation.OnConflict;
+import com.github.gfx.android.orma.annotation.PrimaryKey;
+import com.github.gfx.android.orma.annotation.Table;
+import com.mardomsara.social.app.DB;
+
+/**
+ * Created by Hamid on 9/4/2016.
+ */
+@Table
+public class MsgFile {
+
+    @PrimaryKey(auto = false)
+    @NonNull
+    public String Hash;
+
+	@NonNull
+	@Column(defaultExpr = "''" , helpers = Column.Helpers.CONDITION_EQ)
+	public String LocalSrc = "";
+
+	@Column(defaultExpr = "''" , helpers = Column.Helpers.CONDITION_EQ)
+	public String ServerSrc = "";
+
+	@Column(defaultExpr = "0")
+	public int FileType = 0;
+
+	@Column(defaultExpr = "0" ,helpers = Column.Helpers.CONDITION_EQ)
+	public int Status=0;
+
+	@Column(defaultExpr = "0" ,helpers = Column.Helpers.CONDITION_EQ)
+	public int Originate=0; // 0:here 1:downloaded from net
+
+	@Column(defaultExpr = "''")
+	public String MediaThumb64 = "";
+
+	@Column(defaultExpr = "''")
+	public String Name = "";
+
+	@Column(defaultExpr = "0")
+	public int Size = 0;
+
+	@Column(defaultExpr = "0")
+	public int Duration = 0;
+
+	@Column(defaultExpr = "0")
+	public int Height = 0;
+
+	@Column(defaultExpr = "0")
+	public int Width = 0;
+
+	@Column(defaultExpr = "''")
+	public String Extension = "";
+
+    @Column(defaultExpr = "0" , helpers = Column.Helpers.ALL)
+    public long CreatedMs = 0;
+
+    /////////////////////////////////////////////////////////
+    ////////////////// Helpers ///////////////////
+    public void saveAndEmit() {
+//		MemoryStore_Rooms.setAndEmit(this);
+//        DB.db.prepareInsertIntoRoom(OnConflict.REPLACE,false).execute(this);
+    }
+
+	public void save() {
+		DB.db.prepareInsertIntoMsgFile(OnConflict.REPLACE,false).execute(this);
+	}
+
+}
