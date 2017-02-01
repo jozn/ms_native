@@ -76,7 +76,7 @@ public class MessageModel {
         msg.CreatedDeviceMs = TimeUtil.getTimeMs();
         msg.IsByMe = 0;
         msg.ToPush = 0;
-        msg.MediaStatus =0 ;
+        msg.MsgFile_Status =0 ;
     }
 
     public static void syncToServer(@NonNull Message msg ) {
@@ -87,10 +87,9 @@ public class MessageModel {
         AndroidUtil.runInBackgroundNoPanic(()->{
             List<Message> msgs = getAllRoomsMessages(roomKey);
             for(Message msg : msgs){
-                String src = msg.MediaLocalSrc;
-                if(src != null && !src.equals("")){
-                    FileUtil.tryDelete(src);
-                }
+                if(msg.getMsgFile() != null){
+					FileUtil.tryDelete(msg.getMsgFile().LocalSrc);
+				}
             }
             List<String> listMsgs = new ArrayList<String>();
             for(Message msg : msgs){

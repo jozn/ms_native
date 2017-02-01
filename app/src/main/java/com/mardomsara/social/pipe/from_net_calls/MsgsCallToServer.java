@@ -60,7 +60,7 @@ public class MsgsCallToServer {
 			.doAsync(
 				(result)->{
 					if (result.isOk()){
-						msg.MediaStatus = (Constants.Msg_Media_Uploaded);
+						msg.MsgFile_Status = (Constants.Msg_Media_Uploaded);
 						msg.ToPush = 0;
 						msg.ServerReceivedTime = TimeUtil.getTime();
 						msg.saveWithRoom();
@@ -81,7 +81,7 @@ public class MsgsCallToServer {
 			.doAsync(
 				(result)->{
 					if (result.isOk()){
-						msg.MediaStatus = (Constants.Msg_Media_Uploaded);
+						msg.MsgFile_Status = (Constants.Msg_Media_Uploaded);
 						msg.ToPush = 0;
 						msg.ServerReceivedTime = TimeUtil.getTime();
 						msg.saveWithRoom();

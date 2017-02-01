@@ -41,7 +41,7 @@ public class FlushStoredDataToServer {
 			for(Message msg : msgs){
 				try {
 					if(msg.MessageTypeId == Constants.MESSAGE_IMAGE){
-						File file = new File(msg.MediaLocalSrc);
+						File file = new File(msg.MsgFile_LocalSrc);
 						MsgsCallToServer.sendNewPhoto(msg,file,null,false);
 					}
 				}catch (Exception e){
@@ -57,7 +57,7 @@ public class FlushStoredDataToServer {
 			for(Message msg : msgs){
 				try {
 					if(msg.MessageTypeId == Constants.MESSAGE_VIDEO){
-						File file = new File(msg.MediaLocalSrc);
+						File file = new File(msg.MsgFile_LocalSrc);
 						MsgsCallToServer.sendNewVideo(msg,file);
 					}
 				}catch (Exception e){

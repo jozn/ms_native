@@ -87,25 +87,26 @@ public class Message  implements Comparable<Message> {
 	@Column(defaultExpr = "0" ,indexed = true)
 	public String MsgFile_LocalSrc= "";
 
-	public MsgFile msgFile;
+	@Column(defaultExpr = "0" ,helpers = Column.Helpers.CONDITION_EQ)
+	public int MsgFile_Status =0;
+
+	public MsgFile MsgFile;//for json
 
 	public @Nullable MsgFile getMsgFile(){
-		if(msgFile == null){
-			msgFile = DB.db.selectFromMsgFile().LocalSrcEq(MsgFile_LocalSrc).getOrNull(0);
+		if(MsgFile == null){
+			MsgFile = DB.db.selectFromMsgFile().LocalSrcEq(MsgFile_LocalSrc).getOrNull(0);
 		}
-		return msgFile;
+		return MsgFile;
 	}
 
 	public @NonNull MsgFile getOrCreateMsgFile(){
-		msgFile = getMsgFile();
-		if (msgFile == null){
-			msgFile = new MsgFile();
+		MsgFile = getMsgFile();
+		if (MsgFile == null){
+			MsgFile = new MsgFile();
 		}
-		return msgFile;
+		return MsgFile;
 	}
 
-	@Column(defaultExpr = "0" ,helpers = Column.Helpers.CONDITION_EQ)
-	public int MsgFile_Status =0;
 
 	@Deprecated
     @Column(defaultExpr = "0" ,helpers = Column.Helpers.CONDITION_EQ)
@@ -211,9 +212,9 @@ public class Message  implements Comparable<Message> {
     }
 
 	private void trySaveMsgFile(){
-		if(msgFile != null){
-			MsgFile_LocalSrc = msgFile.LocalSrc;
-			msgFile.save();
+		if(MsgFile != null){
+			MsgFile_LocalSrc = MsgFile.LocalSrc;
+			MsgFile.save();
 		}
 	}
 
