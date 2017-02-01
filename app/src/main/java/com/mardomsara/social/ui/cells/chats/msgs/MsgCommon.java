@@ -81,36 +81,6 @@ public class MsgCommon {
 	}
 
 
-    public static void setVideoImage_DEP(Message msg , ImageView msg_image) {
-        //        URI uri = AppUtil.(msg.getMediaLocalSrc());
-//        msg_image.
-//        Uri u = Uri.parse(msg.getMediaLocalSrc());
-        Uri u = Uri.parse("http://localhost:5000/public/photo/1_960.jpg");
-//        int max_width = msg_content_holder.getLayoutParams().width;//px
-//        int max_width = msg_content_holder.getWidth();;//px
-
-        int max_width = (int) (AndroidUtil.getScreenWidth() * 0.88);
-        AppUtil.log("width: "+max_width+AndroidUtil.getScreenResolution()+AndroidUtil.getDensity());
-        max_width = AndroidUtil.pxToDp(max_width);
-        MsgExtraPhotoThumbnail thumbnail = JsonUtil.fromJson(msg.ExtraJson,MsgExtraPhotoThumbnail.class);
-        if(thumbnail != null){
-            File file = new File(thumbnail.LocalSrc);
-//        ViewGroup.LayoutParams sizes = new ViewGroup.LayoutParams(AndroidUtil.dpToPx(msg.getMediaWidth()),
-//                AndroidUtil.dpToPx(msg.getMediaWidth()));
-//        msg_image.setLayoutParams(sizes);
-
-//        ViewHelper.setImageSizesWithMaxPx(msg_image, max_width, msg.getMediaWidth(),msg.getMediaHeight());
-            ViewHelper.setImageSizesWithMaxPx(msg_image, max_width, thumbnail.Width , thumbnail.Height );
-            file.toURI();
-            Uri u2 =Uri.fromFile(file);
-//        msg_image.setAspectRatio(1.33f);
-            msg_image.setImageURI(u2);
-//            msg_content_holder.requestLayout();
-
-        }
-
-    }
-
     ///////////////////////////////////////////////
 
     static String _wating = "\uf402"; //ion-ios-clock-outline

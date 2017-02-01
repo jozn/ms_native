@@ -48,11 +48,8 @@ public class MsgCallsFromServer {
 
 		DB.db.transactionSync(()->{
 			for(Message msg: jd.Messages){
-				//Modifications of handleNewSingleMsg
 				MessageModel.setParamsForNewMsgRecivedFromNet(msg);
-//				RoomModel.onRecivedNewMsg(msg);
 				handleNewMsgFunctionalitiesForTypes(msg);
-//				App.getBus().post(msg);
 
 				msg.save();
 			}
@@ -66,10 +63,8 @@ public class MsgCallsFromServer {
 
 		Map<String,Message> roomS = new HashMap<>();
 		for(Message msg: jd.Messages){
-//			RoomModel.messageHasInsertIntoRoomUpdateRoomInfo(msg);
 			roomS.put(msg.RoomKey,msg);
 		}
-//		RoomModel.massUpdateOfRoomsForNewMsgs(roomS.keySet());
 		RoomModel.massUpdateOfRoomsForNewMsgs(roomS.values());
 
 
@@ -79,15 +74,12 @@ public class MsgCallsFromServer {
 
 	static void handleNewSingleMsg(Message msg){
 		MessageModel.setParamsForNewMsgRecivedFromNet(msg);
-//		RoomModel.onRecivedNewMsg(msg);
-//		RoomModel.messageHasInsertIntoRoomUpdateRoomInfo(msg);
 		handleNewMsgFunctionalitiesForTypes(msg);
 
 		msg.saveWithRoom();
 
 		App.getBus().post(msg);
 
-//		MessageModel.sendToServerMsgsReceivedToPeerCmd(msg);
 	}
 
 	static void handleNewUser(User user){
@@ -165,10 +157,7 @@ public class MsgCallsFromServer {
                 AndroidUtil.runInBackground(()->{
 					MsgFile msgFile = msg.MsgFile;
 					if(msgFile!= null){
-//                    String fileName = AppFiles.PHOTO_DIR_PATH + msg.getMediaName();
 						String $fileName = AppFiles.PHOTO_DIR_PATH + FormaterUtil.getFullyYearToSecondsSolarName() +"$" + msgFile.Extension;
-//                    File file = new File(fileName);
-//                    File file = FileUtil.createNextName($fileName);
 						String fileName = FileUtil.createNextName($fileName);
 						msgFile.LocalSrc = fileName;
 						msg.MsgFile_LocalSrc = fileName;
@@ -203,8 +192,6 @@ public class MsgCallsFromServer {
 						msg.saveWithRoom();
 						HttpOld.downloadFile(msgFile.ServerSrc ,fileName,
 							()->{//callback
-//                                String $thumbPath = AppFiles.VIDEO_DIR_PATH + FormaterUtil.getFullyYearToSecondsSolarName() +"$" + msg.getMediaExtension();
-//                                String thumbPath = FileUtil.createNextName($thumbPath);
 								msg.MsgFile_Status = Constants.Msg_Media_Downloaded;
 								msgFile.Status = Constants.Msg_Media_Downloaded;
 								MessageModel.setVideoExtraParams(msgFile,fileName );

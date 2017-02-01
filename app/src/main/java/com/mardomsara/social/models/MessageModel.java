@@ -14,11 +14,9 @@ import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.FileUtil;
 import com.mardomsara.social.helpers.FormaterUtil;
 import com.mardomsara.social.helpers.ImageUtil;
-import com.mardomsara.social.helpers.JsonUtil;
 import com.mardomsara.social.helpers.LangUtil;
 import com.mardomsara.social.helpers.TimeUtil;
 import com.mardomsara.social.helpers.VideoMetasHelper;
-import com.mardomsara.social.models.extra.MsgExtraPhotoThumbnail;
 import com.mardomsara.social.models.memory_store.MemoryStore_LastMsgs;
 import com.mardomsara.social.models.tables.Message;
 import com.mardomsara.social.models.tables.MsgFile;
@@ -124,23 +122,6 @@ public class MessageModel {
 		}
 	}
 
-	@Deprecated
-    public static void setPhotoParams_DEP(Message msg, String filePath) {
-        try {
-            File file = new File(filePath);
-            Bitmap mBitmap = BitmapFactory.decodeFile(filePath);
-            msg.MediaThumb64 = ImageUtil.blurThumbnailToBase64(mBitmap);
-            msg.MediaHeight = mBitmap.getHeight();
-            msg.MediaWidth = mBitmap.getWidth();
-            msg.MediaLocalSrc = filePath;
-            msg.MediaSize = (int)file.length();
-            msg.MediaName = file.getName();
-            msg.MediaDuration = 0;
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-    }
-
 	public static void setVideoParams(Message msg1, String thumbPath, String videoPath) {
 		try {
 			MsgFile msgFile = msg1.getOrCreateMsgFile();
@@ -162,45 +143,6 @@ public class MessageModel {
 			e.printStackTrace();
 		}
 	}
-
-	@Deprecated
-    public static void setVideoParams_DEP(Message msg, String thumbPath, String videoPath) {
-        File fileVideo = new File(videoPath);
-
-        VideoMetasHelper meta = new VideoMetasHelper(videoPath);
-
-        msg.MediaHeight = meta.getVideoHeight();
-        msg.MediaWidth = meta.getVideoWidth();
-        msg.MediaLocalSrc = videoPath;
-        msg.MediaSize = (int)fileVideo.length();
-        msg.MediaName = fileVideo.getName();
-        msg.MediaExtension = FileUtil.getFileExtensionWithDot(videoPath);
-        msg.MediaDuration = meta.getVideoLength();
-
-        //Extra
-        setVideoExtraParams_DEP(msg,videoPath);
-    }
-
-    public static void setVideoExtraParams_DEP(Message msg, String videoPath) {
-        String $thumbPath = AppFiles.VIDEO_THUMB_DIR_PATH + FormaterUtil.getFullyYearToSecondsSolarName() +"$" + msg.MediaExtension;
-        String thumbPath = FileUtil.createNextName($thumbPath);
-
-        File fileThumb = new File(thumbPath);
-        Bitmap bitmap = ImageUtil.createVideoThumbnail(videoPath, 1024,360);
-        if(bitmap != null){
-            ImageUtil.saveToFile(bitmap,thumbPath);
-        }
-        Bitmap thumbBitmap = bitmap;//BitmapFactory.decodeFile(thumbPath);
-        if(thumbBitmap != null){
-            MsgExtraPhotoThumbnail extr = new MsgExtraPhotoThumbnail();
-            extr.LocalSrc = thumbPath;
-            extr.Height = thumbBitmap.getHeight();
-            extr.Width = thumbBitmap.getWidth();
-            extr.Size = (int) fileThumb.length();
-            msg.ExtraJson = JsonUtil.toJson(extr);
-            msg.MediaThumb64 = ImageUtil.blurThumbnailToBase64(thumbBitmap);
-        }
-    }
 
 	public static void setVideoExtraParams(MsgFile msgFile, String videoPath) {
 		String $thumbPath = AppFiles.VIDEO_THUMB_DIR_PATH + FormaterUtil.getFullyYearToSecondsSolarName() +"$" + msgFile.Extension;
