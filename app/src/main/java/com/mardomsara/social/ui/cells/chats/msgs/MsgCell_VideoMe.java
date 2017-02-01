@@ -45,7 +45,7 @@ public class MsgCell_VideoMe extends MsgCell_AbstractViewHolder {
         AppUtil.log("bindToView Peer");
         time_txt.setText(MsgCommon.msgRawTime2(msg));
         msg_text.setText(msg.Text);
-        MsgCommon.msgDelviryStatusText(msg,msg_delivery_status);
+        MsgCommon.msgDeliveryStatusText(msg,msg_delivery_status);
         MsgCommon.setVideoImage(msg,msg_image);
 
 //        URI uri = AppUtil.(msg.getMediaLocalSrc());

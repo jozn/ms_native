@@ -35,7 +35,7 @@ public class MsgCell_PhotoMe extends MsgCell_AbstractViewHolder {
         MsgCommon.setTextForImages(msg,x.msg_text);
         ViewHelper.setViewSizesPrecentaion(x.msg_content_holder,0.8f);
 
-        MsgCommon.msgDelviryStatusText(msg,x.msg_delivery_status);
+        MsgCommon.msgDeliveryStatusText(msg,x.msg_delivery_status);
 
 
     }

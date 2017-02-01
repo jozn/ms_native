@@ -13,6 +13,7 @@ import com.mardomsara.social.helpers.FormaterUtil;
 import com.mardomsara.social.helpers.JsonUtil;
 import com.mardomsara.social.models.extra.MsgExtraPhotoThumbnail;
 import com.mardomsara.social.models.tables.Message;
+import com.mardomsara.social.models.tables.MsgFile;
 import com.mardomsara.social.ui.views.FontCache;
 import com.mardomsara.social.ui.views.FullScreenImage;
 import com.mardomsara.social.ui.views.helpers.ViewHelper;
@@ -42,39 +43,29 @@ public class MsgCommon {
     }
 
     public static void setImage(Message msg , ImageView image_iew){
-        File file = new File(msg.MediaLocalSrc);
-        int max_width = (int) (AndroidUtil.getScreenWidth() * 0.8);
-        AppUtil.log("width: "+max_width+AndroidUtil.getScreenResolution()+AndroidUtil.getDensity());
-        max_width = AndroidUtil.pxToDp(max_width);
-//        ViewGroup.LayoutParams sizes = new ViewGroup.LayoutParams(AndroidUtil.dpToPx(msg.getMediaWidth()),
-//                AndroidUtil.dpToPx(msg.getMediaWidth()));
-//        msg_image.setLayoutParams(sizes);
+		MsgFile msgFile = msg.getMsgFile();
+		if (msgFile!=null) {
+			image_iew.setVisibility(View.VISIBLE);
+			File file = new File(msgFile.LocalSrc);
+			int max_width = (int) (AndroidUtil.getScreenWidth() * 0.80);
+			AppUtil.log("width: "+max_width+AndroidUtil.getScreenResolution()+AndroidUtil.getDensity());
+			max_width = AndroidUtil.pxToDp(max_width);
+			ViewHelper.setImageSizesWithMaxPx(image_iew, max_width -2,max_width, msgFile.Width,msgFile.Height);
+			file.toURI();
+			Uri u2 =Uri.fromFile(file);
+			image_iew.setImageURI(u2);
 
-//        ViewHelper.setImageSizesWithMaxPx(image_iew, max_width, msg.getMediaWidth(),msg.getMediaHeight());
-        ViewHelper.setImageSizesWithMaxPx(image_iew, max_width -2,max_width, msg.MediaWidth,msg.MediaHeight);
-//        ViewHelper.setViewSizeDp(msg_image,msg.getMediaWidth(),msg.getMediaHeight());
-//        msg_image.setLayoutParams();
-        file.toURI();
-        Uri u2 =Uri.fromFile(file);
-//        msg_image.setAspectRatio(1.33f);
-        image_iew.setImageURI(u2);
-
-        image_iew.setOnClickListener((v)->{
-            FullScreenImage window = new FullScreenImage();
-            window.text = msg.Text;
-            window.imageUri = u2 ;//msg.getMediaLocalSrc();
-            window.show();
-        });
-//        image_iew.setBackground();
+			image_iew.setOnClickListener((v)->{
+				FullScreenImage window = new FullScreenImage();
+				window.text = msg.Text;
+				window.imageUri = u2 ;//msg.getMediaLocalSrc();
+				window.show();
+			});
+		}else {
+			image_iew.setVisibility(View.GONE);
+		}
     }
 
-
-    public static void setContentMaxwhidth(Message msg , View container) {
-        int max_width = (int) (AndroidUtil.getScreenWidth() * 0.8);
-        AppUtil.log("width: "+max_width+AndroidUtil.getScreenResolution()+AndroidUtil.getDensity());
-        max_width = AndroidUtil.pxToDp(max_width);
-        ViewHelper.setImageSizesWithMaxPx(container, max_width-1,max_width, msg.MediaWidth,msg.MediaHeight);
-    }
 
     public static void setVideoImage(Message msg , ImageView msg_image) {
         //        URI uri = AppUtil.(msg.getMediaLocalSrc());
@@ -106,26 +97,19 @@ public class MsgCommon {
 
     }
 
-        ////////////////////////////////////////////////
     ///////////////////////////////////////////////
 
     static String _wating = "\uf402"; //ion-ios-clock-outline
     static String _recived_server = "\uf383";//ion-android-done
     static String _recived_peer = "\uf382";//ion-android-done-all
     static String _seen_peer = "\uf382";//ion-android-done-all
-    //    static String seenColor = "";
+    //    static String seenColor = ""
     static String geryColor = "";
 
     static int defualtColor = Color.argb(255, 100, 100, 100);
     static int seenColor = Color.argb(255, 50, 50, 255);
-    public static final int Msg_Wainting = 1 ;
-    public static final int Msg_Recived_Server = 2 ;
-    public static final int Msg_Recived_Peer = 3 ;
-    public static final int Msg_Seen_Peer = 4 ;
 
-
-
-    public static void msgDelviryStatusText(Message msg, TextView textView){
+    public static void msgDeliveryStatusText(Message msg, TextView textView){
         if(msg == null || textView == null) return;
         String icon =_wating;
         boolean isSeen = false;
@@ -145,20 +129,5 @@ public class MsgCommon {
                 textView.setTextColor(defualtColor);
             }
         }
-    }
-
-    ////////////////////////////////////////////////
-    //////////////////////////////////////////////
-
-
-    void __play(){
-//        SubscriptSpan
-//        BackgroundColorSpan
-//        ForegroundColorSpan
-
-//        ImageSpan
-//        TextView;
-//        SpannableStringBuilder
-//        new String(new int[] {0x1F607}, 0, 1)
     }
 }

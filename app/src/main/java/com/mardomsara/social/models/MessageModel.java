@@ -111,6 +111,7 @@ public class MessageModel {
 		try {
 			MsgFile msgFile = msg.getOrCreateMsgFile();
 			File file = new File(filePath);
+			msg.MsgFile_LocalSrc = filePath;
 			Bitmap mBitmap = BitmapFactory.decodeFile(filePath);
 			msgFile.Thumb64 = ImageUtil.blurThumbnailToBase64(mBitmap);
 			msgFile.Height = mBitmap.getHeight();

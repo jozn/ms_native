@@ -212,6 +212,7 @@ public class Message  implements Comparable<Message> {
 
 	private void trySaveMsgFile(){
 		if(msgFile != null){
+			MsgFile_LocalSrc = msgFile.LocalSrc;
 			msgFile.save();
 		}
 	}

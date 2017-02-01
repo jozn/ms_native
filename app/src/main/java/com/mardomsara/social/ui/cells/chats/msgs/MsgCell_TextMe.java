@@ -35,7 +35,7 @@ public class MsgCell_TextMe extends MsgCell_AbstractViewHolder {
         }else {
 			x.msg_text.restSizes();
         }
-        MsgCommon.msgDelviryStatusText(msg,x.msg_delivery_status);
+        MsgCommon.msgDeliveryStatusText(msg,x.msg_delivery_status);
     }
 
 }
