@@ -96,6 +96,9 @@ public class Message  implements Comparable<Message> {
 		return msgFile;
 	}
 
+	@Column(defaultExpr = "0" ,helpers = Column.Helpers.CONDITION_EQ)
+	public int MsgFileStatus=0;
+
 	@Deprecated
     @Column(defaultExpr = "0" ,helpers = Column.Helpers.CONDITION_EQ)
     public int MediaStatus=0;

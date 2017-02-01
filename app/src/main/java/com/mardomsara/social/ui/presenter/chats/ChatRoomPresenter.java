@@ -452,7 +452,7 @@ public class ChatRoomPresenter extends BasePresenter implements
         Message msg =  MessageModel.newTextMsgForRoom_ByMe(room);
         msg.MediaStatus = Constants.Msg_Media_To_Push;
         msg.MessageTypeId = Constants.MESSAGE_IMAGE;
-        MessageModel.setPhotoParams(msg,resizedPath);
+        MessageModel.setPhotoParams_DEP(msg,resizedPath);
         msg.saveWithRoom();
 
 		MsgsCallToServer.sendNewPhoto(msg,resizedFile,fileOrginal,deleteOrginal);
@@ -489,7 +489,7 @@ public class ChatRoomPresenter extends BasePresenter implements
         Message msg =  MessageModel.newTextMsgForRoom_ByMe(room);
         msg.MediaStatus = (Constants.Msg_Media_To_Push);
         msg.MessageTypeId = (Constants.MESSAGE_VIDEO);
-        MessageModel.setVideoParams(msg,thumbPath,resizedPath);
+        MessageModel.setVideoParams_DEP(msg,thumbPath,resizedPath);
         msg.saveWithRoom();
 
 		MsgsCallToServer.sendNewVideo(msg,resizedFile);

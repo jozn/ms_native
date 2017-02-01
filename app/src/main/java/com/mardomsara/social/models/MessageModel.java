@@ -106,7 +106,24 @@ public class MessageModel {
         EventBus.getDefault().post(meta);*/
     }
 
-    public static void setPhotoParams(Message msg, String filePath) {
+	public static void setPhotoParams(Message msg, String filePath) {
+		try {
+			File file = new File(filePath);
+			Bitmap mBitmap = BitmapFactory.decodeFile(filePath);
+			msg.MediaThumb64 = ImageUtil.blurThumbnailToBase64(mBitmap);
+			msg.MediaHeight = mBitmap.getHeight();
+			msg.MediaWidth = mBitmap.getWidth();
+			msg.MediaLocalSrc = filePath;
+			msg.MediaSize = (int)file.length();
+			msg.MediaName = file.getName();
+			msg.MediaDuration = 0;
+		}catch (Exception e){
+			e.printStackTrace();
+		}
+	}
+
+	@Deprecated
+    public static void setPhotoParams_DEP(Message msg, String filePath) {
         try {
             File file = new File(filePath);
             Bitmap mBitmap = BitmapFactory.decodeFile(filePath);
@@ -122,7 +139,25 @@ public class MessageModel {
         }
     }
 
-    public static void setVideoParams(Message msg, String thumbPath, String videoPath) {
+	public static void setVideoParams(Message msg, String thumbPath, String videoPath) {
+		File fileVideo = new File(videoPath);
+
+		VideoMetasHelper meta = new VideoMetasHelper(videoPath);
+
+		msg.MediaHeight = meta.getVideoHeight();
+		msg.MediaWidth = meta.getVideoWidth();
+		msg.MediaLocalSrc = videoPath;
+		msg.MediaSize = (int)fileVideo.length();
+		msg.MediaName = fileVideo.getName();
+		msg.MediaExtension = FileUtil.getFileExtensionWithDot(videoPath);
+		msg.MediaDuration = meta.getVideoLength();
+
+		//Extra
+		setVideoExtraParams(msg,videoPath);
+	}
+
+	@Deprecated
+    public static void setVideoParams_DEP(Message msg, String thumbPath, String videoPath) {
         File fileVideo = new File(videoPath);
 
         VideoMetasHelper meta = new VideoMetasHelper(videoPath);
