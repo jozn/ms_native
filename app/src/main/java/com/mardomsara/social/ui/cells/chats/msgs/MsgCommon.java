@@ -66,8 +66,22 @@ public class MsgCommon {
 		}
     }
 
+	public static void setVideoImage(Message msg , ImageView msg_image) {
+		int max_width = (int) (AndroidUtil.getScreenWidth() * 0.88);
+		AppUtil.log("width: "+max_width+AndroidUtil.getScreenResolution()+AndroidUtil.getDensity());
+		max_width = AndroidUtil.pxToDp(max_width);
+		MsgFile msgFile = msg.getMsgFile();
+		if(msgFile != null){
+			File file = new File(msgFile.LocalSrc);
+			ViewHelper.setImageSizesWithMaxPx(msg_image, max_width, msgFile.Width , msgFile.Height );
+			file.toURI();
+			Uri u2 =Uri.fromFile(file);
+			msg_image.setImageURI(u2);
+		}
+	}
 
-    public static void setVideoImage(Message msg , ImageView msg_image) {
+
+    public static void setVideoImage_DEP(Message msg , ImageView msg_image) {
         //        URI uri = AppUtil.(msg.getMediaLocalSrc());
 //        msg_image.
 //        Uri u = Uri.parse(msg.getMediaLocalSrc());

@@ -14,6 +14,7 @@ import com.mardomsara.social.models.MessageModel;
 import com.mardomsara.social.models.RoomModel;
 import com.mardomsara.social.models.UserModel;
 import com.mardomsara.social.models.tables.Message;
+import com.mardomsara.social.models.tables.MsgFile;
 import com.mardomsara.social.models.tables.User;
 import com.mardomsara.social.pipe.NetEventHandler;
 import com.mardomsara.social.pipe.from_net_calls.json.MsgAddManyJson;
@@ -162,46 +163,59 @@ public class MsgCallsFromServer {
 
             case Constants.MESSAGE_IMAGE:
                 AndroidUtil.runInBackground(()->{
+					MsgFile msgFile = msg.MsgFile;
+					if(msgFile!= null){
 //                    String fileName = AppFiles.PHOTO_DIR_PATH + msg.getMediaName();
-                    String $fileName = AppFiles.PHOTO_DIR_PATH + FormaterUtil.getFullyYearToSecondsSolarName() +"$" + msg.MediaExtension;
+						String $fileName = AppFiles.PHOTO_DIR_PATH + FormaterUtil.getFullyYearToSecondsSolarName() +"$" + msgFile.Extension;
 //                    File file = new File(fileName);
 //                    File file = FileUtil.createNextName($fileName);
-                    String fileName = FileUtil.createNextName($fileName);
-                    msg.MediaLocalSrc = fileName;
-                    msg.MediaStatus = Constants.Msg_Media_To_Upload;
-                    msg.saveWithRoom();
-                    HttpOld.downloadFile(msg.MediaServerSrc,fileName,
-                            ()->{//callback
-                                msg.MediaStatus = Constants.Msg_Media_Downloaded ;
-                                msg.saveWithRoom();
-                                MessageModel.publishMsgGeneralChangeEvent(msg);
+						String fileName = FileUtil.createNextName($fileName);
+						msgFile.LocalSrc = fileName;
+						msg.MsgFile_LocalSrc = fileName;
+						msgFile.Status = Constants.Msg_Media_To_Upload;
+						msg.MsgFile_Status = Constants.Msg_Media_To_Upload;
+						msg.saveWithRoom();
+						HttpOld.downloadFile(msgFile.ServerSrc,fileName,
+							()->{//callback
+								msg.MsgFile_Status = Constants.Msg_Media_Downloaded ;
+								msgFile.Status = Constants.Msg_Media_Downloaded ;
+								msg.saveWithRoom();
+								MessageModel.publishMsgGeneralChangeEvent(msg);
 
-                            },
-                            ()->{//errorback
+							},
+							()->{//errorback
 
-                            });
-                });
+							});
+					}
+				});
                 break;
 
             case Constants.MESSAGE_VIDEO:
                 AndroidUtil.runInBackground(()->{
-                    String $fileName = AppFiles.VIDEO_DIR_PATH + FormaterUtil.getFullyYearToSecondsSolarName() +"$" + msg.MediaExtension;
-                    String fileName = FileUtil.createNextName($fileName);
-                    msg.MediaLocalSrc = fileName;
-                    msg.MediaStatus = Constants.Msg_Media_To_Upload;
-                    msg.saveWithRoom();
-                    HttpOld.downloadFile(msg.MediaServerSrc ,fileName,
-                            ()->{//callback
+					MsgFile msgFile = msg.MsgFile;
+					if(msgFile != null){
+						String $fileName = AppFiles.VIDEO_DIR_PATH + FormaterUtil.getFullyYearToSecondsSolarName() +"$" + msgFile.Extension;
+						String fileName = FileUtil.createNextName($fileName);
+						msg.MsgFile_LocalSrc = fileName;
+						msgFile.LocalSrc = fileName;
+						msg.MsgFile_Status = Constants.Msg_Media_To_Upload;
+						msgFile.Status = Constants.Msg_Media_To_Upload;
+						msg.saveWithRoom();
+						HttpOld.downloadFile(msgFile.ServerSrc ,fileName,
+							()->{//callback
 //                                String $thumbPath = AppFiles.VIDEO_DIR_PATH + FormaterUtil.getFullyYearToSecondsSolarName() +"$" + msg.getMediaExtension();
 //                                String thumbPath = FileUtil.createNextName($thumbPath);
-                                msg.MediaStatus = Constants.Msg_Media_Downloaded;
-                                MessageModel.setVideoExtraParams(msg,fileName );
-                                msg.saveWithRoom();
-                                MessageModel.publishMsgGeneralChangeEvent(msg);
-                            },
-                            ()->{//errorback
+								msg.MsgFile_Status = Constants.Msg_Media_Downloaded;
+								msgFile.Status = Constants.Msg_Media_Downloaded;
+								MessageModel.setVideoExtraParams(msgFile,fileName );
+								msg.saveWithRoom();
+								MessageModel.publishMsgGeneralChangeEvent(msg);
+							},
+							()->{//errorback
 
-                            });
+							});
+					}
+
                 });
                 break;
 

@@ -141,21 +141,26 @@ public class MessageModel {
         }
     }
 
-	public static void setVideoParams(Message msg, String thumbPath, String videoPath) {
-		File fileVideo = new File(videoPath);
+	public static void setVideoParams(Message msg1, String thumbPath, String videoPath) {
+		try {
+			MsgFile msgFile = msg1.getOrCreateMsgFile();
+			File fileVideo = new File(videoPath);
 
-		VideoMetasHelper meta = new VideoMetasHelper(videoPath);
+			VideoMetasHelper meta = new VideoMetasHelper(videoPath);
 
-		msg.MediaHeight = meta.getVideoHeight();
-		msg.MediaWidth = meta.getVideoWidth();
-		msg.MediaLocalSrc = videoPath;
-		msg.MediaSize = (int)fileVideo.length();
-		msg.MediaName = fileVideo.getName();
-		msg.MediaExtension = FileUtil.getFileExtensionWithDot(videoPath);
-		msg.MediaDuration = meta.getVideoLength();
+			msgFile.Height = meta.getVideoHeight();
+			msgFile.Width = meta.getVideoWidth();
+			msgFile.LocalSrc = videoPath;
+			msgFile.Size = (int)fileVideo.length();
+			msgFile.Name = fileVideo.getName();
+			msgFile.Extension = FileUtil.getFileExtensionWithDot(videoPath);
+			msgFile.Duration = meta.getVideoLength();
 
-		//Extra
-		setVideoExtraParams(msg,videoPath);
+			//Extra
+			setVideoExtraParams(msgFile,videoPath);
+		}catch (Exception e){
+			e.printStackTrace();
+		}
 	}
 
 	@Deprecated
@@ -173,10 +178,10 @@ public class MessageModel {
         msg.MediaDuration = meta.getVideoLength();
 
         //Extra
-        setVideoExtraParams(msg,videoPath);
+        setVideoExtraParams_DEP(msg,videoPath);
     }
 
-    public static void setVideoExtraParams(Message msg, String videoPath) {
+    public static void setVideoExtraParams_DEP(Message msg, String videoPath) {
         String $thumbPath = AppFiles.VIDEO_THUMB_DIR_PATH + FormaterUtil.getFullyYearToSecondsSolarName() +"$" + msg.MediaExtension;
         String thumbPath = FileUtil.createNextName($thumbPath);
 
@@ -196,6 +201,26 @@ public class MessageModel {
             msg.MediaThumb64 = ImageUtil.blurThumbnailToBase64(thumbBitmap);
         }
     }
+
+	public static void setVideoExtraParams(MsgFile msgFile, String videoPath) {
+		String $thumbPath = AppFiles.VIDEO_THUMB_DIR_PATH + FormaterUtil.getFullyYearToSecondsSolarName() +"$" + msgFile.Extension;
+		String thumbPath = FileUtil.createNextName($thumbPath);
+
+		File fileThumb = new File(thumbPath);
+		Bitmap bitmap = ImageUtil.createVideoThumbnail(videoPath, 1024,360);
+		if(bitmap != null){
+			ImageUtil.saveToFile(bitmap,thumbPath);
+		}
+		Bitmap thumbBitmap = bitmap;//BitmapFactory.decodeFile(thumbPath);
+		if(thumbBitmap != null){
+			msgFile.ThumbLocalSrc = thumbPath;
+			msgFile.ThumbHeight = thumbBitmap.getHeight();
+			msgFile.ThumbWidth = thumbBitmap.getWidth();
+			msgFile.ThumbSize = (int) fileThumb.length();
+//			msgFile.ExtraJson = JsonUtil.toJson(extr);
+			msgFile.Thumb64 = ImageUtil.blurThumbnailToBase64(thumbBitmap);
+		}
+	}
 
     public static void didMsgAddedByMe(@NonNull Message msg) {
         RoomModel.onByMeNewMsg(msg);

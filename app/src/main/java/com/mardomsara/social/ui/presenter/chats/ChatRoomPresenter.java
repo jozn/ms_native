@@ -497,9 +497,9 @@ public class ChatRoomPresenter extends BasePresenter implements
             return;
         }
         Message msg =  MessageModel.newTextMsgForRoom_ByMe(room);
-        msg.MediaStatus = (Constants.Msg_Media_To_Push);
+        msg.MsgFile_Status = (Constants.Msg_Media_To_Push);
         msg.MessageTypeId = (Constants.MESSAGE_VIDEO);
-        MessageModel.setVideoParams_DEP(msg,thumbPath,resizedPath);
+        MessageModel.setVideoParams(msg,thumbPath,resizedPath);
         msg.saveWithRoom();
 
 		MsgsCallToServer.sendNewVideo(msg,resizedFile);
