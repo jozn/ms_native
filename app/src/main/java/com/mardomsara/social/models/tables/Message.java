@@ -96,8 +96,16 @@ public class Message  implements Comparable<Message> {
 		return msgFile;
 	}
 
+	public @NonNull MsgFile getOrCreateMsgFile(){
+		msgFile = getMsgFile();
+		if (msgFile == null){
+			msgFile = new MsgFile();
+		}
+		return msgFile;
+	}
+
 	@Column(defaultExpr = "0" ,helpers = Column.Helpers.CONDITION_EQ)
-	public int MsgFileStatus=0;
+	public int MsgFile_Status =0;
 
 	@Deprecated
     @Column(defaultExpr = "0" ,helpers = Column.Helpers.CONDITION_EQ)

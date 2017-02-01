@@ -21,6 +21,7 @@ import com.mardomsara.social.helpers.VideoMetasHelper;
 import com.mardomsara.social.models.extra.MsgExtraPhotoThumbnail;
 import com.mardomsara.social.models.memory_store.MemoryStore_LastMsgs;
 import com.mardomsara.social.models.tables.Message;
+import com.mardomsara.social.models.tables.MsgFile;
 import com.mardomsara.social.models.tables.Room;
 import com.mardomsara.social.pipe.from_net_calls.MsgsCallToServer;
 
@@ -108,15 +109,16 @@ public class MessageModel {
 
 	public static void setPhotoParams(Message msg, String filePath) {
 		try {
+			MsgFile msgFile = msg.getOrCreateMsgFile();
 			File file = new File(filePath);
 			Bitmap mBitmap = BitmapFactory.decodeFile(filePath);
-			msg.MediaThumb64 = ImageUtil.blurThumbnailToBase64(mBitmap);
-			msg.MediaHeight = mBitmap.getHeight();
-			msg.MediaWidth = mBitmap.getWidth();
-			msg.MediaLocalSrc = filePath;
-			msg.MediaSize = (int)file.length();
-			msg.MediaName = file.getName();
-			msg.MediaDuration = 0;
+			msgFile.Thumb64 = ImageUtil.blurThumbnailToBase64(mBitmap);
+			msgFile.Height = mBitmap.getHeight();
+			msgFile.Width = mBitmap.getWidth();
+			msgFile.LocalSrc = filePath;
+			msgFile.Size = (int)file.length();
+			msgFile.Name = file.getName();
+			msgFile.Duration = 0;
 		}catch (Exception e){
 			e.printStackTrace();
 		}

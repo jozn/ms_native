@@ -432,11 +432,15 @@ public class ChatRoomPresenter extends BasePresenter implements
         _sendMsgVideo(file_uri.getPath());
     }
 
-    void _sendMsgImage(String path, final boolean deleteOrginal){
-        logIt("_sendMsgImage: "+ path + " "+deleteOrginal);
+    void _sendMsgImage(String path, final boolean deleteOriginal){
+        logIt("_sendMsgImage: "+ path + " "+deleteOriginal);
 //        String path = file_uri.getPath();
         if(path== null || path.equals("")) return;
-        File fileOrginal = new File(path);
+        File fileOriginal = new File(path);
+		if( ! fileOriginal.exists() ){
+			_showToastFileAreNotExist();
+			return;
+		}
 
         String $resizedPath = AppFiles.PHOTO_SENT_DIR_PATH+"IMG_"+ FormaterUtil.getFullyYearToSecondsSolarName()+"$.jpg";
         String resizedPath ;//= $resizedPath.replace("$","");
@@ -450,15 +454,21 @@ public class ChatRoomPresenter extends BasePresenter implements
             return;
         }
         Message msg =  MessageModel.newTextMsgForRoom_ByMe(room);
-        msg.MediaStatus = Constants.Msg_Media_To_Push;
+//        msg.MediaStatus = Constants.Msg_Media_To_Push;
+        msg.MsgFile_Status = Constants.Msg_Media_To_Push;
         msg.MessageTypeId = Constants.MESSAGE_IMAGE;
-        MessageModel.setPhotoParams_DEP(msg,resizedPath);
+//        MessageModel.setPhotoParams_DEP(msg,resizedPath);
+        MessageModel.setPhotoParams(msg,resizedPath);
         msg.saveWithRoom();
 
-		MsgsCallToServer.sendNewPhoto(msg,resizedFile,fileOrginal,deleteOrginal);
+		MsgsCallToServer.sendNewPhoto(msg,resizedFile,fileOriginal,deleteOriginal);
 		onHereAddedNewMsgEvent(msg);
 
     }
+
+	private void _showToastFileAreNotExist(){
+		Toast.makeText(getContext(),"فایل موجود نیست",Toast.LENGTH_SHORT).show();
+	}
 
     void _sendMsgVideo(String savedPath){
         logIt("_sendMsgVideo: "+ savedPath);

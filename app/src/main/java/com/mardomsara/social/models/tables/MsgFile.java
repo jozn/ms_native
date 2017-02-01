@@ -20,7 +20,7 @@ public class MsgFile {
 
     @NonNull
 	@Column(defaultExpr = "''" , indexed = true)
-    public String Hash;
+    public String Hash = "XX";
 
 	@Column(defaultExpr = "''" , indexed = true)
 	public String ServerSrc = "";
@@ -35,7 +35,7 @@ public class MsgFile {
 	public int Originate=0; // 0:here 1:downloaded from net
 
 	@Column(defaultExpr = "''")
-	public String MediaThumb64 = "";
+	public String Thumb64 = "";
 
 	@Column(defaultExpr = "''")
 	public String Name = "";
@@ -66,6 +66,8 @@ public class MsgFile {
     }
 
 	public void save() {
+		if(LocalSrc.equals("")) return;//avoid bugs
+		//todo calculate hash
 		DB.db.prepareInsertIntoMsgFile(OnConflict.REPLACE,false).execute(this);
 	}
 
