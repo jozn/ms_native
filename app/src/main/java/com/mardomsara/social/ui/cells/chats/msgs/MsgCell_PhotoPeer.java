@@ -27,7 +27,7 @@ public class MsgCell_PhotoPeer extends MsgCell_AbstractViewHolder {
     @Override
     public void bindToView(Message msg) {
         AppUtil.log("bindToView Peer");
-        MsgCommon.setImage(msg,x.msg_image);
+        MsgCommon.setImage_DEP(msg,x.msg_image);
         MsgCommon.setTextForImages(msg,x.msg_text);
         x.msg_time.setText(MsgCommon.msgRawTime2(msg));
 

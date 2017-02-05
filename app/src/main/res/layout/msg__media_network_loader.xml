@@ -11,18 +11,45 @@
         />
 
 
-    <com.github.rahatarmanahmed.cpv.CircularProgressView
-        android:id="@+id/loading"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-
-        app:cpv_animAutostart="true"
-        app:cpv_indeterminate="true"
-
+    <FrameLayout
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:layout_centerInParent="true"
-        />
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:background="@drawable/chat_media_cancel"
+
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/cancel_btn"
+            android:textSize="12dp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_marginLeft="4dp"
+            android:text="cancel"
+            android:padding="7dp"
+            android:layout_centerInParent="true"
+            />
+
+        <com.github.rahatarmanahmed.cpv.CircularProgressView
+            android:id="@+id/loading"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            app:cpv_animAutostart="true"
+            app:cpv_indeterminate="true"
+            app:cpv_color="@color/white"
+
+            android:layout_centerInParent="true"
+
+            />
+
+    </FrameLayout>
 
     <!--<com.mardomsara.social.ui.views.wigets.LoadingView
         android:layout_width="70dp"

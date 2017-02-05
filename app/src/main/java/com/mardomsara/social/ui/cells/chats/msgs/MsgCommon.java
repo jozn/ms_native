@@ -17,6 +17,7 @@ import com.mardomsara.social.models.tables.MsgFile;
 import com.mardomsara.social.ui.views.FontCache;
 import com.mardomsara.social.ui.views.FullScreenImage;
 import com.mardomsara.social.ui.views.helpers.ViewHelper;
+import com.mardomsara.social.ui.views.wigets.ChatMediaNetworkLoader;
 
 import java.io.File;
 
@@ -42,7 +43,7 @@ public class MsgCommon {
         }
     }
 
-    public static void setImage(Message msg , ImageView image_iew){
+    public static void setImage_DEP(Message msg , ImageView image_iew){
 		MsgFile msgFile = msg.getMsgFile();
 		if (msgFile!=null) {
 			image_iew.setVisibility(View.VISIBLE);
@@ -65,6 +66,32 @@ public class MsgCommon {
 			image_iew.setVisibility(View.GONE);
 		}
     }
+
+	public static void setImage2(Message msg , ChatMediaNetworkLoader image_holder){
+		ImageView image_iew = image_holder.x.msg_image;
+		if(msg.MsgFile_Status >0 );
+		MsgFile msgFile = msg.getMsgFile();
+		if (msgFile!=null) {
+			image_iew.setVisibility(View.VISIBLE);
+			File file = new File(msgFile.LocalSrc);
+			int max_width = (int) (AndroidUtil.getScreenWidth() * 0.80);
+			AppUtil.log("width: "+max_width+AndroidUtil.getScreenResolution()+AndroidUtil.getDensity());
+			max_width = AndroidUtil.pxToDp(max_width);
+			ViewHelper.setImageSizesWithMaxPx(image_iew, max_width -2,max_width, msgFile.Width,msgFile.Height);
+			file.toURI();
+			Uri u2 =Uri.fromFile(file);
+			image_iew.setImageURI(u2);
+
+			image_iew.setOnClickListener((v)->{
+				FullScreenImage window = new FullScreenImage();
+				window.text = msg.Text;
+				window.imageUri = u2 ;//msg.getMediaLocalSrc();
+				window.show();
+			});
+		}else {
+			image_iew.setVisibility(View.GONE);
+		}
+	}
 
 	public static void setVideoImage(Message msg , ImageView msg_image) {
 		int max_width = (int) (AndroidUtil.getScreenWidth() * 0.88);

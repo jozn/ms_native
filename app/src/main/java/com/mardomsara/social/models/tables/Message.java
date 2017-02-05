@@ -92,7 +92,7 @@ public class Message  implements Comparable<Message>, UploadProgressListener,Dow
 	public String MsgFile_LocalSrc= "";
 
 	@Column(defaultExpr = "0" ,helpers = Column.Helpers.CONDITION_EQ)
-	int MsgFile_Status =0;
+	public int MsgFile_Status =0;
 
 	public MsgFile MsgFile;//for json
 
@@ -216,7 +216,7 @@ public class Message  implements Comparable<Message>, UploadProgressListener,Dow
 
 	@Override
 	public void onDownloadProgress(long bytesRead, long contentLength, boolean done) {
-		
+
 	}
 
 	@Override
