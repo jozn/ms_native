@@ -452,7 +452,7 @@ public class ChatRoomPresenter extends BasePresenter implements
         Message msg =  MessageModel.newTextMsgForRoom_ByMe(room);
         msg.setMsgFile_Status(Constants.Msg_Media_To_Push);
         msg.MessageTypeId = Constants.MESSAGE_IMAGE;
-        MessageModel.setPhotoParams(msg,resizedPath);
+        MessageModel.setPhotoParams_ME(msg,resizedPath);
         msg.saveWithRoom();
 
 		MsgsCallToServer.sendNewPhoto(msg,resizedFile,fileOriginal,deleteOriginal);

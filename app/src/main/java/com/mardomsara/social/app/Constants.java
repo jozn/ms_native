@@ -33,6 +33,8 @@ public class Constants {
     public static int Msg_Media_Downloaded = 5; //for:me&peer -- must be ByMe=0 -- we downloaded file
     public static int Msg_Media_Deleteted_Server = 6; // ??
 
+	public static int Msg_Media_Origin_Here = 1;
+	public static int Msg_Media_Origin_Server = 2;
 
     // Notifications
     public static int NOTIFICATION_TYPE_POST_LIKED = 200;

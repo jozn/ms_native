@@ -32,7 +32,7 @@ public class MsgFile {
 	public int Status=0;
 
 	@Column(defaultExpr = "0" ,helpers = Column.Helpers.CONDITION_EQ)
-	public int Originate=0; // 0:here 1:downloaded from net
+	public int Origin =0; // 0:here 1:downloaded from net
 
 	@Column(defaultExpr = "''")
 	public String Name = "";

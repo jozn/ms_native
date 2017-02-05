@@ -160,14 +160,13 @@ public class MsgCallsFromServer {
 						String $fileName = AppFiles.PHOTO_DIR_PATH + FormaterUtil.getFullyYearToSecondsSolarName() +"$" + msgFile.Extension;
 						String fileName = FileUtil.createNextName($fileName);
 						msgFile.LocalSrc = fileName;
+						msgFile.Origin = Constants.Msg_Media_Origin_Server;
 						msg.MsgFile_LocalSrc = fileName;
-//						msgFile.Status = Constants.Msg_Media_To_Upload;
 						msg.setMsgFile_Status(Constants.Msg_Media_To_Upload);
 						msg.saveWithRoom();
 						HttpOld.downloadFile(msgFile.ServerSrc,fileName,
 							()->{//callback
 								msg.setMsgFile_Status(Constants.Msg_Media_Downloaded);
-//								msgFile.Status = Constants.Msg_Media_Downloaded ;
 								msg.saveWithRoom();
 								MessageModel.publishMsgGeneralChangeEvent(msg);
 
@@ -187,13 +186,12 @@ public class MsgCallsFromServer {
 						String fileName = FileUtil.createNextName($fileName);
 						msg.MsgFile_LocalSrc = fileName;
 						msgFile.LocalSrc = fileName;
+						msgFile.Origin = Constants.Msg_Media_Origin_Server;
 						msg.setMsgFile_Status(Constants.Msg_Media_To_Upload);
-//						msgFile.Status = Constants.Msg_Media_To_Upload;
 						msg.saveWithRoom();
 						HttpOld.downloadFile(msgFile.ServerSrc ,fileName,
 							()->{//callback
 								msg.setMsgFile_Status(Constants.Msg_Media_Downloaded);
-//								msgFile.Status = Constants.Msg_Media_Downloaded;
 								MessageModel.setVideoExtraParams(msgFile,fileName );
 								msg.saveWithRoom();
 								MessageModel.publishMsgGeneralChangeEvent(msg);

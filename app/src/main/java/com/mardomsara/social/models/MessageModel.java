@@ -104,7 +104,7 @@ public class MessageModel {
         EventBus.getDefault().post(meta);*/
     }
 
-	public static void setPhotoParams(Message msg, String filePath) {
+	public static void setPhotoParams_ME(Message msg, String filePath) {
 		try {
 			MsgFile msgFile = msg.getOrCreateMsgFile();
 			File file = new File(filePath);
@@ -117,6 +117,7 @@ public class MessageModel {
 			msgFile.Size = (int)file.length();
 			msgFile.Name = file.getName();
 			msgFile.Duration = 0;
+			msgFile.Origin = Constants.Msg_Media_Origin_Here;
 		}catch (Exception e){
 			e.printStackTrace();
 		}
