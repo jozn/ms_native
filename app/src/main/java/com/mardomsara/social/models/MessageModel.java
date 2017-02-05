@@ -74,7 +74,7 @@ public class MessageModel {
         msg.CreatedDeviceMs = TimeUtil.getTimeMs();
         msg.IsByMe = 0;
         msg.ToPush = 0;
-        msg.MsgFile_Status =0 ;
+        msg.setMsgFile_Status(0);
     }
 
     public static void syncToServer(@NonNull Message msg ) {

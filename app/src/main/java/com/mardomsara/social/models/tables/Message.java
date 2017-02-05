@@ -90,7 +90,7 @@ public class Message  implements Comparable<Message> {
 	public String MsgFile_LocalSrc= "";
 
 	@Column(defaultExpr = "0" ,helpers = Column.Helpers.CONDITION_EQ)
-	public int MsgFile_Status =0;
+	int MsgFile_Status =0;
 
 	public MsgFile MsgFile;//for json
 
@@ -203,5 +203,12 @@ public class Message  implements Comparable<Message> {
 		if(NanoId == msg.NanoId) return 0;
 
 		return (NanoId > msg.NanoId) ? 1 : -1;
+	}
+
+	public void setMsgFile_Status(int msgFile_Status) {
+		MsgFile_Status = msgFile_Status;
+		if(MsgFile!= null){
+			MsgFile.Status = msgFile_Status;
+		}
 	}
 }

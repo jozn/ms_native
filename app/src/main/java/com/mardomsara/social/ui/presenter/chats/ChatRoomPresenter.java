@@ -48,7 +48,6 @@ import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -451,7 +450,7 @@ public class ChatRoomPresenter extends BasePresenter implements
             return;
         }
         Message msg =  MessageModel.newTextMsgForRoom_ByMe(room);
-        msg.MsgFile_Status = Constants.Msg_Media_To_Push;
+        msg.setMsgFile_Status(Constants.Msg_Media_To_Push);
         msg.MessageTypeId = Constants.MESSAGE_IMAGE;
         MessageModel.setPhotoParams(msg,resizedPath);
         msg.saveWithRoom();
@@ -483,7 +482,7 @@ public class ChatRoomPresenter extends BasePresenter implements
             return;
         }
         Message msg =  MessageModel.newTextMsgForRoom_ByMe(room);
-        msg.MsgFile_Status = (Constants.Msg_Media_To_Push);
+        msg.setMsgFile_Status((Constants.Msg_Media_To_Push));
         msg.MessageTypeId = (Constants.MESSAGE_VIDEO);
         MessageModel.setVideoParams(msg,thumbPath,resizedPath);
         msg.saveWithRoom();
