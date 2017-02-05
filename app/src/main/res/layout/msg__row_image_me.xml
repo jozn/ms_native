@@ -7,10 +7,20 @@
         style="@style/msg.content_holder.me"
         >
 
-        <com.facebook.drawee.view.SimpleDraweeView
-            style="@style/msg_image.peer"
-            android:id="@+id/msg_image"
-        />
+        <com.mardomsara.social.ui.views.wigets.ChatMediaNetworkLoader
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/yellow"
+            android:id="@+id/image_holder"
+            >
+
+            <!--<com.facebook.drawee.view.SimpleDraweeView
+                style="@style/msg_image.peer"
+                android:id="@+id/msg_image"
+                android:layout_centerInParent="true"
+                />-->
+
+        </com.mardomsara.social.ui.views.wigets.ChatMediaNetworkLoader>
 
         <com.mardomsara.emojicon.EmojiconTextView
             style="@style/msg_text.peer"

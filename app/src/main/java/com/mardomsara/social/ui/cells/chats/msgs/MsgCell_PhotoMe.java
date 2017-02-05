@@ -30,7 +30,7 @@ public class MsgCell_PhotoMe extends MsgCell_AbstractViewHolder {
         AppUtil.log("bindToView Peer");
         x.msg_time.setText(MsgCommon.msgRawTime2(msg));
 //        msg_text.setText(msg.getText());
-        MsgCommon.setImage(msg,x.msg_image);
+        MsgCommon.setImage(msg,x.image_holder.x.msg_image);
 //        MsgCommon.setContentMaxwhidth(msg,msg_image);
         MsgCommon.setTextForImages(msg,x.msg_text);
         ViewHelper.setViewSizesPrecentaion(x.msg_content_holder,0.8f);

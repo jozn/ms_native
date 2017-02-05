@@ -23,6 +23,7 @@ import com.mardomsara.social.ui.views.wigets.BadgeCount;
 import com.mardomsara.social.ui.views.wigets.ButtonGrayView;
 import com.mardomsara.social.ui.views.wigets.ChatButtonView;
 import com.mardomsara.social.ui.views.wigets.ChatListRowWhithBorderRelativeLayout;
+import com.mardomsara.social.ui.views.wigets.ChatMediaNetworkLoader;
 import com.mardomsara.social.ui.views.wigets.CountView;
 import com.mardomsara.social.ui.views.wigets.CountView2;
 import com.mardomsara.social.ui.views.wigets.FollowingButtonView;
@@ -37,7 +38,7 @@ import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.R;
 
 public class X {
-    
+     //( index .Fields 0).ViewClass
 
     public static class ActivityCrop {
         public LinearLayout root;
@@ -55,7 +56,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class ActivityMainApp {
         public LinearLayout root;
@@ -75,7 +76,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class ActivityPlayAdvanced {
         public ScrollView root;
@@ -89,7 +90,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class CellCommontsWithField {
         public RelativeLayout root;
@@ -107,7 +108,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class CellListUserTypeFollowAboutRow {
         public RelativeLayout root;
@@ -131,7 +132,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class CellPageCellNavRecylcerView {
         public LinearLayout root;
@@ -147,7 +148,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class CellPageCommingSoon {
         public RelativeLayout root;
@@ -159,7 +160,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class CellRowCommont {
         public RelativeLayout root;
@@ -181,7 +182,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class CellsKeywoardAttachment {
         public LinearLayout root;
@@ -215,7 +216,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class Chat_EntryRoom {
         public LinearLayout root;
@@ -247,7 +248,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class Chat_ListRow {
         public ChatListRowWhithBorderRelativeLayout root;
@@ -269,7 +270,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class Common_CellLoading {
         public RelativeLayout root;
@@ -283,7 +284,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class Common_ContainerLoading {
         public FrameLayout root;
@@ -297,7 +298,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class Common_LoadingRow {
         public FrameLayout root;
@@ -309,7 +310,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class Common_OneThirdImage {
         public FrameLayout root;
@@ -323,7 +324,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class Cropimage {
         public RelativeLayout root;
@@ -343,7 +344,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class DialogBaseContainer {
         public FrameLayout root;
@@ -359,7 +360,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class DialogGrid {
         public LinearLayout root;
@@ -379,7 +380,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class DialogList {
         public LinearLayout root;
@@ -395,7 +396,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class DialogOptionsRoomRow {
         public LinearLayout root;
@@ -411,7 +412,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class DialogOptionsRoomRow2 {
         public LinearLayout root;
@@ -429,7 +430,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class DialogSimpleAlert {
         public LinearLayout root;
@@ -447,7 +448,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class DialogSimpleBody {
         public TextView root;
@@ -459,7 +460,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class DialogSimpleClose {
         public TextView root;
@@ -471,7 +472,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class DialogSimpleMenuString {
         public TextView root;
@@ -483,7 +484,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class DialogSimpleTitle {
         public TextView root;
@@ -495,7 +496,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class DialogView {
         public LinearLayout root;
@@ -515,7 +516,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class FragmentChatEnteryPage {
         public LinearLayout root;
@@ -549,7 +550,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class FragmentFooterBar {
         public LinearLayout root;
@@ -571,7 +572,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class FragmentHomePage {
         public LinearLayout root;
@@ -587,7 +588,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class FragmentMain {
         public RelativeLayout root;
@@ -601,7 +602,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class FragmentSinglePresenter {
         public FrameLayout root;
@@ -613,7 +614,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class GalleryChooserFoldersRecyiclerView {
         public LinearLayout root;
@@ -627,7 +628,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class HeaderChatEntary {
         public RelativeLayout root;
@@ -645,7 +646,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class HelloWorld {
         public LinearLayout root;
@@ -657,21 +658,21 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class HelloWorldMerge {
-        public Button root;
+        public ViewGroup root;
         public Button follow_button;
         public Button followings_btn;
 
         public HelloWorldMerge(ViewGroup parent) {
-            root = (Button) AppUtil.inflate(R.layout.hello_world_merge,parent,true);//for Compound Views
+            root = (ViewGroup) AppUtil.inflate(R.layout.hello_world_merge,parent,true);//for Compound Views
             
             follow_button = (Button) root.findViewById( R.id.follow_button);
             followings_btn = (Button) root.findViewById( R.id.followings_btn);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class HelloWorldRow {
         public LinearLayout root;
@@ -697,7 +698,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class KeywoardAttachment2 {
         public LinearLayout root;
@@ -723,7 +724,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class KeywoardEmoji {
         public LinearLayout root;
@@ -739,7 +740,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class LastActivity_Row {
         public LinearLayout root;
@@ -763,7 +764,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class ListRoomsPresenter {
         public LinearLayout root;
@@ -779,7 +780,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class ListUserFollowRow {
         public LinearLayout root;
@@ -799,7 +800,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class ListviewPlanetTextview {
         public TextView root;
@@ -813,7 +814,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class Loading {
         public FrameLayout root;
@@ -827,7 +828,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class Main {
         public LinearLayout root;
@@ -841,7 +842,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class MainBranchChat {
         public LinearLayout root;
@@ -857,7 +858,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class MainPageChatPresenter {
         public LinearLayout root;
@@ -869,7 +870,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class MediaChooserTopNav {
         public LinearLayout root;
@@ -891,7 +892,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class Msg_Empty {
         public FrameLayout root;
@@ -903,7 +904,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class Msg_FullPageEmptyNote {
         public RelativeLayout root;
@@ -915,7 +916,23 @@ public class X {
             this(null);
         }
     }
+ //( index .Fields 0).ViewClass
 
+    public static class Msg_MediaNetworkLoader {
+        public ViewGroup root;
+        public SimpleDraweeView msg_image;
+        public CircularProgressView loading;
+        public TextView sd;
+
+        public Msg_MediaNetworkLoader(ViewGroup parent) {
+            root = (ViewGroup) AppUtil.inflate(R.layout.msg__media_network_loader,parent,true);//for Compound Views
+            
+            msg_image = (SimpleDraweeView) root.findViewById( R.id.msg_image);
+            loading = (CircularProgressView) root.findViewById( R.id.loading);
+            sd = (TextView) root.findViewById( R.id.sd);
+        }
+    }
+ //( index .Fields 0).ViewClass
 
     public static class Msg_RowAllMe {
         public LinearLayout root;
@@ -929,7 +946,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class Msg_RowAllPeer {
         public LinearLayout root;
@@ -943,7 +960,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class Msg_RowAudioMe {
         public LinearLayout root;
@@ -955,7 +972,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class Msg_RowAudioPeer {
         public LinearLayout root;
@@ -967,7 +984,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class Msg_RowContactMe {
         public LinearLayout root;
@@ -979,7 +996,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class Msg_RowContactPeer {
         public LinearLayout root;
@@ -991,7 +1008,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class Msg_RowFileMe {
         public LinearLayout root;
@@ -1003,7 +1020,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class Msg_RowFilePeer {
         public LinearLayout root;
@@ -1015,12 +1032,12 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class Msg_RowImageMe {
         public LinearLayout root;
         public LinearLayout msg_content_holder;
-        public SimpleDraweeView msg_image;
+        public ChatMediaNetworkLoader image_holder;
         public EmojiconTextView msg_text;
         public TextView msg_time;
         public TextView msg_delivery_status;
@@ -1028,7 +1045,7 @@ public class X {
         public Msg_RowImageMe(ViewGroup parent) {
             root = (LinearLayout) AppUtil.inflate(R.layout.msg__row_image_me,parent);
             msg_content_holder = (LinearLayout) root.findViewById( R.id.msg_content_holder);
-            msg_image = (SimpleDraweeView) root.findViewById( R.id.msg_image);
+            image_holder = (ChatMediaNetworkLoader) root.findViewById( R.id.image_holder);
             msg_text = (EmojiconTextView) root.findViewById( R.id.msg_text);
             msg_time = (TextView) root.findViewById( R.id.msg_time);
             msg_delivery_status = (TextView) root.findViewById( R.id.msg_delivery_status);
@@ -1037,7 +1054,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class Msg_RowImagePeer {
         public LinearLayout root;
@@ -1057,7 +1074,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class Msg_RowLocationMe {
         public LinearLayout root;
@@ -1069,7 +1086,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class Msg_RowLocationPeer {
         public LinearLayout root;
@@ -1081,7 +1098,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class Msg_RowNotSupportedPeer {
         public LinearLayout root;
@@ -1097,7 +1114,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class Msg_RowPostMe {
         public LinearLayout root;
@@ -1109,7 +1126,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class Msg_RowPostPeer {
         public LinearLayout root;
@@ -1121,7 +1138,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class Msg_RowStickerMe {
         public LinearLayout root;
@@ -1133,7 +1150,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class Msg_RowStickerPeer {
         public LinearLayout root;
@@ -1145,7 +1162,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class Msg_RowSystem {
         public LinearLayout root;
@@ -1157,7 +1174,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class Msg_RowTextMe {
         public LinearLayout root;
@@ -1177,7 +1194,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class Msg_RowTextPeer {
         public LinearLayout root;
@@ -1195,7 +1212,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class Msg_RowVideoMe {
         public LinearLayout root;
@@ -1217,33 +1234,33 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class Msg_SharedTime {
-        public TextView root;
+        public ViewGroup root;
         public TextView msg_time;
 
         public Msg_SharedTime(ViewGroup parent) {
-            root = (TextView) AppUtil.inflate(R.layout.msg__shared_time,parent,true);//for Compound Views
+            root = (ViewGroup) AppUtil.inflate(R.layout.msg__shared_time,parent,true);//for Compound Views
             
             msg_time = (TextView) root.findViewById( R.id.msg_time);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class Msg_SharedTimeAndDelivery {
-        public LinearLayout root;
+        public ViewGroup root;
         public TextView msg_time;
         public TextView msg_delivery_status;
 
         public Msg_SharedTimeAndDelivery(ViewGroup parent) {
-            root = (LinearLayout) AppUtil.inflate(R.layout.msg__shared_time_and_delivery,parent,true);//for Compound Views
+            root = (ViewGroup) AppUtil.inflate(R.layout.msg__shared_time_and_delivery,parent,true);//for Compound Views
             
             msg_time = (TextView) root.findViewById( R.id.msg_time);
             msg_delivery_status = (TextView) root.findViewById( R.id.msg_delivery_status);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class Msg_SharedTimeStatus {
         public LinearLayout root;
@@ -1259,7 +1276,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class Nav_IconHolder {
         public FrameLayout root;
@@ -1273,7 +1290,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class NavHeaderPagerMenu {
         public LinearLayout root;
@@ -1291,7 +1308,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class NotifyCell {
         public LinearLayout root;
@@ -1315,7 +1332,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class NotifyNotSuportedCell {
         public LinearLayout root;
@@ -1327,7 +1344,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class Page_PostSingleEntry {
         public LinearLayout root;
@@ -1345,7 +1362,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class Pager_CellNavLinearView {
         public LinearLayout root;
@@ -1359,7 +1376,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class Pager_NavRecyclerviewWithRefresher {
         public LinearLayout root;
@@ -1377,7 +1394,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class Pager_RecyclerviewWithRefresher {
         public SwipeRefreshLayout root;
@@ -1393,7 +1410,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class PlayActivityFontsScrolling {
         public ScrollView root;
@@ -1407,7 +1424,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class PlayMainPopup {
         public LinearLayout root;
@@ -1431,7 +1448,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class PlayRecipies {
         public LinearLayout root;
@@ -1447,7 +1464,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class Post_SingleEntryHolder {
         public FrameLayout root;
@@ -1461,7 +1478,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class PresenterCommonts {
         public RelativeLayout root;
@@ -1481,7 +1498,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class PresenterGalleryChooser {
         public LinearLayout root;
@@ -1497,7 +1514,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class PresenterGeneralUserListTypeFollow {
         public LinearLayout root;
@@ -1515,7 +1532,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class PresenterListContactsFollowings {
         public LinearLayout root;
@@ -1543,7 +1560,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class PresenterProfile {
         public LinearLayout root;
@@ -1557,7 +1574,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class PresenterTopTags {
         public RelativeLayout root;
@@ -1579,7 +1596,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class PreseterHomeStream {
         public RelativeLayout root;
@@ -1599,7 +1616,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class ProfileTopInfo {
         public LinearLayout root;
@@ -1635,7 +1652,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class RecentImagesImageItem {
         public FrameLayout root;
@@ -1653,7 +1670,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class Recommendation_UserRow {
         public RelativeLayout root;
@@ -1679,7 +1696,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class RowPostStream {
         public RelativeLayout root;
@@ -1711,7 +1728,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class RowTagSimple {
         public RelativeLayout root;
@@ -1729,7 +1746,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class RowUsersContacts {
         public LinearLayout root;
@@ -1749,7 +1766,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class Rv_EmptyNote {
         public RelativeLayout root;
@@ -1765,7 +1782,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class Rv_FailedReload {
         public RelativeLayout root;
@@ -1781,7 +1798,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class TabCellGeneral {
         public LinearLayout root;
@@ -1797,7 +1814,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class TitleInfo {
         public RelativeLayout root;
@@ -1811,7 +1828,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class TitleInfoLight {
         public RelativeLayout root;
@@ -1825,7 +1842,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class TitleStringClickable {
         public RelativeLayout root;
@@ -1841,7 +1858,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class ViewRecyclerView {
         public RecyclerView root;
@@ -1853,7 +1870,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class Widget_PlaySample {
         public RelativeLayout root;
@@ -1873,7 +1890,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class WidgetAddSimpleText {
         public LinearLayout root;
@@ -1893,7 +1910,7 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class WidgetFullScreenImage {
         public RelativeLayout root;
@@ -1913,47 +1930,47 @@ public class X {
             this(null);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class WidgetGeneralUserListYtypeFollow {
-        public RecyclerView root;
+        public ViewGroup root;
         public RecyclerView recycler_view;
 
         public WidgetGeneralUserListYtypeFollow(ViewGroup parent) {
-            root = (RecyclerView) AppUtil.inflate(R.layout.widget_general_user_list_ytype_follow,parent,true);//for Compound Views
+            root = (ViewGroup) AppUtil.inflate(R.layout.widget_general_user_list_ytype_follow,parent,true);//for Compound Views
             
             recycler_view = (RecyclerView) root.findViewById( R.id.recycler_view);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class WidgetSimpleTopNav {
-        public TextView root;
+        public ViewGroup root;
         public TextView left_text;
         public TextView title_text;
 
         public WidgetSimpleTopNav(ViewGroup parent) {
-            root = (TextView) AppUtil.inflate(R.layout.widget_simple_top_nav,parent,true);//for Compound Views
+            root = (ViewGroup) AppUtil.inflate(R.layout.widget_simple_top_nav,parent,true);//for Compound Views
             
             left_text = (TextView) root.findViewById( R.id.left_text);
             title_text = (TextView) root.findViewById( R.id.title_text);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class WidgetTextAndIcon {
-        public TextView root;
+        public ViewGroup root;
         public TextView text;
         public TextView icon;
 
         public WidgetTextAndIcon(ViewGroup parent) {
-            root = (TextView) AppUtil.inflate(R.layout.widget_text_and_icon,parent,true);//for Compound Views
+            root = (ViewGroup) AppUtil.inflate(R.layout.widget_text_and_icon,parent,true);//for Compound Views
             
             text = (TextView) root.findViewById( R.id.text);
             icon = (TextView) root.findViewById( R.id.icon);
         }
     }
-
+ //( index .Fields 0).ViewClass
 
     public static class WigetUserListTypeFollowRow {
         public UserListGeneralFollowRowWhithBorderLinearLayout root;
