@@ -111,7 +111,7 @@ public abstract class EndlessRecyclerViewScrollListener_BK extends RecyclerView.
 			}
 		}
 		// If it’s still loadingView, we check to see if the dataset count has
-		// changed, if so we conclude it has finished loadingView and update the current page
+		// changed, if so we conclude it has finished loadingView and onDownloadProgress the current page
 		// number and total item count.
 		if (loading && (totalItemCount > previousTotalItemCount)) {
 			//Me: i have changed this line many times, if there is wired thinhs in pagination its po

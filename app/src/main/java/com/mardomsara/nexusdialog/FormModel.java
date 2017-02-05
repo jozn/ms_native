@@ -15,7 +15,7 @@ public abstract class FormModel extends Fragment {
 
     /**
      * This method is called when a form element changes its value through user input or external changes. Subclasses
-     * must implement this method to update the backing model.
+     * must implement this method to onDownloadProgress the backing model.
      *
      * @param name      the field name to set the value for
      * @param newValue  the value to set

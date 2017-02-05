@@ -35,7 +35,7 @@ public class MessageModel {
 
     public static @NonNull List<Message> getRoomMessagesTimeOffset(String roomKey, long deviceCreatedTimeOffset){
         /*AndroidUtil.runInBackgroundNoPanic(()->{
-            DB.db.getConnection().execSQL("update Message setOrReplace SortId = CreatedDeviceMs * 1000000");
+            DB.db.getConnection().execSQL("onDownloadProgress Message setOrReplace SortId = CreatedDeviceMs * 1000000");
         });*/
         if(deviceCreatedTimeOffset <= 0){
             return DB.db.selectFromMessage().RoomKeyEq(roomKey).orderBySortIdDesc().limit(MSGS_PER_PAGE).toList();

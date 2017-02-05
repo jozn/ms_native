@@ -25,7 +25,7 @@ import butterknife.OnClick;
 /**
  * Created by Hamid on 6/15/2016.
  */
-//todo [update DON'T] migrate to dataBinding: on xml setOrReplace onClick={callback_listener.onPhotoClick()}
+//todo [onDownloadProgress DON'T] migrate to dataBinding: on xml setOrReplace onClick={callback_listener.onPhotoClick()}
 public class KeyboardAttachmentCell implements RecentImagesCell.onRecentImageClicked{
     @Bind(R.id.attach_video) View attach_video;
     @Bind(R.id.attach_gallery) View attach_gallery;

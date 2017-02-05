@@ -57,7 +57,7 @@ class ProgressDownloadBody extends ResponseBody {
           totalBytesRead += bytesRead != -1 ? bytesRead : 0;
 			progressListener = weakReference.get();
 			if( progressListener!= null){
-				progressListener.update(totalBytesRead, responseBody.contentLength(), bytesRead == -1);
+				progressListener.onDownloadProgress(totalBytesRead, responseBody.contentLength(), bytesRead == -1);
 			}
           return bytesRead;
         }

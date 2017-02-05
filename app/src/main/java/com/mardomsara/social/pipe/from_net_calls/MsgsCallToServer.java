@@ -61,7 +61,7 @@ public class MsgsCallToServer {
 			.setFormParam("message", JsonUtil.toJson(msg))
 			.setUploadProgress(new UploadProgressListener() {
 				@Override
-				public void update(long bytesRead, long contentLength, boolean done) {
+				public void onUploadProgress(long bytesRead, long contentLength, boolean done) {
 					AppUtil.log("progress: "+ bytesRead + " " + contentLength + " " + done );
 				}
 			})

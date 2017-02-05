@@ -57,7 +57,7 @@ public class ProgressRequestBody extends RequestBody {
         public void write(Buffer source, long byteCount) throws IOException {
             super.write(source, byteCount);
             bytesWritten += byteCount;
-            mListener.update(bytesWritten, contentLength(), bytesWritten>= contentLength());
+            mListener.onUploadProgress(bytesWritten, contentLength(), bytesWritten>= contentLength());
 //            mListener.onProgress((int) (100F * bytesWritten / contentLength()));
         }
     }

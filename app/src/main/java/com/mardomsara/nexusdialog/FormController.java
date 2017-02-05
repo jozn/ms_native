@@ -236,7 +236,7 @@ public class FormController {
             }
         }
 
-        // now that the view is setup, register a listener of the model to update the view on changes
+        // now that the view is setup, register a listener of the model to onDownloadProgress the view on changes
         registerFormModelListener();
     }
 

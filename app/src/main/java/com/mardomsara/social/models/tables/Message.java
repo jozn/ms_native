@@ -8,6 +8,8 @@ import com.github.gfx.android.orma.annotation.OnConflict;
 import com.github.gfx.android.orma.annotation.PrimaryKey;
 import com.github.gfx.android.orma.annotation.Table;
 import com.mardomsara.social.app.DB;
+import com.mardomsara.social.base.Http.listener.DownloadProgressListener;
+import com.mardomsara.social.base.Http.listener.UploadProgressListener;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.TimeUtil;
@@ -20,7 +22,7 @@ import com.mardomsara.social.models.memory_store.MemoryStore_Rooms;
  */
 //TOdo; addStart: IsSeenByPeer() IsRe....
 @Table
-public class Message  implements Comparable<Message> {
+public class Message  implements Comparable<Message>, UploadProgressListener,DownloadProgressListener {
 
 	@PrimaryKey(auto = false,autoincrement = false)
 	public long NanoId = 0;
@@ -210,5 +212,15 @@ public class Message  implements Comparable<Message> {
 		if(MsgFile!= null){
 			MsgFile.Status = msgFile_Status;
 		}
+	}
+
+	@Override
+	public void onDownloadProgress(long bytesRead, long contentLength, boolean done) {
+		
+	}
+
+	@Override
+	public void onUploadProgress(long bytesRead, long contentLength, boolean done) {
+
 	}
 }

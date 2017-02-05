@@ -196,7 +196,7 @@ public class RoomModel {
 
 			DB.db.transactionSync(()->{
 				DB.db.updateMessage()
-					.ISeenTime(now)//update
+					.ISeenTime(now)//onDownloadProgress
 					.RoomKeyEq(room.RoomKey)//where
 					.ISeenTimeEq(0)
 					.NanoIdGt(room.LastSeenTimeMs*1000000)

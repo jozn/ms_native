@@ -1437,7 +1437,7 @@ TestUtils:undefined,
 get batchedUpdates(){return require('ReactUpdates').batchedUpdates;},
 get cloneWithProps(){return require('cloneWithProps');},
 get createFragment(){return require('ReactFragment').create;},
-get update(){return require('update');}}},
+get onUploadProgress(){return require('onUploadProgress');}}},
 
 
 
@@ -11323,13 +11323,13 @@ if(process.env.NODE_ENV!=='production'){
 
 
 
-process.env.NODE_ENV!=='production'?warning(!callerName,'%s(...): Can only update a mounted or mounting component. '+'This usually means you called %s() on an unmounted component. '+'This is a no-op. Please check the code for the %s component.',callerName,callerName,publicInstance.constructor.displayName):undefined;}
+process.env.NODE_ENV!=='production'?warning(!callerName,'%s(...): Can only onUploadProgress a mounted or mounting component. '+'This usually means you called %s() on an unmounted component. '+'This is a no-op. Please check the code for the %s component.',callerName,callerName,publicInstance.constructor.displayName):undefined;}
 
 return null;}
 
 
 if(process.env.NODE_ENV!=='production'){
-process.env.NODE_ENV!=='production'?warning(ReactCurrentOwner.current==null,'%s(...): Cannot update during an existing state transition '+'(such as within `render`). Render methods should be a pure function '+'of props and state.',callerName):undefined;}
+process.env.NODE_ENV!=='production'?warning(ReactCurrentOwner.current==null,'%s(...): Cannot onUploadProgress during an existing state transition '+'(such as within `render`). Render methods should be a pure function '+'of props and state.',callerName):undefined;}
 
 
 return internalInstance;}
@@ -14035,7 +14035,7 @@ var globalUniqueId=filename+'$'+uniqueId;
 if(componentProxies[globalUniqueId]){
 (function(){
 console.info('[React Transform HMR] Patching '+displayName);
-var instances=componentProxies[globalUniqueId].update(ReactClass);
+var instances=componentProxies[globalUniqueId].onUploadProgress(ReactClass);
 setTimeout(function(){
 return instances.forEach(forceUpdate);});})();}else 
 
@@ -14065,7 +14065,7 @@ var _createClassProxy=require('react-proxy/modules/createClassProxy.js');
 
 var _createClassProxy2=_interopRequireDefault(_createClassProxy);
 
-var _reactDeepForceUpdate=require('react-deep-force-update/lib/index.js');
+var _reactDeepForceUpdate=require('react-deep-force-onUploadProgress/lib/index.js');
 
 var _reactDeepForceUpdate2=_interopRequireDefault(_reactDeepForceUpdate);
 
@@ -14177,21 +14177,21 @@ ProxyClass.toString=function toString(){
 return CurrentClass.toString();};
 
 
-function update(NextClass){
+function onUploadProgress(NextClass){
 if(typeof NextClass!=='function'){
 throw new Error('Expected a constructor.');}
 
 
 
 if(Object.prototype.hasOwnProperty.call(NextClass,'__reactPatchProxy')){
-return update(NextClass.__reactPatchProxy.__getCurrent());}
+return onUploadProgress(NextClass.__reactPatchProxy.__getCurrent());}
 
 
 
 CurrentClass=NextClass;
 
 
-var mountedInstances=prototypeProxy.update(NextClass.prototype);
+var mountedInstances=prototypeProxy.onUploadProgress(NextClass.prototype);
 
 
 ProxyClass.prototype.constructor=ProxyClass;
@@ -14259,9 +14259,9 @@ function getCurrent(){
 return CurrentClass;}
 
 
-update(InitialClass);
+onUploadProgress(InitialClass);
 
-var proxy={get:get,update:update};
+var proxy={get:get,onUploadProgress:onUploadProgress};
 
 Object.defineProperty(proxy,'__getCurrent',{
 configurable:false,
@@ -14287,7 +14287,7 @@ return {
 get:function get(){
 return CurrentComponent;},
 
-update:function update(NextComponent){
+onUploadProgress:function onUploadProgress(NextComponent){
 CurrentComponent=NextComponent;}};}
 
 
@@ -14423,7 +14423,7 @@ return __reactAutoBindMap;}
 
 
 
-function update(next){
+function onUploadProgress(next){
 
 current=next;
 
@@ -14468,7 +14468,7 @@ return proxy;}
 
 
 return {
-update:update,
+onUploadProgress:onUploadProgress,
 get:get};}
 
 ;
@@ -15690,7 +15690,7 @@ names.forEach(function(name){
 if(shouldDeleteInstanceMethod(component,name)){
 delete component[name];}});}
 });
-__d('react-deep-force-update/lib/index.js',function(global, require, module, exports) {  "use strict";
+__d('react-deep-force-onUploadProgress/lib/index.js',function(global, require, module, exports) {  "use strict";
 
 exports.__esModule=true;
 exports["default"]=getForceUpdate;
@@ -17620,20 +17620,20 @@ var byContainerTag={};
 
 
 for(var i=0;i<childrenUpdates.length;i++){
-var update=childrenUpdates[i];
-var containerTag=ReactNativeTagHandles.mostRecentMountedNodeHandleForRootNodeID(update.parentID);
+var onUploadProgress=childrenUpdates[i];
+var containerTag=ReactNativeTagHandles.mostRecentMountedNodeHandleForRootNodeID(onUploadProgress.parentID);
 var updates=byContainerTag[containerTag]||(byContainerTag[containerTag]={});
-if(update.type===ReactMultiChildUpdateTypes.MOVE_EXISTING){
-(updates.moveFromIndices||(updates.moveFromIndices=[])).push(update.fromIndex);
-(updates.moveToIndices||(updates.moveToIndices=[])).push(update.toIndex);}else 
-if(update.type===ReactMultiChildUpdateTypes.REMOVE_NODE){
-(updates.removeAtIndices||(updates.removeAtIndices=[])).push(update.fromIndex);}else 
-if(update.type===ReactMultiChildUpdateTypes.INSERT_MARKUP){
-var mountImage=markupList[update.markupIndex];
+if(onUploadProgress.type===ReactMultiChildUpdateTypes.MOVE_EXISTING){
+(updates.moveFromIndices||(updates.moveFromIndices=[])).push(onUploadProgress.fromIndex);
+(updates.moveToIndices||(updates.moveToIndices=[])).push(onUploadProgress.toIndex);}else
+if(onUploadProgress.type===ReactMultiChildUpdateTypes.REMOVE_NODE){
+(updates.removeAtIndices||(updates.removeAtIndices=[])).push(onUploadProgress.fromIndex);}else
+if(onUploadProgress.type===ReactMultiChildUpdateTypes.INSERT_MARKUP){
+var mountImage=markupList[onUploadProgress.markupIndex];
 var tag=mountImage.tag;
 var rootNodeID=mountImage.rootNodeID;
 ReactNativeTagHandles.associateRootNodeIDWithMountedNodeHandle(rootNodeID,tag);
-(updates.addAtIndices||(updates.addAtIndices=[])).push(update.toIndex);
+(updates.addAtIndices||(updates.addAtIndices=[])).push(onUploadProgress.toIndex);
 (updates.addChildTags||(updates.addChildTags=[])).push(tag);}}
 
 
@@ -27023,7 +27023,7 @@ ReactComponent.prototype.isReactComponent={};
 
 
 ReactComponent.prototype.setState=function(partialState,callback){
-!(typeof partialState==='object'||typeof partialState==='function'||partialState==null)?process.env.NODE_ENV!=='production'?invariant(false,'setState(...): takes an object of state variables to update or a '+'function which returns an object of state variables.'):invariant(false):undefined;
+!(typeof partialState==='object'||typeof partialState==='function'||partialState==null)?process.env.NODE_ENV!=='production'?invariant(false,'setState(...): takes an object of state variables to onUploadProgress or a '+'function which returns an object of state variables.'):invariant(false):undefined;
 if(process.env.NODE_ENV!=='production'){
 process.env.NODE_ENV!=='production'?warning(partialState!=null,'setState(...): You passed an undefined or null state object; '+'instead, use forceUpdate().'):undefined;}
 
@@ -27103,7 +27103,7 @@ var warning=require('warning');
 
 function warnTDZ(publicInstance,callerName){
 if(process.env.NODE_ENV!=='production'){
-process.env.NODE_ENV!=='production'?warning(false,'%s(...): Can only update a mounted or mounting component. '+'This usually means you called %s() on an unmounted component. '+'This is a no-op. Please check the code for the %s component.',callerName,callerName,publicInstance.constructor&&publicInstance.constructor.displayName||''):undefined;}}
+process.env.NODE_ENV!=='production'?warning(false,'%s(...): Can only onUploadProgress a mounted or mounting component. '+'This usually means you called %s() on an unmounted component. '+'This is a no-op. Please check the code for the %s component.',callerName,callerName,publicInstance.constructor&&publicInstance.constructor.displayName||''):undefined;}}
 
 
 
@@ -36698,7 +36698,7 @@ Map.prototype.deleteIn=function(keyPath){
 return this.updateIn(keyPath,function(){return NOT_SET;});};
 
 
-Map.prototype.update=function(k,notSetValue,updater){
+Map.prototype.onUploadProgress=function(k,notSetValue,updater){
 return arguments.length===1?
 k(this):
 this.updateIn([k],notSetValue,updater);};
@@ -36859,7 +36859,7 @@ return entries[ii][1];}}
 return notSetValue;};
 
 
-ArrayMapNode.prototype.update=function(ownerID,shift,keyHash,key,value,didChangeSize,didAlter){
+ArrayMapNode.prototype.onUploadProgress=function(ownerID,shift,keyHash,key,value,didChangeSize,didAlter){
 var removed=value===NOT_SET;
 
 var entries=this.entries;
@@ -36926,7 +36926,7 @@ return (bitmap&bit)===0?notSetValue:
 this.nodes[popCount(bitmap&bit-1)].get(shift+SHIFT,keyHash,key,notSetValue);};
 
 
-BitmapIndexedNode.prototype.update=function(ownerID,shift,keyHash,key,value,didChangeSize,didAlter){
+BitmapIndexedNode.prototype.onUploadProgress=function(ownerID,shift,keyHash,key,value,didChangeSize,didAlter){
 if(keyHash===undefined){
 keyHash=hash(key);}
 
@@ -36994,7 +36994,7 @@ var node=this.nodes[idx];
 return node?node.get(shift+SHIFT,keyHash,key,notSetValue):notSetValue;};
 
 
-HashArrayMapNode.prototype.update=function(ownerID,shift,keyHash,key,value,didChangeSize,didAlter){
+HashArrayMapNode.prototype.onUploadProgress=function(ownerID,shift,keyHash,key,value,didChangeSize,didAlter){
 if(keyHash===undefined){
 keyHash=hash(key);}
 
@@ -37053,7 +37053,7 @@ return entries[ii][1];}}
 return notSetValue;};
 
 
-HashCollisionNode.prototype.update=function(ownerID,shift,keyHash,key,value,didChangeSize,didAlter){
+HashCollisionNode.prototype.onUploadProgress=function(ownerID,shift,keyHash,key,value,didChangeSize,didAlter){
 if(keyHash===undefined){
 keyHash=hash(key);}
 
@@ -37123,7 +37123,7 @@ ValueNode.prototype.get=function(shift,keyHash,key,notSetValue){
 return is(key,this.entry[0])?this.entry[1]:notSetValue;};
 
 
-ValueNode.prototype.update=function(ownerID,shift,keyHash,key,value,didChangeSize,didAlter){
+ValueNode.prototype.onUploadProgress=function(ownerID,shift,keyHash,key,value,didChangeSize,didAlter){
 var removed=value===NOT_SET;
 var keyMatch=is(key,this.entry[0]);
 if(keyMatch?value===this.entry[1]:removed){
@@ -37285,7 +37285,7 @@ SetRef(didAlter);
 SetRef(didChangeSize);
 return new ValueNode(ownerID,keyHash,[key,value]);}
 
-return node.update(ownerID,shift,keyHash,key,value,didChangeSize,didAlter);}
+return node.onUploadProgress(ownerID,shift,keyHash,key,value,didChangeSize,didAlter);}
 
 
 function isLeafNode(node){
@@ -37315,7 +37315,7 @@ ownerID=new OwnerID();}
 var node=new ValueNode(ownerID,hash(key),[key,value]);
 for(var ii=0;ii<entries.length;ii++){
 var entry=entries[ii];
-node=node.update(ownerID,0,undefined,entry[0],entry[1]);}
+node=node.onUploadProgress(ownerID,0,undefined,entry[0],entry[1]);}
 
 return node;}
 
@@ -37384,7 +37384,7 @@ return collection.constructor(iters[0]);}
 return collection.withMutations(function(collection){
 var mergeIntoMap=merger?
 function(value,key){
-collection.update(key,NOT_SET,function(existing)
+collection.onUploadProgress(key,NOT_SET,function(existing)
 {return existing===NOT_SET?value:merger(existing,value,key);});}:
 
 
@@ -37670,7 +37670,7 @@ ListPrototype[DELETE]=ListPrototype.remove;
 ListPrototype.setIn=MapPrototype.setIn;
 ListPrototype.deleteIn=
 ListPrototype.removeIn=MapPrototype.removeIn;
-ListPrototype.update=MapPrototype.update;
+ListPrototype.onUploadProgress=MapPrototype.onUploadProgress;
 ListPrototype.updateIn=MapPrototype.updateIn;
 ListPrototype.mergeIn=MapPrototype.mergeIn;
 ListPrototype.mergeDeepIn=MapPrototype.mergeDeepIn;
@@ -38547,7 +38547,7 @@ return filterSequence;}
 function countByFactory(iterable,grouper,context){
 var groups=Map().asMutable();
 iterable.__iterate(function(v,k){
-groups.update(
+groups.onUploadProgress(
 grouper.call(context,v,k,iterable),
 0,
 function(a){return a+1;});});
@@ -38561,7 +38561,7 @@ function groupByFactory(iterable,grouper,context){
 var isKeyedIter=isKeyed(iterable);
 var groups=(isOrdered(iterable)?OrderedMap():Map()).asMutable();
 iterable.__iterate(function(v,k){
-groups.update(
+groups.onUploadProgress(
 grouper.call(context,v,k,iterable),
 function(a){return a=a||[],a.push(isKeyedIter?[k,v]:v),a;});});
 
@@ -39172,7 +39172,7 @@ RecordPrototype.mergeDeep=MapPrototype.mergeDeep;
 RecordPrototype.mergeDeepWith=MapPrototype.mergeDeepWith;
 RecordPrototype.mergeDeepIn=MapPrototype.mergeDeepIn;
 RecordPrototype.setIn=MapPrototype.setIn;
-RecordPrototype.update=MapPrototype.update;
+RecordPrototype.onUploadProgress=MapPrototype.onUploadProgress;
 RecordPrototype.updateIn=MapPrototype.updateIn;
 RecordPrototype.withMutations=MapPrototype.withMutations;
 RecordPrototype.asMutable=MapPrototype.asMutable;
@@ -45731,7 +45731,7 @@ if(this.props.selectionState||this.props.onSelectionChange){
 onSelectionChange=function(event){
 if(_this2.props.selectionState){
 var selection=event.nativeEvent.selection;
-_this2.props.selectionState.update(selection.start,selection.end);}
+_this2.props.selectionState.onUploadProgress(selection.start,selection.end);}
 
 _this2.props.onSelectionChange&&_this2.props.onSelectionChange(event);};}
 
@@ -45955,7 +45955,7 @@ DocumentSelectionState=function(){
 function DocumentSelectionState(anchor,focus){babelHelpers.classCallCheck(this,DocumentSelectionState);
 this._anchorOffset=anchor;
 this._focusOffset=focus;
-this._hasFocus=false;}babelHelpers.createClass(DocumentSelectionState,[{key:'update',value:function update(
+this._hasFocus=false;}babelHelpers.createClass(DocumentSelectionState,[{key:'onUploadProgress',value:function onUploadProgress(
 
 
 
@@ -45969,7 +45969,7 @@ anchor,focus){
 if(this._anchorOffset!==anchor||this._focusOffset!==focus){
 this._anchorOffset=anchor;
 this._focusOffset=focus;
-this.emit('update');}}},{key:'constrainLength',value:function constrainLength(
+this.emit('onUploadProgress');}}},{key:'constrainLength',value:function constrainLength(
 
 
 
@@ -45980,7 +45980,7 @@ this.emit('update');}}},{key:'constrainLength',value:function constrainLength(
 
 
 maxLength){
-this.update(
+this.onUploadProgress(
 Math.min(this._anchorOffset,maxLength),
 Math.min(this._focusOffset,maxLength));}},{key:'focus',value:function focus()
 
@@ -46069,7 +46069,7 @@ this.getStartOffset()<=end&&start<=this.getEndOffset());}}]);return DocumentSele
 mixInEventEmitter(DocumentSelectionState,{
 'blur':true,
 'focus':true,
-'update':true});
+'onUploadProgress':true});
 
 
 module.exports=DocumentSelectionState;
@@ -47958,14 +47958,14 @@ return this._children;}}]);return AnimatedWithChildren;}(Animated);
 function _flush(rootNode){
 var animatedStyles=new Set();
 function findAnimatedStyles(node){
-if(typeof node.update==='function'){
+if(typeof node.onUploadProgress==='function'){
 animatedStyles.add(node);}else 
 {
 node.__getChildren().forEach(findAnimatedStyles);}}
 
 
 findAnimatedStyles(rootNode);
-animatedStyles.forEach(function(animatedStyle){return animatedStyle.update();});}
+animatedStyles.forEach(function(animatedStyle){return animatedStyle.onUploadProgress();});}
 
 
 
@@ -48910,7 +48910,7 @@ value.__addChild(this);}}}},{key:'__detach',value:function __detach()
 for(var key in this._props){
 var value=this._props[key];
 if(value instanceof Animated){
-value.__removeChild(this);}}}},{key:'update',value:function update()
+value.__removeChild(this);}}}},{key:'onUploadProgress',value:function onUploadProgress()
 
 
 
@@ -49038,7 +49038,7 @@ this._parent.__addChild(this);}},{key:'__detach',value:function __detach()
 
 
 {
-this._parent.__removeChild(this);}},{key:'update',value:function update()
+this._parent.__removeChild(this);}},{key:'onUploadProgress',value:function onUploadProgress()
 
 
 {
@@ -52726,21 +52726,21 @@ var mountID=ReactMount.getID(args[1]);
 ReactDefaultPerf._recordWrite(mountID,fnName,totalTime,args[0]);}else 
 if(fnName==='dangerouslyProcessChildrenUpdates'){
 
-args[0].forEach(function(update){
+args[0].forEach(function(onUploadProgress){
 var writeArgs={};
-if(update.fromIndex!==null){
-writeArgs.fromIndex=update.fromIndex;}
+if(onUploadProgress.fromIndex!==null){
+writeArgs.fromIndex=onUploadProgress.fromIndex;}
 
-if(update.toIndex!==null){
-writeArgs.toIndex=update.toIndex;}
+if(onUploadProgress.toIndex!==null){
+writeArgs.toIndex=onUploadProgress.toIndex;}
 
-if(update.textContent!==null){
-writeArgs.textContent=update.textContent;}
+if(onUploadProgress.textContent!==null){
+writeArgs.textContent=onUploadProgress.textContent;}
 
-if(update.markupIndex!==null){
-writeArgs.markup=args[1][update.markupIndex];}
+if(onUploadProgress.markupIndex!==null){
+writeArgs.markup=args[1][onUploadProgress.markupIndex];}
 
-ReactDefaultPerf._recordWrite(update.parentID,update.type,totalTime,writeArgs);});}else 
+ReactDefaultPerf._recordWrite(onUploadProgress.parentID,onUploadProgress.type,totalTime,writeArgs);});}else
 
 {
 
@@ -53061,10 +53061,10 @@ MOVE_EXISTING:'move',
 REMOVE_NODE:'remove',
 SET_MARKUP:'set innerHTML',
 TEXT_CONTENT:'set textContent',
-'setValueForProperty':'update attribute',
-'setValueForAttribute':'update attribute',
+'setValueForProperty':'onUploadProgress attribute',
+'setValueForAttribute':'onUploadProgress attribute',
 'deleteValueForProperty':'remove attribute',
-'setValueForStyles':'update styles',
+'setValueForStyles':'onUploadProgress styles',
 'replaceNodeWithMarkup':'replace',
 'updateTextContent':'set textContent'};
 
@@ -53773,7 +53773,7 @@ var containerHasReactMarkup=reactRootElement&&!!internalGetID(reactRootElement);
 var containerHasNonRootReactChild=hasNonRootReactChild(container);
 
 if(process.env.NODE_ENV!=='production'){
-process.env.NODE_ENV!=='production'?warning(!containerHasNonRootReactChild,'render(...): Replacing React-rendered children with a new root '+'component. If you intended to update the children of this node, '+'you should instead have the existing children update their state '+'and render the new components instead of calling ReactDOM.render.'):undefined;
+process.env.NODE_ENV!=='production'?warning(!containerHasNonRootReactChild,'render(...): Replacing React-rendered children with a new root '+'component. If you intended to onUploadProgress the children of this node, '+'you should instead have the existing children onUploadProgress their state '+'and render the new components instead of calling ReactDOM.render.'):undefined;
 
 if(!containerHasReactMarkup||reactRootElement.nextSibling){
 var rootElementSibling=reactRootElement;
@@ -53861,7 +53861,7 @@ var containerID=internalGetID(container);
 var isContainerReactRoot=containerID&&containerID===ReactInstanceHandles.getReactRootIDFromNodeID(containerID);
 
 if(process.env.NODE_ENV!=='production'){
-process.env.NODE_ENV!=='production'?warning(!containerHasNonRootReactChild,'unmountComponentAtNode(): The node you\'re attempting to unmount '+'was rendered by React and is not a top-level container. %s',isContainerReactRoot?'You may have accidentally passed in a React root node instead '+'of its container.':'Instead, have the parent component update its state and '+'rerender in order to remove this component.'):undefined;}
+process.env.NODE_ENV!=='production'?warning(!containerHasNonRootReactChild,'unmountComponentAtNode(): The node you\'re attempting to unmount '+'was rendered by React and is not a top-level container. %s',isContainerReactRoot?'You may have accidentally passed in a React root node instead '+'of its container.':'Instead, have the parent component onUploadProgress its state and '+'rerender in order to remove this component.'):undefined;}
 
 
 return false;}
@@ -55935,7 +55935,7 @@ Object.keys(Properties))});
 var configChecker=createStrictShapeTypeChecker({
 duration:PropTypes.number.isRequired,
 create:animChecker,
-update:animChecker,
+onUploadProgress:animChecker,
 delete:animChecker});
 
 
@@ -55960,7 +55960,7 @@ create:{
 type:type,
 property:creationProp},
 
-update:{
+onUploadProgress:{
 type:type}};}
 
 
@@ -55979,7 +55979,7 @@ create:{
 type:Types.linear,
 property:Properties.opacity},
 
-update:{
+onUploadProgress:{
 type:Types.spring,
 springDamping:0.4}}};
 
@@ -57785,7 +57785,7 @@ return result;}};
 
 module.exports=ReactFragment;
 });
-__d('update',function(global, require, module, exports) {  'use strict';
+__d('onUploadProgress',function(global, require, module, exports) {  'use strict';
 
 
 
@@ -57831,13 +57831,13 @@ ALL_COMMANDS_SET[command]=true;});
 
 
 function invariantArrayCase(value,spec,command){
-!Array.isArray(value)?process.env.NODE_ENV!=='production'?invariant(false,'update(): expected target of %s to be an array; got %s.',command,value):invariant(false):undefined;
+!Array.isArray(value)?process.env.NODE_ENV!=='production'?invariant(false,'onUploadProgress(): expected target of %s to be an array; got %s.',command,value):invariant(false):undefined;
 var specValue=spec[command];
-!Array.isArray(specValue)?process.env.NODE_ENV!=='production'?invariant(false,'update(): expected spec of %s to be an array; got %s. '+'Did you forget to wrap your parameter in an array?',command,specValue):invariant(false):undefined;}
+!Array.isArray(specValue)?process.env.NODE_ENV!=='production'?invariant(false,'onUploadProgress(): expected spec of %s to be an array; got %s. '+'Did you forget to wrap your parameter in an array?',command,specValue):invariant(false):undefined;}
 
 
-function update(value,spec){
-!(typeof spec==='object')?process.env.NODE_ENV!=='production'?invariant(false,'update(): You provided a key path to update() that did not contain one '+'of %s. Did you forget to include {%s: ...}?',ALL_COMMANDS_LIST.join(', '),COMMAND_SET):invariant(false):undefined;
+function onUploadProgress(value,spec){
+!(typeof spec==='object')?process.env.NODE_ENV!=='production'?invariant(false,'onUploadProgress(): You provided a key path to onUploadProgress() that did not contain one '+'of %s. Did you forget to include {%s: ...}?',ALL_COMMANDS_LIST.join(', '),COMMAND_SET):invariant(false):undefined;
 
 if(hasOwnProperty.call(spec,COMMAND_SET)){
 !(Object.keys(spec).length===1)?process.env.NODE_ENV!=='production'?invariant(false,'Cannot have more than one key in an object with %s',COMMAND_SET):invariant(false):undefined;
@@ -57849,8 +57849,8 @@ var nextValue=shallowCopy(value);
 
 if(hasOwnProperty.call(spec,COMMAND_MERGE)){
 var mergeObj=spec[COMMAND_MERGE];
-!(mergeObj&&typeof mergeObj==='object')?process.env.NODE_ENV!=='production'?invariant(false,'update(): %s expects a spec of type \'object\'; got %s',COMMAND_MERGE,mergeObj):invariant(false):undefined;
-!(nextValue&&typeof nextValue==='object')?process.env.NODE_ENV!=='production'?invariant(false,'update(): %s expects a target of type \'object\'; got %s',COMMAND_MERGE,nextValue):invariant(false):undefined;
+!(mergeObj&&typeof mergeObj==='object')?process.env.NODE_ENV!=='production'?invariant(false,'onUploadProgress(): %s expects a spec of type \'object\'; got %s',COMMAND_MERGE,mergeObj):invariant(false):undefined;
+!(nextValue&&typeof nextValue==='object')?process.env.NODE_ENV!=='production'?invariant(false,'onUploadProgress(): %s expects a target of type \'object\'; got %s',COMMAND_MERGE,nextValue):invariant(false):undefined;
 assign(nextValue,spec[COMMAND_MERGE]);}
 
 
@@ -57870,28 +57870,28 @@ nextValue.unshift(item);});}
 
 if(hasOwnProperty.call(spec,COMMAND_SPLICE)){
 !Array.isArray(value)?process.env.NODE_ENV!=='production'?invariant(false,'Expected %s target to be an array; got %s',COMMAND_SPLICE,value):invariant(false):undefined;
-!Array.isArray(spec[COMMAND_SPLICE])?process.env.NODE_ENV!=='production'?invariant(false,'update(): expected spec of %s to be an array of arrays; got %s. '+'Did you forget to wrap your parameters in an array?',COMMAND_SPLICE,spec[COMMAND_SPLICE]):invariant(false):undefined;
+!Array.isArray(spec[COMMAND_SPLICE])?process.env.NODE_ENV!=='production'?invariant(false,'onUploadProgress(): expected spec of %s to be an array of arrays; got %s. '+'Did you forget to wrap your parameters in an array?',COMMAND_SPLICE,spec[COMMAND_SPLICE]):invariant(false):undefined;
 spec[COMMAND_SPLICE].forEach(function(args){
-!Array.isArray(args)?process.env.NODE_ENV!=='production'?invariant(false,'update(): expected spec of %s to be an array of arrays; got %s. '+'Did you forget to wrap your parameters in an array?',COMMAND_SPLICE,spec[COMMAND_SPLICE]):invariant(false):undefined;
+!Array.isArray(args)?process.env.NODE_ENV!=='production'?invariant(false,'onUploadProgress(): expected spec of %s to be an array of arrays; got %s. '+'Did you forget to wrap your parameters in an array?',COMMAND_SPLICE,spec[COMMAND_SPLICE]):invariant(false):undefined;
 nextValue.splice.apply(nextValue,args);});}
 
 
 
 if(hasOwnProperty.call(spec,COMMAND_APPLY)){
-!(typeof spec[COMMAND_APPLY]==='function')?process.env.NODE_ENV!=='production'?invariant(false,'update(): expected spec of %s to be a function; got %s.',COMMAND_APPLY,spec[COMMAND_APPLY]):invariant(false):undefined;
+!(typeof spec[COMMAND_APPLY]==='function')?process.env.NODE_ENV!=='production'?invariant(false,'onUploadProgress(): expected spec of %s to be a function; got %s.',COMMAND_APPLY,spec[COMMAND_APPLY]):invariant(false):undefined;
 nextValue=spec[COMMAND_APPLY](nextValue);}
 
 
 for(var k in spec){
 if(!(ALL_COMMANDS_SET.hasOwnProperty(k)&&ALL_COMMANDS_SET[k])){
-nextValue[k]=update(value[k],spec[k]);}}
+nextValue[k]=onUploadProgress(value[k],spec[k]);}}
 
 
 
 return nextValue;}
 
 
-module.exports=update;
+module.exports=onUploadProgress;
 });
 __d('ReactTestUtils',function(global, require, module, exports) {  'use strict';
 

@@ -126,7 +126,7 @@ class ExpandTouchListener implements View.OnTouchListener {
     if (gravity == Gravity.TOP) {
       delta = -delta;
     }
-    //update the y value, otherwise delta will be incorrect
+    //onDownloadProgress the y value, otherwise delta will be incorrect
     y = event.getRawY();
 
     int newHeight = params.height + (int) delta;

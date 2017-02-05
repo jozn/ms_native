@@ -100,7 +100,7 @@ public class PostRowCell {
 			post.LikesCount += 1;
 			likeBtnShowLike();
 		}
-		//update view
+		//onDownloadProgress view
 		bind(post);
 	};
 
