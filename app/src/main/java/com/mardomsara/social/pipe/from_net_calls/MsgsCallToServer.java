@@ -54,7 +54,7 @@ public class MsgsCallToServer {
 		Pipe.sendCall(call,succ,null);
 	}
 
-	public static void sendNewPhoto(Message msg, File resizedFile,File fileOrginal, final boolean deleteOrginal){
+	public static void sendNewPhoto(Message msg, File resizedFile,File fileOriginal, final boolean deleteOrginal){
 		Http.upload("http://localhost:5000/msgs/v1/add_one",resizedFile)
 			.setFormParam("message", JsonUtil.toJson(msg))
 			.doAsync(
@@ -64,8 +64,8 @@ public class MsgsCallToServer {
 						msg.ToPush = 0;
 						msg.ServerReceivedTime = TimeUtil.getTime();
 						msg.saveWithRoom();
-						if(deleteOrginal == true &&  fileOrginal != null){
-							fileOrginal.delete();
+						if(deleteOrginal == true &&  fileOriginal != null){
+							fileOriginal.delete();
 						}
 
 						MsgReceivedToServerEvent.publishNew(msg);

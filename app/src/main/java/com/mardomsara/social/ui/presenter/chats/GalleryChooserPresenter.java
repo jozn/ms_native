@@ -291,7 +291,7 @@ public class GalleryChooserPresenter extends BasePresenter {
                     });
                 }else {//Video
                     AndroidUtil.runInUi(()->{//async
-                        chatEntryPresenter.onGalleryChoserVideoClicked(selectedReal);
+                        chatEntryPresenter.onGalleryChooserVideoClicked(selectedReal);
                     });
                 }
             }

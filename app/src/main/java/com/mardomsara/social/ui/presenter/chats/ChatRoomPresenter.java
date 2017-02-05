@@ -15,6 +15,7 @@ import com.mardomsara.social.App;
 import com.mardomsara.social.Nav;
 import com.mardomsara.social.app.AppFiles;
 import com.mardomsara.social.app.Constants;
+import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.FileUtil;
 import com.mardomsara.social.helpers.FormaterUtil;
@@ -197,16 +198,18 @@ public class ChatRoomPresenter extends BasePresenter implements
         x.edit_field.setText("");
         MessageModel.syncToServer(msg);
 
-        onHereAddedNewMsgEvent(msg);
+        onHereAddedNewMsgEvent_UI(msg);
     }
 
-    void onHereAddedNewMsgEvent(Message msg){
-        messages.addStart(msg);
-        messagesAdaptor.notifyContentItemInserted(0);
-        mLayoutManager.scrollToPosition(0);
+    void onHereAddedNewMsgEvent_UI(Message msg){
+		AndroidUtil.runInUiNoPanic(()->{
+			messages.addStart(msg);
+			messagesAdaptor.notifyContentItemInserted(0);
+			mLayoutManager.scrollToPosition(0);
 
-        MessageModel.didMsgAddedByMe(msg);
-		App.getBus().post(new RoomOrderChanged());
+			MessageModel.didMsgAddedByMe(msg);
+			App.getBus().post(new RoomOrderChanged());
+		});
     }
 
     public void showAttachmentWindow(){
@@ -318,7 +321,8 @@ public class ChatRoomPresenter extends BasePresenter implements
 		}
 	}
 
-    //keyboard listener
+	///////////////////////////////////////////////////
+    /////////////// Keyboard listener ////////////////
     @Override
     public void onCameraPhotoClick() {
         intentHelper = new IntentHelper();
@@ -326,7 +330,6 @@ public class ChatRoomPresenter extends BasePresenter implements
         file_uri =  intentHelper.captureImage(getActivity(), ATTACH_CAMERA_IMAGE,"back");
     }
 
-    ArrayList<String> selectedPhotos = new ArrayList<>();
     @Override
     public void onGalleryClick() {
         attachment_view.dismiss();
@@ -339,7 +342,6 @@ public class ChatRoomPresenter extends BasePresenter implements
     @Override
     public void onVideoClick() {
         attachment_view.dismiss();
-//        String $resizedPath = AppFiles.VIDEO_SENT_DIR_PATH+"VID_"+ FormaterUtil.getFullyYearToSecondsSolarName()+"$.mp4";
         String tempPath = AppFiles.APP_TEMP_DIR_PATH+"VID_"+ FormaterUtil.getFullyYearToSecondsSolarName()+"$.mp4";
         String resizedPath = FileUtil.createNextName(tempPath);
 
@@ -360,6 +362,7 @@ public class ChatRoomPresenter extends BasePresenter implements
     @Override
     public void onFileClick() {
 		comingSoon();
+		//keep this
 /*       Intent target = FileChooserFileUtils.createGetContentIntent();
 		Intent intent = Intent.createChooser(
 				target, "CCCCCCCC");
@@ -382,17 +385,21 @@ public class ChatRoomPresenter extends BasePresenter implements
     @Override
     public void onRecentImagesSendClicked(List<String> imagesPath){
         attachment_view.dismiss();
-        for(String image : imagesPath){
-            _sendMsgImage(image,false);
-        }
+		AndroidUtil.runInBackgroundNoPanic(()->{
+			for(String image : imagesPath){
+				_sendMsgImage(image,false);
+			}
+		});
     };
 
 
-    public void onGalleryChoserVideoClicked(List<String> videoPaths){
+    public void onGalleryChooserVideoClicked(List<String> videoPaths){
         attachment_view.dismiss();
-        for(String image : videoPaths){
-            _sendMsgVideo(image);
-        }
+		AndroidUtil.runInBackgroundNoPanic(()->{
+			for(String image : videoPaths){
+				_sendMsgVideo(image);
+			}
+		});
     };
 
     @Override
@@ -400,13 +407,9 @@ public class ChatRoomPresenter extends BasePresenter implements
         super.onActivityResult(requestCode, resultCode, data);
         logIt("onActivityResult: chat "+requestCode+ " " + resultCode+ Activity.RESULT_OK + " " +data);
         if(resultCode == Activity.RESULT_OK){
-//            logIt("onActivityResult: 11 ");
-
             switch (requestCode){
                 case ATTACH_CAMERA_IMAGE:
-//                    AndroidUtil.runInBackground(()->{createMsgPhotoFromCamera();});
                     createMsgPhotoFromCamera();
-//                    logIt("onActivityResult: 22 ");
                     break;
                 case ATTACH_CAMERA_VIDEO:
                     createMsgVideoFromCamera();
@@ -419,10 +422,7 @@ public class ChatRoomPresenter extends BasePresenter implements
     void createMsgPhotoFromCamera(){
         logIt("file_uri: "+ file_uri);
         if(file_uri == null)return;
-        String path = file_uri.getPath();
-        File file = new File(file_uri.getPath());
         _sendMsgImage(file_uri.getPath(),true);
-
     }
 
     void createMsgVideoFromCamera(){
@@ -434,7 +434,6 @@ public class ChatRoomPresenter extends BasePresenter implements
 
     void _sendMsgImage(String path, final boolean deleteOriginal){
         logIt("_sendMsgImage: "+ path + " "+deleteOriginal);
-//        String path = file_uri.getPath();
         if(path== null || path.equals("")) return;
         File fileOriginal = new File(path);
 		if( ! fileOriginal.exists() ){
@@ -443,48 +442,35 @@ public class ChatRoomPresenter extends BasePresenter implements
 		}
 
         String $resizedPath = AppFiles.PHOTO_SENT_DIR_PATH+"IMG_"+ FormaterUtil.getFullyYearToSecondsSolarName()+"$.jpg";
-        String resizedPath ;//= $resizedPath.replace("$","");
-//        resizedPath = FileUtil.createNextFile($resizedPath).getAbsolutePath();
-        resizedPath = FileUtil.createNextName($resizedPath);
+        String resizedPath = FileUtil.createNextName($resizedPath);
         ImageUtil.resizeImage(path,resizedPath,1080);
         File resizedFile = new File(resizedPath);
 
         if(!resizedFile.exists()){
-            Toast.makeText(getContext(),"فایل موجود نیست",Toast.LENGTH_SHORT).show();
+			_showToastFileAreNotExist();
             return;
         }
         Message msg =  MessageModel.newTextMsgForRoom_ByMe(room);
-//        msg.MediaStatus = Constants.Msg_Media_To_Push;
         msg.MsgFile_Status = Constants.Msg_Media_To_Push;
         msg.MessageTypeId = Constants.MESSAGE_IMAGE;
-//        MessageModel.setPhotoParams_DEP(msg,resizedPath);
         MessageModel.setPhotoParams(msg,resizedPath);
         msg.saveWithRoom();
 
 		MsgsCallToServer.sendNewPhoto(msg,resizedFile,fileOriginal,deleteOriginal);
-		onHereAddedNewMsgEvent(msg);
+		onHereAddedNewMsgEvent_UI(msg);
 
     }
 
 	private void _showToastFileAreNotExist(){
-		Toast.makeText(getContext(),"فایل موجود نیست",Toast.LENGTH_SHORT).show();
+		Helper.showMessage("فایل موجود نیست");
 	}
 
     void _sendMsgVideo(String savedPath){
         logIt("_sendMsgVideo: "+ savedPath);
-//        String path = file_uri.getPath();
-//        File tempFile = new File(savedPath);
-
-        String $resizedPath = AppFiles.VIDEO_SENT_DIR_PATH+"VID_R_"+ FormaterUtil.getFullyYearToSecondsSolarName()+"$.mp4";
-//        String resizedPath ;//= $resizedPath.replace("$","");
+        String $resizedPath = AppFiles.VIDEO_SENT_DIR_PATH+"VID_"+ FormaterUtil.getFullyYearToSecondsSolarName()+"$.mp4";
         String thumbPath = AppFiles.VIDEO_SENT_DIR_PATH+"THUMB_"+ FormaterUtil.getFullyYearToSecondsSolarName()+"$.jpg";
-//        resizedPath = FileUtil.createNextFile($resizedPath).getAbsolutePath();
-//        resizedPath = FileUtil.createNextName($resizedPath);
         String resizedPath = savedPath;
-//        Log.d("Viseo", "size: "+ new File(resizedPath).length());
         thumbPath = FileUtil.createNextName(thumbPath);
-//        ImageUtil.resizeImage(path,resizedPath,1024);
-//        Bitmap bitmap = ThumbnailUtils.createVideoThumbnail(savedPath, MediaStore.Video.Thumbnails.MINI_KIND);
         Bitmap bitmap = ImageUtil.createVideoThumbnail(savedPath, 1024,360);
         if(bitmap != null){
             ImageUtil.saveToFile(bitmap,thumbPath);
@@ -504,7 +490,7 @@ public class ChatRoomPresenter extends BasePresenter implements
 
 		MsgsCallToServer.sendNewVideo(msg,resizedFile);
 
-		onHereAddedNewMsgEvent(msg);
+		onHereAddedNewMsgEvent_UI(msg);
 
     }
 
