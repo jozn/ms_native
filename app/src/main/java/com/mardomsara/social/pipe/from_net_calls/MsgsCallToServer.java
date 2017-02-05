@@ -3,6 +3,8 @@ package com.mardomsara.social.pipe.from_net_calls;
 import com.mardomsara.social.app.Constants;
 import com.mardomsara.social.app.DB;
 import com.mardomsara.social.base.Http.Http;
+import com.mardomsara.social.base.Http.listener.UploadProgressListener;
+import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.JsonUtil;
 import com.mardomsara.social.helpers.TimeUtil;
 import com.mardomsara.social.models.tables.Message;
@@ -57,6 +59,12 @@ public class MsgsCallToServer {
 	public static void sendNewPhoto(Message msg, File resizedFile,File fileOriginal, final boolean deleteOrginal){
 		Http.upload("http://localhost:5000/msgs/v1/add_one",resizedFile)
 			.setFormParam("message", JsonUtil.toJson(msg))
+			.setUploadProgress(new UploadProgressListener() {
+				@Override
+				public void update(long bytesRead, long contentLength, boolean done) {
+					AppUtil.log("progress: "+ bytesRead + " " + contentLength + " " + done );
+				}
+			})
 			.doAsync(
 				(result)->{
 					if (result.isOk()){

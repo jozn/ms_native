@@ -1,6 +1,7 @@
 package com.mardomsara.social.ui.views.wigets;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.util.AttributeSet;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
@@ -18,6 +19,7 @@ import com.mardomsara.social.ui.X;
  */
 
 public class ChatMediaNetworkLoader extends FrameLayout {
+	@NonNull
 	public X.Msg_MediaNetworkLoader x;
 
 	public ChatMediaNetworkLoader(Context context) {

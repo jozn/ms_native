@@ -1,6 +1,7 @@
 package com.mardomsara.social.base.Http;
 
 import com.mardomsara.social.base.Http.listener.UploadProgressListener;
+import com.mardomsara.social.helpers.AppUtil;
 
 import java.io.IOException;
 
@@ -40,6 +41,7 @@ public class ProgressRequestBody extends RequestBody {
 
     @Override
     public void writeTo(BufferedSink sink) throws IOException {
+		AppUtil.log("progress: writeTo");
         mCountingSink = new CountingSink(sink);
         BufferedSink bufferedSink = Okio.buffer(mCountingSink);
         mDelegate.writeTo(bufferedSink);

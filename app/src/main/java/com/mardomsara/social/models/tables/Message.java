@@ -54,6 +54,8 @@ public class Message  implements Comparable<Message> {
     @Column(defaultExpr = "0")
     public int IsStared =0;//REMOVE??????? its table????
 
+	//// TODO: 2/6/2017 remove
+	@Deprecated //use ToPush and other stuffs ServerReceivedTime ,...
     @Column(defaultExpr = "0", helpers = Column.Helpers.CONDITIONS)
     public int DeliveryStatus = 0;//0:not-me  1: need-push 2: resic=ved-server 3:rc-clint; 4:seen-client 5: removed-server
 
