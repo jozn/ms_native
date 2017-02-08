@@ -111,6 +111,24 @@ public class Message  implements Comparable<Message>, UploadProgressListener,Dow
 		return MsgFile;
 	}
 
+	public boolean isMsgByMe(){
+		return IsByMe == 1;
+	}
+
+	private boolean isNetWorkTransferring = false;
+
+	public boolean isNetWorkTransferring() {
+		return isNetWorkTransferring;
+	}
+
+	public void setNetWorkTransferring(boolean netWorkTransferring) {
+		isNetWorkTransferring = netWorkTransferring;
+	}
+
+	public void cancelUploading(){};
+	public void retryUploading(){};
+	public void cancelDownloading(){};
+	public void retryDownloding(){};
     public Message() {
         AppUtil.log("time: "+ TimeUtil.getTimeNano());
     }

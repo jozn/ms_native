@@ -75,7 +75,7 @@ public class ChatEntryAdaptor extends AppHeaderFooterRecyclerViewAdapter<MsgCell
 					msgView = MsgCell_NotSupported.makeNew(parent);
 			}
 		} else {//odd views: is ME
-			switch (contentViewType - 1) {//1 comes from .isByMe()
+			switch (contentViewType - 1) {//1 comes from .isMsgByMe()
 				case 10:
 					msgView = MsgCell_TextMe.makeNew(parent);
 					break;

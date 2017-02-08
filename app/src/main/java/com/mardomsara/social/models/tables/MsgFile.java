@@ -74,6 +74,19 @@ public class MsgFile {
 
     /////////////////////////////////////////////////////////
     ////////////////// Helpers ///////////////////
+
+	@Deprecated //use Message methods
+	public boolean isNetWorkTransferring = false;
+
+	public boolean isNetWorkTransferring() {
+		return isNetWorkTransferring;
+	}
+
+	public void setNetWorkTransferring(boolean netWorkTransferring) {
+		isNetWorkTransferring = netWorkTransferring;
+	}
+
+
     public void saveAndEmit() {
 //		MemoryStore_Rooms.setAndEmit(this);
 //        DB.db.prepareInsertIntoRoom(OnConflict.REPLACE,false).execute(this);

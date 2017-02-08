@@ -26,10 +26,11 @@ public class Constants {
     public static final int MESSAGE_FILE = 46;
 
     //Msg media Status
-    public static int Msg_Media_To_Push = 1; //for:me -- must be ByMe=1
+	//messages must be atomic just Msg_Media_To_Push_And_Upload
+    public static int Msg_Media_To_Push_And_Upload = 1; //for:me -- must be ByMe=1
     public static int Msg_Media_Uploaded = 2; //for:me&peer -- peer uploaded File now downloaded it
     public static int Msg_Media_Waiting = 3; //for:peer -- must be ByMe=0 -- waite peer upload File
-    public static int Msg_Media_To_Upload = 4; //for:peer -- must be ByMe=0 -- waite peer upload File
+	public static int Msg_Media_To_Download = 4; //for:peer -- must be ByMe=0 -- waite peer upload File
     public static int Msg_Media_Downloaded = 5; //for:me&peer -- must be ByMe=0 -- we downloaded file
     public static int Msg_Media_Deleteted_Server = 6; // ??
 

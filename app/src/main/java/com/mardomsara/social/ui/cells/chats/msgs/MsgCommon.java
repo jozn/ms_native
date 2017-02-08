@@ -2,6 +2,7 @@ package com.mardomsara.social.ui.cells.chats.msgs;
 
 import android.graphics.Color;
 import android.net.Uri;
+import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -11,8 +12,6 @@ import com.mardomsara.social.app.Constants;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.FormaterUtil;
-import com.mardomsara.social.helpers.JsonUtil;
-import com.mardomsara.social.models.extra.MsgExtraPhotoThumbnail;
 import com.mardomsara.social.models.tables.Message;
 import com.mardomsara.social.models.tables.MsgFile;
 import com.mardomsara.social.ui.views.FontCache;
@@ -68,20 +67,60 @@ public class MsgCommon {
 		}
     }
 
-	public static void setImage2(Message msg , ChatMediaNetworkLoader image_holder){
+	//////////////////////// Image and Network Loader ////////////////////////////////
+	public static void setImage2(@NonNull Message msg , @NonNull ChatMediaNetworkLoader image_holder){
 		ImageView image_iew = image_holder.x.msg_image;
 		if(msg.MsgFile_Status >0 );
 		MsgFile msgFile = msg.getMsgFile();
 		if (msgFile!=null) {
-			if(msgFile.Status == Constants.Msg_Media_To_Push || msgFile.Status == Constants.Msg_Media_To_Upload){
+			image_iew.setVisibility(View.VISIBLE);
+
+			if(msg.isMsgByMe()){
+				if(msg.MsgFile_Status == Constants.Msg_Media_To_Push_And_Upload){
+					if( msg.isNetWorkTransferring()){//show uploading
+						image_holder.x.loading_holder.setVisibility(View.VISIBLE);
+						image_holder.x.loading.setVisibility(View.VISIBLE);
+						image_holder.x.icon_action_btn.setText("close X");
+						image_holder.x.loading_holder.setOnClickListener((v)->{msg.cancelUploading();});
+
+					}else { //show retry
+						image_holder.x.loading_holder.setVisibility(View.VISIBLE);
+						image_holder.x.loading.setVisibility(View.GONE);
+						image_holder.x.icon_action_btn.setText("^");
+						image_holder.x.loading_holder.setOnClickListener((v)->{msg.retryUploading();});
+					}
+				}else { // already uploaded
+					image_holder.x.loading_holder.setVisibility(View.GONE);
+				}
+			} else {
+				if(msg.MsgFile_Status == Constants.Msg_Media_To_Push_And_Upload){
+					if( msg.isNetWorkTransferring()){//show uploading
+						image_holder.x.loading_holder.setVisibility(View.VISIBLE);
+						image_holder.x.loading.setVisibility(View.VISIBLE);
+						image_holder.x.icon_action_btn.setText("close X");
+						image_holder.x.loading_holder.setOnClickListener((v)->{msg.cancelDownloading();});
+
+					}else { //show retry
+						image_holder.x.loading_holder.setVisibility(View.VISIBLE);
+						image_holder.x.loading.setVisibility(View.GONE);
+						image_holder.x.icon_action_btn.setText("&");
+						image_holder.x.loading_holder.setOnClickListener((v)->{msg.retryDownloding();});
+					}
+				}else { // already downloaded
+					image_holder.x.loading_holder.setVisibility(View.GONE);
+				}
+			}
+
+
+
+			/*if(msgFile.Status == Constants.Msg_Media_To_Push_And_Upload || msgFile.Status == Constants.Msg_Media_To_Download){
 				image_holder.x.cancel_btn.setText("\uf3b5");//"{ion-android-close");
 			}else {
 				image_holder.x.cancel_btn.setText("\uf2f5");//"{ion-upload}");
 
-			}
-			image_holder.x.cancel_btn.setTextSize((32));
+			}*/
+			image_holder.x.icon_action_btn.setTextSize(16);
 
-			image_iew.setVisibility(View.VISIBLE);
 			File file = new File(msgFile.LocalSrc);
 			int max_width = (int) (AndroidUtil.getScreenWidth() * 0.80);
 			AppUtil.log("width: "+max_width+AndroidUtil.getScreenResolution()+AndroidUtil.getDensity());

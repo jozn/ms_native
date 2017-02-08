@@ -921,7 +921,8 @@ public class X {
     public static class Msg_MediaNetworkLoader {
         public ViewGroup root;
         public SimpleDraweeView msg_image;
-        public TextView cancel_btn;
+        public FrameLayout loading_holder;
+        public TextView icon_action_btn;
         public CircularProgressView loading;
         public TextView sd;
 
@@ -929,7 +930,8 @@ public class X {
             root = (ViewGroup) AppUtil.inflate(R.layout.msg__media_network_loader,parent,true);//for Compound Views
             
             msg_image = (SimpleDraweeView) root.findViewById( R.id.msg_image);
-            cancel_btn = (TextView) root.findViewById( R.id.cancel_btn);
+            loading_holder = (FrameLayout) root.findViewById( R.id.loading_holder);
+            icon_action_btn = (TextView) root.findViewById( R.id.icon_action_btn);
             loading = (CircularProgressView) root.findViewById( R.id.loading);
             sd = (TextView) root.findViewById( R.id.sd);
         }

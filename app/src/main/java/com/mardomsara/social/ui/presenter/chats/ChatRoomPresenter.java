@@ -450,7 +450,7 @@ public class ChatRoomPresenter extends BasePresenter implements
             return;
         }
         Message msg =  MessageModel.newTextMsgForRoom_ByMe(room);
-        msg.setMsgFile_Status(Constants.Msg_Media_To_Push);
+        msg.setMsgFile_Status(Constants.Msg_Media_To_Push_And_Upload);
         msg.MessageTypeId = Constants.MESSAGE_IMAGE;
         MessageModel.setPhotoParams_ME(msg,resizedPath);
         msg.saveWithRoom();
@@ -482,7 +482,7 @@ public class ChatRoomPresenter extends BasePresenter implements
             return;
         }
         Message msg =  MessageModel.newTextMsgForRoom_ByMe(room);
-        msg.setMsgFile_Status((Constants.Msg_Media_To_Push));
+        msg.setMsgFile_Status((Constants.Msg_Media_To_Push_And_Upload));
         msg.MessageTypeId = (Constants.MESSAGE_VIDEO);
         MessageModel.setVideoParams(msg,thumbPath,resizedPath);
         msg.saveWithRoom();
