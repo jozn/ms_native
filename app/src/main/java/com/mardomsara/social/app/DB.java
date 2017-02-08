@@ -21,45 +21,18 @@ public class DB {
     public static void init(){
         if(db != null) return;
 
-        db = AppDB.builder(AppUtil.getContext())
-                .readOnMainThread(AccessThreadConstraint.WARNING)
-                .writeOnMainThread(AccessThreadConstraint.WARNING)
-                .name("ms27")
-                .trace(true)
-                .build();
+		AppDB.Builder builder = AppDB.builder(AppUtil.getContext());
 
-        /*AndroidUtil.runInBackground(()-> {
-            db.transactionSync(() -> {
-                for (int i = 0; i < 90; i++) {
-                    Notify not = new Notify();
-                    not.Id = (long) i;
-                    not.CreatedTime = (int) AppUtil.getTime();
-//                    not.Load = JsonUtil.toJson(new UserInfoJson());
-//                    db.insertIntoNotify(not);
-                    Message msg = new Message();
-                    msg.MessageKey = LangUtil.getRandomString(20);
-                    msg.RoomKey = "u12";
-                    db.insertIntoMessage(msg);
-                    AppUtil.log("==============================");
-//                    toString(msg);
-                }
-            });
+		if(Config.IS_DEBUG){
+			builder.readOnMainThread(AccessThreadConstraint.WARNING)
+				.writeOnMainThread(AccessThreadConstraint.WARNING);
+		} else {
 
-            List<Message> msg = db.selectFromMessage().idLe(20).toList();
-            String k = LangUtil.getRandomString(2);
-            db.transactionSync(() -> {
-                for(Message m : msg){
-                    m.RoomKey = k;
-                    m.CreatedMs = TimeUtil.getTimeMs();
-                    m.MessageKey = LangUtil.getRandomString(20)+ " ,ddd";
-                    updateAuto(m, Message_Schema.INSTANCE);
-                    db.prepareInsertIntoMessage(OnConflict.REPLACE,false).execute(m);
+		}
 
-                }
-            });
-
-
-        });*/
+		db = builder.name("ms30")
+			.trace(true)
+			.build();
     }
 
     public static void updateAuto(Object row, Schema tableSchema) {

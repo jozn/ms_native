@@ -7,6 +7,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.mardomsara.social.R;
+import com.mardomsara.social.app.Constants;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.FormaterUtil;
@@ -72,6 +73,14 @@ public class MsgCommon {
 		if(msg.MsgFile_Status >0 );
 		MsgFile msgFile = msg.getMsgFile();
 		if (msgFile!=null) {
+			if(msgFile.Status == Constants.Msg_Media_To_Push || msgFile.Status == Constants.Msg_Media_To_Upload){
+				image_holder.x.cancel_btn.setText("\uf3b5");//"{ion-android-close");
+			}else {
+				image_holder.x.cancel_btn.setText("\uf2f5");//"{ion-upload}");
+
+			}
+			image_holder.x.cancel_btn.setTextSize((32));
+
 			image_iew.setVisibility(View.VISIBLE);
 			File file = new File(msgFile.LocalSrc);
 			int max_width = (int) (AndroidUtil.getScreenWidth() * 0.80);

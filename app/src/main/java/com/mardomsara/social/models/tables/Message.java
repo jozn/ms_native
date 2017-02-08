@@ -209,7 +209,7 @@ public class Message  implements Comparable<Message>, UploadProgressListener,Dow
 
 	public void setMsgFile_Status(int msgFile_Status) {
 		MsgFile_Status = msgFile_Status;
-		if(MsgFile!= null){
+		if(getMsgFile() != null){
 			MsgFile.Status = msgFile_Status;
 		}
 	}

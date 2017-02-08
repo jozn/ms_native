@@ -21,17 +21,34 @@
 
         >
 
+        <!--<com.joanzapata.iconify.widget.IconTextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/cancel_btn"
+            android:textSize="32dp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_marginLeft="4dp"
+            android:text="{ion-android-close}"
+            android:padding="0dp"
+            android:layout_centerInParent="true"
+            android:textColor="@color/white"
+            android:background="@color/yellow"
+
+            />-->
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/cancel_btn"
-            android:textSize="12dp"
+            android:textSize="32dp"
             android:gravity="center"
             android:layout_gravity="center"
-            android:layout_marginLeft="4dp"
-            android:text="cancel"
-            android:padding="7dp"
-            android:layout_centerInParent="true"
+            style="@style/text_ionic.btn"
+            android:text="\uf2d7"
+            android:padding="0dp"
+
+            android:textColor="@color/white"
             />
 
         <com.github.rahatarmanahmed.cpv.CircularProgressView
@@ -48,6 +65,8 @@
             android:layout_centerInParent="true"
 
             />
+
+
 
     </FrameLayout>
 
