@@ -70,12 +70,12 @@
 
     </FrameLayout>
 
-    <ProgressBar
+    <!--<ProgressBar
         android:layout_width="match_parent"
         android:layout_height="20dp"
         android:id="@+id/prog"
         android:layout_below="@id/loading_holder"
-        />
+        />-->
 
     <!--<com.mardomsara.social.ui.views.wigets.LoadingView
         android:layout_width="70dp"
@@ -87,13 +87,13 @@
         />-->
 
 
-    <TextView
+    <!--<TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/sd"
         android:textSize="12dp"
         android:layout_marginLeft="4dp"
         android:text="sss"
-        />
+        />-->
 
 </merge>

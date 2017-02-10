@@ -924,8 +924,6 @@ public class X {
         public FrameLayout loading_holder;
         public TextView icon_action_btn;
         public CircularProgressView loading;
-        public ProgressBar prog;
-        public TextView sd;
 
         public Msg_MediaNetworkLoader(ViewGroup parent) {
             root = (ViewGroup) AppUtil.inflate(R.layout.msg__media_network_loader,parent,true);//for Compound Views
@@ -934,8 +932,6 @@ public class X {
             loading_holder = (FrameLayout) root.findViewById( R.id.loading_holder);
             icon_action_btn = (TextView) root.findViewById( R.id.icon_action_btn);
             loading = (CircularProgressView) root.findViewById( R.id.loading);
-            prog = (ProgressBar) root.findViewById( R.id.prog);
-            sd = (TextView) root.findViewById( R.id.sd);
         }
     }
  //( index .Fields 0).ViewClass

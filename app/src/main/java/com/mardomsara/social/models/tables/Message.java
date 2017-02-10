@@ -9,6 +9,7 @@ import com.github.gfx.android.orma.annotation.PrimaryKey;
 import com.github.gfx.android.orma.annotation.Table;
 import com.mardomsara.social.app.Constants;
 import com.mardomsara.social.app.DB;
+import com.mardomsara.social.base.Http.Req;
 import com.mardomsara.social.base.Http.listener.DownloadProgressListener;
 import com.mardomsara.social.base.Http.listener.UploadProgressListener;
 import com.mardomsara.social.helpers.AndroidUtil;
@@ -100,6 +101,8 @@ public class Message  implements Comparable<Message>, UploadProgressListener,Dow
 	@Column(defaultExpr = "0" ,helpers = Column.Helpers.CONDITION_EQ)
 	public int MsgFile_Status =0;
 
+	//////////////////// End of sqilte columns ///////////////////
+
 	public MsgFile MsgFile;//for json
 
 	public @Nullable MsgFile getMsgFile(){
@@ -131,7 +134,14 @@ public class Message  implements Comparable<Message>, UploadProgressListener,Dow
 		isNetWorkTransferring = netWorkTransferring;
 	}
 
-	public void cancelUploading(){};
+	public Req req;
+
+	public void cancelUploading(){
+		if(req!=null){
+			req.cancel();
+		}
+	};
+
 	public void retryUploading(){
 		Helper.showDebugMessage("upload ");
 		AndroidUtil.runInBackgroundNoPanic(()->{
@@ -141,8 +151,17 @@ public class Message  implements Comparable<Message>, UploadProgressListener,Dow
 //			}
 		});
 	};
-	public void cancelDownloading(){};
-	public void retryDownloding(){};
+
+	public void cancelDownloading(){
+		if(req!=null){
+			req.cancel();
+		}
+	};
+
+	public void retryDownloading(){
+
+	};
+
     public Message() {
         AppUtil.log("time: "+ TimeUtil.getTimeNano());
     }

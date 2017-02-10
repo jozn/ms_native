@@ -3,6 +3,7 @@ package com.mardomsara.social.pipe.from_net_calls;
 import com.mardomsara.social.app.Constants;
 import com.mardomsara.social.app.DB;
 import com.mardomsara.social.base.Http.Http;
+import com.mardomsara.social.base.Http.Req;
 import com.mardomsara.social.base.Http.listener.UploadProgressListener;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.Helper;
@@ -17,6 +18,8 @@ import com.mardomsara.social.pipe.from_net_calls.events.MsgReceivedToServerEvent
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.mardomsara.social.base.Http.Http.upload;
 
 /**
  * Created by Hamid on 10/12/2016.
@@ -58,7 +61,7 @@ public class MsgsCallToServer {
 	}
 
 	public static void sendNewPhoto(Message msg, File resizedFile,File fileOriginal, final boolean deleteOrginal){
-		Http.upload("http://localhost:5000/msgs/v1/add_one",resizedFile)
+		Req req = Http.upload("http://localhost:5000/msgs/v1/add_one",resizedFile)
 			.setFormParam("message", JsonUtil.toJson(msg))
 			.setUploadProgress(msg)
 			.doAsync(
@@ -77,11 +80,12 @@ public class MsgsCallToServer {
 					};
 				});
 
+		msg.req = req;
 	}
 
 
 	public static void sendNewVideo(Message msg, File resizedFile){
-		Http.upload("http://localhost:5000/msgs/v1/add_one",resizedFile)
+		Req req = upload("http://localhost:5000/msgs/v1/add_one",resizedFile)
 			.setFormParam("message", JsonUtil.toJson(msg))
 			.setUploadProgress(msg)
 			.doAsync(
@@ -95,6 +99,8 @@ public class MsgsCallToServer {
 						MsgReceivedToServerEvent.publishNew(msg);
 					};
 				});
+
+		msg.req = req;
 
 	}
 
