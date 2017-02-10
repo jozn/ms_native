@@ -68,6 +68,7 @@ public class MsgCommon {
     }
 
 	//////////////////////// Image and Network Loader ////////////////////////////////
+	@Deprecated
 	public static void setImage2(@NonNull Message msg , @NonNull ChatMediaNetworkLoader image_holder){
 		ImageView image_iew = image_holder.x.msg_image;
 		if(msg.MsgFile_Status >0 );
@@ -82,9 +83,9 @@ public class MsgCommon {
 						image_holder.x.loading_progress.setVisibility(View.VISIBLE);
 						image_holder.x.icon_action_btn.setText("close X");
 						image_holder.x.loading_holder.setOnClickListener((v)->{msg.cancelUploading();});
-						msg.messageProgressListener = (bytesRead,contentLength, done) ->{
+						/*msg.messageProgressListener = (bytesRead,contentLength, done) ->{
 							AppUtil.log("Progress Listener "+bytesRead+ " "+ contentLength + " "+done);
-						};
+						};*/
 					}else { //show retry
 						image_holder.x.loading_holder.setVisibility(View.VISIBLE);
 						image_holder.x.loading_progress.setVisibility(View.GONE);

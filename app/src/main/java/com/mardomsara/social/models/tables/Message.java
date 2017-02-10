@@ -98,10 +98,24 @@ public class Message  implements Comparable<Message>, UploadProgressListener,Dow
 	@Column(defaultExpr = "0" ,indexed = true)
 	public String MsgFile_LocalSrc= "";
 
+	@Deprecated //do we need this? reflect on it
 	@Column(defaultExpr = "0" ,helpers = Column.Helpers.CONDITION_EQ)
 	public int MsgFile_Status =0;
 
 	//////////////////// End of sqilte columns ///////////////////
+
+	public boolean needPush(){
+		return ToPush == 1;//msg.MsgFile_Status == Constants.Msg_Media_To_Push_And_Upload
+	}
+
+	public void setToPush(int toPush) {
+		ToPush = toPush;
+		if(ToPush == 0){
+			setNetWorkTransferring(false);
+		} else {
+
+		}
+	}
 
 	public MsgFile MsgFile;//for json
 
@@ -132,13 +146,15 @@ public class Message  implements Comparable<Message>, UploadProgressListener,Dow
 
 	public void setNetWorkTransferring(boolean netWorkTransferring) {
 		isNetWorkTransferring = netWorkTransferring;
+		if(messageProgressListener!=null){
+			messageProgressListener.onStatusChanged();
+		}
 	}
 
 	public transient Req req;
 
 	public void cancelUploading(){
 		Helper.showDebugMessage("cancelUploading ");
-
 		setNetWorkTransferring(false);
 		if(req!=null){
 			req.cancel();
@@ -147,6 +163,7 @@ public class Message  implements Comparable<Message>, UploadProgressListener,Dow
 
 	public void retryUploading(){
 		Helper.showDebugMessage("upload ");
+		setNetWorkTransferring(true);
 		AndroidUtil.runInBackgroundNoPanic(()->{
 //			if(MessageTypeId == Constants.MESSAGE_IMAGE){
 				File file = new File(MsgFile_LocalSrc);
@@ -163,6 +180,7 @@ public class Message  implements Comparable<Message>, UploadProgressListener,Dow
 	};
 
 	public void retryDownloading(){
+		setNetWorkTransferring(true);
 
 	};
 
@@ -269,6 +287,7 @@ public class Message  implements Comparable<Message>, UploadProgressListener,Dow
 		}
 	}
 
+	//remember to unbind this when ViewRows is not attached to this
 	public transient MessageProgressListener messageProgressListener;
 	@Override
 	public void onDownloadProgress(long bytesRead, long contentLength, boolean done) {
@@ -283,5 +302,4 @@ public class Message  implements Comparable<Message>, UploadProgressListener,Dow
 			messageProgressListener.onProgress(bytesRead,contentLength,done);
 		}
 	}
-
 }

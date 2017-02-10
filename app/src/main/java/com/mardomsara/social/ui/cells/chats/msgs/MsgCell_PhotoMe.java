@@ -51,5 +51,6 @@ public class MsgCell_PhotoMe extends MsgCell_AbstractViewHolder {
 	@Override
 	public void onRecycled() {
 		AppUtil.log("onRecycled msg me image: "+ msg.MessageKey);
+		imageWrapper.unbind(msg);
 	}
 }

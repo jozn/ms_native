@@ -4,8 +4,6 @@ import com.mardomsara.social.app.Constants;
 import com.mardomsara.social.app.DB;
 import com.mardomsara.social.base.Http.Http;
 import com.mardomsara.social.base.Http.Req;
-import com.mardomsara.social.base.Http.listener.UploadProgressListener;
-import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.JsonUtil;
 import com.mardomsara.social.helpers.TimeUtil;
@@ -30,7 +28,7 @@ public class MsgsCallToServer {
 		Call call = new Call("MsgsAddOne",msg);
 
 		Runnable succ =  ()->{
-			msg.ToPush = 0;
+			msg.setToPush(0);
 			msg.ServerReceivedTime = TimeUtil.getTime();
 			msg.saveWithRoom();
 
@@ -46,7 +44,7 @@ public class MsgsCallToServer {
 		Runnable succ =  ()->{
 			DB.db.transactionSync(()->{
 				for(Message msg: msgs){
-					msg.ToPush = 0;
+					msg.setToPush(0);
 					msg.ServerReceivedTime = TimeUtil.getTime();
 					msg.saveWithRoom();
 				}
@@ -67,11 +65,12 @@ public class MsgsCallToServer {
 			.setUploadProgress(msg)
 			.doAsync(
 				(result)->{
+					Helper.showDebugMessage("sendNewPhoto "+result.isOk());
 					msg.setNetWorkTransferring(false);
 					if (result.isOk()){
 						Helper.showDebugMessage("sendNewPhoto ok");
 						msg.setMsgFile_Status((Constants.Msg_Media_Uploaded));
-						msg.ToPush = 0;
+						msg.setToPush(0);
 						msg.ServerReceivedTime = TimeUtil.getTime();
 						msg.saveWithRoom();
 						if(deleteOrginal == true &&  fileOriginal != null){
@@ -79,7 +78,9 @@ public class MsgsCallToServer {
 						}
 
 						MsgReceivedToServerEvent.publishNew(msg);
-					};
+					}else {
+
+					}
 				});
 
 		msg.req = req;
@@ -96,7 +97,7 @@ public class MsgsCallToServer {
 					msg.setNetWorkTransferring(false);
 					if (result.isOk()){
 						msg.setMsgFile_Status((Constants.Msg_Media_Uploaded));
-						msg.ToPush = 0;
+						msg.setToPush(0);
 						msg.ServerReceivedTime = TimeUtil.getTime();
 						msg.saveWithRoom();
 

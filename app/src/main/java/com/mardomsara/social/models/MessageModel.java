@@ -62,7 +62,7 @@ public class MessageModel {
         msg.MessageTypeId = Constants.MESSAGE_TEXT;
         msg.UserId = Session.getUserId();
         msg.MessageKey = generateMessageKey();
-        msg.ToPush = 1;
+        msg.setToPush(1);
         return msg;
     }
 
@@ -73,7 +73,7 @@ public class MessageModel {
     public static  void setParamsForNewMsgRecivedFromNet(Message msg){
         msg.CreatedDeviceMs = TimeUtil.getTimeMs();
         msg.IsByMe = 0;
-        msg.ToPush = 0;
+        msg.setToPush(0);
         msg.setMsgFile_Status(0);
     }
 
