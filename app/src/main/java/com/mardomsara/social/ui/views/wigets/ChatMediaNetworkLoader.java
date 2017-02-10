@@ -39,9 +39,6 @@ public class ChatMediaNetworkLoader extends FrameLayout {
 
 	private void init(Context context) {
 		x = new X.Msg_MediaNetworkLoader(this);
-//		setLayoutParams(new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-
-//		addView(x.root);
 	}
 
 }

@@ -10,7 +10,7 @@
         <com.mardomsara.social.ui.views.wigets.ChatMediaNetworkLoader
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/yellow"
+            android:background="@color/transparent_0"
             android:id="@+id/image_holder"
             >
 

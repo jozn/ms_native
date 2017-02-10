@@ -6,7 +6,6 @@ import android.util.TypedValue;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.mardomsara.social.App;
 import com.mardomsara.social.app.Constants;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
@@ -16,9 +15,6 @@ import com.mardomsara.social.models.tables.MsgFile;
 import com.mardomsara.social.ui.views.FullScreenImage;
 import com.mardomsara.social.ui.views.helpers.ViewHelper;
 import com.mardomsara.social.ui.views.wigets.ChatMediaNetworkLoader;
-
-import org.greenrobot.eventbus.Subscribe;
-import org.greenrobot.eventbus.ThreadMode;
 
 import java.io.File;
 
@@ -41,13 +37,11 @@ class MsgImageWrapper implements MessageProgressListener {
 	void bind(@NonNull Message msg) {
 		this.msg = msg;
 		msg.messageProgressListener = this;
-		//		App.getBus().register(this);
 		run();
 	}
 
 	void unbind(@NonNull Message message){
 		message.messageProgressListener = null;
-//		App.getBus().unregister(this);
 	}
 
 	void run(){
@@ -86,6 +80,7 @@ class MsgImageWrapper implements MessageProgressListener {
 	}
 
 	void showImage(){
+
 		try {
 			ImageView image_view = image_holder.x.msg_image;
 			MsgFile msgFile = msg.getMsgFile();
@@ -151,12 +146,6 @@ class MsgImageWrapper implements MessageProgressListener {
 	void hideUi(){
 
 	}
-
-	@Subscribe(threadMode = ThreadMode.MAIN)
-	void so(Message msg){
-
-	}
-
 
 	@Override
 	public void onProgress(long bytesRead, long contentLength, boolean done) {
