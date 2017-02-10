@@ -7,15 +7,21 @@ import com.github.gfx.android.orma.annotation.Column;
 import com.github.gfx.android.orma.annotation.OnConflict;
 import com.github.gfx.android.orma.annotation.PrimaryKey;
 import com.github.gfx.android.orma.annotation.Table;
+import com.mardomsara.social.app.Constants;
 import com.mardomsara.social.app.DB;
 import com.mardomsara.social.base.Http.listener.DownloadProgressListener;
 import com.mardomsara.social.base.Http.listener.UploadProgressListener;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
+import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.TimeUtil;
 import com.mardomsara.social.models.RoomModel;
+import com.mardomsara.social.models.interfaces.MessageProgressListener;
 import com.mardomsara.social.models.memory_store.MemoryStore_LastMsgs;
 import com.mardomsara.social.models.memory_store.MemoryStore_Rooms;
+import com.mardomsara.social.pipe.from_net_calls.MsgsCallToServer;
+
+import java.io.File;
 
 /**
  * Created by Hamid on 9/4/2016.
@@ -126,7 +132,15 @@ public class Message  implements Comparable<Message>, UploadProgressListener,Dow
 	}
 
 	public void cancelUploading(){};
-	public void retryUploading(){};
+	public void retryUploading(){
+		Helper.showDebugMessage("upload ");
+		AndroidUtil.runInBackgroundNoPanic(()->{
+//			if(MessageTypeId == Constants.MESSAGE_IMAGE){
+				File file = new File(MsgFile_LocalSrc);
+				MsgsCallToServer.sendNewPhoto(this,file,null,false);
+//			}
+		});
+	};
 	public void cancelDownloading(){};
 	public void retryDownloding(){};
     public Message() {
@@ -232,13 +246,19 @@ public class Message  implements Comparable<Message>, UploadProgressListener,Dow
 		}
 	}
 
+	public transient MessageProgressListener messageProgressListener;
 	@Override
 	public void onDownloadProgress(long bytesRead, long contentLength, boolean done) {
-
+		if(messageProgressListener!=null){
+			messageProgressListener.onProgress(bytesRead,contentLength,done);
+		}
 	}
 
 	@Override
 	public void onUploadProgress(long bytesRead, long contentLength, boolean done) {
-
+		if(messageProgressListener!=null){
+			messageProgressListener.onProgress(bytesRead,contentLength,done);
+		}
 	}
+
 }

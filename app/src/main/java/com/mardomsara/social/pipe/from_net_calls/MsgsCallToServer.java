@@ -5,6 +5,7 @@ import com.mardomsara.social.app.DB;
 import com.mardomsara.social.base.Http.Http;
 import com.mardomsara.social.base.Http.listener.UploadProgressListener;
 import com.mardomsara.social.helpers.AppUtil;
+import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.JsonUtil;
 import com.mardomsara.social.helpers.TimeUtil;
 import com.mardomsara.social.models.tables.Message;
@@ -22,7 +23,7 @@ import java.util.List;
  */
 
 public class MsgsCallToServer {
-	public static void addNewMsg(Message msg){
+	public static void addNewTextMsg(Message msg){
 		Call call = new Call("MsgsAddOne",msg);
 
 		Runnable succ =  ()->{
@@ -59,15 +60,11 @@ public class MsgsCallToServer {
 	public static void sendNewPhoto(Message msg, File resizedFile,File fileOriginal, final boolean deleteOrginal){
 		Http.upload("http://localhost:5000/msgs/v1/add_one",resizedFile)
 			.setFormParam("message", JsonUtil.toJson(msg))
-			.setUploadProgress(new UploadProgressListener() {
-				@Override
-				public void onUploadProgress(long bytesRead, long contentLength, boolean done) {
-					AppUtil.log("progress: "+ bytesRead + " " + contentLength + " " + done );
-				}
-			})
+			.setUploadProgress(msg)
 			.doAsync(
 				(result)->{
 					if (result.isOk()){
+						Helper.showDebugMessage("sendNewPhoto ok");
 						msg.setMsgFile_Status((Constants.Msg_Media_Uploaded));
 						msg.ToPush = 0;
 						msg.ServerReceivedTime = TimeUtil.getTime();
@@ -86,6 +83,7 @@ public class MsgsCallToServer {
 	public static void sendNewVideo(Message msg, File resizedFile){
 		Http.upload("http://localhost:5000/msgs/v1/add_one",resizedFile)
 			.setFormParam("message", JsonUtil.toJson(msg))
+			.setUploadProgress(msg)
 			.doAsync(
 				(result)->{
 					if (result.isOk()){

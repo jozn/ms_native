@@ -12,6 +12,7 @@ import com.mardomsara.social.app.Constants;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.FormaterUtil;
+import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.models.tables.Message;
 import com.mardomsara.social.models.tables.MsgFile;
 import com.mardomsara.social.ui.views.FontCache;
@@ -82,7 +83,9 @@ public class MsgCommon {
 						image_holder.x.loading.setVisibility(View.VISIBLE);
 						image_holder.x.icon_action_btn.setText("close X");
 						image_holder.x.loading_holder.setOnClickListener((v)->{msg.cancelUploading();});
-
+						msg.messageProgressListener = (bytesRead,contentLength, done) ->{
+							AppUtil.log("Progress Listener "+bytesRead+ " "+ contentLength + " "+done);
+						};
 					}else { //show retry
 						image_holder.x.loading_holder.setVisibility(View.VISIBLE);
 						image_holder.x.loading.setVisibility(View.GONE);
@@ -111,7 +114,28 @@ public class MsgCommon {
 				}
 			}
 
+			image_holder.x.loading_holder.setVisibility(View.VISIBLE);
+			image_holder.x.loading.setVisibility(View.VISIBLE);
 
+			image_holder.x.loading.setIndeterminate(true);
+			image_holder.x.loading.setIndeterminate(false);
+			image_holder.x.prog.setIndeterminate(false);
+
+			image_holder.x.loading_holder.setOnClickListener((v)->{
+				msg.retryUploading();
+				image_holder.x.icon_action_btn.setText("&"+image_holder.x.loading.hashCode() );
+			});
+
+			msg.messageProgressListener = (bytesRead,contentLength, done) ->{
+				AndroidUtil.runInUiNoPanic(()->{
+					AppUtil.log("Progress Listener "+msg.MessageKey +" " + image_holder.x.loading.getId() + " " +bytesRead+ " "+ contentLength + " "+done);
+					image_holder.x.loading.setProgress((bytesRead/contentLength)*100);
+					image_holder.x.prog.setProgress((int)(bytesRead/contentLength)*100);
+
+				});
+			};
+
+//			image_holder.x.loading.setProgress(95.0f);
 
 			/*if(msgFile.Status == Constants.Msg_Media_To_Push_And_Upload || msgFile.Status == Constants.Msg_Media_To_Download){
 				image_holder.x.cancel_btn.setText("\uf3b5");//"{ion-android-close");
@@ -130,11 +154,15 @@ public class MsgCommon {
 			Uri u2 =Uri.fromFile(file);
 			image_iew.setImageURI(u2);
 
+			Float p = 10f;
 			image_iew.setOnClickListener((v)->{
-				FullScreenImage window = new FullScreenImage();
+				image_holder.x.loading.setProgress(image_holder.x.loading.getMaxProgress()+10);
+
+				;
+				/*FullScreenImage window = new FullScreenImage();
 				window.text = msg.Text;
 				window.imageUri = u2 ;//msg.getMediaLocalSrc();
-				window.show();
+				window.show();*/
 			});
 		}else {
 			image_iew.setVisibility(View.GONE);

@@ -22,6 +22,9 @@ public abstract class MsgCell_AbstractViewHolder extends RecyclerView.ViewHolder
         grandView = itemView;
     }
     public abstract void bindToView(Message msg);
+
+	public void onRecycled(){};
+
 //    public static  MsgAbstractViewHolder makeNew();
 
 }

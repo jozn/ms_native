@@ -77,8 +77,8 @@ public class MessageModel {
         msg.setMsgFile_Status(0);
     }
 
-    public static void syncToServer(@NonNull Message msg ) {
-		MsgsCallToServer.addNewMsg(msg);
+    public static void syncTextMsgToServer(@NonNull Message msg ) {
+		MsgsCallToServer.addNewTextMsg(msg);
     }
 
     public static void clearAllMessagesOfRoom_BG(String roomKey){

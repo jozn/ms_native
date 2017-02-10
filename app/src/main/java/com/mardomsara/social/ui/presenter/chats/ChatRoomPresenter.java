@@ -195,7 +195,7 @@ public class ChatRoomPresenter extends BasePresenter implements
         msg.insertInBackground();
 
         x.edit_field.setText("");
-        MessageModel.syncToServer(msg);
+        MessageModel.syncTextMsgToServer(msg);
 
         onHereAddedNewMsgEvent_UI(msg);
     }

@@ -1,5 +1,6 @@
 package com.mardomsara.social.ui.cells.chats.adaptors;
 
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -127,5 +128,12 @@ public class ChatEntryAdaptor extends AppHeaderFooterRecyclerViewAdapter<MsgCell
 		if (m == null) return type;
 		type = m.MessageTypeId + m.IsByMe;
 		return type;
+	}
+
+	@Override
+	public void onViewRecycled(RecyclerView.ViewHolder holder) {
+		if(holder instanceof MsgCell_AbstractViewHolder){
+			((MsgCell_AbstractViewHolder) holder).onRecycled();
+		}
 	}
 }
