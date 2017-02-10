@@ -13,16 +13,16 @@ public abstract class Paginate {
         void onLoadMore();
 
         /**
-         * Called to check if loading of the next page is currently in progress. While loading is in progress
+         * Called to check if loading_progress of the next page is currently in progress. While loading_progress is in progress
          * {@link com.paginate.Paginate.Callbacks#onLoadMore} won't be called.
          *
-         * @return true if loading is currently in progress, false otherwise.
+         * @return true if loading_progress is currently in progress, false otherwise.
          */
         boolean isLoading();
 
         /**
          * Called to check if there is more data (more pages) to load. If there is no more pages to load, {@link
-         * com.paginate.Paginate.Callbacks#onLoadMore} won't be called and loading root_view, if used, won't be added.
+         * com.paginate.Paginate.Callbacks#onLoadMore} won't be called and loading_progress root_view, if used, won't be added.
          *
          * @return true if all pages has been loaded, false otherwise.
          */
@@ -31,9 +31,9 @@ public abstract class Paginate {
 
     /**
      * Use this method to indicate that there is or isn't more data to load. If there isn't any more data to load
-     * loading root_view, if used, won't be displayed as the last item of the list. Adding/removing loading root_view is done
+     * loading_progress root_view, if used, won't be displayed as the last item of the list. Adding/removing loading_progress root_view is done
      * automatically each time when underlying adapter data is changed. Use this method to explicitly addStart/remove
-     * loading root_view.
+     * loading_progress root_view.
      *
      * @param hasMoreDataToLoad true if there is more data to load, false otherwise.
      */
@@ -44,7 +44,7 @@ public abstract class Paginate {
      * longer needed on the list.
      * <p/>
      * Paginate is using scroll listeners and adapter data observers in order to perform required checks. It wraps
-     * original (source) adapter with new adapter that provides loading root_view if loading root_view is used. When unbind is
+     * original (source) adapter with new adapter that provides loading_progress root_view if loading_progress root_view is used. When unbind is
      * called original adapter will be setOrReplace on the list and scroll listeners and data observers will be detached.
      */
     abstract public void unbind();

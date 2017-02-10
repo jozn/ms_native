@@ -79,7 +79,7 @@ public class MsgCommon {
 				if(msg.MsgFile_Status == Constants.Msg_Media_To_Push_And_Upload){
 					if( msg.isNetWorkTransferring()){//show uploading
 						image_holder.x.loading_holder.setVisibility(View.VISIBLE);
-						image_holder.x.loading.setVisibility(View.VISIBLE);
+						image_holder.x.loading_progress.setVisibility(View.VISIBLE);
 						image_holder.x.icon_action_btn.setText("close X");
 						image_holder.x.loading_holder.setOnClickListener((v)->{msg.cancelUploading();});
 						msg.messageProgressListener = (bytesRead,contentLength, done) ->{
@@ -87,7 +87,7 @@ public class MsgCommon {
 						};
 					}else { //show retry
 						image_holder.x.loading_holder.setVisibility(View.VISIBLE);
-						image_holder.x.loading.setVisibility(View.GONE);
+						image_holder.x.loading_progress.setVisibility(View.GONE);
 						image_holder.x.icon_action_btn.setText("^");
 						image_holder.x.loading_holder.setOnClickListener((v)->{msg.retryUploading();});
 					}
@@ -98,13 +98,13 @@ public class MsgCommon {
 				if(msg.MsgFile_Status == Constants.Msg_Media_To_Push_And_Upload){
 					if( msg.isNetWorkTransferring()){//show uploading
 						image_holder.x.loading_holder.setVisibility(View.VISIBLE);
-						image_holder.x.loading.setVisibility(View.VISIBLE);
+						image_holder.x.loading_progress.setVisibility(View.VISIBLE);
 						image_holder.x.icon_action_btn.setText("close X");
 						image_holder.x.loading_holder.setOnClickListener((v)->{msg.cancelDownloading();});
 
 					}else { //show retry
 						image_holder.x.loading_holder.setVisibility(View.VISIBLE);
-						image_holder.x.loading.setVisibility(View.GONE);
+						image_holder.x.loading_progress.setVisibility(View.GONE);
 						image_holder.x.icon_action_btn.setText("&");
 						image_holder.x.loading_holder.setOnClickListener((v)->{msg.retryDownloading();});
 					}
@@ -114,25 +114,25 @@ public class MsgCommon {
 			}
 
 			/*image_holder.x.loading_holder.setVisibility(View.VISIBLE);
-			image_holder.x.loading.setVisibility(View.VISIBLE);
+			image_holder.x.loading_progress.setVisibility(View.VISIBLE);
 
-			image_holder.x.loading.setIndeterminate(true);
-			image_holder.x.loading.setIndeterminate(false);
+			image_holder.x.loading_progress.setIndeterminate(true);
+			image_holder.x.loading_progress.setIndeterminate(false);
 
 			image_holder.x.loading_holder.setOnClickListener((v)->{
 				msg.retryUploading();
-				image_holder.x.icon_action_btn.setText("&"+image_holder.x.loading.hashCode() );
+				image_holder.x.icon_action_btn.setText("&"+image_holder.x.loading_progress.hashCode() );
 			});*/
 
 			/*msg.messageProgressListener = (bytesRead,contentLength, done) ->{
 				AndroidUtil.runInUiNoPanic(()->{
-					AppUtil.log("Progress Listener "+msg.MessageKey +" " + image_holder.x.loading.getId() + " " +bytesRead+ " "+ contentLength + " "+done);
-					image_holder.x.loading.setProgress((bytesRead/contentLength)*100);
+					AppUtil.log("Progress Listener "+msg.MessageKey +" " + image_holder.x.loading_progress.getId() + " " +bytesRead+ " "+ contentLength + " "+done);
+					image_holder.x.loading_progress.setProgress((bytesRead/contentLength)*100);
 
 				});
 			};*/
 
-//			image_holder.x.loading.setProgress(95.0f);
+//			image_holder.x.loading_progress.setProgress(95.0f);
 
 			/*if(msgFile.Status == Constants.Msg_Media_To_Push_And_Upload || msgFile.Status == Constants.Msg_Media_To_Download){
 				image_holder.x.cancel_btn.setText("\uf3b5");//"{ion-android-close");
@@ -153,7 +153,7 @@ public class MsgCommon {
 
 			Float p = 10f;
 			image_iew.setOnClickListener((v)->{
-				image_holder.x.loading.setProgress(image_holder.x.loading.getMaxProgress()+10);
+				image_holder.x.loading_progress.setProgress(image_holder.x.loading_progress.getMaxProgress()+10);
 
 				;
 				/*FullScreenImage window = new FullScreenImage();

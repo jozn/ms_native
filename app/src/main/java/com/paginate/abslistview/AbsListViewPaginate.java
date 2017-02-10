@@ -40,7 +40,7 @@ public final class AbsListViewPaginate extends Paginate implements EndScrollList
                 throw new IllegalStateException("Adapter needs to be subclass of BaseAdapter");
             }
 
-            // Wrap existing adapter with new adapter that will addStart loading root_view
+            // Wrap existing adapter with new adapter that will addStart loading_progress root_view
             wrapperAdapter = new WrapperAdapter(adapter, loadingListItemCreator);
             adapter.registerDataSetObserver(dataSetObserver);
             ((AdapterView) absListView).setAdapter(wrapperAdapter);
@@ -129,12 +129,12 @@ public final class AbsListViewPaginate extends Paginate implements EndScrollList
         }
 
         /**
-         * Setup loading root_view. If loading root_view is used original adapter setOrReplace on AbsListView will be wrapped with
-         * internal adapter that will addStart loading root_view as the last item in the list. Paginate will observer the
-         * changes upon original adapter and remove loading root_view if there is no more data to load. By default loading
+         * Setup loading_progress root_view. If loading_progress root_view is used original adapter setOrReplace on AbsListView will be wrapped with
+         * internal adapter that will addStart loading_progress root_view as the last item in the list. Paginate will observer the
+         * changes upon original adapter and remove loading_progress root_view if there is no more data to load. By default loading_progress
          * root_view will be added.
          *
-         * @param addLoadingListItem true if loading root_view needs to be added, false otherwise.
+         * @param addLoadingListItem true if loading_progress root_view needs to be added, false otherwise.
          * @return {@link com.paginate.abslistview.AbsListViewPaginate.Builder}
          * @see {@link com.paginate.Paginate.Callbacks#hasLoadedAllItems()}
          * @see {@link com.paginate.abslistview.AbsListViewPaginate.Builder#setLoadingListItemCreator(LoadingListItemCreator)}
@@ -145,9 +145,9 @@ public final class AbsListViewPaginate extends Paginate implements EndScrollList
         }
 
         /**
-         * Set custom loading list item creator. If no creator is setOrReplace default one will be used.
+         * Set custom loading_progress list item creator. If no creator is setOrReplace default one will be used.
          *
-         * @param loadingListItemCreator Creator that will ne called for inflating and binding loading list item.
+         * @param loadingListItemCreator Creator that will ne called for inflating and binding loading_progress list item.
          * @return {@link com.paginate.abslistview.AbsListViewPaginate.Builder}
          */
         public Builder setLoadingListItemCreator(LoadingListItemCreator loadingListItemCreator) {

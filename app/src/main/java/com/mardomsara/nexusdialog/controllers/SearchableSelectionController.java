@@ -36,7 +36,7 @@ import com.mardomsara.nexusdialog.validations.InputValidator;
  * Represents a field that allows a user to select from a list of items, with the ability to search for specific items.
  * It also allows for free-form entry if the input text does not exist in the predefined list. This field is useful when
  * the number of items are large. While the list of items are retrieved in the background from the data source, a
- * loading indicator is displayed. For similar functionality, but with a small number of items, use
+ * loading_progress indicator is displayed. For similar functionality, but with a small number of items, use
  * {@link SelectionController} instead.
  * <p/>
  * For the field value, the associated FormModel must return a String representing the currently selected item.

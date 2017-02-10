@@ -923,7 +923,7 @@ public class X {
         public SimpleDraweeView msg_image;
         public FrameLayout loading_holder;
         public TextView icon_action_btn;
-        public CircularProgressView loading;
+        public CircularProgressView loading_progress;
 
         public Msg_MediaNetworkLoader(ViewGroup parent) {
             root = (ViewGroup) AppUtil.inflate(R.layout.msg__media_network_loader,parent,true);//for Compound Views
@@ -931,7 +931,7 @@ public class X {
             msg_image = (SimpleDraweeView) root.findViewById( R.id.msg_image);
             loading_holder = (FrameLayout) root.findViewById( R.id.loading_holder);
             icon_action_btn = (TextView) root.findViewById( R.id.icon_action_btn);
-            loading = (CircularProgressView) root.findViewById( R.id.loading);
+            loading_progress = (CircularProgressView) root.findViewById( R.id.loading_progress);
         }
     }
  //( index .Fields 0).ViewClass

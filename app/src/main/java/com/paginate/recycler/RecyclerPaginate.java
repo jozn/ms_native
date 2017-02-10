@@ -29,13 +29,13 @@ public final class RecyclerPaginate extends Paginate {
         recyclerView.addOnScrollListener(mOnScrollListener);
 
         if (addLoadingListItem) {
-            // Wrap existing adapter with new adapter that will addStart loading root_view
+            // Wrap existing adapter with new adapter that will addStart loading_progress root_view
             RecyclerView.Adapter adapter = recyclerView.getAdapter();
             wrapperAdapter = new WrapperAdapter(adapter, loadingListItemCreator);
             adapter.registerAdapterDataObserver(mDataObserver);
             recyclerView.setAdapter(wrapperAdapter);
 
-            // For GridLayoutManager use separate/customisable span lookup for loading root_view
+            // For GridLayoutManager use separate/customisable span lookup for loading_progress root_view
             if (recyclerView.getLayoutManager() instanceof GridLayoutManager) {
                 wrapperSpanSizeLookup = new WrapperSpanSizeLookup(
                         ((GridLayoutManager) recyclerView.getLayoutManager()).getSpanSizeLookup(),
@@ -94,7 +94,7 @@ public final class RecyclerPaginate extends Paginate {
         // Check if end of the list is reached (counting threshold) or if there is no items at all
         if ((totalItemCount - visibleItemCount) <= (firstVisibleItemPosition + loadingTriggerThreshold)
                 || totalItemCount == 0) {
-            // Call load more only if loading is not currently in progress and if there is more items to load
+            // Call load more only if loading_progress is not currently in progress and if there is more items to load
             if (!callbacks.isLoading() && !callbacks.hasLoadedAllItems()) {
                 callbacks.onLoadMore();
             }
@@ -179,12 +179,12 @@ public final class RecyclerPaginate extends Paginate {
         }
 
         /**
-         * Setup loading root_view. If loading root_view is used original adapter setOrReplace on RecyclerView will be wrapped with
-         * internal adapter that will addStart loading root_view as the last item in the list. Paginate will observer the
-         * changes upon original adapter and remove loading root_view if there is no more data to load. By default loading
+         * Setup loading_progress root_view. If loading_progress root_view is used original adapter setOrReplace on RecyclerView will be wrapped with
+         * internal adapter that will addStart loading_progress root_view as the last item in the list. Paginate will observer the
+         * changes upon original adapter and remove loading_progress root_view if there is no more data to load. By default loading_progress
          * root_view will be added.
          *
-         * @param addLoadingListItem true if loading root_view needs to be added, false otherwise.
+         * @param addLoadingListItem true if loading_progress root_view needs to be added, false otherwise.
          * @return {@link com.paginate.recycler.RecyclerPaginate.Builder}
          * @see {@link com.paginate.Paginate.Callbacks#hasLoadedAllItems()}
          * @see {@link com.paginate.recycler.RecyclerPaginate.Builder#setLoadingListItemCreator(LoadingListItemCreator)}
@@ -195,9 +195,9 @@ public final class RecyclerPaginate extends Paginate {
         }
 
         /**
-         * Set custom loading list item creator. If no creator is setOrReplace default one will be used.
+         * Set custom loading_progress list item creator. If no creator is setOrReplace default one will be used.
          *
-         * @param creator Creator that will ne called for inflating and binding loading list item.
+         * @param creator Creator that will ne called for inflating and binding loading_progress list item.
          * @return {@link com.paginate.recycler.RecyclerPaginate.Builder}
          */
         public Builder setLoadingListItemCreator(LoadingListItemCreator creator) {
@@ -206,10 +206,10 @@ public final class RecyclerPaginate extends Paginate {
         }
 
         /**
-         * Set custom SpanSizeLookup for loading list item. Use this when {@link GridLayoutManager} is used and
-         * loading list item needs to have custom span. Full span of {@link GridLayoutManager} is used by default.
+         * Set custom SpanSizeLookup for loading_progress list item. Use this when {@link GridLayoutManager} is used and
+         * loading_progress list item needs to have custom span. Full span of {@link GridLayoutManager} is used by default.
          *
-         * @param loadingListItemSpanLookup LoadingListItemSpanLookup that will be called for loading list item span.
+         * @param loadingListItemSpanLookup LoadingListItemSpanLookup that will be called for loading_progress list item span.
          * @return {@link com.paginate.recycler.RecyclerPaginate.Builder}
          */
         public Builder setLoadingListItemSpanSizeLookup(LoadingListItemSpanLookup loadingListItemSpanLookup) {

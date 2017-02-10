@@ -9,7 +9,7 @@ class DefaultLoadingListItemSpanLookup implements LoadingListItemSpanLookup {
 
     public DefaultLoadingListItemSpanLookup(RecyclerView.LayoutManager layoutManager) {
         if (layoutManager instanceof GridLayoutManager) {
-            // By default full span will be used for loading list item
+            // By default full span will be used for loading_progress list item
             loadingListItemSpan = ((GridLayoutManager) layoutManager).getSpanCount();
         } else {
             loadingListItemSpan = 1;

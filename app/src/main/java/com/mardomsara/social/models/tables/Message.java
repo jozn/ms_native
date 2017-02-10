@@ -137,6 +137,8 @@ public class Message  implements Comparable<Message>, UploadProgressListener,Dow
 	public transient Req req;
 
 	public void cancelUploading(){
+		Helper.showDebugMessage("cancelUploading ");
+
 		setNetWorkTransferring(false);
 		if(req!=null){
 			req.cancel();

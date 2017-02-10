@@ -8,23 +8,23 @@ import com.mardomsara.social.R;
 
 //import com.paginate.R;
 
-/** AbsListView creator that will be called to create and bind loading list item */
+/** AbsListView creator that will be called to create and bind loading_progress list item */
 public interface LoadingListItemCreator {
 
     /**
-     * Create/inflate new loading list item view.
+     * Create/inflate new loading_progress list item view.
      *
-     * @param position loading list item position.
+     * @param position loading_progress list item position.
      * @param parent   parent ViewGroup.
-     * @return view that will be displayed as loading list item (loading indicator).
+     * @return view that will be displayed as loading_progress list item (loading_progress indicator).
      */
     View newView(int position, ViewGroup parent);
 
     /**
-     * Bind the loading list item.
+     * Bind the loading_progress list item.
      *
-     * @param position loading list item position.
-     * @param view     loading list item view.
+     * @param position loading_progress list item position.
+     * @param view     loading_progress list item view.
      */
     void bindView(int position, View view);
 
@@ -36,7 +36,7 @@ public interface LoadingListItemCreator {
 
         @Override
         public void bindView(int position, View view) {
-            // No binding for default loading root_view
+            // No binding for default loading_progress root_view
         }
     };
 
