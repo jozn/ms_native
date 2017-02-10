@@ -61,11 +61,13 @@ public class MsgsCallToServer {
 	}
 
 	public static void sendNewPhoto(Message msg, File resizedFile,File fileOriginal, final boolean deleteOrginal){
+		msg.setNetWorkTransferring(true);
 		Req req = Http.upload("http://localhost:5000/msgs/v1/add_one",resizedFile)
 			.setFormParam("message", JsonUtil.toJson(msg))
 			.setUploadProgress(msg)
 			.doAsync(
 				(result)->{
+					msg.setNetWorkTransferring(false);
 					if (result.isOk()){
 						Helper.showDebugMessage("sendNewPhoto ok");
 						msg.setMsgFile_Status((Constants.Msg_Media_Uploaded));
@@ -85,11 +87,13 @@ public class MsgsCallToServer {
 
 
 	public static void sendNewVideo(Message msg, File resizedFile){
+		msg.setNetWorkTransferring(true);
 		Req req = upload("http://localhost:5000/msgs/v1/add_one",resizedFile)
 			.setFormParam("message", JsonUtil.toJson(msg))
 			.setUploadProgress(msg)
 			.doAsync(
 				(result)->{
+					msg.setNetWorkTransferring(false);
 					if (result.isOk()){
 						msg.setMsgFile_Status((Constants.Msg_Media_Uploaded));
 						msg.ToPush = 0;

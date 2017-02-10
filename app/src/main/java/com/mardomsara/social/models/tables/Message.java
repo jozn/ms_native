@@ -134,9 +134,10 @@ public class Message  implements Comparable<Message>, UploadProgressListener,Dow
 		isNetWorkTransferring = netWorkTransferring;
 	}
 
-	public Req req;
+	public transient Req req;
 
 	public void cancelUploading(){
+		setNetWorkTransferring(false);
 		if(req!=null){
 			req.cancel();
 		}
@@ -153,6 +154,7 @@ public class Message  implements Comparable<Message>, UploadProgressListener,Dow
 	};
 
 	public void cancelDownloading(){
+		setNetWorkTransferring(false);
 		if(req!=null){
 			req.cancel();
 		}

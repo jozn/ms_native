@@ -4,6 +4,7 @@ import android.support.annotation.NonNull;
 import android.view.ViewGroup;
 
 import com.mardomsara.social.helpers.AppUtil;
+import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.models.tables.Message;
 import com.mardomsara.social.ui.X;
 import com.mardomsara.social.ui.views.helpers.ViewHelper;
@@ -15,6 +16,7 @@ public class MsgCell_PhotoMe extends MsgCell_AbstractViewHolder {
 
 	@NonNull
 	X.Msg_RowImageMe x;
+	Message msg;
 
     public MsgCell_PhotoMe(X.Msg_RowImageMe xv) {
         super(xv.root);
@@ -27,6 +29,7 @@ public class MsgCell_PhotoMe extends MsgCell_AbstractViewHolder {
 
     @Override
     public void bindToView(Message msg) {
+		this.msg = msg;
         AppUtil.log("bindToView Peer");
         x.msg_time.setText(MsgCommon.msgRawTime2(msg));
 //        msg_text.setText(msg.getText());
@@ -40,8 +43,8 @@ public class MsgCell_PhotoMe extends MsgCell_AbstractViewHolder {
 
     }
 
-
-
-
-
+	@Override
+	public void onRecycled() {
+		AppUtil.log("onRecycled msg me image: "+ msg.MessageKey);
+	}
 }
