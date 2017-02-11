@@ -164,7 +164,7 @@ public class MsgCallsFromServer {
 						msg.MsgFile_LocalSrc = fileName;
 						msg.setMsgFile_Status(Constants.Msg_Media_To_Download);
 						msg.saveWithRoom();
-						HttpOld.downloadFile(msgFile.ServerSrc,fileName,
+						/*HttpOld.downloadFile(msgFile.ServerSrc,fileName,
 							()->{//callback
 								msg.setMsgFile_Status(Constants.Msg_Media_Downloaded);
 								msg.saveWithRoom();
@@ -173,7 +173,7 @@ public class MsgCallsFromServer {
 							},
 							()->{//errorback
 
-							});
+							});*/
 					}
 				});
                 break;

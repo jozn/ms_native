@@ -1061,14 +1061,14 @@ public class X {
     public static class Msg_RowImagePeer {
         public LinearLayout root;
         public LinearLayout msg_content_holder;
-        public SimpleDraweeView msg_image;
+        public ChatMediaNetworkLoader image_holder;
         public EmojiconTextView msg_text;
         public TextView msg_time;
 
         public Msg_RowImagePeer(ViewGroup parent) {
             root = (LinearLayout) AppUtil.inflate(R.layout.msg__row_image_peer,parent);
             msg_content_holder = (LinearLayout) root.findViewById( R.id.msg_content_holder);
-            msg_image = (SimpleDraweeView) root.findViewById( R.id.msg_image);
+            image_holder = (ChatMediaNetworkLoader) root.findViewById( R.id.image_holder);
             msg_text = (EmojiconTextView) root.findViewById( R.id.msg_text);
             msg_time = (TextView) root.findViewById( R.id.msg_time);
         }

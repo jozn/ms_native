@@ -7,7 +7,6 @@ import com.github.gfx.android.orma.annotation.Column;
 import com.github.gfx.android.orma.annotation.OnConflict;
 import com.github.gfx.android.orma.annotation.PrimaryKey;
 import com.github.gfx.android.orma.annotation.Table;
-import com.mardomsara.social.app.Constants;
 import com.mardomsara.social.app.DB;
 import com.mardomsara.social.base.Http.Req;
 import com.mardomsara.social.base.Http.listener.DownloadProgressListener;
@@ -16,6 +15,7 @@ import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.TimeUtil;
+import com.mardomsara.social.models.MessageModel;
 import com.mardomsara.social.models.RoomModel;
 import com.mardomsara.social.models.interfaces.MessageProgressListener;
 import com.mardomsara.social.models.memory_store.MemoryStore_LastMsgs;
@@ -180,8 +180,9 @@ public class Message  implements Comparable<Message>, UploadProgressListener,Dow
 	};
 
 	public void retryDownloading(){
+		Helper.showDebugMessage("retryDownloading");
 		setNetWorkTransferring(true);
-
+		MessageModel.downloadMessageMediaFile(this);
 	};
 
     public Message() {

@@ -9,6 +9,7 @@ import com.mardomsara.social.App;
 import com.mardomsara.social.app.AppFiles;
 import com.mardomsara.social.app.Constants;
 import com.mardomsara.social.app.DB;
+import com.mardomsara.social.base.Http.Http;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.FileUtil;
@@ -169,4 +170,22 @@ public class MessageModel {
         RoomModel.onByMeNewMsg(msg);
         App.getBus().post(msg);
     }
+
+	/////////////// network related /////////////
+	public static void downloadMessageMediaFile(@NonNull Message msg){
+		AndroidUtil.runInBackgroundNoPanic(()->{
+			MsgFile msgFile = msg.getMsgFile();
+			File file = new File(msgFile.LocalSrc);
+			if(!file.exists()){
+				Http.download(msgFile.ServerSrc,msgFile.LocalSrc)
+					.setDownloadProgress(msg)
+					.doAsyncDownload((result -> {
+						if(result.isOk()){
+							msgFile.Status = Constants.Msg_Media_Downloaded;
+						}
+						msg.setNetWorkTransferring(false);
+					}));
+			}
+		});
+	}
 }

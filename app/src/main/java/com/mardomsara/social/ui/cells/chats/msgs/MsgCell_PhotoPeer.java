@@ -15,10 +15,14 @@ public class MsgCell_PhotoPeer extends MsgCell_AbstractViewHolder {
 	@NonNull
 	X.Msg_RowImagePeer x;
 
+	@NonNull
+	MsgImageWrapper imageWrapper;
+
     public MsgCell_PhotoPeer(X.Msg_RowImagePeer xv) {
         super(xv.root);
 		x = xv;
-    }
+		imageWrapper = new MsgImageWrapper(xv.image_holder);
+	}
 
     public static MsgCell_PhotoPeer makeNew(ViewGroup parent){
         return new MsgCell_PhotoPeer(new X.Msg_RowImagePeer(parent));
@@ -27,7 +31,7 @@ public class MsgCell_PhotoPeer extends MsgCell_AbstractViewHolder {
     @Override
     public void bindToView(Message msg) {
         AppUtil.log("bindToView Peer");
-        MsgCommon.setImage_DEP(msg,x.msg_image);
+		imageWrapper.bind(msg);
         MsgCommon.setTextForImages(msg,x.msg_text);
         x.msg_time.setText(MsgCommon.msgRawTime2(msg));
 

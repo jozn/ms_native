@@ -49,8 +49,8 @@ class MsgImageWrapper implements MessageProgressListener {
 		image_holder.x.loading_progress.setIndeterminate(false);
 
 		MsgFile msgFile = msg.getMsgFile();
-		if(msgFile == null)return;
-		if(msg.MsgFile_Status >0 );
+		if(msgFile == null)return;//should not happen
+		File file = new File(msgFile.LocalSrc);
 
 		if(msg.isMsgByMe()){
 			if(msg.needPush()){
@@ -64,7 +64,7 @@ class MsgImageWrapper implements MessageProgressListener {
 				image_holder.x.loading_holder.setVisibility(View.GONE);
 			}
 		} else {
-			if(msgFile.Status == Constants.Msg_Media_To_Push_And_Upload){
+			if(!file.exists() || msgFile.Status < Constants.Msg_Media_Downloaded){
 				if( msg.isNetWorkTransferring()){//show uploading
 					showDownloading();
 
@@ -85,24 +85,34 @@ class MsgImageWrapper implements MessageProgressListener {
 			ImageView image_view = image_holder.x.msg_image;
 			MsgFile msgFile = msg.getMsgFile();
 
-			File file = new File(msgFile.LocalSrc);
-			if (msgFile!=null && file.exists()) {
+			image_view.setVisibility(View.VISIBLE);
 
+			File file = new File(msgFile.LocalSrc);
+			if (msgFile!=null ) {
 				int max_width = (int) (AndroidUtil.getScreenWidth() * 0.80);
 				AppUtil.log("width: "+max_width+AndroidUtil.getScreenResolution()+AndroidUtil.getDensity());
 				max_width = AndroidUtil.pxToDp(max_width);
 				ViewHelper.setImageSizesWithMaxPx(image_view, max_width -2,max_width, msgFile.Width,msgFile.Height);
-				file.toURI();
-				Uri u2 =Uri.fromFile(file);
-				image_view.setImageURI(u2);
 
-				image_view.setOnClickListener((v)->{
-					FullScreenImage window = new FullScreenImage();
-					window.text = msg.Text;
-					window.imageUri = u2 ;//msg.getMediaLocalSrc();
-					window.show();
-				});
-			}else {
+				if(file.exists()){
+					file.toURI();
+					Uri u2 =Uri.fromFile(file);
+					image_view.setImageURI(u2);
+
+					image_view.setOnClickListener((v)->{
+						FullScreenImage window = new FullScreenImage();
+						window.text = msg.Text;
+						window.imageUri = u2 ;
+						window.show();
+					});
+				}else {//just file don't exists
+					if(msg.isMsgByMe()){ //msg is by this user and this file is deleted we can't do anything
+
+					}else {//try download
+
+					}
+				}
+			}else {//should not happen but for more reliability
 				image_view.setVisibility(View.GONE);
 			}
 		}catch (Exception e){
@@ -122,6 +132,7 @@ class MsgImageWrapper implements MessageProgressListener {
 		image_holder.x.loading_progress.setVisibility(View.VISIBLE);
 		image_holder.x.icon_action_btn.setText(iconClose);
 		image_holder.x.loading_holder.setOnClickListener((v)->{msg.cancelDownloading();});
+		image_holder.x.loading_progress.setProgress(2);
 	}
 
 	void showUploadRetery(){
@@ -135,12 +146,12 @@ class MsgImageWrapper implements MessageProgressListener {
 	}
 
 	void showUploading(){
-		image_holder.x.loading_progress.setProgress(2);
-		msg.messageProgressListener = this;
+//		msg.messageProgressListener = this;
 		image_holder.x.loading_holder.setVisibility(View.VISIBLE);
 		image_holder.x.loading_progress.setVisibility(View.VISIBLE);
 		image_holder.x.icon_action_btn.setText(iconClose);
 		image_holder.x.loading_holder.setOnClickListener((v)->{msg.cancelUploading();});
+		image_holder.x.loading_progress.setProgress(2);
 	}
 
 	void hideUi(){
@@ -152,7 +163,6 @@ class MsgImageWrapper implements MessageProgressListener {
 		AndroidUtil.runInUiNoPanic(()->{
 			AppUtil.log("Progress Listener UI "+msg.MessageKey +" " + image_holder.x.loading_progress.getId() + " " +bytesRead+ " "+ contentLength + " "+done);
 			image_holder.x.loading_progress.setProgress((bytesRead/contentLength)*100);
-
 		});
 	}
 
