@@ -192,6 +192,8 @@ dependencies {
 
     compile 'org.greenrobot:essentials:3.0.0-RC1'
 
+//    compile 'me.zhanghai.android.materialprogressbar:library:1.3.0'
+
 //    compile 'com.facebook.react:react-native:0.21.1'
 //    compile 'com.facebook.react:react-native:0.18.+'
 //    compile 'com.facebook.react:react-native:+'

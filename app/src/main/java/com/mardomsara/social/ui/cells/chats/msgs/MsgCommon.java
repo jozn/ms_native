@@ -68,7 +68,7 @@ public class MsgCommon {
     }
 
 	//////////////////////// Image and Network Loader ////////////////////////////////
-	@Deprecated
+	/*@Deprecated
 	public static void setImage2(@NonNull Message msg , @NonNull ChatMediaNetworkLoader image_holder){
 		ImageView image_iew = image_holder.x.msg_image;
 		if(msg.MsgFile_Status >0 );
@@ -83,9 +83,9 @@ public class MsgCommon {
 						image_holder.x.loading_progress.setVisibility(View.VISIBLE);
 						image_holder.x.icon_action_btn.setText("close X");
 						image_holder.x.loading_holder.setOnClickListener((v)->{msg.cancelUploading();});
-						/*msg.messageProgressListener = (bytesRead,contentLength, done) ->{
+						*//*msg.messageProgressListener = (bytesRead,contentLength, done) ->{
 							AppUtil.log("Progress Listener "+bytesRead+ " "+ contentLength + " "+done);
-						};*/
+						};*//*
 					}else { //show retry
 						image_holder.x.loading_holder.setVisibility(View.VISIBLE);
 						image_holder.x.loading_progress.setVisibility(View.GONE);
@@ -114,7 +114,7 @@ public class MsgCommon {
 				}
 			}
 
-			/*image_holder.x.loading_holder.setVisibility(View.VISIBLE);
+			*//*image_holder.x.loading_holder.setVisibility(View.VISIBLE);
 			image_holder.x.loading_progress.setVisibility(View.VISIBLE);
 
 			image_holder.x.loading_progress.setIndeterminate(true);
@@ -123,24 +123,24 @@ public class MsgCommon {
 			image_holder.x.loading_holder.setOnClickListener((v)->{
 				msg.retryUploading();
 				image_holder.x.icon_action_btn.setText("&"+image_holder.x.loading_progress.hashCode() );
-			});*/
+			});*//*
 
-			/*msg.messageProgressListener = (bytesRead,contentLength, done) ->{
+			*//*msg.messageProgressListener = (bytesRead,contentLength, done) ->{
 				AndroidUtil.runInUiNoPanic(()->{
 					AppUtil.log("Progress Listener "+msg.MessageKey +" " + image_holder.x.loading_progress.getId() + " " +bytesRead+ " "+ contentLength + " "+done);
 					image_holder.x.loading_progress.setProgress((bytesRead/contentLength)*100);
 
 				});
-			};*/
+			};*//*
 
 //			image_holder.x.loading_progress.setProgress(95.0f);
 
-			/*if(msgFile.Status == Constants.Msg_Media_To_Push_And_Upload || msgFile.Status == Constants.Msg_Media_To_Download){
+			*//*if(msgFile.Status == Constants.Msg_Media_To_Push_And_Upload || msgFile.Status == Constants.Msg_Media_To_Download){
 				image_holder.x.cancel_btn.setText("\uf3b5");//"{ion-android-close");
 			}else {
 				image_holder.x.cancel_btn.setText("\uf2f5");//"{ion-upload}");
 
-			}*/
+			}*//*
 			image_holder.x.icon_action_btn.setTextSize(16);
 
 			File file = new File(msgFile.LocalSrc);
@@ -157,15 +157,15 @@ public class MsgCommon {
 				image_holder.x.loading_progress.setProgress(image_holder.x.loading_progress.getMaxProgress()+10);
 
 				;
-				/*FullScreenImage window = new FullScreenImage();
+				*//*FullScreenImage window = new FullScreenImage();
 				window.text = msg.Text;
 				window.imageUri = u2 ;//msg.getMediaLocalSrc();
-				window.show();*/
+				window.show();*//*
 			});
 		}else {
 			image_iew.setVisibility(View.GONE);
 		}
-	}
+	}*/
 
 	public static void setVideoImage(Message msg , ImageView msg_image) {
 		int max_width = (int) (AndroidUtil.getScreenWidth() * 0.88);
