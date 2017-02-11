@@ -6,6 +6,7 @@ import android.util.TypedValue;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.mardomsara.social.R;
 import com.mardomsara.social.app.Constants;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
@@ -55,7 +56,6 @@ class MsgImageWrapper implements MessageProgressListener {
 		if(msg.isMsgByMe()){
 			if(msg.needPush()){
 				if( msg.isNetWorkTransferring()){//show uploading
-
 					showUploading();
 				}else { //show retry
 					showUploadRetery();
@@ -64,7 +64,7 @@ class MsgImageWrapper implements MessageProgressListener {
 				image_holder.x.loading_holder.setVisibility(View.GONE);
 			}
 		} else {
-			if(!file.exists() || msgFile.Status < Constants.Msg_Media_Downloaded){
+			if( (!file.exists()) || msgFile.Status < Constants.Msg_Media_Downloaded){
 				if( msg.isNetWorkTransferring()){//show uploading
 					showDownloading();
 
@@ -80,11 +80,10 @@ class MsgImageWrapper implements MessageProgressListener {
 	}
 
 	void showImage(){
+		ImageView image_view = image_holder.x.msg_image;
+		MsgFile msgFile = msg.getMsgFile();
 
 		try {
-			ImageView image_view = image_holder.x.msg_image;
-			MsgFile msgFile = msg.getMsgFile();
-
 			image_view.setVisibility(View.VISIBLE);
 
 			File file = new File(msgFile.LocalSrc);
@@ -106,6 +105,7 @@ class MsgImageWrapper implements MessageProgressListener {
 						window.show();
 					});
 				}else {//just file don't exists
+					image_view.setImageDrawable(AndroidUtil.getResources().getDrawable(R.drawable.image_background));
 					if(msg.isMsgByMe()){ //msg is by this user and this file is deleted we can't do anything
 
 					}else {//try download
@@ -113,10 +113,11 @@ class MsgImageWrapper implements MessageProgressListener {
 					}
 				}
 			}else {//should not happen but for more reliability
-				image_view.setVisibility(View.GONE);
+				image_view.setVisibility(View.INVISIBLE);
 			}
 		}catch (Exception e){
 			e.printStackTrace();
+			image_view.setVisibility(View.INVISIBLE);
 		}
 	}
 
@@ -155,7 +156,7 @@ class MsgImageWrapper implements MessageProgressListener {
 	}
 
 	void hideUi(){
-
+		image_holder.x.loading_holder.setVisibility(View.GONE);
 	}
 
 	@Override

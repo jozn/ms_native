@@ -172,20 +172,20 @@ public class MessageModel {
     }
 
 	/////////////// network related /////////////
-	public static void downloadMessageMediaFile(@NonNull Message msg){
+	public static void downloadForceMessageMediaFile(@NonNull Message msg){
 		AndroidUtil.runInBackgroundNoPanic(()->{
 			MsgFile msgFile = msg.getMsgFile();
 			File file = new File(msgFile.LocalSrc);
-			if(!file.exists()){
-				Http.download(msgFile.ServerSrc,msgFile.LocalSrc)
-					.setDownloadProgress(msg)
-					.doAsyncDownload((result -> {
-						if(result.isOk()){
-							msgFile.Status = Constants.Msg_Media_Downloaded;
-						}
-						msg.setNetWorkTransferring(false);
-					}));
-			}
+			Http.download(msgFile.ServerSrc,msgFile.LocalSrc)
+				.setDownloadProgress(msg)
+				.doAsyncDownload((result -> {
+					if(result.isOk()){
+						msgFile.Status = Constants.Msg_Media_Downloaded;
+						msgFile.Origin = Constants.Msg_Media_Origin_Server;
+						msg.saveWithRoom();
+					}
+					msg.setNetWorkTransferring(false);
+				}));
 		});
 	}
 }

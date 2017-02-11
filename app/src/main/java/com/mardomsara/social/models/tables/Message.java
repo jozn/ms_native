@@ -182,7 +182,7 @@ public class Message  implements Comparable<Message>, UploadProgressListener,Dow
 	public void retryDownloading(){
 		Helper.showDebugMessage("retryDownloading");
 		setNetWorkTransferring(true);
-		MessageModel.downloadMessageMediaFile(this);
+		MessageModel.downloadForceMessageMediaFile(this);
 	};
 
     public Message() {
@@ -250,6 +250,7 @@ public class Message  implements Comparable<Message>, UploadProgressListener,Dow
 	private void trySaveMsgFile(){
 		if(MsgFile != null){
 			MsgFile_LocalSrc = MsgFile.LocalSrc;
+			MsgFile_Status = MsgFile.Status;
 			MsgFile.save();
 		}
 	}
