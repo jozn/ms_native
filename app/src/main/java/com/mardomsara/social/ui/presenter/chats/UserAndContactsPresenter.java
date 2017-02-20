@@ -3,14 +3,11 @@ package com.mardomsara.social.ui.presenter.chats;
 import android.net.Uri;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
-import com.facebook.drawee.view.SimpleDraweeView;
 import com.mardomsara.social.R;
 import com.mardomsara.social.app.Router;
 import com.mardomsara.social.helpers.AppUtil;
@@ -23,7 +20,6 @@ import com.mardomsara.social.models.tables.User;
 import com.mardomsara.social.play.DividerItemDecoration;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.X;
-import com.mardomsara.social.ui.views.wigets.FollowingButtonView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,23 +31,25 @@ import butterknife.ButterKnife;
  * Created by Hamid on 5/2/2016.
  */
 public class UserAndContactsPresenter extends BasePresenter {
-    static int CONTACTS = 1;
-    static int FOLLOWINGS = 1;
+	private enum TAB_TYPE {
+		CONTACTS,
+		FOLLOWINGS
+	}
 
 	// layout1 :for contacts
 	//layout2: for followings
-	X.Page_ListContactsFollowings x;
+	X.ContactsFollowingsList_Screen x;
 
     @Override
     public View buildView() {
 
-		x = new X.Page_ListContactsFollowings();
+		x = new X.ContactsFollowingsList_Screen();
         List<User> registeredContactsList = UserModel.getAllRegisteredContacts();
         List<User> followingsLists = UserModel.getAllFollowings();
         List<ContactsCopy> notRegisterd = ContactsCopyModel.getContactsNotRegisterd(registeredContactsList);
-        UserFollowingSavedAdaptor adp_contacts = new UserFollowingSavedAdaptor(registeredContactsList ,CONTACTS);
+        UserFollowingSavedAdaptor adp_contacts = new UserFollowingSavedAdaptor(registeredContactsList ,TAB_TYPE.CONTACTS);
         adp_contacts.mListUnregisteredContacts = notRegisterd;
-        UserFollowingSavedAdaptor adp_followings = new UserFollowingSavedAdaptor(followingsLists, FOLLOWINGS);
+        UserFollowingSavedAdaptor adp_followings = new UserFollowingSavedAdaptor(followingsLists, TAB_TYPE.FOLLOWINGS);
 
         LinearLayoutManager layoutManager1 = new LinearLayoutManager(AppUtil.getContext());
         LinearLayoutManager layoutManager2 = new LinearLayoutManager(AppUtil.getContext());
@@ -82,11 +80,11 @@ public class UserAndContactsPresenter extends BasePresenter {
             x.empty_followings_msg.setVisibility(View.GONE);
         }
 
-        x.followings_btn.setOnClickListener((v)->{
+        x.followings_tab_btn.setOnClickListener((v)->{
             followings_btn_pressed();
         });
 
-        x.contacts_btn.setOnClickListener((v)->{
+        x.contacts_tab_btn.setOnClickListener((v)->{
             contacts_btn_pressed();
         });
         contacts_btn_pressed();
@@ -96,28 +94,24 @@ public class UserAndContactsPresenter extends BasePresenter {
     void followings_btn_pressed(){
         x.layout1.setVisibility(View.GONE);
         x.layout2.setVisibility(View.VISIBLE);
-        x.followings_btn.setSelected(true);
-        x.contacts_btn.setSelected(false);
+        x.followings_tab_btn.setSelected(true);
+        x.contacts_tab_btn.setSelected(false);
     }
 
     void contacts_btn_pressed(){
         x.layout1.setVisibility(View.VISIBLE);
         x.layout2.setVisibility(View.GONE);
-        x.followings_btn.setSelected(false);
-        x.contacts_btn.setSelected(true);
+        x.followings_tab_btn.setSelected(false);
+        x.contacts_tab_btn.setSelected(true);
     }
 
     public static class UserFollowingSavedAdaptor extends RecyclerView.Adapter<UserFollowingSavedAdaptor.ViewHolderBase> {
-        private static final String TAG = "UserFollowingSavedAdaptor";
 
         private List<User> mDataSet;
         private List<ContactsCopy> mListUnregisteredContacts = new ArrayList<>();
-        int listType;
+		TAB_TYPE listType;
 
-
-        // END_INCLUDE(recyclerViewSampleViewHolder)
-
-        public UserFollowingSavedAdaptor(List<User> dataSet, int type) {
+        public UserFollowingSavedAdaptor(List<User> dataSet, TAB_TYPE type) {
             mDataSet = dataSet;
             listType = type;
         }
@@ -125,41 +119,40 @@ public class UserAndContactsPresenter extends BasePresenter {
         @Override
         public ViewHolderBase onCreateViewHolder(ViewGroup viewGroup, int viewType) {
             if(viewType==0){//followings or registered users
-                View v = LayoutInflater.from(viewGroup.getContext())
-                        .inflate(R.layout.row_users_contacts, viewGroup, false);
+//                View v = LayoutInflater.from(viewGroup.getContext())
+//                        .inflate(R.layout.contacts_followings_list__row, viewGroup, false);
 
-                return new ViewHolder(v);
+                return new ViewHolder(new X.ContactsFollowingsList_Row(viewGroup));
             }else{ //unregisterd
-                View v = LayoutInflater.from(viewGroup.getContext())
-                        .inflate(R.layout.row_users_unregisterd_contact, viewGroup, false);
+//                View v = LayoutInflater.from(viewGroup.getContext())
+//                        .inflate(R.layout.contacts_followings_list__row_unregisterd_contact, viewGroup, false);
 
-                return new ViewHolderForUnregisterd(v);
+                return new UnRegisteredVH(new X.ContactsFollowingsList_RowUnregisterdContact(viewGroup));
             }
         }
 
         @Override
         public void onBindViewHolder(ViewHolderBase viewHolder, final int position) {
-//            Log.d(TAG, "Element " + position + " setOrReplace.");
-//            AppUtil.log("user: "+ JsonUtil.toJson(user));
-//            AppUtil.log("user: "+ user.getPhoneDisplayName());
             ViewHolderBase vh0 = viewHolder;
             if(vh0 instanceof ViewHolder && mDataSet.size()> position){
                 User user = mDataSet.get(position);
-                ViewHolder vh = (ViewHolder) vh0;
-				vh.user = user;
+				((ViewHolder) vh0).bind(user);
+//                ViewHolder vh = (ViewHolder) vh0;
+				/*vh.user = user;
                 vh.primary_name.setText(user.FirstName +" "+ user.LastName);
                 vh.second_name.setText(""+user.PhoneDisplayName);
                 vh.self.setTag(user);
                 vh.usersTable = user;
 				vh.following_button.setUser(user.getTo_UserInfoJson());
                 Uri imageUri = Helper.PathToUserAvatarUri(user.AvatarUrl);
-                vh.avatar.setImageURI(imageUri);
-            }else if(vh0 instanceof ViewHolderForUnregisterd){
+                vh.avatar.setImageURI(imageUri);*/
+            }else if(vh0 instanceof UnRegisteredVH){
                 try {
-                    ViewHolderForUnregisterd vh = (ViewHolderForUnregisterd) vh0;
+//                    UnRegisteredVH vh = (UnRegisteredVH) vh0;
                     ContactsCopy user = mListUnregisteredContacts.get(position - mDataSet.size());
-                    vh.phoneContact = user;
-                    vh.name_text.setText(user.PhoneDisplayName);
+					((UnRegisteredVH) vh0).bind(user);
+//                    vh.phoneContact = user;
+//                    vh.name_text.setText(user.PhoneDisplayName);
                 }catch (Exception c){//out of index bug???
                     c.printStackTrace();
                 }
@@ -188,7 +181,7 @@ public class UserAndContactsPresenter extends BasePresenter {
         }
         //view holders
         public static class ViewHolder extends ViewHolderBase {
-            private final View self;
+            /*private final View self;
             User usersTable;
 
             @Bind(R.id.following_button)
@@ -202,25 +195,27 @@ public class UserAndContactsPresenter extends BasePresenter {
 
             @Bind(R.id.avatar)
             public SimpleDraweeView avatar;
-
+*/
 			User user;
+			X.ContactsFollowingsList_Row x;
 
 			//TODO: add approprate behaviuer in longPress
-            public ViewHolder(View v) {
-                super(v);
-                self = v;
-                v.setOnClickListener((vv)-> {
+            public ViewHolder(X.ContactsFollowingsList_Row row) {
+                super(row.root);
+				x = row;
+//                self = v;
+                row.root.setOnClickListener((vv)-> {
 					if(user != null){
 						Router.goToUserChatEntry(user.UserId);
 					}
                 });
 
-                v.setOnLongClickListener((vv)-> {
+				row.root.setOnLongClickListener((vv)-> {
 //                    DialogHelper.simpleAlert(vv.getContext(), "ایران ما", "تتای عیشسعی یادشسیاسش یشسیشست ");
                     return true;
                 });
 
-                ButterKnife.bind(this,v);
+//                ButterKnife.bind(this,v);
 
                 /*avatar.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -229,26 +224,43 @@ public class UserAndContactsPresenter extends BasePresenter {
                 });*/
             }
 
+			void bind(User user){
+				x.primary_name.setText(user.FirstName +" "+ user.LastName);
+				x.second_name.setText(""+user.PhoneDisplayName);
+				x.following_button.setUser(user.getTo_UserInfoJson());
+				Uri imageUri = Helper.PathToUserAvatarUri(user.AvatarUrl);
+				x.avatar.setImageURI(imageUri);
+			}
+
         }
 
         //view holders
-        public static class ViewHolderForUnregisterd extends ViewHolderBase {
-            private final View self;
+        public static class UnRegisteredVH extends ViewHolderBase {
+           /* private final View self;
             ContactsCopy phoneContact;
             @Bind(R.id.name_text)
-            public TextView name_text;
+            public TextView name_text;*/
 
-            public ViewHolderForUnregisterd(View v) {
-                super(v);
-                self = v;
-                v.setOnClickListener((vv)-> {
+			X.ContactsFollowingsList_RowUnregisterdContact x;
+
+            public UnRegisteredVH(X.ContactsFollowingsList_RowUnregisterdContact row) {
+                super(row.root);
+                x = row;
+                /*row.root.setOnClickListener((vv)-> {
                     IntentUtil.sendSmsTo(phoneContact.PhoneNumber,R.string.sms_join_inviation);
 //
-                });
+                });*/
 
-                ButterKnife.bind(this,v);
+//                ButterKnife.bind(this,v);
 
             }
+
+			void bind(ContactsCopy user){
+				x.name_text.setText(user.PhoneDisplayName);
+				x.root.setOnClickListener((vv)-> {
+					IntentUtil.sendSmsTo(user.PhoneNumber,R.string.sms_join_inviation);
+				});
+			}
 
         }
     }

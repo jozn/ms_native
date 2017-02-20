@@ -326,6 +326,68 @@ public class X {
     }
  //( index .Fields 0).ViewClass
 
+    public static class ContactsFollowingsList_Row {
+        public LinearLayout root;
+        public FollowingButtonView following_button;
+        public EmojiconTextView second_name;
+        public EmojiconTextView primary_name;
+        public SimpleDraweeView avatar;
+
+        public ContactsFollowingsList_Row(ViewGroup parent) {
+            root = (LinearLayout) AppUtil.inflate(R.layout.contacts_followings_list__row,parent);
+            following_button = (FollowingButtonView) root.findViewById( R.id.following_button);
+            second_name = (EmojiconTextView) root.findViewById( R.id.second_name);
+            primary_name = (EmojiconTextView) root.findViewById( R.id.primary_name);
+            avatar = (SimpleDraweeView) root.findViewById( R.id.avatar);
+        }
+        public ContactsFollowingsList_Row() {
+            this(null);
+        }
+    }
+ //( index .Fields 0).ViewClass
+
+    public static class ContactsFollowingsList_RowUnregisterdContact {
+        public TextView root;
+        public TextView name_text;
+
+        public ContactsFollowingsList_RowUnregisterdContact(ViewGroup parent) {
+            root = (TextView) AppUtil.inflate(R.layout.contacts_followings_list__row_unregisterd_contact,parent);
+            name_text = (TextView) root.findViewById( R.id.name_text);
+        }
+        public ContactsFollowingsList_RowUnregisterdContact() {
+            this(null);
+        }
+    }
+ //( index .Fields 0).ViewClass
+
+    public static class ContactsFollowingsList_Screen {
+        public LinearLayout root;
+        public Button followings_tab_btn;
+        public Button contacts_tab_btn;
+        public LinearLayout layout1;
+        public TextView empty_contacts_msg;
+        public RecyclerView contacts_list;
+        public FrameLayout layout2;
+        public TextView empty_followings_msg;
+        public RecyclerView followings_list;
+
+        public ContactsFollowingsList_Screen(ViewGroup parent) {
+            root = (LinearLayout) AppUtil.inflate(R.layout.contacts_followings_list__screen,parent);
+            followings_tab_btn = (Button) root.findViewById( R.id.followings_tab_btn);
+            contacts_tab_btn = (Button) root.findViewById( R.id.contacts_tab_btn);
+            layout1 = (LinearLayout) root.findViewById( R.id.layout1);
+            empty_contacts_msg = (TextView) root.findViewById( R.id.empty_contacts_msg);
+            contacts_list = (RecyclerView) root.findViewById( R.id.contacts_list);
+            layout2 = (FrameLayout) root.findViewById( R.id.layout2);
+            empty_followings_msg = (TextView) root.findViewById( R.id.empty_followings_msg);
+            followings_list = (RecyclerView) root.findViewById( R.id.followings_list);
+        }
+        public ContactsFollowingsList_Screen() {
+            this(null);
+        }
+    }
+ //( index .Fields 0).ViewClass
+
     public static class Cropimage {
         public RelativeLayout root;
         public Button discard;
@@ -1350,34 +1412,6 @@ public class X {
     }
  //( index .Fields 0).ViewClass
 
-    public static class Page_ListContactsFollowings {
-        public LinearLayout root;
-        public Button followings_btn;
-        public Button contacts_btn;
-        public LinearLayout layout1;
-        public TextView empty_contacts_msg;
-        public RecyclerView contacts_list;
-        public FrameLayout layout2;
-        public TextView empty_followings_msg;
-        public RecyclerView followings_list;
-
-        public Page_ListContactsFollowings(ViewGroup parent) {
-            root = (LinearLayout) AppUtil.inflate(R.layout.page__list_contacts_followings,parent);
-            followings_btn = (Button) root.findViewById( R.id.followings_btn);
-            contacts_btn = (Button) root.findViewById( R.id.contacts_btn);
-            layout1 = (LinearLayout) root.findViewById( R.id.layout1);
-            empty_contacts_msg = (TextView) root.findViewById( R.id.empty_contacts_msg);
-            contacts_list = (RecyclerView) root.findViewById( R.id.contacts_list);
-            layout2 = (FrameLayout) root.findViewById( R.id.layout2);
-            empty_followings_msg = (TextView) root.findViewById( R.id.empty_followings_msg);
-            followings_list = (RecyclerView) root.findViewById( R.id.followings_list);
-        }
-        public Page_ListContactsFollowings() {
-            this(null);
-        }
-    }
- //( index .Fields 0).ViewClass
-
     public static class Page_PostSingleEntry {
         public LinearLayout root;
         public SimpleTopNav simpleTopNav;
@@ -1747,26 +1781,6 @@ public class X {
             count = (TextView) root.findViewById( R.id.count);
         }
         public RowTagSimple() {
-            this(null);
-        }
-    }
- //( index .Fields 0).ViewClass
-
-    public static class RowUsersContacts {
-        public LinearLayout root;
-        public FollowingButtonView following_button;
-        public EmojiconTextView second_name;
-        public EmojiconTextView primary_name;
-        public SimpleDraweeView avatar;
-
-        public RowUsersContacts(ViewGroup parent) {
-            root = (LinearLayout) AppUtil.inflate(R.layout.row_users_contacts,parent);
-            following_button = (FollowingButtonView) root.findViewById( R.id.following_button);
-            second_name = (EmojiconTextView) root.findViewById( R.id.second_name);
-            primary_name = (EmojiconTextView) root.findViewById( R.id.primary_name);
-            avatar = (SimpleDraweeView) root.findViewById( R.id.avatar);
-        }
-        public RowUsersContacts() {
             this(null);
         }
     }

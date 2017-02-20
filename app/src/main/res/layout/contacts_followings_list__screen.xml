@@ -22,7 +22,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/followings_btn"
+            android:id="@+id/followings_tab_btn"
             android:text="دنبال شدگان"
             style="@style/minitab_cell"
             android:background="@drawable/minitab_cell_left"
@@ -30,7 +30,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/contacts_btn"
+            android:id="@+id/contacts_tab_btn"
             android:text="مخاطبین"
             style="@style/minitab_cell"
             android:background="@drawable/minitab_cell_right"
