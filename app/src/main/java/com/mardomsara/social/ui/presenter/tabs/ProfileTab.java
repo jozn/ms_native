@@ -15,13 +15,12 @@ import com.mardomsara.social.ui.ui.AppTabPagerAdaptor;
 public class ProfileTab extends BasePresenter {
     @Override
     public View buildView() {
+
 		AppTabPagerAdaptor tabs = new AppTabPagerAdaptor();
 		tabs.addTab(new AppTabPagerAdaptor.Tab("تنظیمات", Router.getSettings() ));
 		tabs.addTab(new AppTabPagerAdaptor.Tab("پروفایل", Router.getMyProfile() ));
 
 		Cells.NavAndPagerSwipe navAndPager = new Cells.NavAndPagerSwipe(tabs);
-
-		navAndPager.addIcon("{ion-ios-search-strong 26dp}",()->{ Nav.push(new SearchUserAndTagPage());});
 
         return navAndPager.rootView;
     }

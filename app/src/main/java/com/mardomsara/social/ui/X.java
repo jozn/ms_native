@@ -678,6 +678,18 @@ public class X {
     }
  //( index .Fields 0).ViewClass
 
+    public static class FramelayoutMatch {
+        public FrameLayout root;
+
+        public FramelayoutMatch(ViewGroup parent) {
+            root = (FrameLayout) AppUtil.inflate(R.layout.framelayout_match,parent);
+        }
+        public FramelayoutMatch() {
+            this(null);
+        }
+    }
+ //( index .Fields 0).ViewClass
+
     public static class GalleryChooserFoldersRecyiclerView {
         public LinearLayout root;
         public RecyclerView recycler_view;
@@ -825,6 +837,18 @@ public class X {
             avatar = (ImageView) root.findViewById( R.id.avatar);
         }
         public LastActivity_Row() {
+            this(null);
+        }
+    }
+ //( index .Fields 0).ViewClass
+
+    public static class LinearlayoutMatch {
+        public LinearLayout root;
+
+        public LinearlayoutMatch(ViewGroup parent) {
+            root = (LinearLayout) AppUtil.inflate(R.layout.linearlayout_match,parent);
+        }
+        public LinearlayoutMatch() {
             this(null);
         }
     }
@@ -1813,6 +1837,38 @@ public class X {
             not_internet = (IconTextView) root.findViewById( R.id.not_internet);
         }
         public Rv_FailedReload() {
+            this(null);
+        }
+    }
+ //( index .Fields 0).ViewClass
+
+    public static class Settings_Block {
+        public LinearLayout root;
+        public TextView title;
+        public LinearLayout rows_container;
+
+        public Settings_Block(ViewGroup parent) {
+            root = (LinearLayout) AppUtil.inflate(R.layout.settings__block,parent);
+            title = (TextView) root.findViewById( R.id.title);
+            rows_container = (LinearLayout) root.findViewById( R.id.rows_container);
+        }
+        public Settings_Block() {
+            this(null);
+        }
+    }
+ //( index .Fields 0).ViewClass
+
+    public static class Settings_RowSimple {
+        public RelativeLayout root;
+        public TextView title;
+        public FrameLayout left_container;
+
+        public Settings_RowSimple(ViewGroup parent) {
+            root = (RelativeLayout) AppUtil.inflate(R.layout.settings__row_simple,parent);
+            title = (TextView) root.findViewById( R.id.title);
+            left_container = (FrameLayout) root.findViewById( R.id.left_container);
+        }
+        public Settings_RowSimple() {
             this(null);
         }
     }
