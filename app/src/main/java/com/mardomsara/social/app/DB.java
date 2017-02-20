@@ -30,7 +30,7 @@ public class DB {
 
 		}
 
-		db = builder.name("ms31")
+		db = builder.name("ms32")
 			.trace(true)
 			.build();
     }

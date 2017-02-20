@@ -64,7 +64,7 @@ public class UserModel {
     }
 
     public static List<User> getAllRegisteredContacts() {
-        return DB.db.selectFromUser().IsPhoneContactEq(1).or().PhoneNormalizedNumberNotEq("").toList();
+        return DB.db.selectFromUser().IsPhoneContactEq(1).toList();
     }
 	
 	public static void onFollowedUser(UserInfoJson userJson){

@@ -227,26 +227,28 @@ public class UserAndContactsPresenter extends BasePresenter {
             public ViewHolder(X.ContactsFollowingsList_Row row) {
                 super(row.root);
 				x = row;
-                row.root.setOnClickListener((vv)-> {
+
+				//click listeners in here to not do a lot of object creation
+				x.root.setOnClickListener((vv)-> {
 					if(user != null){
 						Router.goToUserChatEntry(user.UserId);
 					}
-                });
+				});
 
-				row.root.setOnLongClickListener((vv)-> {
+				x.root.setOnLongClickListener((vv)-> {
 //                    DialogHelper.simpleAlert(vv.getContext(), "ایران ما", "تتای عیشسعی یادشسیاسش یشسیشست ");
-                    return true;
-                });
+					return true;
+				});
             }
 
 			void bind(User user){
+				this.user = user;
 				x.primary_name.setText(user.FirstName +" "+ user.LastName);
 				x.second_name.setText(""+user.PhoneDisplayName);
 				x.following_button.setUser(user.getTo_UserInfoJson());
 				Uri imageUri = Helper.PathToUserAvatarUri(user.AvatarUrl);
 				x.avatar.setImageURI(imageUri);
 			}
-
         }
 
         //view holders
@@ -254,16 +256,21 @@ public class UserAndContactsPresenter extends BasePresenter {
 
 			X.ContactsFollowingsList_RowUnregisteredContact x;
 
+			ContactsCopy user;
             public UnRegisteredVH(X.ContactsFollowingsList_RowUnregisteredContact row) {
                 super(row.root);
                 x = row;
+
+				x.root.setOnClickListener((vv)-> {
+					if (user ==null)return;
+					IntentUtil.sendSmsTo(user.PhoneNumber,R.string.sms_join_inviation);
+				});
             }
 
 			void bind(ContactsCopy user){
+				this.user = user;
 				x.name_text.setText(user.PhoneDisplayName);
-				x.root.setOnClickListener((vv)-> {
-					IntentUtil.sendSmsTo(user.PhoneNumber,R.string.sms_join_inviation);
-				});
+
 			}
         }
     }
