@@ -18,10 +18,10 @@ import java.util.List;
  * Created by Hamid on 1/9/2017.
  */
 
-public class TabPagerAdaptor extends PagerAdapter {
+public class AppTabPagerAdaptor extends PagerAdapter {
 	List<Tab> tabList=new ArrayList<>();
 
-	public TabPagerAdaptor(Tab ...tab) {
+	public AppTabPagerAdaptor(Tab ...tab) {
 		for(Tab t: tab){
 			tabList.add(t);
 		}
@@ -71,7 +71,7 @@ public class TabPagerAdaptor extends PagerAdapter {
 		return view == ((Tab)object).getView();
 	}
 
-	public View getTabTitleView(int position) {
+	private View getTabTitleView(int position) {
 		// Given you have a custom layout in `response/layout/custom_tab.xml` with a TextView and ImageView
 		View v = AppUtil.inflate(R.layout.tab_cell_general, null);
 		TextView tv = (TextView) v.findViewById(R.id.textView);

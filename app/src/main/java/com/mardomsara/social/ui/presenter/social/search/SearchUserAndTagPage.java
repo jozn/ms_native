@@ -18,7 +18,7 @@ import com.mardomsara.social.json.HttpJsonList;
 import com.mardomsara.social.json.social.rows.TagRowJson;
 import com.mardomsara.social.json.social.rows.UserInfoJson;
 import com.mardomsara.social.ui.BasePresenter;
-import com.mardomsara.social.ui.ui.TabPagerAdaptor;
+import com.mardomsara.social.ui.ui.AppTabPagerAdaptor;
 import com.mardomsara.social.ui.ui.UserListUI;
 import com.mardomsara.social.ui.views.helpers.ViewHelper;
 
@@ -39,9 +39,9 @@ public class SearchUserAndTagPage extends BasePresenter {
         EditText search_input = (EditText)l.findViewById(R.id.search_input);
         ViewPager vp = (ViewPager)l.findViewById(R.id.viewpager);
         TabLayout tabLayout = (TabLayout)l.findViewById(R.id.sliding_tabs);
-		TabPagerAdaptor tabs = new TabPagerAdaptor();
-		tabs.addTab(new TabPagerAdaptor.Tab("تگ", ()-> tagPresenter.buildView() ));
-		tabs.addTab(new TabPagerAdaptor.Tab("کاربر", ()-> userPresenter.buildView() ));
+		AppTabPagerAdaptor tabs = new AppTabPagerAdaptor();
+		tabs.addTab(new AppTabPagerAdaptor.Tab("تگ", ()-> tagPresenter.buildView() ));
+		tabs.addTab(new AppTabPagerAdaptor.Tab("کاربر", ()-> userPresenter.buildView() ));
 
 		vp.setAdapter(tabs);
         tabLayout.setupWithViewPager(vp);

@@ -33,7 +33,7 @@ public class UserAndContactsPresenter extends BasePresenter {
 		CONTACTS,
 		FOLLOWINGS
 	}
-	
+
 	X.ContactsFollowingsList_Screen x;
 	UserFollowingSavedAdaptor adp_contacts;
 	UserFollowingSavedAdaptor adp_followings;

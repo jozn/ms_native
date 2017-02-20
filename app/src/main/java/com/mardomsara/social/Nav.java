@@ -159,19 +159,19 @@ public class Nav {
 			cell.name = b;
 			switch (b){
 				case Chat:
-					cell.setDefaultPage(Router.getChatPage());
+					cell.setDefaultPage(Router.getChatTab());
 					break;
 				case Home:
-					cell.setDefaultPage(Router.getHomePage());
+					cell.setDefaultPage(Router.getHomeTab());
 					break;
 				case Search:
-					cell.setDefaultPage(Router.getSearchPage());
+					cell.setDefaultPage(Router.getSearchTab());
 					break;
 				case Activity:
-					cell.setDefaultPage(Router.getAactivityPage());
+					cell.setDefaultPage(Router.getActivityTab());
 					break;
 				case Profile:
-					cell.setDefaultPage(Router.getMyProfile());
+					cell.setDefaultPage(Router.getProfileTab());
 					break;
 			}
 			branchMapHolder.put(b,cell);

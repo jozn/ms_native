@@ -9,7 +9,7 @@ import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.presenter.chats.RoomsListPresenter;
 import com.mardomsara.social.ui.presenter.chats.UserAndContactsPresenter;
-import com.mardomsara.social.ui.ui.TabPagerAdaptor;
+import com.mardomsara.social.ui.ui.AppTabPagerAdaptor;
 
 /**
  * Created by Hamid on 5/2/2016.
@@ -22,9 +22,9 @@ public class ChatTab extends BasePresenter {
         TabLayout tabLayout = (TabLayout)l.findViewById(R.id.sliding_tabs);
         tabLayout.setBackgroundColor(0xeeeeee);
 
-		TabPagerAdaptor tabsPager = new TabPagerAdaptor();
-		tabsPager.addTab(new TabPagerAdaptor.Tab("کاربران", new UserAndContactsPresenter()));
-		tabsPager.addTab(new TabPagerAdaptor.Tab("گفتگو ها", new RoomsListPresenter()));
+		AppTabPagerAdaptor tabsPager = new AppTabPagerAdaptor();
+		tabsPager.addTab(new AppTabPagerAdaptor.Tab("کاربران", new UserAndContactsPresenter()));
+		tabsPager.addTab(new AppTabPagerAdaptor.Tab("گفتگو ها", new RoomsListPresenter()));
 
         vp.setAdapter(tabsPager);
         tabLayout.setupWithViewPager(vp);

@@ -25,7 +25,7 @@ import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.CursorRecyclerViewAdapter;
-import com.mardomsara.social.ui.ui.TabPagerAdaptor;
+import com.mardomsara.social.ui.ui.AppTabPagerAdaptor;
 import com.mardomsara.social.ui.views.FontCache;
 
 import java.io.File;
@@ -74,9 +74,9 @@ public class GalleryChooserPresenter extends BasePresenter {
         TabLayout tabs = (TabLayout) v.findViewById(R.id.tab_layout);
         ButterKnife.bind(this, v);
 
-        TabPagerAdaptor tabsPager = new TabPagerAdaptor();
-		tabsPager.addTab( new TabPagerAdaptor.Tab("ویدیو", new MediaExplorer(MediaType.VIDEO)) );
-		tabsPager.addTab( new TabPagerAdaptor.Tab("عکس", new MediaExplorer(MediaType.IMAGE)) );
+        AppTabPagerAdaptor tabsPager = new AppTabPagerAdaptor();
+		tabsPager.addTab( new AppTabPagerAdaptor.Tab("ویدیو", new MediaExplorer(MediaType.VIDEO)) );
+		tabsPager.addTab( new AppTabPagerAdaptor.Tab("عکس", new MediaExplorer(MediaType.IMAGE)) );
 
         view_pager.setAdapter(tabsPager);
         tab_layout.setupWithViewPager(view_pager);

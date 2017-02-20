@@ -49,11 +49,19 @@ public class ProfilePage extends BasePresenter implements AppHeaderFooterRecycle
         UserId = userId;
     }
 
+	public ProfilePage(int userId,boolean isMyProfile) {
+		UserId = userId;
+		this.isMyProfile = isMyProfile;
+	}
+
     @Override
     public View buildView() {
         viewRoot =(ViewGroup) AppUtil.inflate(R.layout.presenter_profile);
         ButterKnife.bind(this,viewRoot);
         nav.setTitle("پروفایل");
+		if(isMyProfile){
+			nav.setVisibility(View.GONE);
+		}
         load2();
         return viewRoot;
     }

@@ -8,6 +8,7 @@ import com.mardomsara.social.models.Session;
 import com.mardomsara.social.models.tables.Room;
 import com.mardomsara.social.ui.presenter.HelloPresenter;
 import com.mardomsara.social.ui.presenter.chats.ChatRoomPresenter;
+import com.mardomsara.social.ui.presenter.settings.SettingsPresenter;
 import com.mardomsara.social.ui.presenter.tabs.ChatTab;
 import com.mardomsara.social.ui.presenter.chats.GalleryChooserPresenter;
 import com.mardomsara.social.ui.presenter.tabs.AcitivityTab;
@@ -16,6 +17,7 @@ import com.mardomsara.social.ui.presenter.pages.FollowsListAboutPage;
 import com.mardomsara.social.ui.presenter.tabs.HomeTab;
 import com.mardomsara.social.ui.presenter.pages.PostEntryPage;
 import com.mardomsara.social.ui.presenter.pages.ProfilePage;
+import com.mardomsara.social.ui.presenter.tabs.ProfileTab;
 import com.mardomsara.social.ui.presenter.tabs.SearchTab;
 import com.mardomsara.social.ui.presenter.pages.TagsPage;
 
@@ -42,15 +44,6 @@ public class Router {
         return new CommentsPage(PostId);
     }
 
-    public static PresenterPage getChatPage() {
-        return new ChatTab();
-//        return new ChatMainBranch();
-    }
-
-    public static PresenterPage getHomePage() {
-        return new HomeTab();
-    }
-
     /*@Deprecated
     public static FragmentPage getRoomEntry(RoomsListTable room) {
         ChatEntryPresenter p = new ChatEntryPresenter();
@@ -62,10 +55,6 @@ public class Router {
         ChatRoomPresenter p = new ChatRoomPresenter();
         p.room = room;
         return p;
-    }
-
-    public static PresenterPage getSearchPage() {
-        return new SearchTab();
     }
 
     public static PresenterPage getHelloWolrdPage() {
@@ -97,16 +86,40 @@ public class Router {
         Nav.push(Router.getRoomEntry(room));
     }
 
-    public static PresenterPage getMyProfile() {
-        return new ProfilePage(Session.getUserId());
+    public static ProfilePage getMyProfile() {
+        return new ProfilePage(Session.getUserId(),true);
     }
+
+	public static SettingsPresenter getSettings() {
+		return new SettingsPresenter();
+	}
+
     public static void goToMyProfile() {
         Nav.push(new ProfilePage(Session.getUserId()));
     }
 
-    public static PresenterPage getAactivityPage() {
-        return new AcitivityTab();
-//        return new HelloPresenter();
-//        return new ProfilePresenter(Session.getUserId());
-    }
+
+	//////// Tabs -just must use in default Nav ////////////
+	public static PresenterPage getChatTab() {
+		return new ChatTab();
+	}
+
+	public static PresenterPage getActivityTab() {
+		return new AcitivityTab();
+	}
+
+	public static PresenterPage getHomeTab() {
+		return new HomeTab();
+	}
+
+	public static PresenterPage getSearchTab() {
+		return new SearchTab();
+	}
+
+	public static PresenterPage getProfileTab() {
+		return new ProfileTab();
+	}
+
+
+
 }

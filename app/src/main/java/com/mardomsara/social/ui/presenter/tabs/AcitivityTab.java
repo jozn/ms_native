@@ -11,7 +11,7 @@ import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.presenter.social.ActivityPresenter;
 import com.mardomsara.social.ui.presenter.social.NotifyPresenter;
 import com.mardomsara.social.ui.presenter.social.search.SearchUserAndTagPage;
-import com.mardomsara.social.ui.ui.TabPagerAdaptor;
+import com.mardomsara.social.ui.ui.AppTabPagerAdaptor;
 
 /**
  * Created by Hamid on 8/23/2016.
@@ -24,9 +24,9 @@ public class AcitivityTab extends BasePresenter {
         TabLayout tabLayout = (TabLayout)l.findViewById(R.id.sliding_tabs);
         tabLayout.setBackgroundColor(0xeeeeee);
 
-		TabPagerAdaptor tabs = new TabPagerAdaptor();
-		tabs.addTab(new TabPagerAdaptor.Tab("دنبال شدگان",()-> new ActivityPresenter().buildView() ));
-		tabs.addTab(new TabPagerAdaptor.Tab("شما", ()-> new NotifyPresenter().buildView() ));
+		AppTabPagerAdaptor tabs = new AppTabPagerAdaptor();
+		tabs.addTab(new AppTabPagerAdaptor.Tab("دنبال شدگان",()-> new ActivityPresenter().buildView() ));
+		tabs.addTab(new AppTabPagerAdaptor.Tab("شما", ()-> new NotifyPresenter().buildView() ));
 
         vp.setAdapter(tabs);
         tabLayout.setupWithViewPager(vp);

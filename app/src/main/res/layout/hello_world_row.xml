@@ -4,11 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <com.mardomsara.social.ui.views.wigets.SimpleTopNav
-        android:layout_width="match_parent"
-        android:layout_height="50dp">
 
-    </com.mardomsara.social.ui.views.wigets.SimpleTopNav>
 
     <com.mardomsara.social.ui.views.wigets.SimpleText
         android:layout_width="match_parent"
@@ -31,6 +27,12 @@
         app:cpv_indeterminate="true"
 
         />
+    <com.mardomsara.social.ui.views.wigets.SimpleTopNav
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+    </com.mardomsara.social.ui.views.wigets.SimpleTopNav>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
