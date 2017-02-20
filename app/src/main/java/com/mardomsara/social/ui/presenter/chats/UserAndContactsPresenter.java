@@ -3,10 +3,8 @@ package com.mardomsara.social.ui.presenter.chats;
 import android.net.Uri;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.mardomsara.social.R;
 import com.mardomsara.social.app.Router;
@@ -23,9 +21,6 @@ import com.mardomsara.social.ui.X;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import butterknife.Bind;
-import butterknife.ButterKnife;
 
 /**
  * Created by Hamid on 5/2/2016.
@@ -119,15 +114,9 @@ public class UserAndContactsPresenter extends BasePresenter {
         @Override
         public ViewHolderBase onCreateViewHolder(ViewGroup viewGroup, int viewType) {
             if(viewType==0){//followings or registered users
-//                View v = LayoutInflater.from(viewGroup.getContext())
-//                        .inflate(R.layout.contacts_followings_list__row, viewGroup, false);
-
                 return new ViewHolder(new X.ContactsFollowingsList_Row(viewGroup));
             }else{ //unregisterd
-//                View v = LayoutInflater.from(viewGroup.getContext())
-//                        .inflate(R.layout.contacts_followings_list__row_unregisterd_contact, viewGroup, false);
-
-                return new UnRegisteredVH(new X.ContactsFollowingsList_RowUnregisterdContact(viewGroup));
+                return new UnRegisteredVH(new X.ContactsFollowingsList_RowUnregisteredContact(viewGroup));
             }
         }
 
@@ -137,22 +126,10 @@ public class UserAndContactsPresenter extends BasePresenter {
             if(vh0 instanceof ViewHolder && mDataSet.size()> position){
                 User user = mDataSet.get(position);
 				((ViewHolder) vh0).bind(user);
-//                ViewHolder vh = (ViewHolder) vh0;
-				/*vh.user = user;
-                vh.primary_name.setText(user.FirstName +" "+ user.LastName);
-                vh.second_name.setText(""+user.PhoneDisplayName);
-                vh.self.setTag(user);
-                vh.usersTable = user;
-				vh.following_button.setUser(user.getTo_UserInfoJson());
-                Uri imageUri = Helper.PathToUserAvatarUri(user.AvatarUrl);
-                vh.avatar.setImageURI(imageUri);*/
             }else if(vh0 instanceof UnRegisteredVH){
                 try {
-//                    UnRegisteredVH vh = (UnRegisteredVH) vh0;
                     ContactsCopy user = mListUnregisteredContacts.get(position - mDataSet.size());
 					((UnRegisteredVH) vh0).bind(user);
-//                    vh.phoneContact = user;
-//                    vh.name_text.setText(user.PhoneDisplayName);
                 }catch (Exception c){//out of index bug???
                     c.printStackTrace();
                 }
@@ -161,7 +138,6 @@ public class UserAndContactsPresenter extends BasePresenter {
 
         @Override
         public int getItemViewType(int position) {
-//            if(listType== FOLLOWINGS) return 0;
             if(position >=  mDataSet.size()){
                 return 1;//not registered
             }
@@ -181,21 +157,6 @@ public class UserAndContactsPresenter extends BasePresenter {
         }
         //view holders
         public static class ViewHolder extends ViewHolderBase {
-            /*private final View self;
-            User usersTable;
-
-            @Bind(R.id.following_button)
-            public FollowingButtonView following_button;
-
-            @Bind(R.id.second_name)
-            public TextView second_name;
-
-            @Bind(R.id.primary_name)
-            public TextView primary_name;
-
-            @Bind(R.id.avatar)
-            public SimpleDraweeView avatar;
-*/
 			User user;
 			X.ContactsFollowingsList_Row x;
 
@@ -203,7 +164,6 @@ public class UserAndContactsPresenter extends BasePresenter {
             public ViewHolder(X.ContactsFollowingsList_Row row) {
                 super(row.root);
 				x = row;
-//                self = v;
                 row.root.setOnClickListener((vv)-> {
 					if(user != null){
 						Router.goToUserChatEntry(user.UserId);
@@ -214,14 +174,6 @@ public class UserAndContactsPresenter extends BasePresenter {
 //                    DialogHelper.simpleAlert(vv.getContext(), "ایران ما", "تتای عیشسعی یادشسیاسش یشسیشست ");
                     return true;
                 });
-
-//                ButterKnife.bind(this,v);
-
-                /*avatar.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View vv) {
-                    }
-                });*/
             }
 
 			void bind(User user){
@@ -235,24 +187,13 @@ public class UserAndContactsPresenter extends BasePresenter {
         }
 
         //view holders
-        public static class UnRegisteredVH extends ViewHolderBase {
-           /* private final View self;
-            ContactsCopy phoneContact;
-            @Bind(R.id.name_text)
-            public TextView name_text;*/
+        static class UnRegisteredVH extends ViewHolderBase {
 
-			X.ContactsFollowingsList_RowUnregisterdContact x;
+			X.ContactsFollowingsList_RowUnregisteredContact x;
 
-            public UnRegisteredVH(X.ContactsFollowingsList_RowUnregisterdContact row) {
+            public UnRegisteredVH(X.ContactsFollowingsList_RowUnregisteredContact row) {
                 super(row.root);
                 x = row;
-                /*row.root.setOnClickListener((vv)-> {
-                    IntentUtil.sendSmsTo(phoneContact.PhoneNumber,R.string.sms_join_inviation);
-//
-                });*/
-
-//                ButterKnife.bind(this,v);
-
             }
 
 			void bind(ContactsCopy user){
@@ -261,7 +202,6 @@ public class UserAndContactsPresenter extends BasePresenter {
 					IntentUtil.sendSmsTo(user.PhoneNumber,R.string.sms_join_inviation);
 				});
 			}
-
         }
     }
 }

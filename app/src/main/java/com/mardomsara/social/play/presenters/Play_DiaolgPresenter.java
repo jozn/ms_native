@@ -71,7 +71,7 @@ public class Play_DiaolgPresenter extends BasePresenter {
 
 	public static DialogPlus alertViewWithListner22(Context ctx) {
 //        UserRowViewHolder vh = new UserRowViewHolder(v);
-		ArrayAdapter adapter = new ArrayAdapter(ctx, R.layout.contacts_followings_list__row_unregisterd_contact);
+		ArrayAdapter adapter = new ArrayAdapter(ctx, R.layout.contacts_followings_list__row_unregistered_contact);
 		adapter.addAll(new String[]{"Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj","Ass", "dff", "Hjj",});
 
 		DialogPlus dialog = DialogPlus.newDialog(ctx)
