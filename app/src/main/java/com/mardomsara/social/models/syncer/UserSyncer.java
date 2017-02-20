@@ -4,6 +4,7 @@ import com.mardomsara.social.app.DB;
 import com.mardomsara.social.base.Http.Http;
 import com.mardomsara.social.base.Http.Result;
 import com.mardomsara.social.helpers.AndroidUtil;
+import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.json.HttpJsonList;
 import com.mardomsara.social.json.social.rows.UserSyncJson;
 import com.mardomsara.social.models.ContactsCopyModel;
@@ -20,32 +21,42 @@ import java.util.Map;
  * Created by Hamid on 10/2/2016.
  */
 public class UserSyncer {
-	public static void getSyncChangededUser(){
-		AndroidUtil.runInBackgroundNoPanic(()->{
-
+	public static void syncChangedUser_BG(){
+		AndroidUtil.runInUiNoPanic(()->{
 			int last = Store.getInt(StoreConstants.LAST_USER_TABLE_SYNCED);
-
-			Http.getPath("/v1/sync_users")
-				.setQueryParam("last",last)
-				.doAsync((result)->{
-					if(result.isOk()){
-						HttpJsonList<UserSyncJson> res = Result.fromJsonList(result, UserSyncJson.class);
-						if(res != null && res.Payload != null){
-							List<User> newUsers = new ArrayList<User>();
-							for(UserSyncJson row: res.Payload){
-								newUsers.add(UserJsonToNewUserTable(row));
-							}
-							saveNewUsers(newUsers);
-							Store.putInt(StoreConstants.LAST_USER_TABLE_SYNCED, res.ServerTime);
-						}
-					}
-				});
-
+			syncChangedUserImpl(last,null);
 		});
+	}
+
+	public static void forceSyncChangedUser(Runnable runnable){
+		syncChangedUserImpl(0,runnable);
+	}
+
+	// Privates
+	private static void syncChangedUserImpl(int last,Runnable runnable){
+		AppUtil.log("syncChangedUser_BG");
+
+		Http.getPath("/v1/sync_users")
+			.setQueryParam("last",last)
+			.doAsync((result)->{
+				if(result.isOk()){
+					HttpJsonList<UserSyncJson> res = Result.fromJsonList(result, UserSyncJson.class);
+					if(res != null && res.Payload != null){
+						List<User> newUsers = new ArrayList<User>();
+						for(UserSyncJson row: res.Payload){
+							newUsers.add(UserJsonToNewUserTable(row));
+						}
+						saveNewUsers(newUsers);
+						Store.putInt(StoreConstants.LAST_USER_TABLE_SYNCED, res.ServerTime);
+					}
+				}
+
+				if(runnable != null) runnable.run();
+			});
 
 	}
 
-	static void saveNewUsers (List<User> newUsers) {
+	private static void saveNewUsers (List<User> newUsers) {
 		DB.db.transactionSync(()->{
 			for(User u: newUsers){
 				u.save();
@@ -53,7 +64,7 @@ public class UserSyncer {
 		});
 	}
 
-	public static User UserJsonToNewUserTable(UserSyncJson row){
+	private  static User UserJsonToNewUserTable(UserSyncJson row){
 		User user = new User();
 		user.UserId = row.Id;
 		user.FirstName = row.FirstName;
@@ -76,7 +87,6 @@ public class UserSyncer {
 				user.PhoneNormalizedNumber = row.Phone;
 			}
 		}
-
 
 		if(user.PhoneContactRowId == 0 ){
 			user.PhoneContactRowId = 0;

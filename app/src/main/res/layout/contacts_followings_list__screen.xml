@@ -9,7 +9,6 @@
     android:background="@color/white"
     >
 
-
     <Space
         android:layout_width="match_parent"
         android:layout_height="20dp" />
@@ -39,68 +38,82 @@
 
     </LinearLayout>
 
-    <LinearLayout
+    <!-- For Contacts -->
+    <android.support.v4.widget.SwipeRefreshLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:id="@+id/layout1"
+        android:id="@+id/layout_contacts"
         android:visibility="invisible"
         android:background="@drawable/minitab_container_background"
         style="@style/minitab_container"
         >
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/empty_contacts_msg"
-            style="@style/minitab_container_empty_msg"
-            android:text="@string/contacts_list_presenter.none_of_your_contacts_registered"
-            />
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/contacts_list"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scrollbarStyle="insideInset"
-            android:fadeScrollbars="true"
-            android:layout_weight="1"
-            android:scrollbars="vertical"
-            />
-        <!--android:background="@color/text_gray_4"-->
+            android:orientation="vertical"
 
-    </LinearLayout>
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/empty_contacts_msg"
+                style="@style/minitab_container_empty_msg"
+                android:text="@string/contacts_list_presenter.none_of_your_contacts_registered"
+                />
 
-    <FrameLayout
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/contacts_list_rv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbarStyle="insideInset"
+                android:fadeScrollbars="true"
+                android:layout_weight="1"
+                android:scrollbars="vertical"
+                />
+            <!--android:background="@color/text_gray_4"-->
+
+        </LinearLayout>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+
+    <!-- For Followings -->
+    <android.support.v4.widget.SwipeRefreshLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:id="@+id/layout2"
+        android:id="@+id/layout_followings"
         android:visibility="invisible"
         android:background="@drawable/minitab_container_background"
         style="@style/minitab_container"
-
         >
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/empty_followings_msg"
-            style="@style/minitab_container_empty_msg"
-            android:text="@string/contacts_list_presenter.you_not_following_anybody"
-            />
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/followings_list"
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scrollbarStyle="insideInset"
-            android:fadeScrollbars="true"
-            android:layout_weight="1"
-            android:scrollbars="vertical"
+            android:orientation="vertical"
+            >
 
-            />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/empty_followings_msg"
+                style="@style/minitab_container_empty_msg"
+                android:text="@string/contacts_list_presenter.you_not_following_anybody"
+                />
 
-    </FrameLayout>
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/followings_list_rv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbarStyle="insideInset"
+                android:fadeScrollbars="true"
+                android:layout_weight="1"
+                android:scrollbars="vertical"
 
+                />
+
+        </FrameLayout>
+    </android.support.v4.widget.SwipeRefreshLayout>
 
 
 </LinearLayout>

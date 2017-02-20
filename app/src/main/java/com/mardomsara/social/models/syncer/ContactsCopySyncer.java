@@ -4,6 +4,7 @@ import com.mardomsara.social.app.DB;
 import com.mardomsara.social.base.Http.Http;
 import com.mardomsara.social.base.Http.Result;
 import com.mardomsara.social.helpers.AndroidUtil;
+import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.JsonUtil;
 import com.mardomsara.social.json.HttpJsonList;
@@ -18,26 +19,40 @@ import java.util.List;
  * Created by Hamid on 10/2/2016.
  */
 public class ContactsCopySyncer {
-	public static void checkChangesAndSyncToServer(){
+	public static void checkChangesAndSyncToServer_BG(){
 		AndroidUtil.runInBackgroundNoPanic(()->{
-			DevicePhoneContacts.fetchAllWithAskPermisions((rows)->{//rows: contcs fetche from device
-				List<String> listOfHashes = new ArrayList<String>();
-				for(PhoneContact row : rows){
-					row.calculateHash();
-					listOfHashes.add(row.Hash);
-				}
-
-				List<ContactsCopy> list = DB.db.selectFromContactsCopy().HashIn(listOfHashes).toList();
-				if(list.size() != rows.size()){
-					insertFetchedContactsToTable(rows);
-				}
-				syncCopyTableRowsToServer();
-			});
+			syncToServerImple(null,false);
 		});
 	}
 
+	public static void forceSyncToServer(Runnable runnable){
+		syncToServerImple(runnable,true);
+	}
+
+	//Private
+	public static void syncToServerImple(Runnable runnable, boolean force){
+		DevicePhoneContacts.fetchAllWithAskPermisions((rows)->{//rows: contcs fetche from device
+			AppUtil.log("checkChangesAndSyncToServer_BG");
+			List<String> listOfHashes = new ArrayList<String>();
+			for(PhoneContact row : rows){
+				row.calculateHash();
+				listOfHashes.add(row.Hash);
+			}
+
+			List<ContactsCopy> list = DB.db.selectFromContactsCopy().HashIn(listOfHashes).toList();
+			if(list.size() != rows.size() || (force && rows.size()>0) ){
+				insertFetchedContactsToTable(rows);
+			}
+			syncCopyTableRowsToServer();
+			if(runnable!= null) runnable.run();
+		});
+
+	}
+
+
+
 	//performs a full delete and reinsert
-	static void insertFetchedContactsToTable(List<PhoneContact> rows){
+	private static void insertFetchedContactsToTable(List<PhoneContact> rows){
 		List<ContactsCopy> list = new ArrayList<>();
 		for(PhoneContact row : rows){
 			row.calculateHash();
@@ -54,7 +69,7 @@ public class ContactsCopySyncer {
 	}
 
 	//must be called during change contact AND on startup of app (maybe we haven has internet connection)
-	static void syncCopyTableRowsToServer() {
+	private static void syncCopyTableRowsToServer() {
 		List<ContactsCopy> list = DB.db.selectFromContactsCopy().IsSyncedEq(0).toList();
 		if(list.size() ==0 )return;
 

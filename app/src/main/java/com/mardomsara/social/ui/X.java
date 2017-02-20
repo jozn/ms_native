@@ -3,9 +3,11 @@ package com.mardomsara.social.ui;
 
 import android.widget.*;
 import android.view.*;
+import android.webkit.WebView;
 
 
 import android.support.design.widget.TabLayout;
+import android.support.percent.PercentRelativeLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
@@ -15,15 +17,19 @@ import com.joanzapata.iconify.widget.IconTextView;
 import com.mardomsara.emojicon.EmojiconEditText;
 import com.mardomsara.emojicon.EmojiconTextView;
 import com.mardomsara.social.ui.views.EmojiLinkerTextView;
+import com.mardomsara.social.ui.views.LinkerTextView;
 import com.mardomsara.social.ui.views.play.TextViewWithIcon;
+import com.mardomsara.social.ui.views.wigets.BadgeCount;
 import com.mardomsara.social.ui.views.wigets.ButtonGrayView;
 import com.mardomsara.social.ui.views.wigets.ChatButtonView;
 import com.mardomsara.social.ui.views.wigets.ChatListRowWhithBorderRelativeLayout;
 import com.mardomsara.social.ui.views.wigets.ChatMediaNetworkLoader;
+import com.mardomsara.social.ui.views.wigets.CountView;
 import com.mardomsara.social.ui.views.wigets.CountView2;
 import com.mardomsara.social.ui.views.wigets.FollowingButtonView;
 import com.mardomsara.social.ui.views.wigets.LoadingView;
 import com.mardomsara.social.ui.views.wigets.SimpleAddText;
+import com.mardomsara.social.ui.views.wigets.SimpleText;
 import com.mardomsara.social.ui.views.wigets.SimpleTopNav;
 import com.mardomsara.social.ui.views.wigets.UserListGeneralFollowRowWhithBorderLinearLayout;
 import me.relex.photodraweeview.PhotoDraweeView;
@@ -358,23 +364,23 @@ public class X {
         public LinearLayout root;
         public Button followings_tab_btn;
         public Button contacts_tab_btn;
-        public LinearLayout layout1;
+        public SwipeRefreshLayout layout_contacts;
         public TextView empty_contacts_msg;
-        public RecyclerView contacts_list;
-        public FrameLayout layout2;
+        public RecyclerView contacts_list_rv;
+        public SwipeRefreshLayout layout_followings;
         public TextView empty_followings_msg;
-        public RecyclerView followings_list;
+        public RecyclerView followings_list_rv;
 
         public ContactsFollowingsList_Screen(ViewGroup parent) {
             root = (LinearLayout) AppUtil.inflate(R.layout.contacts_followings_list__screen,parent);
             followings_tab_btn = (Button) root.findViewById( R.id.followings_tab_btn);
             contacts_tab_btn = (Button) root.findViewById( R.id.contacts_tab_btn);
-            layout1 = (LinearLayout) root.findViewById( R.id.layout1);
+            layout_contacts = (SwipeRefreshLayout) root.findViewById( R.id.layout_contacts);
             empty_contacts_msg = (TextView) root.findViewById( R.id.empty_contacts_msg);
-            contacts_list = (RecyclerView) root.findViewById( R.id.contacts_list);
-            layout2 = (FrameLayout) root.findViewById( R.id.layout2);
+            contacts_list_rv = (RecyclerView) root.findViewById( R.id.contacts_list_rv);
+            layout_followings = (SwipeRefreshLayout) root.findViewById( R.id.layout_followings);
             empty_followings_msg = (TextView) root.findViewById( R.id.empty_followings_msg);
-            followings_list = (RecyclerView) root.findViewById( R.id.followings_list);
+            followings_list_rv = (RecyclerView) root.findViewById( R.id.followings_list_rv);
         }
         public ContactsFollowingsList_Screen() {
             this(null);
@@ -827,12 +833,12 @@ public class X {
     public static class ListRoomsPresenter {
         public LinearLayout root;
         public FrameLayout layout1;
-        public RecyclerView contacts_list;
+        public RecyclerView contacts_list_rv;
 
         public ListRoomsPresenter(ViewGroup parent) {
             root = (LinearLayout) AppUtil.inflate(R.layout.list_rooms_presenter,parent);
             layout1 = (FrameLayout) root.findViewById( R.id.layout1);
-            contacts_list = (RecyclerView) root.findViewById( R.id.contacts_list);
+            contacts_list_rv = (RecyclerView) root.findViewById( R.id.contacts_list_rv);
         }
         public ListRoomsPresenter() {
             this(null);

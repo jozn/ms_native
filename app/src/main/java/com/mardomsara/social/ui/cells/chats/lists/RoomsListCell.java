@@ -57,7 +57,7 @@ public class RoomsListCell {
 		MemoryStore_Rooms.reloadForAll();
 		listRooms = MemoryStore_Rooms.getListRooms();
 
-        rv = (RecyclerView) root_view.findViewById(R.id.contacts_list);
+        rv = (RecyclerView) root_view.findViewById(R.id.contacts_list_rv);
         adp = new RoomsListAdaptor(listRooms);
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(AppUtil.getContext());
         RecyclerView.ItemDecoration itemDecoration = new

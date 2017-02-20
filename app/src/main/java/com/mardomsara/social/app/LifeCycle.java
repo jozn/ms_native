@@ -104,8 +104,8 @@ public class LifeCycle {
 
         onAfterAppStartedCommon();
 
-		ContactsCopySyncer.checkChangesAndSyncToServer();
-		UserSyncer.getSyncChangededUser();
+		ContactsCopySyncer.checkChangesAndSyncToServer_BG();
+		UserSyncer.syncChangedUser_BG();
 
 		_afterActivityCalled = true;
     }

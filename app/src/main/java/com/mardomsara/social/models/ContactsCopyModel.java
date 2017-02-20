@@ -1,5 +1,7 @@
 package com.mardomsara.social.models;
 
+import android.support.annotation.NonNull;
+
 import com.mardomsara.social.app.DB;
 import com.mardomsara.social.models.tables.ContactsCopy;
 import com.mardomsara.social.models.tables.User;
@@ -32,7 +34,8 @@ public class ContactsCopyModel {
 		return DB.db.selectFromContactsCopy().PhoneNormalizedNumberNotEq("").toList();
 	}
 
-	public static List<ContactsCopy> getContactsNotRegisterd(List<User> usersRegisterd){
+	@NonNull
+	public static  List<ContactsCopy> getContactsNotRegisterd(List<User> usersRegisterd){
 		List<String> regs = new ArrayList<>();
 		regs.add("");
 		for (User u: usersRegisterd){
