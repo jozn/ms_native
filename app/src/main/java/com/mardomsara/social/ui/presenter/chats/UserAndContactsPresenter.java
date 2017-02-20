@@ -33,9 +33,7 @@ public class UserAndContactsPresenter extends BasePresenter {
 		CONTACTS,
 		FOLLOWINGS
 	}
-
-	// layout_contacts :for contacts
-	//layout_followings: for followings
+	
 	X.ContactsFollowingsList_Screen x;
 	UserFollowingSavedAdaptor adp_contacts;
 	UserFollowingSavedAdaptor adp_followings;
@@ -43,11 +41,7 @@ public class UserAndContactsPresenter extends BasePresenter {
     public View buildView() {
 
 		x = new X.ContactsFollowingsList_Screen();
-//        List<User> registeredContactsList = UserModel.getAllRegisteredContacts();
-//        List<User> followingsLists = UserModel.getAllFollowings();
-//        List<ContactsCopy> notRegistered = ContactsCopyModel.getContactsNotRegisterd(registeredContactsList);
         adp_contacts = new UserFollowingSavedAdaptor(null ,TAB_TYPE.CONTACTS);
-//        adp_contacts.mListUnregisteredContacts = notRegistered;
         adp_followings = new UserFollowingSavedAdaptor(null, TAB_TYPE.FOLLOWINGS);
 
         LinearLayoutManager layoutManager1 = new LinearLayoutManager(AppUtil.getContext());
@@ -67,19 +61,6 @@ public class UserAndContactsPresenter extends BasePresenter {
         x.followings_list_rv.setLayoutManager(layoutManager2);
 
 		ref();
-        //layout_followings.setVisibility(View.GONE);
-
-        /*if(registeredContactsList.size() <1){
-            x.empty_contacts_msg.setVisibility(View.VISIBLE);
-        }else {
-            x.empty_contacts_msg.setVisibility(View.GONE);
-        }
-
-        if(followingsLists.size() <1){
-            x.empty_followings_msg.setVisibility(View.VISIBLE);
-        }else {
-            x.empty_followings_msg.setVisibility(View.GONE);
-        }*/
 
         x.followings_tab_btn.setOnClickListener((v)->{
             followings_btn_pressed();
