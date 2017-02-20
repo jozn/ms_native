@@ -650,9 +650,11 @@ public class X {
 
     public static class HelloWorld {
         public LinearLayout root;
+        public ProgressBar pppp;
 
         public HelloWorld(ViewGroup parent) {
             root = (LinearLayout) AppUtil.inflate(R.layout.hello_world,parent);
+            pppp = (ProgressBar) root.findViewById( R.id.pppp);
         }
         public HelloWorld() {
             this(null);
@@ -1348,6 +1350,34 @@ public class X {
     }
  //( index .Fields 0).ViewClass
 
+    public static class Page_ListContactsFollowings {
+        public LinearLayout root;
+        public Button followings_btn;
+        public Button contacts_btn;
+        public LinearLayout layout1;
+        public TextView empty_contacts_msg;
+        public RecyclerView contacts_list;
+        public FrameLayout layout2;
+        public TextView empty_followings_msg;
+        public RecyclerView followings_list;
+
+        public Page_ListContactsFollowings(ViewGroup parent) {
+            root = (LinearLayout) AppUtil.inflate(R.layout.page__list_contacts_followings,parent);
+            followings_btn = (Button) root.findViewById( R.id.followings_btn);
+            contacts_btn = (Button) root.findViewById( R.id.contacts_btn);
+            layout1 = (LinearLayout) root.findViewById( R.id.layout1);
+            empty_contacts_msg = (TextView) root.findViewById( R.id.empty_contacts_msg);
+            contacts_list = (RecyclerView) root.findViewById( R.id.contacts_list);
+            layout2 = (FrameLayout) root.findViewById( R.id.layout2);
+            empty_followings_msg = (TextView) root.findViewById( R.id.empty_followings_msg);
+            followings_list = (RecyclerView) root.findViewById( R.id.followings_list);
+        }
+        public Page_ListContactsFollowings() {
+            this(null);
+        }
+    }
+ //( index .Fields 0).ViewClass
+
     public static class Page_PostSingleEntry {
         public LinearLayout root;
         public SimpleTopNav simpleTopNav;
@@ -1531,34 +1561,6 @@ public class X {
             loadingView = (LoadingView) root.findViewById( R.id.loadingView);
         }
         public PresenterGeneralUserListTypeFollow() {
-            this(null);
-        }
-    }
- //( index .Fields 0).ViewClass
-
-    public static class PresenterListContactsFollowings {
-        public LinearLayout root;
-        public Button followings_btn;
-        public Button contacts_btn;
-        public LinearLayout layout1;
-        public TextView empty_contacts_msg;
-        public RecyclerView contacts_list;
-        public FrameLayout layout2;
-        public TextView empty_followings_msg;
-        public RecyclerView followings_list;
-
-        public PresenterListContactsFollowings(ViewGroup parent) {
-            root = (LinearLayout) AppUtil.inflate(R.layout.presenter_list_contacts_followings,parent);
-            followings_btn = (Button) root.findViewById( R.id.followings_btn);
-            contacts_btn = (Button) root.findViewById( R.id.contacts_btn);
-            layout1 = (LinearLayout) root.findViewById( R.id.layout1);
-            empty_contacts_msg = (TextView) root.findViewById( R.id.empty_contacts_msg);
-            contacts_list = (RecyclerView) root.findViewById( R.id.contacts_list);
-            layout2 = (FrameLayout) root.findViewById( R.id.layout2);
-            empty_followings_msg = (TextView) root.findViewById( R.id.empty_followings_msg);
-            followings_list = (RecyclerView) root.findViewById( R.id.followings_list);
-        }
-        public PresenterListContactsFollowings() {
             this(null);
         }
     }

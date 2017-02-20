@@ -22,6 +22,7 @@ import com.mardomsara.social.models.tables.ContactsCopy;
 import com.mardomsara.social.models.tables.User;
 import com.mardomsara.social.play.DividerItemDecoration;
 import com.mardomsara.social.ui.BasePresenter;
+import com.mardomsara.social.ui.X;
 import com.mardomsara.social.ui.views.wigets.FollowingButtonView;
 
 import java.util.ArrayList;
@@ -37,90 +38,75 @@ public class UserAndContactsPresenter extends BasePresenter {
     static int CONTACTS = 1;
     static int FOLLOWINGS = 1;
 
-    @Bind(R.id.followings_btn) Button followings_btn;
-    @Bind(R.id.contacts_btn) Button contacts_btn;
-    @Bind(R.id.layout1) View layout1;//for contacts
-    @Bind(R.id.layout2) View layout2;//for followings
-
-    @Bind(R.id.contacts_list) RecyclerView rv_contacts_list;
-    @Bind(R.id.followings_list) RecyclerView rv_followings_list;
-
-    @Bind(R.id.empty_contacts_msg) View empty_contacts_msg;
-    @Bind(R.id.empty_followings_msg) View empty_followings_msg;
+	// layout1 :for contacts
+	//layout2: for followings
+	X.Page_ListContactsFollowings x;
 
     @Override
     public View buildView() {
-        Log.d("presenter", "UserAndContactsPresenter has inited.");
 
-        View view = AppUtil.inflate(R.layout.presenter_list_contacts_followings);
+		x = new X.Page_ListContactsFollowings();
         List<User> registeredContactsList = UserModel.getAllRegisteredContacts();
-//        List<UsersTable> followingsLists = PhoneContactsModel.getAllFollowings();
         List<User> followingsLists = UserModel.getAllFollowings();
         List<ContactsCopy> notRegisterd = ContactsCopyModel.getContactsNotRegisterd(registeredContactsList);
         UserFollowingSavedAdaptor adp_contacts = new UserFollowingSavedAdaptor(registeredContactsList ,CONTACTS);
         adp_contacts.mListUnregisteredContacts = notRegisterd;
         UserFollowingSavedAdaptor adp_followings = new UserFollowingSavedAdaptor(followingsLists, FOLLOWINGS);
 
-        ButterKnife.bind(this,view);
-
         LinearLayoutManager layoutManager1 = new LinearLayoutManager(AppUtil.getContext());
         LinearLayoutManager layoutManager2 = new LinearLayoutManager(AppUtil.getContext());
-//        mLayoutManager.setSmoothScrollbarEnabled(true);
         RecyclerView.ItemDecoration itemDecoration = new
                 DividerItemDecoration(AppUtil.getContext(), DividerItemDecoration.VERTICAL_LIST);
         RecyclerView.ItemDecoration dec__followings = new
                 DividerItemDecoration(AppUtil.getContext(), DividerItemDecoration.VERTICAL_LIST);
 
-//        RecyclerView.ItemDecoration itemDecoration=
-//                new DividerItemDecoration (getContext().getResources().getDrawable(R.drawable.general_border_bottom_1px));//R.drawable.abc_list_divider_mtrl_alpha));
-
-        rv_contacts_list.addItemDecoration(itemDecoration);
-        rv_contacts_list.setAdapter(adp_contacts);
-        rv_contacts_list.setLayoutManager(layoutManager1);
+        x.contacts_list.addItemDecoration(itemDecoration);
+        x.contacts_list.setAdapter(adp_contacts);
+        x.contacts_list.setLayoutManager(layoutManager1);
 
         //followings
-//        rv_followings.setVisibility(View.INVISIBLE);
-        rv_followings_list.addItemDecoration(itemDecoration);
-        rv_followings_list.setAdapter(adp_followings);
-        rv_followings_list.setLayoutManager(layoutManager2);
+        x.followings_list.addItemDecoration(itemDecoration);
+        x.followings_list.setAdapter(adp_followings);
+        x.followings_list.setLayoutManager(layoutManager2);
         //layout2.setVisibility(View.GONE);
 
         if(registeredContactsList.size() <1){
-            empty_contacts_msg.setVisibility(View.VISIBLE);
+            x.empty_contacts_msg.setVisibility(View.VISIBLE);
         }else {
-            empty_contacts_msg.setVisibility(View.GONE);
+            x.empty_contacts_msg.setVisibility(View.GONE);
         }
 
         if(followingsLists.size() <1){
-            empty_followings_msg.setVisibility(View.VISIBLE);
+            x.empty_followings_msg.setVisibility(View.VISIBLE);
         }else {
-            empty_followings_msg.setVisibility(View.GONE);
+            x.empty_followings_msg.setVisibility(View.GONE);
         }
 
-        followings_btn.setOnClickListener((v)->{
+        x.followings_btn.setOnClickListener((v)->{
             followings_btn_pressed();
         });
 
-        contacts_btn.setOnClickListener((v)->{
+        x.contacts_btn.setOnClickListener((v)->{
             contacts_btn_pressed();
         });
         contacts_btn_pressed();
-        return view;
+        return x.root;
     }
 
     void followings_btn_pressed(){
-        layout1.setVisibility(View.GONE);
-        layout2.setVisibility(View.VISIBLE);
-        followings_btn.setSelected(true);
-        contacts_btn.setSelected(false);
+        x.layout1.setVisibility(View.GONE);
+        x.layout2.setVisibility(View.VISIBLE);
+        x.followings_btn.setSelected(true);
+        x.contacts_btn.setSelected(false);
     }
 
     void contacts_btn_pressed(){
-        layout1.setVisibility(View.VISIBLE);
-        layout2.setVisibility(View.GONE);
-        followings_btn.setSelected(false);
-        contacts_btn.setSelected(true);
+        x.layout1.setVisibility(View.VISIBLE);
+        x.layout2.setVisibility(View.GONE);
+        x.followings_btn.setSelected(false);
+        x.contacts_btn.setSelected(true);
     }
+
     public static class UserFollowingSavedAdaptor extends RecyclerView.Adapter<UserFollowingSavedAdaptor.ViewHolderBase> {
         private static final String TAG = "UserFollowingSavedAdaptor";
 

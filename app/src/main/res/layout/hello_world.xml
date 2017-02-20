@@ -4,12 +4,17 @@
               android:layout_height="match_parent"
               android:baselineAligned="false"
         android:orientation="vertical"
-    >
+              android:weightSum="1">
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:text="Hello Wolrld!!!!!!!"
         android:gravity="center"/>
+    <ProgressBar
+        android:layout_width="161dp"
+        android:layout_height="50dp"
+        android:id="@+id/pppp"
+        android:layout_weight="0.14"/>
 
     <!--<include layout="@layout/hello_world_merge" />-->
 </LinearLayout>
