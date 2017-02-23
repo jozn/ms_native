@@ -1864,12 +1864,14 @@ public class X {
         public TextView title;
         public RelativeLayout left_container;
         public TextView has_page;
+        public SwitchCompat switch_btn;
 
         public Settings_RowSimple(ViewGroup parent) {
             root = (RelativeLayout) AppUtil.inflate(R.layout.settings__row_simple,parent);
             title = (TextView) root.findViewById( R.id.title);
             left_container = (RelativeLayout) root.findViewById( R.id.left_container);
             has_page = (TextView) root.findViewById( R.id.has_page);
+            switch_btn = (SwitchCompat) root.findViewById( R.id.switch_btn);
         }
         public Settings_RowSimple() {
             this(null);

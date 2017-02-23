@@ -4,6 +4,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 
 import com.mardomsara.social.helpers.AppUtil;
+import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.X;
 import com.mardomsara.social.ui.cells.Cells;
@@ -51,13 +52,15 @@ public class SettingsPresenter extends BasePresenter {
 		b2.addRow(new Settings.SimpleRow("تغییر نام کاربری"));
 		b2.addRow(new Settings.SimpleRow("تغییر نام کاربری"));
 
+		b3.addRow(new Settings.RowPage("تغییر نام کاربری"));
 		b3.addRow(new Settings.SimpleRow("تغییر نام کاربری"));
-		b3.addRow(new Settings.SimpleRow("تغییر نام کاربری"));
-		b3.addRow(new Settings.SimpleRow("تغییر نام کاربری"));
-		b3.addRow(new Settings.SimpleRow("تغییر نام کاربری"));
+		b3.addRow(new Settings.RowPage("تغییر نام کاربری"));
+		b3.addRow(new Settings.RowSwitch("تغییر نام کاربری",(c)->{
+			Helper.showDebugMessage(""+c);
+		}));
 
 		b4.addRow(new Settings.SimpleRow("تغییر نام کاربری"));
-		b4.addRow(new Settings.SimpleRow("تغییر نام کاربری"));
+		b4.addRow(new Settings.RowSwitch("تغییر نام کاربری",(c)->{}));
 		b4.addRow(new Settings.SimpleRow("تغییر نام کاربری"));
 
 		x.root.addView(b1.getView());
