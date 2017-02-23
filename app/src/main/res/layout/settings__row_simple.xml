@@ -4,16 +4,10 @@
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:layout_marginBottom="0dp"
-              android:background="@drawable/border_bottom_1px"
+              android:background="@drawable/settings_row_selector"
                 android:clickable="true"
     >
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:background="@color/text_gray_3"
-        android:layout_alignParentTop="true"
-        android:visibility="gone"
-        />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -55,5 +49,13 @@
             />
 
     </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/text_gray_3"
+        android:layout_alignParentBottom="true"
+        android:visibility="visible"
+        />
 
 </RelativeLayout>
