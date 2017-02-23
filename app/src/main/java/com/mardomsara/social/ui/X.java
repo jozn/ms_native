@@ -11,6 +11,7 @@ import android.support.percent.PercentRelativeLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SwitchCompat;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.github.rahatarmanahmed.cpv.CircularProgressView;
 import com.joanzapata.iconify.widget.IconTextView;
@@ -1861,12 +1862,14 @@ public class X {
     public static class Settings_RowSimple {
         public RelativeLayout root;
         public TextView title;
-        public FrameLayout left_container;
+        public RelativeLayout left_container;
+        public TextView has_page;
 
         public Settings_RowSimple(ViewGroup parent) {
             root = (RelativeLayout) AppUtil.inflate(R.layout.settings__row_simple,parent);
             title = (TextView) root.findViewById( R.id.title);
-            left_container = (FrameLayout) root.findViewById( R.id.left_container);
+            left_container = (RelativeLayout) root.findViewById( R.id.left_container);
+            has_page = (TextView) root.findViewById( R.id.has_page);
         }
         public Settings_RowSimple() {
             this(null);

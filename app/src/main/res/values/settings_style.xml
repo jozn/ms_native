@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="settings">
+
+    </style>
+
+    <style name="settings.row">
+        <item name="fontPath">@string/font_iran</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">16dp</item>
+        <item name="android:padding">12dp</item>
+    </style>
+
+    <style name="settings.arrow">
+        <item name="fontPath">@string/font_ionic</item>
+        <item name="android:textSize">25dp</item>
+        <item name="android:textColor">@color/text_black_5</item>
+    </style>
+
+
+</resources>

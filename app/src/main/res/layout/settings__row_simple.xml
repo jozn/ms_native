@@ -3,41 +3,55 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
-              android:layout_marginBottom="10dp"
-              android:background="@color/white"
+              android:layout_marginBottom="0dp"
+              android:background="@drawable/border_bottom_1px"
+                android:clickable="true"
     >
     <View
         android:layout_width="match_parent"
         android:layout_height="1px"
         android:background="@color/text_gray_3"
         android:layout_alignParentTop="true"
+        android:visibility="gone"
         />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:id="@+id/title"
-        style="@style/text_bold.black"
-        android:padding="8dp"
+        style="@style/settings.row"
         android:gravity="center_vertical|right"
         android:layout_alignParentTop="true"
         />
 
-    <FrameLayout
+    <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="false"
         android:layout_alignParentLeft="true"
         android:id="@+id/left_container"
+        android:layout_centerVertical="true"
+        android:paddingLeft="10dp"
         >
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            style="@style/top_nav.icon_btn"
-            android:text="-"
+            android:layout_height="match_parent"
+            style="@style/settings.arrow"
+            android:text="\uf3d2"
+            android:id="@+id/has_page"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="0dp"
             />
 
-    </FrameLayout>
+        <android.support.v7.widget.SwitchCompat
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/has_page"
+
+            />
+
+    </RelativeLayout>
 
 </RelativeLayout>
