@@ -1,5 +1,6 @@
 package com.mardomsara.social.ui.presenter.settings;
 
+import android.support.annotation.NonNull;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -60,7 +61,7 @@ public class Settings {
 			x.switch_btn.setVisibility(View.VISIBLE);
 		}
 
-		public RowSwitch(String title, SwitchListener listener) {
+		public RowSwitch(String title, @NonNull SwitchListener listener) {
 			this.title = title;
 			x.switch_btn.setVisibility(View.VISIBLE);
 
@@ -82,9 +83,19 @@ public class Settings {
 		X.Settings_RowSimple x = new X.Settings_RowSimple();
 		String title;
 
+		@Deprecated
 		public RowPage(String title) {
 			this.title = title;
 			x.has_page.setVisibility(View.VISIBLE);
+		}
+
+		public RowPage(String title, @NonNull Runnable runnable) {
+			this.title = title;
+			x.has_page.setVisibility(View.VISIBLE);
+
+			x.root.setOnClickListener((v)->{
+				runnable.run();
+			});
 		}
 
 		public View getView(){

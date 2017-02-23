@@ -61,7 +61,9 @@ public class SettingsPresenter extends BasePresenter {
 
 		b4.addRow(new Settings.SimpleRow("تغییر نام کاربری"));
 		b4.addRow(new Settings.RowSwitch("تغییر نام کاربری",(c)->{}));
-		b4.addRow(new Settings.SimpleRow("تغییر نام کاربری"));
+		b4.addRow(new Settings.RowPage("تغییر نام کاربری" ,()->{
+			Helper.showDebugMessage("next page");
+		}));
 
 		x.root.addView(b1.getView());
 		x.root.addView(b2.getView());
