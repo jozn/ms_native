@@ -15,6 +15,7 @@ import java.util.List;
 
 public class Settings {
 
+	///////////////////// Blocks //////////////////////
 	public static class Block {
 		private List<SettingRow> rowsList = new ArrayList<>();
 		private String title;
@@ -88,6 +89,21 @@ public class Settings {
 			x.root.setOnClickListener((v)->{
 				if(runnable != null) runnable.run();
 			});
+		}
+	}
+
+	public static class RowTransparentCenter implements SettingRow{
+		X.Settings_RowNoteCenter x = new X.Settings_RowNoteCenter();
+		public RowTransparentCenter(String title ,Runnable runnable) {
+			x.title.setText(title);
+			x.root.setOnClickListener((v)->{
+				if(runnable != null) runnable.run();
+			});
+		}
+
+		@Override
+		public View getView() {
+			return x.root;
 		}
 	}
 

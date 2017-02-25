@@ -1859,6 +1859,20 @@ public class X {
     }
  //( index .Fields 0).ViewClass
 
+    public static class Settings_RowNoteCenter {
+        public FrameLayout root;
+        public TextView title;
+
+        public Settings_RowNoteCenter(ViewGroup parent) {
+            root = (FrameLayout) AppUtil.inflate(R.layout.settings__row_note_center,parent);
+            title = (TextView) root.findViewById( R.id.title);
+        }
+        public Settings_RowNoteCenter() {
+            this(null);
+        }
+    }
+ //( index .Fields 0).ViewClass
+
     public static class Settings_RowSimple {
         public RelativeLayout root;
         public TextView title;

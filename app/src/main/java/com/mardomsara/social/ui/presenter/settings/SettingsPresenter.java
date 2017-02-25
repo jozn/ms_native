@@ -3,7 +3,6 @@ package com.mardomsara.social.ui.presenter.settings;
 import android.view.View;
 
 import com.mardomsara.social.app.Router;
-import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.FormaterUtil;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.TimeUtil;
@@ -33,15 +32,15 @@ public class SettingsPresenter extends BasePresenter {
 
 
 		///////////// General Settings ///////////
-		bGeneralSettings.addRow(new Settings.RowPage("وایرایش پروفایل" , ()-> {
+		bGeneralSettings.addRow(new Settings.RowSimple("وایرایش پروفایل" , ()-> {
 			Router.goToProfile(52);
 		} ));
 
-		bGeneralSettings.addRow(new Settings.RowPage("افزودن ایمیل" , ()-> {
+		bGeneralSettings.addRow(new Settings.RowSimple("افزودن ایمیل" , ()-> {
 			Router.goToProfile(53);
 		} ));
 
-		bGeneralSettings.addRow(new Settings.RowPage("شماره تلفن همراه" , ()-> {
+		bGeneralSettings.addRow(new Settings.RowSimple("شماره تلفن همراه" , ()-> {
 			Router.goToProfile(53);
 		} ));
 
@@ -57,7 +56,7 @@ public class SettingsPresenter extends BasePresenter {
 
 
 		///////////// Mardomsara Settings ///////////
-		bMardomsara.addRow(new Settings.RowPage("درباره" , ()-> {
+		bMardomsara.addRow(new Settings.RowSimple("درباره" , ()-> {
 			Router.goToProfile(55);
 		} ));
 
@@ -65,7 +64,9 @@ public class SettingsPresenter extends BasePresenter {
 		//////////// Transparent Block //////////////
 		long t00 = TimeUtil.getTimeMs();
 		t00 = t00 - 10*3600000;
-		Settings.RowSimple date = new Settings.RowSimple(FormaterUtil.fullyDayMonthYear(TimeUtil.getTimeMs()) + "  -  " +t00/1000 );
+		String dateS = FormaterUtil.fullyDayMonthYear(TimeUtil.getTimeMs());
+		dateS = "تاریخ امروز: " + dateS;
+		Settings.RowTransparentCenter date = new Settings.RowTransparentCenter(dateS, null );
 		bFooter.addRow(date);
 
 		//del
@@ -80,9 +81,9 @@ public class SettingsPresenter extends BasePresenter {
 		b2.addRow(new Settings.RowSimple("تغییر نام کاربری"));
 		b2.addRow(new Settings.RowSimple("تغییر نام کاربری"));
 
-		b3.addRow(new Settings.RowPage(   "تغییر bbنام کاربری" , null));
+		b3.addRow(new Settings.RowSimple(   "تغییر bbنام کاربری" , null));
 		b3.addRow(new Settings.RowSimple("تغییر نام کاربری"));
-		b3.addRow(new Settings.RowPage("تغییرmm نام کاربری" , null));
+		b3.addRow(new Settings.RowSimple("تغییرmm نام کاربری" , null));
 		b3.addRow(new Settings.RowSwitch("تغییر  bbbنام کاربری" ,null));
 		b3.addRow(new Settings.RowSwitch("تغییر نام کاربری",(c)->{
 			Helper.showDebugMessage(""+c);
@@ -95,11 +96,13 @@ public class SettingsPresenter extends BasePresenter {
 		x.root.addView(bGeneralSettings.getView());
 		x.root.addView(bBandwidth.getView());
 		x.root.addView(bMardomsara.getView());
-		x.root.addView(bFooter.getView());
 
+		//del
 		x.root.addView(b2.getView());
 		x.root.addView(b3.getView());
 		x.root.addView(b4.getView());
+
+		x.root.addView(bFooter.getView());
 
 		scroller.layout.addView(x.root);
 		return scroller.rootView;

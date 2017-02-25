@@ -28,7 +28,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="20dp"
-        android:background="@color/border_gray"
+        android:background="@color/settings_block_separator_background"
         android:layout_marginTop="-1dp"
         />
 
