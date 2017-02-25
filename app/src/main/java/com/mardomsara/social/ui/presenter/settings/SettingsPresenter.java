@@ -22,8 +22,9 @@ public class SettingsPresenter extends BasePresenter {
 		Cells.Scroller scroller =new Cells.Scroller();
 
 		Settings.Block bGeneralSettings = new Settings.Block("تنظیمات");
-		Settings.Block bBandwidth = new Settings.Block("پهنای باند");
+		Settings.Block bBandwidth = new Settings.Block("دانلود خودکار فایل ها");
 		Settings.Block bMardomsara = new Settings.Block("مردم سرا");
+		Settings.Block bFooter = new Settings.BlockTransparent();
 
 		Settings.Block b1 = new Settings.Block("تنظیمات");
 		Settings.Block b2 = new Settings.Block("تنظیمات");
@@ -39,38 +40,32 @@ public class SettingsPresenter extends BasePresenter {
 			Router.goToProfile(53);
 		} ));
 
+		bGeneralSettings.addRow(new Settings.RowPage("شماره تلفن همراه" , ()-> {
+			Router.goToProfile(53);
+		} ));
+
+
+		///////////// Network Bandwidth ////////////
+
+
+		bBandwidth.addRow(new Settings.SimpleRow("هنگام استفاده از Wi-Fi" , ()-> {
+			Router.goToProfile(53);
+		} ));
+
+		bBandwidth.addRow(new Settings.SimpleRow("هنگام استفاده از دیتا موبایل (2G, 3G, 4G)" , ()-> {
+			Router.goToProfile(53);
+		} ));
 
 		///////////// Mardomsara Settings ///////////
 		bMardomsara.addRow(new Settings.RowPage("درباره" , ()-> {
 			Router.goToProfile(55);
 		} ));
 
-		AppUtil.log("Year ==================");
+		//////////// Transparent Block //////////////
 		long t00 = TimeUtil.getTimeMs();
 		t00 = t00 - 10*3600000;
 		Settings.RowPage date = new Settings.RowPage(FormaterUtil.fullyDayMonthYear(TimeUtil.getTimeMs()) + "  -  " +t00/1000 );
-//		Settings.RowPage date = new Settings.RowPage(Rooz.fromTime(t00).getFormatedWithMonthName(" ") );
-//		Settings.RowPage date = new Settings.RowPage( FormaterUtil.play_FullyYeraMonthDayNow(t00) + t00/1000);
-		bMardomsara.addRow(date);
-
-		AppUtil.log("Year +++++==================");
-
-		//////////////// Play ///////////////////////
-		bMardomsara.addRow(new Settings.RowPage("درباره" , ()-> {
-			Router.goToProfile(55);
-		} ));
-
-
-		for (long i = -100; i< 100 ; i++){
-			long t = TimeUtil.getTimeMs() + (i * 86400000);
-			t = t - 10*3600000;
-			Settings.RowPage date2 = new Settings.RowPage(FormaterUtil.fullyDayMonthYear(t) + "  -  " + t/1000);
-//			Settings.RowPage date2 = new Settings.RowPage(Rooz.fromTime(t).getFormatedWithMonthName(" "));
-//			Settings.RowPage date2 = new Settings.RowPage(FormaterUtil.play_FullyYeraMonthDayNow(t) + " - " + t/1000);
-
-			bMardomsara.addRow( date2  );
-		}
-
+		bFooter.addRow(date);
 
 		//del
 		b1.addRow(new Settings.SimpleRow("تغییر نام کاربری"));

@@ -37,11 +37,22 @@ public class Settings {
 		}
 	}
 
+	public static class BlockTransparent extends Block{
+		public BlockTransparent() {
+			super("");
+			x.title.setVisibility(View.GONE);
+		}
+	}
+
 	public static class SimpleRow implements SettingRow{
 		X.Settings_RowSimple x = new X.Settings_RowSimple();
 		String title;
 
 		public SimpleRow(String title) {
+			this.title = title;
+		}
+
+		public SimpleRow(String title, Runnable runnable) {
 			this.title = title;
 		}
 

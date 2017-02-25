@@ -8,9 +8,9 @@ import java.util.GregorianCalendar;
 
 public class PersianDateTime {
 
-    protected int year = 0;
-    protected int month = 0;
-    protected int day = 0;
+    protected int year = 0;//1395
+    protected int month = 0;//1..12
+    protected int day = 0;//1..
     protected int hour = 0;
     protected int minute = 0;
     protected int second = 0;
