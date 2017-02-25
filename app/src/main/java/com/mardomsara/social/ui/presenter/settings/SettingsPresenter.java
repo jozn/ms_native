@@ -31,6 +31,7 @@ public class SettingsPresenter extends BasePresenter {
 		Settings.Block b3 = new Settings.Block("تنظیمات");
 		Settings.Block b4 = new Settings.Block("تنظیمات");
 
+
 		///////////// General Settings ///////////
 		bGeneralSettings.addRow(new Settings.RowPage("وایرایش پروفایل" , ()-> {
 			Router.goToProfile(52);
@@ -46,53 +47,55 @@ public class SettingsPresenter extends BasePresenter {
 
 
 		///////////// Network Bandwidth ////////////
-
-
-		bBandwidth.addRow(new Settings.SimpleRow("هنگام استفاده از Wi-Fi" , ()-> {
+		bBandwidth.addRow(new Settings.RowSimple("هنگام استفاده از Wi-Fi" , ()-> {
 			Router.goToProfile(53);
 		} ));
 
-		bBandwidth.addRow(new Settings.SimpleRow("هنگام استفاده از دیتا موبایل (2G, 3G, 4G)" , ()-> {
+		bBandwidth.addRow(new Settings.RowSimple("هنگام استفاده از دیتا موبایل (2G, 3G, 4G)" , ()-> {
 			Router.goToProfile(53);
 		} ));
+
 
 		///////////// Mardomsara Settings ///////////
 		bMardomsara.addRow(new Settings.RowPage("درباره" , ()-> {
 			Router.goToProfile(55);
 		} ));
 
+
 		//////////// Transparent Block //////////////
 		long t00 = TimeUtil.getTimeMs();
 		t00 = t00 - 10*3600000;
-		Settings.RowPage date = new Settings.RowPage(FormaterUtil.fullyDayMonthYear(TimeUtil.getTimeMs()) + "  -  " +t00/1000 );
+		Settings.RowSimple date = new Settings.RowSimple(FormaterUtil.fullyDayMonthYear(TimeUtil.getTimeMs()) + "  -  " +t00/1000 );
 		bFooter.addRow(date);
 
 		//del
-		b1.addRow(new Settings.SimpleRow("تغییر نام کاربری"));
-		b1.addRow(new Settings.SimpleRow("تغییر نام کاربری"));
-		b1.addRow(new Settings.SimpleRow("تغییر نام کاربری"));
-		b1.addRow(new Settings.SimpleRow("تغییر نام کاربری"));
+		b1.addRow(new Settings.RowSimple("تغییر نام کاربری"));
+		b1.addRow(new Settings.RowSimple("تغییر نام کاربری"));
+		b1.addRow(new Settings.RowSimple("تغییر نام کاربری"));
+		b1.addRow(new Settings.RowSimple("تغییر نام کاربری"));
 
 
 
-		b2.addRow(new Settings.SimpleRow("تغییر نام کاربری"));
-		b2.addRow(new Settings.SimpleRow("تغییر نام کاربری"));
-		b2.addRow(new Settings.SimpleRow("تغییر نام کاربری"));
+		b2.addRow(new Settings.RowSimple("تغییر نام کاربری"));
+		b2.addRow(new Settings.RowSimple("تغییر نام کاربری"));
+		b2.addRow(new Settings.RowSimple("تغییر نام کاربری"));
 
-		b3.addRow(new Settings.RowPage("تغییر نام کاربری"));
-		b3.addRow(new Settings.SimpleRow("تغییر نام کاربری"));
-		b3.addRow(new Settings.RowPage("تغییر نام کاربری"));
+		b3.addRow(new Settings.RowPage(   "تغییر bbنام کاربری" , null));
+		b3.addRow(new Settings.RowSimple("تغییر نام کاربری"));
+		b3.addRow(new Settings.RowPage("تغییرmm نام کاربری" , null));
+		b3.addRow(new Settings.RowSwitch("تغییر  bbbنام کاربری" ,null));
 		b3.addRow(new Settings.RowSwitch("تغییر نام کاربری",(c)->{
 			Helper.showDebugMessage(""+c);
 		}));
 
-		b4.addRow(new Settings.SimpleRow("تغییر نام کاربری"));
+		b4.addRow(new Settings.RowSimple("تغییر نام کاربری"));
 		b4.addRow(new Settings.RowSwitch("تغییر نام کاربری",(c)->{}));
 
 
 		x.root.addView(bGeneralSettings.getView());
 		x.root.addView(bBandwidth.getView());
 		x.root.addView(bMardomsara.getView());
+		x.root.addView(bFooter.getView());
 
 		x.root.addView(b2.getView());
 		x.root.addView(b3.getView());

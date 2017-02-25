@@ -44,15 +44,17 @@ public class Settings {
 		}
 	}
 
-	public static class SimpleRow implements SettingRow{
-		X.Settings_RowSimple x = new X.Settings_RowSimple();
-		String title;
+	//////////////////// Rows ////////////////////////
 
-		public SimpleRow(String title) {
+	public static class RowSimple implements SettingRow{
+		X.Settings_RowSimple x = new X.Settings_RowSimple();
+		String title = "";
+
+		public RowSimple(String title) {
 			this.title = title;
 		}
 
-		public SimpleRow(String title, Runnable runnable) {
+		public RowSimple(String title, Runnable runnable) {
 			this.title = title;
 		}
 
@@ -62,57 +64,30 @@ public class Settings {
 		}
 	}
 
-	public static class RowSwitch implements SettingRow{
-		X.Settings_RowSimple x = new X.Settings_RowSimple();
-		String title;
-
-		@Deprecated
-		public RowSwitch(String title) {
-			this.title = title;
-			x.switch_btn.setVisibility(View.VISIBLE);
-		}
-
+	public static class RowSwitch extends RowSimple{
 		public RowSwitch(String title, @NonNull SwitchListener listener) {
-			this.title = title;
+			super(title);
+//			this.title = title;
 			x.switch_btn.setVisibility(View.VISIBLE);
 
 			x.root.setOnClickListener((v)->{
 				boolean oldVal = x.switch_btn.isChecked();
 				boolean newBoolVal = !oldVal;
 				x.switch_btn.setChecked(newBoolVal);
-				listener.onChange((newBoolVal));
+				if(listener != null) listener.onChange((newBoolVal));
 			});
-		}
-
-		public View getView(){
-			x.title.setText(title);
-			return x.root;
 		}
 	}
 
-	public static class RowPage implements SettingRow{
-		X.Settings_RowSimple x = new X.Settings_RowSimple();
-		String title;
-
-		@Deprecated
-		public RowPage(String title) {
-			this.title = title;
-			x.has_page.setVisibility(View.VISIBLE);
-		}
+	public static class RowPage extends RowSimple{
 
 		public RowPage(String title, @NonNull Runnable runnable) {
-			this.title = title;
+			super(title);
 			x.has_page.setVisibility(View.VISIBLE);
 
 			x.root.setOnClickListener((v)->{
-				runnable.run();
+				if(runnable != null) runnable.run();
 			});
-		}
-
-
-		public View getView(){
-			x.title.setText(title);
-			return x.root;
 		}
 	}
 
