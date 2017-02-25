@@ -6,7 +6,6 @@ import com.mardomsara.social.app.Router;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.FormaterUtil;
 import com.mardomsara.social.helpers.Helper;
-import com.mardomsara.social.helpers.Rooz;
 import com.mardomsara.social.helpers.TimeUtil;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.X;
@@ -49,9 +48,9 @@ public class SettingsPresenter extends BasePresenter {
 		AppUtil.log("Year ==================");
 		long t00 = TimeUtil.getTimeMs();
 		t00 = t00 - 10*3600000;
-//		Settings.RowPage date = new Settings.RowPage(FormaterUtil.timeJalaiDayMs(TimeUtil.getTimeMs()) + "  -  " +t00/1000 );
+		Settings.RowPage date = new Settings.RowPage(FormaterUtil.fullyDayMonthYear(TimeUtil.getTimeMs()) + "  -  " +t00/1000 );
 //		Settings.RowPage date = new Settings.RowPage(Rooz.fromTime(t00).getFormatedWithMonthName(" ") );
-		Settings.RowPage date = new Settings.RowPage( FormaterUtil.play_FullyYeraMonthDayNow(t00) + t00/1000);
+//		Settings.RowPage date = new Settings.RowPage( FormaterUtil.play_FullyYeraMonthDayNow(t00) + t00/1000);
 		bMardomsara.addRow(date);
 
 		AppUtil.log("Year +++++==================");
@@ -65,9 +64,9 @@ public class SettingsPresenter extends BasePresenter {
 		for (long i = -100; i< 100 ; i++){
 			long t = TimeUtil.getTimeMs() + (i * 86400000);
 			t = t - 10*3600000;
-//			Settings.RowPage date2 = new Settings.RowPage(FormaterUtil.timeJalaiDayMs(t) + "  -  " + t/1000);
+			Settings.RowPage date2 = new Settings.RowPage(FormaterUtil.fullyDayMonthYear(t) + "  -  " + t/1000);
 //			Settings.RowPage date2 = new Settings.RowPage(Rooz.fromTime(t).getFormatedWithMonthName(" "));
-			Settings.RowPage date2 = new Settings.RowPage(FormaterUtil.play_FullyYeraMonthDayNow(t) + " - " + t/1000);
+//			Settings.RowPage date2 = new Settings.RowPage(FormaterUtil.play_FullyYeraMonthDayNow(t) + " - " + t/1000);
 
 			bMardomsara.addRow( date2  );
 		}

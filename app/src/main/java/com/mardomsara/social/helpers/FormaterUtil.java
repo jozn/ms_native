@@ -78,26 +78,31 @@ public class FormaterUtil {
         if(Math.abs(now-sec)< 86400){
               return timeToClockTimeMs(milisconds);
         }//else{
-        Rooz r = Rooz.fromTimeMs(milisconds);
-        return ""+r.getDay()+ halfSpace + r.getMonthName();
+//        Rooz r = Rooz.fromTimeMs(milisconds);
+		PersianDateTime pd  = PersianDateTime.valueOf(milisconds);
+        return ""+pd.getDay()+ halfSpace + pd.getMonthName();
     }
 
-        //DEPRECATED use Rooz
+    public static String fullyDayMonthYear(long milisconds){
+       PersianDateTime pd  = PersianDateTime.valueOf(milisconds);
+		String r = pd.getDay() + " " + pd.getMonthName()  + " " + pd.getYear();
+        return r;
+    }
+
 	@Deprecated
-    public static String timeJalaiDayMs(long milisconds){
-        Date d = new Date(milisconds);
-        Calendar cal = new GregorianCalendar();
-        cal.setTimeInMillis(milisconds);
-        Rooz rooz = new Rooz();
-        rooz.gregorianToPersian(cal.get(Calendar.YEAR),cal.get(Calendar.MONTH),cal.get(Calendar.DAY_OF_MONTH));
+	public static String timeJalaiDayMs_DEP(long milisconds){
+		Date d = new Date(milisconds);
+		Calendar cal = new GregorianCalendar();
+		cal.setTimeInMillis(milisconds);
+		Rooz rooz = new Rooz();
+		rooz.gregorianToPersian(cal.get(Calendar.YEAR),cal.get(Calendar.MONTH),cal.get(Calendar.DAY_OF_MONTH));
 
 		String r = rooz.getFormatedWithMonthName(" ");
 		if(Config.IS_DEBUG) {
 			AppUtil.log("date: Year: " + cal.get(Calendar.YEAR) + " Month: "+ cal.get(Calendar.MONTH)+ " Day: "+cal.get(Calendar.DAY_OF_MONTH) +  " Shamsi: "+ r);
 		}
-        return r;
-    }
-
+		return r;
+	}
     //returns: "1395-4-25_17:05:24
     public static String getFullyYearToSecondsSolarName(){
         Date d = new Date();//1424123123000l);
@@ -169,7 +174,7 @@ public class FormaterUtil {
 }
 
 /*
-    public static String timeJalaiDayMs(long milisconds){
+    public static String fullyDayMonthYear(long milisconds){
         Date d = new Date(milisconds);
         Calendar cal = new GregorianCalendar();
         cal.setTimeInMillis(milisconds);
