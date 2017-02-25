@@ -163,7 +163,7 @@ public class Play_Http2TestPresenter extends BasePresenter {
     }
 
     void download(){
-        String f= "/storage/emulated/0/1_"+ TimeUtil.getTime() +".mp4";
+        String f= "/storage/emulated/0/1_"+ TimeUtil.getTimeSec() +".mp4";
         Http.download("http://localhost:5000/upload/1.mp4", f)
                 .doAsyncDownload((r)->{
                     Helper.showDebugMessage(r.data);
@@ -171,7 +171,7 @@ public class Play_Http2TestPresenter extends BasePresenter {
     }
 
     void downloadProgress(){
-        String f= "/storage/emulated/0/1_"+ TimeUtil.getTime() +".mp4";
+        String f= "/storage/emulated/0/1_"+ TimeUtil.getTimeSec() +".mp4";
         Http.download("http://localhost:5000/upload/1.mp4", f)
             .setDownloadProgress((bytesRead,contentLength,done)->{
                 AppUtil.log(""+bytesRead+ " "+ contentLength+ " "+done);

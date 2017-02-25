@@ -98,6 +98,7 @@ public class Settings {
 			});
 		}
 
+
 		public View getView(){
 			x.title.setText(title);
 			return x.root;

@@ -36,7 +36,8 @@ import java.util.GregorianCalendar;
  *      Persian calendar for 3000 years</a>
  * @version 0.0.1-alpha
  */
-
+//use PersianDateTime
+@Deprecated
 public class Rooz {
 
     private int day, month, year;
@@ -220,7 +221,7 @@ public class Rooz {
         Calendar cal = new GregorianCalendar();
         cal.setTimeInMillis(milisconds);
         Rooz rooz = new Rooz();
-        rooz.gregorianToPersian(cal.get(Calendar.YEAR),cal.get(Calendar.MONTH),cal.get(Calendar.DAY_OF_MONTH));
+        rooz.gregorianToPersian(cal.get(Calendar.YEAR),cal.get(Calendar.MONTH)+1,cal.get(Calendar.DAY_OF_MONTH));
         return rooz;
     }
 

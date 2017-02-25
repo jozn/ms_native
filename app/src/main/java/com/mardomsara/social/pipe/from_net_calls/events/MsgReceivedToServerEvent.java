@@ -19,7 +19,7 @@ public class MsgReceivedToServerEvent {
 		MsgReceivedToServerEvent meta = new MsgReceivedToServerEvent();
 		meta.RoomKey = msg.RoomKey;
 		meta.MsgKey = msg.MessageKey;
-		meta.AtTime = TimeUtil.getTime();
+		meta.AtTime = TimeUtil.getTimeSec();
 
 		App.getBus().post(meta);
 	}

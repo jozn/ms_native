@@ -19,11 +19,11 @@ public class TimeUtil {
         return new Date().getTime();
     }
 
-    public static long getTime(){
+    public static long getTimeSec(){
         return (new Date().getTime())/1000;
     }
 
-	public static int getTimeInt(){
+	public static int getTimeSecInt(){
 		return (int) (new Date().getTime()/1000);
 	}
 

@@ -114,7 +114,7 @@ public class IntentHelper {
         return Uri.fromFile(getOutputMediaFile(type));
     }
     private File getOutputMediaFile(int type) {
-//        String rooz = Rooz.fromTimeMs(new Date().getTime()).getFormatedForFoldersName("-");
+//        String rooz = Rooz.fromTimeMs(new Date().getTimeSec()).getFormatedForFoldersName("-");
       /*  String rooz = Rooz.fromTimeMs(1424123123000l).getFormatedForFoldersName("-");
         String houersFormat = new SimpleDateFormat("HH:mm:ss", Locale.getDefault()).format(new Date(1424123123000l));
         String fileName = rooz + "_" + houersFormat ;

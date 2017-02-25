@@ -170,7 +170,7 @@ public class RoomModel {
     }
 
 	public static void updateRoomSeenMsgsToNow_BG(Room room){
-		long now = TimeUtil.getTime();
+		long now = TimeUtil.getTimeSec();
 		long nowMs = TimeUtil.getTimeMs();
 		long nowNano = TimeUtil.getTimeNano();
 		long lastNano = TimeUtil.getTimeNano();

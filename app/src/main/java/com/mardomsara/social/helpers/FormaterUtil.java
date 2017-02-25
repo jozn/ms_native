@@ -1,5 +1,7 @@
 package com.mardomsara.social.helpers;
 
+import com.mardomsara.social.app.Config;
+import com.mardomsara.social.lib.PersianDateTime;
 import com.mardomsara.social.models.AppModel;
 
 import java.text.DecimalFormat;
@@ -81,6 +83,7 @@ public class FormaterUtil {
     }
 
         //DEPRECATED use Rooz
+	@Deprecated
     public static String timeJalaiDayMs(long milisconds){
         Date d = new Date(milisconds);
         Calendar cal = new GregorianCalendar();
@@ -88,7 +91,11 @@ public class FormaterUtil {
         Rooz rooz = new Rooz();
         rooz.gregorianToPersian(cal.get(Calendar.YEAR),cal.get(Calendar.MONTH),cal.get(Calendar.DAY_OF_MONTH));
 
-        return rooz.getFormatedWithMonthName(" ");
+		String r = rooz.getFormatedWithMonthName(" ");
+		if(Config.IS_DEBUG) {
+			AppUtil.log("date: Year: " + cal.get(Calendar.YEAR) + " Month: "+ cal.get(Calendar.MONTH)+ " Day: "+cal.get(Calendar.DAY_OF_MONTH) +  " Shamsi: "+ r);
+		}
+        return r;
     }
 
     //returns: "1395-4-25_17:05:24
@@ -138,6 +145,15 @@ public class FormaterUtil {
 		}
 
 		return res.replace(' ',halfSpace);
+	}
+
+	public static String play_FullyYeraMonthDayNow(long mili){
+		Date d = new Date(mili);
+		GregorianCalendar cal = new GregorianCalendar();
+		cal.setTimeInMillis(mili)
+		;
+		PersianDateTime pd = PersianDateTime.valueOf(mili);
+		return pd.toDateString() ;
 	}
 
 

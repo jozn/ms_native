@@ -29,7 +29,7 @@ public class MsgsCallToServer {
 
 		Runnable succ =  ()->{
 			msg.setToPush(0);
-			msg.ServerReceivedTime = TimeUtil.getTime();
+			msg.ServerReceivedTime = TimeUtil.getTimeSec();
 			msg.saveWithRoom();
 
 			MsgReceivedToServerEvent.publishNew(msg);
@@ -45,7 +45,7 @@ public class MsgsCallToServer {
 			DB.db.transactionSync(()->{
 				for(Message msg: msgs){
 					msg.setToPush(0);
-					msg.ServerReceivedTime = TimeUtil.getTime();
+					msg.ServerReceivedTime = TimeUtil.getTimeSec();
 					msg.saveWithRoom();
 				}
 			});
@@ -71,7 +71,7 @@ public class MsgsCallToServer {
 						Helper.showDebugMessage("sendNewPhoto ok");
 						msg.setMsgFile_Status((Constants.Msg_Media_Uploaded));
 						msg.setToPush(0);
-						msg.ServerReceivedTime = TimeUtil.getTime();
+						msg.ServerReceivedTime = TimeUtil.getTimeSec();
 						msg.saveWithRoom();
 						if(deleteOrginal == true &&  fileOriginal != null){
 							fileOriginal.delete();
@@ -98,7 +98,7 @@ public class MsgsCallToServer {
 					if (result.isOk()){
 						msg.setMsgFile_Status((Constants.Msg_Media_Uploaded));
 						msg.setToPush(0);
-						msg.ServerReceivedTime = TimeUtil.getTime();
+						msg.ServerReceivedTime = TimeUtil.getTimeSec();
 						msg.saveWithRoom();
 
 						MsgReceivedToServerEvent.publishNew(msg);

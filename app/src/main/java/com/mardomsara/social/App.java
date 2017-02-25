@@ -176,7 +176,7 @@ public class App {
                     for (int i = 0; i < 100; i++) {
                        Notifications not = new Notifications();
                        not.Id = (long) i;
-                       not.CreatedTime = (int) AppUtil.getTime();
+                       not.CreatedTime = (int) AppUtil.getTimeSec();
                        not.Load = JsonUtil.toJson(new UserInfoJson());
                        db.insertIntoNotifications(not);
                     }

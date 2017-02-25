@@ -30,7 +30,7 @@ public class MsgSeen {
 	public String RoomKey="";
 
 	@Column(defaultExpr = "0")
-	public long AtTime = TimeUtil.getTime();
+	public long AtTime = TimeUtil.getTimeSec();
 
 	public void save(){
 		DB.db.insertIntoMsgSeen(this);

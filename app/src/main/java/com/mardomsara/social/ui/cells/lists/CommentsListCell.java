@@ -98,7 +98,7 @@ public class CommentsListCell implements  AppHeaderFooterRecyclerViewAdapter.Loa
 		comment.Sender = Session.buildUserSender();
 		comment.PostId = postId;
 		comment.UserId = Session.getUserId();
-		comment.CreatedTime = (int) TimeUtil.getTime();
+		comment.CreatedTime = (int) TimeUtil.getTimeSec();
 		comment.Text = text;
 		comment._isNew=true;
 
