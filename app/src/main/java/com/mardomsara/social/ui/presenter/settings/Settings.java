@@ -57,6 +57,9 @@ public class Settings {
 
 		public RowSimple(String title, Runnable runnable) {
 			this.title = title;
+			x.root.setOnClickListener((v)->{
+				if(runnable != null) runnable.run();
+			});
 		}
 
 		public View getView(){

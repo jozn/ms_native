@@ -244,7 +244,7 @@ public class ProfilePage extends BasePresenter implements AppHeaderFooterRecycle
 
 		void hideShowMyButns(){
 			button_edit_profile.setIconAndClicker("ویرایش پروفایل {icon-energy 26dp}",()->{
-				Nav.push(new EditProfilePage());
+				Nav.push(new EditProfilePage_DEp());
 			});
 
 			if(Session.isUserIdMe(UserId)){
