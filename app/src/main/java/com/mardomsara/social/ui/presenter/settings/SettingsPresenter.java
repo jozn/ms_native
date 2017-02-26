@@ -4,6 +4,7 @@ import android.view.View;
 
 import com.mardomsara.social.Nav;
 import com.mardomsara.social.app.Router;
+import com.mardomsara.social.helpers.DialogHelper;
 import com.mardomsara.social.helpers.FormaterUtil;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.TimeUtil;
@@ -77,6 +78,10 @@ public class SettingsPresenter extends BasePresenter {
 
 		scroller.layout.addView(x.root);
 		return scroller.rootView;
+	}
+
+	static void showWifi(){
+//		DialogHelper
 	}
 
 

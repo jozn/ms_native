@@ -88,9 +88,9 @@ public class Play_DiaolgPresenter extends BasePresenter {
 	//deprectaed
 	public static void simpleAlert2(Context ctx, String title, String body){
 		LayoutInflater inf = LayoutInflater.from(ctx);
-		TextView vTitle = (TextView) inf.inflate(R.layout.dialog_simple_title, null);
-		TextView vBody = (TextView) inf.inflate(R.layout.dialog_simple_body, null);
-		TextView vClose = (TextView) inf.inflate(R.layout.dialog_simple_close, null);
+		TextView vTitle = (TextView) inf.inflate(R.layout.dialog__simple_title, null);
+		TextView vBody = (TextView) inf.inflate(R.layout.dialog__simple_body, null);
+		TextView vClose = (TextView) inf.inflate(R.layout.dialog__simple_close, null);
 		vTitle.setText(title);
 		vBody.setText(body);
 		vClose.setText("بستن");

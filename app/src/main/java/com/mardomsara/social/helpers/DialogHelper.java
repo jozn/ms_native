@@ -27,7 +27,7 @@ public class DialogHelper {
 		Context ctx = AppUtil.getContext();
 //        alertViewWithListner22(ctx);
         LayoutInflater inf = LayoutInflater.from(ctx);
-        LinearLayout simple = (LinearLayout) inf.inflate(R.layout.dialog_simple_alert,null);
+        LinearLayout simple = (LinearLayout) inf.inflate(R.layout.dialog__simple_alert,null);
         TextView vTitle = (TextView) simple.findViewById(R.id.title);
         TextView vBody = (TextView) simple.findViewById(R.id.body);
         TextView vClose = (TextView) simple.findViewById(R.id.close);
@@ -62,7 +62,7 @@ public class DialogHelper {
             dialog.dismiss();
             items.get(position).listener.onClick(view);
         };
-        ArrayAdapter adapter = new ArrayAdapter(ctx, R.layout.dialog_simple_menu_string);
+        ArrayAdapter adapter = new ArrayAdapter(ctx, R.layout.dialog__simple_menu_string);
         for(MenuItem item: items){
             adapter.add(item.name);
         }

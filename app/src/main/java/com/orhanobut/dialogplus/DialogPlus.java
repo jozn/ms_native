@@ -98,7 +98,7 @@ public class DialogPlus {
      * @link http://stackoverflow.com/questions/4486034/get-root-view-from-current-activity
      */
     decorView = (ViewGroup) activity.getWindow().getDecorView().findViewById(android.R.id.content);
-    rootView = (ViewGroup) layoutInflater.inflate(R.layout.dialog_base_container, decorView, false);
+    rootView = (ViewGroup) layoutInflater.inflate(R.layout.dialog__base_container, decorView, false);
     rootView.setLayoutParams(builder.getOutmostLayoutParams());
 
     View outmostView = rootView.findViewById(R.id.dialogplus_outmost_container);

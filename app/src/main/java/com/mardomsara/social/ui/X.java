@@ -3,11 +3,9 @@ package com.mardomsara.social.ui;
 
 import android.widget.*;
 import android.view.*;
-import android.webkit.WebView;
 
 
 import android.support.design.widget.TabLayout;
-import android.support.percent.PercentRelativeLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
@@ -18,19 +16,15 @@ import com.joanzapata.iconify.widget.IconTextView;
 import com.mardomsara.emojicon.EmojiconEditText;
 import com.mardomsara.emojicon.EmojiconTextView;
 import com.mardomsara.social.ui.views.EmojiLinkerTextView;
-import com.mardomsara.social.ui.views.LinkerTextView;
 import com.mardomsara.social.ui.views.play.TextViewWithIcon;
-import com.mardomsara.social.ui.views.wigets.BadgeCount;
 import com.mardomsara.social.ui.views.wigets.ButtonGrayView;
 import com.mardomsara.social.ui.views.wigets.ChatButtonView;
 import com.mardomsara.social.ui.views.wigets.ChatListRowWhithBorderRelativeLayout;
 import com.mardomsara.social.ui.views.wigets.ChatMediaNetworkLoader;
-import com.mardomsara.social.ui.views.wigets.CountView;
 import com.mardomsara.social.ui.views.wigets.CountView2;
 import com.mardomsara.social.ui.views.wigets.FollowingButtonView;
 import com.mardomsara.social.ui.views.wigets.LoadingView;
 import com.mardomsara.social.ui.views.wigets.SimpleAddText;
-import com.mardomsara.social.ui.views.wigets.SimpleText;
 import com.mardomsara.social.ui.views.wigets.SimpleTopNav;
 import com.mardomsara.social.ui.views.wigets.UserListGeneralFollowRowWhithBorderLinearLayout;
 import me.relex.photodraweeview.PhotoDraweeView;
@@ -415,7 +409,7 @@ public class X {
         public FrameLayout dialogplus_content_container;
 
         public DialogBaseContainer(ViewGroup parent) {
-            root = (FrameLayout) AppUtil.inflate(R.layout.dialog_base_container,parent);
+            root = (FrameLayout) AppUtil.inflate(R.layout.dialog__base_container,parent);
             dialogplus_outmost_container = (FrameLayout) root.findViewById( R.id.dialogplus_outmost_container);
             dialogplus_content_container = (FrameLayout) root.findViewById( R.id.dialogplus_content_container);
         }
@@ -433,7 +427,7 @@ public class X {
         public FrameLayout dialogplus_footer_container;
 
         public DialogGrid(ViewGroup parent) {
-            root = (LinearLayout) AppUtil.inflate(R.layout.dialog_grid,parent);
+            root = (LinearLayout) AppUtil.inflate(R.layout.dialog__grid,parent);
             dialogplus_outmost_container = (LinearLayout) root.findViewById( R.id.dialogplus_outmost_container);
             dialogplus_header_container = (FrameLayout) root.findViewById( R.id.dialogplus_header_container);
             dialogplus_list = (GridView) root.findViewById( R.id.dialogplus_list);
@@ -451,7 +445,7 @@ public class X {
         public ListView dialogplus_list;
 
         public DialogList(ViewGroup parent) {
-            root = (LinearLayout) AppUtil.inflate(R.layout.dialog_list,parent);
+            root = (LinearLayout) AppUtil.inflate(R.layout.dialog__list,parent);
             dialogplus_outmost_container = (LinearLayout) root.findViewById( R.id.dialogplus_outmost_container);
             dialogplus_list = (ListView) root.findViewById( R.id.dialogplus_list);
         }
@@ -467,7 +461,7 @@ public class X {
         public ListView list_view;
 
         public DialogOptionsRoomRow(ViewGroup parent) {
-            root = (LinearLayout) AppUtil.inflate(R.layout.dialog_options_room_row,parent);
+            root = (LinearLayout) AppUtil.inflate(R.layout.dialog__options_room_row,parent);
             text = (TextView) root.findViewById( R.id.text);
             list_view = (ListView) root.findViewById( R.id.list_view);
         }
@@ -484,7 +478,7 @@ public class X {
         public TextView clear;
 
         public DialogOptionsRoomRow2(ViewGroup parent) {
-            root = (LinearLayout) AppUtil.inflate(R.layout.dialog_options_room_row2,parent);
+            root = (LinearLayout) AppUtil.inflate(R.layout.dialog__options_room_row2,parent);
             profile = (TextView) root.findViewById( R.id.profile);
             delete = (TextView) root.findViewById( R.id.delete);
             clear = (TextView) root.findViewById( R.id.clear);
@@ -502,7 +496,7 @@ public class X {
         public TextView close;
 
         public DialogSimpleAlert(ViewGroup parent) {
-            root = (LinearLayout) AppUtil.inflate(R.layout.dialog_simple_alert,parent);
+            root = (LinearLayout) AppUtil.inflate(R.layout.dialog__simple_alert,parent);
             title = (TextView) root.findViewById( R.id.title);
             body = (TextView) root.findViewById( R.id.body);
             close = (TextView) root.findViewById( R.id.close);
@@ -517,7 +511,7 @@ public class X {
         public TextView root;
 
         public DialogSimpleBody(ViewGroup parent) {
-            root = (TextView) AppUtil.inflate(R.layout.dialog_simple_body,parent);
+            root = (TextView) AppUtil.inflate(R.layout.dialog__simple_body,parent);
         }
         public DialogSimpleBody() {
             this(null);
@@ -529,7 +523,7 @@ public class X {
         public TextView root;
 
         public DialogSimpleClose(ViewGroup parent) {
-            root = (TextView) AppUtil.inflate(R.layout.dialog_simple_close,parent);
+            root = (TextView) AppUtil.inflate(R.layout.dialog__simple_close,parent);
         }
         public DialogSimpleClose() {
             this(null);
@@ -541,7 +535,7 @@ public class X {
         public TextView root;
 
         public DialogSimpleMenuString(ViewGroup parent) {
-            root = (TextView) AppUtil.inflate(R.layout.dialog_simple_menu_string,parent);
+            root = (TextView) AppUtil.inflate(R.layout.dialog__simple_menu_string,parent);
         }
         public DialogSimpleMenuString() {
             this(null);
@@ -553,7 +547,7 @@ public class X {
         public TextView root;
 
         public DialogSimpleTitle(ViewGroup parent) {
-            root = (TextView) AppUtil.inflate(R.layout.dialog_simple_title,parent);
+            root = (TextView) AppUtil.inflate(R.layout.dialog__simple_title,parent);
         }
         public DialogSimpleTitle() {
             this(null);
@@ -569,7 +563,7 @@ public class X {
         public FrameLayout dialogplus_footer_container;
 
         public DialogView(ViewGroup parent) {
-            root = (LinearLayout) AppUtil.inflate(R.layout.dialog_view,parent);
+            root = (LinearLayout) AppUtil.inflate(R.layout.dialog__view,parent);
             dialogplus_outmost_container = (LinearLayout) root.findViewById( R.id.dialogplus_outmost_container);
             dialogplus_header_container = (FrameLayout) root.findViewById( R.id.dialogplus_header_container);
             dialogplus_view_container = (FrameLayout) root.findViewById( R.id.dialogplus_view_container);
