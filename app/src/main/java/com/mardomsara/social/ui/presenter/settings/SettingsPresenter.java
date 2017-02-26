@@ -56,6 +56,7 @@ public class SettingsPresenter extends BasePresenter {
 
 		boolean showGallery = SharedStore.getSetingStore().getShowMediasInGallery();
 		bBandwidth.addRow(new Settings.RowSwitch("نمایش عکس ها و ویدیو ها در گالری دستگاه" , showGallery ,(boolVal)-> {
+			SharedStore.getSetingStore().setShowMediasInGallery(boolVal);
 			AppFiles.changedNomediaSetings();
 		} ));
 
