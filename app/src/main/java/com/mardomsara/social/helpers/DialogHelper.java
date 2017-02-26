@@ -4,11 +4,14 @@ import android.content.Context;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.mardomsara.social.R;
+import com.mardomsara.social.ui.X;
 import com.orhanobut.dialogplus.DialogPlus;
 import com.orhanobut.dialogplus.OnClickListener;
 import com.orhanobut.dialogplus.OnItemClickListener;
@@ -79,6 +82,43 @@ public class DialogHelper {
         dialog.show();
     }
 
+	public static void showSimpleCheckBoxMenu(List<CheckBoxItem> items){
+		X.Dialog_CheckboxContainer x = new X.Dialog_CheckboxContainer();
+
+		for(CheckBoxItem item: items){
+			X.Dialog_CheckboxItem xi = new X.Dialog_CheckboxItem();
+			xi.name.setText(item.name);
+			xi.checkbox.setChecked(item.checked);
+			xi.root.setOnClickListener((v)->{
+				boolean newBol = !xi.checkbox.isChecked();
+				xi.checkbox.setChecked(newBol);
+				if(item.listener!=null){
+					item.listener.onChange(newBol);
+				}
+			});
+
+			x.container.addView(xi.root);
+		}
+
+		ViewHolder vh = new ViewHolder(x.root);
+		final DialogPlus dialog = DialogPlus.newDialog(AppUtil.getContext())
+			.setContentHolder(vh)
+			.setGravity(Gravity.CENTER)
+			.setMargin(10, 10, 10, 10)
+			.setContentWidth((int)Math.round(AndroidUtil.getScreenWidth()*_dialogWidth))
+			.create();
+
+		dialog.show();
+
+		x.close.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				dialog.dismiss();
+			}
+		});
+
+	}
+
     public static DialogPlus alertView(View v) {
 		Context ctx = AppUtil.getContext();
         ViewHolder vh = new ViewHolder(v);
@@ -110,7 +150,45 @@ public class DialogHelper {
             this.name = name;
             this.listener = listener;
         }
-
-
     }
+
+	public static class CheckBoxItem {
+		public SwitchListener listener;
+		public String name;
+		public boolean checked;
+
+		public CheckBoxItem(String name,boolean isCheched, SwitchListener listener) {
+			this.name = name;
+			this.checked = isCheched;
+			this.listener = listener;
+		}
+	}
+
+	public interface SwitchListener {
+		void onChange(boolean value);
+	}
+
+	@Deprecated //no need
+	private static class SwitchAdaptor extends BaseAdapter {
+
+		@Override
+		public int getCount() {
+			return 0;
+		}
+
+		@Override
+		public Object getItem(int position) {
+			return null;
+		}
+
+		@Override
+		public long getItemId(int position) {
+			return 0;
+		}
+
+		@Override
+		public View getView(int position, View convertView, ViewGroup parent) {
+			return null;
+		}
+	}
 }

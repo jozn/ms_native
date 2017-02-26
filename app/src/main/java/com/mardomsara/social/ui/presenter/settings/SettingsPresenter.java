@@ -11,7 +11,9 @@ import com.mardomsara.social.helpers.TimeUtil;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.X;
 import com.mardomsara.social.ui.cells.Cells;
-import com.mardomsara.social.ui.presenter.pages.EditProfilePage_DEp;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Hamid on 2/20/2017.
@@ -44,10 +46,11 @@ public class SettingsPresenter extends BasePresenter {
 
 		///////////// Network Bandwidth ////////////
 		bBandwidth.addRow(new Settings.RowSimple("هنگام استفاده از Wi-Fi" , ()-> {
-			Router.goToProfile(53);
+			showWifi();
 		} ));
 
 		bBandwidth.addRow(new Settings.RowSimple("هنگام استفاده از دیتا موبایل (2G, 3G, 4G)" , ()-> {
+			Router.goToProfile(53);
 
 		} ));
 
@@ -81,7 +84,21 @@ public class SettingsPresenter extends BasePresenter {
 	}
 
 	static void showWifi(){
-//		DialogHelper
+		List<DialogHelper.CheckBoxItem> list = new ArrayList<>();
+
+		list.add(new DialogHelper.CheckBoxItem("عکس", true,(v)->{
+
+		}));
+
+		list.add(new DialogHelper.CheckBoxItem("عکس2", false,(v)->{
+
+		}));
+
+		list.add(new DialogHelper.CheckBoxItem("عکس4", false,(v)->{
+
+		}));
+
+		DialogHelper.showSimpleCheckBoxMenu(list);
 	}
 
 

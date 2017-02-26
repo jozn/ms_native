@@ -3,9 +3,11 @@ package com.mardomsara.social.ui;
 
 import android.widget.*;
 import android.view.*;
+import android.webkit.WebView;
 
 
 import android.support.design.widget.TabLayout;
+import android.support.percent.PercentRelativeLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
@@ -16,15 +18,19 @@ import com.joanzapata.iconify.widget.IconTextView;
 import com.mardomsara.emojicon.EmojiconEditText;
 import com.mardomsara.emojicon.EmojiconTextView;
 import com.mardomsara.social.ui.views.EmojiLinkerTextView;
+import com.mardomsara.social.ui.views.LinkerTextView;
 import com.mardomsara.social.ui.views.play.TextViewWithIcon;
+import com.mardomsara.social.ui.views.wigets.BadgeCount;
 import com.mardomsara.social.ui.views.wigets.ButtonGrayView;
 import com.mardomsara.social.ui.views.wigets.ChatButtonView;
 import com.mardomsara.social.ui.views.wigets.ChatListRowWhithBorderRelativeLayout;
 import com.mardomsara.social.ui.views.wigets.ChatMediaNetworkLoader;
+import com.mardomsara.social.ui.views.wigets.CountView;
 import com.mardomsara.social.ui.views.wigets.CountView2;
 import com.mardomsara.social.ui.views.wigets.FollowingButtonView;
 import com.mardomsara.social.ui.views.wigets.LoadingView;
 import com.mardomsara.social.ui.views.wigets.SimpleAddText;
+import com.mardomsara.social.ui.views.wigets.SimpleText;
 import com.mardomsara.social.ui.views.wigets.SimpleTopNav;
 import com.mardomsara.social.ui.views.wigets.UserListGeneralFollowRowWhithBorderLinearLayout;
 import me.relex.photodraweeview.PhotoDraweeView;
@@ -403,173 +409,207 @@ public class X {
     }
  //( index .Fields 0).ViewClass
 
-    public static class DialogBaseContainer {
+    public static class Dialog_BaseContainer {
         public FrameLayout root;
         public FrameLayout dialogplus_outmost_container;
         public FrameLayout dialogplus_content_container;
 
-        public DialogBaseContainer(ViewGroup parent) {
+        public Dialog_BaseContainer(ViewGroup parent) {
             root = (FrameLayout) AppUtil.inflate(R.layout.dialog__base_container,parent);
             dialogplus_outmost_container = (FrameLayout) root.findViewById( R.id.dialogplus_outmost_container);
             dialogplus_content_container = (FrameLayout) root.findViewById( R.id.dialogplus_content_container);
         }
-        public DialogBaseContainer() {
+        public Dialog_BaseContainer() {
             this(null);
         }
     }
  //( index .Fields 0).ViewClass
 
-    public static class DialogGrid {
+    public static class Dialog_CheckboxContainer {
+        public LinearLayout root;
+        public LinearLayout dialogplus_outmost_container;
+        public LinearLayout container;
+        public TextView close;
+
+        public Dialog_CheckboxContainer(ViewGroup parent) {
+            root = (LinearLayout) AppUtil.inflate(R.layout.dialog__checkbox_container,parent);
+            dialogplus_outmost_container = (LinearLayout) root.findViewById( R.id.dialogplus_outmost_container);
+            container = (LinearLayout) root.findViewById( R.id.container);
+            close = (TextView) root.findViewById( R.id.close);
+        }
+        public Dialog_CheckboxContainer() {
+            this(null);
+        }
+    }
+ //( index .Fields 0).ViewClass
+
+    public static class Dialog_CheckboxItem {
+        public LinearLayout root;
+        public TextView name;
+        public CheckBox checkbox;
+
+        public Dialog_CheckboxItem(ViewGroup parent) {
+            root = (LinearLayout) AppUtil.inflate(R.layout.dialog__checkbox_item,parent);
+            name = (TextView) root.findViewById( R.id.name);
+            checkbox = (CheckBox) root.findViewById( R.id.checkbox);
+        }
+        public Dialog_CheckboxItem() {
+            this(null);
+        }
+    }
+ //( index .Fields 0).ViewClass
+
+    public static class Dialog_Grid {
         public LinearLayout root;
         public LinearLayout dialogplus_outmost_container;
         public FrameLayout dialogplus_header_container;
         public GridView dialogplus_list;
         public FrameLayout dialogplus_footer_container;
 
-        public DialogGrid(ViewGroup parent) {
+        public Dialog_Grid(ViewGroup parent) {
             root = (LinearLayout) AppUtil.inflate(R.layout.dialog__grid,parent);
             dialogplus_outmost_container = (LinearLayout) root.findViewById( R.id.dialogplus_outmost_container);
             dialogplus_header_container = (FrameLayout) root.findViewById( R.id.dialogplus_header_container);
             dialogplus_list = (GridView) root.findViewById( R.id.dialogplus_list);
             dialogplus_footer_container = (FrameLayout) root.findViewById( R.id.dialogplus_footer_container);
         }
-        public DialogGrid() {
+        public Dialog_Grid() {
             this(null);
         }
     }
  //( index .Fields 0).ViewClass
 
-    public static class DialogList {
+    public static class Dialog_List {
         public LinearLayout root;
         public LinearLayout dialogplus_outmost_container;
         public ListView dialogplus_list;
 
-        public DialogList(ViewGroup parent) {
+        public Dialog_List(ViewGroup parent) {
             root = (LinearLayout) AppUtil.inflate(R.layout.dialog__list,parent);
             dialogplus_outmost_container = (LinearLayout) root.findViewById( R.id.dialogplus_outmost_container);
             dialogplus_list = (ListView) root.findViewById( R.id.dialogplus_list);
         }
-        public DialogList() {
+        public Dialog_List() {
             this(null);
         }
     }
  //( index .Fields 0).ViewClass
 
-    public static class DialogOptionsRoomRow {
+    public static class Dialog_OptionsRoomRow {
         public LinearLayout root;
         public TextView text;
         public ListView list_view;
 
-        public DialogOptionsRoomRow(ViewGroup parent) {
+        public Dialog_OptionsRoomRow(ViewGroup parent) {
             root = (LinearLayout) AppUtil.inflate(R.layout.dialog__options_room_row,parent);
             text = (TextView) root.findViewById( R.id.text);
             list_view = (ListView) root.findViewById( R.id.list_view);
         }
-        public DialogOptionsRoomRow() {
+        public Dialog_OptionsRoomRow() {
             this(null);
         }
     }
  //( index .Fields 0).ViewClass
 
-    public static class DialogOptionsRoomRow2 {
+    public static class Dialog_OptionsRoomRow2 {
         public LinearLayout root;
         public TextView profile;
         public TextView delete;
         public TextView clear;
 
-        public DialogOptionsRoomRow2(ViewGroup parent) {
+        public Dialog_OptionsRoomRow2(ViewGroup parent) {
             root = (LinearLayout) AppUtil.inflate(R.layout.dialog__options_room_row2,parent);
             profile = (TextView) root.findViewById( R.id.profile);
             delete = (TextView) root.findViewById( R.id.delete);
             clear = (TextView) root.findViewById( R.id.clear);
         }
-        public DialogOptionsRoomRow2() {
+        public Dialog_OptionsRoomRow2() {
             this(null);
         }
     }
  //( index .Fields 0).ViewClass
 
-    public static class DialogSimpleAlert {
+    public static class Dialog_SimpleAlert {
         public LinearLayout root;
         public TextView title;
         public TextView body;
         public TextView close;
 
-        public DialogSimpleAlert(ViewGroup parent) {
+        public Dialog_SimpleAlert(ViewGroup parent) {
             root = (LinearLayout) AppUtil.inflate(R.layout.dialog__simple_alert,parent);
             title = (TextView) root.findViewById( R.id.title);
             body = (TextView) root.findViewById( R.id.body);
             close = (TextView) root.findViewById( R.id.close);
         }
-        public DialogSimpleAlert() {
+        public Dialog_SimpleAlert() {
             this(null);
         }
     }
  //( index .Fields 0).ViewClass
 
-    public static class DialogSimpleBody {
+    public static class Dialog_SimpleBody {
         public TextView root;
 
-        public DialogSimpleBody(ViewGroup parent) {
+        public Dialog_SimpleBody(ViewGroup parent) {
             root = (TextView) AppUtil.inflate(R.layout.dialog__simple_body,parent);
         }
-        public DialogSimpleBody() {
+        public Dialog_SimpleBody() {
             this(null);
         }
     }
  //( index .Fields 0).ViewClass
 
-    public static class DialogSimpleClose {
+    public static class Dialog_SimpleClose {
         public TextView root;
 
-        public DialogSimpleClose(ViewGroup parent) {
+        public Dialog_SimpleClose(ViewGroup parent) {
             root = (TextView) AppUtil.inflate(R.layout.dialog__simple_close,parent);
         }
-        public DialogSimpleClose() {
+        public Dialog_SimpleClose() {
             this(null);
         }
     }
  //( index .Fields 0).ViewClass
 
-    public static class DialogSimpleMenuString {
+    public static class Dialog_SimpleMenuString {
         public TextView root;
 
-        public DialogSimpleMenuString(ViewGroup parent) {
+        public Dialog_SimpleMenuString(ViewGroup parent) {
             root = (TextView) AppUtil.inflate(R.layout.dialog__simple_menu_string,parent);
         }
-        public DialogSimpleMenuString() {
+        public Dialog_SimpleMenuString() {
             this(null);
         }
     }
  //( index .Fields 0).ViewClass
 
-    public static class DialogSimpleTitle {
+    public static class Dialog_SimpleTitle {
         public TextView root;
 
-        public DialogSimpleTitle(ViewGroup parent) {
+        public Dialog_SimpleTitle(ViewGroup parent) {
             root = (TextView) AppUtil.inflate(R.layout.dialog__simple_title,parent);
         }
-        public DialogSimpleTitle() {
+        public Dialog_SimpleTitle() {
             this(null);
         }
     }
  //( index .Fields 0).ViewClass
 
-    public static class DialogView {
+    public static class Dialog_View {
         public LinearLayout root;
         public LinearLayout dialogplus_outmost_container;
         public FrameLayout dialogplus_header_container;
         public FrameLayout dialogplus_view_container;
         public FrameLayout dialogplus_footer_container;
 
-        public DialogView(ViewGroup parent) {
+        public Dialog_View(ViewGroup parent) {
             root = (LinearLayout) AppUtil.inflate(R.layout.dialog__view,parent);
             dialogplus_outmost_container = (LinearLayout) root.findViewById( R.id.dialogplus_outmost_container);
             dialogplus_header_container = (FrameLayout) root.findViewById( R.id.dialogplus_header_container);
             dialogplus_view_container = (FrameLayout) root.findViewById( R.id.dialogplus_view_container);
             dialogplus_footer_container = (FrameLayout) root.findViewById( R.id.dialogplus_footer_container);
         }
-        public DialogView() {
+        public Dialog_View() {
             this(null);
         }
     }
@@ -2084,6 +2124,7 @@ public class X {
 
 ////////////////////////////////
 //import android.widget.Button;
+//import android.widget.CheckBox;
 //import android.widget.EditText;
 //import android.widget.FrameLayout;
 //import android.widget.GridView;
