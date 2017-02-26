@@ -39,6 +39,9 @@ public class SharedStore {
 		private final String CELLUlAR_Video = "Auto_Dl_Cellular_Video";
 		private final String CELLUAlR_File = "Auto_Dl_Cellular_File";
 
+		///others
+		private final String SHOW_IN_GALLRY = "Show_In_Gallery";
+
 		public SettingsStore() {
 			if(tinyDB==null){
 				tinyDB = new TinyDB(AppUtil.getContext(), "settings");
@@ -95,6 +98,13 @@ public class SharedStore {
 			tinyDB.putBoolean(CELLUAlR_File,val);
 		}
 
+		//////////// Others
+		public boolean getShowMediasInGallery(){
+			return tinyDB.getBoolean(SHOW_IN_GALLRY,true);
+		}
+		public void setShowMediasInGallery(boolean val ) {
+			tinyDB.putBoolean(SHOW_IN_GALLRY,val);
+		}
 
 	}
 

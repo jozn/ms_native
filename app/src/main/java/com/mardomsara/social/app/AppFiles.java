@@ -3,6 +3,8 @@ package com.mardomsara.social.app;
 import android.os.Environment;
 
 import com.mardomsara.social.helpers.AppUtil;
+import com.mardomsara.social.helpers.FileUtil;
+import com.mardomsara.social.models.stores.SharedStore;
 
 import java.io.File;
 import java.io.IOException;
@@ -81,6 +83,17 @@ public class AppFiles {
 //        FileChooserFileUtils.
     }
 
+	public static void changedNomediaSetings(){
+		boolean show = SharedStore.getSetingStore().getShowMediasInGallery();
+		if(show){
+			FileUtil.tryDelete(AppFiles.PHOTO_DIR_PATH+NOMEDIA);
+			FileUtil.tryDelete(AppFiles.VIDEO_DIR_PATH+NOMEDIA);
+		}else {
+			createFileNoMeida(AppFiles.PHOTO_DIR_PATH);
+			createFileNoMeida(AppFiles.VIDEO_DIR_PATH);
+		}
+	}
+
     private static void createNoMediaDires(String path){
         try {
             File fd =new File(path);
@@ -91,6 +104,17 @@ public class AppFiles {
             e.printStackTrace();
         }
     }
+
+	private static void createFileNoMeida(String path){
+		try {
+			File fd =new File(path);
+			fd.mkdirs();
+			File fn =new File(path+NOMEDIA);
+			fn.createNewFile();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 
     private static void createDires(String path){
         try {

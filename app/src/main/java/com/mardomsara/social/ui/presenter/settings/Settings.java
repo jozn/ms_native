@@ -69,11 +69,11 @@ public class Settings {
 	}
 
 	public static class RowSwitch extends RowSimple{
-		public RowSwitch(String title, @NonNull SwitchListener listener) {
+		public RowSwitch(String title,boolean isChececkd, @NonNull SwitchListener listener) {
 			super(title);
 //			this.title = title;
 			x.switch_btn.setVisibility(View.VISIBLE);
-
+			x.switch_btn.setChecked(isChececkd);
 			x.root.setOnClickListener((v)->{
 				boolean oldVal = x.switch_btn.isChecked();
 				boolean newBoolVal = !oldVal;

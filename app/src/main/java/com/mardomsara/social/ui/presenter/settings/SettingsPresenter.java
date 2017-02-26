@@ -3,6 +3,7 @@ package com.mardomsara.social.ui.presenter.settings;
 import android.view.View;
 
 import com.mardomsara.social.Nav;
+import com.mardomsara.social.app.AppFiles;
 import com.mardomsara.social.helpers.DialogHelper;
 import com.mardomsara.social.helpers.FormaterUtil;
 import com.mardomsara.social.helpers.Helper;
@@ -53,8 +54,9 @@ public class SettingsPresenter extends BasePresenter {
 			showCellularDlMenu();
 		} ));
 
-		bBandwidth.addRow(new Settings.RowSwitch("نمایش عکس ها و ویدیو ها در گالری دستگاه" , (boolVal)-> {
-			Helper.showDebugMessage(""+boolVal);
+		boolean showGallery = SharedStore.getSetingStore().getShowMediasInGallery();
+		bBandwidth.addRow(new Settings.RowSwitch("نمایش عکس ها و ویدیو ها در گالری دستگاه" , showGallery ,(boolVal)-> {
+			AppFiles.changedNomediaSetings();
 		} ));
 
 
