@@ -90,10 +90,18 @@ public class DialogHelper {
 			xi.name.setText(item.name);
 			xi.checkbox.setChecked(item.checked);
 			xi.root.setOnClickListener((v)->{
-				boolean newBol = !xi.checkbox.isChecked();
-				xi.checkbox.setChecked(newBol);
+				item.checked = !xi.checkbox.isChecked();
+				xi.checkbox.setChecked(item.checked);
 				if(item.listener!=null){
-					item.listener.onChange(newBol);
+					item.listener.onChange(item.checked);
+				}
+			});
+
+			xi.checkbox.setOnCheckedChangeListener((v,boolVal)->{
+				item.checked = boolVal;
+				xi.checkbox.setChecked(item.checked);
+				if(item.listener!=null){
+					item.listener.onChange(item.checked);
 				}
 			});
 

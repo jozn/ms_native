@@ -29,7 +29,7 @@ public class SharedStore {
 
 	///////////////////////////////////////////
 	///////////////////////////////////////////
-	private static class SettingsStore{
+	public static class SettingsStore{
 		@NonNull static TinyDB tinyDB;
 		private final String WIFI_IMAGE = "Auto_Dl_Wifi_Image";
 		private final String WIFI_Video = "Auto_Dl_Wifi_Video";

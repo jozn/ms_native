@@ -3,11 +3,11 @@ package com.mardomsara.social.ui.presenter.settings;
 import android.view.View;
 
 import com.mardomsara.social.Nav;
-import com.mardomsara.social.app.Router;
 import com.mardomsara.social.helpers.DialogHelper;
 import com.mardomsara.social.helpers.FormaterUtil;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.TimeUtil;
+import com.mardomsara.social.models.stores.SharedStore;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.X;
 import com.mardomsara.social.ui.cells.Cells;
@@ -46,12 +46,11 @@ public class SettingsPresenter extends BasePresenter {
 
 		///////////// Network Bandwidth ////////////
 		bBandwidth.addRow(new Settings.RowSimple("هنگام استفاده از Wi-Fi" , ()-> {
-			showWifi();
+			showWifiDlMenu();
 		} ));
 
 		bBandwidth.addRow(new Settings.RowSimple("هنگام استفاده از دیتا موبایل (2G, 3G, 4G)" , ()-> {
-			Router.goToProfile(53);
-
+			showCellularDlMenu();
 		} ));
 
 		bBandwidth.addRow(new Settings.RowSwitch("نمایش عکس ها و ویدیو ها در گالری دستگاه" , (boolVal)-> {
@@ -83,19 +82,39 @@ public class SettingsPresenter extends BasePresenter {
 		return scroller.rootView;
 	}
 
-	static void showWifi(){
+	static void showWifiDlMenu(){
 		List<DialogHelper.CheckBoxItem> list = new ArrayList<>();
 
-		list.add(new DialogHelper.CheckBoxItem("عکس", true,(v)->{
-
+		SharedStore.SettingsStore store = SharedStore.getSetingStore();
+		list.add(new DialogHelper.CheckBoxItem("عکس",store.getAutoDlWifiImage() ,(val)->{
+			store.setAutoDlWifiImage(val);
 		}));
 
-		list.add(new DialogHelper.CheckBoxItem("عکس2", false,(v)->{
-
+		list.add(new DialogHelper.CheckBoxItem("ویدیو", store.getAutoDlWifiVideo(),(val)->{
+			store.setAutoDlWifiVideo(val);
 		}));
 
-		list.add(new DialogHelper.CheckBoxItem("عکس4", false,(v)->{
+		list.add(new DialogHelper.CheckBoxItem("فایل", store.getAutoDlWifiFile(),(val)->{
+			store.setAutoDlWifiFile(val);
+		}));
 
+		DialogHelper.showSimpleCheckBoxMenu(list);
+	}
+
+	static void showCellularDlMenu(){
+		List<DialogHelper.CheckBoxItem> list = new ArrayList<>();
+
+		SharedStore.SettingsStore store = SharedStore.getSetingStore();
+		list.add(new DialogHelper.CheckBoxItem("عکس",store.getAutoDlCellularImage() ,(val)->{
+			store.setAutoDlCellularImage(val);
+		}));
+
+		list.add(new DialogHelper.CheckBoxItem("ویدیو", store.getAutoDlCellularVideo(),(val)->{
+			store.setAutoDlCellularVideo(val);
+		}));
+
+		list.add(new DialogHelper.CheckBoxItem("فایل", store.getAutoDlCellularFile(),(val)->{
+			store.setAutoDlCellularFile(val);
 		}));
 
 		DialogHelper.showSimpleCheckBoxMenu(list);
