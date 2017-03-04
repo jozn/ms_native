@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.mardomsara.social">
+          xmlns:tools="http://schemas.android.com/tools"
+          package="com.mardomsara.social">
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -17,6 +18,8 @@
 
     <!--android:debuggable="true" ME: add to <application-->
     <application
+        tools:replace="supportsRtl"
+
         android:allowBackup="true"
 
         android:hardwareAccelerated="true"
@@ -27,6 +30,7 @@
         android:windowSoftInputMode="adjustNothing"
         android:name=".AppAplication"
         android:layoutDirection="ltr"
+
 
         >
         <activity

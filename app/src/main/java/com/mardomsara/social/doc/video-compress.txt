@@ -1,0 +1,9 @@
+for video manipulation use https://github.com/INDExOS/media-for-mobile by intel and seems to use just android api and openGl
+maybe just android 18 4.3 >=
+by intel https://software.intel.com/en-us/intel-inde
+https://software.intel.com/en-us/articles/intel-inde-media-pack-for-android-tutorials
+https://github.com/hoolrory/AndroidVideoSamples
+https://github.com/hoolrory/MediaCodecDemo
+
+============================================
+

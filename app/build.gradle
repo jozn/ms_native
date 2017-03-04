@@ -202,4 +202,8 @@ dependencies {
 
 //    androidTestCompile 'com.android.support:support-annotations:24.2.0'
 
+//    compile 'com.yovenny.VideoCompress:videocompress:1.0.0'
+
+//    compile project(':videocompress')
+
 }

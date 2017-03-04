@@ -32,7 +32,7 @@ public class SettingsPresenter extends BasePresenter {
 		Settings.Block bFooter = new Settings.BlockTransparent();
 
 		///////////// General Settings ///////////
-		bGeneralSettings.addRow(new Settings.RowPage("وایرایش پروفایل" , ()-> {
+		bGeneralSettings.addRow(new Settings.RowPage("ویرایش پروفایل" , ()-> {
 			Nav.push(new EditProfilePresenter());
 		} ));
 
@@ -122,6 +122,8 @@ public class SettingsPresenter extends BasePresenter {
 
 		DialogHelper.showSimpleCheckBoxMenu(list);
 	}
+
+
 
 
 }
