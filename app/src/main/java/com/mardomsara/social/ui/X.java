@@ -811,6 +811,42 @@ public class X {
     }
  //( index .Fields 0).ViewClass
 
+    public static class Home_AddPostBox {
+        public LinearLayout root;
+        public ImageView avatar;
+        public LinearLayout share_media_buttons_holder;
+        public FrameLayout recent_images_holder;
+
+        public Home_AddPostBox(ViewGroup parent) {
+            root = (LinearLayout) AppUtil.inflate(R.layout.home__add_post_box,parent);
+            avatar = (ImageView) root.findViewById( R.id.avatar);
+            share_media_buttons_holder = (LinearLayout) root.findViewById( R.id.share_media_buttons_holder);
+            recent_images_holder = (FrameLayout) root.findViewById( R.id.recent_images_holder);
+        }
+        public Home_AddPostBox() {
+            this(null);
+        }
+    }
+ //( index .Fields 0).ViewClass
+
+    public static class Home_Parent {
+        public SwipeRefreshLayout root;
+        public SwipeRefreshLayout refresh_layout;
+        public SimpleTopNav top_nav;
+        public RecyclerView recycler_view;
+
+        public Home_Parent(ViewGroup parent) {
+            root = (SwipeRefreshLayout) AppUtil.inflate(R.layout.home__parent,parent);
+            refresh_layout = (SwipeRefreshLayout) root.findViewById( R.id.refresh_layout);
+            top_nav = (SimpleTopNav) root.findViewById( R.id.top_nav);
+            recycler_view = (RecyclerView) root.findViewById( R.id.recycler_view);
+        }
+        public Home_Parent() {
+            this(null);
+        }
+    }
+ //( index .Fields 0).ViewClass
+
     public static class KeywoardAttachment2 {
         public LinearLayout root;
         public LinearLayout attachment_top;

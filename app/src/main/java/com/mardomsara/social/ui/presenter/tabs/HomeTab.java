@@ -6,6 +6,7 @@ import android.view.ViewGroup;
 import com.mardomsara.social.app.API;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.cells.Cells;
+import com.mardomsara.social.ui.cells.lists.PostsHomeCell;
 import com.mardomsara.social.ui.cells.lists.PostsListCell;
 
 /**
@@ -16,14 +17,14 @@ public class HomeTab extends BasePresenter {
 
     @Override
     public View buildView() {
-        viewRoot = new Cells.NavAndEmptyView().rootView;
+//        viewRoot = new Cells.NavAndEmptyView().rootView;
 
-        PostsListCell listCell = new PostsListCell();
+		PostsHomeCell listCell = new PostsHomeCell();
         listCell.setLoadingEndPoint(API.BASE_DOMAIN_URL_STR+"/v1/post/stream");
-        viewRoot.addView(listCell.getViewRoot());
+//        viewRoot.addView(listCell.getViewRoot());
         listCell.loadFromServer(1);
 
-        return viewRoot;
+        return listCell.getViewRoot();
     }
 
 }

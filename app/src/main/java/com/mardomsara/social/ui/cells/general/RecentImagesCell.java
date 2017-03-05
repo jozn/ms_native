@@ -36,6 +36,7 @@ import pl.tajchert.nammu.PermissionCallback;
 /**
  * Created by Hamid on 6/17/2016.
  */
+//image size is 80dp
 public class RecentImagesCell {
     View view;
     String Tag = "Gallery";
