@@ -16,7 +16,7 @@ build.dependsOn androidXml2Java
 
 android {
     compileSdkVersion 24
-    buildToolsVersion '24.0.2'
+    buildToolsVersion '25.0.0'
 //    buildToolsVersion '23.0.3'
 //    dataBinding {
 //        enabled = true

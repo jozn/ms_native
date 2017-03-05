@@ -27,7 +27,6 @@ public class PostsHomeCell
 
 	X.Home_Parent x;
 	public UIPostsList.PostsAdaptor adaptor;
-//    SwipeRefreshLayout refreshLayout;
 
     public PostsHomeCell() {
         init();
@@ -45,12 +44,14 @@ public class PostsHomeCell
         adaptor.showLoading();
 		adaptor.setEnableAutoShowEmptyView(true);
 
-		//must be called after seting layoutManager
-		X.Home_AddPostBox addPostBox = new X.Home_AddPostBox(x.recycler_view);
-		adaptor.appendViewToHeader(addPostBox.root);
+		//must be called after setting layoutManager
+//		X.Home_AddPostBox addPostBox = new X.Home_AddPostBox(x.recycler_view);
+//		adaptor.appendViewToHeader(addPostBox.root);
 
-		RecentImagesCell recentImagesCell = new RecentImagesCell(addPostBox.recent_images_holder);
-		recentImagesCell.insertInto(addPostBox.recent_images_holder);
+//		RecentImagesCell recentImagesCell = new RecentImagesCell(addPostBox.recent_images_holder);
+//		recentImagesCell.insertInto(addPostBox.recent_images_holder);
+
+		setUpAddPostBox();
 
 		x.refresh_layout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -129,4 +130,22 @@ public class PostsHomeCell
         Helper.showDebugMessage("pageNum: "+pageNum);
         loadFromServer(pageNum);
     }
+
+	private void setUpAddPostBox(){
+		//must be called after setting layoutManager for x.recycler_view
+		X.Home_AddPostBox addPostBox = new X.Home_AddPostBox(x.recycler_view);
+		adaptor.appendViewToHeader(addPostBox.root);
+
+		RecentImagesCell recentImagesCell = new RecentImagesCell(addPostBox.recent_images_holder);
+		recentImagesCell.insertInto(addPostBox.recent_images_holder);
+
+
+	}
+
+	private class HomeAddPostBox {
+
+		public HomeAddPostBox(ViewGroup parent) {
+
+		}
+	}
 }
