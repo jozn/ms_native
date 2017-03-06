@@ -139,7 +139,6 @@ public class XIcon extends AppCompatTextView implements HasOnViewAttachListener 
 
     public boolean isIcony(){
 		if( isStrNotEmpt(leftIconStr) || isStrNotEmpt(rightIconStr) ){
-			iconViewType = IconViewType.Icony;
 			return true;
 		}
 		return false;
