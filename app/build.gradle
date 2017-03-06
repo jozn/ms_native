@@ -15,7 +15,7 @@ task androidXml2Java(type: Exec)  {
 build.dependsOn androidXml2Java
 
 android {
-    compileSdkVersion 24
+    compileSdkVersion 25
     buildToolsVersion '25.0.0'
 //    buildToolsVersion '23.0.3'
 //    dataBinding {
@@ -127,17 +127,19 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
 
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:24.2.0'
+    compile 'com.android.support:appcompat-v7:25.0.0'
+    compile 'com.android.support:recyclerview-v7:25.0.0'
+    compile 'com.android.support:support-v4:25.0.0'
+    compile 'com.android.support:support-v13:25.0.0'
+    compile 'com.android.support:design:25.0.0'
+    compile "com.android.support:percent:25.0.0"
+
+    /*compile 'com.android.support:appcompat-v7:24.2.0'
     compile 'com.android.support:recyclerview-v7:24.2.0'
     compile 'com.android.support:support-v4:24.2.0'
     compile 'com.android.support:support-v13:24.2.0'
     compile 'com.android.support:design:24.2.0'
-    compile "com.android.support:percent:24.2.0"
-    /*compile 'com.android.support:appcompat-v7:23.0.1'
-    compile 'com.android.support:recyclerview-v7:23.0.1'
-    compile 'com.android.support:support-v4:23.0.1'
-    compile 'com.android.support:support-v13:23.0.1'
-    compile 'com.android.support:design:23.0.1'*/
+    compile "com.android.support:percent:24.2.0"*/
 
     compile 'org.greenrobot:eventbus:3.0.0'
     compile 'uk.co.chrisjenx:calligraphy:2.1.0'
