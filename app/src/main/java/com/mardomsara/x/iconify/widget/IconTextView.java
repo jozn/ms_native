@@ -3,8 +3,8 @@ package com.mardomsara.x.iconify.widget;
 import android.content.Context;
 import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
-import android.widget.TextView;
-import com.mardomsara.x.iconify.Iconify;
+
+import com.mardomsara.x.iconify.XIconify;
 import com.mardomsara.x.iconify.internal.HasOnViewAttachListener;
 
 public class IconTextView extends AppCompatTextView implements HasOnViewAttachListener {
@@ -32,7 +32,7 @@ public class IconTextView extends AppCompatTextView implements HasOnViewAttachLi
 
     @Override
     public void setText(CharSequence text, BufferType type) {
-        super.setText(Iconify.compute(getContext(), text, this), type);
+        super.setText(XIconify.compute(getContext(), text, this), type);
     }
 
     @Override

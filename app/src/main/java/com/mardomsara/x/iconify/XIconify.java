@@ -8,7 +8,7 @@ import com.mardomsara.x.iconify.internal.ParsingUtil;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Iconify {
+public class XIconify {
 
     /** List of icon font descriptors */
     private static List<IconFontDescriptorWrapper> iconFontDescriptors = new ArrayList<IconFontDescriptorWrapper>();
@@ -60,12 +60,12 @@ public class Iconify {
     }
 
     /**
-     * Allows chain calls on {@link Iconify#with(IconFontDescriptor)}.
+     * Allows chain calls on {@link XIconify#with(IconFontDescriptor)}.
      */
     public static class IconifyInitializer {
 
         public IconifyInitializer(IconFontDescriptor iconFontDescriptor) {
-            Iconify.addIconFontDescriptor(iconFontDescriptor);
+            XIconify.addIconFontDescriptor(iconFontDescriptor);
         }
 
         /**
@@ -74,7 +74,7 @@ public class Iconify {
          * @return An initializer instance for chain calls.
          */
         public IconifyInitializer with(IconFontDescriptor iconFontDescriptor) {
-            Iconify.addIconFontDescriptor(iconFontDescriptor);
+            XIconify.addIconFontDescriptor(iconFontDescriptor);
             return this;
         }
     }

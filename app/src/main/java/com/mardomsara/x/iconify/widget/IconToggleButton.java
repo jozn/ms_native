@@ -3,7 +3,7 @@ package com.mardomsara.x.iconify.widget;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.ToggleButton;
-import com.mardomsara.x.iconify.Iconify;
+import com.mardomsara.x.iconify.XIconify;
 import com.mardomsara.x.iconify.internal.HasOnViewAttachListener;
 
 public class IconToggleButton extends ToggleButton implements HasOnViewAttachListener {
@@ -31,7 +31,7 @@ public class IconToggleButton extends ToggleButton implements HasOnViewAttachLis
 
     @Override
     public void setText(CharSequence text, BufferType type) {
-        super.setText(Iconify.compute(getContext(), text, this), BufferType.NORMAL);
+        super.setText(XIconify.compute(getContext(), text, this), BufferType.NORMAL);
     }
 
     @Override

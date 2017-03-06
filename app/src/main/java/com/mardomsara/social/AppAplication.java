@@ -6,6 +6,7 @@ import android.content.Context;
 import com.joanzapata.iconify.Iconify;
 import com.joanzapata.iconify.fonts.IoniconsModule;
 import com.joanzapata.iconify.fonts.SimpleLineIconsModule;
+import com.mardomsara.x.iconify.XIconify;
 import com.squareup.leakcanary.RefWatcher;
 
 //import android.support.multidex.MultiDexApplication;
@@ -29,6 +30,11 @@ public class AppAplication extends Application {
         Iconify
                 .with(new SimpleLineIconsModule())
                 .with(new IoniconsModule());
+
+		XIconify
+			.with(new com.mardomsara.x.iconify.icons.SimpleLineIconsModule())
+			.with(new com.mardomsara.x.iconify.icons.IoniconsModule());
+
 //        LeakCanary.install(this);
         //refWatcher = LeakCanary.install(this);
     }

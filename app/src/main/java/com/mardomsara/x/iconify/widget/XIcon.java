@@ -4,7 +4,7 @@ import android.content.Context;
 import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
 
-import com.mardomsara.x.iconify.Iconify;
+import com.mardomsara.x.iconify.XIconify;
 import com.mardomsara.x.iconify.internal.HasOnViewAttachListener;
 
 public class XIcon extends AppCompatTextView implements HasOnViewAttachListener {
@@ -32,7 +32,7 @@ public class XIcon extends AppCompatTextView implements HasOnViewAttachListener 
 
     @Override
     public void setText(CharSequence text, BufferType type) {
-        super.setText(Iconify.compute(getContext(), text, this), type);
+        super.setText(XIconify.compute(getContext(), text, this), type);
     }
 
 

@@ -33,6 +33,7 @@ import com.mardomsara.social.ui.views.wigets.SimpleAddText;
 import com.mardomsara.social.ui.views.wigets.SimpleText;
 import com.mardomsara.social.ui.views.wigets.SimpleTopNav;
 import com.mardomsara.social.ui.views.wigets.UserListGeneralFollowRowWhithBorderLinearLayout;
+import com.mardomsara.x.iconify.widget.XIcon;
 import me.relex.photodraweeview.PhotoDraweeView;
 
 import com.mardomsara.social.helpers.AppUtil;
@@ -1626,6 +1627,18 @@ public class X {
             p_navigation = (Button) root.findViewById( R.id.p_navigation);
         }
         public PlayRecipies() {
+            this(null);
+        }
+    }
+ //( index .Fields 0).ViewClass
+
+    public static class PlayXicon {
+        public LinearLayout root;
+
+        public PlayXicon(ViewGroup parent) {
+            root = (LinearLayout) AppUtil.inflate(R.layout.play_xicon,parent);
+        }
+        public PlayXicon() {
             this(null);
         }
     }

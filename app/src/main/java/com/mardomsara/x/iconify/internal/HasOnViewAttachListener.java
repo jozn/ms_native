@@ -3,8 +3,10 @@ package com.mardomsara.x.iconify.internal;
 import android.support.v4.view.ViewCompat;
 import android.widget.TextView;
 
+import com.mardomsara.x.iconify.XIconify;
+
 /**
- * Any TextView subclass that wishes to call {@link com.mardomsara.x.iconify.Iconify#addIcons(TextView...)} on it
+ * Any TextView subclass that wishes to call {@link XIconify#addIcons(TextView...)} on it
  * needs to implement this interface if it ever want to use spinning icons.
  * <br>
  * IconTextView, IconButton and IconToggleButton already implement it, but if you need to implement it

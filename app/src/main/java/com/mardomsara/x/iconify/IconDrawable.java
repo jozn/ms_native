@@ -41,7 +41,7 @@ public class IconDrawable extends Drawable {
      * @throws IllegalArgumentException if the key doesn't match any icon.
      */
     public IconDrawable(Context context, String iconKey) {
-        Icon icon = Iconify.findIconForKey(iconKey);
+        Icon icon = XIconify.findIconForKey(iconKey);
         if (icon == null) {
             throw new IllegalArgumentException("No icon with that key \"" + iconKey + "\".");
         }
@@ -61,7 +61,7 @@ public class IconDrawable extends Drawable {
         this.context = context;
         this.icon = icon;
         paint = new TextPaint();
-        IconFontDescriptorWrapper descriptor = Iconify.findTypefaceOf(icon);
+        IconFontDescriptorWrapper descriptor = XIconify.findTypefaceOf(icon);
         if (descriptor == null) {
             throw new IllegalStateException("Unable to find the module associated " +
                     "with icon " + icon.key() + ", have you registered the module " +
