@@ -1,61 +1,232 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:app="http://schemas.android.com/apk/res-auto"
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
     >
 
-    <com.mardomsara.x.iconify.widget.XIcon
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="{ion-android-bulb 34dp} {icon-user-female 26dp} {icon-user-female 24dp} {icon-user-female 22dp} {icon-user-female 28dp} {icon-ghost 26dp}"
-        />
+    <LinearLayout
+                  android:orientation="vertical"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+        >
 
-    <com.mardomsara.x.iconify.widget.XIcon
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="{ion-ios-home 34dp} {icon-fire 34dp} {icon-ghost 28dp} {icon-ghost 26dp} {icon-ghost 24dp} {icon-ghost 22dp}"
-        />
+        <com.mardomsara.x.iconify.widget.XIcon
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="{ion-android-bulb 34dp} {icon-user-female 26dp} {icon-user-female 24dp} {icon-user-female 22dp} {icon-user-female 28dp} {icon-ghost 26dp}"
+            />
 
-    <com.mardomsara.x.iconify.widget.XIcon
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="{ion-android-bulb 34dp}"
-        app:xiconSize="@dimen/activity_horizontal_margin"
-        />
+        <com.mardomsara.x.iconify.widget.XIcon
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="{ion-ios-home 34dp} {icon-fire 34dp} {icon-ghost 28dp} {icon-ghost 26dp} {icon-ghost 24dp} {icon-ghost 22dp}"
+            />
+
+        <com.mardomsara.x.iconify.widget.XIcon
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="{ion-android-bulb 34dp}"
+            app:xiconSize="@dimen/activity_horizontal_margin"
+            />
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="*****************"
-        />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="*****************"
+            />
 
-    <com.mardomsara.x.iconify.widget.XIcon
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:xiconSize="@dimen/activity_horizontal_margin"
-        app:xiconLeft="ion-android-bulb"
-        app:xiconRight="icon-ghost"
-        />
+        <com.mardomsara.x.iconify.widget.XIcon
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:xiconSize="@dimen/activity_horizontal_margin"
+            app:xiconLeft="ion-android-bulb"
+            app:xiconRight="icon-ghost"
+            />
 
-    <com.mardomsara.x.iconify.widget.XIcon
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:xiconSize="50dp"
-        android:text="*****************"
-        app:xiconLeft="ion-android-bulb"
-        app:xiconRight="icon-ghost"
-        />
+        <com.mardomsara.x.iconify.widget.XIcon
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:xiconSize="50dp"
+            android:text="*****************"
+            app:xiconLeft="ion-android-bulb"
+            app:xiconRight="icon-ghost"
+            />
 
-    <com.mardomsara.x.iconify.widget.XIcon
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:xiconSize="50dp"
-        android:text="{ion-android-bulb 34dp}"
-        app:xiconLeft="ion-android-bulb"
-        app:xiconRight="icon-ghost"
-        />
+        <com.mardomsara.x.iconify.widget.XIcon
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:xiconSize="50dp"
+            android:text="{ion-android-bulb 34dp}"
+            app:xiconLeft="ion-android-bulb"
+            app:xiconRight="icon-ghost"
+            />
 
-</LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="***** ================ ************"
+            />
+
+
+        <com.mardomsara.x.iconify.widget.XIcon
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:xiconSize="50dp"
+            app:xiconText=" هر دو "
+            app:xiconColor="@color/btn_send"
+            android:text="{ion-android-bulb 34dp}"
+            app:xiconLeft="ion-android-bulb"
+            app:xiconRight="icon-ghost"
+            android:textSize="36dp"
+            />
+
+        <com.mardomsara.x.iconify.widget.XIcon
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:xiconSize="50dp"
+            app:xiconText="فاصله"
+            app:xiconColor="@color/btn_send"
+            android:text="{ion-android-bulb 34dp}"
+            app:xiconLeft="ion-android-bulb"
+            app:xiconRight="icon-ghost"
+            />
+
+        <com.mardomsara.x.iconify.widget.XIcon
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="{ion-android-bulb 34dp}"
+            app:xiconSize="50dp"
+            app:xiconColor="@color/btn_send"
+            app:xiconLeft="ion-android-bulb"
+            />
+
+        <com.mardomsara.x.iconify.widget.XIcon
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="{ion-android-bulb 34dp}"
+            app:xiconSize="26dp"
+            app:xiconColor="@color/btn_send"
+            app:xiconLeft="ion-android-bulb"
+            app:xiconRight="icon-ghost"
+            />
+
+        <com.mardomsara.x.iconify.widget.XIcon
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="{ion-android-bulb 34dp}"
+            app:xiconSize="26dp"
+            app:xiconColor="@color/btn_send"
+            app:xiconLeft="ion-android-bulb"
+            app:xiconRight="ion-help"
+            />
+
+        <com.mardomsara.x.iconify.widget.XIcon
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="{ion-android-bulb 34dp}"
+            app:xiconSize="26dp"
+            app:xiconText="متال"
+            app:xiconColor="@color/btn_send"
+            app:xiconLeft="ion-android-bulb"
+            app:xiconRight="ion-help"
+            />
+
+        <com.mardomsara.x.iconify.widget.XIcon
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="{ion-android-bulb 34dp}"
+            app:xiconSize="26dp"
+            app:xiconText="چپ"
+            app:xiconColor="@color/btn_send"
+            app:xiconLeft="ion-android-bulb"
+            />
+
+        <com.mardomsara.x.iconify.widget.XIcon
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="{ion-android-bulb 34dp}"
+            app:xiconSize="26dp"
+            app:xiconText="راست"
+            app:xiconColor="@color/btn_send"
+            app:xiconRight="ion-help"
+            />
+
+        <com.mardomsara.x.iconify.widget.XIcon
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="{ion-android-bulb 34dp}"
+            app:xiconSize="26dp"
+            app:xiconText="right"
+            app:xiconColor="@color/btn_send"
+            app:xiconRight="ion-help"
+            />
+
+        <com.mardomsara.x.iconify.widget.XIcon
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="{ion-android-bulb 34dp}"
+            app:xiconSize="26dp"
+            app:xiconText="left"
+            app:xiconColor="@color/btn_send"
+            app:xiconLeft="ion-android-bulb"
+            />
+
+        <com.mardomsara.x.iconify.widget.XIcon
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:xiconSize="26dp"
+            app:xiconText="sampleBoth"
+            app:xiconColor="@color/btn_send"
+            app:xiconLeft="ion-android-bulb"
+            app:xiconRight="ion-help"
+            />
+
+
+
+        <com.mardomsara.x.iconify.widget.XIcon
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="{ion-android-bulb 34dp}"
+            app:xiconSize="26dp"
+            app:xiconText="بزرگ"
+            app:xiconSpace="30dp"
+            app:xiconColor="@color/btn_send"
+            app:xiconLeft="ion-android-bulb"
+            app:xiconRight="ion-help"
+            android:gravity="center"
+            android:textSize="8dp"
+            />
+
+        <com.mardomsara.x.iconify.widget.XIcon
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:text="{ion-android-bulb 34dp}"
+            app:xiconSize="26dp"
+            app:xiconText="بزرگ"
+            app:xiconSpace="30dp"
+            app:xiconColor="@color/btn_send"
+            app:xiconLeft="ion-android-bulb"
+            app:xiconRight="ion-help"
+            android:gravity="center"
+            android:textSize="12dp"
+            />
+
+        <com.mardomsara.x.iconify.widget.XIcon
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:text="{ion-android-bulb 34dp}"
+            app:xiconSize="22dp"
+            app:xiconText="بزرگ"
+            app:xiconSpace="30dp"
+            app:xiconColor="@color/btn_send"
+            app:xiconLeft="ion-android-bulb"
+            app:xiconRight="ion-help"
+            android:gravity="center"
+            />
+    </LinearLayout>
+
+
+</ScrollView>

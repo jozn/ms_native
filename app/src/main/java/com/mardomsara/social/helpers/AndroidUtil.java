@@ -26,6 +26,7 @@ import android.os.Build;
 import android.os.Environment;
 import android.provider.ContactsContract;
 import android.provider.MediaStore;
+import android.support.annotation.ColorRes;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.Display;
@@ -173,7 +174,8 @@ public class AndroidUtil {
         return App.getContext().getResources();//
     }
 
-    public static int getColor(int id){
+
+    public static int getColor(@ColorRes int id){
         return App.getContext().getResources().getColor(id);//
     }
 

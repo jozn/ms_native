@@ -1633,10 +1633,10 @@ public class X {
  //( index .Fields 0).ViewClass
 
     public static class PlayXicon {
-        public LinearLayout root;
+        public ScrollView root;
 
         public PlayXicon(ViewGroup parent) {
-            root = (LinearLayout) AppUtil.inflate(R.layout.play_xicon,parent);
+            root = (ScrollView) AppUtil.inflate(R.layout.play_xicon,parent);
         }
         public PlayXicon() {
             this(null);
