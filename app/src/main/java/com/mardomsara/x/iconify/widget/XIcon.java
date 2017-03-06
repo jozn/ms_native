@@ -2,13 +2,8 @@ package com.mardomsara.x.iconify.widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.graphics.Color;
-import android.support.annotation.ColorRes;
 import android.support.v7.widget.AppCompatTextView;
-import android.text.SpannableStringBuilder;
-import android.text.Spanned;
 import android.text.style.AbsoluteSizeSpan;
-import android.text.style.TypefaceSpan;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 
@@ -24,8 +19,6 @@ import com.mardomsara.x.iconify.internal.IconFontDescriptorWrapper;
 
 //note left and right attrs are for RTL lang for LTR must channge the lib for space support and use  interchange
 public class XIcon extends AppCompatTextView implements HasOnViewAttachListener {
-	private final static int DEFULT_COLOR = Color.parseColor("#949494");
-	IconViewType iconViewType = IconViewType.Legacy;
 	String leftIconStr = null;
 	Icon leftIcon = null;
 	String rightIconStr = null;
@@ -88,7 +81,6 @@ public class XIcon extends AppCompatTextView implements HasOnViewAttachListener 
 			super.setText(XIconify.compute(getContext(), text, this), type);
 		}else {
 			try {
-//				super.setText(XIconify.compute(getContext(), "%%%%%5+" +leftIconStr + " " + rightIconStr+ " "+isIcony(), this), type);
 				setAllIcons(text,type);
 			}catch (Exception e){
 				e.printStackTrace();
@@ -97,10 +89,6 @@ public class XIcon extends AppCompatTextView implements HasOnViewAttachListener 
     }
 
     void setAllIcons(CharSequence text, BufferType type){
-
-		/*leftIcon = XIconify.findIconForKey(leftIconStr);
-		rightIcon = XIconify.findIconForKey(rightIconStr);*/
-
 		// Loop through the descriptors to find a key match
 		IconFontDescriptorWrapper leftIconFontDescriptor = null;
 		IconFontDescriptorWrapper rightIconFontDescriptor = null;
@@ -115,15 +103,12 @@ public class XIcon extends AppCompatTextView implements HasOnViewAttachListener 
 			if (rightIcon != null) break;
 		}
 
-
-		final SpannableStringBuilder spannableBuilder = new SpannableStringBuilder(text);
+//		final SpannableStringBuilder spannableBuilder = new SpannableStringBuilder(text);
 		Spanny spanny = new Spanny();
 
 		//right
 		if(rightIcon != null){
-			CustomTypefaceSpan rightSpan=new CustomTypefaceSpan(rightIcon,
-				rightIconFontDescriptor.getTypeface(getContext()),
-				iconSizePx, -1, iconColor, false, false);
+			CustomTypefaceSpan rightSpan= buildSpan(rightIcon, rightIconFontDescriptor);
 			spanny.append(rightIcon.key(),rightSpan);
 		}
 
@@ -137,14 +122,8 @@ public class XIcon extends AppCompatTextView implements HasOnViewAttachListener 
 
 		//left
 		if(leftIcon!=null){
-			CustomTypefaceSpan leftSpan=new CustomTypefaceSpan(leftIcon,
-				leftIconFontDescriptor.getTypeface(getContext()),
-				iconSizePx, -1, Color.RED, false, false);
+			CustomTypefaceSpan leftSpan= buildSpan(leftIcon, leftIconFontDescriptor);
 			spanny.append(leftIcon.key(),leftSpan);
-		}
-
-		if (this instanceof HasOnViewAttachListener) {
-			((HasOnViewAttachListener) this).setOnViewAttachListener(null);
 		}
 
 		setOnViewAttachListener(null);
@@ -173,11 +152,7 @@ public class XIcon extends AppCompatTextView implements HasOnViewAttachListener 
 		return false;
 	}
 
-	public void setFullText(CharSequence text){
-		if( (leftIconStr != null && !leftIconStr.equals("")) || (rightIconStr != null && !rightIconStr.equals("")) ){
-			iconViewType = IconViewType.Icony;
-		}
-
+	private void setFullText(CharSequence text){
 	}
 
     @Override
@@ -198,8 +173,4 @@ public class XIcon extends AppCompatTextView implements HasOnViewAttachListener 
 		if(delegate != null) delegate.onDetachedFromWindow();
     }
 
-    static enum IconViewType {
-		Legacy,
-		Icony
-	}
 }
