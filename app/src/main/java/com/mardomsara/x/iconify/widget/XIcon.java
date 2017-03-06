@@ -36,7 +36,6 @@ public class XIcon extends AppCompatTextView implements HasOnViewAttachListener 
     }
 
 
-
     public void setFullText(CharSequence text){
 
 	}
