@@ -6,4 +6,12 @@
         <attr name="be_fast" format="boolean" />
 
     </declare-styleable>
+
+    <declare-styleable name="XIcon">
+        <attr name="xicon" format="string" />
+        <attr name="xiconLeft" format="string" />
+        <attr name="xiconRight" format="string" />
+        <attr name="xiconSize" format="dimension"/>
+    </declare-styleable>
+
 </resources>

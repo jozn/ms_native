@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
@@ -8,13 +9,53 @@
     <com.mardomsara.x.iconify.widget.XIcon
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="{ion-android-bulb 34dp} {icon-user-male 26dp} {icon-user-male 24dp} {icon-user-male 22dp} {icon-user-male 28dp} {icon-ghost 26dp}"
+        android:text="{ion-android-bulb 34dp} {icon-user-female 26dp} {icon-user-female 24dp} {icon-user-female 22dp} {icon-user-female 28dp} {icon-ghost 26dp}"
         />
 
     <com.mardomsara.x.iconify.widget.XIcon
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="{ion-ios-home 34dp} {icon-fire 34dp} {icon-ghost 28dp} {icon-ghost 26dp} {icon-ghost 24dp} {icon-ghost 22dp}"
+        />
+
+    <com.mardomsara.x.iconify.widget.XIcon
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="{ion-android-bulb 34dp}"
+        app:xiconSize="@dimen/activity_horizontal_margin"
+        />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="*****************"
+        />
+
+    <com.mardomsara.x.iconify.widget.XIcon
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:xiconSize="@dimen/activity_horizontal_margin"
+        app:xiconLeft="ion-android-bulb"
+        app:xiconRight="icon-ghost"
+        />
+
+    <com.mardomsara.x.iconify.widget.XIcon
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:xiconSize="50dp"
+        android:text="*****************"
+        app:xiconLeft="ion-android-bulb"
+        app:xiconRight="icon-ghost"
+        />
+
+    <com.mardomsara.x.iconify.widget.XIcon
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:xiconSize="50dp"
+        android:text="{ion-android-bulb 34dp}"
+        app:xiconLeft="ion-android-bulb"
+        app:xiconRight="icon-ghost"
         />
 
 </LinearLayout>

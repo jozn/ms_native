@@ -11,7 +11,7 @@ import java.util.List;
 public class XIconify {
 
     /** List of icon font descriptors */
-    private static List<IconFontDescriptorWrapper> iconFontDescriptors = new ArrayList<IconFontDescriptorWrapper>();
+    public static List<IconFontDescriptorWrapper> iconFontDescriptors = new ArrayList<IconFontDescriptorWrapper>();
 
     /**
      * Add support for a new icon font.
