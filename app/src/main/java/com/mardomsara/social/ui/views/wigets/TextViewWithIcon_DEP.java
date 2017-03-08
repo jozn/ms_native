@@ -1,4 +1,4 @@
-package com.mardomsara.social.ui.views.play;
+package com.mardomsara.social.ui.views.wigets;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -16,21 +16,23 @@ import butterknife.ButterKnife;
 /**
  * Created by Hamid on 7/17/2016.
  */
-public class TextViewWithIcon extends LinearLayout {
+//"Use XIcon"
+@Deprecated
+public class TextViewWithIcon_DEP extends LinearLayout {
     @Bind(R.id.text) TextView text;
     @Bind(R.id.icon) TextView icon;
 
-    public TextViewWithIcon(Context context) {
+    public TextViewWithIcon_DEP(Context context) {
         super(context);
         init();
     }
 
-    public TextViewWithIcon(Context context, AttributeSet attrs) {
+    public TextViewWithIcon_DEP(Context context, AttributeSet attrs) {
         super(context, attrs);
         init();
     }
 
-    public TextViewWithIcon(Context context, AttributeSet attrs, int defStyleAttr) {
+    public TextViewWithIcon_DEP(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init();
     }

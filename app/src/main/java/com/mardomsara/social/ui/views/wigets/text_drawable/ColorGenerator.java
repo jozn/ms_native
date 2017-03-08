@@ -1,4 +1,4 @@
-package com.mardomsara.social.ui.views.wigets;
+package com.mardomsara.social.ui.views.wigets.text_drawable;
 
 import java.util.Arrays;
 import java.util.List;

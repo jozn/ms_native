@@ -109,14 +109,14 @@
                       android:id="@+id/likes_count"
                       />
           -->
-            <com.mardomsara.social.ui.views.play.TextViewWithIcon
+            <com.mardomsara.social.ui.views.wigets.TextViewWithIcon_DEP
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/counts_info"
                 android:id="@+id/comment_count"
                 />
 
-            <com.mardomsara.social.ui.views.play.TextViewWithIcon
+            <com.mardomsara.social.ui.views.wigets.TextViewWithIcon_DEP
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/counts_info"

@@ -1,4 +1,4 @@
-package com.mardomsara.social.ui.views.wigets;
+package com.mardomsara.social.ui.views.wigets.text_drawable;
 
 import android.graphics.*;
 import android.graphics.drawable.ShapeDrawable;
@@ -10,6 +10,7 @@ import android.graphics.drawable.shapes.RoundRectShape;
  * @author amulya
  * @datetime 14 Oct 2014, 3:53 PM
  */
+//see: https://github.com/amulyakhare/TextDrawable
 public class TextDrawable extends ShapeDrawable {
 
     private final Paint textPaint;

@@ -3,11 +3,9 @@ package com.mardomsara.social.ui;
 
 import android.widget.*;
 import android.view.*;
-import android.webkit.WebView;
 
 
 import android.support.design.widget.TabLayout;
-import android.support.percent.PercentRelativeLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
@@ -18,19 +16,15 @@ import com.joanzapata.iconify.widget.IconTextView;
 import com.mardomsara.emojicon.EmojiconEditText;
 import com.mardomsara.emojicon.EmojiconTextView;
 import com.mardomsara.social.ui.views.EmojiLinkerTextView;
-import com.mardomsara.social.ui.views.LinkerTextView;
-import com.mardomsara.social.ui.views.play.TextViewWithIcon;
-import com.mardomsara.social.ui.views.wigets.BadgeCount;
+import com.mardomsara.social.ui.views.wigets.TextViewWithIcon_DEP;
 import com.mardomsara.social.ui.views.wigets.ButtonGrayView;
 import com.mardomsara.social.ui.views.wigets.ChatButtonView;
 import com.mardomsara.social.ui.views.wigets.ChatListRowWhithBorderRelativeLayout;
 import com.mardomsara.social.ui.views.wigets.ChatMediaNetworkLoader;
-import com.mardomsara.social.ui.views.wigets.CountView;
 import com.mardomsara.social.ui.views.wigets.CountView2;
 import com.mardomsara.social.ui.views.wigets.FollowingButtonView;
 import com.mardomsara.social.ui.views.wigets.LoadingView;
 import com.mardomsara.social.ui.views.wigets.SimpleAddText;
-import com.mardomsara.social.ui.views.wigets.SimpleText;
 import com.mardomsara.social.ui.views.wigets.SimpleTopNav;
 import com.mardomsara.social.ui.views.wigets.UserListGeneralFollowRowWhithBorderLinearLayout;
 import com.mardomsara.x.iconify.widget.XIcon;
@@ -1857,8 +1851,8 @@ public class X {
         public EmojiLinkerTextView text;
         public ImageView image;
         public LinearLayout counts_info;
-        public TextViewWithIcon comment_count;
-        public TextViewWithIcon likes_count;
+        public TextViewWithIcon_DEP comment_count;
+        public TextViewWithIcon_DEP likes_count;
         public TextView like_btn;
 
         public RowPostStream(ViewGroup parent) {
@@ -1870,8 +1864,8 @@ public class X {
             text = (EmojiLinkerTextView) root.findViewById( R.id.text);
             image = (ImageView) root.findViewById( R.id.image);
             counts_info = (LinearLayout) root.findViewById( R.id.counts_info);
-            comment_count = (TextViewWithIcon) root.findViewById( R.id.comment_count);
-            likes_count = (TextViewWithIcon) root.findViewById( R.id.likes_count);
+            comment_count = (TextViewWithIcon_DEP) root.findViewById( R.id.comment_count);
+            likes_count = (TextViewWithIcon_DEP) root.findViewById( R.id.likes_count);
             like_btn = (TextView) root.findViewById( R.id.like_btn);
         }
         public RowPostStream() {

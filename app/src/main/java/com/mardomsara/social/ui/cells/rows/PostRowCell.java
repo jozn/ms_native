@@ -24,7 +24,7 @@ import com.mardomsara.social.ui.presenter.pages.ProfilePage;
 import com.mardomsara.social.ui.views.EmojiLinkerTextView;
 import com.mardomsara.social.ui.views.FullScreenImage;
 import com.mardomsara.social.ui.views.helpers.ViewHelper;
-import com.mardomsara.social.ui.views.play.TextViewWithIcon;
+import com.mardomsara.social.ui.views.wigets.TextViewWithIcon_DEP;
 import com.squareup.picasso.Picasso;
 
 import butterknife.Bind;
@@ -52,9 +52,9 @@ public class PostRowCell {
     @Bind(R.id.like_btn) TextView like_btn;
 
     @Bind(R.id.comment_count)
-    TextViewWithIcon comment_count;
+	TextViewWithIcon_DEP comment_count;
     @Bind(R.id.likes_count)
-    TextViewWithIcon likes_count;
+	TextViewWithIcon_DEP likes_count;
 
     Uri imageUri2;
 

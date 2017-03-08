@@ -6,12 +6,6 @@
     android:layout_height="match_parent">
 
 
-    <com.mardomsara.social.ui.views.wigets.SimpleText
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:padding="5dp"
-        android:background="@color/transparent_0"
-        />
 
     <com.mardomsara.social.ui.views.wigets.SimpleAddText
         android:layout_width="match_parent"
@@ -67,16 +61,6 @@
 
         />
 
-    <!--<com.mardomsara.social.ui.views.play.MyView-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--/>-->
-
-    <!--<com.mardomsara.social.ui.views.play.MyView-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:padding="14dp"-->
-        <!--/>-->
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
