@@ -16,6 +16,7 @@ import com.mardomsara.social.R;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.LangUtil;
 import com.mardomsara.social.lib.AppClickableSpan;
+import com.mardomsara.social.ui.views.utils.XTextViewUtils;
 
 /**
  * Created by Hamid on 8/5/2016.
@@ -67,7 +68,7 @@ public class EmojiLinkerTextView extends EmojiconTextView {
 				s1 = new SpannableString(SHOW_MORE_TEXT);
 				s1.setSpan(clickableSpan,0,s1.length(), Spanned.SPAN_MARK_MARK);
 				setShowMoreColor(s1);
-				sb = LinkerTextView.linkerText(txtLimited,this);
+				sb = XTextViewUtils.linkerText(txtLimited,this);
 			}else {//active: show less -- complete text
 				ClickableSpan clickableSpan = new AppClickableSpan() {
 					@Override
@@ -79,12 +80,12 @@ public class EmojiLinkerTextView extends EmojiconTextView {
 				s1 = new SpannableString(SHOW_LESS_TEXT);
 				s1.setSpan(clickableSpan,0,s1.length(), Spanned.SPAN_MARK_MARK);
 				setShowMoreColor(s1);
-				sb = LinkerTextView.linkerText(text,this);
+				sb = XTextViewUtils.linkerText(text,this);
 			}
 
 			sb.append(s1);
 		}else {//if text is short enough
-			sb = LinkerTextView.linkerText(text,this);
+			sb = XTextViewUtils.linkerText(text,this);
 		}
 
         super.setText(sb,type);

@@ -3,9 +3,11 @@ package com.mardomsara.social.ui;
 
 import android.widget.*;
 import android.view.*;
+import android.webkit.WebView;
 
 
 import android.support.design.widget.TabLayout;
+import android.support.percent.PercentRelativeLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
@@ -16,16 +18,19 @@ import com.joanzapata.iconify.widget.IconTextView;
 import com.mardomsara.emojicon.EmojiconEditText;
 import com.mardomsara.emojicon.EmojiconTextView;
 import com.mardomsara.social.ui.views.EmojiLinkerTextView;
-import com.mardomsara.social.ui.views.wigets.TextViewWithIcon_DEP;
+import com.mardomsara.social.ui.views.LinkerTextView;
+import com.mardomsara.social.ui.views.wigets.BadgeCount;
 import com.mardomsara.social.ui.views.wigets.ButtonGrayView;
 import com.mardomsara.social.ui.views.wigets.ChatButtonView;
 import com.mardomsara.social.ui.views.wigets.ChatListRowWhithBorderRelativeLayout;
 import com.mardomsara.social.ui.views.wigets.ChatMediaNetworkLoader;
+import com.mardomsara.social.ui.views.wigets.CountView;
 import com.mardomsara.social.ui.views.wigets.CountView2;
 import com.mardomsara.social.ui.views.wigets.FollowingButtonView;
 import com.mardomsara.social.ui.views.wigets.LoadingView;
 import com.mardomsara.social.ui.views.wigets.SimpleAddText;
 import com.mardomsara.social.ui.views.wigets.SimpleTopNav;
+import com.mardomsara.social.ui.views.wigets.TextViewWithIcon_DEP;
 import com.mardomsara.social.ui.views.wigets.UserListGeneralFollowRowWhithBorderLinearLayout;
 import com.mardomsara.x.iconify.widget.XIcon;
 import me.relex.photodraweeview.PhotoDraweeView;
