@@ -16,6 +16,7 @@
         <attr name="xiconColor" format="color"/>
         <attr name="xiconSpace" format="dimension"/>
         <attr name="android:textSize" />
+        <attr name="android:textColor" />
     </declare-styleable>
 
 </resources>

@@ -19,13 +19,16 @@ import com.mardomsara.x.iconify.internal.IconFontDescriptorWrapper;
 
 //note left and right attrs are for RTL lang for LTR must channge the lib for space support and use  interchange
 public class XIcon extends AppCompatTextView implements HasOnViewAttachListener {
+	private static String halfSpace = "\u200A\u200A";
+
 	String leftIconStr = null;
 	Icon leftIcon = null;
 	String rightIconStr = null;
 	Icon rightIcon = null;
 
 	String textStr = " ";
-	int iconColor = AndroidUtil.getColor(R.color.gray);
+	int iconColor = AndroidUtil.getColor(R.color.text_black_4);
+	int textColor = AndroidUtil.getColor(R.color.text_black_4);
 	int iconSpacePx = AndroidUtil.dpToPx(2);
 
 	int textSizePx = AndroidUtil.dpToPx(16) ;
@@ -66,11 +69,13 @@ public class XIcon extends AppCompatTextView implements HasOnViewAttachListener 
 			iconSpacePx = a.getDimensionPixelSize(R.styleable.XIcon_xiconSpace, iconSpacePx);
 			//for text size
 			textSizePx = a.getDimensionPixelSize(R.styleable.XIcon_android_textSize, textSizePx);
+			textColor = a.getColor(R.styleable.XIcon_android_textColor, textColor);
 
 		} finally {
 			a.recycle();
 		}
 		setTextSize(TypedValue.COMPLEX_UNIT_PX, textSizePx);
+		setTextColor(textColor);
 		setText(getText());
     }
 
@@ -115,9 +120,9 @@ public class XIcon extends AppCompatTextView implements HasOnViewAttachListener 
 		//text
 		if(textStr != null){
 			setTypeface(FontCache.getIranMedium());
-			spanny.append(" ", new AbsoluteSizeSpan(iconSizePx));
+			spanny.append(halfSpace, new AbsoluteSizeSpan(iconSizePx));
 			spanny.append(textStr);
-			spanny.append(" ", new AbsoluteSizeSpan(iconSizePx));
+			spanny.append(halfSpace, new AbsoluteSizeSpan(iconSizePx));
 		}
 
 		//left

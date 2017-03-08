@@ -4,6 +4,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.mardomsara.social.Nav;
+import com.mardomsara.social.activities.MainAppActivity;
 import com.mardomsara.social.play.presenters.Play_DiaolgPresenter;
 import com.mardomsara.social.play.presenters.Play_FormsPresenter;
 import com.mardomsara.social.play.presenters.Play_Http2TestPresenter;
@@ -11,8 +12,12 @@ import com.mardomsara.social.play.presenters.Play_RecipiesPresenter;
 import com.mardomsara.social.play.presenters.Play_WSCallPresenter;
 import com.mardomsara.social.play.presenters.Play_XIconPresneter;
 import com.mardomsara.social.ui.BasePresenter;
+import com.mardomsara.social.ui.X;
 import com.mardomsara.social.ui.cells.Cells;
 import com.mardomsara.social.ui.presenter.HelloPresenter;
+
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * Created by Hamid on 10/1/2016.
@@ -92,4 +97,12 @@ public class Play_TestsPresenter extends BasePresenter {
         return view;
     }
 
+    void play(){
+//		Stream.of("d","d","g").filter((s)->  s.equals("ss")).toArray();
+//		Stream.of("d","d","g").filter((s)->  s.equals("ss")).collect(Collectors.joining( ""));
+
+		new X.PlayXicon().root.setOnClickListener(Play_TestsPresenter::cc);
+	}
+
+	static void cc(View v){}
 }

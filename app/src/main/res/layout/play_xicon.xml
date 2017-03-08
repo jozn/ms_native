@@ -184,6 +184,24 @@
             app:xiconRight="ion-help"
             />
 
+        <com.mardomsara.x.iconify.widget.XIcon
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="{ion-android-bulb 34dp}"
+            app:xiconSize="26dp"
+            app:xiconText="left"
+            app:xiconLeft="ion-android-bulb"
+            />
+
+        <com.mardomsara.x.iconify.widget.XIcon
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:xiconSize="26dp"
+            app:xiconText="sampleBoth"
+            app:xiconLeft="ion-android-bulb"
+            app:xiconRight="ion-help"
+            />
+
 
 
         <com.mardomsara.x.iconify.widget.XIcon
@@ -226,6 +244,27 @@
             app:xiconRight="ion-help"
             android:gravity="center"
             />
+
+        <com.mardomsara.x.iconify.widget.XIcon
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="{ion-android-bulb 34dp}"
+            app:xiconSize="26dp"
+            app:xiconText="متال"
+            app:xiconLeft="ion-android-bulb"
+            app:xiconRight="ion-help"
+            />
+
+        <com.mardomsara.x.iconify.widget.XIcon
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="{ion-android-bulb 34dp}"
+            app:xiconSize="26dp"
+            app:xiconText="چپ"
+            app:xiconLeft="ion-android-bulb"
+            />
+
+
     </LinearLayout>
 
 
