@@ -816,16 +816,16 @@ public class X {
         public LinearLayout root;
         public ImageView avatar;
         public LinearLayout share_media_buttons_holder;
-        public TextView gallery_btn;
-        public TextView camera_btn;
+        public XIcon gallery_btn;
+        public XIcon camera_btn;
         public FrameLayout recent_images_holder;
 
         public Home_AddPostBox(ViewGroup parent) {
             root = (LinearLayout) AppUtil.inflate(R.layout.home__add_post_box,parent);
             avatar = (ImageView) root.findViewById( R.id.avatar);
             share_media_buttons_holder = (LinearLayout) root.findViewById( R.id.share_media_buttons_holder);
-            gallery_btn = (TextView) root.findViewById( R.id.gallery_btn);
-            camera_btn = (TextView) root.findViewById( R.id.camera_btn);
+            gallery_btn = (XIcon) root.findViewById( R.id.gallery_btn);
+            camera_btn = (XIcon) root.findViewById( R.id.camera_btn);
             recent_images_holder = (FrameLayout) root.findViewById( R.id.recent_images_holder);
         }
         public Home_AddPostBox() {
