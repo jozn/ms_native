@@ -21,7 +21,7 @@ import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.LangUtil;
 import com.mardomsara.social.json.social.rows.PostRowJson;
 import com.mardomsara.social.ui.presenter.pages.ProfilePage;
-import com.mardomsara.social.ui.views.EmojiLinkerTextView;
+import com.mardomsara.social.ui.views.XEmojiLinkerTextView;
 import com.mardomsara.social.ui.views.FullScreenImage;
 import com.mardomsara.social.ui.views.helpers.ViewHelper;
 import com.mardomsara.social.ui.views.wigets.TextViewWithIcon_DEP;
@@ -38,7 +38,7 @@ public class PostRowCell {
     PostRowJson post;
 
     @Bind(R.id.text)
-	EmojiLinkerTextView text;
+	XEmojiLinkerTextView text;
     @Bind(R.id.fullname)
     TextView user_name;
     @Bind(R.id.date)

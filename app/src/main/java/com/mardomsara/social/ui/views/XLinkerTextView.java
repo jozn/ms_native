@@ -8,19 +8,19 @@ import com.mardomsara.social.ui.views.utils.XTextViewUtils;
 /**
  * Created by Hamid on 2/4/2016.
  */
-public class LinkerTextView extends android.support.v7.widget.AppCompatTextView {
+public class XLinkerTextView extends android.support.v7.widget.AppCompatTextView {
     static String TAG ="LinkerText";
-    public LinkerTextView(Context context) {
+    public XLinkerTextView(Context context) {
         super(context);
         init();
     }
 
-    public LinkerTextView(Context context, AttributeSet attrs) {
+    public XLinkerTextView(Context context, AttributeSet attrs) {
         super(context, attrs);
         init();
     }
 
-    public LinkerTextView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public XLinkerTextView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init();
     }

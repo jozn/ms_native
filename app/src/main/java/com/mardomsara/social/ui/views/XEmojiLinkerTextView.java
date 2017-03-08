@@ -21,18 +21,18 @@ import com.mardomsara.social.ui.views.utils.XTextViewUtils;
 /**
  * Created by Hamid on 8/5/2016.
  */
-public class EmojiLinkerTextView extends EmojiconTextView {
-    public EmojiLinkerTextView(Context context) {
+public class XEmojiLinkerTextView extends EmojiconTextView {
+    public XEmojiLinkerTextView(Context context) {
         super(context);
         init();
     }
 
-    public EmojiLinkerTextView(Context context, AttributeSet attrs) {
+    public XEmojiLinkerTextView(Context context, AttributeSet attrs) {
         super(context, attrs);
         init();
     }
 
-    public EmojiLinkerTextView(Context context, AttributeSet attrs, int defStyle) {
+    public XEmojiLinkerTextView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         init();
     }

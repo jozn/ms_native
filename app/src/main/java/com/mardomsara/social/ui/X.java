@@ -17,8 +17,8 @@ import com.github.rahatarmanahmed.cpv.CircularProgressView;
 import com.joanzapata.iconify.widget.IconTextView;
 import com.mardomsara.emojicon.EmojiconEditText;
 import com.mardomsara.emojicon.EmojiconTextView;
-import com.mardomsara.social.ui.views.EmojiLinkerTextView;
-import com.mardomsara.social.ui.views.LinkerTextView;
+import com.mardomsara.social.ui.views.XEmojiLinkerTextView;
+import com.mardomsara.social.ui.views.XLinkerTextView;
 import com.mardomsara.social.ui.views.wigets.BadgeCount;
 import com.mardomsara.social.ui.views.wigets.ButtonGrayView;
 import com.mardomsara.social.ui.views.wigets.ChatButtonView;
@@ -1853,7 +1853,7 @@ public class X {
         public TextView date;
         public SimpleDraweeView avatar;
         public TextView fullname;
-        public EmojiLinkerTextView text;
+        public XEmojiLinkerTextView text;
         public ImageView image;
         public LinearLayout counts_info;
         public TextViewWithIcon_DEP comment_count;
@@ -1866,7 +1866,7 @@ public class X {
             date = (TextView) root.findViewById( R.id.date);
             avatar = (SimpleDraweeView) root.findViewById( R.id.avatar);
             fullname = (TextView) root.findViewById( R.id.fullname);
-            text = (EmojiLinkerTextView) root.findViewById( R.id.text);
+            text = (XEmojiLinkerTextView) root.findViewById( R.id.text);
             image = (ImageView) root.findViewById( R.id.image);
             counts_info = (LinearLayout) root.findViewById( R.id.counts_info);
             comment_count = (TextViewWithIcon_DEP) root.findViewById( R.id.comment_count);
