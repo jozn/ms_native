@@ -12,7 +12,7 @@
         android:background="@color/border_gray"
         android:padding="20dp"
         >
-        <com.mardomsara.social.ui.views.XLinkerTextView
+        <com.mardomsara.social.ui.views.x.XLinkerTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@style/text_bold.black"

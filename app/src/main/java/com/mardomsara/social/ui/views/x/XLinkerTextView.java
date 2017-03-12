@@ -1,4 +1,4 @@
-package com.mardomsara.social.ui.views;
+package com.mardomsara.social.ui.views.x;
 
 import android.content.Context;
 import android.util.AttributeSet;

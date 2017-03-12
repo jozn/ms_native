@@ -3,11 +3,9 @@ package com.mardomsara.social.ui;
 
 import android.widget.*;
 import android.view.*;
-import android.webkit.WebView;
 
 
 import android.support.design.widget.TabLayout;
-import android.support.percent.PercentRelativeLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
@@ -17,14 +15,11 @@ import com.github.rahatarmanahmed.cpv.CircularProgressView;
 import com.joanzapata.iconify.widget.IconTextView;
 import com.mardomsara.emojicon.EmojiconEditText;
 import com.mardomsara.emojicon.EmojiconTextView;
-import com.mardomsara.social.ui.views.XEmojiLinkerTextView;
-import com.mardomsara.social.ui.views.XLinkerTextView;
-import com.mardomsara.social.ui.views.wigets.BadgeCount;
+import com.mardomsara.social.ui.views.x.XEmojiLinkerTextView;
 import com.mardomsara.social.ui.views.wigets.ButtonGrayView;
 import com.mardomsara.social.ui.views.wigets.ChatButtonView;
 import com.mardomsara.social.ui.views.wigets.ChatListRowWhithBorderRelativeLayout;
 import com.mardomsara.social.ui.views.wigets.ChatMediaNetworkLoader;
-import com.mardomsara.social.ui.views.wigets.CountView;
 import com.mardomsara.social.ui.views.wigets.CountView2;
 import com.mardomsara.social.ui.views.wigets.FollowingButtonView;
 import com.mardomsara.social.ui.views.wigets.LoadingView;

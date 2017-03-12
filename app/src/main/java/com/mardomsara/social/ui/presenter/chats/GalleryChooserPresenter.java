@@ -260,8 +260,8 @@ public class GalleryChooserPresenter extends BasePresenter {
             ButterKnife.bind(this, v);
 //            send_btn.setTypeface(FontCache.getIonic());
             back_btn.setTypeface(FontCache.getIonic());
-            send_btn.setTypeface(FontCache.getIranNormal());
-            title.setTypeface(FontCache.getIranNormal());
+            send_btn.setTypeface(FontCache.getIran());
+            title.setTypeface(FontCache.getIran());
             FolderAdaptor folderAdaptor;
             if (type == MediaType.IMAGE) {
                 folderAdaptor = new FolderAdaptor(getContext(), ImageProviderHelper.getImagesForBucket(buketId));
