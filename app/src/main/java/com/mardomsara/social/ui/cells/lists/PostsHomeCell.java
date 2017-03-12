@@ -15,6 +15,7 @@ import com.mardomsara.social.json.HttpJsonList;
 import com.mardomsara.social.json.social.rows.PostRowJson;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
 import com.mardomsara.social.ui.X;
+import com.mardomsara.social.ui.cells.general.RecentImagesAddPostBoxCell;
 import com.mardomsara.social.ui.cells.general.RecentImagesCell;
 import com.mardomsara.social.ui.ui.UIPostsList;
 import com.mardomsara.social.ui.views.helpers.ViewHelper;
@@ -136,7 +137,7 @@ public class PostsHomeCell
 		X.Home_AddPostBox addPostBox = new X.Home_AddPostBox(x.recycler_view);
 		adaptor.appendViewToHeader(addPostBox.root);
 
-		RecentImagesCell recentImagesCell = new RecentImagesCell(addPostBox.recent_images_holder);
+		RecentImagesAddPostBoxCell recentImagesCell = new RecentImagesAddPostBoxCell(addPostBox.recent_images_holder);
 		recentImagesCell.insertInto(addPostBox.recent_images_holder);
 
 

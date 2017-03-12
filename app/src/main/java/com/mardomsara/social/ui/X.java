@@ -3,9 +3,11 @@ package com.mardomsara.social.ui;
 
 import android.widget.*;
 import android.view.*;
+import android.webkit.WebView;
 
 
 import android.support.design.widget.TabLayout;
+import android.support.percent.PercentRelativeLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
@@ -15,11 +17,12 @@ import com.github.rahatarmanahmed.cpv.CircularProgressView;
 import com.joanzapata.iconify.widget.IconTextView;
 import com.mardomsara.emojicon.EmojiconEditText;
 import com.mardomsara.emojicon.EmojiconTextView;
-import com.mardomsara.social.ui.views.x.XEmojiLinkerTextView;
+import com.mardomsara.social.ui.views.wigets.BadgeCount;
 import com.mardomsara.social.ui.views.wigets.ButtonGrayView;
 import com.mardomsara.social.ui.views.wigets.ChatButtonView;
 import com.mardomsara.social.ui.views.wigets.ChatListRowWhithBorderRelativeLayout;
 import com.mardomsara.social.ui.views.wigets.ChatMediaNetworkLoader;
+import com.mardomsara.social.ui.views.wigets.CountView;
 import com.mardomsara.social.ui.views.wigets.CountView2;
 import com.mardomsara.social.ui.views.wigets.FollowingButtonView;
 import com.mardomsara.social.ui.views.wigets.LoadingView;
@@ -27,6 +30,8 @@ import com.mardomsara.social.ui.views.wigets.SimpleAddText;
 import com.mardomsara.social.ui.views.wigets.SimpleTopNav;
 import com.mardomsara.social.ui.views.wigets.TextViewWithIcon_DEP;
 import com.mardomsara.social.ui.views.wigets.UserListGeneralFollowRowWhithBorderLinearLayout;
+import com.mardomsara.social.ui.views.x.XEmojiLinkerTextView;
+import com.mardomsara.social.ui.views.x.XLinkerTextView;
 import com.mardomsara.x.iconify.widget.XIcon;
 import me.relex.photodraweeview.PhotoDraweeView;
 
@@ -1798,6 +1803,24 @@ public class X {
     }
  //( index .Fields 0).ViewClass
 
+    public static class RecentImagesAddPost_ImageItem {
+        public FrameLayout root;
+        public SimpleDraweeView image_drawee;
+        public FrameLayout text_holder;
+        public TextView text_icon;
+
+        public RecentImagesAddPost_ImageItem(ViewGroup parent) {
+            root = (FrameLayout) AppUtil.inflate(R.layout.recent_images_add_post__image_item,parent);
+            image_drawee = (SimpleDraweeView) root.findViewById( R.id.image_drawee);
+            text_holder = (FrameLayout) root.findViewById( R.id.text_holder);
+            text_icon = (TextView) root.findViewById( R.id.text_icon);
+        }
+        public RecentImagesAddPost_ImageItem() {
+            this(null);
+        }
+    }
+ //( index .Fields 0).ViewClass
+
     public static class RecentImagesImageItem {
         public FrameLayout root;
         public SimpleDraweeView image;
@@ -1811,6 +1834,20 @@ public class X {
             text_icon = (TextView) root.findViewById( R.id.text_icon);
         }
         public RecentImagesImageItem() {
+            this(null);
+        }
+    }
+ //( index .Fields 0).ViewClass
+
+    public static class RecentImagesPostBox_RecyclerView {
+        public RecyclerView root;
+        public RecyclerView recycler_view;
+
+        public RecentImagesPostBox_RecyclerView(ViewGroup parent) {
+            root = (RecyclerView) AppUtil.inflate(R.layout.recent_images_post_box__recycler_view,parent);
+            recycler_view = (RecyclerView) root.findViewById( R.id.recycler_view);
+        }
+        public RecentImagesPostBox_RecyclerView() {
             this(null);
         }
     }
