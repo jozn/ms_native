@@ -1643,6 +1643,18 @@ public class X {
     }
  //( index .Fields 0).ViewClass
 
+    public static class PlayXtextview {
+        public ScrollView root;
+
+        public PlayXtextview(ViewGroup parent) {
+            root = (ScrollView) AppUtil.inflate(R.layout.play_xtextview,parent);
+        }
+        public PlayXtextview() {
+            this(null);
+        }
+    }
+ //( index .Fields 0).ViewClass
+
     public static class Post_SingleEntryHolder {
         public FrameLayout root;
         public LoadingView loading;
