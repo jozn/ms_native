@@ -1,4 +1,4 @@
-package com.mardomsara.social.ui.views.x.internal;
+package com.mardomsara.social.ui.views.x.dep;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -12,7 +12,7 @@ import com.mardomsara.social.ui.views.FontCache;
 /**
  * Created by Hamid on 3/9/2017.
  */
-
+@Deprecated
 public class ZCommonXTextViewStates {
 
 	boolean linkerEnabled;

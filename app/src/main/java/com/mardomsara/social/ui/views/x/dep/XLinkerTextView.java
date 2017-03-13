@@ -6,10 +6,8 @@ import android.graphics.Typeface;
 import android.util.AttributeSet;
 
 import com.mardomsara.social.R;
-import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.ui.views.FontCache;
 import com.mardomsara.social.ui.views.utils.XTextViewUtils;
-import com.mardomsara.social.ui.views.x.internal.ZCommonXTextViewStates;
 
 /**
  * Created by Hamid on 2/4/2016.
