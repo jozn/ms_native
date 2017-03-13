@@ -46,8 +46,8 @@ public class XTextView extends android.support.v7.widget.AppCompatTextView {
 	private boolean mUseSystemDefault = false;
 	//////////////////////////////////////////
 
-	boolean xEnableEmoji = false;
-	boolean xEnableLinker = false;
+	boolean xEnableEmoji = true;
+	boolean xEnableLinker = true;
 
 	IranFonts iranFonts = IranFonts.Iran;
 
@@ -80,8 +80,8 @@ public class XTextView extends android.support.v7.widget.AppCompatTextView {
 			mEmojiconSize = calEmojiconSizePolicy(mEmojiconSize);
 
 			//not emojis
-			xEnableEmoji = a.getBoolean(R.styleable.XTextView_xEnableEmoji,false);
-			xEnableLinker = a.getBoolean(R.styleable.XTextView_xEnableLinker,false);
+			xEnableEmoji = a.getBoolean(R.styleable.XTextView_xEnableEmoji,xEnableEmoji);
+			xEnableLinker = a.getBoolean(R.styleable.XTextView_xEnableLinker,xEnableLinker);
 			xLimitText = a.getInteger(R.styleable.XTextView_xLimitText,-1);
 
 			int indx = a.getInteger(R.styleable.XLinkerTextView_xFont,0);

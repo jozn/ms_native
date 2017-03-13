@@ -15,7 +15,7 @@
         <com.mardomsara.social.ui.views.x.dep.XLinkerTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="ساتم من به #شما و همه #اران و @you و @سسس"
+            android:text="ساتم من به #شما و  😀 😃 😄 😁 😆 😅 😂همه #اران و @you و @سسس"
 
 
             />
@@ -23,7 +23,7 @@
         <com.mardomsara.social.ui.views.x.dep.XLinkerTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="ساتم من به #شما و همه #اران و @you و @سسس"
+            android:text="ساتم من به #شما و  😀 😃 😄 😁 😆 😅 😂همه #اران و @you و @سسس"
             app:xFont="IranMedium"
 
             />
@@ -31,7 +31,7 @@
         <com.mardomsara.social.ui.views.x.dep.XLinkerTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="ساتم من به #شما و همه #اران و @you و @سسس"
+            android:text="ساتم من به #شما و 😀 😃 😄 😁 😆 😅 😂همه #اران و @you و @سسس"
             app:xFont="IranBold"
 
             />
@@ -52,7 +52,7 @@
         <com.mardomsara.social.ui.views.x.dep.XLinkerTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="ساتم من به #شما و همه #اران و @you و @سسس"
+            android:text="ساتم من به #شما و ه😀 😃 😄 😁 😆 😅 😂مه #اران و @you و @سسس"
 
             />
         <TextView
@@ -74,7 +74,7 @@
         <com.mardomsara.social.ui.views.x.XTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="ساتم من به #شما و همه #اران و @you و @سسس"
+            android:text="ساتم من به #شما و 😀 😃 😄 😁 😆 😅 😂 همه #اران و @you و @سسس"
 
 
             />
@@ -82,7 +82,7 @@
         <com.mardomsara.social.ui.views.x.XTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="ساتم من به #شما و همه #اران و @you و @سسس"
+            android:text="ساتم من به #شما و  😀 😃 😄 😁 😆 😅 😂همه #اران و @you و @سسس"
             app:xFont="IranBold"
 
             />
@@ -90,7 +90,7 @@
         <com.mardomsara.social.ui.views.x.XTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="ساتم من به #شما و همه #اران و @you و @سسس"
+            android:text="ساتم من به #شما و😀 😃 😄 😁 😆 😅 😂 همه #اران و @you و @سسس"
             app:xFont="IranBold"
             app:xLimitText="10"
             />
@@ -98,10 +98,30 @@
         <com.mardomsara.social.ui.views.x.XTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="ساتم من به #شما و همه #اران و @you و @سسس"
+            android:text="ساتم من به #شما و ه😀 😃 😄 😁 😆 😅 😂 مه #اران و @you و @سسس"
             app:xFont="IranBold"
             app:xLimitText="10"
             android:textColor="@color/blue_primary_1"
+            />
+
+        <com.mardomsara.social.ui.views.x.XTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ساتم من به #شما و ه😀 😃 😄 😁 😆 😅 😂 مه #اران و @you و @سسس"
+            app:xFont="IranBold"
+            app:xLimitText="10"
+            android:textColor="@color/blue_primary_1"
+            app:xEnableEmoji="false"
+            />
+
+        <com.mardomsara.social.ui.views.x.XTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ساتم من به #شما و ه😀 😃 😄 😁 😆 😅 😂 مه #اران و @you و @سسس"
+            app:xFont="IranLight"
+            app:xLimitText="10"
+            android:textColor="@color/blue_primary_1"
+            app:xEnableEmoji="false"
             />
     </LinearLayout>
 
