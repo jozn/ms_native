@@ -31,19 +31,6 @@
         <attr name="android:textColor" />
     </declare-styleable>
 
-    <!--<declare-styleable name="XEmojiLinkerTextView" >
-        <attr name="xFont" format="enum" >
-            <enum name="Iran" value="0" />
-            <enum name="IranBold" value="1" />
-            <enum name="IranLight" value="2" />
-            <enum name="IranMedium" value="3" />
-            <enum name="IranUltraLight" value="4" />
-        </attr>
-
-        <attr name="xEnableLinker" format="boolean" />
-
-    </declare-styleable>-->
-
     <declare-styleable name="XLinkerTextView" >
         <attr name="xEnableLinker" />
         <attr name="xFont" />
