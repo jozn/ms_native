@@ -2,88 +2,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".activities.MainActivity">
-    <item
-    android:id="@+id/action_settings"
-    android:orderInCategory="100"
-    android:title="@string/action_settings"
-    app:showAsAction="never" />
+    <!--<item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="@string/action_settings"
+        app:showAsAction="never" />
+
     <item
         android:id="@+id/websocket"
         android:orderInCategory="100"
         android:title="websocket"
-        app:showAsAction="never" />
+        app:showAsAction="never" />-->
 
-    <item
-        android:id="@+id/contacts"
-        android:orderInCategory="100"
-        android:title="contacts"
-        app:showAsAction="never" />
-
-    <item
-        android:id="@+id/http"
-        android:orderInCategory="100"
-        android:title="http"
-        app:showAsAction="never" />
-
-    <item
-        android:id="@+id/font"
-        android:orderInCategory="100"
-        android:title="font"
-        app:showAsAction="never" />
-
-    <item
-        android:id="@+id/json1"
-        android:orderInCategory="100"
-        android:title="json1"
-        app:showAsAction="never" />
-    <item
-        android:id="@+id/fact1"
-        android:orderInCategory="100"
-        android:title="fact1"
-        app:showAsAction="never" />
-    <item
-        android:id="@+id/rooms"
-        android:orderInCategory="100"
-        android:title="rooms"
-        app:showAsAction="never" />
-    <item
-        android:id="@+id/react1"
-        android:orderInCategory="100"
-        android:title="react1"
-        app:showAsAction="never" />
-    <item
-        android:id="@+id/frag1"
-        android:orderInCategory="100"
-        android:title="frag1"
-        app:showAsAction="never" />
-
-    <item
-        android:id="@+id/binding"
-        android:orderInCategory="100"
-        android:title="data binding"
-        app:showAsAction="never" />
-
-    <item
-        android:id="@+id/ok2"
-        android:orderInCategory="100"
-        android:title="ok http2"
-        app:showAsAction="never" />
-
-    <item
-        android:id="@+id/advanced"
-        android:orderInCategory="100"
-        android:title="Advanced "
-        app:showAsAction="never" />
-
-    <item
-        android:id="@+id/emoji"
-        android:orderInCategory="100"
-        android:title="emoji"
-        app:showAsAction="never" />
-
-    <item
-        android:id="@+id/keybord1"
-        android:orderInCategory="100"
-        android:title="Keyboard "
-        app:showAsAction="never" />
 </menu>
