@@ -54,6 +54,7 @@
         <attr name="xFont" />
         <attr name="xEnableLinker" />
         <attr name="xEnableEmoji" format="boolean"/>
+        <attr name="xLimitText" format="integer"/>
 
         <attr name="xEmojiconSize" format="dimension" />
         <attr name="xEmojiconAlignment" format="enum">

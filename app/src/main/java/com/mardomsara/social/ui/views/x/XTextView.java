@@ -4,21 +4,38 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Typeface;
 import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
 import android.text.TextUtils;
+import android.text.style.ClickableSpan;
 import android.text.style.DynamicDrawableSpan;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.StyleSpan;
 import android.util.AttributeSet;
 import android.util.TypedValue;
+import android.view.View;
 
 import com.mardomsara.emojicon.EmojiMaper;
 import com.mardomsara.social.R;
+import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
-import com.mardomsara.social.helpers.Helper;
+import com.mardomsara.social.helpers.LangUtil;
+import com.mardomsara.social.lib.AppClickableSpan;
 import com.mardomsara.social.ui.views.FontCache;
 import com.mardomsara.social.ui.views.utils.XTextViewUtils;
-import com.mardomsara.social.ui.views.x.internal.ZCommonXTextViewStates;
 
 // this class is the master of all Emoji, linker, limiter
 public class XTextView extends android.support.v7.widget.AppCompatTextView {
+
+	//////////////// Limits /////////////////////
+	static final int SHOW_MORE = 1;
+	static final int SHOW_LESS = 2;
+	static final int SHOW_More_LESS_Color = AndroidUtil.getColor(R.color.text_gray_3);
+	static final String SHOW_MORE_TEXT = " ..."+ LangUtil.halfSpace + "ادامه";
+	static final String SHOW_LESS_TEXT = " کمتر";
+
+	int showMoreLessNextActive = SHOW_MORE;
+	int xLimitText = -1;
 
 	/////////////// Emoji attrs //////////////
 	private int mEmojiconSize;
@@ -31,6 +48,8 @@ public class XTextView extends android.support.v7.widget.AppCompatTextView {
 
 	boolean xEnableEmoji = false;
 	boolean xEnableLinker = false;
+
+	IranFonts iranFonts = IranFonts.Iran;
 
 	public XTextView(Context context) {
 		super(context);
@@ -52,13 +71,23 @@ public class XTextView extends android.support.v7.widget.AppCompatTextView {
 		if (attrs == null) {
 			mEmojiconSize = (int) getTextSize();
 		} else {
-			TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.Emojicon);
-			mEmojiconSize = (int) a.getDimension(R.styleable.Emojicon_emojiconSize, getTextSize());//52// getTextSize()+0);
-			mEmojiconAlignment = a.getInt(R.styleable.Emojicon_emojiconAlignment, DynamicDrawableSpan.ALIGN_BASELINE);
-			mTextStart = a.getInteger(R.styleable.Emojicon_emojiconTextStart, 0);
-			mTextLength = a.getInteger(R.styleable.Emojicon_emojiconTextLength, -1);
-			mUseSystemDefault = a.getBoolean(R.styleable.Emojicon_emojiconUseSystemDefault, false);
+			TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.XTextView);
+			mEmojiconSize = (int) a.getDimension(R.styleable.XTextView_xEmojiconSize, getTextSize());//52// getTextSize()+0);
+			mEmojiconAlignment = a.getInt(R.styleable.XTextView_xEmojiconAlignment, DynamicDrawableSpan.ALIGN_BASELINE);
+			mTextStart = a.getInteger(R.styleable.XTextView_xEmojiconTextStart, 0);
+			mTextLength = a.getInteger(R.styleable.XTextView_xEmojiconTextLength, -1);
+			mUseSystemDefault = a.getBoolean(R.styleable.XTextView_xEmojiconUseSystemDefault, false);
 			mEmojiconSize = calEmojiconSizePolicy(mEmojiconSize);
+
+			//not emojis
+			xEnableEmoji = a.getBoolean(R.styleable.XTextView_xEnableEmoji,false);
+			xEnableLinker = a.getBoolean(R.styleable.XTextView_xEnableLinker,false);
+			xLimitText = a.getInteger(R.styleable.XTextView_xLimitText,-1);
+
+			int indx = a.getInteger(R.styleable.XLinkerTextView_xFont,0);
+			iranFonts = IranFonts.values()[indx];
+			setTypeface(FontCache.get(iranFonts.path));
+
 			a.recycle();
 		}
 
@@ -67,28 +96,15 @@ public class XTextView extends android.support.v7.widget.AppCompatTextView {
 
 	@Override
 	public void setText(CharSequence text, BufferType type) {
+
+		if(xLimitText > 0 ){
+			text = tolimitLinker(text);
+		}else { //// TODO: 3/13/2017 imple for not linker enabled
+			text = XTextViewUtils.linkerText(text,this);
+		}
+
 		if(xEnableEmoji){
-			if (!TextUtils.isEmpty(text)){// && false) {
-
-//            SpannableStringBuilder builder = new SpannableStringBuilder(text);
-				SpannableString builder = new SpannableString(text);
-//            SimpleSpan builder = new SimpleSpan(text);
-//            SpannableString builder = new SimpleSpannble00(text);
-//            EmojiconHandler.addEmojis(getContext(), builder, mEmojiconSize, mEmojiconAlignment, mEmojiconTextSize, mTextStart, mTextLength, mUseSystemDefault);
-//            EmojiMaper.addEmojis(getContext(), builder, mEmojiconSize, mEmojiconAlignment, mEmojiconTextSize, mTextStart, mTextLength, mUseSystemDefault);
-				if(isSetMultiple){
-					setLineSpacing(multiEmojiSize/2f,1.1f);
-					setPxTextSize(multiTextSize);
-					EmojiMaper.addEmojis(getContext(), builder, multiEmojiSize, mEmojiconAlignment,(int) multiTextSize, mTextStart,mTextLength, mUseSystemDefault);
-				}else {
-//				setPxTextSize(mEmojiconTextSize);
-					setLineSpacing(0,1);
-					EmojiMaper.addEmojis(getContext(), builder, mEmojiconSize, mEmojiconAlignment, mEmojiconTextSize, mTextStart, mTextLength, mUseSystemDefault);
-				}
-//			mEmojiconTextSize  = (int)getTextSize();//Me: mEmojiconTextSize changes based on mEmojiconSize sizes
-
-				text = builder;
-			}
+			text = toEmojis(text);
 		}
 
 		super.setText(text, type);
@@ -117,6 +133,58 @@ public class XTextView extends android.support.v7.widget.AppCompatTextView {
 			text = builder;
 		}
 		return text;
+	}
+
+	public CharSequence tolimitLinker(CharSequence text) {
+		CharSequence txtLimited = LangUtil.limitCharSequence(text, xLimitText);
+		SpannableStringBuilder sb = null;
+
+		//if we must short text and show "more/less"
+		if(text.length()> xLimitText && xLimitText >0 ){
+			SpannableString s1 = null;
+			if(showMoreLessNextActive == SHOW_MORE){
+				ClickableSpan clickableSpan = new AppClickableSpan() {
+					@Override
+					public void onClick(View widget) {
+						showMoreLessNextActive = SHOW_LESS;
+						setText(text);
+					}
+				};
+				s1 = new SpannableString(SHOW_MORE_TEXT);
+				s1.setSpan(clickableSpan,0,s1.length(), Spanned.SPAN_MARK_MARK);
+				limiter_setShowMoreColor(s1);
+				sb = XTextViewUtils.linkerText(txtLimited,this);
+			}else {//active: show less -- complete text
+				ClickableSpan clickableSpan = new AppClickableSpan() {
+					@Override
+					public void onClick(View widget) {
+						showMoreLessNextActive = SHOW_MORE;
+						setText(text);
+					}
+				};
+				s1 = new SpannableString(SHOW_LESS_TEXT);
+				s1.setSpan(clickableSpan,0,s1.length(), Spanned.SPAN_MARK_MARK);
+				limiter_setShowMoreColor(s1);
+				sb = XTextViewUtils.linkerText(text,this);
+			}
+
+			sb.append(s1);
+		}else {//if text is short enough
+			sb = XTextViewUtils.linkerText(text,this);
+		}
+
+		return sb;
+	}
+
+	public void setTextWithLimits(String text, int size) {
+		xLimitText = size;
+		showMoreLessNextActive = SHOW_MORE;//must reset because of reusing in RV
+		setText(text);
+	}
+
+	void limiter_setShowMoreColor(SpannableString s1){
+		s1.setSpan(new StyleSpan(Typeface.BOLD),0,s1.length(), Spanned.SPAN_MARK_MARK);
+		s1.setSpan(new ForegroundColorSpan(SHOW_More_LESS_Color),0,s1.length(), Spanned.SPAN_MARK_MARK);
 	}
 
 	void setEmojiconSizePolicy(float textSize){
@@ -172,4 +240,17 @@ public class XTextView extends android.support.v7.widget.AppCompatTextView {
 		mUseSystemDefault = useSystemDefault;
 	}
 
+	public static enum IranFonts {
+
+		Iran("fonts/IRAN_Sans.ttf"),
+		IranBold("fonts/IRAN_Sans_Bold.ttf"),
+		IranLight("fonts/IRAN_Sans_Light.ttf"),
+		IranMedium("fonts/IRAN_Sans_Medium.ttf"),
+		IranUltraLight("fonts/IRAN_Sans_UltraLight.ttf");
+
+		String path;
+		IranFonts(String fontPath) {
+			path=fontPath;
+		}
+	}
 }
