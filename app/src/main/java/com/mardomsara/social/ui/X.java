@@ -32,6 +32,7 @@ import com.mardomsara.social.ui.views.wigets.TextViewWithIcon_DEP;
 import com.mardomsara.social.ui.views.wigets.UserListGeneralFollowRowWhithBorderLinearLayout;
 import com.mardomsara.social.ui.views.x.XEmojiLinkerTextView;
 import com.mardomsara.social.ui.views.x.XLinkerTextView;
+import com.mardomsara.social.ui.views.x.XTextView;
 import com.mardomsara.x.iconify.widget.XIcon;
 import me.relex.photodraweeview.PhotoDraweeView;
 

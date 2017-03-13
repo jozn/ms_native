@@ -33,6 +33,7 @@ import com.mardomsara.social.helpers.AppUtil;
 /**
  * @author Hieu Rocker (rockerhieu@gmail.com).
  */
+@Deprecated //use XTextView
 public class EmojiconTextView extends TextView {
     private int mEmojiconSize;
     private int mEmojiconAlignment;

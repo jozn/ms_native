@@ -61,7 +61,7 @@ public class XLinkerTextView extends android.support.v7.widget.AppCompatTextView
 		}
 
 		Typeface t =FontCache.get(iranFonts.path);
-		Helper.showMessage(""+t + " "+iranFonts.path + " "+indx);
+//		Helper.showMessage(""+t + " "+iranFonts.path + " "+indx);
 		setTypeface(FontCache.get(iranFonts.path));
     }
 

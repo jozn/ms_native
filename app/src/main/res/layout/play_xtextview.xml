@@ -55,6 +55,14 @@
             android:text="ساتم من به #شما و همه #اران و @you و @سسس"
 
             />
+
+        <com.mardomsara.social.ui.views.x.XTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ساتم من به #شما و همه #اران و @you و @سسس"
+
+
+            />
     </LinearLayout>
 
 
