@@ -21,7 +21,7 @@ import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.LangUtil;
 import com.mardomsara.social.json.social.rows.PostRowJson;
 import com.mardomsara.social.ui.presenter.pages.ProfilePage;
-import com.mardomsara.social.ui.views.x.XEmojiLinkerTextView;
+import com.mardomsara.social.ui.views.x.dep.XEmojiLinkerTextView;
 import com.mardomsara.social.ui.views.FullScreenImage;
 import com.mardomsara.social.ui.views.helpers.ViewHelper;
 import com.mardomsara.social.ui.views.wigets.TextViewWithIcon_DEP;

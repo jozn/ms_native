@@ -12,7 +12,7 @@
                   android:layout_height="match_parent"
         >
 
-        <com.mardomsara.social.ui.views.x.XLinkerTextView
+        <com.mardomsara.social.ui.views.x.dep.XLinkerTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="ساتم من به #شما و همه #اران و @you و @سسس"
@@ -20,7 +20,7 @@
 
             />
 
-        <com.mardomsara.social.ui.views.x.XLinkerTextView
+        <com.mardomsara.social.ui.views.x.dep.XLinkerTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="ساتم من به #شما و همه #اران و @you و @سسس"
@@ -28,7 +28,7 @@
 
             />
 
-        <com.mardomsara.social.ui.views.x.XLinkerTextView
+        <com.mardomsara.social.ui.views.x.dep.XLinkerTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="ساتم من به #شما و همه #اران و @you و @سسس"
@@ -36,7 +36,7 @@
 
             />
 
-        <com.mardomsara.social.ui.views.x.XLinkerTextView
+        <com.mardomsara.social.ui.views.x.dep.XLinkerTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="ساتم من به #شما و همه #اران و @you و @سسس"
@@ -49,7 +49,7 @@
             android:layout_height="wrap_content"
             android:text="=================================="
             />
-        <com.mardomsara.social.ui.views.x.XLinkerTextView
+        <com.mardomsara.social.ui.views.x.dep.XLinkerTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="ساتم من به #شما و همه #اران و @you و @سسس"

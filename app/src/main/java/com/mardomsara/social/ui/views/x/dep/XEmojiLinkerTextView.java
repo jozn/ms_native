@@ -1,4 +1,4 @@
-package com.mardomsara.social.ui.views.x;
+package com.mardomsara.social.ui.views.x.dep;
 
 import android.content.Context;
 import android.graphics.Typeface;
@@ -21,6 +21,7 @@ import com.mardomsara.social.ui.views.utils.XTextViewUtils;
 /**
  * Created by Hamid on 8/5/2016.
  */
+@Deprecated //delete this
 public class XEmojiLinkerTextView extends EmojiconTextView {
     public XEmojiLinkerTextView(Context context) {
         super(context);

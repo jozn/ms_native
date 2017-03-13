@@ -1,4 +1,4 @@
-package com.mardomsara.social.ui.views.x;
+package com.mardomsara.social.ui.views.x.dep;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -15,6 +15,7 @@ import com.mardomsara.social.ui.views.x.internal.ZCommonXTextViewStates;
  * Created by Hamid on 2/4/2016.
  */
 //// TODO: 3/13/2017 add
+@Deprecated //delete this
 public class XLinkerTextView extends android.support.v7.widget.AppCompatTextView {
     static String TAG ="LinkerText";
 	ZCommonXTextViewStates zCommonXTextViewStates;
