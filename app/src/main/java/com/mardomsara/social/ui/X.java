@@ -94,6 +94,18 @@ public class X {
     }
  //( index .Fields 0).ViewClass
 
+    public static class AddPost_Container {
+        public LinearLayout root;
+
+        public AddPost_Container(ViewGroup parent) {
+            root = (LinearLayout) AppUtil.inflate(R.layout.add_post__container,parent);
+        }
+        public AddPost_Container() {
+            this(null);
+        }
+    }
+ //( index .Fields 0).ViewClass
+
     public static class CellCommontsWithField {
         public RelativeLayout root;
         public RelativeLayout post_row_holder;
@@ -814,6 +826,7 @@ public class X {
 
     public static class Home_AddPostBox {
         public LinearLayout root;
+        public LinearLayout top_holder;
         public ImageView avatar;
         public LinearLayout share_media_buttons_holder;
         public XIcon gallery_btn;
@@ -822,6 +835,7 @@ public class X {
 
         public Home_AddPostBox(ViewGroup parent) {
             root = (LinearLayout) AppUtil.inflate(R.layout.home__add_post_box,parent);
+            top_holder = (LinearLayout) root.findViewById( R.id.top_holder);
             avatar = (ImageView) root.findViewById( R.id.avatar);
             share_media_buttons_holder = (LinearLayout) root.findViewById( R.id.share_media_buttons_holder);
             gallery_btn = (XIcon) root.findViewById( R.id.gallery_btn);

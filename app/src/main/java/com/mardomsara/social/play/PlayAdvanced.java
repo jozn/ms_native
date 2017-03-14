@@ -58,10 +58,6 @@ public class PlayAdvanced extends AppCompatActivity {
         Intent its;
         switch (item.getItemId()){
 
-            case R.id.advanced:
-                its = new Intent(this,PlayAdvanced.class);
-                startActivity(its);
-                break;
 
         }
         return super.onOptionsItemSelected(item);

@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.mardomsara.social.Nav;
 import com.mardomsara.social.base.Http.Http;
 import com.mardomsara.social.base.Http.Result;
 import com.mardomsara.social.helpers.AndroidUtil;
@@ -17,6 +18,7 @@ import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
 import com.mardomsara.social.ui.X;
 import com.mardomsara.social.ui.cells.general.RecentImagesAddPostBoxCell;
 import com.mardomsara.social.ui.cells.general.RecentImagesCell;
+import com.mardomsara.social.ui.presenter.pages.AddPostPage;
 import com.mardomsara.social.ui.ui.UIPostsList;
 import com.mardomsara.social.ui.views.helpers.ViewHelper;
 
@@ -136,6 +138,8 @@ public class PostsHomeCell
 		//must be called after setting layoutManager for x.recycler_view
 		X.Home_AddPostBox addPostBox = new X.Home_AddPostBox(x.recycler_view);
 		adaptor.appendViewToHeader(addPostBox.root);
+
+		addPostBox.top_holder.setOnClickListener((v)-> Nav.push(new AddPostPage()));
 
 		RecentImagesAddPostBoxCell recentImagesCell = new RecentImagesAddPostBoxCell(addPostBox.recent_images_holder);
 		recentImagesCell.insertInto(addPostBox.recent_images_holder);

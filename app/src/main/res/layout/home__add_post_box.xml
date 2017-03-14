@@ -15,6 +15,7 @@
         android:layout_height="70dp"
         android:orientation="horizontal"
         android:background="@drawable/border_bottom_1px"
+        android:id="@+id/top_holder"
         >
         <TextView
             android:layout_width="wrap_content"
