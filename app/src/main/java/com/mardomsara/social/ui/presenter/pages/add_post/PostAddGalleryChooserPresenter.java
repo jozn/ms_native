@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.Context;
 import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -28,6 +29,7 @@ import com.squareup.picasso.Picasso;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.WeakHashMap;
 
 import pl.tajchert.nammu.Nammu;
 import pl.tajchert.nammu.PermissionCallback;
@@ -53,6 +55,7 @@ public class PostAddGalleryChooserPresenter extends BasePresenter {
 
 		Here_RecentImagesGallery galley = new Here_RecentImagesGallery(AppUtil.getContext(),imageCursor);
 		GridLayoutManager layoutManager = new GridLayoutManager(context,3);
+//		LinearLayoutManager layoutManager = new LinearLayoutManager(context);
 		x.recycler_view.setLayoutManager(layoutManager);
 		x.recycler_view.setAdapter(galley);
 
@@ -99,29 +102,49 @@ public class PostAddGalleryChooserPresenter extends BasePresenter {
 
 	///////////////////////////////////////////////////////////////////
 
-	class Here_RecentImagesGallery extends CursorRecyclerViewAdapter<Here_RecentImagesGallery.VH> implements View.OnClickListener {
+	class Here_RecentImagesGallery extends RecyclerView.Adapter<VH> implements View.OnClickListener {
 		ImageCursor _cursor;
 		Here_RecentImagesGallery that;
+		WeakHashMap<String, File> map = new WeakHashMap<>();
 
 		public Here_RecentImagesGallery(Context context, ImageCursor cursor) {
-			super(context, cursor);
+//			super(context, cursor);
 			_cursor = cursor;
 			that = this;
 		}
 
 		@Override
-		public void onBindViewHolder(Here_RecentImagesGallery.VH viewHolder, Cursor cursor, int position) {
-			viewHolder.bind(_cursor,position);
+		public void onBindViewHolder(VH holder, int position) {
+//			holder.bind(_cursor, position);
+			_cursor.moveToPosition(position);
+			String path = _cursor.data();
+			File file = map.get(path);
+			if(file == null){
+				file = new File(path);
+				map.put(path,file);
+			}
+			AppUtil.log("ImageCursor "+ position + " " +_cursor.getCount() + " " + path + " " +file.getAbsolutePath());
+
+//			file = new File("/storage/emulated/0/Soroush/SoroushImages0/1471735527854.jpg");
+//			Bitmap bm = BitmapFactory.decodeFile(path);
+//			holder.x.image.setImageBitmap(bm);
+			Picasso.with(AppUtil.getContext())
+				.load(file)
+				.resize(300,300)
+				.centerCrop()
+//					.load("http://mardomsara.com/1.png")
+				.into(holder.x.image);
+
+		}
+		@Override
+		public VH onCreateViewHolder(ViewGroup parent, int viewType) {
+			return new VH(new X.AddPostGallery_Image(parent));
 		}
 
 		@Override
-		public Here_RecentImagesGallery.VH onCreateViewHolder(ViewGroup parent, int viewType) {
-			return new Here_RecentImagesGallery.VH(new X.AddPostGallery_Image());
-		}
-
-		@Override
-		public void onViewRecycled(Here_RecentImagesGallery.VH holder) {
+		public void onViewRecycled(VH holder) {
 			super.onViewRecycled(holder);
+			AppUtil.log("ImageCursor onViewRecycled ");
 			holder.x.image.setImageBitmap(null);
 		}
 
@@ -130,47 +153,65 @@ public class PostAddGalleryChooserPresenter extends BasePresenter {
 			return _cursor.getCount();
 		}
 
+		@Override
+		public long getItemId(int position) {
+			return super.getItemId(position);
+		}
+
+		@Override
+		public int getItemViewType(int position) {
+			return 0;
+		}
+
 		//on select item
 		@Override
 		public void onClick(View v) {
 
 		}
-
-		public class VH extends RecyclerView.ViewHolder {
-			String filePath;
-
-			X.AddPostGallery_Image x;
-			int imagePosition=0;
-
-			View.OnClickListener onSelect = (v)->{
-				Helper.showMessage("Hi");
-				if(listener != null) listener.onRecentImageClicked(filePath);
-			};
-
-			public VH(X.AddPostGallery_Image x) {
-				super(x.root);
-				this.x = x;
-				x.root.setOnClickListener(onSelect);
-			}
-			Long thisViewcurrentId;
-
-			void bind(ImageCursor imageCursor,int position){
-				imageCursor.moveToPosition(position);
-				String path = imageCursor.data();
-
-				AppUtil.log("ImageCursor "+ position + " " +imageCursor.getCount() + " " + path);
-				File file = new File(path);
-
-				Picasso.with(context)
-					.load(file)
-					.resize(400,400)
-					.centerCrop()
-//					.load("http://mardomsara.com/1.png")
-					.into(x.image);
-
-			}
-		}
-
 	}
+
+	public static class VH extends RecyclerView.ViewHolder {
+		String filePath;
+
+		X.AddPostGallery_Image x;
+		int imagePosition=0;
+		static int i=0;
+
+		View.OnClickListener onSelect = (v)->{
+			Helper.showMessage(" ooo ");
+//			if(listener != null) listener.onRecentImageClicked(filePath);
+		};
+
+		public VH(X.AddPostGallery_Image x) {
+			super(x.root);
+			this.x = x;
+			x.root.setOnClickListener(onSelect);
+			AppUtil.log("ImageCursor +++++ "+ i );
+			int sc = AndroidUtil.getScreenWidth()/3;
+			x.image.getLayoutParams().height = sc;
+			x.image.getLayoutParams().width = sc;
+			i++;
+		}
+		Long thisViewcurrentId;
+
+		File file;
+		void bind(ImageCursor imageCursor,int position){
+			imageCursor.moveToPosition(position);
+			String path = imageCursor.data();
+
+			AppUtil.log("ImageCursor "+ position + " " +imageCursor.getCount() + " " + path);
+			file = new File(path);
+
+			Picasso.with(AppUtil.getContext())
+				.load(file)
+				.resize(300,300)
+				.centerCrop()
+//					.load("http://mardomsara.com/1.png")
+				.into(x.image);
+
+		}
+	}
+
+
 
 }
