@@ -76,12 +76,13 @@
     </LinearLayout>
 
 
-    <TextView
+    <com.mardomsara.social.ui.views.x.XTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/gray"
         android:textSize="12dp"
-        android:fontFamily="@string/font_iran_light"
+        app:xFont="IranLight"
+        android:padding="4dp"
         android:text="از جدیدترین تصاویر چیزی به اشتراک بگذارید"
         />
     <FrameLayout

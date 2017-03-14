@@ -193,6 +193,7 @@ dependencies {
     compile 'com.squareup.moshi:moshi:1.2.0'
 
     compile 'org.greenrobot:essentials:3.0.0-RC1'
+//    compile 'com.flurgle:camerakit:0.9.15'
 
 //    compile 'me.zhanghai.android.materialprogressbar:library:1.3.0'
 

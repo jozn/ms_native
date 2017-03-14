@@ -95,10 +95,28 @@ public class X {
  //( index .Fields 0).ViewClass
 
     public static class AddPost_Container {
-        public LinearLayout root;
+        public RelativeLayout root;
+        public SimpleTopNav top_nav;
+        public LinearLayout top_holder;
+        public ImageView avatar;
+        public ImageView image;
+        public LinearLayout bottom_holder;
+        public LinearLayout share_media_buttons_holder;
+        public XIcon gallery_btn;
+        public XIcon camera_btn;
+        public FrameLayout recent_images_holder;
 
         public AddPost_Container(ViewGroup parent) {
-            root = (LinearLayout) AppUtil.inflate(R.layout.add_post__container,parent);
+            root = (RelativeLayout) AppUtil.inflate(R.layout.add_post__container,parent);
+            top_nav = (SimpleTopNav) root.findViewById( R.id.top_nav);
+            top_holder = (LinearLayout) root.findViewById( R.id.top_holder);
+            avatar = (ImageView) root.findViewById( R.id.avatar);
+            image = (ImageView) root.findViewById( R.id.image);
+            bottom_holder = (LinearLayout) root.findViewById( R.id.bottom_holder);
+            share_media_buttons_holder = (LinearLayout) root.findViewById( R.id.share_media_buttons_holder);
+            gallery_btn = (XIcon) root.findViewById( R.id.gallery_btn);
+            camera_btn = (XIcon) root.findViewById( R.id.camera_btn);
+            recent_images_holder = (FrameLayout) root.findViewById( R.id.recent_images_holder);
         }
         public AddPost_Container() {
             this(null);

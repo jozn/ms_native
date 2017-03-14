@@ -1,10 +1,161 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-      android:orientation="vertical"
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     >
 
+    <com.mardomsara.social.ui.views.wigets.SimpleTopNav
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:id="@+id/top_nav"
+        />
 
-</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/border_bottom_1px"
+        android:id="@+id/top_holder"
+        android:layout_below="@id/top_nav"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="right"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                style="@style/settings.row"
+                android:text="چیزی به اشتراک بزارید"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:layout_gravity="right"
+
+                />
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:id="@+id/avatar"
+                android:src="@drawable/bg_chat3"
+                android:layout_margin="6dp"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="right"
+
+            >
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:id="@+id/image"
+                android:background="@drawable/image_background"
+                />
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="چیزی"
+                android:gravity="right"
+                android:layout_gravity="right"
+                android:layout_weight="1"
+                android:lineSpacingMultiplier="5"
+                android:minLines="25"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bottom_holder"
+        android:background="@color/white"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:layout_alignParentBottom="true"
+        >
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            android:id="@+id/share_media_buttons_holder"
+            android:gravity="right|center_vertical"
+            android:background="@drawable/border_bottom_1px"
+
+            >
+
+            <com.mardomsara.x.iconify.widget.XIcon
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/gallery_btn"
+                android:layout_weight="1"
+                app:xiconRight="ion-images"
+                app:xiconText="گالری"
+                app:xiconColor="#b90101"
+                android:gravity="center"
+                />
+
+            <View
+                android:layout_width="1px"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:background="@color/gray"
+                />
+
+            <com.mardomsara.x.iconify.widget.XIcon
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/camera_btn"
+                android:layout_weight="1"
+                app:xiconRight="ion-camera"
+                app:xiconText="دوربین"
+                app:xiconColor="#00a600"
+                android:gravity="center"
+                android:background="@drawable/border_left"
+                />
+
+
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/gray"
+            android:textSize="12dp"
+            android:fontFamily="@string/font_iran_light"
+            android:text="از جدیدترین تصاویر چیزی به اشتراک بگذارید"
+            />
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:orientation="vertical"
+            android:id="@+id/recent_images_holder"
+            android:background="@color/white"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            >
+
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>

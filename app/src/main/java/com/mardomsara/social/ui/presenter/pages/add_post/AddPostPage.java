@@ -14,4 +14,14 @@ public class AddPostPage extends BasePresenter {
         return x.root;
     }
 
+	@Override
+	public void onFocus() {
+		super.onFocus();
+		
+	}
+
+	@Override
+	public void onBlur() {
+		super.onBlur();
+	}
 }
