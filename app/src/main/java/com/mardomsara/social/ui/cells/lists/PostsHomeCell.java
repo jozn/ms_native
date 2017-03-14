@@ -2,8 +2,6 @@ package com.mardomsara.social.ui.cells.lists;
 
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.view.View;
 import android.view.ViewGroup;
 
 import com.mardomsara.social.Nav;
@@ -16,11 +14,10 @@ import com.mardomsara.social.json.HttpJsonList;
 import com.mardomsara.social.json.social.rows.PostRowJson;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
 import com.mardomsara.social.ui.X;
-import com.mardomsara.social.ui.cells.general.RecentImagesAddPostBoxCell;
-import com.mardomsara.social.ui.cells.general.RecentImagesCell;
-import com.mardomsara.social.ui.presenter.pages.AddPostPage;
+import com.mardomsara.social.ui.presenter.pages.add_post.RecentImagesAddPostBoxCell;
+import com.mardomsara.social.ui.presenter.pages.add_post.AddPostPage;
+import com.mardomsara.social.ui.presenter.pages.add_post.PostAddGalleryChooserPresenter;
 import com.mardomsara.social.ui.ui.UIPostsList;
-import com.mardomsara.social.ui.views.helpers.ViewHelper;
 
 /**
  * Created by Hamid on 8/26/2016.
@@ -140,6 +137,9 @@ public class PostsHomeCell
 		adaptor.appendViewToHeader(addPostBox.root);
 
 		addPostBox.top_holder.setOnClickListener((v)-> Nav.push(new AddPostPage()));
+		addPostBox.gallery_btn.setOnClickListener((v) -> {
+			Nav.push(new PostAddGalleryChooserPresenter());
+		});
 
 		RecentImagesAddPostBoxCell recentImagesCell = new RecentImagesAddPostBoxCell(addPostBox.recent_images_holder);
 		recentImagesCell.insertInto(addPostBox.recent_images_holder);

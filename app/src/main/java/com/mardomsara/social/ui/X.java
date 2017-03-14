@@ -106,6 +106,36 @@ public class X {
     }
  //( index .Fields 0).ViewClass
 
+    public static class AddPostGallery_Container {
+        public LinearLayout root;
+        public SimpleTopNav top_nav;
+        public RecyclerView recycler_view;
+
+        public AddPostGallery_Container(ViewGroup parent) {
+            root = (LinearLayout) AppUtil.inflate(R.layout.add_post_gallery__container,parent);
+            top_nav = (SimpleTopNav) root.findViewById( R.id.top_nav);
+            recycler_view = (RecyclerView) root.findViewById( R.id.recycler_view);
+        }
+        public AddPostGallery_Container() {
+            this(null);
+        }
+    }
+ //( index .Fields 0).ViewClass
+
+    public static class AddPostGallery_Image {
+        public FrameLayout root;
+        public ImageView image;
+
+        public AddPostGallery_Image(ViewGroup parent) {
+            root = (FrameLayout) AppUtil.inflate(R.layout.add_post_gallery__image,parent);
+            image = (ImageView) root.findViewById( R.id.image);
+        }
+        public AddPostGallery_Image() {
+            this(null);
+        }
+    }
+ //( index .Fields 0).ViewClass
+
     public static class CellCommontsWithField {
         public RelativeLayout root;
         public RelativeLayout post_row_holder;

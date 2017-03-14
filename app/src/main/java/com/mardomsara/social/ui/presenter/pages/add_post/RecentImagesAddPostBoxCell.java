@@ -1,4 +1,4 @@
-package com.mardomsara.social.ui.cells.general;
+package com.mardomsara.social.ui.presenter.pages.add_post;
 
 import android.Manifest;
 import android.content.Context;
@@ -30,9 +30,6 @@ import pl.tajchert.nammu.PermissionCallback;
 
 //import jp.wasabeef.recyclerview.adapters.AlphaInAnimationAdapter;
 
-/**
- * Created by Hamid on 6/17/2016.
- */
 //image size is 80dp
 //// TODO: 3/13/2017 merge this class with RecentImages - just one flixibel calss with good api - this class to be the futuer one
 public class RecentImagesAddPostBoxCell {

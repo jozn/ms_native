@@ -1,4 +1,4 @@
-package com.mardomsara.social.ui.presenter.pages;
+package com.mardomsara.social.ui.presenter.pages.add_post;
 
 import android.view.View;
 
