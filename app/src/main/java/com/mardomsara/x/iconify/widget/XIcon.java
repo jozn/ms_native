@@ -119,7 +119,7 @@ public class XIcon extends AppCompatTextView implements HasOnViewAttachListener 
 
 		//text
 		if(textStr != null){
-			setTypeface(FontCache.getIranMedium());
+			setTypeface(FontCache.getIran());
 			spanny.append(halfSpace, new AbsoluteSizeSpan(iconSizePx));
 			spanny.append(textStr);
 			spanny.append(halfSpace, new AbsoluteSizeSpan(iconSizePx));

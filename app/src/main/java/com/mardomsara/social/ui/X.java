@@ -96,9 +96,11 @@ public class X {
 
     public static class AddPost_Container {
         public RelativeLayout root;
-        public SimpleTopNav top_nav;
+        public LinearLayout top_custom_nav;
+        public XTextView send_btn;
+        public TextView nav_title_text;
+        public TextView back_btn;
         public LinearLayout top_holder;
-        public ImageView avatar;
         public ImageView image;
         public LinearLayout bottom_holder;
         public LinearLayout share_media_buttons_holder;
@@ -108,9 +110,11 @@ public class X {
 
         public AddPost_Container(ViewGroup parent) {
             root = (RelativeLayout) AppUtil.inflate(R.layout.add_post__container,parent);
-            top_nav = (SimpleTopNav) root.findViewById( R.id.top_nav);
+            top_custom_nav = (LinearLayout) root.findViewById( R.id.top_custom_nav);
+            send_btn = (XTextView) root.findViewById( R.id.send_btn);
+            nav_title_text = (TextView) root.findViewById( R.id.nav_title_text);
+            back_btn = (TextView) root.findViewById( R.id.back_btn);
             top_holder = (LinearLayout) root.findViewById( R.id.top_holder);
-            avatar = (ImageView) root.findViewById( R.id.avatar);
             image = (ImageView) root.findViewById( R.id.image);
             bottom_holder = (LinearLayout) root.findViewById( R.id.bottom_holder);
             share_media_buttons_holder = (LinearLayout) root.findViewById( R.id.share_media_buttons_holder);
