@@ -39,6 +39,8 @@ public class RecentImagesAddPostBoxCell {
 
     List<String> selected = new ArrayList<>();
 
+	RecentImagesGallery galley;
+
 	X.RecentImagesPostBox_RecyclerView x = new X.RecentImagesPostBox_RecyclerView();
 	Context context = AppUtil.getContext();
 
@@ -50,7 +52,7 @@ public class RecentImagesAddPostBoxCell {
     void afterPermissionsGranted(){
         ImageCursor imageCursor = ImageProviderHelper.getLastImages();
 
-        RecentImagesGallery galley = new RecentImagesGallery(AppUtil.getContext(),imageCursor);
+        galley = new RecentImagesGallery(AppUtil.getContext(),imageCursor);
 
 		//// TODO: 11/15/2016 add animatio with suport library comtaible
 		/*AlphaInAnimationAdapter anim = new AlphaInAnimationAdapter(galley,0.3f);
@@ -96,6 +98,18 @@ public class RecentImagesAddPostBoxCell {
     public void setListener(onRecentImageClicked listener) {
         this.listener = listener;
     }
+
+    public void selectNone(){
+		selected.clear();
+		galley.notifyDataSetChanged();
+	}
+
+	public void select(String path){
+		if(!selected.contains(path)){
+			selected.add(path);
+		}
+		galley.notifyDataSetChanged();
+	}
 
 
     ////////////////////////////////////////

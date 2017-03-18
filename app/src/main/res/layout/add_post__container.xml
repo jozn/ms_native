@@ -55,7 +55,7 @@
         android:background="@drawable/border_bottom_1px"
         android:id="@+id/top_holder"
         android:layout_below="@id/top_custom_nav"
-        android:layout_margin="4dp"
+        android:layout_margin="10dp"
         >
 
         <!-- Inputs -->
@@ -65,17 +65,39 @@
             android:layout_weight="1"
             android:orientation="horizontal"
             android:gravity="right"
-            android:padding="6dp"
+            android:padding="0dp"
 
             >
-            <ImageView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:id="@+id/image"
-                android:background="@drawable/image_background"
-                android:layout_marginLeft="4dp"
-                android:layout_marginRight="4dp"
-                />
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                >
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:id="@+id/image"
+                    android:background="@drawable/image_background_radius_4dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_centerInParent="true"
+                    />
+
+                <com.mardomsara.x.iconify.widget.XIcon
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/cancel_image"
+                    app:xiconRight="ion-android-close"
+                    android:background="@color/transparent_1"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:padding="4dp"
+                    app:xiconSize="24dp"
+                    app:xiconColor="@color/text_black_6"
+                    />
+
+            </RelativeLayout>
+
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

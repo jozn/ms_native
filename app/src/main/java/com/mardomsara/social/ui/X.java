@@ -102,6 +102,7 @@ public class X {
         public TextView back_btn;
         public LinearLayout top_holder;
         public ImageView image;
+        public XIcon cancel_image;
         public LinearLayout bottom_holder;
         public LinearLayout share_media_buttons_holder;
         public XIcon gallery_btn;
@@ -116,6 +117,7 @@ public class X {
             back_btn = (TextView) root.findViewById( R.id.back_btn);
             top_holder = (LinearLayout) root.findViewById( R.id.top_holder);
             image = (ImageView) root.findViewById( R.id.image);
+            cancel_image = (XIcon) root.findViewById( R.id.cancel_image);
             bottom_holder = (LinearLayout) root.findViewById( R.id.bottom_holder);
             share_media_buttons_holder = (LinearLayout) root.findViewById( R.id.share_media_buttons_holder);
             gallery_btn = (XIcon) root.findViewById( R.id.gallery_btn);
