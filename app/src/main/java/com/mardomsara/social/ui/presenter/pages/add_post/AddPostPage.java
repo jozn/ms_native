@@ -52,7 +52,7 @@ public class AddPostPage extends BasePresenter {
 		});
 		recentImagesCell.insertInto(x.recent_images_holder);
 		x.cancel_image.setOnClickListener((v)-> selectNoImage());
-		x.send_btn2.setOnClickListener((v)->sendPost());
+		x.top_nav.setOnLeftClick(()->sendPost());
 
 
 		return x.root;

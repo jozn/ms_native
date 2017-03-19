@@ -97,10 +97,7 @@ public class X {
 
     public static class AddPost_Container {
         public RelativeLayout root;
-        public LinearLayout top_custom_nav;
-        public XTextView send_btn;
-        public TextView nav_title_text;
-        public TextView back_btn;
+        public XTopNav top_nav;
         public LinearLayout top_holder;
         public ImageView image;
         public XIcon cancel_image;
@@ -109,15 +106,11 @@ public class X {
         public LinearLayout share_media_buttons_holder;
         public XIcon gallery_btn;
         public XIcon camera_btn;
-        public XTextView send_btn2;
         public FrameLayout recent_images_holder;
 
         public AddPost_Container(ViewGroup parent) {
             root = (RelativeLayout) AppUtil.inflate(R.layout.add_post__container,parent);
-            top_custom_nav = (LinearLayout) root.findViewById( R.id.top_custom_nav);
-            send_btn = (XTextView) root.findViewById( R.id.send_btn);
-            nav_title_text = (TextView) root.findViewById( R.id.nav_title_text);
-            back_btn = (TextView) root.findViewById( R.id.back_btn);
+            top_nav = (XTopNav) root.findViewById( R.id.top_nav);
             top_holder = (LinearLayout) root.findViewById( R.id.top_holder);
             image = (ImageView) root.findViewById( R.id.image);
             cancel_image = (XIcon) root.findViewById( R.id.cancel_image);
@@ -126,7 +119,6 @@ public class X {
             share_media_buttons_holder = (LinearLayout) root.findViewById( R.id.share_media_buttons_holder);
             gallery_btn = (XIcon) root.findViewById( R.id.gallery_btn);
             camera_btn = (XIcon) root.findViewById( R.id.camera_btn);
-            send_btn2 = (XTextView) root.findViewById( R.id.send_btn2);
             recent_images_holder = (FrameLayout) root.findViewById( R.id.recent_images_holder);
         }
         public AddPost_Container() {
@@ -2291,14 +2283,14 @@ public class X {
     }
  //( index .Fields 0).ViewClass
 
-    public static class XTopNav {
+    public static class X_TopNav {
         public ViewGroup root;
         public XTextView left_text;
         public XTextView title_text;
         public XIcon back_btn;
 
-        public XTopNav(ViewGroup parent) {
-            root = (ViewGroup) AppUtil.inflate(R.layout.x_top_nav,parent,true);//for Compound Views
+        public X_TopNav(ViewGroup parent) {
+            root = (ViewGroup) AppUtil.inflate(R.layout.x__top_nav_,parent,true);//for Compound Views
             
             left_text = (XTextView) root.findViewById( R.id.left_text);
             title_text = (XTextView) root.findViewById( R.id.title_text);

@@ -9,7 +9,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:minWidth="50dp"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:paddingLeft="10dp"
         android:paddingRight="20dp"
@@ -28,7 +28,7 @@
         android:gravity="center"
         android:layout_centerInParent="true"
         android:textColor="@color/light_blue_2"
-        app:xFont="IranLight"
+        app:xFont="Iran"
         android:textSize="16dp"
         />
 
@@ -45,7 +45,7 @@
         android:id="@+id/back_btn"
         app:xiconRight="ion-ios-arrow-forward"
         app:xiconColor="@color/light_blue_2"
-        app:xiconSize="28dp"
+        app:xiconSize="34dp"
 
         />
 
