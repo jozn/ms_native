@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <!--    <com.mardomsara.social.ui.views.wigets.SimpleTopNav
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:id="@+id/top_nav"
+        />-->
+    <!-- Nav -->
+    <!--    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/top_custom_nav"
+        android:orientation="horizontal"
+        android:background="@drawable/background_tab"
+        >
+        <com.mardomsara.social.ui.views.x.XTextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/send_btn"
+            android:text="بفرس"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/nav_title_text"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_centerInParent="true"
+            style="@style/top_nav.title"
+            />
+
+        <TextView
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:id="@+id/back_btn"
+            android:text="\uf3d1"
+            style="@style/back_nav_btn"
+            />
+    </LinearLayout>-->
+
+    <com.mardomsara.social.ui.views.x.XTopNav
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:id="@+id/top_nav"
+        app:xTitle="افزودن پست"
+        app:xLeftTitle="بفرس"
+
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toTopOf="@+id/top_holder"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintDimensionRatio="w,1:1"/>
+
+    <!-- Avatar and input -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/border_bottom_1px"
+        android:id="@+id/top_holder"
+        app:layout_constraintRight_toLeftOf="@+id/top_nav"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toBottomOf="@+id/bottom_holder"
+        android:layout_marginTop="49dp"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="62dp"
+        app:layout_constraintLeft_toLeftOf="@+id/top_nav"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- Inputs -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="right"
+            android:padding="10dp"
+
+            >
+
+            <android.support.percent.PercentRelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                >
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:id="@+id/image"
+                    android:background="@drawable/image_background_radius_4dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_centerInParent="true"
+                    />
+
+                <com.mardomsara.x.iconify.widget.XIcon
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/cancel_image"
+                    app:xiconRight="ion-android-close"
+                    android:background="@color/transparent_1"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_toRightOf="@id/image"
+                    android:padding="4dp"
+                    app:xiconSize="24dp"
+                    app:xiconColor="@color/text_black_6"
+                    app:layout_widthPercent="80%"
+                    app:layout_heightPercent="80%"
+                    />
+
+
+            </android.support.percent.PercentRelativeLayout>
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/add_post_input"
+                android:hint="چیزی"
+                android:gravity="right"
+                android:layout_gravity="right"
+                android:layout_weight="1"
+                android:lineSpacingMultiplier="5"
+                android:minLines="3"
+                android:id="@+id/post_field"
+                />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3px"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_below="@id/top_holder"
+            android:background="@color/border_gray"
+            />
+
+    </LinearLayout>
+
+
+    <!-- Gallery butns and Recent images -->
+    <LinearLayout
+        android:id="@+id/bottom_holder"
+        android:layout_width="354dp"
+        android:layout_height="141dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:background="@color/white"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1">
+
+        <LinearLayout
+            android:id="@+id/share_media_buttons_holder"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/border_top_and_bottom_1px"
+            android:gravity="right|center_vertical"
+            android:orientation="horizontal"
+
+            >
+
+            <com.mardomsara.x.iconify.widget.XIcon
+                android:id="@+id/gallery_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                app:xiconColor="#b90101"
+                app:xiconRight="ion-images"
+                app:xiconText="گالری"
+                />
+
+            <View
+                android:layout_width="1px"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:background="@color/gray"
+                />
+
+            <com.mardomsara.x.iconify.widget.XIcon
+                android:id="@+id/camera_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/border_left"
+                android:gravity="center"
+                app:xiconColor="#00a600"
+                app:xiconRight="ion-camera"
+                app:xiconText="دوربین"
+                />
+
+        </LinearLayout>
+
+
+        <com.mardomsara.social.ui.views.x.XTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingRight="10dp"
+            android:text="از جدیدترین تصاویر چیزی به اشتراک بگذارید"
+            android:textColor="@color/gray"
+            android:textSize="12dp"
+            app:xFont="IranLight"
+            />
+
+        <FrameLayout
+            android:id="@+id/recent_images_holder"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:layout_marginBottom="4dp"
+            android:layout_marginTop="4dp"
+            android:background="@color/white"
+            android:orientation="vertical"
+            >
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>

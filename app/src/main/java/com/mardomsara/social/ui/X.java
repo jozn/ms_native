@@ -6,6 +6,7 @@ import android.view.*;
 import android.webkit.WebView;
 
 
+import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.TabLayout;
 import android.support.percent.PercentRelativeLayout;
 import android.support.v4.view.ViewPager;
@@ -122,6 +123,38 @@ public class X {
             recent_images_holder = (FrameLayout) root.findViewById( R.id.recent_images_holder);
         }
         public AddPost_Container() {
+            this(null);
+        }
+    }
+ //( index .Fields 0).ViewClass
+
+    public static class AddPost_Container1 {
+        public ConstraintLayout root;
+        public XTopNav top_nav;
+        public LinearLayout top_holder;
+        public ImageView image;
+        public XIcon cancel_image;
+        public EditText post_field;
+        public LinearLayout bottom_holder;
+        public LinearLayout share_media_buttons_holder;
+        public XIcon gallery_btn;
+        public XIcon camera_btn;
+        public FrameLayout recent_images_holder;
+
+        public AddPost_Container1(ViewGroup parent) {
+            root = (ConstraintLayout) AppUtil.inflate(R.layout.add_post__container1,parent);
+            top_nav = (XTopNav) root.findViewById( R.id.top_nav);
+            top_holder = (LinearLayout) root.findViewById( R.id.top_holder);
+            image = (ImageView) root.findViewById( R.id.image);
+            cancel_image = (XIcon) root.findViewById( R.id.cancel_image);
+            post_field = (EditText) root.findViewById( R.id.post_field);
+            bottom_holder = (LinearLayout) root.findViewById( R.id.bottom_holder);
+            share_media_buttons_holder = (LinearLayout) root.findViewById( R.id.share_media_buttons_holder);
+            gallery_btn = (XIcon) root.findViewById( R.id.gallery_btn);
+            camera_btn = (XIcon) root.findViewById( R.id.camera_btn);
+            recent_images_holder = (FrameLayout) root.findViewById( R.id.recent_images_holder);
+        }
+        public AddPost_Container1() {
             this(null);
         }
     }
