@@ -73,20 +73,23 @@
 
             </RelativeLayout>
 
-            <com.mardomsara.emojicon.EmojiconEditText
+            <com.mardomsara.social.ui.views.x.XEditTextView
                 android:layout_alignParentTop="true"
                 android:layout_alignParentRight="true"
                 android:layout_toRightOf="@id/left_side"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/add_post_input"
-                android:hint="چیزی  f"
+                android:hint="چیزی یرای اشتراک بنویسید..."
                 android:gravity="right"
                 android:layout_gravity="right"
                 android:layout_weight="1"
                 android:lineSpacingMultiplier="5"
                 android:minLines="3"
                 android:id="@+id/post_field"
+                app:xFont="IranLight"
+                android:textSize="14dp"
+                android:textColor="@color/black"
                 />
         </RelativeLayout>
 

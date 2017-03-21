@@ -40,7 +40,7 @@ import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.X;
 import com.mardomsara.social.ui.cells.chats.adaptors.ChatEntryAdaptor;
 import com.mardomsara.social.ui.cells.general.KeyboardAttachmentCell;
-import com.mardomsara.social.ui.views.EmojiKeyboard;
+import com.mardomsara.social.ui.views.EmojiKeyboard_OLD;
 import com.squareup.picasso.Picasso;
 import com.sw926.imagefileselector.ImageFileSelector;
 
@@ -74,7 +74,7 @@ public class ChatRoomPresenter extends BasePresenter implements
 
     IntentHelper intentHelper;
     Uri file_uri;
-    EmojiKeyboard emojiKeyboard;
+    EmojiKeyboard_OLD emojiKeyboard;
 
 	X.Chat_EntryRoom x;
 
@@ -118,7 +118,7 @@ public class ChatRoomPresenter extends BasePresenter implements
         x.room_name.setText(room.getRoomName());
         App.getBus().register(this);
 
-        emojiKeyboard = new EmojiKeyboard(x.edit_field,x.emoji_opener_btn, AppUtil.global_window);
+        emojiKeyboard = new EmojiKeyboard_OLD(x.edit_field,x.emoji_opener_btn, AppUtil.global_window);
 
         that = this;
         x.attach_btn.setOnClickListener((v)->{ showAttachmentWindow();});

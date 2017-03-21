@@ -1,9 +1,7 @@
 package com.mardomsara.social.ui.presenter.pages.add_post;
 
 import android.view.View;
-import android.view.WindowManager;
 
-import com.mardomsara.social.App;
 import com.mardomsara.social.Nav;
 import com.mardomsara.social.base.Http.Http;
 import com.mardomsara.social.helpers.AppUtil;

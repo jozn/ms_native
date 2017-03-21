@@ -12,6 +12,18 @@
     </attr>
     <attr name="xEnableLinker" format="boolean" />
 
+    <!-- For emoji attrs -->
+    <attr name="xEnableEmoji" format="boolean"/>
+    <attr name="xLimitText" format="integer"/>
+
+    <attr name="xEmojiconSize" format="dimension" />
+    <attr name="xEmojiconAlignment" format="enum">
+        <enum name="bottom" value="0" />
+        <enum name="baseline" value="1" />
+    </attr>
+    <attr name="xEmojiconTextStart" format="integer" />
+    <attr name="xEmojiconTextLength" format="integer" />
+    <attr name="xEmojiconUseSystemDefault" format="boolean" />
     <!-- ======================== -->
 
     <declare-styleable name="CountView2">
@@ -40,7 +52,29 @@
     <declare-styleable name="XTextView" >
         <attr name="xFont" />
         <attr name="xEnableLinker" />
-        <attr name="xEnableEmoji" format="boolean"/>
+        <attr name="xEnableEmoji" />
+        <attr name="xLimitText" />
+
+        <attr name="xEmojiconSize"/>
+        <attr name="xEmojiconAlignment" />
+        <attr name="xEmojiconTextStart" />
+        <attr name="xEmojiconTextLength" />
+        <attr name="xEmojiconUseSystemDefault" />
+
+    </declare-styleable>
+
+    <declare-styleable name="XEditTextView" >
+        <attr name="xFont" />
+        <attr name="xEnableLinker" />
+        <attr name="xEnableEmoji" />
+        <attr name="xLimitText" />
+
+        <attr name="xEmojiconSize"/>
+        <attr name="xEmojiconAlignment" />
+        <attr name="xEmojiconTextStart" />
+        <attr name="xEmojiconTextLength" />
+        <attr name="xEmojiconUseSystemDefault" />
+<!--        <attr name="xEnableEmoji" format="boolean"/>
         <attr name="xLimitText" format="integer"/>
 
         <attr name="xEmojiconSize" format="dimension" />
@@ -50,7 +84,7 @@
         </attr>
         <attr name="xEmojiconTextStart" format="integer" />
         <attr name="xEmojiconTextLength" format="integer" />
-        <attr name="xEmojiconUseSystemDefault" format="boolean" />
+        <attr name="xEmojiconUseSystemDefault" format="boolean" />-->
 
     </declare-styleable>
 

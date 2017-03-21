@@ -16,13 +16,12 @@ import com.mardomsara.emojicon.emoji.Emojicon;
 import com.mardomsara.social.App;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
-import com.mardomsara.social.ui.views.x.XEditTextView;
 
 /**
  * Created by Hamid on 5/15/2016.
  */
-public class EmojiKeyboard {
-	XEditTextView emojiconEditText;
+public class EmojiKeyboard_OLD {
+    EmojiconEditText emojiconEditText;
     View rootView ;
     ImageView emojiButton;
 
@@ -35,7 +34,7 @@ public class EmojiKeyboard {
     String textIconKeyboard = "\uE837";
     String textIconFace = "\uE854";
 
-    public EmojiKeyboard(XEditTextView emojiconEditText, TextView emojiIcon, View rootView) {
+    public EmojiKeyboard_OLD(EmojiconEditText emojiconEditText, TextView emojiIcon, View rootView) {
         this.emojiconEditText = emojiconEditText;
         this.emojiIcon = emojiIcon;
         this.rootView = rootView;
@@ -82,7 +81,7 @@ public class EmojiKeyboard {
 
             @Override
             public void onEmojiconClicked(Emojicon emojicon) {
-				activeEmojiKeyboard  = EmojiKeyboard.this;
+				activeEmojiKeyboard  = EmojiKeyboard_OLD.this;
                 if (emojiconEditText == null || emojicon == null) {
                     return;
                 }
@@ -104,7 +103,7 @@ public class EmojiKeyboard {
 
             @Override
             public void onEmojiconBackspaceClicked(View v) {
-				activeEmojiKeyboard  = EmojiKeyboard.this;
+				activeEmojiKeyboard  = EmojiKeyboard_OLD.this;
 
                 KeyEvent event = new KeyEvent(
                         0, 0, 0, KeyEvent.KEYCODE_DEL, 0, 0, 0, 0, KeyEvent.KEYCODE_ENDCALL);
@@ -119,7 +118,7 @@ public class EmojiKeyboard {
             @Override
             public void onClick(View v) {
 				popup.setCurrentListnerToMe();
-				activeEmojiKeyboard  = EmojiKeyboard.this;
+				activeEmojiKeyboard  = EmojiKeyboard_OLD.this;
 
                 //If popup is not showing => emoji keyboard is not visible, we need to show it
                 if(!popup.isShowing()){
@@ -188,7 +187,7 @@ public class EmojiKeyboard {
 
 	/////// funcs relateted to closing EmojiKeyboard on bluer
 
-	static EmojiKeyboard activeEmojiKeyboard = null;
+	static EmojiKeyboard_OLD activeEmojiKeyboard = null;
 
 	public static void closeEmojiKeyboard(){
 		if(activeEmojiKeyboard != null){

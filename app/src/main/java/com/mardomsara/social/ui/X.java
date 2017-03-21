@@ -31,6 +31,7 @@ import com.mardomsara.social.ui.views.wigets.SimpleAddText;
 import com.mardomsara.social.ui.views.wigets.SimpleTopNav;
 import com.mardomsara.social.ui.views.wigets.TextViewWithIcon_DEP;
 import com.mardomsara.social.ui.views.wigets.UserListGeneralFollowRowWhithBorderLinearLayout;
+import com.mardomsara.social.ui.views.x.XEditTextView;
 import com.mardomsara.social.ui.views.x.XTextView;
 import com.mardomsara.social.ui.views.x.XTopNav;
 import com.mardomsara.social.ui.views.x.dep.XEmojiLinkerTextView;
@@ -104,7 +105,7 @@ public class X {
         public RelativeLayout left_side;
         public ImageView image;
         public XIcon cancel_image;
-        public EmojiconEditText post_field;
+        public XEditTextView post_field;
         public LinearLayout bottom_holder;
         public LinearLayout share_media_buttons_holder;
         public XIcon gallery_btn;
@@ -119,7 +120,7 @@ public class X {
             left_side = (RelativeLayout) root.findViewById( R.id.left_side);
             image = (ImageView) root.findViewById( R.id.image);
             cancel_image = (XIcon) root.findViewById( R.id.cancel_image);
-            post_field = (EmojiconEditText) root.findViewById( R.id.post_field);
+            post_field = (XEditTextView) root.findViewById( R.id.post_field);
             bottom_holder = (LinearLayout) root.findViewById( R.id.bottom_holder);
             share_media_buttons_holder = (LinearLayout) root.findViewById( R.id.share_media_buttons_holder);
             gallery_btn = (XIcon) root.findViewById( R.id.gallery_btn);
