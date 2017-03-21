@@ -53,19 +53,22 @@ public class XEditTextView extends AppCompatEditText {
     }
 
     private void init(AttributeSet attrs) {
-        TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.XEditTextView);
-        mEmojiconSize = (int) a.getDimension(R.styleable.XEditTextView_xEmojiconSize, getTextSize());
-        mEmojiconAlignment = a.getInt(R.styleable.XEditTextView_xEmojiconAlignment, DynamicDrawableSpan.ALIGN_BASELINE);
-        mUseSystemDefault = a.getBoolean(R.styleable.XEditTextView_xEmojiconUseSystemDefault, false);
-        a.recycle();
-        mEmojiconTextSize = (int) getTextSize();
-        mEmojiconSize = (int) Math.round(1.5 * mEmojiconSize);//alwase
+		TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.XEditTextView);
+		try {
+			mEmojiconSize = (int) a.getDimension(R.styleable.XEditTextView_xEmojiconSize, getTextSize());
+			mEmojiconAlignment = a.getInt(R.styleable.XEditTextView_xEmojiconAlignment, DynamicDrawableSpan.ALIGN_BASELINE);
+			mUseSystemDefault = a.getBoolean(R.styleable.XEditTextView_xEmojiconUseSystemDefault, false);
+			mEmojiconTextSize = (int) getTextSize();
+			mEmojiconSize = (int) Math.round(1.5 * mEmojiconSize);//alwase
 
-		//font iran
-		int indx = a.getInteger(R.styleable.XLinkerTextView_xFont,0);
-		iranFonts = IranFonts.values()[indx];
+			//font iran
+			int indx = a.getInteger(R.styleable.XEditTextView_xFont,0);
+			iranFonts = IranFonts.values()[indx];
+		}finally {
+			a.recycle();
+		}
+
 		setTypeface(FontCache.get(iranFonts.path));
-
         setText(getText());
     }
 
