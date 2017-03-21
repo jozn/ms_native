@@ -99,10 +99,12 @@ public class X {
     public static class AddPost_Container {
         public RelativeLayout root;
         public XTopNav top_nav;
-        public LinearLayout top_holder;
+        public RelativeLayout top_holder;
+        public TextView emoji_opener_btn;
+        public RelativeLayout left_side;
         public ImageView image;
         public XIcon cancel_image;
-        public EditText post_field;
+        public EmojiconEditText post_field;
         public LinearLayout bottom_holder;
         public LinearLayout share_media_buttons_holder;
         public XIcon gallery_btn;
@@ -112,10 +114,12 @@ public class X {
         public AddPost_Container(ViewGroup parent) {
             root = (RelativeLayout) AppUtil.inflate(R.layout.add_post__container,parent);
             top_nav = (XTopNav) root.findViewById( R.id.top_nav);
-            top_holder = (LinearLayout) root.findViewById( R.id.top_holder);
+            top_holder = (RelativeLayout) root.findViewById( R.id.top_holder);
+            emoji_opener_btn = (TextView) root.findViewById( R.id.emoji_opener_btn);
+            left_side = (RelativeLayout) root.findViewById( R.id.left_side);
             image = (ImageView) root.findViewById( R.id.image);
             cancel_image = (XIcon) root.findViewById( R.id.cancel_image);
-            post_field = (EditText) root.findViewById( R.id.post_field);
+            post_field = (EmojiconEditText) root.findViewById( R.id.post_field);
             bottom_holder = (LinearLayout) root.findViewById( R.id.bottom_holder);
             share_media_buttons_holder = (LinearLayout) root.findViewById( R.id.share_media_buttons_holder);
             gallery_btn = (XIcon) root.findViewById( R.id.gallery_btn);

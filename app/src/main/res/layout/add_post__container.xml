@@ -17,7 +17,7 @@
         />
 
     <!-- Avatar and input -->
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -29,10 +29,22 @@
         >
 
         <!-- Inputs -->
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:id="@+id/emoji_opener_btn"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:gravity="center"
+                />
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
+                android:minWidth="80dp"
+                android:minHeight="80dp"
+                android:layout_below="@id/emoji_opener_btn"
+                android:layout_alignParentLeft="true"
+                android:id="@+id/left_side"
                 >
                 <ImageView
                     android:layout_width="80dp"
@@ -52,9 +64,8 @@
                     android:background="@color/transparent_1"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentLeft="true"
-                    android:layout_toRightOf="@id/image"
                     android:padding="4dp"
-                    android:layout_margin="6dp"
+                    android:layout_margin="4dp"
                     app:xiconSize="24dp"
                     app:xiconColor="@color/text_black_6"
                     />
@@ -62,11 +73,14 @@
 
             </RelativeLayout>
 
-            <EditText
+            <com.mardomsara.emojicon.EmojiconEditText
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_toRightOf="@id/left_side"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/add_post_input"
-                android:hint="چیزی"
+                android:hint="چیزی  f"
                 android:gravity="right"
                 android:layout_gravity="right"
                 android:layout_weight="1"
@@ -74,7 +88,7 @@
                 android:minLines="3"
                 android:id="@+id/post_field"
                 />
-        </LinearLayout>
+        </RelativeLayout>
 
 
     <!-- Gallery butns and Recent images -->

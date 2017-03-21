@@ -37,6 +37,10 @@ public class Nav {
 		getDefaultTree().push(page);
     }
 
+	public static void replace(PresenterPage page){
+		getDefaultTree().replace(page);
+	}
+
     public static void pop() {
 		getDefaultTree().pop();
     }
@@ -215,6 +219,18 @@ public class Nav {
 			bc.pageStacks.add(page);
 			getContainerFrame().addView(page.getFinalView(containerFrame));
 			page.onFocus();
+		}
+
+		public void replace(PresenterPage page){
+			PresenterPage last = getLastPage();
+
+			BranchCell bc = _getActiveBranchCell();
+
+			if(last!=null){
+				bc.pageStacks.remove(last);
+			}
+
+			replace(page);
 		}
 
 		public void pop() {

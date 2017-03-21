@@ -9,6 +9,7 @@ import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.X;
+import com.mardomsara.social.ui.views.EmojiKeyboard;
 import com.squareup.picasso.Picasso;
 
 import java.io.File;
@@ -54,9 +55,11 @@ public class AddPostPage extends BasePresenter {
 		x.cancel_image.setOnClickListener((v)-> selectNoImage());
 		x.top_nav.setOnLeftClick(()->sendPost());
 
+		EmojiKeyboard emojiKeybord= new EmojiKeyboard(x.post_field ,x.emoji_opener_btn, AppUtil.global_window);
 
 		return x.root;
     }
+
 
 	private void sendPost() {
 		Helper.showDebugMessage("sendPost");
