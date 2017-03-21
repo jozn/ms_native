@@ -1,6 +1,7 @@
 package com.mardomsara.social.ui.presenter.pages.add_post;
 
 import android.view.View;
+import android.view.WindowManager;
 
 import com.mardomsara.social.App;
 import com.mardomsara.social.Nav;
@@ -56,6 +57,9 @@ public class AddPostPage extends BasePresenter {
 		x.top_nav.setOnLeftClick(()->sendPost());
 
 		EmojiKeyboard emojiKeybord= new EmojiKeyboard(x.post_field ,x.emoji_opener_btn, AppUtil.global_window);
+
+//		getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
+		keyboard_noResize();
 
 		return x.root;
     }

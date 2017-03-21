@@ -136,7 +136,7 @@ public class EmojiKeyboard {
                         emojiconEditText.requestFocus();
                         popup.showAtBottomPending();
                         final InputMethodManager inputMethodManager = (InputMethodManager) App.getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
-                        inputMethodManager.showSoftInput(emojiconEditText, InputMethodManager.SHOW_IMPLICIT);
+                        inputMethodManager.showSoftInput(emojiconEditText, InputMethodManager.SHOW_FORCED);
 //                        changeEmojiKeyboardIcon(emojiButton, R.drawable.e_1f1e8_1f1f1);
 //                        changeTextIcon(textIconKeyboard);
                     }

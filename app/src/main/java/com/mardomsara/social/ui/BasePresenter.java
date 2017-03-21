@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 
 import com.mardomsara.social.App;
 import com.mardomsara.social.PresenterPage;
@@ -83,6 +84,14 @@ public  abstract class BasePresenter implements PresenterPage {
     public Context getContext(){
         return activity;
     }
+
+    public void keyboard_noResize(){
+		getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
+	}
+
+	public void keyboard_adjust(){
+		getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
+	}
 
 	/*//todo remove this
 	@Deprecated
