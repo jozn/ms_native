@@ -8,6 +8,7 @@ import android.webkit.WebView;
 
 import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.TabLayout;
+import android.support.percent.PercentFrameLayout;
 import android.support.percent.PercentRelativeLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -1768,6 +1769,38 @@ public class X {
             loading = (LoadingView) root.findViewById( R.id.loading);
         }
         public Post_SingleEntryHolder() {
+            this(null);
+        }
+    }
+ //( index .Fields 0).ViewClass
+
+    public static class PostRow_Parent {
+        public RelativeLayout root;
+        public RelativeLayout post_row_holder;
+        public TextView date;
+        public SimpleDraweeView avatar;
+        public TextView fullname;
+        public XEmojiLinkerTextView text;
+        public ImageView image;
+        public LinearLayout counts_info;
+        public TextViewWithIcon_DEP comment_count;
+        public TextViewWithIcon_DEP likes_count;
+        public TextView like_btn;
+
+        public PostRow_Parent(ViewGroup parent) {
+            root = (RelativeLayout) AppUtil.inflate(R.layout.post_row__parent,parent);
+            post_row_holder = (RelativeLayout) root.findViewById( R.id.post_row_holder);
+            date = (TextView) root.findViewById( R.id.date);
+            avatar = (SimpleDraweeView) root.findViewById( R.id.avatar);
+            fullname = (TextView) root.findViewById( R.id.fullname);
+            text = (XEmojiLinkerTextView) root.findViewById( R.id.text);
+            image = (ImageView) root.findViewById( R.id.image);
+            counts_info = (LinearLayout) root.findViewById( R.id.counts_info);
+            comment_count = (TextViewWithIcon_DEP) root.findViewById( R.id.comment_count);
+            likes_count = (TextViewWithIcon_DEP) root.findViewById( R.id.likes_count);
+            like_btn = (TextView) root.findViewById( R.id.like_btn);
+        }
+        public PostRow_Parent() {
             this(null);
         }
     }

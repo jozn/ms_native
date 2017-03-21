@@ -17,6 +17,7 @@ import java.util.List;
 /**
  * Created by Hamid on 8/3/2016.
  */
+@Deprecated
 public class UIPostsList {
 
     public static RecyclerView buildNew(List<PostRowJson> posts){

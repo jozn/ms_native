@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="0dp"
+    android:background="@color/white"
+    android:id="@+id/post_row_holder">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:layout_gravity="left"
+        android:id="@+id/date"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        style="@style/post_row.date"
+        />
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"/>
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@id/avatar"
+        android:layout_gravity="right|center_vertical"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        style="@style/post_row.avatar"
+        fresco:roundAsCircle="false"
+        fresco:roundedCornerRadius="6dp"
+
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:layout_gravity="right"
+        android:id="@+id/fullname"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@id/avatar"
+        style="@style/post_row.fullname"
+
+        />
+
+    <com.mardomsara.social.ui.views.x.dep.XEmojiLinkerTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/text"
+        android:layout_toLeftOf="@id/avatar"
+        android:layout_below="@id/fullname"
+        android:text="ssvvvvss"
+        style="@style/post_row.text"
+
+        />
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text"
+        android:orientation="vertical"
+        android:layout_marginLeft="20dp"
+
+        >
+        <android.support.percent.PercentFrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/image"
+                android:scaleType="centerCrop"
+                android:layout_marginLeft="20dp"
+                android:paddingLeft="20dp"
+                app:layout_widthPercent="50%"
+                app:layout_marginLeftPercent="10%"/>
+                />
+        </android.support.percent.PercentFrameLayout>
+
+<!--        <com.facebook.drawee.view.SimpleDraweeView
+            android:layout_width="500dp"
+            android:layout_height="300dp"
+            android:id="@+id/image"
+            fresco:roundAsCircle="false"
+
+            fresco:fadeDuration="200"
+
+            />-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:orientation="horizontal"
+            android:gravity="right|center_vertical"
+            android:id="@+id/counts_info"
+            android:layout_marginTop="8dp"
+            android:paddingLeft="@dimen/post_row.padding_right"
+            android:paddingRight="@dimen/post_row.padding_right"
+            >
+            <com.mardomsara.social.ui.views.wigets.TextViewWithIcon_DEP
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/counts_info"
+                android:id="@+id/comment_count"
+                />
+
+            <com.mardomsara.social.ui.views.wigets.TextViewWithIcon_DEP
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/counts_info"
+                android:id="@+id/likes_count"
+                android:layout_marginLeft="14dp"
+                />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/like_btn"
+                style="@style/post_row.like_btn"
+                android:text="\uf442"
+                android:layout_weight="1"
+                />
+
+        </LinearLayout>
+
+        <View
+            style="@style/spacer.dp2"
+            />
+    </LinearLayout>
+
+
+</RelativeLayout>

@@ -2,6 +2,7 @@ package com.mardomsara.social.ui.cells.lists;
 
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
 
 import com.mardomsara.social.Nav;
@@ -14,10 +15,14 @@ import com.mardomsara.social.json.HttpJsonList;
 import com.mardomsara.social.json.social.rows.PostRowJson;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
 import com.mardomsara.social.ui.X;
-import com.mardomsara.social.ui.presenter.pages.add_post.RecentImagesAddPostBoxCell;
+import com.mardomsara.social.ui.cells.rows.PostRowCell;
+import com.mardomsara.social.ui.cells.rows.PostRowNewCell;
 import com.mardomsara.social.ui.presenter.pages.add_post.AddPostPage;
 import com.mardomsara.social.ui.presenter.pages.add_post.PostAddGalleryChooserPresenter;
-import com.mardomsara.social.ui.ui.UIPostsList;
+import com.mardomsara.social.ui.presenter.pages.add_post.RecentImagesAddPostBoxCell;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Hamid on 8/26/2016.
@@ -26,7 +31,7 @@ public class PostsHomeCell
         implements AppHeaderFooterRecyclerViewAdapter.LoadNextPage {
 
 	X.Home_Parent x;
-	public UIPostsList.PostsAdaptor adaptor;
+	public PostsAdaptor adaptor;
 
     public PostsHomeCell() {
         init();
@@ -36,20 +41,13 @@ public class PostsHomeCell
 		x = new X.Home_Parent();
 
 
-        adaptor = new UIPostsList.PostsAdaptor();
+        adaptor = new PostsAdaptor();
         LinearLayoutManager layoutManager = new LinearLayoutManager(AppUtil.getContext());
         x.recycler_view.setLayoutManager(layoutManager);
         x.recycler_view.setAdapter(adaptor);
         adaptor.setUpForPaginationWith(x.recycler_view,layoutManager,this);
         adaptor.showLoading();
 		adaptor.setEnableAutoShowEmptyView(true);
-
-		//must be called after setting layoutManager
-//		X.Home_AddPostBox addPostBox = new X.Home_AddPostBox(x.recycler_view);
-//		adaptor.appendViewToHeader(addPostBox.root);
-
-//		RecentImagesCell recentImagesCell = new RecentImagesCell(addPostBox.recent_images_holder);
-//		recentImagesCell.insertInto(addPostBox.recent_images_holder);
 
 		setUpAddPostBox();
 
@@ -145,6 +143,39 @@ public class PostsHomeCell
 		recentImagesCell.insertInto(addPostBox.recent_images_holder);
 
 
+	}
+
+	public static class PostsAdaptor extends AppHeaderFooterRecyclerViewAdapter<PostStreamHolder> {
+		public List<PostRowJson> posts = new ArrayList<>();
+
+		@Override
+		protected int getContentItemCount() {
+			return posts.size();
+		}
+
+		@Override
+		protected PostStreamHolder onCreateContentItemViewHolder(ViewGroup parent, int contentViewType) {
+//            View v = AppUtil.inflate(R.layout.row_post_stream, parent);
+			PostRowNewCell postRowCell = new PostRowNewCell(null);
+			return new PostStreamHolder(postRowCell);
+		}
+
+		@Override
+		protected void onBindContentItemViewHolder(PostStreamHolder postStreamHolder, int position) {
+//            postStreamHolder.bind(posts.get(position));
+			postStreamHolder.postRowCell.bind(posts.get(position));
+		}
+	}
+
+	/**
+	 * Created by Hamid on 8/3/2016.
+	 */
+	public static class PostStreamHolder extends RecyclerView.ViewHolder {
+		PostRowNewCell postRowCell;
+		public PostStreamHolder(PostRowNewCell postCell) {
+			super(postCell.rootView);
+			this.postRowCell = postCell;
+		}
 	}
 
 	private class HomeAddPostBox {
