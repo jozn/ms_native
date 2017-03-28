@@ -55,6 +55,12 @@ public class Helper {
         });
     }
 
+	public static void showMessageShort(String text){
+		AndroidUtil.runInUi(()->{
+			Toast.makeText(AppUtil.getContext(),text,Toast.LENGTH_SHORT).show();
+		});
+	}
+
     public static void showDebugMessage(String text){
 		if( ! Config.IS_DEBUG) return;
         AndroidUtil.runInUi(()->{

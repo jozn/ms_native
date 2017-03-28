@@ -1,7 +1,8 @@
 package com.mardomsara.x.iconify.icons;
 
-import com.joanzapata.iconify.Icon;
-import com.joanzapata.iconify.IconFontDescriptor;
+
+import com.mardomsara.x.iconify.Icon;
+import com.mardomsara.x.iconify.IconFontDescriptor;
 
 public class MaterialModule implements IconFontDescriptor {
 

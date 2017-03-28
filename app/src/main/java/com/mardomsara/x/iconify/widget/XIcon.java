@@ -156,6 +156,14 @@ public class XIcon extends AppCompatTextView implements HasOnViewAttachListener 
 		return false;
 	}
 
+	public void setLeftIconStr(String leftIconStr) {
+		this.leftIconStr = leftIconStr;
+	}
+
+	public void setRightIconStr(String rightIconStr) {
+		this.rightIconStr = rightIconStr;
+	}
+
 	private void setFullText(CharSequence text){
 	}
 

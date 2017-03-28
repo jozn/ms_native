@@ -1,6 +1,7 @@
 package com.mardomsara.x.iconify.icons;
 
-import com.joanzapata.iconify.Icon;
+
+import com.mardomsara.x.iconify.Icon;
 
 public enum MaterialIcons implements Icon {
     md_3d_rotation('\ue84d'),

@@ -19,6 +19,7 @@ import com.github.rahatarmanahmed.cpv.CircularProgressView;
 import com.joanzapata.iconify.widget.IconTextView;
 import com.mardomsara.emojicon.EmojiconEditText;
 import com.mardomsara.emojicon.EmojiconTextView;
+import com.mardomsara.social.ui.views.buttons.ButtonPostMultiWayView;
 import com.mardomsara.social.ui.views.wigets.BadgeCount;
 import com.mardomsara.social.ui.views.wigets.ButtonGrayView;
 import com.mardomsara.social.ui.views.wigets.ChatButtonView;
@@ -941,13 +942,11 @@ public class X {
     public static class Home_Parent {
         public SwipeRefreshLayout root;
         public SwipeRefreshLayout refresh_layout;
-        public SimpleTopNav top_nav;
         public RecyclerView recycler_view;
 
         public Home_Parent(ViewGroup parent) {
             root = (SwipeRefreshLayout) AppUtil.inflate(R.layout.home__parent,parent);
             refresh_layout = (SwipeRefreshLayout) root.findViewById( R.id.refresh_layout);
-            top_nav = (SimpleTopNav) root.findViewById( R.id.top_nav);
             recycler_view = (RecyclerView) root.findViewById( R.id.recycler_view);
         }
         public Home_Parent() {

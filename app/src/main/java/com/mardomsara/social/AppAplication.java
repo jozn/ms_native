@@ -33,7 +33,8 @@ public class AppAplication extends Application {
 
 		XIconify
 			.with(new com.mardomsara.x.iconify.icons.SimpleLineIconsModule())
-			.with(new com.mardomsara.x.iconify.icons.IoniconsModule());
+			.with(new com.mardomsara.x.iconify.icons.IoniconsModule())
+			.with(new com.mardomsara.x.iconify.icons.MaterialModule());
 
 //        LeakCanary.install(this);
         //refWatcher = LeakCanary.install(this);
