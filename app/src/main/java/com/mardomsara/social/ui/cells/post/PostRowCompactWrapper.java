@@ -1,5 +1,7 @@
 package com.mardomsara.social.ui.cells.post;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.net.Uri;
 import android.support.annotation.NonNull;
@@ -29,6 +31,7 @@ import com.squareup.picasso.Picasso;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import jp.wasabeef.picasso.transformations.CropTransformation;
 import jp.wasabeef.picasso.transformations.RoundedCornersTransformation;
 
 /**
@@ -107,22 +110,33 @@ public class PostRowCompactWrapper {
         x.fullname.setText(post.Sender.getFullName());
         x.date.setText(FormaterUtil.timeAgo(post.CreatedTime));
         Uri imageUri = Helper.PathToUserAvatarUri(post.Sender.AvatarUrl);
-        x.avatar.setImageURI(imageUri);
+
+		int p50 = AndroidUtil.dpToPx(55);
+//        x.avatar.setImageURI(imageUri);
+		Picasso.with(AppUtil.getContext())
+			.load(imageUri)
+			.resize(p50, p50)
+			.centerCrop()
+			.transform(new RoundedCornersTransformation(AndroidUtil.dpToPx(6),0))
+			.placeholder(R.drawable.image_background)
+			.into(x.avatar);
 
         if (post.TypeId == 2) {
-            int screenSize =AndroidUtil.getScreenWidth() +1;
+            /*int screenSize =AndroidUtil.getScreenWidth() +1;
 			int w = (int) (screenSize*.75);
 			int h = (int) (w*.66);
             x.image.getLayoutParams().height = h;
-            x.image.getLayoutParams().width = w;
+            x.image.getLayoutParams().width = w;*/
 
-
+			int iw = x.image.getLayoutParams().width;
+			int ih = x.image.getLayoutParams().height;
             x.image.setVisibility(View.VISIBLE);
             String urlStr = API.BASE_CDN_DOMAIN_URL_STR+"/"+post.MediaUrl;
             Picasso.with(AppUtil.getContext())
                     .load(urlStr)
 //					.resize(w,h)
 //					.centerCrop()
+					.transform(new CropTransformation(0,ih))
 					.transform(new RoundedCornersTransformation(AndroidUtil.dpToPx(12),0))
                     .placeholder(R.drawable.image_background)
                     .into(x.image);

@@ -2,6 +2,9 @@
 <resources>
     <dimen name="post_row.padding_right">5dp</dimen>
     <dimen name="post_row.avatar_padding_left">2dp</dimen>
+    <dimen name="post_row_compact.margin_left">8dp</dimen>
+    <dimen name="post_row_compact.margin_top">8dp</dimen>
+    <dimen name="post_row_compact.margin_avatar_left">6dp</dimen>
     <style name="post_row">
 
     </style>

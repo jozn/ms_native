@@ -87,7 +87,7 @@ public class XTextView extends android.support.v7.widget.AppCompatTextView {
 			xEnableLinker = a.getBoolean(R.styleable.XTextView_xEnableLinker,xEnableLinker);
 			xLimitText = a.getInteger(R.styleable.XTextView_xLimitText,-1);
 
-			int indx = a.getInteger(R.styleable.XLinkerTextView_xFont,0);
+			int indx = a.getInteger(R.styleable.XTextView_xFont,0);
 			iranFonts = IranFonts.values()[indx];
 			setTypeface(FontCache.get(iranFonts.path));
 

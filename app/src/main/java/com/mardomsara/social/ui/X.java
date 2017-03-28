@@ -1777,10 +1777,11 @@ public class X {
     public static class PostRow_Compact {
         public RelativeLayout root;
         public RelativeLayout post_row_holder;
-        public TextView date;
-        public SimpleDraweeView avatar;
-        public TextView fullname;
+        public XTextView date;
+        public ImageView avatar;
+        public XTextView fullname;
         public XTextView text;
+        public PercentFrameLayout image_holder;
         public ImageView image;
         public LinearLayout counts_info;
         public TextViewWithIcon_DEP comment_count;
@@ -1790,10 +1791,11 @@ public class X {
         public PostRow_Compact(ViewGroup parent) {
             root = (RelativeLayout) AppUtil.inflate(R.layout.post_row__compact,parent);
             post_row_holder = (RelativeLayout) root.findViewById( R.id.post_row_holder);
-            date = (TextView) root.findViewById( R.id.date);
-            avatar = (SimpleDraweeView) root.findViewById( R.id.avatar);
-            fullname = (TextView) root.findViewById( R.id.fullname);
+            date = (XTextView) root.findViewById( R.id.date);
+            avatar = (ImageView) root.findViewById( R.id.avatar);
+            fullname = (XTextView) root.findViewById( R.id.fullname);
             text = (XTextView) root.findViewById( R.id.text);
+            image_holder = (PercentFrameLayout) root.findViewById( R.id.image_holder);
             image = (ImageView) root.findViewById( R.id.image);
             counts_info = (LinearLayout) root.findViewById( R.id.counts_info);
             comment_count = (TextViewWithIcon_DEP) root.findViewById( R.id.comment_count);

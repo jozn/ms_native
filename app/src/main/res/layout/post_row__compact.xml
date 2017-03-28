@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="0dp"
-    android:background="@color/white"
-    android:id="@+id/post_row_holder">
+    android:background="@drawable/post_row_compact_background"
+    android:id="@+id/post_row_holder"
+    android:paddingLeft="@dimen/post_row_compact.margin_left"
+    android:paddingTop="@dimen/post_row_compact.margin_top"
+    android:paddingRight="@dimen/post_row_compact.margin_left"
 
-    <TextView
+    >
+
+    <com.mardomsara.social.ui.views.x.XTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="left"
@@ -17,34 +23,39 @@
         android:id="@+id/date"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        style="@style/post_row.date"
+        app:xFont="IranLight"
+        android:textSize="12dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="0dp"
         />
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"/>
-    <com.facebook.drawee.view.SimpleDraweeView
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:id="@id/avatar"
-        android:layout_gravity="right|center_vertical"
+
+    <ImageView
+        android:id="@+id/avatar"
+        android:layout_width="54dp"
+        android:layout_height="54dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        style="@style/post_row.avatar"
-        fresco:roundAsCircle="false"
-        fresco:roundedCornerRadius="6dp"
+        android:layout_gravity="right|center_vertical"
+        android:layout_marginLeft="@dimen/post_row_compact.margin_top"
+        android:layout_marginRight="0dp"
+        android:layout_marginTop="0dp"
 
         />
-    <TextView
+    <com.mardomsara.social.ui.views.x.XTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="right"
         android:layout_gravity="right"
         android:id="@+id/fullname"
         android:layout_alignParentTop="true"
-        android:layout_toLeftOf="@id/avatar"
-        style="@style/post_row.fullname"
-
+        android:layout_toLeftOf="@+id/avatar"
+        app:xFont="IranMedium"
+        android:textSize="15dp"
+        android:paddingLeft="2dp"
+        android:paddingRight="2dp"
+        android:paddingTop="0dp"
+        android:textColor="@color/text_black_1"
+        tools:paddingBottom="0dp"
         />
 
     <com.mardomsara.social.ui.views.x.XTextView
@@ -54,50 +65,46 @@
         android:layout_toLeftOf="@id/avatar"
         android:layout_below="@id/fullname"
         android:text="ssvvvvss"
-        style="@style/post_row.text"
         app:xEmojiconUseSystemDefault="false"
         app:xFont="IranLight"
-        android:textSize="13dp"
+        android:textSize="14dp"
+        android:textColor="@color/text_black_3"
+        android:gravity="right"
 
 
         />
 
 
+    <android.support.percent.PercentFrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@id/image_holder"
+        android:layout_below="@+id/text"
+        android:layout_toLeftOf="@+id/avatar"
+        android:layout_alignParentLeft="true"
+        >
+        <ImageView
+            app:layout_widthPercent="100%"
+            app:layout_aspectRatio="178%"
+            app:layout_marginLeftPercent="0%"
+            android:id="@+id/image"
+            android:scaleType="centerCrop"
+            android:layout_marginLeft="0dp"
+            android:paddingLeft="0dp"
+            android:minWidth="100dp"
+            android:background="@drawable/radius_4dp_gray"
+            />
+    </android.support.percent.PercentFrameLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/text"
+        android:layout_below="@id/image_holder"
         android:orientation="vertical"
         android:layout_marginLeft="20dp"
 
         >
-        <android.support.percent.PercentFrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/image"
-                android:scaleType="centerCrop"
-                android:layout_marginLeft="20dp"
-                android:paddingLeft="20dp"
-                app:layout_widthPercent="50%"
-                app:layout_marginLeftPercent="10%"
-                android:minWidth="300dp"
-                />
-                />
-        </android.support.percent.PercentFrameLayout>
-
-<!--        <com.facebook.drawee.view.SimpleDraweeView
-            android:layout_width="500dp"
-            android:layout_height="300dp"
-            android:id="@+id/image"
-            fresco:roundAsCircle="false"
-
-            fresco:fadeDuration="200"
-
-            />-->
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -140,7 +147,7 @@
 
         </LinearLayout>
 
-        <View
+        <View android:visibility="gone"
             style="@style/spacer.dp2"
             />
     </LinearLayout>
