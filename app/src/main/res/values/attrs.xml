@@ -16,7 +16,8 @@
     <attr name="xEnableEmoji" format="boolean"/>
     <attr name="xLimitText" format="integer"/>
 
-    <attr name="xEmojiconSize" format="dimension" />
+    <attr name="xEmojiconSize" format="dimension" /> <!--dep??-->
+    <attr name="xEmojiconSizeRatio" format="float" />
     <attr name="xEmojiconAlignment" format="enum">
         <enum name="bottom" value="0" />
         <enum name="baseline" value="1" />
@@ -56,6 +57,7 @@
         <attr name="xLimitText" />
 
         <attr name="xEmojiconSize"/>
+        <attr name="xEmojiconSizeRatio"/>
         <attr name="xEmojiconAlignment" />
         <attr name="xEmojiconTextStart" />
         <attr name="xEmojiconTextLength" />

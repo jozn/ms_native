@@ -39,6 +39,7 @@ public class XTextView extends android.support.v7.widget.AppCompatTextView {
 
 	/////////////// Emoji attrs //////////////
 	private int mEmojiconSize;
+	private float mEmojiconSizeRatio;
 	private int mEmojiconAlignment;
 	private int mEmojiconTextSize;
 	private int mTextStart = 0;
@@ -77,7 +78,9 @@ public class XTextView extends android.support.v7.widget.AppCompatTextView {
 			mTextStart = a.getInteger(R.styleable.XTextView_xEmojiconTextStart, 0);
 			mTextLength = a.getInteger(R.styleable.XTextView_xEmojiconTextLength, -1);
 			mUseSystemDefault = a.getBoolean(R.styleable.XTextView_xEmojiconUseSystemDefault, false);
-			mEmojiconSize = calEmojiconSizePolicy(mEmojiconSize);
+
+			mEmojiconSizeRatio = a.getFloat(R.styleable.XTextView_xEmojiconSizeRatio,1.4f);
+			mEmojiconSize = calEmojiconSizePolicy(mEmojiconSize,mEmojiconSizeRatio);
 
 			//not emojis
 			xEnableEmoji = a.getBoolean(R.styleable.XTextView_xEnableEmoji,xEnableEmoji);
@@ -192,9 +195,10 @@ public class XTextView extends android.support.v7.widget.AppCompatTextView {
 		mEmojiconSize = (int) Math.round(1.5 * textSize);//alwase 2
 	}
 
-	int calEmojiconSizePolicy(float textSize){
-		AppUtil.log("calEmojiconSizePolicy: "+textSize);
-		return  (int) Math.round(1.5 * textSize);//alwase 2
+
+	int calEmojiconSizePolicy(float textSize,float ratio){
+//		AppUtil.log("calEmojiconSizePolicy: "+textSize);
+		return  (int) Math.round(ratio * textSize);//alwase 2
 
 	}
 
@@ -208,7 +212,7 @@ public class XTextView extends android.support.v7.widget.AppCompatTextView {
 			this.ratio = ratio;
 			multiTextSize = (getTextSize()*ratio);
 			setPxTextSize(multiTextSize);
-			multiEmojiSize = calEmojiconSizePolicy(multiTextSize);
+			multiEmojiSize = calEmojiconSizePolicy(multiTextSize,mEmojiconSizeRatio);
 			super.setText(getText());
 		}
 	}

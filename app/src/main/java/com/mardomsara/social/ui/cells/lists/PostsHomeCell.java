@@ -15,6 +15,7 @@ import com.mardomsara.social.json.HttpJsonList;
 import com.mardomsara.social.json.social.rows.PostRowJson;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
 import com.mardomsara.social.ui.X;
+import com.mardomsara.social.ui.cells.post.PostRowCompactWrapper;
 import com.mardomsara.social.ui.cells.rows.PostRowCell;
 import com.mardomsara.social.ui.cells.rows.PostRowNewCell;
 import com.mardomsara.social.ui.presenter.pages.add_post.AddPostPage;
@@ -157,7 +158,7 @@ public class PostsHomeCell
 		protected PostStreamHolder onCreateContentItemViewHolder(ViewGroup parent, int contentViewType) {
 //            View v = AppUtil.inflate(R.layout.row_post_stream, parent);
 			PostRowNewCell postRowCell = new PostRowNewCell(null);
-			return new PostStreamHolder(postRowCell);
+			return new PostStreamHolder(new PostRowCompactWrapper(null));
 		}
 
 		@Override
@@ -171,8 +172,16 @@ public class PostsHomeCell
 	 * Created by Hamid on 8/3/2016.
 	 */
 	public static class PostStreamHolder extends RecyclerView.ViewHolder {
+		PostRowCompactWrapper postRowCell;
+		public PostStreamHolder(PostRowCompactWrapper postCell) {
+			super(postCell.x.root);
+			this.postRowCell = postCell;
+		}
+	}
+
+	public static class PostStreamHolder2 extends RecyclerView.ViewHolder {
 		PostRowNewCell postRowCell;
-		public PostStreamHolder(PostRowNewCell postCell) {
+		public PostStreamHolder2(PostRowNewCell postCell) {
 			super(postCell.rootView);
 			this.postRowCell = postCell;
 		}
