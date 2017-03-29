@@ -833,6 +833,7 @@ public class X {
     public static class FullScreenImage {
         public RelativeLayout root;
         public RelativeLayout window;
+        public FrameLayout image_holder;
         public PhotoView image_view;
         public LinearLayout top_nav;
         public TextView back_btn;
@@ -841,6 +842,7 @@ public class X {
         public FullScreenImage(ViewGroup parent) {
             root = (RelativeLayout) AppUtil.inflate(R.layout.full_screen_image,parent);
             window = (RelativeLayout) root.findViewById( R.id.window);
+            image_holder = (FrameLayout) root.findViewById( R.id.image_holder);
             image_view = (PhotoView) root.findViewById( R.id.image_view);
             top_nav = (LinearLayout) root.findViewById( R.id.top_nav);
             back_btn = (TextView) root.findViewById( R.id.back_btn);
@@ -1787,6 +1789,18 @@ public class X {
             root = (ScrollView) AppUtil.inflate(R.layout.play_xicon,parent);
         }
         public PlayXicon() {
+            this(null);
+        }
+    }
+ //( index .Fields 0).ViewClass
+
+    public static class PlayXtextcoloersview {
+        public ScrollView root;
+
+        public PlayXtextcoloersview(ViewGroup parent) {
+            root = (ScrollView) AppUtil.inflate(R.layout.play_xtextcoloersview,parent);
+        }
+        public PlayXtextcoloersview() {
             this(null);
         }
     }

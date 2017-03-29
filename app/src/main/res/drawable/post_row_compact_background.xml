@@ -15,7 +15,7 @@
                 android:shape="rectangle"
                 android:thickness="1dp"
                 >
-                <stroke android:width="1px" android:color="@color/text_gray_3"/>
+                <stroke android:width="1px" android:color="@color/dark_blue_4"/>
                 </shape>
 
         </inset>

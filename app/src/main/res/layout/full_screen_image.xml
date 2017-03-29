@@ -8,14 +8,23 @@
                 android:id="@+id/window"
     >
 
-    <com.github.chrisbanes.photoview.PhotoView
-        android:layout_width="500dp"
+    <FrameLayout
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/image_view"
-        android:src="@drawable/btn_crop_operator"
-
+        android:id="@+id/image_holder"
         android:layout_centerInParent="true"
-        />
+
+        >
+
+        <com.github.chrisbanes.photoview.PhotoView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/image_view"
+            android:src="@drawable/btn_crop_operator"
+
+            />
+
+    </FrameLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,6 +33,7 @@
         android:id="@+id/top_nav"
         android:gravity="right"
         android:background="@color/transparent_gray_darkest"
+        android:layout_alignParentTop="true"
         >
         <TextView
             android:id="@+id/back_btn"

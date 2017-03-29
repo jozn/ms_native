@@ -69,6 +69,15 @@
     <color name="unseen_count_background">#116cf4</color>
 
 
+    <color name="dark_blue_1">#576574</color>
+    <color name="dark_blue_2">#6a7987</color>
+    <color name="dark_blue_3">#778899</color>
+    <color name="dark_blue_4">#889bae</color>
+    <color name="dark_blue_5">#9cb2c7</color>
+    <color name="dark_blue_6">#aabdd1</color>
+
+
+
     <color name="border_gray">#eee</color>
     <!-- transparent -->
 

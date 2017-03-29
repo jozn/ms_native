@@ -101,56 +101,45 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/image_holder"
-        android:orientation="vertical"
-        android:layout_marginLeft="20dp"
-
+        android:orientation="horizontal"
+        android:gravity="right|center_vertical"
+        android:id="@+id/counts_info"
+        android:layout_marginTop="8dp"
+        android:paddingLeft="@dimen/post_row.padding_right"
+        android:paddingRight="@dimen/post_row.padding_right"
         >
-
-        <LinearLayout
-            android:layout_width="match_parent"
+        <com.mardomsara.social.ui.views.wigets.TextViewWithIcon_DEP
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@id/counts_info"
+            android:id="@+id/comment_count"
 
-            android:orientation="horizontal"
-            android:gravity="right|center_vertical"
-            android:id="@+id/counts_info"
-            android:layout_marginTop="8dp"
-            android:paddingLeft="@dimen/post_row.padding_right"
-            android:paddingRight="@dimen/post_row.padding_right"
-            >
-            <com.mardomsara.social.ui.views.wigets.TextViewWithIcon_DEP
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/counts_info"
-                android:id="@+id/comment_count"
-                />
-
-            <com.mardomsara.social.ui.views.wigets.TextViewWithIcon_DEP
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/counts_info"
-                android:id="@+id/likes_count"
-                android:layout_marginLeft="14dp"
-                />
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/like_btn"
-                style="@style/post_row.like_btn"
-                android:text="\uf442"
-                android:layout_weight="1"
-                />
-
-        </LinearLayout>
-
-        <View android:visibility="gone"
-            style="@style/spacer.dp2"
             />
+
+        <com.mardomsara.social.ui.views.wigets.TextViewWithIcon_DEP
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/counts_info"
+            android:id="@+id/likes_count"
+            android:layout_marginLeft="14dp"
+            />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/like_btn"
+            style="@style/post_row.like_btn"
+            android:text="\uf442"
+            android:layout_weight="1"
+            android:textColor="@color/dark_blue_2"
+            />
+
     </LinearLayout>
+
 
 
 </RelativeLayout>

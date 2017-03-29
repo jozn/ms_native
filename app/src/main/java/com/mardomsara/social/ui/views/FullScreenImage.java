@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.PopupWindow;
 
-import com.mardomsara.social.App;
 import com.mardomsara.social.Nav;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
@@ -53,6 +52,10 @@ public class FullScreenImage {
         x.top_nav.setOnClickListener((v)->{
             toggle();
         });
+
+		x.image_holder.setOnClickListener((v)->{
+			toggle();
+		});
 
 		x.back_btn.setOnClickListener(this::onBack);
 

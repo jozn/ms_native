@@ -11,7 +11,7 @@
         android:layout_gravity="center"
         android:gravity="center"
         style="@style/post_row.counts_info_text"
-
+        android:textColor="@color/dark_blue_2"
         />
 
     <TextView
@@ -21,6 +21,7 @@
         android:layout_gravity="center"
         android:gravity="center"
         style="@style/post_row.counts_info_icon"
+        android:textColor="@color/dark_blue_2"
         />
 
 

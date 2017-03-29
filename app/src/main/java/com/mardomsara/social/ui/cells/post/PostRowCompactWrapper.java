@@ -133,12 +133,7 @@ public class PostRowCompactWrapper {
                     .placeholder(R.drawable.image_background)
                     .into(x.image);
 
-			x.image.setOnClickListener((v)->{
-				FullScreenImage window = new FullScreenImage();
-				window.text = post.Text;
-				window.imageUri = Uri.parse(urlStr) ;//msg.getMediaLocalSrc();
-				window.show();
-			});
+			PostRowUtils.setImage(x.image,post);
 
         } else {
             x.image.setVisibility(View.GONE);
