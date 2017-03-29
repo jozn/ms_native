@@ -3,6 +3,7 @@ package com.mardomsara.social.ui.cells.lists;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.view.ViewGroup;
 
 import com.mardomsara.social.Nav;
@@ -16,11 +17,11 @@ import com.mardomsara.social.json.social.rows.PostRowJson;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
 import com.mardomsara.social.ui.X;
 import com.mardomsara.social.ui.cells.post.PostRowCompactWrapper;
-import com.mardomsara.social.ui.cells.rows.PostRowCell;
 import com.mardomsara.social.ui.cells.rows.PostRowNewCell;
 import com.mardomsara.social.ui.presenter.pages.add_post.AddPostPage;
 import com.mardomsara.social.ui.presenter.pages.add_post.PostAddGalleryChooserPresenter;
 import com.mardomsara.social.ui.presenter.pages.add_post.RecentImagesAddPostBoxCell;
+import com.mardomsara.social.ui.views.buttons.PostWayToShow;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,7 +43,7 @@ public class PostsHomeCell
 		x = new X.Home_Parent();
 
 
-        adaptor = new PostsAdaptor();
+        adaptor = new PostsAdaptor(x.button_post_way.getPostWayToShow());
         LinearLayoutManager layoutManager = new LinearLayoutManager(AppUtil.getContext());
         x.recycler_view.setLayoutManager(layoutManager);
         x.recycler_view.setAdapter(adaptor);
@@ -59,6 +60,20 @@ public class PostsHomeCell
                 loadFromServer(1);
             }
         });
+
+		x.button_post_way.setOnChangeListener((type)->{
+			switch (type) {
+				case COMPACT:
+					break;
+				case WIDE:
+					break;
+				case MINI:
+					break;
+			}
+			adaptor.postWayToShow = type; //why we must this?? - dont adaptoer refers to same object
+			Helper.showDebugMessage("t: "+type.id);
+			adaptor.notifyDataChanged();
+		});
     }
 
     String endPointAbsPath;
@@ -142,12 +157,16 @@ public class PostsHomeCell
 
 		RecentImagesAddPostBoxCell recentImagesCell = new RecentImagesAddPostBoxCell(addPostBox.recent_images_holder);
 		recentImagesCell.insertInto(addPostBox.recent_images_holder);
-
-
 	}
 
-	public static class PostsAdaptor extends AppHeaderFooterRecyclerViewAdapter<PostStreamHolder> {
+	public static class PostsAdaptor extends AppHeaderFooterRecyclerViewAdapter<CommonPostBinder> {
 		public List<PostRowJson> posts = new ArrayList<>();
+		PostWayToShow postWayToShow;
+
+		public PostsAdaptor(PostWayToShow postWayToShow) {
+//			setHasStableIds(false);
+			this.postWayToShow = postWayToShow;
+		}
 
 		@Override
 		protected int getContentItemCount() {
@@ -155,35 +174,70 @@ public class PostsHomeCell
 		}
 
 		@Override
-		protected PostStreamHolder onCreateContentItemViewHolder(ViewGroup parent, int contentViewType) {
+		protected CommonPostBinder onCreateContentItemViewHolder(ViewGroup parent, int contentViewType) {
 //            View v = AppUtil.inflate(R.layout.row_post_stream, parent);
-			PostRowNewCell postRowCell = new PostRowNewCell(null);
-			return new PostStreamHolder(new PostRowCompactWrapper(null));
+
+			if(PostWayToShow.WIDE.id == contentViewType){
+				return new PostWideVH(new PostRowNewCell(null));
+			}else if (PostWayToShow.COMPACT.id == contentViewType){
+				return new PostCompactVH(new PostRowCompactWrapper(null));
+			}
+			return null;
+			/*PostRowNewCell postRowCell = new PostRowNewCell(null);
+			return new PostStreamHolder(new PostRowCompactWrapper(null));*/
 		}
 
 		@Override
-		protected void onBindContentItemViewHolder(PostStreamHolder postStreamHolder, int position) {
+		protected void onBindContentItemViewHolder(CommonPostBinder postStreamHolder, int position) {
 //            postStreamHolder.bind(posts.get(position));
-			postStreamHolder.postRowCell.bind(posts.get(position));
+			postStreamHolder.bind(posts.get(position));
+		}
+
+		@Override
+		protected int getContentItemViewType(int position) {
+			return postWayToShow.id;
+		}
+
+		@Override
+		public void setHasStableIds(boolean hasStableIds) {
+			super.setHasStableIds(hasStableIds);
 		}
 	}
 
 	/**
 	 * Created by Hamid on 8/3/2016.
 	 */
-	public static class PostStreamHolder extends RecyclerView.ViewHolder {
+	public static class PostCompactVH extends CommonPostBinder{
 		PostRowCompactWrapper postRowCell;
-		public PostStreamHolder(PostRowCompactWrapper postCell) {
+		public PostCompactVH(PostRowCompactWrapper postCell) {
 			super(postCell.x.root);
 			this.postRowCell = postCell;
 		}
+
+		@Override
+		public void bind(PostRowJson postRowJson) {
+			postRowCell.bind(postRowJson);
+		}
 	}
 
-	public static class PostStreamHolder2 extends RecyclerView.ViewHolder {
+	public static class PostWideVH extends CommonPostBinder {
 		PostRowNewCell postRowCell;
-		public PostStreamHolder2(PostRowNewCell postCell) {
+		public PostWideVH(PostRowNewCell postCell) {
 			super(postCell.rootView);
 			this.postRowCell = postCell;
+		}
+
+		@Override
+		public void bind(PostRowJson postRowJson) {
+			postRowCell.bind(postRowJson);
+		}
+	}
+
+	static abstract class CommonPostBinder extends RecyclerView.ViewHolder{
+		abstract void bind(PostRowJson postRowJson);
+
+		public CommonPostBinder(View itemView) {
+			super(itemView);
 		}
 	}
 

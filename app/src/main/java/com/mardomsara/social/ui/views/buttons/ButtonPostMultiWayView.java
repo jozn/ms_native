@@ -71,6 +71,10 @@ public class ButtonPostMultiWayView extends XIcon {
 		this.onChangeListener = onChangeListener;
 	}
 
+	public PostWayToShow getPostWayToShow() {
+		return postWayToShow;
+	}
+
 	public interface OnChangeListener {
 		void onChange(PostWayToShow postWayToShow);
 	}

@@ -942,11 +942,13 @@ public class X {
     public static class Home_Parent {
         public SwipeRefreshLayout root;
         public SwipeRefreshLayout refresh_layout;
+        public ButtonPostMultiWayView button_post_way;
         public RecyclerView recycler_view;
 
         public Home_Parent(ViewGroup parent) {
             root = (SwipeRefreshLayout) AppUtil.inflate(R.layout.home__parent,parent);
             refresh_layout = (SwipeRefreshLayout) root.findViewById( R.id.refresh_layout);
+            button_post_way = (ButtonPostMultiWayView) root.findViewById( R.id.button_post_way);
             recycler_view = (RecyclerView) root.findViewById( R.id.recycler_view);
         }
         public Home_Parent() {

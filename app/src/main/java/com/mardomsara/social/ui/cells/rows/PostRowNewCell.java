@@ -130,21 +130,14 @@ public class PostRowNewCell {
         avatar.setImageURI(imageUri);
 
         if (post.TypeId == 2) {
-            int screenSize =AndroidUtil.getScreenWidth() +1;
-			int w = (int) (screenSize*.75);
-			int h = (int) (w*.66);
-            image.getLayoutParams().height = h;
-            image.getLayoutParams().width = w;
-
-
-            image.setVisibility(View.VISIBLE);
-            String urlStr = API.BASE_CDN_DOMAIN_URL_STR+"/"+post.MediaUrl;
-            Picasso.with(AppUtil.getContext())
-                    .load(urlStr)
-					.resize(w,h)
-					.centerCrop()
-                    .placeholder(R.drawable.image_background)
-                    .into(image);
+			int screenSize = AndroidUtil.pxToDp( AndroidUtil.getScreenWidth() )+1;
+			ViewHelper.setImageSizesWithMaxPx(image,screenSize,screenSize,post.Width,post.Height);
+			image.setVisibility(View.VISIBLE);
+			String urlStr = API.BASE_CDN_DOMAIN_URL_STR+"/"+post.MediaUrl;
+			Picasso.with(AppUtil.getContext())
+				.load(urlStr)
+				.placeholder(R.drawable.image_background)
+				.into(image);
 
         } else {
             image.setVisibility(View.GONE);

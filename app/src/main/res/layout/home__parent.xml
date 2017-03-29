@@ -24,12 +24,9 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 app:xiconSize="28dp"
+                android:id="@+id/button_post_way"
                 />
-            <com.mardomsara.x.iconify.widget.XIcon
-                android:layout_width="50dp"
-                android:layout_height="match_parent"
-                android:text="md-crop-din"
-                />
+
         </LinearLayout>
 
         <android.support.v7.widget.RecyclerView
