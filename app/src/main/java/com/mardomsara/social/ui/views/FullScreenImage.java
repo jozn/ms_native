@@ -16,9 +16,6 @@ import com.squareup.picasso.Picasso;
 
 import java.io.File;
 
-/**
- * Created by Hamid on 6/22/2016.
- */
 public class FullScreenImage {
 
 	X.FullScreenImage x = new X.FullScreenImage(AppUtil.global_window);
@@ -61,9 +58,7 @@ public class FullScreenImage {
 
         x.image_view.setOnPhotoTapListener((view,x,y)-> toggle());
 
-		View decorView = App.getActivity().getWindow().getDecorView();
-		int uiOptions = View.SYSTEM_UI_FLAG_LOW_PROFILE;
-		decorView.setSystemUiVisibility(uiOptions);
+		AppUtil.dimStatusBar();
     }
 
     void toggle(){
@@ -80,6 +75,7 @@ public class FullScreenImage {
 
     private void close() {
         Nav.removeCustomOnBackPressHandler(backHandler);
+		AppUtil.unDimStatusBar();
         attachWindow.dismiss();
     }
 
@@ -103,7 +99,5 @@ public class FullScreenImage {
 			.into(x.image_view);
 
 	}
-
-
 
 }

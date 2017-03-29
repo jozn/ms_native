@@ -161,15 +161,15 @@ public class AppUtil {
         _listener =null;
     }
 
-    private int statusBarPerviuos = View.SYSTEM_UI_FLAG_VISIBLE;
-	public void dimStatusBar(){
+    private static int statusBarPerviuos = View.SYSTEM_UI_FLAG_VISIBLE;
+	public static void dimStatusBar(){
 		View decorView = App.getActivity().getWindow().getDecorView();
 		int uiOptions = View.SYSTEM_UI_FLAG_LOW_PROFILE;
 		statusBarPerviuos = decorView.getSystemUiVisibility();
 		decorView.setSystemUiVisibility(uiOptions);
 	}
 
-	public void unDimStatusBar(){
+	public static void unDimStatusBar(){
 		View decorView = App.getActivity().getWindow().getDecorView();
 		decorView.setSystemUiVisibility(statusBarPerviuos);
 	}
