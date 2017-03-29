@@ -46,12 +46,12 @@ public class ButtonPostMultiWayView extends XIcon {
 			case COMPACT:
 				postWayToShow = PostWayToShow.WIDE;
 				setIcon(ICON_WIDE);
-				Helper.showMessage("حالت نمایش: تمام صفحه (پیش فرض)");
+				Helper.showMessage("حالت نمایش تصویر: تمام صفحه (پیش فرض)");
 				break;
 			case WIDE:
 				postWayToShow = PostWayToShow.COMPACT;
 				setIcon(ICON_COMPACT);
-				Helper.showMessage("حالت نمایش: فشرده - 16:9");
+				Helper.showMessage("حالت نمایش تصویر: فشرده - 16:9");
 				break;
 			case MINI:
 				break;
