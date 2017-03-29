@@ -13,7 +13,7 @@ import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.models.interfaces.MessageProgressListener;
 import com.mardomsara.social.models.tables.Message;
 import com.mardomsara.social.models.tables.MsgFile;
-import com.mardomsara.social.ui.views.FullScreenImage;
+import com.mardomsara.social.ui.views.FullScreenImage_Fresco;
 import com.mardomsara.social.ui.views.helpers.ViewHelper;
 import com.mardomsara.social.ui.views.wigets.ChatMediaNetworkLoader;
 
@@ -99,7 +99,7 @@ class MsgImageWrapper implements MessageProgressListener {
 					image_view.setImageURI(u2);
 
 					image_view.setOnClickListener((v)->{
-						FullScreenImage window = new FullScreenImage();
+						FullScreenImage_Fresco window = new FullScreenImage_Fresco();
 						window.text = msg.Text;
 						window.imageUri = u2 ;
 						window.show();

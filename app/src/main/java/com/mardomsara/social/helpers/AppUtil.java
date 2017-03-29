@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 
 import com.google.gson.Gson;
+import com.mardomsara.social.App;
 import com.mardomsara.social.app.Config;
 import com.mardomsara.social.app.Singletons;
 import com.mardomsara.social.lib.TinyDB;
@@ -159,4 +160,17 @@ public class AppUtil {
         }
         _listener =null;
     }
+
+    private int statusBarPerviuos = View.SYSTEM_UI_FLAG_VISIBLE;
+	public void dimStatusBar(){
+		View decorView = App.getActivity().getWindow().getDecorView();
+		int uiOptions = View.SYSTEM_UI_FLAG_LOW_PROFILE;
+		statusBarPerviuos = decorView.getSystemUiVisibility();
+		decorView.setSystemUiVisibility(uiOptions);
+	}
+
+	public void unDimStatusBar(){
+		View decorView = App.getActivity().getWindow().getDecorView();
+		decorView.setSystemUiVisibility(statusBarPerviuos);
+	}
 }

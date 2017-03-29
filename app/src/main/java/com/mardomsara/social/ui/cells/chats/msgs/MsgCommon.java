@@ -2,22 +2,19 @@ package com.mardomsara.social.ui.cells.chats.msgs;
 
 import android.graphics.Color;
 import android.net.Uri;
-import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.mardomsara.social.R;
-import com.mardomsara.social.app.Constants;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.FormaterUtil;
 import com.mardomsara.social.models.tables.Message;
 import com.mardomsara.social.models.tables.MsgFile;
 import com.mardomsara.social.ui.views.FontCache;
-import com.mardomsara.social.ui.views.FullScreenImage;
+import com.mardomsara.social.ui.views.FullScreenImage_Fresco;
 import com.mardomsara.social.ui.views.helpers.ViewHelper;
-import com.mardomsara.social.ui.views.wigets.ChatMediaNetworkLoader;
 
 import java.io.File;
 
@@ -57,7 +54,7 @@ public class MsgCommon {
 			image_iew.setImageURI(u2);
 
 			image_iew.setOnClickListener((v)->{
-				FullScreenImage window = new FullScreenImage();
+				FullScreenImage_Fresco window = new FullScreenImage_Fresco();
 				window.text = msg.Text;
 				window.imageUri = u2 ;//msg.getMediaLocalSrc();
 				window.show();

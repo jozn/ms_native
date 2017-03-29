@@ -15,6 +15,7 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SwitchCompat;
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.github.chrisbanes.photoview.PhotoView;
 import com.github.rahatarmanahmed.cpv.CircularProgressView;
 import com.joanzapata.iconify.widget.IconTextView;
 import com.mardomsara.emojicon.EmojiconEditText;
@@ -824,6 +825,48 @@ public class X {
             root = (FrameLayout) AppUtil.inflate(R.layout.framelayout_match,parent);
         }
         public FramelayoutMatch() {
+            this(null);
+        }
+    }
+ //( index .Fields 0).ViewClass
+
+    public static class FullScreenImage {
+        public RelativeLayout root;
+        public RelativeLayout window;
+        public PhotoView image_view;
+        public LinearLayout top_nav;
+        public TextView back_btn;
+        public XTextView text_view;
+
+        public FullScreenImage(ViewGroup parent) {
+            root = (RelativeLayout) AppUtil.inflate(R.layout.full_screen_image,parent);
+            window = (RelativeLayout) root.findViewById( R.id.window);
+            image_view = (PhotoView) root.findViewById( R.id.image_view);
+            top_nav = (LinearLayout) root.findViewById( R.id.top_nav);
+            back_btn = (TextView) root.findViewById( R.id.back_btn);
+            text_view = (XTextView) root.findViewById( R.id.text_view);
+        }
+        public FullScreenImage() {
+            this(null);
+        }
+    }
+ //( index .Fields 0).ViewClass
+
+    public static class FullScreenImageFresco {
+        public RelativeLayout root;
+        public RelativeLayout window;
+        public PhotoDraweeView image_view;
+        public LinearLayout top_nav;
+        public EmojiconTextView text_view;
+
+        public FullScreenImageFresco(ViewGroup parent) {
+            root = (RelativeLayout) AppUtil.inflate(R.layout.full_screen_image_fresco,parent);
+            window = (RelativeLayout) root.findViewById( R.id.window);
+            image_view = (PhotoDraweeView) root.findViewById( R.id.image_view);
+            top_nav = (LinearLayout) root.findViewById( R.id.top_nav);
+            text_view = (EmojiconTextView) root.findViewById( R.id.text_view);
+        }
+        public FullScreenImageFresco() {
             this(null);
         }
     }
@@ -2368,26 +2411,6 @@ public class X {
             send_btn = (Button) root.findViewById( R.id.send_btn);
         }
         public WidgetAddSimpleText() {
-            this(null);
-        }
-    }
- //( index .Fields 0).ViewClass
-
-    public static class WidgetFullScreenImage {
-        public RelativeLayout root;
-        public RelativeLayout window;
-        public PhotoDraweeView image_view;
-        public LinearLayout top_nav;
-        public EmojiconTextView text_view;
-
-        public WidgetFullScreenImage(ViewGroup parent) {
-            root = (RelativeLayout) AppUtil.inflate(R.layout.widget_full_screen_image,parent);
-            window = (RelativeLayout) root.findViewById( R.id.window);
-            image_view = (PhotoDraweeView) root.findViewById( R.id.image_view);
-            top_nav = (LinearLayout) root.findViewById( R.id.top_nav);
-            text_view = (EmojiconTextView) root.findViewById( R.id.text_view);
-        }
-        public WidgetFullScreenImage() {
             this(null);
         }
     }

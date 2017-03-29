@@ -1,16 +1,11 @@
 package com.mardomsara.social.ui.cells.post;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
-import com.facebook.drawee.view.SimpleDraweeView;
 import com.mardomsara.social.Nav;
 import com.mardomsara.social.R;
 import com.mardomsara.social.app.API;
@@ -25,12 +20,9 @@ import com.mardomsara.social.json.social.rows.PostRowJson;
 import com.mardomsara.social.ui.X;
 import com.mardomsara.social.ui.presenter.pages.ProfilePage;
 import com.mardomsara.social.ui.views.FullScreenImage;
-import com.mardomsara.social.ui.views.wigets.TextViewWithIcon_DEP;
-import com.mardomsara.social.ui.views.x.dep.XEmojiLinkerTextView;
+import com.mardomsara.social.ui.views.FullScreenImage_Fresco;
 import com.squareup.picasso.Picasso;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
 import jp.wasabeef.picasso.transformations.CropTransformation;
 import jp.wasabeef.picasso.transformations.RoundedCornersTransformation;
 
@@ -58,7 +50,7 @@ public class PostRowCompactWrapper {
     };
 
     View.OnClickListener imagePopup = (v) -> {
-        FullScreenImage window = new FullScreenImage();
+        FullScreenImage_Fresco window = new FullScreenImage_Fresco();
         window.text = post.Text;
         window.imageUri = imageUri2;
         window.show();
@@ -140,6 +132,13 @@ public class PostRowCompactWrapper {
 					.transform(new RoundedCornersTransformation(AndroidUtil.dpToPx(12),0))
                     .placeholder(R.drawable.image_background)
                     .into(x.image);
+
+			x.image.setOnClickListener((v)->{
+				FullScreenImage window = new FullScreenImage();
+				window.text = post.Text;
+				window.imageUri = Uri.parse(urlStr) ;//msg.getMediaLocalSrc();
+				window.show();
+			});
 
         } else {
             x.image.setVisibility(View.GONE);

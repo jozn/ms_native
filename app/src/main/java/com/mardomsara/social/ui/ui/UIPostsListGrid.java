@@ -16,7 +16,7 @@ import com.mardomsara.social.json.social.rows.PostRowJson;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
 import com.mardomsara.social.ui.X;
 import com.mardomsara.social.ui.presenter.pages.PostEntryPage;
-import com.mardomsara.social.ui.views.FullScreenImage;
+import com.mardomsara.social.ui.views.FullScreenImage_Fresco;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -85,7 +85,7 @@ public class UIPostsListGrid {
         };
 
         View.OnClickListener imagePopup = (v) -> {
-            FullScreenImage window = new FullScreenImage();
+            FullScreenImage_Fresco window = new FullScreenImage_Fresco();
             window.text = post.Text;
             window.imageUri = imageUri2;
             window.show();

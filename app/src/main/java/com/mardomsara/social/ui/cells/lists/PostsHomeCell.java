@@ -71,7 +71,7 @@ public class PostsHomeCell
 					break;
 			}
 			adaptor.postWayToShow = type; //why we must this?? - dont adaptoer refers to same object
-			Helper.showDebugMessage("t: "+type.id);
+//			Helper.showDebugMessage("t: "+type.id);
 			adaptor.notifyDataChanged();
 		});
     }

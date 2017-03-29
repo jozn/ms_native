@@ -22,7 +22,7 @@ import com.mardomsara.social.helpers.LangUtil;
 import com.mardomsara.social.json.social.rows.PostRowJson;
 import com.mardomsara.social.ui.presenter.pages.ProfilePage;
 import com.mardomsara.social.ui.views.x.dep.XEmojiLinkerTextView;
-import com.mardomsara.social.ui.views.FullScreenImage;
+import com.mardomsara.social.ui.views.FullScreenImage_Fresco;
 import com.mardomsara.social.ui.views.helpers.ViewHelper;
 import com.mardomsara.social.ui.views.wigets.TextViewWithIcon_DEP;
 import com.squareup.picasso.Picasso;
@@ -73,7 +73,7 @@ public class PostRowCell {
     };
 
     View.OnClickListener imagePopup = (v) -> {
-        FullScreenImage window = new FullScreenImage();
+        FullScreenImage_Fresco window = new FullScreenImage_Fresco();
         window.text = post.Text;
         window.imageUri = imageUri2;
         window.show();
