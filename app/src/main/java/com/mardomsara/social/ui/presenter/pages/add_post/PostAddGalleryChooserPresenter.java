@@ -38,6 +38,7 @@ public class PostAddGalleryChooserPresenter extends BasePresenter {
     @Override
     public View buildView() {
 		x = new X.AddPostGallery_Container();
+		x.top_nav.setTitle("انتخاب عکس");
 		askPermissions();
 
         return x.root;

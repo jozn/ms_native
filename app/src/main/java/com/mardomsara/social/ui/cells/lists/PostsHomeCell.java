@@ -42,7 +42,6 @@ public class PostsHomeCell
     private void init() {
 		x = new X.Home_Parent();
 
-
         adaptor = new PostsAdaptor(x.button_post_way.getPostWayToShow());
         LinearLayoutManager layoutManager = new LinearLayoutManager(AppUtil.getContext());
         x.recycler_view.setLayoutManager(layoutManager);
