@@ -91,6 +91,24 @@ public class RecentImagesAddPostBoxCell {
         return selected;
     }
 
+	public String getSelectedOne() {
+		if(selected.size()>0){
+			return selected.get(0);
+		};
+		return null;
+	}
+
+	public void tryAddToSelected(String imagePath) {
+		if(imagePath != null){
+			File file = new File(imagePath);
+			if(file.exists()){
+				selected.add(imagePath);
+				galley.notifyDataSetChanged();
+			}
+
+		};
+	}
+
     public void setMaxSelection(int maxSelection) {
         this.maxSelection = maxSelection;
     }

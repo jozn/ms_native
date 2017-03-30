@@ -221,16 +221,20 @@ public class Nav {
 			page.onFocus();
 		}
 
-		public void replace(PresenterPage page){
+		public void replace(PresenterPage page1){
 			PresenterPage last = getLastPage();
 
 			BranchCell bc = _getActiveBranchCell();
 
 			if(last!=null){
 				bc.pageStacks.remove(last);
+				last.onBlur();
+				last.onBack();
+				last.onDestroy();
 			}
 
-			replace(page);
+			//// TODO: 3/30/2017 a bug wwhen we push we should not do  last.onBlur(); on the .push() method
+			push(page1);
 		}
 
 		public void pop() {

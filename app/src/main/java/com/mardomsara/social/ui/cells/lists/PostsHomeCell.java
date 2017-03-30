@@ -151,12 +151,50 @@ public class PostsHomeCell
 		adaptor.appendViewToHeader(addPostBox.root);
 
 		addPostBox.top_holder.setOnClickListener((v)-> Nav.push(new AddPostPage()));
+		addPostBox.camera_btn.setOnClickListener((v) -> Helper.showCommingSoonMessage());
 		addPostBox.gallery_btn.setOnClickListener((v) -> {
-			Nav.push(new PostAddGalleryChooserPresenter());
+			Nav.push(new PostAddGalleryChooserPresenter(new PostAddGalleryChooserPresenter.onImageClicked() {
+				@Override
+				public void onRecentImageAdded(String filePath) {
+					AddPostPage addPostPage = new AddPostPage();
+					addPostPage.setToShareFilePath(filePath);
+					Nav.replace(addPostPage);
+				}
+
+				@Override
+				public void onRecentImageRemoved(String filePath) {
+
+				}
+
+				@Override
+				public void onRecentImageClicked(String filePath) {
+
+				}
+			}));
 		});
 
 		RecentImagesAddPostBoxCell recentImagesCell = new RecentImagesAddPostBoxCell(addPostBox.recent_images_holder);
+		recentImagesCell.setListener(new RecentImagesAddPostBoxCell.onRecentImageClicked() {
+			@Override
+			public void onRecentImageAdded(String filePath) {
+				AddPostPage addPostPage = new AddPostPage();
+				addPostPage.setToShareFilePath(recentImagesCell.getSelectedOne());
+				recentImagesCell.selectNone();
+				Nav.push(addPostPage);
+			}
+
+			@Override
+			public void onRecentImageRemoved(String filePath) {
+
+			}
+
+			@Override
+			public void onRecentImageClicked(String filePath) {
+
+			}
+		});
 		recentImagesCell.insertInto(addPostBox.recent_images_holder);
+
 	}
 
 	public static class PostsAdaptor extends AppHeaderFooterRecyclerViewAdapter<CommonPostBinder> {

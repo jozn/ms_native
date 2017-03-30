@@ -68,6 +68,10 @@ public class Helper {
         });
     }
 
+	public static void showCommingSoonMessage(){
+		showMessageShort("به زودی در نسخه های بعد...");
+	}
+
 	public static int getAndroidKeyboardSize(){
 		return Store.getInt(StoreConstants.KEYBOARD_SIZE, (int) (AndroidUtil.getScreenHeight()/2.5));
 	}

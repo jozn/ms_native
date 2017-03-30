@@ -24,7 +24,23 @@ public class AddPostPage extends BasePresenter {
 		x = new X.AddPost_Container();
 
 		x.gallery_btn.setOnClickListener((v) -> {
-			Nav.push(new PostAddGalleryChooserPresenter());
+			Nav.push(new PostAddGalleryChooserPresenter(new PostAddGalleryChooserPresenter.onImageClicked() {
+				@Override
+				public void onRecentImageAdded(String filePath) {
+					Nav.pop();
+					setImageFromOutside(filePath);
+				}
+
+				@Override
+				public void onRecentImageRemoved(String filePath) {
+
+				}
+
+				@Override
+				public void onRecentImageClicked(String filePath) {
+
+				}
+			}));
 		});
 
 		recentImagesCell = new RecentImagesAddPostBoxCell(x.recent_images_holder);
@@ -53,11 +69,14 @@ public class AddPostPage extends BasePresenter {
 		recentImagesCell.insertInto(x.recent_images_holder);
 		x.cancel_image.setOnClickListener((v)-> selectNoImage());
 		x.top_nav.setOnLeftClick(()->sendPost());
+		x.camera_btn.setOnClickListener(v-> Helper.showCommingSoonMessage());
 
 		EmojiKeyboard emojiKeybord= new EmojiKeyboard(x.post_field ,x.emoji_opener_btn, AppUtil.global_window);
 
 //		getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
 		keyboard_noResize();
+
+		setImageFromOutside(toShareFilePath);
 
 		return x.root;
     }
@@ -92,7 +111,7 @@ public class AddPostPage extends BasePresenter {
 		super.onBlur();
 	}
 
-	void setImage(String path){
+	public void setImage(String path){
 		toShareFilePath = path;
 		if(path != null && !path.equals("")){
 			File file = new File(path);
@@ -103,6 +122,15 @@ public class AddPostPage extends BasePresenter {
 		}else {
 			x.image.setImageBitmap(null);
 		}
+	}
+
+	public void setToShareFilePath(String toShareFilePath) {
+		this.toShareFilePath = toShareFilePath;
+	}
+
+	private void setImageFromOutside(String toShareFilePath) {
+		recentImagesCell.tryAddToSelected(toShareFilePath);
+		setImage(toShareFilePath);
 	}
 
 	void selectNoImage(){
