@@ -4,7 +4,9 @@ import android.view.View;
 
 import com.mardomsara.social.App;
 import com.mardomsara.social.Nav;
+import com.mardomsara.social.base.Http.Http;
 import com.mardomsara.social.helpers.AppUtil;
+import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.X;
 import com.squareup.picasso.Picasso;
@@ -50,10 +52,29 @@ public class AddPostPage extends BasePresenter {
 		});
 		recentImagesCell.insertInto(x.recent_images_holder);
 		x.cancel_image.setOnClickListener((v)-> selectNoImage());
+		x.send_btn2.setOnClickListener((v)->sendPost());
 
 
 		return x.root;
     }
+
+	private void sendPost() {
+		Helper.showDebugMessage("sendPost");
+		if(isStingEmpty(toShareFilePath)){
+			Http.postPath("/v1/post/add")
+				.setFormParam("text", x.post_field.getText().toString())
+				.doAsyncUi((result -> {
+					Nav.pop();
+				}));
+		}else {
+			File file = new File(toShareFilePath);
+			Http.uploadPath("/v1/post/add",file)
+				.setFormParam("text", x.post_field.getText().toString())
+				.doAsyncUi((result -> {
+					Nav.pop();
+				}));
+		}
+	}
 
 	@Override
 	public void onFocus() {
@@ -82,5 +103,9 @@ public class AddPostPage extends BasePresenter {
 	void selectNoImage(){
 		recentImagesCell.selectNone();
 		setImage(null);
+	}
+
+	private static boolean isStingEmpty(String str){
+		return str == null || str.equals("");
 	}
 }

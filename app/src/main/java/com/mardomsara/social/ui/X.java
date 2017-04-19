@@ -31,6 +31,7 @@ import com.mardomsara.social.ui.views.wigets.SimpleTopNav;
 import com.mardomsara.social.ui.views.wigets.TextViewWithIcon_DEP;
 import com.mardomsara.social.ui.views.wigets.UserListGeneralFollowRowWhithBorderLinearLayout;
 import com.mardomsara.social.ui.views.x.XTextView;
+import com.mardomsara.social.ui.views.x.XTopNav;
 import com.mardomsara.social.ui.views.x.dep.XEmojiLinkerTextView;
 import com.mardomsara.social.ui.views.x.dep.XLinkerTextView;
 import com.mardomsara.x.iconify.widget.XIcon;
@@ -103,10 +104,12 @@ public class X {
         public LinearLayout top_holder;
         public ImageView image;
         public XIcon cancel_image;
+        public EditText post_field;
         public LinearLayout bottom_holder;
         public LinearLayout share_media_buttons_holder;
         public XIcon gallery_btn;
         public XIcon camera_btn;
+        public XTextView send_btn2;
         public FrameLayout recent_images_holder;
 
         public AddPost_Container(ViewGroup parent) {
@@ -118,10 +121,12 @@ public class X {
             top_holder = (LinearLayout) root.findViewById( R.id.top_holder);
             image = (ImageView) root.findViewById( R.id.image);
             cancel_image = (XIcon) root.findViewById( R.id.cancel_image);
+            post_field = (EditText) root.findViewById( R.id.post_field);
             bottom_holder = (LinearLayout) root.findViewById( R.id.bottom_holder);
             share_media_buttons_holder = (LinearLayout) root.findViewById( R.id.share_media_buttons_holder);
             gallery_btn = (XIcon) root.findViewById( R.id.gallery_btn);
             camera_btn = (XIcon) root.findViewById( R.id.camera_btn);
+            send_btn2 = (XTextView) root.findViewById( R.id.send_btn2);
             recent_images_holder = (FrameLayout) root.findViewById( R.id.recent_images_holder);
         }
         public AddPost_Container() {
@@ -2282,6 +2287,22 @@ public class X {
         }
         public WigetUserListTypeFollowRow() {
             this(null);
+        }
+    }
+ //( index .Fields 0).ViewClass
+
+    public static class XTopNav {
+        public ViewGroup root;
+        public XTextView left_text;
+        public XTextView title_text;
+        public XIcon back_btn;
+
+        public XTopNav(ViewGroup parent) {
+            root = (ViewGroup) AppUtil.inflate(R.layout.x_top_nav,parent,true);//for Compound Views
+            
+            left_text = (XTextView) root.findViewById( R.id.left_text);
+            title_text = (XTextView) root.findViewById( R.id.title_text);
+            back_btn = (XIcon) root.findViewById( R.id.back_btn);
         }
     }
 

@@ -54,4 +54,9 @@
 
     </declare-styleable>
 
+    <declare-styleable name="XTopNav" >
+        <attr name="xTitle" format="string" />
+        <attr name="xLeftTitle" format="string" />
+    </declare-styleable>
+
 </resources>

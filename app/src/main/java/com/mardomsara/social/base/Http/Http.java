@@ -20,7 +20,7 @@ public class Http {
 
     //like: getPath("like")
     public static Req getPath(String path){
-        Req req = new Req(Action.GET, API.BASE_DOMAIN_URL_STR+path);
+        Req req = new Req(Action.GET, API.BASE_DOMAIN_URL_STR+ fixPath(path) );
         return req;
     }
 
@@ -30,7 +30,7 @@ public class Http {
     }
 
     public static Req postPath(String path){
-        Req req = new Req(Action.POST, API.BASE_DOMAIN_URL_STR+path);
+        Req req = new Req(Action.POST, API.BASE_DOMAIN_URL_STR+ fixPath(path) );
         return req;
     }
 
@@ -41,7 +41,7 @@ public class Http {
     }
 
     public static Req uploadPath(String path, @NonNull File file){
-        Req req = new Req(Action.UPLOAD, API.BASE_DOMAIN_URL_STR+path);
+        Req req = new Req(Action.UPLOAD, API.BASE_DOMAIN_URL_STR+ fixPath(path));
         req.file = file;
         return req;
     }
@@ -65,6 +65,18 @@ public class Http {
         h.put("user_id",""+ Session.getUserId());
         return  h;
     }
+
+    private static String fixPath(String path){
+		if(path == null || path.length() ==0){
+			return "/";
+		}
+		if(path.charAt(0) == '/' ){
+			return path;
+		}
+		return "/"+path;
+
+
+	}
 
     /*public enum  Action {
         GET,

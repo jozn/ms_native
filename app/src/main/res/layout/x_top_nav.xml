@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+       xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    >
+
+    <com.mardomsara.social.ui.views.x.XTextView
+        android:id="@+id/left_text"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:minWidth="50dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:paddingLeft="10dp"
+        android:paddingRight="20dp"
+        android:gravity="center"
+        android:layout_centerVertical="true"
+        app:xFont="IranLight"
+        android:textColor="@color/light_blue_2"
+        android:textSize="14dp"
+        />
+
+    <com.mardomsara.social.ui.views.x.XTextView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/title_text"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:layout_centerInParent="true"
+        android:textColor="@color/light_blue_2"
+        app:xFont="IranLight"
+        android:textSize="16dp"
+        />
+
+    <com.mardomsara.x.iconify.widget.XIcon
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:minWidth="50dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:paddingLeft="20dp"
+        android:paddingRight="10dp"
+        android:gravity="center"
+        android:layout_centerVertical="true"
+        android:id="@+id/back_btn"
+        app:xiconRight="ion-ios-arrow-forward"
+        app:xiconColor="@color/light_blue_2"
+        app:xiconSize="28dp"
+
+        />
+
+</merge>
