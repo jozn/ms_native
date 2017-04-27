@@ -12,6 +12,9 @@ import com.mardomsara.social.models.stores.StoreConstants;
 import com.mardomsara.social.ui.views.EmojiKeyboard_OLD;
 import com.squareup.picasso.Picasso;
 
+import java.util.Arrays;
+import java.util.Collections;
+
 /**
  * Created by Hamid on 5/2/2016.
  */
@@ -39,10 +42,14 @@ public class Helper {
 
     public static String postsGetBestPhotoResUrl(JV.PhotoView pv, int maxRes){
 		int size = 160;
-		for(Integer i: pv.Sizes){
-			if (i<maxRes){
-				size = i;
+		if( pv.Sizes != null){
+			Collections.sort(pv.Sizes);
+			for(Integer i: pv.Sizes){
+				if (i<=maxRes){
+					size = i;
+				}
 			}
+			AppUtil.log("size: " +pv.Sizes.toString() + " " + size + pv.UrlFormat);
 		}
 		return pv.UrlFormat.replace("%s",""+size);
 	}

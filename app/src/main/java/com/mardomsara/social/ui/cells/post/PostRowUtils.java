@@ -27,7 +27,7 @@ public class PostRowUtils {
 
 	public static void setImage(ImageView image, JV.PostView post){
 //		String urlStr = API.BASE_CDN_DOMAIN_URL_STR+"/"+post.MediaUrl;
-		String urlStr = Helper.postsGetBestPhotoResUrl(post.PhotoView,720);
+		String urlStr = Helper.postsGetBestPhotoResUrl(post.PhotoView,1080);
 		image.setOnClickListener((v)->{
 			FullScreenImage window = new FullScreenImage();
 			window.text = post.Text;

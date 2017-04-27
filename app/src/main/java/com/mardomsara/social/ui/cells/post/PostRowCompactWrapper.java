@@ -113,8 +113,8 @@ public class PostRowCompactWrapper {
 			.into(x.avatar);
 
         if (post.TypeId == 2) {
-            /*int screenSize =AndroidUtil.getScreenWidth() +1;
-			int w = (int) (screenSize*.75);
+            int screenSize =AndroidUtil.getScreenWidth() +1;
+			/*int w = (int) (screenSize*.75);
 			int h = (int) (w*.66);
             x.image.getLayoutParams().height = h;
             x.image.getLayoutParams().width = w;*/
@@ -123,7 +123,7 @@ public class PostRowCompactWrapper {
 			int ih = x.image.getLayoutParams().height;
             x.image.setVisibility(View.VISIBLE);
 //            String urlStr = API.BASE_CDN_DOMAIN_URL_STR+"/"+post.MediaUrl;
-            String urlStr = Helper.postsGetBestPhotoResUrl(post.PhotoView,iw);
+            String urlStr = Helper.postsGetBestPhotoResUrl(post.PhotoView,screenSize);
             Picasso.with(AppUtil.getContext())
                     .load(urlStr)
 //					.resize(w,h)

@@ -121,6 +121,7 @@ public class PostRowNewCell {
     }
 
     public void bind(@NonNull JV.PostView post) {
+		image.setVisibility(View.GONE);
         this.post = post;
 //        text.setText(LangUtil.limitText(post.Text, 120));
         text.setTextWithLimits(LangUtil.limitText(post.Text, 1600),160);
@@ -130,11 +131,12 @@ public class PostRowNewCell {
         avatar.setImageURI(imageUri);
 
         if (post.TypeId == 2 && post.PhotoView != null) {
+			int screenSizePx =AndroidUtil.getScreenWidth() +1;
 			int screenSize = AndroidUtil.pxToDp( AndroidUtil.getScreenWidth() )+1;
 			ViewHelper.setImageSizesWithMaxPx(image,screenSize,screenSize,post.PhotoView.Width,post.PhotoView.Height);
 			image.setVisibility(View.VISIBLE);
 //			String urlStr = API.BASE_CDN_DOMAIN_URL_STR+"/"+post.MediaUrl;
-			String urlStr = Helper.postsGetBestPhotoResUrl(post.PhotoView,screenSize);
+			String urlStr = Helper.postsGetBestPhotoResUrl(post.PhotoView,screenSizePx);
 			Picasso.with(AppUtil.getContext())
 				.load(urlStr)
 				.placeholder(R.drawable.image_background)
@@ -144,7 +146,7 @@ public class PostRowNewCell {
 
         } else {
             image.setVisibility(View.GONE);
-            image.setOnClickListener(null);
+//            image.setOnClickListener(null);
         }
 
         if (post.LikesCount > 0) {
