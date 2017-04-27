@@ -74,7 +74,8 @@ public class SuggestionsTagsPresenter extends BasePresenter implements AppHeader
 
     private void loadFromServer(int pageNum) {
 		Http.getPath("/v1/recommend/top_tags_discover")
-			.setFormParam("page",""+pageNum)
+			.setQueryParam("page",""+pageNum)
+			.setQueryParam("limit",""+8)
 			.doAsyncUi(result -> {
 
 				adaptor.nextPageIsLoaded(result);
@@ -104,10 +105,10 @@ public class SuggestionsTagsPresenter extends BasePresenter implements AppHeader
 		Helper.showDebugMessage("page tags: "+ pageNum);
 
 		//for now just one page
-		if(pageNum > 1){
+		/*if(pageNum > 1){
 			adaptor.setHasMorePage(false);
 			return;
-		}
+		}*/
 		loadFromServer(pageNum);
     }
 

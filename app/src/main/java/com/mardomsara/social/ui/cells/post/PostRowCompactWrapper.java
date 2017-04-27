@@ -62,7 +62,7 @@ public class PostRowCompactWrapper {
 				.doAsyncUi((result)->{
 
 				});
-			post.AmIlike = false;
+			post.MyLike = 0;
 			post.LikesCount -= 1;
 			likeBtnShowUnlike();
 
@@ -72,7 +72,7 @@ public class PostRowCompactWrapper {
 				.doAsyncUi((result)->{
 
 				});
-			post.AmIlike = true;
+			post.MyLike = 1;
 			post.LikesCount += 1;
 			likeBtnShowLike();
 		}
@@ -157,7 +157,7 @@ public class PostRowCompactWrapper {
         x.likes_count.setOnClickListener(gotoLikes);
         x.comment_count.setOnClickListener(gotoComments);
 
-        if(post.AmIlike){
+        if(post.MyLike > 0){
             likeBtnShowLike();
         }else {
             likeBtnShowUnlike();

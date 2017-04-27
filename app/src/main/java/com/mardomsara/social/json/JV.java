@@ -72,9 +72,7 @@ public class JV {
 		public String TypeName;
 		public UserInlineView Sender;
 		public PhotoView PhotoView;
-		public boolean AmIlike;
 		public int MyLike;
-
 	}
 
 	public static class CommentInlineInfoView extends J.Comment {

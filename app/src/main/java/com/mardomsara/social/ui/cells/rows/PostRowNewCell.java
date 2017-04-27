@@ -80,13 +80,13 @@ public class PostRowNewCell {
     };
 
 	View.OnClickListener likeListner = (v) -> {
-		if(post.AmIlike){//do unlike
+		if(post.MyLike >0){//do unlike
 			Http.postPath("/v1/unlike")
 				.setFormParam("post_id",""+post.Id)
 				.doAsyncUi((result)->{
 
 				});
-			post.AmIlike = false;
+			post.MyLike = 0;
 			post.LikesCount -= 1;
 			likeBtnShowUnlike();
 
@@ -96,7 +96,7 @@ public class PostRowNewCell {
 				.doAsyncUi((result)->{
 
 				});
-			post.AmIlike = true;
+			post.MyLike = 1;
 			post.LikesCount += 1;
 			likeBtnShowLike();
 		}
@@ -166,7 +166,7 @@ public class PostRowNewCell {
         likes_count.setOnClickListener(gotoLikes);
         comment_count.setOnClickListener(gotoComments);
 
-        if(post.AmIlike){
+        if(post.MyLike > 0){
             likeBtnShowLike();
         }else {
             likeBtnShowUnlike();
