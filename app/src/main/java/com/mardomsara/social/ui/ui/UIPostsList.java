@@ -8,7 +8,7 @@ import com.mardomsara.social.R;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.json.social.rows.PostRowJson;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
-import com.mardomsara.social.ui.cells.rows.PostRowCell;
+import com.mardomsara.social.ui.cells.rows.PostRowCell_OLD;
 import com.mardomsara.social.ui.views.helpers.ViewHelper;
 
 import java.util.ArrayList;
@@ -70,7 +70,7 @@ public class UIPostsList {
         @Override
         protected PostStreamHolder onCreateContentItemViewHolder(ViewGroup parent, int contentViewType) {
 //            View v = AppUtil.inflate(R.layout.row_post_stream, parent);
-            PostRowCell postRowCell = new PostRowCell(null);
+            PostRowCell_OLD postRowCell = new PostRowCell_OLD(null);
             return new PostStreamHolder(postRowCell);
         }
 
@@ -87,8 +87,8 @@ public class UIPostsList {
 
 
     public static class PostStreamHolder extends RecyclerView.ViewHolder {
-        PostRowCell postRowCell;
-        public PostStreamHolder(PostRowCell postCell) {
+        PostRowCell_OLD postRowCell;
+        public PostStreamHolder(PostRowCell_OLD postCell) {
             super(postCell.rootView);
             this.postRowCell = postCell;
         }

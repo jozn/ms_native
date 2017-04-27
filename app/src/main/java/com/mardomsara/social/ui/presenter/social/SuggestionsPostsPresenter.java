@@ -12,12 +12,12 @@ import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.json.HttpJsonList;
-import com.mardomsara.social.json.social.rows.PostRowJson;
+import com.mardomsara.social.json.JV;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
 import com.mardomsara.social.ui.BasePresenter;
+import com.mardomsara.social.ui.adaptors.PostsGridAdaptor;
 import com.mardomsara.social.ui.cells.Cells;
 import com.mardomsara.social.ui.presenter.pages.LastPostsPage;
-import com.mardomsara.social.ui.ui.UIPostsListGrid;
 import com.mardomsara.social.ui.views.helpers.ViewHelper;
 
 /**
@@ -32,11 +32,11 @@ public class SuggestionsPostsPresenter extends BasePresenter
         return refreshLayout;
     }
 
-    UIPostsListGrid.PostsAdaptor adaptor;
+    PostsGridAdaptor adaptor;
     SwipeRefreshLayout refreshLayout;
 
     private void load() {
-        adaptor = new UIPostsListGrid.PostsAdaptor();
+        adaptor = new PostsGridAdaptor();
         RecyclerView recycler_view = ViewHelper.newRecyclerViewMatch();
         refreshLayout.addView(recycler_view);
 
@@ -82,7 +82,7 @@ public class SuggestionsPostsPresenter extends BasePresenter
 					refreshLayout.setRefreshing(false);
 					adaptor.nextPageIsLoaded(result);
 					if(result.isOk()){
-						HttpJsonList<PostRowJson> data = Result.fromJsonList(result,PostRowJson.class);
+						HttpJsonList<JV.PostView> data = Result.fromJsonList(result,JV.PostView.class);
 						if(data.isPayloadNoneEmpty()){
 							if(page==1){
 								adaptor.posts.clear();

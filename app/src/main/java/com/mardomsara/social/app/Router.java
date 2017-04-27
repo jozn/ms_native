@@ -15,7 +15,7 @@ import com.mardomsara.social.ui.presenter.tabs.AcitivityTab;
 import com.mardomsara.social.ui.presenter.pages.CommentsPage;
 import com.mardomsara.social.ui.presenter.pages.FollowsListAboutPage;
 import com.mardomsara.social.ui.presenter.tabs.HomeTab;
-import com.mardomsara.social.ui.presenter.pages.PostEntryPage;
+import com.mardomsara.social.ui.presenter.pages.PostEntryPage_OLD;
 import com.mardomsara.social.ui.presenter.pages.ProfilePage;
 import com.mardomsara.social.ui.presenter.tabs.ProfileTab;
 import com.mardomsara.social.ui.presenter.tabs.SearchTab;
@@ -70,11 +70,11 @@ public class Router {
     }
 
     public static void goToPost(PostRowJson postRowJson) {
-        Nav.push(new PostEntryPage(postRowJson));
+        Nav.push(new PostEntryPage_OLD(postRowJson));
     }
 
 	public static void goToPost_PartialData(PostRowJson postRowJson) {
-		Nav.push(new PostEntryPage(postRowJson,false));
+		Nav.push(new PostEntryPage_OLD(postRowJson,false));
 	}
 
     public static void goToTag(String tag) {

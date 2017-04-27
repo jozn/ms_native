@@ -8,7 +8,7 @@ import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.cells.Cells;
 import com.mardomsara.social.ui.cells.lists.CommentsListCell;
 import com.mardomsara.social.ui.cells.lists.CommentsWithAddFieldCell;
-import com.mardomsara.social.ui.cells.rows.PostRowCell;
+import com.mardomsara.social.ui.cells.rows.PostRowCell_OLD;
 
 /**
  * Created by Hamid on 8/26/2016.
@@ -25,7 +25,7 @@ public class PostEntryPage_BK extends BasePresenter {
     public View buildView() {
         viewRoot = new Cells.NavAndEmptyView().rootView;
 
-        PostRowCell postCell = new PostRowCell(viewRoot);
+        PostRowCell_OLD postCell = new PostRowCell_OLD(viewRoot);
         postCell.bind(postRowJson);
 //        viewRoot.addView(listCell.getViewRoot());
 

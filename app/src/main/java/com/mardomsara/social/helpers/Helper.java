@@ -6,6 +6,7 @@ import android.widget.Toast;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.mardomsara.social.app.Config;
+import com.mardomsara.social.json.JV;
 import com.mardomsara.social.models.stores.Store;
 import com.mardomsara.social.models.stores.StoreConstants;
 import com.mardomsara.social.ui.views.EmojiKeyboard_OLD;
@@ -35,6 +36,18 @@ public class Helper {
 
         return  Uri.parse(path.replace("%s", ""+t ));
     }
+
+    public static String postsGetBestPhotoResUrl(JV.PhotoView pv, int maxRes){
+		int size = 160;
+		for(Integer i: pv.Sizes){
+			if (i<maxRes){
+				size = i;
+			}
+		}
+		return pv.UrlFormat.replace("%s",""+size);
+	}
+
+
     public static void SetAvatar(SimpleDraweeView draweeView, String urlPath){
         Uri imageUri = Helper.PathToUserAvatarUri(urlPath);
         draweeView.setImageURI(imageUri);

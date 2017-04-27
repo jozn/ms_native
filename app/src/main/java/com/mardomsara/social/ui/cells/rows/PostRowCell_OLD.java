@@ -19,12 +19,12 @@ import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.FormaterUtil;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.LangUtil;
-import com.mardomsara.social.json.JV;
+import com.mardomsara.social.json.social.rows.PostRowJson;
 import com.mardomsara.social.ui.presenter.pages.ProfilePage;
+import com.mardomsara.social.ui.views.x.dep.XEmojiLinkerTextView;
 import com.mardomsara.social.ui.views.FullScreenImage_Fresco;
 import com.mardomsara.social.ui.views.helpers.ViewHelper;
 import com.mardomsara.social.ui.views.wigets.TextViewWithIcon_DEP;
-import com.mardomsara.social.ui.views.x.dep.XEmojiLinkerTextView;
 import com.squareup.picasso.Picasso;
 
 import butterknife.Bind;
@@ -33,9 +33,9 @@ import butterknife.ButterKnife;
 /**
  * Created by Hamid on 8/26/2016.
  */
-public class PostRowCell {
+public class PostRowCell_OLD {
     public View rootView;
-    JV.PostView post;
+    PostRowJson post;
 
     @Bind(R.id.text)
 	XEmojiLinkerTextView text;
@@ -80,7 +80,7 @@ public class PostRowCell {
     };
 
 	View.OnClickListener likeListner = (v) -> {
-		if(post.MyLike >0){//do unlike
+		if(post.AmIlike){//do unlike
 			Http.postPath("/v1/unlike")
 				.setFormParam("post_id",""+post.Id)
 				.doAsyncUi((result)->{
@@ -109,7 +109,7 @@ public class PostRowCell {
 
     };
 
-    public PostRowCell(ViewGroup parent) {
+    public PostRowCell_OLD(ViewGroup parent) {
 		rootView = AppUtil.inflate(R.layout.row_post_stream, parent);
         ButterKnife.bind(this, rootView);
 //        rootView = itemView;
@@ -120,20 +120,20 @@ public class PostRowCell {
 
     }
 
-    public void bind(@NonNull JV.PostView post) {
+    public void bind(@NonNull PostRowJson post) {
         this.post = post;
 //        text.setText(LangUtil.limitText(post.Text, 120));
         text.setTextWithLimits(LangUtil.limitText(post.Text, 1600),160);
-        user_name.setText(post.Sender.FullName);
+        user_name.setText(post.Sender.getFullName());
         date.setText(FormaterUtil.timeAgo(post.CreatedTime));
         Uri imageUri = Helper.PathToUserAvatarUri(post.Sender.AvatarUrl);
         avatar.setImageURI(imageUri);
 
-        if (post.TypeId == 2 && post.PhotoView != null) {
+        if (post.TypeId == 2) {
             int screenSize = AndroidUtil.pxToDp( AndroidUtil.getScreenWidth() )+1;
-            ViewHelper.setImageSizesWithMaxPx(image,screenSize,screenSize,post.PhotoView.Width,post.PhotoView.Height);
+            ViewHelper.setImageSizesWithMaxPx(image,screenSize,screenSize,post.Width,post.Height);
             image.setVisibility(View.VISIBLE);
-            String urlStr = Helper.postsGetBestPhotoResUrl(post.PhotoView,screenSize);
+            String urlStr = API.BASE_CDN_DOMAIN_URL_STR+"/"+post.MediaUrl;
             Picasso.with(AppUtil.getContext())
                     .load(urlStr)
                     .placeholder(R.drawable.image_background)

@@ -6,7 +6,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.joanzapata.iconify.widget.IconTextView;
@@ -23,7 +22,7 @@ import com.mardomsara.social.json.social.rows.TopTagsWithPostsRowJson;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.cells.Cells;
-import com.mardomsara.social.ui.presenter.pages.PostEntryPage;
+import com.mardomsara.social.ui.presenter.pages.PostEntryPage_OLD;
 import com.mardomsara.social.ui.presenter.pages.TagsPage;
 import com.mardomsara.social.ui.views.FontCache;
 import com.mardomsara.social.ui.views.helpers.ViewHelper;
@@ -202,7 +201,7 @@ public class SuggestionsTagsPresenter extends BasePresenter implements AppHeader
                     .into(image);
 
             View.OnClickListener onClick = (v)->{
-                Nav.push(new PostEntryPage(post));
+                Nav.push(new PostEntryPage_OLD(post));
             };
 
             image.setOnClickListener(onClick);

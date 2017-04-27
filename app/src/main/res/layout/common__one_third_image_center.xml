@@ -6,6 +6,8 @@
     android:layout_height="wrap_content"
     android:layout_margin="0dp"
     android:paddingTop="2dp"
+    android:paddingRight="2dp"
+    android:paddingLeft="2dp"
     >
     <ImageView
         android:layout_width="match_parent"

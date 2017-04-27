@@ -6,29 +6,29 @@ import android.view.ViewGroup;
 import com.mardomsara.social.base.Http.Http;
 import com.mardomsara.social.base.Http.Result;
 import com.mardomsara.social.json.HttpJson;
-import com.mardomsara.social.json.JV;
+import com.mardomsara.social.json.social.rows.PostRowJson;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.X;
 import com.mardomsara.social.ui.cells.Cells;
 import com.mardomsara.social.ui.cells.lists.CommentsListCell;
 import com.mardomsara.social.ui.cells.lists.CommentsWithAddFieldCell;
-import com.mardomsara.social.ui.cells.rows.PostRowCell;
+import com.mardomsara.social.ui.cells.rows.PostRowCell_OLD;
 
 /**
  * Created by Hamid on 8/26/2016.
  */
-public class PostEntryPage extends BasePresenter {
+public class PostEntryPage_OLD extends BasePresenter {
     ViewGroup viewRoot;
-    JV.PostView postRowJson;
+    PostRowJson postRowJson;
 
 	boolean havePostJson = true;
 	X.Post_SingleEntryHolder postHolder;
 
-	public PostEntryPage(JV.PostView postJson) {
+	public PostEntryPage_OLD(PostRowJson postJson) {
         postRowJson = postJson;
     }
 
-	public PostEntryPage(JV.PostView postJson, boolean has) {
+	public PostEntryPage_OLD(PostRowJson postJson, boolean has) {
 		postRowJson = postJson;
 		havePostJson = has;
 	}
@@ -54,7 +54,7 @@ public class PostEntryPage extends BasePresenter {
 			Http.getPath("/v1/post/get")
 				.setQueryParam("post_id",getPostId())
 				.doAsyncUi(result -> {
-					HttpJson<JV.PostView> data =Result.fromJson(result, JV.PostView.class);
+					HttpJson<PostRowJson> data =Result.fromJson(result, PostRowJson.class);
 					if(data!=null){
 						showPostCell(data.Payload);
 					}
@@ -76,8 +76,8 @@ public class PostEntryPage extends BasePresenter {
 		return postRowJson.Id;
 	}
 
-	void showPostCell(JV.PostView postJson){
-		PostRowCell postCell = new PostRowCell(viewRoot);
+	void showPostCell(PostRowJson postJson){
+		PostRowCell_OLD postCell = new PostRowCell_OLD(viewRoot);
 		postCell.bind(postJson);
 //        viewRoot.addView(listCell.getViewRoot());
 		postHolder.loading.setVisibility(View.GONE);

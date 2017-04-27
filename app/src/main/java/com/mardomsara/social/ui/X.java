@@ -432,6 +432,20 @@ public class X {
     }
  //( index .Fields 0).ViewClass
 
+    public static class Common_OneThirdImageCenter {
+        public FrameLayout root;
+        public ImageView img;
+
+        public Common_OneThirdImageCenter(ViewGroup parent) {
+            root = (FrameLayout) AppUtil.inflate(R.layout.common__one_third_image_center,parent);
+            img = (ImageView) root.findViewById( R.id.img);
+        }
+        public Common_OneThirdImageCenter() {
+            this(null);
+        }
+    }
+ //( index .Fields 0).ViewClass
+
     public static class ContactsFollowingsList_Row {
         public LinearLayout root;
         public FollowingButtonView following_button;
