@@ -5,9 +5,7 @@ import android.view.ViewGroup;
 
 import com.mardomsara.social.app.API;
 import com.mardomsara.social.ui.BasePresenter;
-import com.mardomsara.social.ui.cells.Cells;
 import com.mardomsara.social.ui.cells.lists.PostsHomeCell;
-import com.mardomsara.social.ui.cells.lists.PostsListCell;
 
 /**
  * Created by Hamid on 7/13/2016.

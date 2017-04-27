@@ -11,7 +11,6 @@ import android.widget.TextView;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.mardomsara.social.Nav;
 import com.mardomsara.social.R;
-import com.mardomsara.social.app.API;
 import com.mardomsara.social.app.Router;
 import com.mardomsara.social.base.Http.Http;
 import com.mardomsara.social.helpers.AndroidUtil;
@@ -19,7 +18,7 @@ import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.FormaterUtil;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.LangUtil;
-import com.mardomsara.social.json.social.rows.PostRowJson;
+import com.mardomsara.social.json.JV;
 import com.mardomsara.social.ui.cells.post.PostRowUtils;
 import com.mardomsara.social.ui.presenter.pages.ProfilePage;
 import com.mardomsara.social.ui.views.FullScreenImage_Fresco;
@@ -36,7 +35,7 @@ import butterknife.ButterKnife;
  */
 public class PostRowNewCell {
     public View rootView;
-    PostRowJson post;
+    JV.PostView post;
 
     @Bind(R.id.text)
 	XEmojiLinkerTextView text;
@@ -121,20 +120,21 @@ public class PostRowNewCell {
 
     }
 
-    public void bind(@NonNull PostRowJson post) {
+    public void bind(@NonNull JV.PostView post) {
         this.post = post;
 //        text.setText(LangUtil.limitText(post.Text, 120));
         text.setTextWithLimits(LangUtil.limitText(post.Text, 1600),160);
-        user_name.setText(post.Sender.getFullName());
+        user_name.setText(post.Sender.FullName);
         date.setText(FormaterUtil.timeAgo(post.CreatedTime));
         Uri imageUri = Helper.PathToUserAvatarUri(post.Sender.AvatarUrl);
         avatar.setImageURI(imageUri);
 
-        if (post.TypeId == 2) {
+        if (post.TypeId == 2 && post.PhotoView != null) {
 			int screenSize = AndroidUtil.pxToDp( AndroidUtil.getScreenWidth() )+1;
-			ViewHelper.setImageSizesWithMaxPx(image,screenSize,screenSize,post.Width,post.Height);
+			ViewHelper.setImageSizesWithMaxPx(image,screenSize,screenSize,post.PhotoView.Width,post.PhotoView.Height);
 			image.setVisibility(View.VISIBLE);
-			String urlStr = API.BASE_CDN_DOMAIN_URL_STR+"/"+post.MediaUrl;
+//			String urlStr = API.BASE_CDN_DOMAIN_URL_STR+"/"+post.MediaUrl;
+			String urlStr = Helper.postsGetBestPhotoResUrl(post.PhotoView,screenSize);
 			Picasso.with(AppUtil.getContext())
 				.load(urlStr)
 				.placeholder(R.drawable.image_background)

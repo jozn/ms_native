@@ -13,7 +13,7 @@ import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.json.HttpJsonList;
-import com.mardomsara.social.json.social.rows.PostRowJson;
+import com.mardomsara.social.json.JV;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
 import com.mardomsara.social.ui.X;
 import com.mardomsara.social.ui.cells.post.PostRowCompactWrapper;
@@ -107,7 +107,7 @@ public class PostsHomeCell
 		Helper.showDebugMessage("Http isOk?: " + res.isOk());
 		adaptor.nextPageIsLoaded(res);
 		if(res.isOk()) {
-			HttpJsonList<PostRowJson> data= Result.fromJsonList(res, PostRowJson.class);
+			HttpJsonList<JV.PostView> data= Result.fromJsonList(res, JV.PostView.class);
 			if(data != null){
 				AndroidUtil.runInUiNoPanic(()->{
 					if(data.Payload.size() == 0){
@@ -197,7 +197,7 @@ public class PostsHomeCell
 	}
 
 	public static class PostsAdaptor extends AppHeaderFooterRecyclerViewAdapter<CommonPostBinder> {
-		public List<PostRowJson> posts = new ArrayList<>();
+		public List<JV.PostView> posts = new ArrayList<>();
 		PostWayToShow postWayToShow;
 
 		public PostsAdaptor(PostWayToShow postWayToShow) {
@@ -252,7 +252,7 @@ public class PostsHomeCell
 		}
 
 		@Override
-		public void bind(PostRowJson postRowJson) {
+		public void bind(JV.PostView postRowJson) {
 			postRowCell.bind(postRowJson);
 		}
 	}
@@ -265,13 +265,13 @@ public class PostsHomeCell
 		}
 
 		@Override
-		public void bind(PostRowJson postRowJson) {
+		public void bind(JV.PostView postRowJson) {
 			postRowCell.bind(postRowJson);
 		}
 	}
 
 	static abstract class CommonPostBinder extends RecyclerView.ViewHolder{
-		abstract void bind(PostRowJson postRowJson);
+		abstract void bind(JV.PostView postRowJson);
 
 		public CommonPostBinder(View itemView) {
 			super(itemView);

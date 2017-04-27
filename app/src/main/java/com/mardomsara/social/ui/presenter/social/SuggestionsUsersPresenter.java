@@ -4,7 +4,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.mardomsara.social.Nav;
 import com.mardomsara.social.app.Router;
 import com.mardomsara.social.base.Http.Http;
 import com.mardomsara.social.base.Http.Result;
@@ -15,7 +14,6 @@ import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.X;
 import com.mardomsara.social.ui.cells.Cells;
-import com.mardomsara.social.ui.presenter.pages.ProfilePage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,6 +31,9 @@ public class SuggestionsUsersPresenter extends BasePresenter implements AppHeade
 
 		pager = new Cells.Pager_RecyclerView(adaptor,this);
 		pager.wrapView.refresh_layout.setEnabled(true);
+		pager.wrapView.refresh_layout.setOnRefreshListener(()->{
+			loadNextPage(1);
+		});
 
 		Cells.Title_InfoLight title=new Cells.Title_InfoLight(pager.wrapView.recycler_view,"اشخاص پیشنهادی برای دنبال کردن:");
 		adaptor.appendViewToHeader(title.rootView);
@@ -52,6 +53,7 @@ public class SuggestionsUsersPresenter extends BasePresenter implements AppHeade
 			.setQueryParam("limit",""+20)
 			.doAsyncUi((result)->{
 				adaptor.nextPageIsLoaded(result);
+				pager.wrapView.refresh_layout.setRefreshing(false);
 				if(result.isOk()){
 					HttpJsonList<UserInfoJson> data = Result.fromJsonList(result, UserInfoJson.class);
 					if(data.isPayloadNoneEmpty()){

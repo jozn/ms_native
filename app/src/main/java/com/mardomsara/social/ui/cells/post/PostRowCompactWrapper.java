@@ -16,10 +16,9 @@ import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.FormaterUtil;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.LangUtil;
-import com.mardomsara.social.json.social.rows.PostRowJson;
+import com.mardomsara.social.json.JV;
 import com.mardomsara.social.ui.X;
 import com.mardomsara.social.ui.presenter.pages.ProfilePage;
-import com.mardomsara.social.ui.views.FullScreenImage;
 import com.mardomsara.social.ui.views.FullScreenImage_Fresco;
 import com.squareup.picasso.Picasso;
 
@@ -31,7 +30,7 @@ import jp.wasabeef.picasso.transformations.RoundedCornersTransformation;
  */
 public class PostRowCompactWrapper {
 
-    PostRowJson post;
+    JV.PostView post;
 
     Uri imageUri2;
 
@@ -57,7 +56,7 @@ public class PostRowCompactWrapper {
     };
 
 	View.OnClickListener likeListner = (v) -> {
-		if(post.AmIlike){//do unlike
+		if(post.MyLike > 0){//do unlike
 			Http.postPath("/v1/unlike")
 				.setFormParam("post_id",""+post.Id)
 				.doAsyncUi((result)->{
@@ -95,11 +94,11 @@ public class PostRowCompactWrapper {
 
     }
 
-    public void bind(@NonNull PostRowJson post) {
+    public void bind(@NonNull JV.PostView post) {
         this.post = post;
 //        text.setText(LangUtil.limitText(post.Text, 120));
         x.text.setTextWithLimits(LangUtil.limitText(post.Text, 1600),160);
-        x.fullname.setText(post.Sender.getFullName());
+        x.fullname.setText(post.Sender.FullName);
         x.date.setText(FormaterUtil.timeAgo(post.CreatedTime));
         Uri imageUri = Helper.PathToUserAvatarUri(post.Sender.AvatarUrl);
 
@@ -123,7 +122,8 @@ public class PostRowCompactWrapper {
 			int iw = x.image.getLayoutParams().width;
 			int ih = x.image.getLayoutParams().height;
             x.image.setVisibility(View.VISIBLE);
-            String urlStr = API.BASE_CDN_DOMAIN_URL_STR+"/"+post.MediaUrl;
+//            String urlStr = API.BASE_CDN_DOMAIN_URL_STR+"/"+post.MediaUrl;
+            String urlStr = Helper.postsGetBestPhotoResUrl(post.PhotoView,iw);
             Picasso.with(AppUtil.getContext())
                     .load(urlStr)
 //					.resize(w,h)
