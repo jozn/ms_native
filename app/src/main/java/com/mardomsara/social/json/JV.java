@@ -40,13 +40,13 @@ public class JV {
 		public J.Comment Comment;
 
 	}
-
+*/
 	public static class TopTagsWithPostsView {
 		public J.Tag Tag;
-		public J.Posts Posts;
+		public List<PostView> Posts;
 
 	}
-*/
+
 	public static class UserInlineView {
 		public int UserId;
 		public String UserName;

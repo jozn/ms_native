@@ -17,12 +17,11 @@ import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.json.HttpJsonList;
-import com.mardomsara.social.json.social.rows.PostRowJson;
-import com.mardomsara.social.json.social.rows.TopTagsWithPostsRowJson;
+import com.mardomsara.social.json.JV;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.cells.Cells;
-import com.mardomsara.social.ui.presenter.pages.PostEntryPage_OLD;
+import com.mardomsara.social.ui.presenter.pages.PostEntryPage;
 import com.mardomsara.social.ui.presenter.pages.TagsPage;
 import com.mardomsara.social.ui.views.FontCache;
 import com.mardomsara.social.ui.views.helpers.ViewHelper;
@@ -82,7 +81,7 @@ public class SuggestionsTagsPresenter extends BasePresenter implements AppHeader
 				refreshLayout.setRefreshing(false);
 
 				if(result.isOk()){
-					HttpJsonList<TopTagsWithPostsRowJson> data = Result.fromJsonList(result,TopTagsWithPostsRowJson.class);
+					HttpJsonList<JV.TopTagsWithPostsView> data = Result.fromJsonList(result,JV.TopTagsWithPostsView.class);
 					if(data.isPayloadNoneEmpty()){
 						if(pageNum==1){
 
@@ -114,7 +113,7 @@ public class SuggestionsTagsPresenter extends BasePresenter implements AppHeader
 
     public static class TopTagsAdaptor extends AppHeaderFooterRecyclerViewAdapter<TagHolder> {
 
-        List<TopTagsWithPostsRowJson> list = new ArrayList<>();
+        List<JV.TopTagsWithPostsView> list = new ArrayList<>();
 
         @Override
         protected int getContentItemCount() {
@@ -155,7 +154,7 @@ public class SuggestionsTagsPresenter extends BasePresenter implements AppHeader
 //            image1.setLayoutParams(new LinearLayout.LayoutParams(size,size));
         }
 
-        void bind(TopTagsWithPostsRowJson tagJson){
+        void bind(JV.TopTagsWithPostsView tagJson){
             text.setText("#"+tagJson.Tag.Name);
 
 			see_more.setOnClickListener((v)->{
@@ -170,28 +169,28 @@ public class SuggestionsTagsPresenter extends BasePresenter implements AppHeader
 			image2.setVisibility(View.GONE);
 			image3.setVisibility(View.GONE);
 
-			PostRowJson post;
+			JV.PostView post;
 //            if(tagJson.Posts)
             if(tagJson.Posts.size()>0){
 				post = tagJson.Posts.get(0);
-                setImage(image1, post.MediaUrl, tagJson.Tag.Name,post);
+                setImage(image1, post, tagJson.Tag.Name,post);
             }
 
             if(tagJson.Posts.size()>1){
 				post = tagJson.Posts.get(1);
-                setImage(image2, post.MediaUrl, tagJson.Tag.Name,post);
+                setImage(image2, post, tagJson.Tag.Name,post);
             }
 
             if(tagJson.Posts.size()>2){
 				post = tagJson.Posts.get(2);
-                setImage(image3, post.MediaUrl, tagJson.Tag.Name,post);
+                setImage(image3, post, tagJson.Tag.Name,post);
             }
         }
-
-        void setImage(ImageView image, String src, String tag, PostRowJson post) {
+		static int s = AndroidUtil.getScreenWidth() / 3;
+        void setImage(ImageView image, JV.PostView postView, String tag, JV.PostView post) {
 			image.setVisibility(View.VISIBLE);
 			//todo extract this url
-            src = "http://localhost:5000/"+src;
+            String src = Helper.postsGetBestPhotoResUrl(postView.PhotoView,s) ;//"http://localhost:5000/"+src;
             AppUtil.log("SCC2" +src);
             if(src.equals("")) return;
             Picasso.with(AppUtil.getContext())
@@ -201,7 +200,7 @@ public class SuggestionsTagsPresenter extends BasePresenter implements AppHeader
                     .into(image);
 
             View.OnClickListener onClick = (v)->{
-                Nav.push(new PostEntryPage_OLD(post));
+                Nav.push(new PostEntryPage(post));
             };
 
             image.setOnClickListener(onClick);

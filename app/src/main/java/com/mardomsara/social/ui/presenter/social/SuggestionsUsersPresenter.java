@@ -32,7 +32,7 @@ public class SuggestionsUsersPresenter extends BasePresenter implements AppHeade
 		adaptor = new Adapter();
 
 		pager = new Cells.Pager_RecyclerView(adaptor,this);
-		pager.wrapView.refresh_layout.setEnabled(false);
+		pager.wrapView.refresh_layout.setEnabled(true);
 
 		Cells.Title_InfoLight title=new Cells.Title_InfoLight(pager.wrapView.recycler_view,"اشخاص پیشنهادی برای دنبال کردن:");
 		adaptor.appendViewToHeader(title.rootView);
@@ -49,7 +49,7 @@ public class SuggestionsUsersPresenter extends BasePresenter implements AppHeade
 		Http.getPath("/v1/recommend/users")
 			.setQueryParam("username","abas")
 			.setQueryParam("page",""+page)
-			.setQueryParam("limit",""+10)
+			.setQueryParam("limit",""+20)
 			.doAsyncUi((result)->{
 				adaptor.nextPageIsLoaded(result);
 				if(result.isOk()){
