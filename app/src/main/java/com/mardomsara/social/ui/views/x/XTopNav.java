@@ -11,7 +11,6 @@ import android.widget.RelativeLayout;
 
 import com.mardomsara.social.Nav;
 import com.mardomsara.social.R;
-import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.ui.X;
 import com.mardomsara.social.ui.views.buttons.ButtonPostMultiWayView;
 
@@ -61,12 +60,8 @@ public class XTopNav extends RelativeLayout {
 			x.left_text.setText(titleLeft);
 			x.title_text.setText(title);
 			if(isPostMultiWay){
-//				AndroidUtil.runInUiNoPanic(()->{
-//					buttonPostMultiWayView = new ButtonPostMultiWayView(getContext());
-					buttonPostMultiWayView = new X.ButtonPostMultiway(x.left_container).root;
-					x.left_container.addView(buttonPostMultiWayView,0);
-//				});
-//
+				buttonPostMultiWayView = new X.ButtonPostMultiway(x.left_container).root;
+				x.left_container.addView(buttonPostMultiWayView,0);
 			}
 		}
 
