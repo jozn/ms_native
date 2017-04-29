@@ -1,6 +1,5 @@
 package com.mardomsara.social.activities;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -31,7 +30,6 @@ import com.mardomsara.social.service.PingService;
 
 import io.fabric.sdk.android.Fabric;
 import pl.tajchert.nammu.Nammu;
-import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 //import com.mardomsara.emojicon.dep.EmojiconGridFragment;
 //import com.mardomsara.emojicon.dep.EmojiconsFragment;
@@ -79,11 +77,11 @@ public class MainAppActivity extends AppActivity{// implements DefaultHardwareBa
 		}
 	}
 */
-    @Override
+    /*@Override
     protected void attachBaseContext(Context newBase) {
         Log.d("Calligraphy"," called");
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
-    }
+    }*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
