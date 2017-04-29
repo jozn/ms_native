@@ -78,17 +78,6 @@ public class PostGeneralListCell
 
     public void loadFromServer(int page) {
 		nextPage.nextPage(page,this);
-       /* if(endPointAbsPath == null){
-            throw new IllegalArgumentException("In PostsListCell endPointAbsPath url must be setOrReplace for loading_progress posts");
-        }
-
-		Http.get(endPointAbsPath)
-			.setQueryParam("page",""+page)
-			.setQueryParam("last",""+getLastPostId(page))
-			.doAsyncUi((result)->{
-				loadedPostsFromNetNew(result,page);
-				adaptor.nextPageIsLoaded();
-			});*/
     }
 
     public int getLastPostId(int page) {
@@ -109,6 +98,7 @@ public class PostGeneralListCell
 			if(data != null){
 				AndroidUtil.runInUiNoPanic(()->{
 					if (data.Payload == null){
+						adaptor.setHasMorePage(false);
 						return;
 					}
 
@@ -130,7 +120,6 @@ public class PostGeneralListCell
 			}
 		}else {
 			end = true;
-//			adaptor.showFullTryReload(res);
 		}
 		if(end){
 			adaptor.setHasMorePage(false);
@@ -157,7 +146,6 @@ public class PostGeneralListCell
 		PostWayToShow postWayToShow;
 
 		public PostsAdaptor(PostWayToShow postWayToShow) {
-//			setHasStableIds(false);
 			this.postWayToShow = postWayToShow;
 		}
 
@@ -168,16 +156,12 @@ public class PostGeneralListCell
 
 		@Override
 		protected CommonPostBinder onCreateContentItemViewHolder(ViewGroup parent, int contentViewType) {
-//            View v = AppUtil.inflate(R.layout.row_post_stream, parent);
-
 			if(PostWayToShow.WIDE.id == contentViewType){
 				return new PostWideVH(new PostRowNewCell(null));
 			}else if (PostWayToShow.COMPACT.id == contentViewType){
 				return new PostCompactVH(new PostRowCompactWrapper(null));
 			}
 			return null;
-			/*PostRowNewCell postRowCell = new PostRowNewCell(null);
-			return new PostStreamHolder(new PostRowCompactWrapper(null));*/
 		}
 
 		@Override
@@ -234,12 +218,6 @@ public class PostGeneralListCell
 		}
 	}
 
-	private class HomeAddPostBox {
-
-		public HomeAddPostBox(ViewGroup parent) {
-
-		}
-	}
 
 	//////////////////////////////
 	//we must after requesting the page do cell.loadedPostsFromNetNew(http.Res)

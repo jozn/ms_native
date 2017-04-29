@@ -23,7 +23,7 @@ public class TagsPage extends BasePresenter {
 		X.PageTag_Parent x= new X.PageTag_Parent(null);
 		PostGeneralListCell cell = new PostGeneralListCell(x.button_post_way, (page, cell2)->{
 			Http.getPath("v1/tags/list")
-				.setQueryParam("tag",""+tagName)
+				.setQueryParam("tag",""+tagName.replace("#",""))
 				.setQueryParam("page",""+page)
 				.setQueryParam("last",""+cell2.getLastPostId(page))
 				.doAsyncUi((result)->{
@@ -34,16 +34,9 @@ public class TagsPage extends BasePresenter {
 		x.container.addView(cell.getViewRoot());
 		cell.setLoadingEndPoint(API.TAGS_LIST);
 		x.title_text.setText(getTagNameTitle(tagName));
-		cell.loadNextPage(1);
+//		cell.loadNextPage(1);
 
-//		viewRoot.addView(x.root);
 		return x.root;
-
-        /*Cells.NavAndEmptyView page = new Cells.NavAndEmptyView();
-        page.simpleTopNav.setTitle(getTagNameTitle(this.tagName));
-        viewRoot = page.rootView;
-        load();*/
-//        return viewRoot;
     }
 
 
@@ -58,7 +51,5 @@ public class TagsPage extends BasePresenter {
 		}
 		return "";
 	}
-
-
 
 }
