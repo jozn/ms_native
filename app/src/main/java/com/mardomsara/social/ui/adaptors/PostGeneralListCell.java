@@ -200,7 +200,7 @@ public class PostGeneralListCell
 	public static class PostWideVH extends CommonPostBinder {
 		PostRowNewCell postRowCell;
 		public PostWideVH(PostRowNewCell postCell) {
-			super(postCell.rootView);
+			super(postCell.getRootView());
 			this.postRowCell = postCell;
 		}
 

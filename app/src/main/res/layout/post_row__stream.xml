@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:fresco="http://schemas.android.com/apk/res-auto"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -9,7 +9,7 @@
     android:background="@color/white"
     android:id="@+id/post_row_holder">
 
-    <TextView
+    <com.mardomsara.social.ui.views.x.XTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="left"
@@ -18,6 +18,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         style="@style/post_row.date"
+        app:xFont="IranLight"
         />
     <Space
         android:layout_width="match_parent"
@@ -35,7 +36,7 @@
         fresco:roundedCornerRadius="6dp"
 
         />
-    <TextView
+    <com.mardomsara.social.ui.views.x.XTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="right"
@@ -44,10 +45,11 @@
         android:layout_alignParentTop="true"
         android:layout_toLeftOf="@id/avatar"
         style="@style/post_row.fullname"
+        app:xFont="IranMedium"
 
         />
 
-    <com.mardomsara.social.ui.views.x.dep.XEmojiLinkerTextView
+    <com.mardomsara.social.ui.views.x.XTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/text"
@@ -55,43 +57,25 @@
         android:layout_below="@id/fullname"
         android:text="ssvvvvss"
         style="@style/post_row.text"
+        app:xFont="IranLight"
+        app:xEnableEmoji="true"
+        app:xEnableLinker="true"
 
         />
-
-
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/text"
         android:orientation="vertical"
-        android:layout_marginLeft="20dp"
 
         >
-        <android.support.percent.PercentFrameLayout
+        <ImageView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <ImageView
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/image"
-                android:scaleType="centerCrop"
-                android:layout_marginLeft="20dp"
-                android:paddingLeft="20dp"
-                app:layout_widthPercent="50%"
-                app:layout_marginLeftPercent="10%"/>
-                />
-        </android.support.percent.PercentFrameLayout>
-
-<!--        <com.facebook.drawee.view.SimpleDraweeView
-            android:layout_width="500dp"
-            android:layout_height="300dp"
+            android:layout_height="wrap_content"
             android:id="@+id/image"
-            fresco:roundAsCircle="false"
 
-            fresco:fadeDuration="200"
-
-            />-->
+            />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -104,6 +88,27 @@
             android:paddingLeft="@dimen/post_row.padding_right"
             android:paddingRight="@dimen/post_row.padding_right"
             >
+
+            <!--<com.mardomsara.x.iconify.widget.XIcon
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/counts_info"
+                android:id="@+id/comment_count"
+                app:xiconRight="ion-android-favorite"
+                app:xiconSize="16dp"
+                android:textSize="16dp"
+                />
+            <com.mardomsara.x.iconify.widget.XIcon
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/counts_info"
+                android:id="@+id/likes_count"
+                android:layout_marginLeft="14dp"
+                app:xiconRight="ion-android-favorite"
+                app:xiconSize="16dp"
+                android:textSize="16dp"
+
+                />-->
             <com.mardomsara.social.ui.views.wigets.TextViewWithIcon_DEP
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -123,13 +128,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"/>
-            <TextView
+
+            <com.mardomsara.x.iconify.widget.XIcon
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/like_btn"
                 style="@style/post_row.like_btn"
-                android:text="\uf442"
                 android:layout_weight="1"
+                android:gravity="right|center_vertical"
+                app:xiconRight="ion-android-favorite-outline"
                 />
 
         </LinearLayout>

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
+       xmlns:app="http://schemas.android.com/apk/res-auto"
 
 
     >
 
-    <TextView
+    <com.mardomsara.social.ui.views.x.XTextView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:id="@+id/text"
@@ -12,9 +13,10 @@
         android:gravity="center"
         style="@style/post_row.counts_info_text"
         android:textColor="@color/dark_blue_2"
+        app:xFont="IranLight"
         />
 
-    <TextView
+    <com.mardomsara.social.ui.views.x.XTextView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:id="@+id/icon"
@@ -22,6 +24,7 @@
         android:gravity="center"
         style="@style/post_row.counts_info_icon"
         android:textColor="@color/dark_blue_2"
+        app:xFont="IranLight"
         />
 
 

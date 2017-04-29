@@ -110,7 +110,7 @@ public class PostRowCell_OLD {
     };
 
     public PostRowCell_OLD(ViewGroup parent) {
-		rootView = AppUtil.inflate(R.layout.row_post_stream, parent);
+		rootView = AppUtil.inflate(R.layout.post_row__stream, parent);
         ButterKnife.bind(this, rootView);
 //        rootView = itemView;
 

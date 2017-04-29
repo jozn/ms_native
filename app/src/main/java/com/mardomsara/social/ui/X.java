@@ -1978,33 +1978,33 @@ public class X {
     }
  //( index .Fields 0).ViewClass
 
-    public static class PostRow_Parent {
+    public static class PostRow_Stream {
         public RelativeLayout root;
         public RelativeLayout post_row_holder;
-        public TextView date;
+        public XTextView date;
         public SimpleDraweeView avatar;
-        public TextView fullname;
-        public XEmojiLinkerTextView text;
+        public XTextView fullname;
+        public XTextView text;
         public ImageView image;
         public LinearLayout counts_info;
         public TextViewWithIcon_DEP comment_count;
         public TextViewWithIcon_DEP likes_count;
-        public TextView like_btn;
+        public XIcon like_btn;
 
-        public PostRow_Parent(ViewGroup parent) {
-            root = (RelativeLayout) AppUtil.inflate(R.layout.post_row__parent,parent);
+        public PostRow_Stream(ViewGroup parent) {
+            root = (RelativeLayout) AppUtil.inflate(R.layout.post_row__stream,parent);
             post_row_holder = (RelativeLayout) root.findViewById( R.id.post_row_holder);
-            date = (TextView) root.findViewById( R.id.date);
+            date = (XTextView) root.findViewById( R.id.date);
             avatar = (SimpleDraweeView) root.findViewById( R.id.avatar);
-            fullname = (TextView) root.findViewById( R.id.fullname);
-            text = (XEmojiLinkerTextView) root.findViewById( R.id.text);
+            fullname = (XTextView) root.findViewById( R.id.fullname);
+            text = (XTextView) root.findViewById( R.id.text);
             image = (ImageView) root.findViewById( R.id.image);
             counts_info = (LinearLayout) root.findViewById( R.id.counts_info);
             comment_count = (TextViewWithIcon_DEP) root.findViewById( R.id.comment_count);
             likes_count = (TextViewWithIcon_DEP) root.findViewById( R.id.likes_count);
-            like_btn = (TextView) root.findViewById( R.id.like_btn);
+            like_btn = (XIcon) root.findViewById( R.id.like_btn);
         }
-        public PostRow_Parent() {
+        public PostRow_Stream() {
             this(null);
         }
     }
@@ -2264,38 +2264,6 @@ public class X {
     }
  //( index .Fields 0).ViewClass
 
-    public static class RowPostStream {
-        public RelativeLayout root;
-        public RelativeLayout post_row_holder;
-        public TextView date;
-        public SimpleDraweeView avatar;
-        public TextView fullname;
-        public XEmojiLinkerTextView text;
-        public ImageView image;
-        public LinearLayout counts_info;
-        public TextViewWithIcon_DEP comment_count;
-        public TextViewWithIcon_DEP likes_count;
-        public TextView like_btn;
-
-        public RowPostStream(ViewGroup parent) {
-            root = (RelativeLayout) AppUtil.inflate(R.layout.row_post_stream,parent);
-            post_row_holder = (RelativeLayout) root.findViewById( R.id.post_row_holder);
-            date = (TextView) root.findViewById( R.id.date);
-            avatar = (SimpleDraweeView) root.findViewById( R.id.avatar);
-            fullname = (TextView) root.findViewById( R.id.fullname);
-            text = (XEmojiLinkerTextView) root.findViewById( R.id.text);
-            image = (ImageView) root.findViewById( R.id.image);
-            counts_info = (LinearLayout) root.findViewById( R.id.counts_info);
-            comment_count = (TextViewWithIcon_DEP) root.findViewById( R.id.comment_count);
-            likes_count = (TextViewWithIcon_DEP) root.findViewById( R.id.likes_count);
-            like_btn = (TextView) root.findViewById( R.id.like_btn);
-        }
-        public RowPostStream() {
-            this(null);
-        }
-    }
- //( index .Fields 0).ViewClass
-
     public static class RowTagSimple {
         public RelativeLayout root;
         public TextView icon;
@@ -2538,14 +2506,14 @@ public class X {
 
     public static class WidgetTextAndIcon {
         public ViewGroup root;
-        public TextView text;
-        public TextView icon;
+        public XTextView text;
+        public XTextView icon;
 
         public WidgetTextAndIcon(ViewGroup parent) {
             root = (ViewGroup) AppUtil.inflate(R.layout.widget_text_and_icon,parent,true);//for Compound Views
             
-            text = (TextView) root.findViewById( R.id.text);
-            icon = (TextView) root.findViewById( R.id.icon);
+            text = (XTextView) root.findViewById( R.id.text);
+            icon = (XTextView) root.findViewById( R.id.icon);
         }
     }
  //( index .Fields 0).ViewClass

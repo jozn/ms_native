@@ -13,7 +13,7 @@
     </style>
 
     <style name="post_row.date" parent="text">
-        <item name="fontPath">@string/font_iran_light</item>
+        <!--<item name="fontPath">@string/font_iran_light</item>-->
         <item name="android:layout_marginRight">5dp</item>
         <item name="android:textSize">12dp</item>
         <item name="android:textColor">@color/text_gray_1</item>
@@ -30,7 +30,7 @@
         <item name="android:layout_marginLeft">@dimen/post_row.avatar_padding_left</item>
     </style>
 
-    <style name="post_row.fullname" parent="text">
+    <style name="post_row.fullname">
         <item name="android:paddingTop">2dp</item>
         <item name="android:paddingRight">2dp</item>
         <item name="android:paddingBottom">0dp</item>
@@ -40,7 +40,7 @@
     </style>
 
     <style name="post_row.text" parent="text_light">
-        <item name="fontPath">@string/font_iran_light</item>
+        <!--<item name="fontPath">@string/font_iran_light</item>-->
         <item name="android:layout_margin">0dp</item>
         <item name="android:layout_marginTop">0dp</item>
         <item name="android:layout_marginRight">0dp</item>
@@ -57,10 +57,10 @@
     </style>
 
     <style name="post_row.like_btn">
-        <item name="fontPath">@string/font_ionic</item>
+        <!--<item name="fontPath">@string/font_ionic</item>-->
         <item name="android:textSize">30dp</item>
         <item name="android:textColor">@color/text_black_3</item>
-        <item name="android:gravity">right</item>
+        <item name="android:gravity">right|center_vertical</item>
         <item name="android:layout_gravity">right</item>
         <item name="android:layout_marginRight">60dp</item>
 
@@ -80,14 +80,14 @@
 
     <style name="post_row.counts_info_icon">
         <item name="android:textSize">16dp</item>
-        <item name="fontPath">@string/font_ionic</item>
+        <!--<item name="fontPath">@string/font_ionic</item>-->
         <item name="android:paddingLeft">2dp</item>
 
     </style>
 
     <style name="post_row.counts_info_text">
         <item name="android:textSize">12dp</item>
-        <item name="fontPath">@string/font_iran_light</item>
+        <!--<item name="fontPath">@string/font_iran_light</item>-->
 
     </style>
 

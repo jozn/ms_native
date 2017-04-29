@@ -141,8 +141,12 @@ public class XIcon extends AppCompatTextView implements HasOnViewAttachListener 
 			iconSizePx, -1, iconColor, false, false);
 	}
 
+	public void setTextStr(String textStr) {
+		this.textStr = textStr;
+		setText(getText());
+	}
 
-    public boolean isIcony(){
+	public boolean isIcony(){
 		if( isStrNotEmpt(leftIconStr) || isStrNotEmpt(rightIconStr) ){
 			return true;
 		}

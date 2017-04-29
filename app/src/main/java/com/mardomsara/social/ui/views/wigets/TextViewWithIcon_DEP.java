@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import com.mardomsara.social.R;
 import com.mardomsara.social.helpers.AndroidUtil;
+import com.mardomsara.social.ui.X;
+import com.mardomsara.social.ui.views.FontCache;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -19,8 +21,9 @@ import butterknife.ButterKnife;
 //"Use XIcon"
 @Deprecated
 public class TextViewWithIcon_DEP extends LinearLayout {
-    @Bind(R.id.text) TextView text;
-    @Bind(R.id.icon) TextView icon;
+    /*@Bind(R.id.text) TextView text;
+    @Bind(R.id.icon) TextView icon;*/
+	X.WidgetTextAndIcon x;
 
     public TextViewWithIcon_DEP(Context context) {
         super(context);
@@ -38,17 +41,18 @@ public class TextViewWithIcon_DEP extends LinearLayout {
     }
 
     void init(){
-        LayoutInflater.from(getContext()).inflate(R.layout.widget_text_and_icon, this, true);
-        ButterKnife.bind(this,this);
+		x =  new X.WidgetTextAndIcon(this);
+//        LayoutInflater.from(getContext()).inflate(R.layout.widget_text_and_icon, this, true);
+//        ButterKnife.bind(this,this);
         setOrientation(HORIZONTAL);
 //        setLayoutParams(new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT));
-
+		x.icon.setTypeface(FontCache.getIonic());
         requestLayout();
     }
 
     public void setTextAndIcon(String txt, String _icon){
-        text.setText(txt);
-        icon.setText(_icon);
+        x.text.setText(txt);
+        x.icon.setText(_icon);
         requestLayout();
     }
 

@@ -5,10 +5,7 @@ import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
-import com.facebook.drawee.view.SimpleDraweeView;
 import com.mardomsara.social.Nav;
 import com.mardomsara.social.R;
 import com.mardomsara.social.app.Router;
@@ -19,25 +16,22 @@ import com.mardomsara.social.helpers.FormaterUtil;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.LangUtil;
 import com.mardomsara.social.json.JV;
+import com.mardomsara.social.ui.X;
 import com.mardomsara.social.ui.cells.post.PostRowUtils;
 import com.mardomsara.social.ui.presenter.pages.ProfilePage;
 import com.mardomsara.social.ui.views.FullScreenImage_Fresco;
 import com.mardomsara.social.ui.views.helpers.ViewHelper;
-import com.mardomsara.social.ui.views.wigets.TextViewWithIcon_DEP;
-import com.mardomsara.social.ui.views.x.dep.XEmojiLinkerTextView;
 import com.squareup.picasso.Picasso;
-
-import butterknife.Bind;
-import butterknife.ButterKnife;
 
 /**
  * Created by Hamid on 8/26/2016.
  */
 public class PostRowNewCell {
-    public View rootView;
+//    private View rootView;
     JV.PostView post;
+	X.PostRow_Stream x;
 
-    @Bind(R.id.text)
+    /*@Bind(R.id.text)
 	XEmojiLinkerTextView text;
     @Bind(R.id.fullname)
     TextView user_name;
@@ -49,12 +43,12 @@ public class PostRowNewCell {
     @Bind(R.id.image)
     ImageView image;
 
-    @Bind(R.id.like_btn) TextView like_btn;
+    @Bind(R.id.like_btn) TextView like_btn;*/
 
-    @Bind(R.id.comment_count)
+    /*@Bind(R.id.comment_count)
 	TextViewWithIcon_DEP comment_count;
     @Bind(R.id.likes_count)
-	TextViewWithIcon_DEP likes_count;
+	TextViewWithIcon_DEP likes_count;*/
 
     Uri imageUri2;
 
@@ -110,61 +104,66 @@ public class PostRowNewCell {
     };
 
     public PostRowNewCell(ViewGroup parent) {
-		rootView = AppUtil.inflate(R.layout.row_post_stream, parent);
-        ButterKnife.bind(this, rootView);
+//		rootView = AppUtil.inflate(R.layout.post_row__stream, parent);
+		x = new X.PostRow_Stream(parent);
+//        ButterKnife.bind(this, rootView);
 //        rootView = itemView;
-
-        user_name.setOnClickListener(gotoProfile);
-        avatar.setOnClickListener(gotoProfile);
-        like_btn.setOnClickListener(likeListner);
+		x.fullname.setOnClickListener(gotoProfile);
+		x.avatar.setOnClickListener(gotoProfile);
+		x.like_btn.setOnClickListener(likeListner);
+//        user_name.setOnClickListener(gotoProfile);
+//        avatar.setOnClickListener(gotoProfile);
+//        like_btn.setOnClickListener(likeListner);
 
     }
 
     public void bind(@NonNull JV.PostView post) {
-		image.setVisibility(View.GONE);
+		x.image.setVisibility(View.GONE);
         this.post = post;
 //        text.setText(LangUtil.limitText(post.Text, 120));
-        text.setTextWithLimits(LangUtil.limitText(post.Text, 1600),160);
-        user_name.setText(post.Sender.FullName);
-        date.setText(FormaterUtil.timeAgo(post.CreatedTime));
+        x.text.setTextWithLimits(LangUtil.limitText(post.Text, 1600),160);
+        x.fullname.setText(post.Sender.FullName);
+        x.date.setText(FormaterUtil.timeAgo(post.CreatedTime));
         Uri imageUri = Helper.PathToUserAvatarUri(post.Sender.AvatarUrl);
-        avatar.setImageURI(imageUri);
+        x.avatar.setImageURI(imageUri);
 
         if (post.TypeId == 2 && post.PhotoView != null) {
 			int screenSizePx =AndroidUtil.getScreenWidth() +1;
 			int screenSize = AndroidUtil.pxToDp( AndroidUtil.getScreenWidth() )+1;
-			ViewHelper.setImageSizesWithMaxPx(image,screenSize,screenSize,post.PhotoView.Width,post.PhotoView.Height);
-			image.setVisibility(View.VISIBLE);
+			ViewHelper.setImageSizesWithMaxPx(x.image,screenSize,screenSize,post.PhotoView.Width,post.PhotoView.Height);
+			x.image.setVisibility(View.VISIBLE);
 //			String urlStr = API.BASE_CDN_DOMAIN_URL_STR+"/"+post.MediaUrl;
 			String urlStr = Helper.postsGetBestPhotoResUrl(post.PhotoView,screenSizePx);
 			Picasso.with(AppUtil.getContext())
 				.load(urlStr)
 				.placeholder(R.drawable.image_background)
-				.into(image);
+				.into(x.image);
 
-			PostRowUtils.setImage(image,post);
+			PostRowUtils.setImage(x.image,post);
 
         } else {
-            image.setVisibility(View.GONE);
+            x.image.setVisibility(View.GONE);
 //            image.setOnClickListener(null);
         }
 
         if (post.LikesCount > 0) {
-			likes_count.setVisibility(View.VISIBLE);
-			likes_count.setTextAndIcon(post.LikesCount + "پسند", "\uF443");
+			x.likes_count.setVisibility(View.VISIBLE);
+//			x.likes_count.setTextStr(post.LikesCount + "پسند");
+			x.likes_count.setTextAndIcon(post.LikesCount + "پسند", "\uF443");
         }else {
-			likes_count.setVisibility(View.GONE);
+			x.likes_count.setVisibility(View.GONE);
 		}
         if (post.CommentsCount > 0) {
-			comment_count.setVisibility(View.VISIBLE);
-			comment_count.setTextAndIcon(post.CommentsCount + "نظر", "\uf11e");
+			x.comment_count.setVisibility(View.VISIBLE);
+//			x.comment_count.setTextStr(post.CommentsCount + "نظر");
+			x.comment_count.setTextAndIcon(post.CommentsCount + "نظر", "\uf11e");
         }else {
-			comment_count.setTextAndIcon("نظر دهید", "\uf11e");
+			x.comment_count.setTextAndIcon("نظر دهید" , "\uf11e");
 //			comment_count.setVisibility(View.GONE);
 		}
 
-        likes_count.setOnClickListener(gotoLikes);
-        comment_count.setOnClickListener(gotoComments);
+        x.likes_count.setOnClickListener(gotoLikes);
+        x.comment_count.setOnClickListener(gotoComments);
 
         if(post.MyLike > 0){
             likeBtnShowLike();
@@ -175,16 +174,20 @@ public class PostRowNewCell {
     }
 
 	private void likeBtnShowLike(){
-		like_btn.setTextColor(Color.RED);
-		like_btn.setText("\uf443");
+		x.like_btn.setTextColor(Color.RED);
+		x.like_btn.setText("\uf443");
 	}
 
 	private void likeBtnShowUnlike(){
-		like_btn.setTextColor(Color.BLACK);
-		like_btn.setText("\uf442");
+		x.like_btn.setTextColor(Color.BLACK);
+		x.like_btn.setText("\uf442");
 	}
 
     public View getViewRoot() {
-        return rootView;
+        return getRootView();
     }
+
+	public View getRootView() {
+		return x.root;
+	}
 }
