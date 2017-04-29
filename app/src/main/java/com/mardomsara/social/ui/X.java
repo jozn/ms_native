@@ -1696,6 +1696,26 @@ public class X {
     }
  //( index .Fields 0).ViewClass
 
+    public static class PageTag_Parent {
+        public SwipeRefreshLayout root;
+        public SwipeRefreshLayout refresh_layout;
+        public RelativeLayout top_holder;
+        public ButtonPostMultiWayView button_post_way;
+        public FrameLayout container;
+
+        public PageTag_Parent(ViewGroup parent) {
+            root = (SwipeRefreshLayout) AppUtil.inflate(R.layout.page_tag__parent,parent);
+            refresh_layout = (SwipeRefreshLayout) root.findViewById( R.id.refresh_layout);
+            top_holder = (RelativeLayout) root.findViewById( R.id.top_holder);
+            button_post_way = (ButtonPostMultiWayView) root.findViewById( R.id.button_post_way);
+            container = (FrameLayout) root.findViewById( R.id.container);
+        }
+        public PageTag_Parent() {
+            this(null);
+        }
+    }
+ //( index .Fields 0).ViewClass
+
     public static class Pager_CellNavLinearView {
         public LinearLayout root;
         public SimpleTopNav simpleTopNav;
@@ -1843,6 +1863,22 @@ public class X {
             loading = (LoadingView) root.findViewById( R.id.loading);
         }
         public Post_SingleEntryHolder() {
+            this(null);
+        }
+    }
+ //( index .Fields 0).ViewClass
+
+    public static class PostList_Parent {
+        public SwipeRefreshLayout root;
+        public SwipeRefreshLayout refresh_layout;
+        public RecyclerView recycler_view;
+
+        public PostList_Parent(ViewGroup parent) {
+            root = (SwipeRefreshLayout) AppUtil.inflate(R.layout.post_list__parent,parent);
+            refresh_layout = (SwipeRefreshLayout) root.findViewById( R.id.refresh_layout);
+            recycler_view = (RecyclerView) root.findViewById( R.id.recycler_view);
+        }
+        public PostList_Parent() {
             this(null);
         }
     }
