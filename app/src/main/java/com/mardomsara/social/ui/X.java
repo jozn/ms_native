@@ -1697,17 +1697,19 @@ public class X {
  //( index .Fields 0).ViewClass
 
     public static class PageTag_Parent {
-        public SwipeRefreshLayout root;
-        public SwipeRefreshLayout refresh_layout;
+        public FrameLayout root;
+        public FrameLayout root_layout;
         public RelativeLayout top_holder;
         public ButtonPostMultiWayView button_post_way;
+        public XTextView title_text;
         public FrameLayout container;
 
         public PageTag_Parent(ViewGroup parent) {
-            root = (SwipeRefreshLayout) AppUtil.inflate(R.layout.page_tag__parent,parent);
-            refresh_layout = (SwipeRefreshLayout) root.findViewById( R.id.refresh_layout);
+            root = (FrameLayout) AppUtil.inflate(R.layout.page_tag__parent,parent);
+            root_layout = (FrameLayout) root.findViewById( R.id.root_layout);
             top_holder = (RelativeLayout) root.findViewById( R.id.top_holder);
             button_post_way = (ButtonPostMultiWayView) root.findViewById( R.id.button_post_way);
+            title_text = (XTextView) root.findViewById( R.id.title_text);
             container = (FrameLayout) root.findViewById( R.id.container);
         }
         public PageTag_Parent() {

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.SwipeRefreshLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/refresh_layout"
+    android:id="@+id/root_layout"
 
     >
     <LinearLayout
@@ -38,6 +38,7 @@
                 android:textSize="18dp"
                 android:textColor="@color/black"
                 android:text="مردم سرات"
+                android:id="@+id/title_text"
                 />
 
         </RelativeLayout>
@@ -51,4 +52,4 @@
     </LinearLayout>
 
 
-</android.support.v4.widget.SwipeRefreshLayout>
+</FrameLayout>

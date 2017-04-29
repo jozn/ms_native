@@ -6,8 +6,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.mardomsara.social.Nav;
-import com.mardomsara.social.base.Http.Http;
 import com.mardomsara.social.base.Http.Result;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
@@ -18,9 +16,6 @@ import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
 import com.mardomsara.social.ui.X;
 import com.mardomsara.social.ui.cells.post.PostRowCompactWrapper;
 import com.mardomsara.social.ui.cells.rows.PostRowNewCell;
-import com.mardomsara.social.ui.presenter.pages.add_post.AddPostPage;
-import com.mardomsara.social.ui.presenter.pages.add_post.PostAddGalleryChooserPresenter;
-import com.mardomsara.social.ui.presenter.pages.add_post.RecentImagesAddPostBoxCell;
 import com.mardomsara.social.ui.views.buttons.ButtonPostMultiWayView;
 import com.mardomsara.social.ui.views.buttons.PostWayToShow;
 
@@ -35,9 +30,11 @@ public class PostGeneralListCell
 
 	X.PostList_Parent x;
 	public PostsAdaptor adaptor;
+	NextPage nextPage;
 
-    public PostGeneralListCell(ButtonPostMultiWayView multiWayView) {
+    public PostGeneralListCell(ButtonPostMultiWayView multiWayView, NextPage nextPage1) {
         init( multiWayView);
+		this.nextPage = nextPage1;
     }
 
     private void init(ButtonPostMultiWayView multiWayView) {
@@ -50,8 +47,6 @@ public class PostGeneralListCell
         adaptor.setUpForPaginationWith(x.recycler_view,layoutManager,this);
         adaptor.showLoading();
 		adaptor.setEnableAutoShowEmptyView(true);
-
-		setUpAddPostBox();
 
 		x.refresh_layout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -82,7 +77,8 @@ public class PostGeneralListCell
     }
 
     public void loadFromServer(int page) {
-        if(endPointAbsPath == null){
+		nextPage.nextPage(page,this);
+       /* if(endPointAbsPath == null){
             throw new IllegalArgumentException("In PostsListCell endPointAbsPath url must be setOrReplace for loading_progress posts");
         }
 
@@ -92,10 +88,10 @@ public class PostGeneralListCell
 			.doAsyncUi((result)->{
 				loadedPostsFromNetNew(result,page);
 				adaptor.nextPageIsLoaded();
-			});
+			});*/
     }
 
-    private int getLastPostId(int page) {
+    public int getLastPostId(int page) {
 		if(page == 1)return 0;//fix for refreshing
         if(adaptor.posts.size() > 0 ){
             return adaptor.posts.get(adaptor.posts.size()-1).Id;
@@ -103,10 +99,11 @@ public class PostGeneralListCell
         return 0;
     }
 
-	private void loadedPostsFromNetNew(Result res, int page) {
+	public void loadedPostsFromNetNew(Result res, int page) {
 		hideRefreshLoading();
 		Helper.showDebugMessage("Http isOk?: " + res.isOk());
 		adaptor.nextPageIsLoaded(res);
+		boolean end = false;
 		if(res.isOk()) {
 			HttpJsonList<JV.PostView> data= Result.fromJsonList(res, JV.PostView.class);
 			if(data != null){
@@ -128,8 +125,15 @@ public class PostGeneralListCell
 					adaptor.autoCheckAndSetEmptyView();
 				});
 			}
+			else {
+				end = true;
+			}
 		}else {
+			end = true;
 //			adaptor.showFullTryReload(res);
+		}
+		if(end){
+			adaptor.setHasMorePage(false);
 		}
 	}
 
@@ -147,58 +151,6 @@ public class PostGeneralListCell
         Helper.showDebugMessage("pageNum: "+pageNum);
         loadFromServer(pageNum);
     }
-
-	private void setUpAddPostBox(){
-		//must be called after setting layoutManager for x.recycler_view
-		X.Home_AddPostBox addPostBox = new X.Home_AddPostBox(x.recycler_view);
-		adaptor.appendViewToHeader(addPostBox.root);
-
-		addPostBox.top_holder.setOnClickListener((v)-> Nav.push(new AddPostPage()));
-		addPostBox.camera_btn.setOnClickListener((v) -> Helper.showCommingSoonMessage());
-		addPostBox.gallery_btn.setOnClickListener((v) -> {
-			Nav.push(new PostAddGalleryChooserPresenter(new PostAddGalleryChooserPresenter.onImageClicked() {
-				@Override
-				public void onRecentImageAdded(String filePath) {
-					AddPostPage addPostPage = new AddPostPage();
-					addPostPage.setToShareFilePath(filePath);
-					Nav.replace(addPostPage);
-				}
-
-				@Override
-				public void onRecentImageRemoved(String filePath) {
-
-				}
-
-				@Override
-				public void onRecentImageClicked(String filePath) {
-
-				}
-			}));
-		});
-
-		RecentImagesAddPostBoxCell recentImagesCell = new RecentImagesAddPostBoxCell(addPostBox.recent_images_holder);
-		recentImagesCell.setListener(new RecentImagesAddPostBoxCell.onRecentImageClicked() {
-			@Override
-			public void onRecentImageAdded(String filePath) {
-				AddPostPage addPostPage = new AddPostPage();
-				addPostPage.setToShareFilePath(recentImagesCell.getSelectedOne());
-				recentImagesCell.selectNone();
-				Nav.push(addPostPage);
-			}
-
-			@Override
-			public void onRecentImageRemoved(String filePath) {
-
-			}
-
-			@Override
-			public void onRecentImageClicked(String filePath) {
-
-			}
-		});
-		recentImagesCell.insertInto(addPostBox.recent_images_holder);
-
-	}
 
 	public static class PostsAdaptor extends AppHeaderFooterRecyclerViewAdapter<CommonPostBinder> {
 		public List<JV.PostView> posts = new ArrayList<>();
@@ -287,5 +239,11 @@ public class PostGeneralListCell
 		public HomeAddPostBox(ViewGroup parent) {
 
 		}
+	}
+
+	//////////////////////////////
+	//we must after requesting the page do cell.loadedPostsFromNetNew(http.Res)
+	public interface NextPage {
+		void nextPage(int pgae, PostGeneralListCell cell);
 	}
 }
