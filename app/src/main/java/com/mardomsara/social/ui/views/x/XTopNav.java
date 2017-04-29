@@ -11,12 +11,15 @@ import android.widget.RelativeLayout;
 
 import com.mardomsara.social.Nav;
 import com.mardomsara.social.R;
+import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.ui.X;
+import com.mardomsara.social.ui.views.buttons.ButtonPostMultiWayView;
 
 /**
  * Created by Hamid on 3/19/2017.
  */
-
+/*important Note :somehow we MUST set app:xTitle and app:xLeftTitle to anything other wise the
+	inflation will crach with an execption about binary error - have wasted alot of time debugin this*/
 public class XTopNav extends RelativeLayout {
 	OnBackButtonLiner backButtonLiner;
 
@@ -24,6 +27,8 @@ public class XTopNav extends RelativeLayout {
 	com.mardomsara.social.ui.X.X_TopNav x;
 	String title ;
 	String titleLeft;
+	boolean isPostMultiWay = false;
+	ButtonPostMultiWayView buttonPostMultiWayView;
 
 	public XTopNav(@NonNull Context context) {
 		super(context);
@@ -49,11 +54,20 @@ public class XTopNav extends RelativeLayout {
 			try {
 				title = a.getString(R.styleable.XTopNav_xTitle);
 				titleLeft = a.getString(R.styleable.XTopNav_xLeftTitle);
+				isPostMultiWay = a.getBoolean(R.styleable.XTopNav_xPostMultiWay,true);
 			}finally {
 				a.recycle();
 			}
 			x.left_text.setText(titleLeft);
 			x.title_text.setText(title);
+			if(isPostMultiWay){
+//				AndroidUtil.runInUiNoPanic(()->{
+//					buttonPostMultiWayView = new ButtonPostMultiWayView(getContext());
+					buttonPostMultiWayView = new X.ButtonPostMultiway(x.left_container).root;
+					x.left_container.addView(buttonPostMultiWayView,0);
+//				});
+//
+			}
 		}
 
 		x.back_btn.setOnClickListener(this::backImple);
@@ -90,6 +104,10 @@ public class XTopNav extends RelativeLayout {
 
 	public void setOnClickLisner(OnBackButtonLiner onBackButtonLiner){
 		backButtonLiner = onBackButtonLiner;
+	}
+
+	public ButtonPostMultiWayView getButtonPostMultiWayView() {
+		return buttonPostMultiWayView;
 	}
 
 	//true: custm handed dont do anything

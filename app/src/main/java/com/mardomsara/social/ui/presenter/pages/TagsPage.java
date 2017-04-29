@@ -21,7 +21,7 @@ public class TagsPage extends BasePresenter {
     @Override
     public View buildView() {
 		X.PageTag_Parent x= new X.PageTag_Parent(null);
-		PostGeneralListCell cell = new PostGeneralListCell(x.button_post_way, (page, cell2)->{
+		PostGeneralListCell cell = new PostGeneralListCell(x.top_nav.getButtonPostMultiWayView(), (page, cell2)->{
 			Http.getPath("v1/tags/list")
 				.setQueryParam("tag",""+tagName.replace("#",""))
 				.setQueryParam("page",""+page)
@@ -33,7 +33,7 @@ public class TagsPage extends BasePresenter {
 		});
 		x.container.addView(cell.getViewRoot());
 		cell.setLoadingEndPoint(API.TAGS_LIST);
-		x.title_text.setText(getTagNameTitle(tagName));
+		x.top_nav.setTitle(getTagNameTitle(tagName));
 //		cell.loadNextPage(1);
 
 		return x.root;

@@ -198,6 +198,18 @@ public class X {
     }
  //( index .Fields 0).ViewClass
 
+    public static class ButtonPostMultiway {
+        public ButtonPostMultiWayView root;
+
+        public ButtonPostMultiway(ViewGroup parent) {
+            root = (ButtonPostMultiWayView) AppUtil.inflate(R.layout.button_post_multiway,parent);
+        }
+        public ButtonPostMultiway() {
+            this(null);
+        }
+    }
+ //( index .Fields 0).ViewClass
+
     public static class CellCommontsWithField {
         public RelativeLayout root;
         public RelativeLayout post_row_holder;
@@ -1699,20 +1711,34 @@ public class X {
     public static class PageTag_Parent {
         public FrameLayout root;
         public FrameLayout root_layout;
-        public RelativeLayout top_holder;
-        public ButtonPostMultiWayView button_post_way;
-        public XTextView title_text;
+        public XTopNav top_nav;
         public FrameLayout container;
 
         public PageTag_Parent(ViewGroup parent) {
             root = (FrameLayout) AppUtil.inflate(R.layout.page_tag__parent,parent);
             root_layout = (FrameLayout) root.findViewById( R.id.root_layout);
-            top_holder = (RelativeLayout) root.findViewById( R.id.top_holder);
-            button_post_way = (ButtonPostMultiWayView) root.findViewById( R.id.button_post_way);
-            title_text = (XTextView) root.findViewById( R.id.title_text);
+            top_nav = (XTopNav) root.findViewById( R.id.top_nav);
             container = (FrameLayout) root.findViewById( R.id.container);
         }
         public PageTag_Parent() {
+            this(null);
+        }
+    }
+ //( index .Fields 0).ViewClass
+
+    public static class PageTag_ParentBk {
+        public LinearLayout root;
+        public LinearLayout root_layout;
+        public XTopNav x_top_nav;
+        public FrameLayout container;
+
+        public PageTag_ParentBk(ViewGroup parent) {
+            root = (LinearLayout) AppUtil.inflate(R.layout.page_tag__parent_bk,parent);
+            root_layout = (LinearLayout) root.findViewById( R.id.root_layout);
+            x_top_nav = (XTopNav) root.findViewById( R.id.x_top_nav);
+            container = (FrameLayout) root.findViewById( R.id.container);
+        }
+        public PageTag_ParentBk() {
             this(null);
         }
     }
@@ -2546,6 +2572,7 @@ public class X {
 
     public static class X_TopNav {
         public ViewGroup root;
+        public LinearLayout left_container;
         public XTextView left_text;
         public XTextView title_text;
         public XIcon back_btn;
@@ -2553,6 +2580,7 @@ public class X {
         public X_TopNav(ViewGroup parent) {
             root = (ViewGroup) AppUtil.inflate(R.layout.x__top_nav_,parent,true);//for Compound Views
             
+            left_container = (LinearLayout) root.findViewById( R.id.left_container);
             left_text = (XTextView) root.findViewById( R.id.left_text);
             title_text = (XTextView) root.findViewById( R.id.title_text);
             back_btn = (XIcon) root.findViewById( R.id.back_btn);

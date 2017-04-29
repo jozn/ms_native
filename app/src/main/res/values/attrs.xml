@@ -93,6 +93,7 @@
     <declare-styleable name="XTopNav" >
         <attr name="xTitle" format="string" />
         <attr name="xLeftTitle" format="string" />
+        <attr name="xPostMultiWay" format="boolean" />
     </declare-styleable>
 
 </resources>

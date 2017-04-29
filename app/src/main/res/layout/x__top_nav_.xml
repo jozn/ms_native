@@ -4,8 +4,9 @@
 
     >
 
-    <com.mardomsara.social.ui.views.x.XTextView
-        android:id="@+id/left_text"
+    <LinearLayout
+        android:id="@+id/left_container"
+        android:orientation="horizontal"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:minWidth="50dp"
@@ -15,10 +16,23 @@
         android:paddingRight="20dp"
         android:gravity="center"
         android:layout_centerVertical="true"
-        app:xFont="IranLight"
-        android:textColor="@color/light_blue_2"
-        android:textSize="14dp"
-        />
+        >
+
+        <com.mardomsara.social.ui.views.x.XTextView
+            android:id="@+id/left_text"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:minWidth="50dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="20dp"
+            android:gravity="center"
+            app:xFont="IranLight"
+            android:textColor="@color/light_blue_2"
+            android:textSize="14dp"
+            />
+
+
+    </LinearLayout>
 
     <com.mardomsara.social.ui.views.x.XTextView
         android:layout_width="wrap_content"

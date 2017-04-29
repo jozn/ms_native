@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <com.mardomsara.social.ui.views.x.XTopNav
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/x_top_nav"
+        app:xTitle="افزودن پست"
+        app:xLeftTitle="بفرس"
+
+        />
+    <!--<com.mardomsara.social.ui.views.x.XTopNav
+        android:id="@+id/x_top_nav"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        />-->
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/container"
+        />
+
+</LinearLayout>
+

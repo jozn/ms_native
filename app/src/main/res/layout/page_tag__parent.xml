@@ -2,19 +2,22 @@
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/root_layout"
 
+
     >
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         >
 
-        <RelativeLayout
+        <!--<RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@drawable/background_tab"
@@ -41,8 +44,16 @@
                 android:id="@+id/title_text"
                 />
 
-        </RelativeLayout>
+        </RelativeLayout>-->
 
+        <com.mardomsara.social.ui.views.x.XTopNav
+            android:id="@+id/top_nav"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:xTitle=""
+            app:xLeftTitle=""
+            app:xPostMultiWay="true"
+            />
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
