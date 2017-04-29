@@ -53,7 +53,7 @@ public class XTopNav extends RelativeLayout {
 			try {
 				title = a.getString(R.styleable.XTopNav_xTitle);
 				titleLeft = a.getString(R.styleable.XTopNav_xLeftTitle);
-				isPostMultiWay = a.getBoolean(R.styleable.XTopNav_xPostMultiWay,true);
+				isPostMultiWay = a.getBoolean(R.styleable.XTopNav_xPostMultiWay,false);
 			}finally {
 				a.recycle();
 			}
