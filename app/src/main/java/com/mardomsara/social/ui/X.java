@@ -1709,14 +1709,14 @@ public class X {
  //( index .Fields 0).ViewClass
 
     public static class PageTag_Parent {
-        public FrameLayout root;
-        public FrameLayout root_layout;
+        public LinearLayout root;
+        public LinearLayout root_layout;
         public XTopNav top_nav;
         public FrameLayout container;
 
         public PageTag_Parent(ViewGroup parent) {
-            root = (FrameLayout) AppUtil.inflate(R.layout.page_tag__parent,parent);
-            root_layout = (FrameLayout) root.findViewById( R.id.root_layout);
+            root = (LinearLayout) AppUtil.inflate(R.layout.page_tag__parent,parent);
+            root_layout = (LinearLayout) root.findViewById( R.id.root_layout);
             top_nav = (XTopNav) root.findViewById( R.id.top_nav);
             container = (FrameLayout) root.findViewById( R.id.container);
         }
