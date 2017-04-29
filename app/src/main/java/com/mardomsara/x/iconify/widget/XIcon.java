@@ -1,7 +1,9 @@
 package com.mardomsara.x.iconify.widget;
 
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
+import android.support.annotation.ColorInt;
 import android.support.v7.widget.AppCompatTextView;
 import android.text.style.AbsoluteSizeSpan;
 import android.util.AttributeSet;
@@ -11,6 +13,7 @@ import com.mardomsara.social.R;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.lib.Spanny;
 import com.mardomsara.social.ui.views.FontCache;
+import com.mardomsara.social.ui.views.x.IranFonts;
 import com.mardomsara.x.iconify.Icon;
 import com.mardomsara.x.iconify.XIconify;
 import com.mardomsara.x.iconify.internal.CustomTypefaceSpan;
@@ -27,6 +30,7 @@ public class XIcon extends AppCompatTextView implements HasOnViewAttachListener 
 	Icon rightIcon = null;
 
 	String textStr = " ";
+	IranFonts iranFonts;
 	int iconColor = AndroidUtil.getColor(R.color.text_black_4);
 	int textColor = AndroidUtil.getColor(R.color.text_black_4);
 	int iconSpacePx = AndroidUtil.dpToPx(2);
@@ -58,7 +62,7 @@ public class XIcon extends AppCompatTextView implements HasOnViewAttachListener 
 		TypedArray a = getContext().getTheme().obtainStyledAttributes(
 			attrs,
 			R.styleable.XIcon,
-			0, 0);
+			0, R.style.XIconDef);
 
 		try {
 			leftIconStr = a.getString(R.styleable.XIcon_xiconLeft);
@@ -71,6 +75,7 @@ public class XIcon extends AppCompatTextView implements HasOnViewAttachListener 
 			textSizePx = a.getDimensionPixelSize(R.styleable.XIcon_android_textSize, textSizePx);
 			textColor = a.getColor(R.styleable.XIcon_android_textColor, textColor);
 
+			iranFonts = IranFonts.getIranFontFromAttrs(a,this,R.styleable.XIcon_xFont);
 		} finally {
 			a.recycle();
 		}
@@ -79,7 +84,14 @@ public class XIcon extends AppCompatTextView implements HasOnViewAttachListener 
 		setText(getText());
     }
 
-    @Override
+	@Override
+	public void setTextColor(@ColorInt int color) {
+		textColor = color;
+		iconColor = color;
+		super.setTextColor(color);
+	}
+
+	@Override
     public void setText(CharSequence text, BufferType type) {
 		isIcony();
 		if( isIcony() == false ){
@@ -119,7 +131,7 @@ public class XIcon extends AppCompatTextView implements HasOnViewAttachListener 
 
 		//text
 		if(textStr != null){
-			setTypeface(FontCache.getIran());
+			setTypeface(FontCache.get(iranFonts.path));
 			spanny.append(halfSpace, new AbsoluteSizeSpan(iconSizePx));
 			spanny.append(textStr);
 			spanny.append(halfSpace, new AbsoluteSizeSpan(iconSizePx));

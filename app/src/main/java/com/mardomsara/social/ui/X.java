@@ -1987,6 +1987,7 @@ public class X {
         public XTextView text;
         public ImageView image;
         public LinearLayout counts_info;
+        public XIcon comment_count2;
         public TextViewWithIcon_DEP comment_count;
         public TextViewWithIcon_DEP likes_count;
         public XIcon like_btn;
@@ -2000,6 +2001,7 @@ public class X {
             text = (XTextView) root.findViewById( R.id.text);
             image = (ImageView) root.findViewById( R.id.image);
             counts_info = (LinearLayout) root.findViewById( R.id.counts_info);
+            comment_count2 = (XIcon) root.findViewById( R.id.comment_count2);
             comment_count = (TextViewWithIcon_DEP) root.findViewById( R.id.comment_count);
             likes_count = (TextViewWithIcon_DEP) root.findViewById( R.id.likes_count);
             like_btn = (XIcon) root.findViewById( R.id.like_btn);
@@ -2507,13 +2509,13 @@ public class X {
     public static class WidgetTextAndIcon {
         public ViewGroup root;
         public XTextView text;
-        public XTextView icon;
+        public TextView icon;
 
         public WidgetTextAndIcon(ViewGroup parent) {
             root = (ViewGroup) AppUtil.inflate(R.layout.widget_text_and_icon,parent,true);//for Compound Views
             
             text = (XTextView) root.findViewById( R.id.text);
-            icon = (XTextView) root.findViewById( R.id.icon);
+            icon = (TextView) root.findViewById( R.id.icon);
         }
     }
  //( index .Fields 0).ViewClass

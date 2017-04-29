@@ -27,42 +27,24 @@ import com.squareup.picasso.Picasso;
  * Created by Hamid on 8/26/2016.
  */
 public class PostRowNewCell {
-//    private View rootView;
     JV.PostView post;
 	X.PostRow_Stream x;
 
-    /*@Bind(R.id.text)
-	XEmojiLinkerTextView text;
-    @Bind(R.id.fullname)
-    TextView user_name;
-    @Bind(R.id.date)
-    TextView date;
-    @Bind(R.id.avatar)
-    SimpleDraweeView avatar;
-
-    @Bind(R.id.image)
-    ImageView image;
-
-    @Bind(R.id.like_btn) TextView like_btn;*/
-
-    /*@Bind(R.id.comment_count)
-	TextViewWithIcon_DEP comment_count;
-    @Bind(R.id.likes_count)
-	TextViewWithIcon_DEP likes_count;*/
-
     Uri imageUri2;
-
 
     View.OnClickListener gotoLikes = (v) -> {
 //        Nav.push(Router.getLikesPage(post.Id));
+		Helper.showDebugMessage("gotoLikes");
         Nav.push(Router.getLikesPage(post.Id));
     };
 
     View.OnClickListener gotoComments = (v) -> {
-        Nav.push(Router.getCommontsPage(post.Id));
+		Helper.showDebugMessage("gotoComments");
+		Nav.push(Router.getCommontsPage(post.Id));
     };
 
     View.OnClickListener gotoProfile = (v) -> {
+		Helper.showDebugMessage("gotoProfile");
         Nav.push(new ProfilePage(post.UserId));
     };
 
@@ -104,22 +86,20 @@ public class PostRowNewCell {
     };
 
     public PostRowNewCell(ViewGroup parent) {
-//		rootView = AppUtil.inflate(R.layout.post_row__stream, parent);
 		x = new X.PostRow_Stream(parent);
-//        ButterKnife.bind(this, rootView);
-//        rootView = itemView;
+
 		x.fullname.setOnClickListener(gotoProfile);
 		x.avatar.setOnClickListener(gotoProfile);
 		x.like_btn.setOnClickListener(likeListner);
-//        user_name.setOnClickListener(gotoProfile);
-//        avatar.setOnClickListener(gotoProfile);
-//        like_btn.setOnClickListener(likeListner);
-
     }
 
     public void bind(@NonNull JV.PostView post) {
 		x.image.setVisibility(View.GONE);
         this.post = post;
+		x.likes_count.setOnClickListener(gotoLikes);
+		x.comment_count.setOnClickListener(gotoComments);
+		x.comment_count2.setOnClickListener(gotoComments);
+
 //        text.setText(LangUtil.limitText(post.Text, 120));
         x.text.setTextWithLimits(LangUtil.limitText(post.Text, 1600),160);
         x.fullname.setText(post.Sender.FullName);
@@ -162,18 +142,15 @@ public class PostRowNewCell {
 //			comment_count.setVisibility(View.GONE);
 		}
 
-        x.likes_count.setOnClickListener(gotoLikes);
-        x.comment_count.setOnClickListener(gotoComments);
-
         if(post.MyLike > 0){
             likeBtnShowLike();
         }else {
             likeBtnShowUnlike();
         }
-
     }
 
 	private void likeBtnShowLike(){
+		x.like_btn.setTextColor(Color.RED);
 		x.like_btn.setTextColor(Color.RED);
 		x.like_btn.setText("\uf443");
 	}

@@ -89,16 +89,21 @@
             android:paddingRight="@dimen/post_row.padding_right"
             >
 
-            <!--<com.mardomsara.x.iconify.widget.XIcon
+            <com.mardomsara.x.iconify.widget.XIcon
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/counts_info"
-                android:id="@+id/comment_count"
+                android:id="@+id/comment_count2"
                 app:xiconRight="ion-android-favorite"
-                app:xiconSize="16dp"
-                android:textSize="16dp"
+                app:xiconSize="14dp"
+                android:textSize="12dp"
+                android:layout_marginRight="20dp"
+                app:xiconText="نظر"
+                app:xiconColor="@color/dark_blue_2"
+                android:textColor="@color/dark_blue_2"
+                app:xFont="IranLight"
                 />
-            <com.mardomsara.x.iconify.widget.XIcon
+            <!--<com.mardomsara.x.iconify.widget.XIcon
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/counts_info"
@@ -114,6 +119,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/counts_info"
                 android:id="@+id/comment_count"
+                android:clickable="true"
                 />
 
             <com.mardomsara.social.ui.views.wigets.TextViewWithIcon_DEP
@@ -122,6 +128,7 @@
                 android:layout_below="@id/counts_info"
                 android:id="@+id/likes_count"
                 android:layout_marginLeft="14dp"
+                android:clickable="true"
                 />
 
             <Space

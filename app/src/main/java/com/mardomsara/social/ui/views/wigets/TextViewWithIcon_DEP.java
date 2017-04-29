@@ -47,6 +47,9 @@ public class TextViewWithIcon_DEP extends LinearLayout {
         setOrientation(HORIZONTAL);
 //        setLayoutParams(new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT));
 		x.icon.setTypeface(FontCache.getIonic());
+		setClickable(true);
+		setFocusable(true);
+		setFocusableInTouchMode(true);
         requestLayout();
     }
 
