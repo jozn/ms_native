@@ -36,6 +36,7 @@ public class CommentsWithAddFieldCell implements SimpleAddText.OnAddText {
 		content.addView(commentsListCell.getViewRoot());
 
 		simpleAddText.setOnAddListener(this);
+		simpleAddText.x.input.setHint("نظر شما ...");
 	}
 
 	@Override

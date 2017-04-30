@@ -12,6 +12,7 @@ import com.mardomsara.social.ui.views.EmojiKeyboard;
  * Created by Hamid on 7/27/2016.
  */
 public class SimpleAddText extends FrameLayout {
+	public X.InputTextAddSimpleText x;
     public SimpleAddText(Context context) {
         super(context);
         init();
@@ -32,7 +33,7 @@ public class SimpleAddText extends FrameLayout {
     EmojiKeyboard emojiKeybord;
     private void init() {
 
-		X.InputTextAddSimpleText x= new X.InputTextAddSimpleText();
+		x= new X.InputTextAddSimpleText();
         addView(x.root);
         emojiKeybord= new EmojiKeyboard(x.input ,x.emoji_opener_btn, AppUtil.global_window);
 
