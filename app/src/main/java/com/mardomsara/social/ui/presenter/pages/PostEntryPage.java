@@ -12,7 +12,7 @@ import com.mardomsara.social.ui.X;
 import com.mardomsara.social.ui.cells.Cells;
 import com.mardomsara.social.ui.cells.lists.CommentsListCell;
 import com.mardomsara.social.ui.cells.lists.CommentsWithAddFieldCell;
-import com.mardomsara.social.ui.cells.rows.PostRowNewCell;
+import com.mardomsara.social.ui.cells.rows.PostRowWideCell;
 
 /**
  * Created by Hamid on 8/26/2016.
@@ -77,7 +77,7 @@ public class PostEntryPage extends BasePresenter {
 	}
 
 	void showPostCell(JV.PostView postJson){
-		PostRowNewCell postCell = new PostRowNewCell(viewRoot);
+		PostRowWideCell postCell = new PostRowWideCell(viewRoot);
 		postCell.bind(postJson);
 //        viewRoot.addView(listCell.getViewRoot());
 		postHolder.loading.setVisibility(View.GONE);

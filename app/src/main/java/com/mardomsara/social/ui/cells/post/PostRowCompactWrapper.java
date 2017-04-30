@@ -156,15 +156,12 @@ public class PostRowCompactWrapper {
 
 	private void likeBtnShowLike(){
 		x.like_btn.setRightIconStr("ion-ios-heart");
-		x.like_btn.setTextColor(Color.RED);
-		x.like_btn.setTextColor(Color.RED);
-//		x.like_btn.setTextStr("\uf443");
+		x.like_btn.setFullColor(AndroidUtil.getColor(R.color.light_blue_3));
 	}
 
 	private void likeBtnShowUnlike(){
 		x.like_btn.setRightIconStr("ion-ios-heart-outline");
-		x.like_btn.setTextColor(Color.BLACK);
-//		x.like_btn.setText("\uf442");
+		x.like_btn.setFullColor(Color.BLACK);
 	}
 
 }

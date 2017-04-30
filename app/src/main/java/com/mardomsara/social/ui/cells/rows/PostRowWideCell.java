@@ -26,7 +26,7 @@ import com.squareup.picasso.Picasso;
 /**
  * Created by Hamid on 8/26/2016.
  */
-public class PostRowNewCell {
+public class PostRowWideCell {
     JV.PostView post;
 	X.PostRow_Stream x;
 
@@ -85,7 +85,7 @@ public class PostRowNewCell {
 
     };
 
-    public PostRowNewCell(ViewGroup parent) {
+    public PostRowWideCell(ViewGroup parent) {
 		x = new X.PostRow_Stream(parent);
 
 		x.fullname.setOnClickListener(gotoProfile);
@@ -144,14 +144,12 @@ public class PostRowNewCell {
 
 	private void likeBtnShowLike(){
 		x.like_btn.setRightIconStr("ion-ios-heart");
-		x.like_btn.setTextColor(Color.RED);
-		x.like_btn.setTextColor(Color.RED);
-//		x.like_btn.setTextStr("\uf443");
+		x.like_btn.setFullColor(AndroidUtil.getColor(R.color.light_blue_3));
 	}
 
 	private void likeBtnShowUnlike(){
 		x.like_btn.setRightIconStr("ion-ios-heart-outline");
-		x.like_btn.setTextColor(Color.BLACK);
+		x.like_btn.setFullColor(Color.BLACK);
 //		x.like_btn.setText("\uf442");
 	}
 

@@ -17,7 +17,7 @@ import com.mardomsara.social.json.JV;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
 import com.mardomsara.social.ui.X;
 import com.mardomsara.social.ui.cells.post.PostRowCompactWrapper;
-import com.mardomsara.social.ui.cells.rows.PostRowNewCell;
+import com.mardomsara.social.ui.cells.rows.PostRowWideCell;
 import com.mardomsara.social.ui.presenter.pages.add_post.AddPostPage;
 import com.mardomsara.social.ui.presenter.pages.add_post.PostAddGalleryChooserPresenter;
 import com.mardomsara.social.ui.presenter.pages.add_post.RecentImagesAddPostBoxCell;
@@ -215,7 +215,7 @@ public class PostsHomeCell
 //            View v = AppUtil.inflate(R.layout.row_post_stream, parent);
 
 			if(PostWayToShow.WIDE.id == contentViewType){
-				return new PostWideVH(new PostRowNewCell(null));
+				return new PostWideVH(new PostRowWideCell(null));
 			}else if (PostWayToShow.COMPACT.id == contentViewType){
 				return new PostCompactVH(new PostRowCompactWrapper(null));
 			}
@@ -258,8 +258,8 @@ public class PostsHomeCell
 	}
 
 	public static class PostWideVH extends CommonPostBinder {
-		PostRowNewCell postRowCell;
-		public PostWideVH(PostRowNewCell postCell) {
+		PostRowWideCell postRowCell;
+		public PostWideVH(PostRowWideCell postCell) {
 			super(postCell.getRootView());
 			this.postRowCell = postCell;
 		}

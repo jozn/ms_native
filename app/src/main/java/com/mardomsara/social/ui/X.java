@@ -228,30 +228,6 @@ public class X {
     }
  //( index .Fields 0).ViewClass
 
-    public static class CellListUserTypeFollowAboutRowBk {
-        public RelativeLayout root;
-        public FollowingButtonView following_button;
-        public SimpleDraweeView avatar;
-        public LinearLayout top;
-        public EmojiconTextView primary_name;
-        public EmojiconTextView second_name;
-        public EmojiconTextView about;
-
-        public CellListUserTypeFollowAboutRowBk(ViewGroup parent) {
-            root = (RelativeLayout) AppUtil.inflate(R.layout.cell_list_user_type_follow_about_row_bk,parent);
-            following_button = (FollowingButtonView) root.findViewById( R.id.following_button);
-            avatar = (SimpleDraweeView) root.findViewById( R.id.avatar);
-            top = (LinearLayout) root.findViewById( R.id.top);
-            primary_name = (EmojiconTextView) root.findViewById( R.id.primary_name);
-            second_name = (EmojiconTextView) root.findViewById( R.id.second_name);
-            about = (EmojiconTextView) root.findViewById( R.id.about);
-        }
-        public CellListUserTypeFollowAboutRowBk() {
-            this(null);
-        }
-    }
- //( index .Fields 0).ViewClass
-
     public static class CellPageCellNavRecylcerViewBk {
         public LinearLayout root;
         public SimpleTopNav simpleTopNav;
@@ -1758,24 +1734,6 @@ public class X {
     }
  //( index .Fields 0).ViewClass
 
-    public static class PageTag_ParentBk {
-        public LinearLayout root;
-        public LinearLayout root_layout;
-        public XTopNav x_top_nav;
-        public FrameLayout container;
-
-        public PageTag_ParentBk(ViewGroup parent) {
-            root = (LinearLayout) AppUtil.inflate(R.layout.page_tag__parent_bk,parent);
-            root_layout = (LinearLayout) root.findViewById( R.id.root_layout);
-            x_top_nav = (XTopNav) root.findViewById( R.id.x_top_nav);
-            container = (FrameLayout) root.findViewById( R.id.container);
-        }
-        public PageTag_ParentBk() {
-            this(null);
-        }
-    }
- //( index .Fields 0).ViewClass
-
     public static class Pager_CellNavLinearView {
         public LinearLayout root;
         public SimpleTopNav simpleTopNav;
@@ -2542,20 +2500,6 @@ public class X {
             root = (ViewGroup) AppUtil.inflate(R.layout.widget_general_user_list_ytype_follow,parent,true);//for Compound Views
             
             recycler_view = (RecyclerView) root.findViewById( R.id.recycler_view);
-        }
-    }
- //( index .Fields 0).ViewClass
-
-    public static class WidgetSimpleTopNavBk {
-        public ViewGroup root;
-        public TextView left_text;
-        public TextView title_text;
-
-        public WidgetSimpleTopNavBk(ViewGroup parent) {
-            root = (ViewGroup) AppUtil.inflate(R.layout.widget_simple_top_nav_bk,parent,true);//for Compound Views
-            
-            left_text = (TextView) root.findViewById( R.id.left_text);
-            title_text = (TextView) root.findViewById( R.id.title_text);
         }
     }
  //( index .Fields 0).ViewClass
