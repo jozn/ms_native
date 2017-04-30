@@ -118,34 +118,6 @@
                 app:xFont="IranLight"
                 />
 
-            <!--<com.mardomsara.x.iconify.widget.XIcon
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/counts_info"
-                android:id="@+id/likes_count"
-                android:layout_marginLeft="14dp"
-                app:xiconRight="ion-android-favorite"
-                app:xiconSize="16dp"
-                android:textSize="16dp"
-
-                />-->
-       <!--     <com.mardomsara.social.ui.views.wigets.TextViewWithIcon_DEP
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/counts_info"
-                android:id="@+id/comment_count2"
-                android:clickable="true"
-                />
-
-            <com.mardomsara.social.ui.views.wigets.TextViewWithIcon_DEP
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/counts_info"
-                android:id="@+id/likes_count2"
-                android:layout_marginLeft="14dp"
-                android:clickable="true"
-                />
--->
             <Space
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"

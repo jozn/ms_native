@@ -1946,40 +1946,6 @@ public class X {
     }
  //( index .Fields 0).ViewClass
 
-    public static class PostRow_CompactBk {
-        public RelativeLayout root;
-        public RelativeLayout post_row_holder;
-        public XTextView date;
-        public ImageView avatar;
-        public XTextView fullname;
-        public XTextView text;
-        public PercentFrameLayout image_holder;
-        public ImageView image;
-        public LinearLayout counts_info;
-        public TextViewWithIcon_DEP comment_count;
-        public TextViewWithIcon_DEP likes_count;
-        public TextView like_btn;
-
-        public PostRow_CompactBk(ViewGroup parent) {
-            root = (RelativeLayout) AppUtil.inflate(R.layout.post_row__compact_bk,parent);
-            post_row_holder = (RelativeLayout) root.findViewById( R.id.post_row_holder);
-            date = (XTextView) root.findViewById( R.id.date);
-            avatar = (ImageView) root.findViewById( R.id.avatar);
-            fullname = (XTextView) root.findViewById( R.id.fullname);
-            text = (XTextView) root.findViewById( R.id.text);
-            image_holder = (PercentFrameLayout) root.findViewById( R.id.image_holder);
-            image = (ImageView) root.findViewById( R.id.image);
-            counts_info = (LinearLayout) root.findViewById( R.id.counts_info);
-            comment_count = (TextViewWithIcon_DEP) root.findViewById( R.id.comment_count);
-            likes_count = (TextViewWithIcon_DEP) root.findViewById( R.id.likes_count);
-            like_btn = (TextView) root.findViewById( R.id.like_btn);
-        }
-        public PostRow_CompactBk() {
-            this(null);
-        }
-    }
- //( index .Fields 0).ViewClass
-
     public static class PostRow_Mini {
         public RelativeLayout root;
         public RelativeLayout post_row_holder;

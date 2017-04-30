@@ -2,16 +2,16 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:fresco="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="0dp"
-    android:background="@color/white"
+    android:background="@drawable/post_row_compact_background"
     android:id="@+id/post_row_holder"
     android:paddingLeft="@dimen/post_row_compact.margin_left"
     android:paddingTop="@dimen/post_row_compact.margin_top"
     android:paddingRight="@dimen/post_row_compact.margin_left"
+
     >
 
     <com.mardomsara.social.ui.views.x.XTextView
@@ -157,9 +157,9 @@
             android:paddingBottom="8dp"
             />
     </LinearLayout>
-    <View
+    <!--<View
         style="@style/spacer.dp2"
         android:layout_alignParentBottom="true"
-        />
+        />-->
 
 </RelativeLayout>
