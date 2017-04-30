@@ -1,7 +1,6 @@
 package com.mardomsara.x.iconify.widget;
 
 import android.content.Context;
-import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.support.annotation.ColorInt;
 import android.support.v7.widget.AppCompatTextView;
@@ -89,6 +88,7 @@ public class XIcon extends AppCompatTextView implements HasOnViewAttachListener 
 		textColor = color;
 		iconColor = color;
 		super.setTextColor(color);
+		setText(getText());
 	}
 
 	@Override
@@ -174,13 +174,17 @@ public class XIcon extends AppCompatTextView implements HasOnViewAttachListener 
 
 	public void setLeftIconStr(String leftIconStr) {
 		this.leftIconStr = leftIconStr;
+		invalidate();
 	}
 
 	public void setRightIconStr(String rightIconStr) {
 		this.rightIconStr = rightIconStr;
+		invalidate();
 	}
 
 	private void setFullText(CharSequence text){
+
+		invalidate();
 	}
 
     @Override

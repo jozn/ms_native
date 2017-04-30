@@ -55,7 +55,7 @@
         android:id="@+id/text"
         android:layout_toLeftOf="@id/avatar"
         android:layout_below="@id/fullname"
-        android:text="ssvvvvss"
+        android:text=""
         style="@style/post_row.text"
         app:xFont="IranLight"
         app:xEnableEmoji="true"
@@ -74,7 +74,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/image"
-
             />
 
         <LinearLayout
@@ -93,7 +92,22 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/counts_info"
-                android:id="@+id/comment_count2"
+                android:id="@+id/comment_count"
+                app:xiconRight="ion-chatbubble"
+                app:xiconSize="14dp"
+                android:textSize="12dp"
+                android:layout_marginRight="20dp"
+                app:xiconText="نظر"
+                app:xiconColor="@color/dark_blue_2"
+                android:textColor="@color/dark_blue_2"
+                app:xFont="IranLight"
+                />
+
+            <com.mardomsara.x.iconify.widget.XIcon
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/counts_info"
+                android:id="@+id/likes_count"
                 app:xiconRight="ion-android-favorite"
                 app:xiconSize="14dp"
                 android:textSize="12dp"
@@ -103,6 +117,7 @@
                 android:textColor="@color/dark_blue_2"
                 app:xFont="IranLight"
                 />
+
             <!--<com.mardomsara.x.iconify.widget.XIcon
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -114,11 +129,11 @@
                 android:textSize="16dp"
 
                 />-->
-            <com.mardomsara.social.ui.views.wigets.TextViewWithIcon_DEP
+       <!--     <com.mardomsara.social.ui.views.wigets.TextViewWithIcon_DEP
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/counts_info"
-                android:id="@+id/comment_count"
+                android:id="@+id/comment_count2"
                 android:clickable="true"
                 />
 
@@ -126,11 +141,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/counts_info"
-                android:id="@+id/likes_count"
+                android:id="@+id/likes_count2"
                 android:layout_marginLeft="14dp"
                 android:clickable="true"
                 />
-
+-->
             <Space
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -143,7 +158,12 @@
                 style="@style/post_row.like_btn"
                 android:layout_weight="1"
                 android:gravity="right|center_vertical"
-                app:xiconRight="ion-android-favorite-outline"
+                app:xiconRight="ion-ios-heart-outline"
+                app:xiconSize="28dp"
+                android:paddingRight="0dp"
+                android:paddingLeft="15dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
                 />
 
         </LinearLayout>

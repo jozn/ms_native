@@ -20,6 +20,7 @@ import com.mardomsara.social.json.JV;
 import com.mardomsara.social.ui.X;
 import com.mardomsara.social.ui.presenter.pages.ProfilePage;
 import com.mardomsara.social.ui.views.FullScreenImage_Fresco;
+import com.mardomsara.social.ui.views.helpers.ViewHelper;
 import com.squareup.picasso.Picasso;
 
 import jp.wasabeef.picasso.transformations.CropTransformation;
@@ -94,16 +95,19 @@ public class PostRowCompactWrapper {
 
     }
 
-    public void bind(@NonNull JV.PostView post) {
-        this.post = post;
-//        text.setText(LangUtil.limitText(post.Text, 120));
-        x.text.setTextWithLimits(LangUtil.limitText(post.Text, 1600),160);
-        x.fullname.setText(post.Sender.FullName);
-        x.date.setText(FormaterUtil.timeAgo(post.CreatedTime));
-        Uri imageUri = Helper.PathToUserAvatarUri(post.Sender.AvatarUrl);
+	public void bind(@NonNull JV.PostView post) {
+		x.image.setVisibility(View.GONE);
+		this.post = post;
+		x.likes_count.setOnClickListener(gotoLikes);
+		x.comment_count.setOnClickListener(gotoComments);
+
+		x.text.setTextWithLimits(LangUtil.limitText(post.Text, 1600),160);
+		x.fullname.setText(post.Sender.FullName);
+		x.date.setText(FormaterUtil.timeAgo(post.CreatedTime));
+		Uri imageUri = Helper.PathToUserAvatarUri(post.Sender.AvatarUrl);
+//		x.avatar.setImageURI(imageUri);
 
 		int p50 = AndroidUtil.dpToPx(55);
-//        x.avatar.setImageURI(imageUri);
 		Picasso.with(AppUtil.getContext())
 			.load(imageUri)
 			.resize(p50, p50)
@@ -112,67 +116,67 @@ public class PostRowCompactWrapper {
 			.placeholder(R.drawable.image_background)
 			.into(x.avatar);
 
-        if (post.TypeId == 2) {
-            int screenSize =AndroidUtil.getScreenWidth() +1;
-			/*int w = (int) (screenSize*.75);
-			int h = (int) (w*.66);
-            x.image.getLayoutParams().height = h;
-            x.image.getLayoutParams().width = w;*/
-
+		if (post.TypeId == 2 && post.PhotoView != null) {
+			int screenSize =AndroidUtil.getScreenWidth() +1;
 			int iw = x.image.getLayoutParams().width;
 			int ih = x.image.getLayoutParams().height;
-            x.image.setVisibility(View.VISIBLE);
-//            String urlStr = API.BASE_CDN_DOMAIN_URL_STR+"/"+post.MediaUrl;
-            String urlStr = Helper.postsGetBestPhotoResUrl(post.PhotoView,screenSize);
-            Picasso.with(AppUtil.getContext())
-                    .load(urlStr)
-//					.resize(w,h)
-//					.centerCrop()
-					.transform(new CropTransformation(0,ih))
-					.transform(new RoundedCornersTransformation(AndroidUtil.dpToPx(12),0))
-                    .placeholder(R.drawable.image_background)
-                    .into(x.image);
+			x.image.setVisibility(View.VISIBLE);
+			String urlStr = Helper.postsGetBestPhotoResUrl(post.PhotoView,screenSize);
+			Picasso.with(AppUtil.getContext())
+				.load(urlStr)
+				.transform(new CropTransformation(0,ih))
+				.transform(new RoundedCornersTransformation(AndroidUtil.dpToPx(12),0))
+				.placeholder(R.drawable.image_background)
+				.into(x.image);
 
 			PostRowUtils.setImage(x.image,post);
+			/*int screenSizePx =AndroidUtil.getScreenWidth() +1;
+			int screenSize = AndroidUtil.pxToDp( AndroidUtil.getScreenWidth() )+1;
+			ViewHelper.setImageSizesWithMaxPx(x.image,screenSize,screenSize,post.PhotoView.Width,post.PhotoView.Height);
+			x.image.setVisibility(View.VISIBLE);
+			String urlStr = Helper.postsGetBestPhotoResUrl(post.PhotoView,screenSizePx);
+			Picasso.with(AppUtil.getContext())
+				.load(urlStr)
+				.placeholder(R.drawable.image_background)
+				.into(x.image);
 
-        } else {
-            x.image.setVisibility(View.GONE);
-            x.image.setOnClickListener(null);
-        }
+			PostRowUtils.setImage(x.image,post);*/
 
-        if (post.LikesCount > 0) {
+		} else {
+			x.image.setVisibility(View.GONE);
+		}
+
+		if (post.LikesCount > 0) {
 			x.likes_count.setVisibility(View.VISIBLE);
-			x.likes_count.setTextAndIcon(post.LikesCount + "پسند", "\uF443");
-        }else {
+			x.likes_count.setTextStr(post.LikesCount + "پسند");
+		}else {
 			x.likes_count.setVisibility(View.GONE);
 		}
-        if (post.CommentsCount > 0) {
+		if (post.CommentsCount > 0) {
 			x.comment_count.setVisibility(View.VISIBLE);
-			x.comment_count.setTextAndIcon(post.CommentsCount + "نظر", "\uf11e");
-        }else {
-			x.comment_count.setTextAndIcon("نظر دهید", "\uf11e");
-//			comment_count.setVisibility(View.GONE);
+			x.comment_count.setTextStr(post.CommentsCount + "نظر");
+		}else {
+			x.comment_count.setTextStr("نظر دهید");
 		}
 
-        x.likes_count.setOnClickListener(gotoLikes);
-        x.comment_count.setOnClickListener(gotoComments);
-
-        if(post.MyLike > 0){
-            likeBtnShowLike();
-        }else {
-            likeBtnShowUnlike();
-        }
-
-    }
+		if(post.MyLike > 0){
+			likeBtnShowLike();
+		}else {
+			likeBtnShowUnlike();
+		}
+	}
 
 	private void likeBtnShowLike(){
+		x.like_btn.setRightIconStr("ion-ios-heart");
 		x.like_btn.setTextColor(Color.RED);
-		x.like_btn.setText("\uf443");
+		x.like_btn.setTextColor(Color.RED);
+//		x.like_btn.setTextStr("\uf443");
 	}
 
 	private void likeBtnShowUnlike(){
+		x.like_btn.setRightIconStr("ion-ios-heart-outline");
 		x.like_btn.setTextColor(Color.BLACK);
-		x.like_btn.setText("\uf442");
+//		x.like_btn.setText("\uf442");
 	}
 
 }

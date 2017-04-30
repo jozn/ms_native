@@ -58,7 +58,7 @@
 
     <style name="post_row.like_btn">
         <!--<item name="fontPath">@string/font_ionic</item>-->
-        <item name="android:textSize">30dp</item>
+        <item name="android:textSize">34dp</item>
         <item name="android:textColor">@color/text_black_3</item>
         <item name="android:gravity">right|center_vertical</item>
         <item name="android:layout_gravity">right</item>

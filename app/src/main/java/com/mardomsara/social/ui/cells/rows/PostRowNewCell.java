@@ -98,9 +98,7 @@ public class PostRowNewCell {
         this.post = post;
 		x.likes_count.setOnClickListener(gotoLikes);
 		x.comment_count.setOnClickListener(gotoComments);
-		x.comment_count2.setOnClickListener(gotoComments);
 
-//        text.setText(LangUtil.limitText(post.Text, 120));
         x.text.setTextWithLimits(LangUtil.limitText(post.Text, 1600),160);
         x.fullname.setText(post.Sender.FullName);
         x.date.setText(FormaterUtil.timeAgo(post.CreatedTime));
@@ -112,7 +110,6 @@ public class PostRowNewCell {
 			int screenSize = AndroidUtil.pxToDp( AndroidUtil.getScreenWidth() )+1;
 			ViewHelper.setImageSizesWithMaxPx(x.image,screenSize,screenSize,post.PhotoView.Width,post.PhotoView.Height);
 			x.image.setVisibility(View.VISIBLE);
-//			String urlStr = API.BASE_CDN_DOMAIN_URL_STR+"/"+post.MediaUrl;
 			String urlStr = Helper.postsGetBestPhotoResUrl(post.PhotoView,screenSizePx);
 			Picasso.with(AppUtil.getContext())
 				.load(urlStr)
@@ -123,23 +120,19 @@ public class PostRowNewCell {
 
         } else {
             x.image.setVisibility(View.GONE);
-//            image.setOnClickListener(null);
         }
 
         if (post.LikesCount > 0) {
 			x.likes_count.setVisibility(View.VISIBLE);
-//			x.likes_count.setTextStr(post.LikesCount + "پسند");
-			x.likes_count.setTextAndIcon(post.LikesCount + "پسند", "\uF443");
+			x.likes_count.setTextStr(post.LikesCount + "پسند");
         }else {
 			x.likes_count.setVisibility(View.GONE);
 		}
         if (post.CommentsCount > 0) {
 			x.comment_count.setVisibility(View.VISIBLE);
-//			x.comment_count.setTextStr(post.CommentsCount + "نظر");
-			x.comment_count.setTextAndIcon(post.CommentsCount + "نظر", "\uf11e");
+			x.comment_count.setTextStr(post.CommentsCount + "نظر");
         }else {
-			x.comment_count.setTextAndIcon("نظر دهید" , "\uf11e");
-//			comment_count.setVisibility(View.GONE);
+			x.comment_count.setTextStr("نظر دهید");
 		}
 
         if(post.MyLike > 0){
@@ -150,14 +143,16 @@ public class PostRowNewCell {
     }
 
 	private void likeBtnShowLike(){
+		x.like_btn.setRightIconStr("ion-ios-heart");
 		x.like_btn.setTextColor(Color.RED);
 		x.like_btn.setTextColor(Color.RED);
-		x.like_btn.setText("\uf443");
+//		x.like_btn.setTextStr("\uf443");
 	}
 
 	private void likeBtnShowUnlike(){
+		x.like_btn.setRightIconStr("ion-ios-heart-outline");
 		x.like_btn.setTextColor(Color.BLACK);
-		x.like_btn.setText("\uf442");
+//		x.like_btn.setText("\uf442");
 	}
 
     public View getViewRoot() {

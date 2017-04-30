@@ -2,16 +2,17 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="0dp"
-    android:background="@color/white"
+    android:background="@drawable/post_row_compact_background"
     android:id="@+id/post_row_holder"
     android:paddingLeft="@dimen/post_row_compact.margin_left"
     android:paddingTop="@dimen/post_row_compact.margin_top"
     android:paddingRight="@dimen/post_row_compact.margin_left"
+
     >
 
     <com.mardomsara.social.ui.views.x.XTextView
@@ -22,8 +23,10 @@
         android:id="@+id/date"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        style="@style/post_row.date"
         app:xFont="IranLight"
+        android:textSize="12dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="0dp"
         />
 
     <ImageView
@@ -38,7 +41,6 @@
         android:layout_marginTop="0dp"
 
         />
-
     <com.mardomsara.social.ui.views.x.XTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -53,6 +55,7 @@
         android:paddingRight="2dp"
         android:paddingTop="0dp"
         android:textColor="@color/text_black_1"
+        tools:paddingBottom="0dp"
         />
 
     <com.mardomsara.social.ui.views.x.XTextView
@@ -63,12 +66,12 @@
         android:layout_below="@id/fullname"
         android:text="ssvvvvss"
         app:xEmojiconUseSystemDefault="false"
+        app:xFont="IranLight"
         android:textSize="14dp"
         android:textColor="@color/text_black_3"
         android:gravity="right"
-        app:xFont="IranLight"
-        app:xEnableEmoji="true"
-        app:xEnableLinker="true"
+
+
         />
 
 
@@ -94,7 +97,6 @@
     </android.support.percent.PercentFrameLayout>
 
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -106,60 +108,38 @@
         android:paddingLeft="@dimen/post_row.padding_right"
         android:paddingRight="@dimen/post_row.padding_right"
         >
-
-        <com.mardomsara.x.iconify.widget.XIcon
+        <com.mardomsara.social.ui.views.wigets.TextViewWithIcon_DEP
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/counts_info"
             android:id="@+id/comment_count"
-            app:xiconRight="ion-chatbubble"
-            app:xiconSize="14dp"
-            android:textSize="12dp"
-            android:layout_marginRight="20dp"
-            app:xiconText="نظر"
-            app:xiconColor="@color/dark_blue_2"
-            android:textColor="@color/dark_blue_2"
-            app:xFont="IranLight"
+
             />
 
-        <com.mardomsara.x.iconify.widget.XIcon
+        <com.mardomsara.social.ui.views.wigets.TextViewWithIcon_DEP
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/counts_info"
             android:id="@+id/likes_count"
-            app:xiconRight="ion-android-favorite"
-            app:xiconSize="14dp"
-            android:textSize="12dp"
-            android:layout_marginRight="20dp"
-            app:xiconText="نظر"
-            app:xiconColor="@color/dark_blue_2"
-            android:textColor="@color/dark_blue_2"
-            app:xFont="IranLight"
+            android:layout_marginLeft="14dp"
             />
 
         <Space
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"/>
-
-        <com.mardomsara.x.iconify.widget.XIcon
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/like_btn"
             style="@style/post_row.like_btn"
+            android:text="\uf442"
             android:layout_weight="1"
-            android:gravity="right|center_vertical"
-            app:xiconRight="ion-ios-heart-outline"
-            app:xiconSize="28dp"
-            android:paddingRight="0dp"
-            android:paddingLeft="15dp"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp"
+            android:textColor="@color/dark_blue_2"
             />
+
     </LinearLayout>
-    <View
-        style="@style/spacer.dp2"
-        android:layout_alignParentBottom="true"
-        />
+
+
 
 </RelativeLayout>
