@@ -3,13 +3,11 @@ package com.mardomsara.social.ui;
 
 import android.widget.*;
 import android.view.*;
-import android.webkit.WebView;
 
 
 import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.TabLayout;
 import android.support.percent.PercentFrameLayout;
-import android.support.percent.PercentRelativeLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
@@ -21,12 +19,10 @@ import com.joanzapata.iconify.widget.IconTextView;
 import com.mardomsara.emojicon.EmojiconEditText;
 import com.mardomsara.emojicon.EmojiconTextView;
 import com.mardomsara.social.ui.views.buttons.ButtonPostMultiWayView;
-import com.mardomsara.social.ui.views.wigets.BadgeCount;
 import com.mardomsara.social.ui.views.wigets.ButtonGrayView;
 import com.mardomsara.social.ui.views.wigets.ChatButtonView;
 import com.mardomsara.social.ui.views.wigets.ChatListRowWhithBorderRelativeLayout;
 import com.mardomsara.social.ui.views.wigets.ChatMediaNetworkLoader;
-import com.mardomsara.social.ui.views.wigets.CountView;
 import com.mardomsara.social.ui.views.wigets.CountView2;
 import com.mardomsara.social.ui.views.wigets.FollowingButtonView;
 import com.mardomsara.social.ui.views.wigets.LoadingView;
@@ -38,7 +34,6 @@ import com.mardomsara.social.ui.views.x.XEditTextView;
 import com.mardomsara.social.ui.views.x.XTextView;
 import com.mardomsara.social.ui.views.x.XTopNav;
 import com.mardomsara.social.ui.views.x.dep.XEmojiLinkerTextView;
-import com.mardomsara.social.ui.views.x.dep.XLinkerTextView;
 import com.mardomsara.x.iconify.widget.XIcon;
 import me.relex.photodraweeview.PhotoDraweeView;
 
@@ -228,7 +223,7 @@ public class X {
     }
  //( index .Fields 0).ViewClass
 
-    public static class CellListUserTypeFollowAboutRow {
+    public static class CellListUserTypeFollowAboutRowBk {
         public RelativeLayout root;
         public FollowingButtonView following_button;
         public SimpleDraweeView avatar;
@@ -237,8 +232,8 @@ public class X {
         public EmojiconTextView second_name;
         public EmojiconTextView about;
 
-        public CellListUserTypeFollowAboutRow(ViewGroup parent) {
-            root = (RelativeLayout) AppUtil.inflate(R.layout.cell_list_user_type_follow_about_row,parent);
+        public CellListUserTypeFollowAboutRowBk(ViewGroup parent) {
+            root = (RelativeLayout) AppUtil.inflate(R.layout.cell_list_user_type_follow_about_row_bk,parent);
             following_button = (FollowingButtonView) root.findViewById( R.id.following_button);
             avatar = (SimpleDraweeView) root.findViewById( R.id.avatar);
             top = (LinearLayout) root.findViewById( R.id.top);
@@ -246,7 +241,7 @@ public class X {
             second_name = (EmojiconTextView) root.findViewById( R.id.second_name);
             about = (EmojiconTextView) root.findViewById( R.id.about);
         }
-        public CellListUserTypeFollowAboutRow() {
+        public CellListUserTypeFollowAboutRowBk() {
             this(null);
         }
     }
@@ -258,7 +253,7 @@ public class X {
         public RecyclerView recycler_view;
 
         public CellPageCellNavRecylcerView(ViewGroup parent) {
-            root = (LinearLayout) AppUtil.inflate(R.layout.cell_page_cell_nav_recylcer_view,parent);
+            root = (LinearLayout) AppUtil.inflate(R.layout.cell_page_cell_nav_recylcer_view_bk,parent);
             simpleTopNav = (SimpleTopNav) root.findViewById( R.id.simpleTopNav);
             recycler_view = (RecyclerView) root.findViewById( R.id.recycler_view);
         }
@@ -275,28 +270,6 @@ public class X {
             root = (RelativeLayout) AppUtil.inflate(R.layout.cell_page_comming_soon,parent);
         }
         public CellPageCommingSoon() {
-            this(null);
-        }
-    }
- //( index .Fields 0).ViewClass
-
-    public static class CellRowCommont {
-        public RelativeLayout root;
-        public SimpleDraweeView avatar;
-        public TextView fullname;
-        public TextView date;
-        public CircularProgressView loadingView;
-        public EmojiconTextView text;
-
-        public CellRowCommont(ViewGroup parent) {
-            root = (RelativeLayout) AppUtil.inflate(R.layout.cell_row_commont,parent);
-            avatar = (SimpleDraweeView) root.findViewById( R.id.avatar);
-            fullname = (TextView) root.findViewById( R.id.fullname);
-            date = (TextView) root.findViewById( R.id.date);
-            loadingView = (CircularProgressView) root.findViewById( R.id.loadingView);
-            text = (EmojiconTextView) root.findViewById( R.id.text);
-        }
-        public CellRowCommont() {
             this(null);
         }
     }
@@ -385,6 +358,28 @@ public class X {
             last_msg_txt = (EmojiconTextView) root.findViewById( R.id.last_msg_txt);
         }
         public Chat_ListRow() {
+            this(null);
+        }
+    }
+ //( index .Fields 0).ViewClass
+
+    public static class CommentRow {
+        public RelativeLayout root;
+        public SimpleDraweeView avatar;
+        public XTextView fullname;
+        public XTextView date;
+        public CircularProgressView loadingView;
+        public XTextView text;
+
+        public CommentRow(ViewGroup parent) {
+            root = (RelativeLayout) AppUtil.inflate(R.layout.comment_row,parent);
+            avatar = (SimpleDraweeView) root.findViewById( R.id.avatar);
+            fullname = (XTextView) root.findViewById( R.id.fullname);
+            date = (XTextView) root.findViewById( R.id.date);
+            loadingView = (CircularProgressView) root.findViewById( R.id.loadingView);
+            text = (XTextView) root.findViewById( R.id.text);
+        }
+        public CommentRow() {
             this(null);
         }
     }
@@ -2421,6 +2416,30 @@ public class X {
             text_view = (TextView) root.findViewById( R.id.text_view);
         }
         public TitleStringClickable() {
+            this(null);
+        }
+    }
+ //( index .Fields 0).ViewClass
+
+    public static class UserList_RowFollowAbout {
+        public RelativeLayout root;
+        public FollowingButtonView following_button;
+        public SimpleDraweeView avatar;
+        public LinearLayout top;
+        public XTextView primary_name;
+        public XTextView second_name;
+        public XTextView about;
+
+        public UserList_RowFollowAbout(ViewGroup parent) {
+            root = (RelativeLayout) AppUtil.inflate(R.layout.user_list__row_follow_about,parent);
+            following_button = (FollowingButtonView) root.findViewById( R.id.following_button);
+            avatar = (SimpleDraweeView) root.findViewById( R.id.avatar);
+            top = (LinearLayout) root.findViewById( R.id.top);
+            primary_name = (XTextView) root.findViewById( R.id.primary_name);
+            second_name = (XTextView) root.findViewById( R.id.second_name);
+            about = (XTextView) root.findViewById( R.id.about);
+        }
+        public UserList_RowFollowAbout() {
             this(null);
         }
     }

@@ -38,7 +38,7 @@ public class Cells {
 
 
         public NavAndRecylerView() {
-            rootView = (ViewGroup)AppUtil.inflate(R.layout.cell_page_cell_nav_recylcer_view);
+            rootView = (ViewGroup)AppUtil.inflate(R.layout.cell_page_cell_nav_recylcer_view_bk);
             ButterKnife.bind(this, rootView);
         }
     }

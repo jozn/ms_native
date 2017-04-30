@@ -22,6 +22,7 @@ public class JsonUtil {
     //could be null - check it
     public static <T> T fromJson(String str , Class<T> cls){
         T j = null;
+		Long t1 = TimeUtil.getTimeMs();
         try {
             j = g.fromJson(str,cls);
 //            Class<?> cl = j.Load.getClass();
@@ -29,6 +30,9 @@ public class JsonUtil {
             Log.e("JSON: ","error in JsonUtil.fromJson parsing: "+e.toString() );
             e.printStackTrace();
         }
+
+		AppUtil.log("Json time ms : " + (TimeUtil.getTimeMs() -t1));
+
         return j;
     }
 

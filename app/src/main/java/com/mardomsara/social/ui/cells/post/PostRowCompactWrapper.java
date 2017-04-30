@@ -105,7 +105,6 @@ public class PostRowCompactWrapper {
 		x.fullname.setText(post.Sender.FullName);
 		x.date.setText(FormaterUtil.timeAgo(post.CreatedTime));
 		Uri imageUri = Helper.PathToUserAvatarUri(post.Sender.AvatarUrl);
-//		x.avatar.setImageURI(imageUri);
 
 		int p50 = AndroidUtil.dpToPx(55);
 		Picasso.with(AppUtil.getContext())
@@ -130,17 +129,6 @@ public class PostRowCompactWrapper {
 				.into(x.image);
 
 			PostRowUtils.setImage(x.image,post);
-			/*int screenSizePx =AndroidUtil.getScreenWidth() +1;
-			int screenSize = AndroidUtil.pxToDp( AndroidUtil.getScreenWidth() )+1;
-			ViewHelper.setImageSizesWithMaxPx(x.image,screenSize,screenSize,post.PhotoView.Width,post.PhotoView.Height);
-			x.image.setVisibility(View.VISIBLE);
-			String urlStr = Helper.postsGetBestPhotoResUrl(post.PhotoView,screenSizePx);
-			Picasso.with(AppUtil.getContext())
-				.load(urlStr)
-				.placeholder(R.drawable.image_background)
-				.into(x.image);
-
-			PostRowUtils.setImage(x.image,post);*/
 
 		} else {
 			x.image.setVisibility(View.GONE);

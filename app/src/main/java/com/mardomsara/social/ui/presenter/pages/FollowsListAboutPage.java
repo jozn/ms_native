@@ -123,38 +123,6 @@ public class FollowsListAboutPage extends BasePresenter implements AppHeaderFoot
 
 			});
 
-
-        /*AndroidUtil.runInBackgroundNoPanic(()->{
-            HttpOld.Req req = new HttpOld.Req();
-            req.urlParams.put("username","abas");
-            req.urlParams.put("peer_id",""+ObjectId);// for follows types
-            req.urlParams.put("post_id",""+ObjectId);// for follows types
-            req.absPath = urlEndpoint;
-            HttpOld.Result res = HttpOld.get(req);
-
-            boolean hideLoading = false;
-            AndroidUtil.runInUiNoPanic(() -> {
-                if(res.ok) {
-                    LikesListJson data = JsonUtil.fromJson(res.data, LikesListJson.class);
-                    if (data.Status.equalsIgnoreCase("OK") && data.Payload != null && data.Payload.size() >0) {
-                        if(page <= 1) adaptor.list.clear();
-                        if(data.Payload != null && data.Payload.size() >0){
-                            adaptor.list.addAll(data.Payload);
-                            adaptor.notifyDataSetChanged();
-                        }
-                    }else {
-                        adaptor.setHasMorePage(false);
-                    }
-                }else {
-                    Helper.showDebugMessage("load next"+pageCnt);
-                    adaptor.setHasMorePage(false);
-                }
-                AndroidUtil.runInUiNoPanic(()->{
-                    refreshLayout.setRefreshing(false);
-                });
-            });
-
-        });*/
     }
 
     void setTitle() {

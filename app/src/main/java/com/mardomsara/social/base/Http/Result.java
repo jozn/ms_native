@@ -4,6 +4,8 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 
 import com.google.gson.Gson;
+import com.mardomsara.social.helpers.AppUtil;
+import com.mardomsara.social.helpers.TimeUtil;
 import com.mardomsara.social.json.HttpJson;
 import com.mardomsara.social.json.HttpJsonList;
 import com.squareup.moshi.JsonAdapter;
@@ -33,6 +35,7 @@ public class Result<T>{
         //////// Moshi ////////////
         Type listOfCardsType = Types.newParameterizedType(HttpJson.class, cls);
 
+		Long t1 = TimeUtil.getTimeMs();
         JsonAdapter<HttpJson<T>> jsonAdapter = moshi.adapter(listOfCardsType);
 
         try {
@@ -41,6 +44,8 @@ public class Result<T>{
             Log.e("JSON: ","error in Result.fromJson parsing: "+e.toString() );
             e.printStackTrace();
         }
+
+		AppUtil.log("Json time ms : " + (TimeUtil.getTimeMs() -t1) );
 
         if(j == null){
             result.ok = false;
@@ -57,6 +62,8 @@ public class Result<T>{
         //////// Moshi ////////////
         Type listOfObjects = Types.newParameterizedType(HttpJsonList.class, cls);
 
+		Long t1 = TimeUtil.getTimeMs();
+
         JsonAdapter<HttpJsonList<T>> jsonAdapter = moshi.adapter(listOfObjects);
         try {
             j = jsonAdapter.fromJson(result.data);
@@ -64,6 +71,7 @@ public class Result<T>{
             Log.e("JSON: ","error in Result.fromJsonList parsing: "+e.toString() );
             e.printStackTrace();
         }
+		AppUtil.log("Json time ms : " + (TimeUtil.getTimeMs() -t1));
 		//// TODO: 1/12/2017 check for list.size == 0 set ok to false
 		if(j == null){
             result.ok = false;

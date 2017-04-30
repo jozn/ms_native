@@ -2,9 +2,7 @@ package com.mardomsara.social.ui.cells.rows;
 
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
-import com.facebook.drawee.view.SimpleDraweeView;
 import com.mardomsara.social.Nav;
 import com.mardomsara.social.R;
 import com.mardomsara.social.helpers.AndroidUtil;
@@ -15,27 +13,22 @@ import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.json.social.rows.CommentRowJson;
 import com.mardomsara.social.models.Comment;
 import com.mardomsara.social.models.Session;
+import com.mardomsara.social.ui.X;
 import com.mardomsara.social.ui.cells.lists.CommentsListCell;
 import com.mardomsara.social.ui.presenter.pages.ProfilePage;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
 import butterknife.ButterKnife;
 
 /**
  * Created by Hamid on 8/26/2016.
  */
 public class CommentRowCell {
-    public ViewGroup rootView;
+	X.CommentRow x;
+	public ViewGroup rootView;
 
-    @Bind(R.id.avatar) SimpleDraweeView avatar;
-    @Bind(R.id.fullname)
-    TextView fullname;
-    @Bind(R.id.date) TextView date;
-    @Bind(R.id.text) TextView text;
-    @Bind(R.id.loadingView)
     View loading;
 
     CommentRowJson comment;
@@ -53,29 +46,29 @@ public class CommentRowCell {
     int i =0;
 
     public CommentRowCell(ViewGroup parent, CommentsListCell.CommentsAdaptor adaptor) {
-        rootView = (ViewGroup) AppUtil.inflate(R.layout.cell_row_commont,parent);
-        ButterKnife.bind(this,rootView);
+		x = new X.CommentRow(parent);
+
+		rootView = x.root;
         this.adaptor = adaptor;
         rootView.setOnLongClickListener(onLong);
-        fullname.setOnClickListener(gotoProfile);
-        avatar.setOnClickListener(gotoProfile);
+        x.fullname.setOnClickListener(gotoProfile);
+        x.avatar.setOnClickListener(gotoProfile);
     }
 
     public void bind(CommentRowJson comment){
         this.comment = comment;
 
-        fullname.setText(comment.Sender.FullName);
-        date.setText(FormaterUtil.timeAgo(comment.CreatedTime));
+        x.fullname.setText(comment.Sender.FullName);
+        x.date.setText(FormaterUtil.timeAgo(comment.CreatedTime));
         i++;
-        text.setText(comment.Text);
-        Helper.SetAvatar(avatar, comment.Sender.AvatarUrl);
+        x.text.setText(comment.Text);
+        Helper.SetAvatar(x.avatar, comment.Sender.AvatarUrl);
 
         if(comment._isNew){
             loading.setVisibility(View.VISIBLE);
         }else {
             loading.setVisibility(View.GONE);
         }
-
     }
 
     void openMoreOptionDialog(CommentRowJson comment){
