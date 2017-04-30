@@ -86,6 +86,13 @@ public class XIcon extends AppCompatTextView implements HasOnViewAttachListener 
 	@Override
 	public void setTextColor(@ColorInt int color) {
 		textColor = color;
+//		iconColor = color;
+		super.setTextColor(color);
+		setText(getText());
+	}
+
+	public void setFullColor(@ColorInt int color) {
+		textColor = color;
 		iconColor = color;
 		super.setTextColor(color);
 		setText(getText());

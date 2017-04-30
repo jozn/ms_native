@@ -3,11 +3,13 @@ package com.mardomsara.social.ui;
 
 import android.widget.*;
 import android.view.*;
+import android.webkit.WebView;
 
 
 import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.TabLayout;
 import android.support.percent.PercentFrameLayout;
+import android.support.percent.PercentRelativeLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
@@ -19,10 +21,12 @@ import com.joanzapata.iconify.widget.IconTextView;
 import com.mardomsara.emojicon.EmojiconEditText;
 import com.mardomsara.emojicon.EmojiconTextView;
 import com.mardomsara.social.ui.views.buttons.ButtonPostMultiWayView;
+import com.mardomsara.social.ui.views.wigets.BadgeCount;
 import com.mardomsara.social.ui.views.wigets.ButtonGrayView;
 import com.mardomsara.social.ui.views.wigets.ChatButtonView;
 import com.mardomsara.social.ui.views.wigets.ChatListRowWhithBorderRelativeLayout;
 import com.mardomsara.social.ui.views.wigets.ChatMediaNetworkLoader;
+import com.mardomsara.social.ui.views.wigets.CountView;
 import com.mardomsara.social.ui.views.wigets.CountView2;
 import com.mardomsara.social.ui.views.wigets.FollowingButtonView;
 import com.mardomsara.social.ui.views.wigets.LoadingView;
@@ -34,6 +38,7 @@ import com.mardomsara.social.ui.views.x.XEditTextView;
 import com.mardomsara.social.ui.views.x.XTextView;
 import com.mardomsara.social.ui.views.x.XTopNav;
 import com.mardomsara.social.ui.views.x.dep.XEmojiLinkerTextView;
+import com.mardomsara.social.ui.views.x.dep.XLinkerTextView;
 import com.mardomsara.x.iconify.widget.XIcon;
 import me.relex.photodraweeview.PhotoDraweeView;
 
@@ -247,17 +252,17 @@ public class X {
     }
  //( index .Fields 0).ViewClass
 
-    public static class CellPageCellNavRecylcerView {
+    public static class CellPageCellNavRecylcerViewBk {
         public LinearLayout root;
         public SimpleTopNav simpleTopNav;
         public RecyclerView recycler_view;
 
-        public CellPageCellNavRecylcerView(ViewGroup parent) {
+        public CellPageCellNavRecylcerViewBk(ViewGroup parent) {
             root = (LinearLayout) AppUtil.inflate(R.layout.cell_page_cell_nav_recylcer_view_bk,parent);
             simpleTopNav = (SimpleTopNav) root.findViewById( R.id.simpleTopNav);
             recycler_view = (RecyclerView) root.findViewById( R.id.recycler_view);
         }
-        public CellPageCellNavRecylcerView() {
+        public CellPageCellNavRecylcerViewBk() {
             this(null);
         }
     }
@@ -1631,6 +1636,38 @@ public class X {
     }
  //( index .Fields 0).ViewClass
 
+    public static class Nav_RecylcerView {
+        public LinearLayout root;
+        public SimpleTopNav simpleTopNav;
+        public RecyclerView recycler_view;
+
+        public Nav_RecylcerView(ViewGroup parent) {
+            root = (LinearLayout) AppUtil.inflate(R.layout.nav__recylcer_view,parent);
+            simpleTopNav = (SimpleTopNav) root.findViewById( R.id.simpleTopNav);
+            recycler_view = (RecyclerView) root.findViewById( R.id.recycler_view);
+        }
+        public Nav_RecylcerView() {
+            this(null);
+        }
+    }
+ //( index .Fields 0).ViewClass
+
+    public static class Nav_Simple {
+        public ViewGroup root;
+        public TextView left_text;
+        public XTextView title_text;
+        public XIcon back_btn;
+
+        public Nav_Simple(ViewGroup parent) {
+            root = (ViewGroup) AppUtil.inflate(R.layout.nav__simple,parent,true);//for Compound Views
+            
+            left_text = (TextView) root.findViewById( R.id.left_text);
+            title_text = (XTextView) root.findViewById( R.id.title_text);
+            back_btn = (XIcon) root.findViewById( R.id.back_btn);
+        }
+    }
+ //( index .Fields 0).ViewClass
+
     public static class NavHeaderPagerMenu {
         public LinearLayout root;
         public LinearLayout search;
@@ -2509,13 +2546,13 @@ public class X {
     }
  //( index .Fields 0).ViewClass
 
-    public static class WidgetSimpleTopNav {
+    public static class WidgetSimpleTopNavBk {
         public ViewGroup root;
         public TextView left_text;
         public TextView title_text;
 
-        public WidgetSimpleTopNav(ViewGroup parent) {
-            root = (ViewGroup) AppUtil.inflate(R.layout.widget_simple_top_nav,parent,true);//for Compound Views
+        public WidgetSimpleTopNavBk(ViewGroup parent) {
+            root = (ViewGroup) AppUtil.inflate(R.layout.widget_simple_top_nav_bk,parent,true);//for Compound Views
             
             left_text = (TextView) root.findViewById( R.id.left_text);
             title_text = (TextView) root.findViewById( R.id.title_text);
