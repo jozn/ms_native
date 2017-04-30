@@ -210,24 +210,6 @@ public class X {
     }
  //( index .Fields 0).ViewClass
 
-    public static class CellCommontsWithField {
-        public RelativeLayout root;
-        public RelativeLayout post_row_holder;
-        public LinearLayout content;
-        public SimpleAddText simpleAddText;
-
-        public CellCommontsWithField(ViewGroup parent) {
-            root = (RelativeLayout) AppUtil.inflate(R.layout.cell_commonts_with_field,parent);
-            post_row_holder = (RelativeLayout) root.findViewById( R.id.post_row_holder);
-            content = (LinearLayout) root.findViewById( R.id.content);
-            simpleAddText = (SimpleAddText) root.findViewById( R.id.simpleAddText);
-        }
-        public CellCommontsWithField() {
-            this(null);
-        }
-    }
- //( index .Fields 0).ViewClass
-
     public static class CellPageCellNavRecylcerViewBk {
         public LinearLayout root;
         public SimpleTopNav simpleTopNav;
@@ -361,6 +343,24 @@ public class X {
             text = (XTextView) root.findViewById( R.id.text);
         }
         public CommentRow() {
+            this(null);
+        }
+    }
+ //( index .Fields 0).ViewClass
+
+    public static class Comments_WithFieldCell {
+        public RelativeLayout root;
+        public RelativeLayout post_row_holder;
+        public LinearLayout content;
+        public SimpleAddText simpleAddText;
+
+        public Comments_WithFieldCell(ViewGroup parent) {
+            root = (RelativeLayout) AppUtil.inflate(R.layout.comments__with_field_cell,parent);
+            post_row_holder = (RelativeLayout) root.findViewById( R.id.post_row_holder);
+            content = (LinearLayout) root.findViewById( R.id.content);
+            simpleAddText = (SimpleAddText) root.findViewById( R.id.simpleAddText);
+        }
+        public Comments_WithFieldCell() {
             this(null);
         }
     }
@@ -2047,26 +2047,6 @@ public class X {
             like_btn = (TextView) root.findViewById( R.id.like_btn);
         }
         public PostRow_Wide() {
-            this(null);
-        }
-    }
- //( index .Fields 0).ViewClass
-
-    public static class PresenterCommonts {
-        public RelativeLayout root;
-        public RelativeLayout post_row_holder;
-        public SimpleTopNav simpleTopNav;
-        public SimpleAddText simpleAddText;
-        public LinearLayout content;
-
-        public PresenterCommonts(ViewGroup parent) {
-            root = (RelativeLayout) AppUtil.inflate(R.layout.presenter_commonts,parent);
-            post_row_holder = (RelativeLayout) root.findViewById( R.id.post_row_holder);
-            simpleTopNav = (SimpleTopNav) root.findViewById( R.id.simpleTopNav);
-            simpleAddText = (SimpleAddText) root.findViewById( R.id.simpleAddText);
-            content = (LinearLayout) root.findViewById( R.id.content);
-        }
-        public PresenterCommonts() {
             this(null);
         }
     }

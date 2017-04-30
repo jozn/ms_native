@@ -3,26 +3,16 @@ package com.mardomsara.social.ui.cells.lists;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.mardomsara.social.R;
-import com.mardomsara.social.helpers.AppUtil;
+import com.mardomsara.social.ui.X;
 import com.mardomsara.social.ui.views.wigets.SimpleAddText;
-
-import butterknife.Bind;
-import butterknife.ButterKnife;
 
 /**
  * Created by Hamid on 7/25/2016.
  */
 public class CommentsWithAddFieldCell implements SimpleAddText.OnAddText {
     int postId = 0;
+    X.Comments_WithFieldCell x;
 
-    @Bind(R.id.simpleAddText)
-    SimpleAddText simpleAddText;
-
-	@Bind(R.id.content)
-	ViewGroup content;
-
-	View view;
 
 	public CommentsListCell commentsListCell;
 
@@ -30,13 +20,12 @@ public class CommentsWithAddFieldCell implements SimpleAddText.OnAddText {
         this.postId = postId;
 		commentsListCell = new CommentsListCell(postId);
 
-		view = AppUtil.inflate(R.layout.cell_commonts_with_field,parent);
-		ButterKnife.bind(this,view);
+		x = new X.Comments_WithFieldCell(parent);
 
-		content.addView(commentsListCell.getViewRoot());
+		x.content.addView(commentsListCell.getViewRoot());
 
-		simpleAddText.setOnAddListener(this);
-		simpleAddText.x.input.setHint("نظر شما ...");
+		x.simpleAddText.setOnAddListener(this);
+		x.simpleAddText.x.input.setHint("نظر شما ...");
 	}
 
 	@Override
@@ -45,7 +34,7 @@ public class CommentsWithAddFieldCell implements SimpleAddText.OnAddText {
 	}
 
 	public View getViewRoot(){
-		return view;
+		return x.root;
 	}
 }
 
