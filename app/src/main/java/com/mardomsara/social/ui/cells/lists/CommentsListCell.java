@@ -12,12 +12,11 @@ import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.TimeUtil;
 import com.mardomsara.social.json.HttpJson;
 import com.mardomsara.social.json.HttpJsonList;
-import com.mardomsara.social.json.social.rows.CommentRowJson;
+import com.mardomsara.social.json.JV;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
 import com.mardomsara.social.models.Session;
 import com.mardomsara.social.ui.cells.rows.CommentRowCell;
 import com.mardomsara.social.ui.views.helpers.ViewHelper;
-import com.mardomsara.social.ui.views.wigets.SimpleAddText;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,8 +25,6 @@ import java.util.List;
  * Created by Hamid on 8/26/2016.
  */
 public class CommentsListCell implements  AppHeaderFooterRecyclerViewAdapter.LoadNextPage {
-    SimpleAddText simpleAddText;
-    boolean isNextPages = false;
     public LinearLayoutManager layoutManager = new LinearLayoutManager(AppUtil.getContext(),LinearLayoutManager.VERTICAL,true);
     RecyclerView recyclerView = ViewHelper.newRecyclerViewMatch();
     public CommentsAdaptor adaptor;
@@ -61,7 +58,7 @@ public class CommentsListCell implements  AppHeaderFooterRecyclerViewAdapter.Loa
 					adaptor.nextPageIsLoaded();
 
 					if(result.isOk()){
-						HttpJsonList<CommentRowJson> data = Result.fromJsonList(result,CommentRowJson.class);
+						HttpJsonList<JV.CommentInlineInfoView> data = Result.fromJsonList(result,JV.CommentInlineInfoView.class);
 						if(data.isPayloadNoneEmpty()){
 							if(page== 1){
 								adaptor.list.clear();
@@ -94,8 +91,8 @@ public class CommentsListCell implements  AppHeaderFooterRecyclerViewAdapter.Loa
 
 	public void addNewCommentByMe(String text){
 		Helper.showDebugMessage(text);
-		CommentRowJson comment = new CommentRowJson();
-		comment.Sender = Session.buildUserSender();
+		JV.CommentInlineInfoView comment = new JV.CommentInlineInfoView();
+		comment.Sender = Session.buildUserSenderJV();
 		comment.PostId = postId;
 		comment.UserId = Session.getUserId();
 		comment.CreatedTime = (int) TimeUtil.getTimeSec();
@@ -113,7 +110,7 @@ public class CommentsListCell implements  AppHeaderFooterRecyclerViewAdapter.Loa
 					boolean isError = false;
 					if(res.isOk()){
 
-						HttpJson<CommentRowJson> data = Result.fromJson(res,CommentRowJson.class);
+						HttpJson<JV.CommentInlineInfoView> data = Result.fromJson(res,JV.CommentInlineInfoView.class);
 						if(data != null && data.isPayloadNoneEmpty() && data.Status.equalsIgnoreCase("OK")){
 //                    Helper.showMessage(data.Load.toString());
 							comment.Id = data.Payload.Id;
@@ -139,7 +136,7 @@ public class CommentsListCell implements  AppHeaderFooterRecyclerViewAdapter.Loa
 
     public static class CommentsAdaptor extends AppHeaderFooterRecyclerViewAdapter<CommentsAdaptor.CommentRowViewHolder> {
         public int postId = 0;
-        public List<CommentRowJson> list = new ArrayList<>();
+        public List<JV.CommentInlineInfoView> list = new ArrayList<>();
 
         public CommentsAdaptor(int _postId) {
             this.postId = _postId;

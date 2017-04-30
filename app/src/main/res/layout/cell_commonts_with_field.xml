@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/simpleAddText"
         android:layout_alignParentBottom="true"
-        android:background="@color/white"
+        android:background="@color/text_gray_1"
         />
 
 </RelativeLayout>

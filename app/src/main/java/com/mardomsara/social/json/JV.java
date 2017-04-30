@@ -77,6 +77,8 @@ public class JV {
 
 	public static class CommentInlineInfoView extends J.Comment {
 		public UserInlineView Sender;
+
+		public boolean _isNew = false;
 	}
 
 	public static class UserBasic {

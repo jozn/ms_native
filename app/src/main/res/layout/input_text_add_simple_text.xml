@@ -4,8 +4,10 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/bottom_container"
-    android:background="@color/white"
+    android:background="@color/text_gray_4"
+
     >
 
     <TextView
@@ -17,7 +19,7 @@
         android:id="@+id/emoji_opener_btn"
         android:gravity="center"
         />
-    <com.mardomsara.emojicon.EmojiconEditText
+    <com.mardomsara.social.ui.views.x.XEditTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:minHeight="40dp"
@@ -28,14 +30,22 @@
         android:layout_marginLeft="15dp"
         android:inputType="textMultiLine"
         android:textColor="@color/black"
-        style="@style/SimpleAddText.input"
+        app:xFont="IranLight"
+        android:textSize="14dp"
         />
 
-    <Button
+    <com.mardomsara.x.iconify.widget.XIcon
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:id="@+id/send_btn"
         android:layout_gravity="bottom"
+        android:gravity="bottom|center_horizontal"
         android:text="Send"
+        android:padding="10dp"
+        android:minWidth="50dp"
+        app:xiconRight="ion-android-send"
+        app:xiconSize="32dp"
+        app:xiconColor="@color/light_blue_3"
+
         />
 </LinearLayout>

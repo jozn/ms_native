@@ -10,6 +10,7 @@ import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.DialogHelper;
 import com.mardomsara.social.helpers.FormaterUtil;
 import com.mardomsara.social.helpers.Helper;
+import com.mardomsara.social.json.JV;
 import com.mardomsara.social.json.social.rows.CommentRowJson;
 import com.mardomsara.social.models.Comment;
 import com.mardomsara.social.models.Session;
@@ -31,7 +32,7 @@ public class CommentRowCell {
 
     View loading;
 
-    CommentRowJson comment;
+    JV.CommentInlineInfoView comment;
     CommentsListCell.CommentsAdaptor adaptor;
 
     View.OnLongClickListener onLong = (v)->{
@@ -55,7 +56,7 @@ public class CommentRowCell {
         x.avatar.setOnClickListener(gotoProfile);
     }
 
-    public void bind(CommentRowJson comment){
+    public void bind(JV.CommentInlineInfoView comment){
         this.comment = comment;
 
         x.fullname.setText(comment.Sender.FullName);
@@ -71,7 +72,7 @@ public class CommentRowCell {
         }
     }
 
-    void openMoreOptionDialog(CommentRowJson comment){
+    void openMoreOptionDialog(JV.CommentInlineInfoView comment){
         List<DialogHelper.MenuItem> items = new ArrayList<>();
 
         items.add(new DialogHelper.MenuItem("کپی متن",(v)->{

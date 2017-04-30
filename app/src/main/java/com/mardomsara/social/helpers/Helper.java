@@ -9,6 +9,7 @@ import com.mardomsara.social.app.Config;
 import com.mardomsara.social.json.JV;
 import com.mardomsara.social.models.stores.Store;
 import com.mardomsara.social.models.stores.StoreConstants;
+import com.mardomsara.social.ui.views.EmojiKeyboard;
 import com.mardomsara.social.ui.views.EmojiKeyboard_OLD;
 import com.squareup.picasso.Picasso;
 
@@ -110,6 +111,7 @@ public class Helper {
 
 	public static void closeKeyboard(){
 		EmojiKeyboard_OLD.closeEmojiKeyboard();
+		EmojiKeyboard.closeEmojiKeyboard();
 	}
 
 

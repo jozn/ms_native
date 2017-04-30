@@ -2,18 +2,11 @@ package com.mardomsara.social.ui.views.wigets;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.View;
-import android.widget.Button;
 import android.widget.FrameLayout;
-import android.widget.TextView;
 
-import com.mardomsara.emojicon.EmojiconEditText;
-import com.mardomsara.social.R;
 import com.mardomsara.social.helpers.AppUtil;
-import com.mardomsara.social.ui.views.EmojiKeyboard_OLD;
-
-import butterknife.Bind;
-import butterknife.ButterKnife;
+import com.mardomsara.social.ui.X;
+import com.mardomsara.social.ui.views.EmojiKeyboard;
 
 /**
  * Created by Hamid on 7/27/2016.
@@ -34,31 +27,22 @@ public class SimpleAddText extends FrameLayout {
         init();
     }
 
-    @Bind(R.id.emoji_opener_btn)
-    TextView emoji_opener_btn;
-
-    @Bind(R.id.input)
-    EmojiconEditText input;
-
-    @Bind(R.id.send_btn)
-    Button send_btn;
-
-
     OnAddText onAddListener;
 
-    EmojiKeyboard_OLD emojiKeybord;
+    EmojiKeyboard emojiKeybord;
     private void init() {
-        View view = AppUtil.inflate(R.layout.widget_add_simple_text);
-        ButterKnife.bind(this,view);
-        addView(view);
-        emojiKeybord= new EmojiKeyboard_OLD(input ,emoji_opener_btn, AppUtil.global_window);
 
-        send_btn.setOnClickListener((e)->{
+		X.InputTextAddSimpleText x= new X.InputTextAddSimpleText();
+        addView(x.root);
+        emojiKeybord= new EmojiKeyboard(x.input ,x.emoji_opener_btn, AppUtil.global_window);
+
+        x.send_btn.setOnClickListener((e)->{
             if(onAddListener != null){
-                onAddListener.onAddText(input.getText().toString());
-                input.setText("");
+                onAddListener.onAddText(x.input.getText().toString());
+                x.input.setText("");
             }
         });
+
     }
 
     public void setOnAddListener(OnAddText onAddListener) {

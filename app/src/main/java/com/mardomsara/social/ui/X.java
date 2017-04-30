@@ -1006,6 +1006,26 @@ public class X {
     }
  //( index .Fields 0).ViewClass
 
+    public static class InputTextAddSimpleText {
+        public LinearLayout root;
+        public LinearLayout bottom_container;
+        public TextView emoji_opener_btn;
+        public XEditTextView input;
+        public XIcon send_btn;
+
+        public InputTextAddSimpleText(ViewGroup parent) {
+            root = (LinearLayout) AppUtil.inflate(R.layout.input_text_add_simple_text,parent);
+            bottom_container = (LinearLayout) root.findViewById( R.id.bottom_container);
+            emoji_opener_btn = (TextView) root.findViewById( R.id.emoji_opener_btn);
+            input = (XEditTextView) root.findViewById( R.id.input);
+            send_btn = (XIcon) root.findViewById( R.id.send_btn);
+        }
+        public InputTextAddSimpleText() {
+            this(null);
+        }
+    }
+ //( index .Fields 0).ViewClass
+
     public static class KeywoardAttachment2 {
         public LinearLayout root;
         public LinearLayout attachment_top;

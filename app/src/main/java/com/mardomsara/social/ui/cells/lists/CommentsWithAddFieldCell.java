@@ -5,10 +5,7 @@ import android.view.ViewGroup;
 
 import com.mardomsara.social.R;
 import com.mardomsara.social.helpers.AppUtil;
-import com.mardomsara.social.ui.BasePresenter;
-import com.mardomsara.social.ui.cells.lists.CommentsListCell;
 import com.mardomsara.social.ui.views.wigets.SimpleAddText;
-import com.mardomsara.social.ui.views.wigets.SimpleTopNav;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;

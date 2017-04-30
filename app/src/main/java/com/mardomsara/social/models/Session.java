@@ -9,6 +9,7 @@ import com.mardomsara.social.base.Http.Result;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.JsonUtil;
 import com.mardomsara.social.json.HttpJson;
+import com.mardomsara.social.json.JV;
 import com.mardomsara.social.json.social.rows.UserInfoJson;
 import com.mardomsara.social.json.social.rows.UserTableJson;
 import com.mardomsara.social.models.stores.Store;
@@ -93,6 +94,19 @@ public class Session {
 
         return sender;
     }
+
+	public static JV.UserInlineView buildUserSenderJV(){
+		if(userInfo== null){
+			return null;
+		}
+		JV.UserInlineView sender = new JV.UserInlineView();
+		sender.UserId = userInfo.Id;
+		sender.FullName = userInfo.getFullName();
+		sender.AvatarUrl = userInfo.AvatarUrl;
+		sender.UserName = userInfo.UserName;
+
+		return sender;
+	}
 
     static void play(){
         Store.getFloat("dd");
