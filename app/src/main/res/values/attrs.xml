@@ -4,12 +4,19 @@
 
     <!-- for XTextView -->
     <attr name="xFont" format="enum" >
-        <enum name="Iran" value="2" />
+        <enum name="Iran" value="0" />
         <enum name="IranBold" value="1" />
         <enum name="IranLight" value="2" />
         <enum name="IranMedium" value="3" />
         <enum name="IranUltraLight" value="4" />
     </attr>
+    <!--<attr name="xFont" format="enum" >
+        <enum name="Iran" value="1" />
+        <enum name="IranBold" value="2" />
+        <enum name="IranLight" value="3" />
+        <enum name="IranMedium" value="4" />
+        <enum name="IranUltraLight" value="5" />
+    </attr>-->
     <attr name="xEnableLinker" format="boolean" />
 
     <!-- For emoji attrs -->
@@ -95,6 +102,17 @@
         <attr name="xTitle" format="string" />
         <attr name="xLeftTitle" format="string" />
         <attr name="xPostMultiWay" format="boolean" />
+    </declare-styleable>
+
+    <attr name="xIconFont" format="enum" >
+        <enum name="IonIcons" value="0" />
+        <enum name="Material" value="1" />
+        <enum name="SimpleLineIcons" value="2" />
+        <enum name="Linear" value="3" />
+    </attr>
+
+    <declare-styleable name="XRawIcon" >
+        <attr name="xIconFont" />
     </declare-styleable>
 
 

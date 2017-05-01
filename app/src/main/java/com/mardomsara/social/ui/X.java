@@ -20,6 +20,7 @@ import com.github.rahatarmanahmed.cpv.CircularProgressView;
 import com.joanzapata.iconify.widget.IconTextView;
 import com.mardomsara.emojicon.EmojiconEditText;
 import com.mardomsara.emojicon.EmojiconTextView;
+import com.mardomsara.social.ui.views.XRawIcon;
 import com.mardomsara.social.ui.views.buttons.ButtonPostMultiWayView;
 import com.mardomsara.social.ui.views.wigets.BadgeCount;
 import com.mardomsara.social.ui.views.wigets.ButtonGrayView;
@@ -2358,15 +2359,31 @@ public class X {
 
     public static class TabCellGeneral {
         public LinearLayout root;
-        public TextView textView;
+        public XTextView textView;
         public ImageView imgView;
 
         public TabCellGeneral(ViewGroup parent) {
             root = (LinearLayout) AppUtil.inflate(R.layout.tab_cell_general,parent);
-            textView = (TextView) root.findViewById( R.id.textView);
+            textView = (XTextView) root.findViewById( R.id.textView);
             imgView = (ImageView) root.findViewById( R.id.imgView);
         }
         public TabCellGeneral() {
+            this(null);
+        }
+    }
+ //( index .Fields 0).ViewClass
+
+    public static class Title_ClickableNewPage {
+        public RelativeLayout root;
+        public XRawIcon icon;
+        public XTextView text_view;
+
+        public Title_ClickableNewPage(ViewGroup parent) {
+            root = (RelativeLayout) AppUtil.inflate(R.layout.title__clickable_new_page,parent);
+            icon = (XRawIcon) root.findViewById( R.id.icon);
+            text_view = (XTextView) root.findViewById( R.id.text_view);
+        }
+        public Title_ClickableNewPage() {
             this(null);
         }
     }
@@ -2400,17 +2417,17 @@ public class X {
     }
  //( index .Fields 0).ViewClass
 
-    public static class TitleStringClickable {
+    public static class TitleStringClickableBk {
         public RelativeLayout root;
         public TextView icon;
         public TextView text_view;
 
-        public TitleStringClickable(ViewGroup parent) {
-            root = (RelativeLayout) AppUtil.inflate(R.layout.title_string_clickable,parent);
+        public TitleStringClickableBk(ViewGroup parent) {
+            root = (RelativeLayout) AppUtil.inflate(R.layout.title_string_clickable_bk,parent);
             icon = (TextView) root.findViewById( R.id.icon);
             text_view = (TextView) root.findViewById( R.id.text_view);
         }
-        public TitleStringClickable() {
+        public TitleStringClickableBk() {
             this(null);
         }
     }

@@ -41,7 +41,7 @@
         android:gravity="center"
         android:layout_centerInParent="true"
         android:textColor="@color/light_blue_2"
-        app:xFont="Iran"
+        app:xFont="IranLight"
         android:textSize="16dp"
         />
 

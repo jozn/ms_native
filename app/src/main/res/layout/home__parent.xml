@@ -34,7 +34,7 @@
                 android:layout_height="match_parent"
                 android:layout_centerInParent="true"
                 android:gravity="center"
-                app:xFont="Iran"
+                app:xFont="IranLight"
                 android:textSize="18dp"
                 android:textColor="@color/black"
                 android:text="مردم سرا"

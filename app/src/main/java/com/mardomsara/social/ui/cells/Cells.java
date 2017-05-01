@@ -144,28 +144,31 @@ public class Cells {
 
 	public static class Title_BigClickAble {
 		public ViewGroup rootView;
-		@Bind(R.id.text_view)
+		X.Title_ClickableNewPage x;
+
+		/*@Bind(R.id.text_view)
 		TextView text_view;
 
 		@Bind(R.id.icon)
-		TextView icon;
+		TextView icon;*/
 
 		public Title_BigClickAble(ViewGroup parent){
-			rootView = (ViewGroup)AppUtil.inflate(R.layout.title_string_clickable,parent);
-			ButterKnife.bind(this,rootView);
+			x = new X.Title_ClickableNewPage(parent);
+			rootView = x.root;
+//			rootView = (ViewGroup)AppUtil.inflate(R.layout.title__clickable_new_page,parent);
 		}
 
 		public Title_BigClickAble(ViewGroup parent, String title){
 			this(parent);
-			text_view.setText(title);
+			x.text_view.setText(title);
 		}
 
 		public void setIcon(String icon){
-			this.icon.setText(icon);
+			x.icon.setText(icon);
 		}
 
 		public void setText(String title){
-			text_view.setText(title);
+			x.text_view.setText(title);
 		}
 	}
 

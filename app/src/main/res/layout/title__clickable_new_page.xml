@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+
+                android:gravity="center_vertical"
+                android:background="@drawable/title_selector"
+                android:clickable="true"
+    >
+    <View
+        android:layout_width="12dp"
+        android:layout_height="match_parent"/>
+    <com.mardomsara.social.ui.views.XRawIcon
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/icon"
+        android:text="\uf2ca"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+
+        android:layout_marginLeft="18dp"
+        android:textSize="25dp"
+        app:xIconFont="IonIcons"
+
+        />
+
+    <com.mardomsara.social.ui.views.x.XTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:layout_gravity="right"
+        android:id="@+id/text_view"
+        android:text=""
+        android:paddingRight="11dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:textSize="14dp"
+        android:textColor="@color/black"
+        app:xFont="IranMedium"
+        />
+
+</RelativeLayout>
