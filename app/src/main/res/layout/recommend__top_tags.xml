@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/background_image"
+    android:layout_marginBottom="15dp"
+
+    >
+
+    <com.mardomsara.social.ui.views.x.XTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/text"
+        android:padding="8dp"
+        android:gravity="right"
+        android:textSize="14dp"
+        android:textColor="@color/black"
+
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        />
+
+    <com.joanzapata.iconify.widget.IconTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/see_more"
+
+        android:padding="8dp"
+
+        android:gravity="left"
+
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_toRightOf="@id/text"
+        />
+
+    <android.support.percent.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+
+        android:layout_below="@id/text"
+        >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/image1"
+            app:layout_widthPercent="33%"
+            android:layout_alignParentRight="true"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/image3"
+            app:layout_widthPercent="33%"
+            android:layout_toLeftOf="@id/image1"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/image2"
+            app:layout_widthPercent="33%"
+            android:layout_toLeftOf="@id/image2"
+            />
+
+
+    </android.support.percent.PercentRelativeLayout>
+
+
+</RelativeLayout>

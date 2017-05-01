@@ -2100,7 +2100,7 @@ public class X {
     }
  //( index .Fields 0).ViewClass
 
-    public static class PresenterTopTags {
+    public static class PresenterTopTagsBk {
         public RelativeLayout root;
         public TextView text;
         public IconTextView see_more;
@@ -2108,15 +2108,15 @@ public class X {
         public ImageView image3;
         public ImageView image2;
 
-        public PresenterTopTags(ViewGroup parent) {
-            root = (RelativeLayout) AppUtil.inflate(R.layout.presenter_top_tags,parent);
+        public PresenterTopTagsBk(ViewGroup parent) {
+            root = (RelativeLayout) AppUtil.inflate(R.layout.presenter_top_tags_bk,parent);
             text = (TextView) root.findViewById( R.id.text);
             see_more = (IconTextView) root.findViewById( R.id.see_more);
             image1 = (ImageView) root.findViewById( R.id.image1);
             image3 = (ImageView) root.findViewById( R.id.image3);
             image2 = (ImageView) root.findViewById( R.id.image2);
         }
-        public PresenterTopTags() {
+        public PresenterTopTagsBk() {
             this(null);
         }
     }
@@ -2223,6 +2223,28 @@ public class X {
             recycler_view = (RecyclerView) root.findViewById( R.id.recycler_view);
         }
         public RecentImagesPostBox_RecyclerView() {
+            this(null);
+        }
+    }
+ //( index .Fields 0).ViewClass
+
+    public static class Recommend_TopTags {
+        public RelativeLayout root;
+        public XTextView text;
+        public IconTextView see_more;
+        public ImageView image1;
+        public ImageView image3;
+        public ImageView image2;
+
+        public Recommend_TopTags(ViewGroup parent) {
+            root = (RelativeLayout) AppUtil.inflate(R.layout.recommend__top_tags,parent);
+            text = (XTextView) root.findViewById( R.id.text);
+            see_more = (IconTextView) root.findViewById( R.id.see_more);
+            image1 = (ImageView) root.findViewById( R.id.image1);
+            image3 = (ImageView) root.findViewById( R.id.image3);
+            image2 = (ImageView) root.findViewById( R.id.image2);
+        }
+        public Recommend_TopTags() {
             this(null);
         }
     }
@@ -2372,29 +2394,57 @@ public class X {
     }
  //( index .Fields 0).ViewClass
 
-    public static class TitleInfo {
+    public static class Title_Info {
         public RelativeLayout root;
-        public TextView text_view;
+        public XTextView text_view;
 
-        public TitleInfo(ViewGroup parent) {
-            root = (RelativeLayout) AppUtil.inflate(R.layout.title_info,parent);
-            text_view = (TextView) root.findViewById( R.id.text_view);
+        public Title_Info(ViewGroup parent) {
+            root = (RelativeLayout) AppUtil.inflate(R.layout.title__info,parent);
+            text_view = (XTextView) root.findViewById( R.id.text_view);
         }
-        public TitleInfo() {
+        public Title_Info() {
             this(null);
         }
     }
  //( index .Fields 0).ViewClass
 
-    public static class TitleInfoLight {
+    public static class Title_InfoLight {
+        public RelativeLayout root;
+        public XTextView text_view;
+
+        public Title_InfoLight(ViewGroup parent) {
+            root = (RelativeLayout) AppUtil.inflate(R.layout.title__info_light,parent);
+            text_view = (XTextView) root.findViewById( R.id.text_view);
+        }
+        public Title_InfoLight() {
+            this(null);
+        }
+    }
+ //( index .Fields 0).ViewClass
+
+    public static class TitleInfoBk {
         public RelativeLayout root;
         public TextView text_view;
 
-        public TitleInfoLight(ViewGroup parent) {
-            root = (RelativeLayout) AppUtil.inflate(R.layout.title_info_light,parent);
+        public TitleInfoBk(ViewGroup parent) {
+            root = (RelativeLayout) AppUtil.inflate(R.layout.title_info_bk,parent);
             text_view = (TextView) root.findViewById( R.id.text_view);
         }
-        public TitleInfoLight() {
+        public TitleInfoBk() {
+            this(null);
+        }
+    }
+ //( index .Fields 0).ViewClass
+
+    public static class TitleInfoLightBk {
+        public RelativeLayout root;
+        public TextView text_view;
+
+        public TitleInfoLightBk(ViewGroup parent) {
+            root = (RelativeLayout) AppUtil.inflate(R.layout.title_info_light_bk,parent);
+            text_view = (TextView) root.findViewById( R.id.text_view);
+        }
+        public TitleInfoLightBk() {
             this(null);
         }
     }

@@ -171,42 +171,44 @@ public class Cells {
 
 	public static class Title_Info {
 		public ViewGroup rootView;
-		@Bind(R.id.text_view)
-		TextView text_view;
+		public X.Title_Info x;
 
 		public Title_Info(ViewGroup parent){
-			rootView =(ViewGroup) AppUtil.inflate(R.layout.title_info,parent);
-			ButterKnife.bind(this,rootView);
+			x = new X.Title_Info(parent);
+			rootView = x.root;
 		}
 		public Title_Info(ViewGroup parent, String title){
 			this(parent);
-			text_view.setText(title);
+			x.text_view.setText(title);
 		}
 
 		public void setText(String title){
-			text_view.setText(title);
+			x.text_view.setText(title);
 		}
 	}
 
 	public static class Title_InfoLight {
 		public ViewGroup rootView;
-		@Bind(R.id.text_view)
-		TextView text_view;
+		X.Title_InfoLight x;
+		/*@Bind(R.id.text_view)
+		TextView text_view;*/
 
 		public Title_InfoLight(ViewGroup parent){
-			rootView =(ViewGroup) AppUtil.inflate(R.layout.title_info_light,parent);
-			ButterKnife.bind(this,rootView);
+//			rootView =(ViewGroup) AppUtil.inflate(R.layout.title__info_light,parent);
+//			ButterKnife.bind(this,rootView);
+			x = new X.Title_InfoLight(parent);
+			rootView = x.root;
 		}
 
 		public Title_InfoLight(ViewGroup parent, String title){
 			this(parent);
-			text_view.setText(title);
+			x.text_view.setText(title);
 		}
 
 		public void setText(String title){
 			Spanny spanny = new Spanny();
 			spanny.append(title, Typeface.BOLD);
-			text_view.setText(spanny);
+			x.text_view.setText(spanny);
 		}
 	}
 

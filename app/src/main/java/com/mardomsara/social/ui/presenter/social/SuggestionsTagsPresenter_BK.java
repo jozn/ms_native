@@ -20,7 +20,6 @@ import com.mardomsara.social.json.HttpJsonList;
 import com.mardomsara.social.json.JV;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
 import com.mardomsara.social.ui.BasePresenter;
-import com.mardomsara.social.ui.X;
 import com.mardomsara.social.ui.cells.Cells;
 import com.mardomsara.social.ui.presenter.pages.PostEntryPage;
 import com.mardomsara.social.ui.presenter.pages.TagsPage;
@@ -37,7 +36,7 @@ import butterknife.ButterKnife;
 /**
  * Created by Hamid on 8/23/2016.
  */
-public class SuggestionsTagsPresenter extends BasePresenter implements AppHeaderFooterRecyclerViewAdapter.LoadNextPage {
+public class SuggestionsTagsPresenter_BK extends BasePresenter implements AppHeaderFooterRecyclerViewAdapter.LoadNextPage {
     @Override
     public View buildView() {
         refreshLayout = ViewHelper.newSwipeRefreshLayout(ViewHelper.MATCH_PARENT, ViewHelper.MATCH_PARENT);
@@ -124,7 +123,8 @@ public class SuggestionsTagsPresenter extends BasePresenter implements AppHeader
 
         @Override
         protected TagHolder onCreateContentItemViewHolder(ViewGroup parent, int contentViewType) {
-            return new TagHolder(new X.Recommend_TopTags(parent));
+            View v = AppUtil.inflate(R.layout.presenter_top_tags_bk,parent);
+            return new TagHolder(v);
         }
 
         @Override
@@ -134,23 +134,21 @@ public class SuggestionsTagsPresenter extends BasePresenter implements AppHeader
     }
 
     public static class TagHolder extends RecyclerView.ViewHolder {
-//        View rootView;
-		X.Recommend_TopTags x;
+        View rootView;
 
-        /*@Bind(R.id.image1) ImageView image1;
+        @Bind(R.id.image1) ImageView image1;
         @Bind(R.id.image2) ImageView image2;
         @Bind(R.id.image3) ImageView image3;
         @Bind(R.id.text) TextView text;
-        @Bind(R.id.see_more)*/
-//		IconTextView see_more;
+        @Bind(R.id.see_more)
+		IconTextView see_more;
 
         int size =0;
 
-        public TagHolder( X.Recommend_TopTags x) {
-            super(x.root);
-			this.x = x;
-//            rootView = itemView;
-//            ButterKnife.bind(this,itemView);
+        public TagHolder(View itemView) {
+            super(itemView);
+            rootView = itemView;
+            ButterKnife.bind(this,itemView);
 
             size = AndroidUtil.getScreenWidth()/3;
 
@@ -158,35 +156,35 @@ public class SuggestionsTagsPresenter extends BasePresenter implements AppHeader
         }
 
         void bind(JV.TopTagsWithPostsView tagJson){
-            x.text.setText("#"+tagJson.Tag.Name);
+            text.setText("#"+tagJson.Tag.Name);
 
-			x.see_more.setOnClickListener((v)->{
+			see_more.setOnClickListener((v)->{
 				Nav.push(new TagsPage(tagJson.Tag.Name));
 			});
-			x.see_more.setTypeface(FontCache.getIranLight());
-			x.see_more.setText("همه {ion-ios-arrow-left 12dp}");
+			see_more.setTypeface(FontCache.getIranLight());
+			see_more.setText("همه {ion-ios-arrow-left 12dp}");
 
             if(tagJson.Posts == null) return;
 
-			x.image1.setVisibility(View.GONE);
-			x.image2.setVisibility(View.GONE);
-			x.image3.setVisibility(View.GONE);
+			image1.setVisibility(View.GONE);
+			image2.setVisibility(View.GONE);
+			image3.setVisibility(View.GONE);
 
 			JV.PostView post;
 //            if(tagJson.Posts)
             if(tagJson.Posts.size()>0){
 				post = tagJson.Posts.get(0);
-                setImage(x.image1, post, tagJson.Tag.Name,post);
+                setImage(image1, post, tagJson.Tag.Name,post);
             }
 
             if(tagJson.Posts.size()>1){
 				post = tagJson.Posts.get(1);
-                setImage(x.image2, post, tagJson.Tag.Name,post);
+                setImage(image2, post, tagJson.Tag.Name,post);
             }
 
             if(tagJson.Posts.size()>2){
 				post = tagJson.Posts.get(2);
-                setImage(x.image3, post, tagJson.Tag.Name,post);
+                setImage(image3, post, tagJson.Tag.Name,post);
             }
         }
 		static int s = AndroidUtil.getScreenWidth() / 3;
