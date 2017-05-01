@@ -82,7 +82,7 @@ public class SuggestionsUsersPresenter extends BasePresenter implements AppHeade
 
 		@Override
 		protected UserRowRecommendVH onCreateContentItemViewHolder(ViewGroup parent, int contentViewType) {
-			return new UserRowRecommendVH(new X.Recommendation_UserRow(parent));
+			return new UserRowRecommendVH(new X.Recommend_UserRow(parent));
 		}
 
 		@Override
@@ -92,9 +92,9 @@ public class SuggestionsUsersPresenter extends BasePresenter implements AppHeade
 	}
 
 	public static class UserRowRecommendVH extends RecyclerView.ViewHolder {
-		X.Recommendation_UserRow cell;
+		X.Recommend_UserRow cell;
 		UserInfoJson row;
-		public UserRowRecommendVH(X.Recommendation_UserRow userRow) {
+		public UserRowRecommendVH(X.Recommend_UserRow userRow) {
 			super(userRow.root);
 			cell = userRow;
 			userRow.avatar.setOnClickListener((v)-> goToProfile());

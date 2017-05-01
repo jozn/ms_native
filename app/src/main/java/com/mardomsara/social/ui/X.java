@@ -2100,28 +2100,6 @@ public class X {
     }
  //( index .Fields 0).ViewClass
 
-    public static class PresenterTopTagsBk {
-        public RelativeLayout root;
-        public TextView text;
-        public IconTextView see_more;
-        public ImageView image1;
-        public ImageView image3;
-        public ImageView image2;
-
-        public PresenterTopTagsBk(ViewGroup parent) {
-            root = (RelativeLayout) AppUtil.inflate(R.layout.presenter_top_tags_bk,parent);
-            text = (TextView) root.findViewById( R.id.text);
-            see_more = (IconTextView) root.findViewById( R.id.see_more);
-            image1 = (ImageView) root.findViewById( R.id.image1);
-            image3 = (ImageView) root.findViewById( R.id.image3);
-            image2 = (ImageView) root.findViewById( R.id.image2);
-        }
-        public PresenterTopTagsBk() {
-            this(null);
-        }
-    }
- //( index .Fields 0).ViewClass
-
     public static class PreseterHomeStream {
         public RelativeLayout root;
         public LinearLayout top_nav;
@@ -2250,27 +2228,27 @@ public class X {
     }
  //( index .Fields 0).ViewClass
 
-    public static class Recommendation_UserRow {
+    public static class Recommend_UserRow {
         public RelativeLayout root;
         public FollowingButtonView following_button;
         public IconTextView ignore;
         public ImageView avatar;
         public LinearLayout top;
-        public EmojiconTextView primary_name;
-        public EmojiconTextView second_name;
-        public EmojiconTextView about;
+        public XTextView primary_name;
+        public XTextView second_name;
+        public XTextView about;
 
-        public Recommendation_UserRow(ViewGroup parent) {
-            root = (RelativeLayout) AppUtil.inflate(R.layout.recommendation__user_row,parent);
+        public Recommend_UserRow(ViewGroup parent) {
+            root = (RelativeLayout) AppUtil.inflate(R.layout.recommend__user_row,parent);
             following_button = (FollowingButtonView) root.findViewById( R.id.following_button);
             ignore = (IconTextView) root.findViewById( R.id.ignore);
             avatar = (ImageView) root.findViewById( R.id.avatar);
             top = (LinearLayout) root.findViewById( R.id.top);
-            primary_name = (EmojiconTextView) root.findViewById( R.id.primary_name);
-            second_name = (EmojiconTextView) root.findViewById( R.id.second_name);
-            about = (EmojiconTextView) root.findViewById( R.id.about);
+            primary_name = (XTextView) root.findViewById( R.id.primary_name);
+            second_name = (XTextView) root.findViewById( R.id.second_name);
+            about = (XTextView) root.findViewById( R.id.about);
         }
-        public Recommendation_UserRow() {
+        public Recommend_UserRow() {
             this(null);
         }
     }
@@ -2417,34 +2395,6 @@ public class X {
             text_view = (XTextView) root.findViewById( R.id.text_view);
         }
         public Title_InfoLight() {
-            this(null);
-        }
-    }
- //( index .Fields 0).ViewClass
-
-    public static class TitleInfoBk {
-        public RelativeLayout root;
-        public TextView text_view;
-
-        public TitleInfoBk(ViewGroup parent) {
-            root = (RelativeLayout) AppUtil.inflate(R.layout.title_info_bk,parent);
-            text_view = (TextView) root.findViewById( R.id.text_view);
-        }
-        public TitleInfoBk() {
-            this(null);
-        }
-    }
- //( index .Fields 0).ViewClass
-
-    public static class TitleInfoLightBk {
-        public RelativeLayout root;
-        public TextView text_view;
-
-        public TitleInfoLightBk(ViewGroup parent) {
-            root = (RelativeLayout) AppUtil.inflate(R.layout.title_info_light_bk,parent);
-            text_view = (TextView) root.findViewById( R.id.text_view);
-        }
-        public TitleInfoLightBk() {
             this(null);
         }
     }
