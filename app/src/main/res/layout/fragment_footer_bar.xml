@@ -1,52 +1,61 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="54dp"
-    android:orientation="horizontal"
-    tools:context=".ui.fragments.FooterBarFragment"
-    android:background="@color/navbar_background"
+              android:layout_width="match_parent"
+              android:layout_height="54dp"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="horizontal"
+              android:background="@color/navbar_background"
 
     >
 
-    <TextView
+    <com.mardomsara.social.ui.views.XRawIcon
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:text="\uf47d"
         style="@style/foot_bar_cell"
         android:id="@+id/profile"
+        app:xIconFont="IonIcons"
         />
 
-    <TextView
+    <com.mardomsara.social.ui.views.XRawIcon
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:text="\uf493"
         style="@style/foot_bar_cell"
         android:longClickable="true"
-        android:id="@+id/activity"/>
+        android:id="@+id/activity"
+        app:xIconFont="IonIcons"
+        />
 
-    <TextView
+    <com.mardomsara.social.ui.views.XRawIcon
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:text="\uf4a5"
         style="@style/foot_bar_cell"
-        android:id="@+id/search"/>
+        android:id="@+id/search"
+        app:xIconFont="IonIcons"
 
-    <TextView
+        />
+
+    <com.mardomsara.social.ui.views.XRawIcon
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:text="\uf447"
         style="@style/foot_bar_cell"
-        android:id="@+id/home"/>
+        android:id="@+id/home"
+        app:xIconFont="IonIcons"
+        />
 
-    <TextView
+    <com.mardomsara.social.ui.views.XRawIcon
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:text="\uf3f9"
         style="@style/foot_bar_cell"
-        android:id="@+id/chat"/>
+        android:id="@+id/chat"
+        app:xIconFont="IonIcons"
+        />
 </LinearLayout>

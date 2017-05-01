@@ -759,19 +759,19 @@ public class X {
 
     public static class FragmentFooterBar {
         public LinearLayout root;
-        public TextView profile;
-        public TextView activity;
-        public TextView search;
-        public TextView home;
-        public TextView chat;
+        public XRawIcon profile;
+        public XRawIcon activity;
+        public XRawIcon search;
+        public XRawIcon home;
+        public XRawIcon chat;
 
         public FragmentFooterBar(ViewGroup parent) {
             root = (LinearLayout) AppUtil.inflate(R.layout.fragment_footer_bar,parent);
-            profile = (TextView) root.findViewById( R.id.profile);
-            activity = (TextView) root.findViewById( R.id.activity);
-            search = (TextView) root.findViewById( R.id.search);
-            home = (TextView) root.findViewById( R.id.home);
-            chat = (TextView) root.findViewById( R.id.chat);
+            profile = (XRawIcon) root.findViewById( R.id.profile);
+            activity = (XRawIcon) root.findViewById( R.id.activity);
+            search = (XRawIcon) root.findViewById( R.id.search);
+            home = (XRawIcon) root.findViewById( R.id.home);
+            chat = (XRawIcon) root.findViewById( R.id.chat);
         }
         public FragmentFooterBar() {
             this(null);
@@ -2412,22 +2412,6 @@ public class X {
             text_view = (XTextView) root.findViewById( R.id.text_view);
         }
         public Title_InfoLight() {
-            this(null);
-        }
-    }
- //( index .Fields 0).ViewClass
-
-    public static class TitleStringClickableBk {
-        public RelativeLayout root;
-        public TextView icon;
-        public TextView text_view;
-
-        public TitleStringClickableBk(ViewGroup parent) {
-            root = (RelativeLayout) AppUtil.inflate(R.layout.title_string_clickable_bk,parent);
-            icon = (TextView) root.findViewById( R.id.icon);
-            text_view = (TextView) root.findViewById( R.id.text_view);
-        }
-        public TitleStringClickableBk() {
             this(null);
         }
     }

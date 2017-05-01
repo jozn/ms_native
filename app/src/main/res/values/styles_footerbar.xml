@@ -7,6 +7,6 @@
         <item name="android:longClickable">true</item>
         <item name="android:textColor">@color/navbar_icon_font</item>
         <item name="android:textSize">@dimen/footerbar_icon_font</item>
-        <item name="fontPath">@string/font_ionic</item>
+        <!--<item name="fontPath">@string/font_ionic</item>-->
     </style>
 </resources>
