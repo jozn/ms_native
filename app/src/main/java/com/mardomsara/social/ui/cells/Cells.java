@@ -146,16 +146,9 @@ public class Cells {
 		public ViewGroup rootView;
 		X.Title_ClickableNewPage x;
 
-		/*@Bind(R.id.text_view)
-		TextView text_view;
-
-		@Bind(R.id.icon)
-		TextView icon;*/
-
 		public Title_BigClickAble(ViewGroup parent){
 			x = new X.Title_ClickableNewPage(parent);
 			rootView = x.root;
-//			rootView = (ViewGroup)AppUtil.inflate(R.layout.title__clickable_new_page,parent);
 		}
 
 		public Title_BigClickAble(ViewGroup parent, String title){
@@ -193,12 +186,8 @@ public class Cells {
 	public static class Title_InfoLight {
 		public ViewGroup rootView;
 		X.Title_InfoLight x;
-		/*@Bind(R.id.text_view)
-		TextView text_view;*/
 
 		public Title_InfoLight(ViewGroup parent){
-//			rootView =(ViewGroup) AppUtil.inflate(R.layout.title__info_light,parent);
-//			ButterKnife.bind(this,rootView);
 			x = new X.Title_InfoLight(parent);
 			rootView = x.root;
 		}
@@ -220,30 +209,11 @@ public class Cells {
 	 */
 	public static class LoadingCell {
 		public ViewGroup rootView;
-	//    @Bind(R.id.progress_wheel)
-	//    ProgressWheel progressWheel;
 
-		public LoadingCell() {
-			rootView = (ViewGroup) AppUtil.inflate(R.layout.common__loading_row);
-	//        ButterKnife.bind(this, rootView);
-	//        progressWheel.
-		}
 		public LoadingCell(ViewGroup parent) {
 			rootView = (ViewGroup) AppUtil.inflate(R.layout.common__cell_loading,parent);
 			ButterKnife.bind(this, rootView);
-	//        progressWheel.spin();
-	//        progressWheel.setBarColor(Color.GREEN);
-	//        progressWheel.setProgress(0.8f);
-	//        progressWheel.
 		}
-
-	}
-
-	public static class Pager_RecyclerViewWithRefresher {
-
-	}
-
-	public static class Pager_NavRecyclerViewWithRefresher {
 
 	}
 

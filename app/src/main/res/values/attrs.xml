@@ -10,13 +10,7 @@
         <enum name="IranMedium" value="3" />
         <enum name="IranUltraLight" value="4" />
     </attr>
-    <!--<attr name="xFont" format="enum" >
-        <enum name="Iran" value="1" />
-        <enum name="IranBold" value="2" />
-        <enum name="IranLight" value="3" />
-        <enum name="IranMedium" value="4" />
-        <enum name="IranUltraLight" value="5" />
-    </attr>-->
+
     <attr name="xEnableLinker" format="boolean" />
 
     <!-- For emoji attrs -->
@@ -84,17 +78,6 @@
         <attr name="xEmojiconTextStart" />
         <attr name="xEmojiconTextLength" />
         <attr name="xEmojiconUseSystemDefault" />
-<!--        <attr name="xEnableEmoji" format="boolean"/>
-        <attr name="xLimitText" format="integer"/>
-
-        <attr name="xEmojiconSize" format="dimension" />
-        <attr name="xEmojiconAlignment" format="enum">
-            <enum name="bottom" value="0" />
-            <enum name="baseline" value="1" />
-        </attr>
-        <attr name="xEmojiconTextStart" format="integer" />
-        <attr name="xEmojiconTextLength" format="integer" />
-        <attr name="xEmojiconUseSystemDefault" format="boolean" />-->
 
     </declare-styleable>
 
