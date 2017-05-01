@@ -1,36 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:padding="10dp"
-    android:gravity="center_vertical"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:gravity="center_vertical"
     >
-    <TextView
+    <com.mardomsara.social.ui.views.XRawIcon
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:id="@+id/icon"
         android:text="\uf219"
         android:layout_marginRight="10dp"
-        style="@style/text_ionic.normal"
+
+        app:xIconFont="IonIcons"
+        android:textSize="25dp"
         />
 
-    <TextView
+    <com.mardomsara.social.ui.views.x.XTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toLeftOf="@id/icon"
         android:layout_marginRight="10dp"
         style="@style/text_light"
         android:id="@+id/text"
+
+        app:xFont="IranLight"
+        android:textSize="14dp"
+        android:textColor="@color/black"
+
         />
 
-    <TextView
+    <com.mardomsara.social.ui.views.x.XTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="10dp"
         android:id="@+id/count"
+
+        app:xFont="IranLight"
+        android:textSize="14dp"
+        android:textColor="@color/text_black_4"
 
         />
 

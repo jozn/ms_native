@@ -2257,15 +2257,15 @@ public class X {
 
     public static class RowTagSimple {
         public RelativeLayout root;
-        public TextView icon;
-        public TextView text;
-        public TextView count;
+        public XRawIcon icon;
+        public XTextView text;
+        public XTextView count;
 
         public RowTagSimple(ViewGroup parent) {
             root = (RelativeLayout) AppUtil.inflate(R.layout.row_tag_simple,parent);
-            icon = (TextView) root.findViewById( R.id.icon);
-            text = (TextView) root.findViewById( R.id.text);
-            count = (TextView) root.findViewById( R.id.count);
+            icon = (XRawIcon) root.findViewById( R.id.icon);
+            text = (XTextView) root.findViewById( R.id.text);
+            count = (XTextView) root.findViewById( R.id.count);
         }
         public RowTagSimple() {
             this(null);
@@ -2276,12 +2276,12 @@ public class X {
     public static class Rv_EmptyNote {
         public RelativeLayout root;
         public LinearLayout reload;
-        public TextView empty_note;
+        public XTextView empty_note;
 
         public Rv_EmptyNote(ViewGroup parent) {
             root = (RelativeLayout) AppUtil.inflate(R.layout.rv__empty_note,parent);
             reload = (LinearLayout) root.findViewById( R.id.reload);
-            empty_note = (TextView) root.findViewById( R.id.empty_note);
+            empty_note = (XTextView) root.findViewById( R.id.empty_note);
         }
         public Rv_EmptyNote() {
             this(null);
@@ -2292,12 +2292,12 @@ public class X {
     public static class Rv_FailedReload {
         public RelativeLayout root;
         public LinearLayout reload;
-        public IconTextView not_internet;
+        public XTextView not_internet;
 
         public Rv_FailedReload(ViewGroup parent) {
             root = (RelativeLayout) AppUtil.inflate(R.layout.rv__failed_reload,parent);
             reload = (LinearLayout) root.findViewById( R.id.reload);
-            not_internet = (IconTextView) root.findViewById( R.id.not_internet);
+            not_internet = (XTextView) root.findViewById( R.id.not_internet);
         }
         public Rv_FailedReload() {
             this(null);
@@ -2522,18 +2522,38 @@ public class X {
     public static class WigetUserListTypeFollowRow {
         public UserListGeneralFollowRowWhithBorderLinearLayout root;
         public FollowingButtonView following_button;
-        public EmojiconTextView primary_name;
+        public XTextView primary_name;
         public EmojiconTextView second_name;
         public SimpleDraweeView avatar;
 
         public WigetUserListTypeFollowRow(ViewGroup parent) {
             root = (UserListGeneralFollowRowWhithBorderLinearLayout) AppUtil.inflate(R.layout.wiget_user_list_type_follow_row,parent);
             following_button = (FollowingButtonView) root.findViewById( R.id.following_button);
-            primary_name = (EmojiconTextView) root.findViewById( R.id.primary_name);
+            primary_name = (XTextView) root.findViewById( R.id.primary_name);
             second_name = (EmojiconTextView) root.findViewById( R.id.second_name);
             avatar = (SimpleDraweeView) root.findViewById( R.id.avatar);
         }
         public WigetUserListTypeFollowRow() {
+            this(null);
+        }
+    }
+ //( index .Fields 0).ViewClass
+
+    public static class WigetUserListTypeFollowRowBk {
+        public UserListGeneralFollowRowWhithBorderLinearLayout root;
+        public FollowingButtonView following_button;
+        public EmojiconTextView primary_name;
+        public EmojiconTextView second_name;
+        public SimpleDraweeView avatar;
+
+        public WigetUserListTypeFollowRowBk(ViewGroup parent) {
+            root = (UserListGeneralFollowRowWhithBorderLinearLayout) AppUtil.inflate(R.layout.wiget_user_list_type_follow_row_bk,parent);
+            following_button = (FollowingButtonView) root.findViewById( R.id.following_button);
+            primary_name = (EmojiconTextView) root.findViewById( R.id.primary_name);
+            second_name = (EmojiconTextView) root.findViewById( R.id.second_name);
+            avatar = (SimpleDraweeView) root.findViewById( R.id.avatar);
+        }
+        public WigetUserListTypeFollowRowBk() {
             this(null);
         }
     }

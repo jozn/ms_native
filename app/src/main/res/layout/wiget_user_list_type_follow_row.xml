@@ -28,21 +28,32 @@
         android:layout_weight="1"
         >
 
-        <com.mardomsara.emojicon.EmojiconTextView
+        <com.mardomsara.social.ui.views.x.XTextView
             android:id="@+id/primary_name"
-            style="@style/user_list_general_follow.primary_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:maxLines="1"
             android:gravity="right"
+
+            android:textColor="@color/black"
+            android:textSize="14dp"
+            android:layout_gravity="right"
+
+            fresco:xFont="IranMedium"
+
             />
 
         <com.mardomsara.emojicon.EmojiconTextView
             android:id="@+id/second_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/user_list_general_follow.second_name"
             android:gravity="right"
+
+            android:textColor="@color/text_gray_3"
+            android:textSize="12dp"
+            android:layout_gravity="right"
+
+            fresco:xFont="IranLight"
             />
 
     </LinearLayout>

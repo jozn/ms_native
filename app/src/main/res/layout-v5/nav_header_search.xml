@@ -12,14 +12,21 @@
         android:orientation="vertical"
 
         >
-        <EditText
+        <com.mardomsara.social.ui.views.x.XEditTextView
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:id="@+id/search_input"
+            android:background="@drawable/chat_input_border2"
             style="@style/search_presenter_search_filed"
             android:inputType="text"
             android:hint="جستجو"
             android:imeOptions="actionSearch"
+            app:xFont="IranMedium"
+            android:textSize="14dp"
+            android:textColor="@color/black"
+            android:paddingRight="12dp"
+            android:paddingLeft="12dp"
+
             />
 
         <android.support.design.widget.TabLayout

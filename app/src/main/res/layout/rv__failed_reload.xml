@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -34,15 +35,17 @@
             android:layout_marginBottom="12dp"
             />
 
-        <TextView
+        <com.mardomsara.social.ui.views.x.XTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/rv_network_error"
             android:layout_gravity="center"
             android:gravity="center"
-            style="@style/text.normal.black"
+
+            app:xFont="IranMedium"
+            android:textColor="@color/black"
             />
-        <com.joanzapata.iconify.widget.IconTextView
+        <com.mardomsara.social.ui.views.x.XTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/not_internet"
@@ -50,9 +53,26 @@
             android:gravity="center"
             android:text=""
             android:textAlignment="center"
-            style="@style/text_light"
+
+            app:xFont="IranLight"
+            android:textColor="@color/black"
+            android:textSize="14dp"
             />
-        <com.joanzapata.iconify.widget.IconTextView
+        <com.mardomsara.x.iconify.widget.XIcon
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="{ion-ios-reload 26dp} دوباره امتحان کن"
+            android:textAlignment="center"
+
+            app:xFont="IranLight"
+
+            android:textColor="@color/text_gray_3"
+            />
+
+        <!--<com.joanzapata.iconify.widget.IconTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
@@ -61,7 +81,7 @@
             android:text="{ion-ios-reload 26dp} دوباره امتحان کن"
             android:textAlignment="center"
             style="@style/text_normal0.gray"
-            />
+            />-->
 
     </LinearLayout>
 
