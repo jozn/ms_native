@@ -2155,7 +2155,45 @@ public class X {
     }
  //( index .Fields 0).ViewClass
 
-    public static class ProfileTopInfo {
+    public static class Profile_TopInfo {
+        public LinearLayout root;
+        public LinearLayout count_holder;
+        public LinearLayout followings_holder;
+        public XTextView followings_count;
+        public LinearLayout followers_holder;
+        public XTextView followers_count;
+        public XTextView posts_count;
+        public ButtonGrayView button_edit_profile;
+        public ChatButtonView chat_button;
+        public FollowingButtonView follow_button;
+        public ButtonPostMultiWayView button_post_way;
+        public SimpleDraweeView avatar;
+        public EmojiconTextView fullname;
+        public EmojiconTextView about;
+
+        public Profile_TopInfo(ViewGroup parent) {
+            root = (LinearLayout) AppUtil.inflate(R.layout.profile__top_info,parent);
+            count_holder = (LinearLayout) root.findViewById( R.id.count_holder);
+            followings_holder = (LinearLayout) root.findViewById( R.id.followings_holder);
+            followings_count = (XTextView) root.findViewById( R.id.followings_count);
+            followers_holder = (LinearLayout) root.findViewById( R.id.followers_holder);
+            followers_count = (XTextView) root.findViewById( R.id.followers_count);
+            posts_count = (XTextView) root.findViewById( R.id.posts_count);
+            button_edit_profile = (ButtonGrayView) root.findViewById( R.id.button_edit_profile);
+            chat_button = (ChatButtonView) root.findViewById( R.id.chat_button);
+            follow_button = (FollowingButtonView) root.findViewById( R.id.follow_button);
+            button_post_way = (ButtonPostMultiWayView) root.findViewById( R.id.button_post_way);
+            avatar = (SimpleDraweeView) root.findViewById( R.id.avatar);
+            fullname = (EmojiconTextView) root.findViewById( R.id.fullname);
+            about = (EmojiconTextView) root.findViewById( R.id.about);
+        }
+        public Profile_TopInfo() {
+            this(null);
+        }
+    }
+ //( index .Fields 0).ViewClass
+
+    public static class ProfileTopInfoBk {
         public LinearLayout root;
         public LinearLayout count_holder;
         public LinearLayout followings_holder;
@@ -2170,8 +2208,8 @@ public class X {
         public EmojiconTextView fullname;
         public EmojiconTextView about;
 
-        public ProfileTopInfo(ViewGroup parent) {
-            root = (LinearLayout) AppUtil.inflate(R.layout.profile_top_info,parent);
+        public ProfileTopInfoBk(ViewGroup parent) {
+            root = (LinearLayout) AppUtil.inflate(R.layout.profile_top_info_bk,parent);
             count_holder = (LinearLayout) root.findViewById( R.id.count_holder);
             followings_holder = (LinearLayout) root.findViewById( R.id.followings_holder);
             followings_count = (TextView) root.findViewById( R.id.followings_count);
@@ -2185,7 +2223,7 @@ public class X {
             fullname = (EmojiconTextView) root.findViewById( R.id.fullname);
             about = (EmojiconTextView) root.findViewById( R.id.about);
         }
-        public ProfileTopInfo() {
+        public ProfileTopInfoBk() {
             this(null);
         }
     }

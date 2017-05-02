@@ -55,8 +55,8 @@ public class ChatButtonView extends IconTextView {
 
 //		setText("\uf2d4");
 		setText("\uf422");
-		setText("{icon-user-follow 18dp } ");
-		setText("{icon-envelope 26dp} ");
+		setText("{icon-user-follow 18dp}");
+		setText("{icon-envelope 26dp}");
 		setTextColor(coloer_notFollowing);
 		setBackgroundColor(Color.WHITE);
 		setBackgroundResource(R.drawable.btn_default);

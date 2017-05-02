@@ -210,7 +210,7 @@ public class ProfilePage_BK extends BasePresenter implements AppHeaderFooterRecy
         @Bind(R.id.button_edit_profile) ButtonGrayView button_edit_profile;
 
         public ProfileTopInfo(int userId) {
-            view = AppUtil.inflate(R.layout.profile_top_info);
+            view = AppUtil.inflate(R.layout.profile__top_info);
             ButterKnife.bind(this,view);
 			UserId=userId;
 			hideShowMyButns();
