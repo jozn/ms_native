@@ -129,10 +129,10 @@ public class FollowsListAboutPage extends BasePresenter implements AppHeaderFoot
         String title ="دنبال کنندگان";
         switch (listType){
             case FOLLOWING:
-                title ="دنبال کنندگان";
+                title ="دنبال می کند";
                 break;
             case FOLLOWERS:
-                title ="دنبال می کند";
+                title ="دنبال کنندگان";
                 break;
             case LIKES:
                 title ="پسندیدند";

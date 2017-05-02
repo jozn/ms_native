@@ -49,7 +49,9 @@ public class XTopNav extends RelativeLayout {
 		setBackgroundResource(R.drawable.background_tab);
 
 		if (attrs != null) {
-			TypedArray a= getContext().obtainStyledAttributes(attrs, R.styleable.XTopNav);;
+			TypedArray a = getContext()
+				.getTheme()
+				.obtainStyledAttributes(attrs, R.styleable.XTopNav,0,R.style.XTopNavDef);
 			try {
 				title = a.getString(R.styleable.XTopNav_xTitle);
 				titleLeft = a.getString(R.styleable.XTopNav_xLeftTitle);
@@ -57,6 +59,7 @@ public class XTopNav extends RelativeLayout {
 			}finally {
 				a.recycle();
 			}
+
 			x.left_text.setText(titleLeft);
 			x.title_text.setText(title);
 			if(isPostMultiWay){

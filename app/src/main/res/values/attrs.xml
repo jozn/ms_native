@@ -102,4 +102,10 @@
     <style name="XIconDef">
         <item name="xFont">IranLight</item>
     </style>
+
+    <style name="XTopNavDef">
+        <item name="xTitle"> </item>
+        <item name="xLeftTitle"> </item>
+        <item name="xPostMultiWay">false</item>
+    </style>
 </resources>

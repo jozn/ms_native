@@ -25,6 +25,8 @@ import com.mardomsara.social.ui.views.FontCache;
 import com.mardomsara.social.ui.views.utils.XTextViewUtils;
 
 // this class is the master of all Emoji, linker, limiter
+
+//Note: if you want to pass onClick to it's parent we must, set app:xEnableLinker="false" to dissable click handling in this object itself
 public class XTextView extends android.support.v7.widget.AppCompatTextView {
 
 	//////////////// Limits /////////////////////
@@ -100,9 +102,15 @@ public class XTextView extends android.support.v7.widget.AppCompatTextView {
 	@Override
 	public void setText(CharSequence text, BufferType type) {
 
-		if(xLimitText > 0 ){
+		/*if(xLimitText > 0 ){
 			text = tolimitLinker(text);
 		}else { //// TODO: 3/13/2017 imple for not linker enabled
+			text = XTextViewUtils.linkerText(text,this);
+		}*/
+
+		if(xLimitText > 0 ){
+			text = tolimitLinker(text);
+		}else if (xEnableLinker){ //// TODO: 3/13/2017 imple for not linker enabled
 			text = XTextViewUtils.linkerText(text,this);
 		}
 

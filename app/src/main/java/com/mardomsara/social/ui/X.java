@@ -2123,33 +2123,15 @@ public class X {
 
     public static class Profile_Parent {
         public LinearLayout root;
-        public SimpleTopNav top_nav;
+        public XTopNav top_nav;
         public FrameLayout container;
 
         public Profile_Parent(ViewGroup parent) {
             root = (LinearLayout) AppUtil.inflate(R.layout.profile__parent,parent);
-            top_nav = (SimpleTopNav) root.findViewById( R.id.top_nav);
+            top_nav = (XTopNav) root.findViewById( R.id.top_nav);
             container = (FrameLayout) root.findViewById( R.id.container);
         }
         public Profile_Parent() {
-            this(null);
-        }
-    }
- //( index .Fields 0).ViewClass
-
-    public static class Profile_Parent2 {
-        public LinearLayout root;
-        public SimpleTopNav top_nav;
-        public SwipeRefreshLayout refresh_layout;
-        public RecyclerView recycler_view;
-
-        public Profile_Parent2(ViewGroup parent) {
-            root = (LinearLayout) AppUtil.inflate(R.layout.profile__parent2,parent);
-            top_nav = (SimpleTopNav) root.findViewById( R.id.top_nav);
-            refresh_layout = (SwipeRefreshLayout) root.findViewById( R.id.refresh_layout);
-            recycler_view = (RecyclerView) root.findViewById( R.id.recycler_view);
-        }
-        public Profile_Parent2() {
             this(null);
         }
     }
@@ -2166,7 +2148,6 @@ public class X {
         public ButtonGrayView button_edit_profile;
         public ChatButtonView chat_button;
         public FollowingButtonView follow_button;
-        public ButtonPostMultiWayView button_post_way;
         public SimpleDraweeView avatar;
         public EmojiconTextView fullname;
         public EmojiconTextView about;
@@ -2182,48 +2163,11 @@ public class X {
             button_edit_profile = (ButtonGrayView) root.findViewById( R.id.button_edit_profile);
             chat_button = (ChatButtonView) root.findViewById( R.id.chat_button);
             follow_button = (FollowingButtonView) root.findViewById( R.id.follow_button);
-            button_post_way = (ButtonPostMultiWayView) root.findViewById( R.id.button_post_way);
             avatar = (SimpleDraweeView) root.findViewById( R.id.avatar);
             fullname = (EmojiconTextView) root.findViewById( R.id.fullname);
             about = (EmojiconTextView) root.findViewById( R.id.about);
         }
         public Profile_TopInfo() {
-            this(null);
-        }
-    }
- //( index .Fields 0).ViewClass
-
-    public static class ProfileTopInfoBk {
-        public LinearLayout root;
-        public LinearLayout count_holder;
-        public LinearLayout followings_holder;
-        public TextView followings_count;
-        public LinearLayout followers_holder;
-        public TextView followers_count;
-        public TextView posts_count;
-        public ButtonGrayView button_edit_profile;
-        public ChatButtonView chat_button;
-        public FollowingButtonView follow_button;
-        public SimpleDraweeView avatar;
-        public EmojiconTextView fullname;
-        public EmojiconTextView about;
-
-        public ProfileTopInfoBk(ViewGroup parent) {
-            root = (LinearLayout) AppUtil.inflate(R.layout.profile_top_info_bk,parent);
-            count_holder = (LinearLayout) root.findViewById( R.id.count_holder);
-            followings_holder = (LinearLayout) root.findViewById( R.id.followings_holder);
-            followings_count = (TextView) root.findViewById( R.id.followings_count);
-            followers_holder = (LinearLayout) root.findViewById( R.id.followers_holder);
-            followers_count = (TextView) root.findViewById( R.id.followers_count);
-            posts_count = (TextView) root.findViewById( R.id.posts_count);
-            button_edit_profile = (ButtonGrayView) root.findViewById( R.id.button_edit_profile);
-            chat_button = (ChatButtonView) root.findViewById( R.id.chat_button);
-            follow_button = (FollowingButtonView) root.findViewById( R.id.follow_button);
-            avatar = (SimpleDraweeView) root.findViewById( R.id.avatar);
-            fullname = (EmojiconTextView) root.findViewById( R.id.fullname);
-            about = (EmojiconTextView) root.findViewById( R.id.about);
-        }
-        public ProfileTopInfoBk() {
             this(null);
         }
     }

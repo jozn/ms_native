@@ -53,7 +53,7 @@ public class ProfilePage extends BasePresenter {
 			profileTopInfo.bind(Session.getUserInfo());
 		}
 
-		postCell = new PostGeneralListCell(profileTopInfo.x.button_post_way, (page, cell) -> {
+		postCell = new PostGeneralListCell(x.top_nav.getButtonPostMultiWayView(), (page, cell) -> {
 			Http.getPath("/v1/profile/posts")
 				.setQueryParam("page",""+page)
 				.setQueryParam("last",""+cell.getLastPostId(page))

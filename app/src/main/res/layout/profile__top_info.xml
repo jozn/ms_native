@@ -46,6 +46,7 @@
                         style="@style/profile.count_value"
                         android:id="@+id/followings_count"
                         app:xFont="IranMedium"
+                        app:xEnableLinker="false"
                         />
                     <com.mardomsara.social.ui.views.x.XTextView
                         android:layout_width="wrap_content"
@@ -53,6 +54,7 @@
                         style="@style/profile.count_name"
                         android:text="دنبال می کند"
                         app:xFont="IranLight"
+                        app:xEnableLinker="false"
 
                         />
                 </LinearLayout>
@@ -70,6 +72,7 @@
                         style="@style/profile.count_value"
                         android:id="@+id/followers_count"
                         app:xFont="IranMedium"
+                        app:xEnableLinker="false"
                         />
                     <com.mardomsara.social.ui.views.x.XTextView
                         android:layout_width="wrap_content"
@@ -77,6 +80,7 @@
                         style="@style/profile.count_name"
                         android:text="دنبال کننده"
                         app:xFont="IranLight"
+                        app:xEnableLinker="false"
                         />
                 </LinearLayout>            <LinearLayout
                 android:layout_width="wrap_content"
@@ -90,6 +94,7 @@
                     style="@style/profile.count_value"
                     android:id="@+id/posts_count"
                     app:xFont="IranMedium"
+                    app:xEnableLinker="false"
                     />
                 <com.mardomsara.social.ui.views.x.XTextView
                     android:layout_width="wrap_content"
@@ -97,6 +102,7 @@
                     style="@style/profile.count_name"
                     android:text="پست"
                     app:xFont="IranLight"
+                    app:xEnableLinker="false"
                     />
             </LinearLayout>
 
@@ -140,11 +146,7 @@
 
                     />
 
-                <com.mardomsara.social.ui.views.buttons.ButtonPostMultiWayView
-                    android:layout_width="50dp"
-                    android:layout_height="match_parent"
-                    android:id="@+id/button_post_way"
-                    />
+
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
