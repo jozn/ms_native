@@ -779,48 +779,6 @@ public class X {
     }
  //( index .Fields 0).ViewClass
 
-    public static class FragmentHomePage {
-        public LinearLayout root;
-        public TabLayout sliding_tabs;
-        public ViewPager viewpager;
-
-        public FragmentHomePage(ViewGroup parent) {
-            root = (LinearLayout) AppUtil.inflate(R.layout.fragment_home_page,parent);
-            sliding_tabs = (TabLayout) root.findViewById( R.id.sliding_tabs);
-            viewpager = (ViewPager) root.findViewById( R.id.viewpager);
-        }
-        public FragmentHomePage() {
-            this(null);
-        }
-    }
- //( index .Fields 0).ViewClass
-
-    public static class FragmentMain {
-        public RelativeLayout root;
-        public TextView section_label;
-
-        public FragmentMain(ViewGroup parent) {
-            root = (RelativeLayout) AppUtil.inflate(R.layout.fragment_main,parent);
-            section_label = (TextView) root.findViewById( R.id.section_label);
-        }
-        public FragmentMain() {
-            this(null);
-        }
-    }
- //( index .Fields 0).ViewClass
-
-    public static class FragmentSinglePresenter {
-        public FrameLayout root;
-
-        public FragmentSinglePresenter(ViewGroup parent) {
-            root = (FrameLayout) AppUtil.inflate(R.layout.fragment_single_presenter,parent);
-        }
-        public FragmentSinglePresenter() {
-            this(null);
-        }
-    }
- //( index .Fields 0).ViewClass
-
     public static class FramelayoutMatch {
         public FrameLayout root;
 
@@ -2153,8 +2111,8 @@ public class X {
         public ChatButtonView chat_button;
         public FollowingButtonView follow_button;
         public SimpleDraweeView avatar;
-        public EmojiconTextView fullname;
-        public EmojiconTextView about;
+        public XTextView fullname;
+        public XTextView about;
 
         public Profile_TopInfo(ViewGroup parent) {
             root = (LinearLayout) AppUtil.inflate(R.layout.profile__top_info,parent);
@@ -2168,8 +2126,8 @@ public class X {
             chat_button = (ChatButtonView) root.findViewById( R.id.chat_button);
             follow_button = (FollowingButtonView) root.findViewById( R.id.follow_button);
             avatar = (SimpleDraweeView) root.findViewById( R.id.avatar);
-            fullname = (EmojiconTextView) root.findViewById( R.id.fullname);
-            about = (EmojiconTextView) root.findViewById( R.id.about);
+            fullname = (XTextView) root.findViewById( R.id.fullname);
+            about = (XTextView) root.findViewById( R.id.about);
         }
         public Profile_TopInfo() {
             this(null);

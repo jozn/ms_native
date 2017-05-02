@@ -19,7 +19,7 @@
         <item name="android:textColor">@color/text_black_1</item>
         <item name="android:autoLink">all</item>
         <item name="android:linksClickable">true</item>
-        <item name="fontPath">@string/font_iran_medium</item>
+        <!--<item name="fontPath">@string/font_iran_medium</item>-->
     </style>
     <style name="profile.avatar_big">
         <item name="fadeDuration">200</item>
@@ -33,7 +33,7 @@
         <item name="android:textColor">@color/text_black_1</item>
         <item name="android:autoLink">all</item>
         <item name="android:linksClickable">true</item>
-        <item name="fontPath">@string/font_iran_light</item>
+        <!--<item name="fontPath">@string/font_iran_light</item>-->
     </style>
 
     <style name="profile.count_holder">

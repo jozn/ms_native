@@ -172,21 +172,27 @@
             />
 
     </LinearLayout>
-    <com.mardomsara.emojicon.EmojiconTextView
+    <com.mardomsara.social.ui.views.x.XTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/fullname"
         style="@style/profile.fullname"
 
+        app:xFont="IranMedium"
+        app:xEnableLinker="false"
+        app:xEnableEmoji="true"
 
         />
 
-    <com.mardomsara.emojicon.EmojiconTextView
+    <com.mardomsara.social.ui.views.x.XTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/about"
         style="@style/profile.about"
 
+        app:xFont="IranLight"
+        app:xEnableLinker="true"
+        app:xEnableEmoji="true"
 
         />
     <View
