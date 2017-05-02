@@ -72,6 +72,7 @@ public class PostGeneralListCell
     }
 
     String endPointAbsPath;
+	@Deprecated
     public void setLoadingEndPoint(String absPath){
         this.endPointAbsPath = absPath;
     }

@@ -50,7 +50,7 @@ public class XTextView extends android.support.v7.widget.AppCompatTextView {
 	//////////////////////////////////////////
 
 	boolean xEnableEmoji = true;
-	boolean xEnableLinker = true;
+	boolean xEnableLinker = false;
 
 	IranFonts iranFonts = IranFonts.Iran;
 

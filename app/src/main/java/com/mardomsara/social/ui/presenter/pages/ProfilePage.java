@@ -54,6 +54,10 @@ public class ProfilePage extends BasePresenter {
 		}
 
 		postCell = new PostGeneralListCell(x.top_nav.getButtonPostMultiWayView(), (page, cell) -> {
+			if(page == 1){
+				loadToInfoFromServer();
+			}
+
 			Http.getPath("/v1/profile/posts")
 				.setQueryParam("page",""+page)
 				.setQueryParam("last",""+cell.getLastPostId(page))
@@ -63,13 +67,13 @@ public class ProfilePage extends BasePresenter {
 				});
 		});
 
-		postCell.loadFromServer(1);
+//		postCell.loadFromServer(1);
 
 		postCell.getAdaptor().appendViewToHeader(profileTopInfo.x.root);
 
 		x.container.addView(postCell.getViewRoot());
 
-		loadToInfoFromServer();
+//		loadToInfoFromServer();
 
 	}
 

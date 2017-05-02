@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
@@ -7,17 +8,19 @@
               android:background="@color/white"
               android:gravity="right"
     >
-    <TextView
+    <com.mardomsara.social.ui.views.x.XTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
         android:background="@color/transparent_0"
         android:id="@+id/title"
-        style="@style/text_bold.black"
         android:textColor="@color/blue_primary_1"
         android:padding="12dp"
         android:gravity="right|center_vertical"
+        app:xFont="IranMedium"
+
         />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

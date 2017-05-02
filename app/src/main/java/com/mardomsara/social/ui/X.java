@@ -1737,6 +1737,24 @@ public class X {
     }
  //( index .Fields 0).ViewClass
 
+    public static class PageRecentPosts_Parent {
+        public LinearLayout root;
+        public LinearLayout root_layout;
+        public XTopNav top_nav;
+        public FrameLayout container;
+
+        public PageRecentPosts_Parent(ViewGroup parent) {
+            root = (LinearLayout) AppUtil.inflate(R.layout.page_recent_posts__parent,parent);
+            root_layout = (LinearLayout) root.findViewById( R.id.root_layout);
+            top_nav = (XTopNav) root.findViewById( R.id.top_nav);
+            container = (FrameLayout) root.findViewById( R.id.container);
+        }
+        public PageRecentPosts_Parent() {
+            this(null);
+        }
+    }
+ //( index .Fields 0).ViewClass
+
     public static class PageTag_Parent {
         public LinearLayout root;
         public LinearLayout root_layout;
@@ -2087,20 +2105,6 @@ public class X {
     }
  //( index .Fields 0).ViewClass
 
-    public static class PresenterProfile {
-        public LinearLayout root;
-        public SimpleTopNav simpleTopNav;
-
-        public PresenterProfile(ViewGroup parent) {
-            root = (LinearLayout) AppUtil.inflate(R.layout.presenter_profile,parent);
-            simpleTopNav = (SimpleTopNav) root.findViewById( R.id.simpleTopNav);
-        }
-        public PresenterProfile() {
-            this(null);
-        }
-    }
- //( index .Fields 0).ViewClass
-
     public static class PreseterHomeStream {
         public RelativeLayout root;
         public LinearLayout top_nav;
@@ -2323,12 +2327,12 @@ public class X {
 
     public static class Settings_Block {
         public LinearLayout root;
-        public TextView title;
+        public XTextView title;
         public LinearLayout rows_container;
 
         public Settings_Block(ViewGroup parent) {
             root = (LinearLayout) AppUtil.inflate(R.layout.settings__block,parent);
-            title = (TextView) root.findViewById( R.id.title);
+            title = (XTextView) root.findViewById( R.id.title);
             rows_container = (LinearLayout) root.findViewById( R.id.rows_container);
         }
         public Settings_Block() {
@@ -2339,11 +2343,11 @@ public class X {
 
     public static class Settings_RowNoteCenter {
         public FrameLayout root;
-        public TextView title;
+        public XTextView title;
 
         public Settings_RowNoteCenter(ViewGroup parent) {
             root = (FrameLayout) AppUtil.inflate(R.layout.settings__row_note_center,parent);
-            title = (TextView) root.findViewById( R.id.title);
+            title = (XTextView) root.findViewById( R.id.title);
         }
         public Settings_RowNoteCenter() {
             this(null);
@@ -2353,18 +2357,18 @@ public class X {
 
     public static class Settings_RowSimple {
         public RelativeLayout root;
-        public TextView title;
-        public TextView info;
+        public XTextView title;
+        public XTextView info;
         public RelativeLayout left_container;
-        public TextView has_page;
+        public XRawIcon has_page;
         public SwitchCompat switch_btn;
 
         public Settings_RowSimple(ViewGroup parent) {
             root = (RelativeLayout) AppUtil.inflate(R.layout.settings__row_simple,parent);
-            title = (TextView) root.findViewById( R.id.title);
-            info = (TextView) root.findViewById( R.id.info);
+            title = (XTextView) root.findViewById( R.id.title);
+            info = (XTextView) root.findViewById( R.id.info);
             left_container = (RelativeLayout) root.findViewById( R.id.left_container);
-            has_page = (TextView) root.findViewById( R.id.has_page);
+            has_page = (XRawIcon) root.findViewById( R.id.has_page);
             switch_btn = (SwitchCompat) root.findViewById( R.id.switch_btn);
         }
         public Settings_RowSimple() {
@@ -2505,18 +2509,6 @@ public class X {
         }
         public WidgetAddSimpleText() {
             this(null);
-        }
-    }
- //( index .Fields 0).ViewClass
-
-    public static class WidgetGeneralUserListYtypeFollow {
-        public ViewGroup root;
-        public RecyclerView recycler_view;
-
-        public WidgetGeneralUserListYtypeFollow(ViewGroup parent) {
-            root = (ViewGroup) AppUtil.inflate(R.layout.widget_general_user_list_ytype_follow,parent,true);//for Compound Views
-            
-            recycler_view = (RecyclerView) root.findViewById( R.id.recycler_view);
         }
     }
  //( index .Fields 0).ViewClass

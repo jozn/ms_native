@@ -95,6 +95,7 @@
         android:textColor="@color/text_black_5"
         android:maxLines="5"
         app:xFont="IranLight"
+        app:xEnableLinker="true"
 
         />
 

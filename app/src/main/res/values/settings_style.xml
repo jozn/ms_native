@@ -7,21 +7,21 @@
     </style>
 
     <style name="settings.row">
-        <item name="fontPath">@string/font_iran</item>
+        <!--<item name="fontPath">@string/font_iran</item>-->
         <item name="android:textColor">@color/black</item>
         <item name="android:textSize">16dp</item>
         <item name="android:padding">0dp</item>
     </style>
 
     <style name="settings.row_note">
-        <item name="fontPath">@string/font_iran_light</item>
+        <!--<item name="fontPath">@string/font_iran_light</item>-->
         <item name="android:textColor">@color/text_gray_1</item>
         <item name="android:textSize">14dp</item>
         <item name="android:padding">0dp</item>
     </style>
 
     <style name="settings.info">
-        <item name="fontPath">@string/font_iran_light</item>
+        <!--<item name="fontPath">@string/font_iran_light</item>-->
         <item name="android:textColor">@color/text_gray_2</item>
         <item name="android:textSize">12dp</item>
         <item name="android:paddingTop">0dp</item>
@@ -31,7 +31,7 @@
     </style>
 
     <style name="settings.arrow">
-        <item name="fontPath">@string/font_ionic</item>
+        <!--<item name="fontPath">@string/font_ionic</item>-->
         <item name="android:textSize">25dp</item>
         <item name="android:textColor">@color/text_black_5</item>
     </style>

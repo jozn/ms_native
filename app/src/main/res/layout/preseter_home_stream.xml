@@ -30,12 +30,6 @@
             android:layout_gravity="right"
             />
     </LinearLayout>
-    <!--<com.mardomsara.social.ui.views.wigets.SimpleTopNav
-        android:layout_width="match_parent"
-        android:layout_height="50dp">
-
-    </com.mardomsara.social.ui.views.wigets.SimpleTopNav>-->
-
 
     <FrameLayout
         android:id="@+id/loading_container"
@@ -56,29 +50,7 @@
         android:layout_alignParentBottom="true"
         android:layout_below="@id/top_nav"
         >
-        <!--<LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
 
-            >
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:background="@color/black"
-                android:visibility="gone"
-                >
-
-            </FrameLayout>
-            <android.support.v7.widget.RecyclerView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/recycler_view"
-                >
-            </android.support.v7.widget.RecyclerView>
-
-
-        </LinearLayout>-->
     </LinearLayout>
 
 
