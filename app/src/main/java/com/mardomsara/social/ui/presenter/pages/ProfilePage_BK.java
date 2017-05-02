@@ -23,14 +23,13 @@ import com.mardomsara.social.json.social.rows.UserTableJson;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
 import com.mardomsara.social.models.Session;
 import com.mardomsara.social.ui.BasePresenter;
-import com.mardomsara.social.ui.X;
-import com.mardomsara.social.ui.adaptors.PostGeneralListCell;
 import com.mardomsara.social.ui.cells.lists.PostsListCell;
 import com.mardomsara.social.ui.ui.UIPostsList;
 import com.mardomsara.social.ui.views.helpers.ViewHelper;
 import com.mardomsara.social.ui.views.wigets.ButtonGrayView;
 import com.mardomsara.social.ui.views.wigets.ChatButtonView;
 import com.mardomsara.social.ui.views.wigets.FollowingButtonView;
+import com.mardomsara.social.ui.views.wigets.SimpleTopNav;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -38,62 +37,76 @@ import butterknife.ButterKnife;
 /**
  * Created by Hamid on 8/14/2016.
  */
-public class ProfilePage extends BasePresenter {
+public class ProfilePage_BK extends BasePresenter implements AppHeaderFooterRecyclerViewAdapter.LoadNextPage {
 
-	X.Profile_Parent x;
+//    @Bind(R.id.fullname) TextView fullname;
+
+    ViewGroup viewRoot;
+    @Bind(R.id.simpleTopNav) SimpleTopNav nav;
     int UserId;
     boolean isMyProfile =false;
-    public ProfilePage(int userId) {
+    public ProfilePage_BK(int userId) {
         UserId = userId;
     }
 
-	public ProfilePage(int userId,boolean isMyProfile) {
+	public ProfilePage_BK(int userId, boolean isMyProfile) {
 		UserId = userId;
 		this.isMyProfile = isMyProfile;
 	}
 
     @Override
     public View buildView() {
-		x = new X.Profile_Parent();
-        x.top_nav.setTitle("پروفایل");
-
+        viewRoot =(ViewGroup) AppUtil.inflate(R.layout.presenter_profile);
+        ButterKnife.bind(this,viewRoot);
+        nav.setTitle("پروفایل");
 		if(isMyProfile){
-			x.top_nav.setVisibility(View.GONE);
+			nav.setVisibility(View.GONE);
 		}
         load2();
-        return x.root;
+        return viewRoot;
     }
 
     ProfileTopInfo profileTopInfo;
-	public PostGeneralListCell postCell;
+//    UIPostsList.PostsAdaptor adaptor;
+	public UIPostsList.PostsAdaptor adaptor;
+	PostsListCell postsListCell;
+    SwipeRefreshLayout refreshLayout;
 
-	void load2(){
+	void load2(){//copy of PostsListCell
 		profileTopInfo = new ProfileTopInfo(UserId);
-		x.top_container.addView(profileTopInfo.view);
+		refreshLayout = ViewHelper.newSwipeRefreshLayout(ViewHelper.MATCH_PARENT,ViewHelper.MATCH_PARENT);
+		adaptor = new UIPostsList.PostsAdaptor();
+		RecyclerView recycler_view = ViewHelper.newRecyclerViewMatch();
+		LinearLayoutManager layoutManager = new LinearLayoutManager(AppUtil.getContext());
+		recycler_view.setLayoutManager(layoutManager);
+		recycler_view.setAdapter(adaptor);
+		adaptor.setUpForPaginationWith(recycler_view,layoutManager,this);
+		adaptor.showLoading();
+
+		adaptor.appendViewToHeader(profileTopInfo.view);
+
+		refreshLayout.addView(recycler_view);
+
+		viewRoot.addView(refreshLayout);
 
 		if(Session.isUserIdMe(UserId)){
 			profileTopInfo.bind(Session.getUserInfo());
 		}
 
-		postCell = new PostGeneralListCell(x.multi_way, (page, cell) -> {
-			Http.getPath("/v1/profile/posts")
-				.setQueryParam("page",""+page)
-				.setQueryParam("last",""+cell.getLastPostId(page))
-				.setQueryParam("profile_id",""+UserId)
-				.doAsyncUi((result)->{
-					cell.loadedPostsFromNetNew(result,page);
-				});
+		reload();
+		refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+			@Override
+			public void onRefresh() {
+				Helper.showDebugMessage("reload");
+				reload();
+			}
 		});
-
-		x.posts_container.addView(postCell.getViewRoot());
-
-
 	}
 
-	/*void reload(){
+	void reload(){
 		loadToInfoFromServer();
 		loadPostsFromServer2(1);
-	}*/
+	}
 
 	private void loadToInfoFromServer() {
 		Http.getPath("/v1/profile/info")
@@ -103,13 +116,13 @@ public class ProfilePage extends BasePresenter {
 					HttpJson<UserTableJson> data = Result.fromJson(result,UserTableJson.class);
 					if(data.isPayloadNoneEmpty()){
 						profileTopInfo.bind(data.Payload);
-//						adaptor.notifyDataSetChanged();
+						adaptor.notifyDataSetChanged();
 					}
 				}
 			});
 	}
 
-	/*private void loadPostsFromServer2(int page) {
+	private void loadPostsFromServer2(int page) {
 		Http.getPath("/v1/profile/posts")
 			.setQueryParam("page",""+page)
 			.setQueryParam("last",""+getLastPostId(page))
@@ -148,10 +161,10 @@ public class ProfilePage extends BasePresenter {
 	}
 
 	private void hideRefreshLoading(){
-		refresh_layout.setRefreshing(false);
-	}*/
+		refreshLayout.setRefreshing(false);
+	}
 
-	/*@Override
+	@Override
 	public void loadNextPage(int pageNum) {
 		Helper.showMessage("load next"+pageNum);
 		if(pageNum <= 1){
@@ -159,7 +172,7 @@ public class ProfilePage extends BasePresenter {
 		}else {
 			loadPostsFromServer2(pageNum);
 		}
-	}*/
+	}
 
 	////////////////////////////////////////////////////////////
 

@@ -11,6 +11,7 @@ import android.support.design.widget.TabLayout;
 import android.support.percent.PercentFrameLayout;
 import android.support.percent.PercentRelativeLayout;
 import android.support.v4.view.ViewPager;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SwitchCompat;
@@ -2121,6 +2122,46 @@ public class X {
     }
  //( index .Fields 0).ViewClass
 
+    public static class Profile_Parent {
+        public LinearLayout root;
+        public SimpleTopNav top_nav;
+        public NestedScrollView nested_scroll;
+        public FrameLayout top_container;
+        public ButtonPostMultiWayView multi_way;
+        public FrameLayout posts_container;
+
+        public Profile_Parent(ViewGroup parent) {
+            root = (LinearLayout) AppUtil.inflate(R.layout.profile__parent,parent);
+            top_nav = (SimpleTopNav) root.findViewById( R.id.top_nav);
+            nested_scroll = (NestedScrollView) root.findViewById( R.id.nested_scroll);
+            top_container = (FrameLayout) root.findViewById( R.id.top_container);
+            multi_way = (ButtonPostMultiWayView) root.findViewById( R.id.multi_way);
+            posts_container = (FrameLayout) root.findViewById( R.id.posts_container);
+        }
+        public Profile_Parent() {
+            this(null);
+        }
+    }
+ //( index .Fields 0).ViewClass
+
+    public static class Profile_Parent2 {
+        public LinearLayout root;
+        public SimpleTopNav top_nav;
+        public SwipeRefreshLayout refresh_layout;
+        public RecyclerView recycler_view;
+
+        public Profile_Parent2(ViewGroup parent) {
+            root = (LinearLayout) AppUtil.inflate(R.layout.profile__parent2,parent);
+            top_nav = (SimpleTopNav) root.findViewById( R.id.top_nav);
+            refresh_layout = (SwipeRefreshLayout) root.findViewById( R.id.refresh_layout);
+            recycler_view = (RecyclerView) root.findViewById( R.id.recycler_view);
+        }
+        public Profile_Parent2() {
+            this(null);
+        }
+    }
+ //( index .Fields 0).ViewClass
+
     public static class ProfileTopInfo {
         public LinearLayout root;
         public LinearLayout count_holder;
@@ -2534,26 +2575,6 @@ public class X {
             avatar = (SimpleDraweeView) root.findViewById( R.id.avatar);
         }
         public WigetUserListTypeFollowRow() {
-            this(null);
-        }
-    }
- //( index .Fields 0).ViewClass
-
-    public static class WigetUserListTypeFollowRowBk {
-        public UserListGeneralFollowRowWhithBorderLinearLayout root;
-        public FollowingButtonView following_button;
-        public EmojiconTextView primary_name;
-        public EmojiconTextView second_name;
-        public SimpleDraweeView avatar;
-
-        public WigetUserListTypeFollowRowBk(ViewGroup parent) {
-            root = (UserListGeneralFollowRowWhithBorderLinearLayout) AppUtil.inflate(R.layout.wiget_user_list_type_follow_row_bk,parent);
-            following_button = (FollowingButtonView) root.findViewById( R.id.following_button);
-            primary_name = (EmojiconTextView) root.findViewById( R.id.primary_name);
-            second_name = (EmojiconTextView) root.findViewById( R.id.second_name);
-            avatar = (SimpleDraweeView) root.findViewById( R.id.avatar);
-        }
-        public WigetUserListTypeFollowRowBk() {
             this(null);
         }
     }
