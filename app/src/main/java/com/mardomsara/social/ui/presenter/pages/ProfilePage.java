@@ -27,6 +27,7 @@ import com.mardomsara.social.ui.X;
 import com.mardomsara.social.ui.adaptors.PostGeneralListCell;
 import com.mardomsara.social.ui.cells.lists.PostsListCell;
 import com.mardomsara.social.ui.ui.UIPostsList;
+import com.mardomsara.social.ui.views.buttons.ButtonPostMultiWayView;
 import com.mardomsara.social.ui.views.helpers.ViewHelper;
 import com.mardomsara.social.ui.views.wigets.ButtonGrayView;
 import com.mardomsara.social.ui.views.wigets.ChatButtonView;
@@ -69,13 +70,12 @@ public class ProfilePage extends BasePresenter {
 
 	void load2(){
 		profileTopInfo = new ProfileTopInfo(UserId);
-		x.top_container.addView(profileTopInfo.view);
 
 		if(Session.isUserIdMe(UserId)){
 			profileTopInfo.bind(Session.getUserInfo());
 		}
 
-		postCell = new PostGeneralListCell(x.multi_way, (page, cell) -> {
+		postCell = new PostGeneralListCell(new ButtonPostMultiWayView(AppUtil.getContext()), (page, cell) -> {
 			Http.getPath("/v1/profile/posts")
 				.setQueryParam("page",""+page)
 				.setQueryParam("last",""+cell.getLastPostId(page))
@@ -85,7 +85,11 @@ public class ProfilePage extends BasePresenter {
 				});
 		});
 
-		x.posts_container.addView(postCell.getViewRoot());
+		postCell.loadFromServer(1);
+
+		postCell.getAdaptor().appendViewToHeader(profileTopInfo.view);
+
+		x.container.addView(postCell.getViewRoot());
 
 
 	}

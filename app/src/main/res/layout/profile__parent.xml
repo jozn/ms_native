@@ -3,48 +3,20 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
-    <com.mardomsara.social.ui.views.wigets.SimpleTopNav
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:id="@+id/top_nav"
-        >
 
-        <android.support.v4.widget.NestedScrollView
+        <com.mardomsara.social.ui.views.wigets.SimpleTopNav
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:id="@+id/top_nav"
+            />
+
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/nested_scroll"
+            android:id="@+id/container"
+
             >
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                >
-
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/top_container"
-                    />
-                <com.mardomsara.social.ui.views.buttons.ButtonPostMultiWayView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:id="@+id/multi_way"
-                    />
-
-
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:id="@+id/posts_container"
-                    >
-
-                </FrameLayout>
-
-            </LinearLayout>
-        </android.support.v4.widget.NestedScrollView>
-
-
-    </com.mardomsara.social.ui.views.wigets.SimpleTopNav>
+        </FrameLayout>
 
 </LinearLayout>

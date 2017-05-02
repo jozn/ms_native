@@ -11,7 +11,6 @@ import android.support.design.widget.TabLayout;
 import android.support.percent.PercentFrameLayout;
 import android.support.percent.PercentRelativeLayout;
 import android.support.v4.view.ViewPager;
-import android.support.v4.widget.NestedScrollView;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SwitchCompat;
@@ -2125,18 +2124,12 @@ public class X {
     public static class Profile_Parent {
         public LinearLayout root;
         public SimpleTopNav top_nav;
-        public NestedScrollView nested_scroll;
-        public FrameLayout top_container;
-        public ButtonPostMultiWayView multi_way;
-        public FrameLayout posts_container;
+        public FrameLayout container;
 
         public Profile_Parent(ViewGroup parent) {
             root = (LinearLayout) AppUtil.inflate(R.layout.profile__parent,parent);
             top_nav = (SimpleTopNav) root.findViewById( R.id.top_nav);
-            nested_scroll = (NestedScrollView) root.findViewById( R.id.nested_scroll);
-            top_container = (FrameLayout) root.findViewById( R.id.top_container);
-            multi_way = (ButtonPostMultiWayView) root.findViewById( R.id.multi_way);
-            posts_container = (FrameLayout) root.findViewById( R.id.posts_container);
+            container = (FrameLayout) root.findViewById( R.id.container);
         }
         public Profile_Parent() {
             this(null);

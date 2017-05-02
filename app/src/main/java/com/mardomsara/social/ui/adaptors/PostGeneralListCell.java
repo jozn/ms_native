@@ -134,6 +134,10 @@ public class PostGeneralListCell
         return x.root;
     }
 
+	public PostsAdaptor getAdaptor() {
+		return adaptor;
+	}
+
 	//pageNum is >= 1
     @Override
     public void loadNextPage(int pageNum) {
