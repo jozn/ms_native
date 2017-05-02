@@ -6,7 +6,6 @@ import android.view.*;
 import android.webkit.WebView;
 
 
-import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.TabLayout;
 import android.support.percent.PercentFrameLayout;
 import android.support.percent.PercentRelativeLayout;
@@ -33,12 +32,10 @@ import com.mardomsara.social.ui.views.wigets.FollowingButtonView;
 import com.mardomsara.social.ui.views.wigets.LoadingView;
 import com.mardomsara.social.ui.views.wigets.SimpleAddText;
 import com.mardomsara.social.ui.views.wigets.SimpleTopNav;
-import com.mardomsara.social.ui.views.wigets.TextViewWithIcon_DEP;
 import com.mardomsara.social.ui.views.wigets.UserListGeneralFollowRowWhithBorderLinearLayout;
 import com.mardomsara.social.ui.views.x.XEditTextView;
 import com.mardomsara.social.ui.views.x.XTextView;
 import com.mardomsara.social.ui.views.x.XTopNav;
-import com.mardomsara.social.ui.views.x.dep.XEmojiLinkerTextView;
 import com.mardomsara.social.ui.views.x.dep.XLinkerTextView;
 import com.mardomsara.x.iconify.widget.XIcon;
 import me.relex.photodraweeview.PhotoDraweeView;
@@ -48,6 +45,30 @@ import com.mardomsara.social.R;
 
 public class X {
      //( index .Fields 0).ViewClass
+
+    public static class Actions_Row {
+        public LinearLayout root;
+        public FrameLayout frame_layout;
+        public ImageView image_extra;
+        public FollowingButtonView following_button;
+        public XTextView text_main;
+        public XTextView date;
+        public ImageView avatar_image;
+
+        public Actions_Row(ViewGroup parent) {
+            root = (LinearLayout) AppUtil.inflate(R.layout.actions__row,parent);
+            frame_layout = (FrameLayout) root.findViewById( R.id.frame_layout);
+            image_extra = (ImageView) root.findViewById( R.id.image_extra);
+            following_button = (FollowingButtonView) root.findViewById( R.id.following_button);
+            text_main = (XTextView) root.findViewById( R.id.text_main);
+            date = (XTextView) root.findViewById( R.id.date);
+            avatar_image = (ImageView) root.findViewById( R.id.avatar_image);
+        }
+        public Actions_Row() {
+            this(null);
+        }
+    }
+ //( index .Fields 0).ViewClass
 
     public static class ActivityCrop {
         public LinearLayout root;
@@ -132,38 +153,6 @@ public class X {
             recent_images_holder = (FrameLayout) root.findViewById( R.id.recent_images_holder);
         }
         public AddPost_Container() {
-            this(null);
-        }
-    }
- //( index .Fields 0).ViewClass
-
-    public static class AddPost_Container1 {
-        public ConstraintLayout root;
-        public XTopNav top_nav;
-        public LinearLayout top_holder;
-        public ImageView image;
-        public XIcon cancel_image;
-        public EditText post_field;
-        public LinearLayout bottom_holder;
-        public LinearLayout share_media_buttons_holder;
-        public XIcon gallery_btn;
-        public XIcon camera_btn;
-        public FrameLayout recent_images_holder;
-
-        public AddPost_Container1(ViewGroup parent) {
-            root = (ConstraintLayout) AppUtil.inflate(R.layout.add_post__container1,parent);
-            top_nav = (XTopNav) root.findViewById( R.id.top_nav);
-            top_holder = (LinearLayout) root.findViewById( R.id.top_holder);
-            image = (ImageView) root.findViewById( R.id.image);
-            cancel_image = (XIcon) root.findViewById( R.id.cancel_image);
-            post_field = (EditText) root.findViewById( R.id.post_field);
-            bottom_holder = (LinearLayout) root.findViewById( R.id.bottom_holder);
-            share_media_buttons_holder = (LinearLayout) root.findViewById( R.id.share_media_buttons_holder);
-            gallery_btn = (XIcon) root.findViewById( R.id.gallery_btn);
-            camera_btn = (XIcon) root.findViewById( R.id.camera_btn);
-            recent_images_holder = (FrameLayout) root.findViewById( R.id.recent_images_holder);
-        }
-        public AddPost_Container1() {
             this(null);
         }
     }
@@ -1933,38 +1922,6 @@ public class X {
     }
  //( index .Fields 0).ViewClass
 
-    public static class PostRow_Mini {
-        public RelativeLayout root;
-        public RelativeLayout post_row_holder;
-        public TextView date;
-        public SimpleDraweeView avatar;
-        public TextView fullname;
-        public XEmojiLinkerTextView text;
-        public ImageView image;
-        public LinearLayout counts_info;
-        public TextViewWithIcon_DEP comment_count;
-        public TextViewWithIcon_DEP likes_count;
-        public TextView like_btn;
-
-        public PostRow_Mini(ViewGroup parent) {
-            root = (RelativeLayout) AppUtil.inflate(R.layout.post_row__mini,parent);
-            post_row_holder = (RelativeLayout) root.findViewById( R.id.post_row_holder);
-            date = (TextView) root.findViewById( R.id.date);
-            avatar = (SimpleDraweeView) root.findViewById( R.id.avatar);
-            fullname = (TextView) root.findViewById( R.id.fullname);
-            text = (XEmojiLinkerTextView) root.findViewById( R.id.text);
-            image = (ImageView) root.findViewById( R.id.image);
-            counts_info = (LinearLayout) root.findViewById( R.id.counts_info);
-            comment_count = (TextViewWithIcon_DEP) root.findViewById( R.id.comment_count);
-            likes_count = (TextViewWithIcon_DEP) root.findViewById( R.id.likes_count);
-            like_btn = (TextView) root.findViewById( R.id.like_btn);
-        }
-        public PostRow_Mini() {
-            this(null);
-        }
-    }
- //( index .Fields 0).ViewClass
-
     public static class PostRow_Stream {
         public RelativeLayout root;
         public RelativeLayout post_row_holder;
@@ -1997,38 +1954,6 @@ public class X {
     }
  //( index .Fields 0).ViewClass
 
-    public static class PostRow_Wide {
-        public RelativeLayout root;
-        public RelativeLayout post_row_holder;
-        public TextView date;
-        public SimpleDraweeView avatar;
-        public TextView fullname;
-        public XEmojiLinkerTextView text;
-        public ImageView image;
-        public LinearLayout counts_info;
-        public TextViewWithIcon_DEP comment_count;
-        public TextViewWithIcon_DEP likes_count;
-        public TextView like_btn;
-
-        public PostRow_Wide(ViewGroup parent) {
-            root = (RelativeLayout) AppUtil.inflate(R.layout.post_row__wide,parent);
-            post_row_holder = (RelativeLayout) root.findViewById( R.id.post_row_holder);
-            date = (TextView) root.findViewById( R.id.date);
-            avatar = (SimpleDraweeView) root.findViewById( R.id.avatar);
-            fullname = (TextView) root.findViewById( R.id.fullname);
-            text = (XEmojiLinkerTextView) root.findViewById( R.id.text);
-            image = (ImageView) root.findViewById( R.id.image);
-            counts_info = (LinearLayout) root.findViewById( R.id.counts_info);
-            comment_count = (TextViewWithIcon_DEP) root.findViewById( R.id.comment_count);
-            likes_count = (TextViewWithIcon_DEP) root.findViewById( R.id.likes_count);
-            like_btn = (TextView) root.findViewById( R.id.like_btn);
-        }
-        public PostRow_Wide() {
-            this(null);
-        }
-    }
- //( index .Fields 0).ViewClass
-
     public static class PresenterGalleryChooser {
         public LinearLayout root;
         public TabLayout tab_layout;
@@ -2040,44 +1965,6 @@ public class X {
             view_pager = (ViewPager) root.findViewById( R.id.view_pager);
         }
         public PresenterGalleryChooser() {
-            this(null);
-        }
-    }
- //( index .Fields 0).ViewClass
-
-    public static class PresenterGeneralUserListTypeFollow {
-        public LinearLayout root;
-        public LinearLayout post_row_holder;
-        public SimpleTopNav simpleTopNav;
-        public LoadingView loadingView;
-
-        public PresenterGeneralUserListTypeFollow(ViewGroup parent) {
-            root = (LinearLayout) AppUtil.inflate(R.layout.presenter_general_user_list_type_follow,parent);
-            post_row_holder = (LinearLayout) root.findViewById( R.id.post_row_holder);
-            simpleTopNav = (SimpleTopNav) root.findViewById( R.id.simpleTopNav);
-            loadingView = (LoadingView) root.findViewById( R.id.loadingView);
-        }
-        public PresenterGeneralUserListTypeFollow() {
-            this(null);
-        }
-    }
- //( index .Fields 0).ViewClass
-
-    public static class PreseterHomeStream {
-        public RelativeLayout root;
-        public LinearLayout top_nav;
-        public FrameLayout loading_container;
-        public CircularProgressView loading;
-        public LinearLayout content;
-
-        public PreseterHomeStream(ViewGroup parent) {
-            root = (RelativeLayout) AppUtil.inflate(R.layout.preseter_home_stream,parent);
-            top_nav = (LinearLayout) root.findViewById( R.id.top_nav);
-            loading_container = (FrameLayout) root.findViewById( R.id.loading_container);
-            loading = (CircularProgressView) root.findViewById( R.id.loading);
-            content = (LinearLayout) root.findViewById( R.id.content);
-        }
-        public PreseterHomeStream() {
             this(null);
         }
     }

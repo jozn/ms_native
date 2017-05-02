@@ -273,7 +273,7 @@ public class NotifyListCell
                     tp = tp.replace("@$",nf.Load.Comment.Text);
                 }
                 spanny.append(tp);
-//                viewRoot.setOnClickListener((v)->Router.goToPost_PartialData(nf.Load.Post));
+//                root.setOnClickListener((v)->Router.goToPost_PartialData(nf.Load.Post));
                 text_main.setText(spanny);
                 viewRoot.setOnClickListener((v)->Router.goToPost_PartialData(nf.Load.Post));
             }

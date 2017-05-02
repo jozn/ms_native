@@ -1,20 +1,15 @@
 package com.mardomsara.social.ui.cells.lists;
 
 import android.graphics.Typeface;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
 import android.text.style.StyleSpan;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.mardomsara.social.R;
 import com.mardomsara.social.app.Constants;
 import com.mardomsara.social.app.Router;
 import com.mardomsara.social.helpers.AndroidUtil;
@@ -23,7 +18,6 @@ import com.mardomsara.social.helpers.FormaterUtil;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.LangUtil;
 import com.mardomsara.social.json.social.rows.ActivityRowJson;
-import com.mardomsara.social.json.social.rows.NotifyPayloadJson;
 import com.mardomsara.social.json.social.rows.PostRowJson;
 import com.mardomsara.social.json.social.rows.UserInfoJson;
 import com.mardomsara.social.lib.AppClickableSpan;
@@ -31,15 +25,10 @@ import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
 import com.mardomsara.social.lib.Spanny;
 import com.mardomsara.social.models.tables.Notify;
 import com.mardomsara.social.ui.X;
-import com.mardomsara.social.ui.views.helpers.ViewHelper;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Pattern;
-
-import butterknife.Bind;
-import butterknife.ButterKnife;
 
 /**
  * Created by Hamid on 8/26/2016.
@@ -94,7 +83,7 @@ public class ActivityListCell {
         TextView view;
         NotifyCell notifyCell;
         public TextHolder(NotifyCell notifyCell) {
-            super(notifyCell.viewRoot);
+            super(notifyCell.x.root);
             this.notifyCell = notifyCell;
         }
 
@@ -105,28 +94,20 @@ public class ActivityListCell {
 	}
 
     public static class NotifyCell {
-        View viewRoot;
-
-        @Bind(R.id.avatar) ImageView avatar_image;
-        @Bind(R.id.frame_layout) FrameLayout frame_layout;
-        @Bind(R.id.image_extra) ImageView image_extra;
-        @Bind(R.id.following_button) View following_button;
-        @Bind(R.id.text) TextView text_main;
-        @Bind(R.id.date) TextView date;
+		X.Actions_Row x;
 
         public NotifyCell(ViewGroup parent,int contentViewType) {
-			viewRoot = AppUtil.inflate(R.layout.notify_cell, parent);
-			ButterKnife.bind(this, viewRoot);
-        }
+			x = new X.Actions_Row(parent);
 
+        }
 
         void bind(ActivityRowJson nf){
             try {
 //                nf.setloadFromStored();//json
-                viewRoot.setVisibility(View.VISIBLE);
+                x.root.setVisibility(View.VISIBLE);
                 _hideExtra();
                 _setDate(nf.CreatedAt);
-                text_main.setMovementMethod(LinkMovementMethod.getInstance());
+                x.text_main.setMovementMethod(LinkMovementMethod.getInstance());
 
                 UserInfoJson actor = nf.Load.Actor;
                 _setAvatar(actor);
@@ -147,7 +128,7 @@ public class ActivityListCell {
 				//// TODO: 1/8/2017 set not supporetd upgrade message
 			}catch (Exception e){
                 e.printStackTrace();
-                viewRoot.setVisibility(View.GONE);//if we break hide view
+                x.root.setVisibility(View.GONE);//if we break hide view
             }
         }
 
@@ -170,15 +151,15 @@ public class ActivityListCell {
                     _setPostImage(post.MediaUrl);
                     _showExtraImage();
                 }else {
-                    image_extra.setVisibility(View.GONE);
+                    x.image_extra.setVisibility(View.GONE);
                 }
                 if(nf.Load.Comment!= null){
                     tp = tp.replace("@$",nf.Load.Comment.Text);
                 }
                 spanny.append(tp);
-                viewRoot.setOnClickListener((v)->Router.goToPost(nf.Load.Post));
-                text_main.setText(spanny);
-                viewRoot.setOnClickListener((v)->Router.goToPost(nf.Load.Post));
+                x.root.setOnClickListener((v)->Router.goToPost(nf.Load.Post));
+                x.text_main.setText(spanny);
+                x.root.setOnClickListener((v)->Router.goToPost(nf.Load.Post));
             }
         }
 
@@ -198,11 +179,11 @@ public class ActivityListCell {
                     _showExtraImage();
 //                    image_extra.setVisibility(View.VISIBLE);
                 }else {
-                    image_extra.setVisibility(View.GONE);
+                    x.image_extra.setVisibility(View.GONE);
                 }
                 spanny.append(tp);
-                text_main.setText(spanny);
-                viewRoot.setOnClickListener((v)->Router.goToPost(nf.Load.Post));
+                x.text_main.setText(spanny);
+                x.root.setOnClickListener((v)->Router.goToPost(nf.Load.Post));
             }
         }
         void _bindFollowing(ActivityRowJson nf){
@@ -212,47 +193,47 @@ public class ActivityListCell {
             tp = " شما را دنبال می کند.";
             spanny.append(tp);
             _showExtraFollowing();
-            viewRoot.setOnClickListener((v)->Router.goToProfile(actor.UserId));
-            text_main.setText(spanny);
+            x.root.setOnClickListener((v)->Router.goToProfile(actor.UserId));
+			x.text_main.setText(spanny);
         }
 
         //////////////// Helpers /////////////////////
 
         int dp50px = AndroidUtil.dpToPx(50);
         void _setPostImage(String url){
-            image_extra.setVisibility(View.VISIBLE);
+            x.image_extra.setVisibility(View.VISIBLE);
             Picasso.with(AppUtil.getContext())
                     .load("http://localhost:5000/"+url)
                     .resize(dp50px,dp50px)
                     .centerCrop()
-                    .into(image_extra);
+                    .into(x.image_extra);
         }
 
         void _setDate(int time){
 //            date.setText(FormaterUtil.timeToDayTime(time));
-            date.setText(FormaterUtil.timeAgo(time));
+			x.date.setText(FormaterUtil.timeAgo(time));
         }
 
         void _setAvatar(UserInfoJson Actor){
-            avatar_image.setOnClickListener((v)-> Router.goToProfile(Actor.UserId));
-            Helper.SetAvatar(avatar_image, Actor.AvatarUrl);
-            avatar_image.setOnClickListener((v)-> Router.goToProfile(Actor.UserId));
+			x.avatar_image.setOnClickListener((v)-> Router.goToProfile(Actor.UserId));
+            Helper.SetAvatar(x.avatar_image, Actor.AvatarUrl);
+			x.avatar_image.setOnClickListener((v)-> Router.goToProfile(Actor.UserId));
         }
 
         void _hideExtra(){
-            frame_layout.setVisibility(View.GONE);
+			x.frame_layout.setVisibility(View.GONE);
         }
 
         void _showExtraImage(){
-            frame_layout.setVisibility(View.VISIBLE);
-            image_extra.setVisibility(View.VISIBLE);
-            following_button.setVisibility(View.GONE);
+			x.frame_layout.setVisibility(View.VISIBLE);
+			x.image_extra.setVisibility(View.VISIBLE);
+			x.following_button.setVisibility(View.GONE);
         }
 
         void _showExtraFollowing(){
-            frame_layout.setVisibility(View.VISIBLE);
-            image_extra.setVisibility(View.GONE);
-            following_button.setVisibility(View.VISIBLE);
+			x.frame_layout.setVisibility(View.VISIBLE);
+			x.image_extra.setVisibility(View.GONE);
+			x.following_button.setVisibility(View.VISIBLE);
         }
 
         Spanny _getProfileSpany(UserInfoJson Actor){

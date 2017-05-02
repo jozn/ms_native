@@ -66,10 +66,10 @@ public class ActivityPresenter extends BasePresenter implements AppHeaderFooterR
 		}
 		Http.getPath("/v1/activity")
 			.setQueryParam("page",""+pageNum)
-			.setQueryParam("limit",""+100)
+			.setQueryParam("limit",""+30)
 			.setQueryParam("last",""+getLast(pageNum))
 			.doAsyncUi((result -> {
-				adaptor.nextPageIsLoaded();
+				adaptor.nextPageIsLoaded(result);
 				refreshLayout.setRefreshing(false);
 				if(result.isOk()){
 					HttpJsonList<ActivityRowJson> data = Result.fromJsonList(result,ActivityRowJson.class);

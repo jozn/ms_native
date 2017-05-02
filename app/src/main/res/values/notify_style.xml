@@ -5,7 +5,7 @@
     </style>
 
     <style name="notify_row.date" parent="text">
-        <item name="fontPath">@string/font_iran_light</item>
+        <!--<item name="fontPath">@string/font_iran_light</item>-->
         <item name="android:layout_marginRight">5dp</item>
         <item name="android:textSize">12dp</item>
         <item name="android:textColor">@color/text_gray_1</item>
@@ -16,7 +16,7 @@
     </style>
 
     <style name="notify_row.text">
-        <item name="fontPath">@string/font_iran_light</item>
+        <!--<item name="fontPath">@string/font_iran_light</item>-->
         <item name="android:textSize">13dp</item>
         <item name="android:textColor">@color/black</item>
     </style>
