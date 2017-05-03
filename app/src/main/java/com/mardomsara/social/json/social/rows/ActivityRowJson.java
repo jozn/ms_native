@@ -3,6 +3,7 @@ package com.mardomsara.social.json.social.rows;
 /**
  * Created by Hamid on 9/1/2016.
  */
+@Deprecated
 public class ActivityRowJson {
 	public long Id;
 	public int ActorUserId;

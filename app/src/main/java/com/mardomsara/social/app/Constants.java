@@ -38,9 +38,9 @@ public class Constants {
 	public static int Msg_Media_Origin_Server = 2;
 
     // Notifications
-    public static int NOTIFICATION_TYPE_POST_LIKED = 200;
-    public static int NOTIFICATION_TYPE_POST_COMMENTED = 220 ;
-    public static int NOTIFICATION_TYPE_FOLLOWED_YOU = 250 ;
+    public static int NOTIFICATION_TYPE_POST_LIKED = 11;
+    public static int NOTIFICATION_TYPE_POST_COMMENTED = 21 ;
+    public static int NOTIFICATION_TYPE_FOLLOWED_YOU = 1 ;
 
     //Posts
     public static int POST_TYPE_TEXT = 1;

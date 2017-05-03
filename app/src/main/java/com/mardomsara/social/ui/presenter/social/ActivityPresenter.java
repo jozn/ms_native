@@ -10,7 +10,7 @@ import com.mardomsara.social.base.Http.Http;
 import com.mardomsara.social.base.Http.Result;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.json.HttpJsonList;
-import com.mardomsara.social.json.social.rows.ActivityRowJson;
+import com.mardomsara.social.json.JV;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.cells.Cells;
@@ -27,7 +27,7 @@ public class ActivityPresenter extends BasePresenter implements AppHeaderFooterR
 	ActivityListCell.ActivitiesAdaptor adaptor;
 	SwipeRefreshLayout refreshLayout;
 
-	List<ActivityRowJson> list;
+	List<JV.ActivityView> list;
 
     @Override
     public View buildView() {
@@ -66,13 +66,13 @@ public class ActivityPresenter extends BasePresenter implements AppHeaderFooterR
 		}
 		Http.getPath("/v1/activity")
 			.setQueryParam("page",""+pageNum)
-			.setQueryParam("limit",""+30)
+			.setQueryParam("limit",""+25)
 			.setQueryParam("last",""+getLast(pageNum))
 			.doAsyncUi((result -> {
 				adaptor.nextPageIsLoaded(result);
 				refreshLayout.setRefreshing(false);
 				if(result.isOk()){
-					HttpJsonList<ActivityRowJson> data = Result.fromJsonList(result,ActivityRowJson.class);
+					HttpJsonList<JV.ActivityView> data = Result.fromJsonList(result, JV.ActivityView.class);
 
 					if(data.isPayloadNoneEmpty()){
 						if(pageNum == 1){

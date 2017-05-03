@@ -8,6 +8,7 @@
               android:layout_marginLeft="5dp"
               android:layout_marginRight="5dp"
               android:background="@drawable/light_border_below"
+
     >
 
     <FrameLayout

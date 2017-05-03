@@ -2,12 +2,14 @@ package com.mardomsara.social.app;
 
 import com.mardomsara.social.PresenterPage;
 import com.mardomsara.social.Nav;
+import com.mardomsara.social.json.JV;
 import com.mardomsara.social.json.social.rows.PostRowJson;
 import com.mardomsara.social.models.RoomModel;
 import com.mardomsara.social.models.Session;
 import com.mardomsara.social.models.tables.Room;
 import com.mardomsara.social.ui.presenter.HelloPresenter;
 import com.mardomsara.social.ui.presenter.chats.ChatRoomPresenter;
+import com.mardomsara.social.ui.presenter.pages.PostEntryPage;
 import com.mardomsara.social.ui.presenter.settings.SettingsPresenter;
 import com.mardomsara.social.ui.presenter.tabs.ChatTab;
 import com.mardomsara.social.ui.presenter.chats.GalleryChooserPresenter;
@@ -69,9 +71,14 @@ public class Router {
         Nav.push(new ProfilePage(userId));
     }
 
+    @Deprecated
     public static void goToPost(PostRowJson postRowJson) {
         Nav.push(new PostEntryPage_OLD(postRowJson));
     }
+
+	public static void goToPost(JV.PostView postView) {
+		Nav.push(new PostEntryPage(postView));
+	}
 
 	public static void goToPost_PartialData(PostRowJson postRowJson) {
 		Nav.push(new PostEntryPage_OLD(postRowJson,false));

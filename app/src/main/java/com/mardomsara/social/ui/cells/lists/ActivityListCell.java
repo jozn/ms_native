@@ -17,9 +17,7 @@ import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.FormaterUtil;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.LangUtil;
-import com.mardomsara.social.json.social.rows.ActivityRowJson;
-import com.mardomsara.social.json.social.rows.PostRowJson;
-import com.mardomsara.social.json.social.rows.UserInfoJson;
+import com.mardomsara.social.json.JV;
 import com.mardomsara.social.lib.AppClickableSpan;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
 import com.mardomsara.social.lib.Spanny;
@@ -37,8 +35,8 @@ public class ActivityListCell {
 
     public static class ActivitiesAdaptor extends AppHeaderFooterRecyclerViewAdapter<TextHolder> {
 
-        public List<ActivityRowJson> list = new ArrayList<>();
-        public ActivitiesAdaptor(List<ActivityRowJson> list){
+        public List<JV.ActivityView> list = new ArrayList<>();
+        public ActivitiesAdaptor(List<JV.ActivityView> list){
             super();
             if(list != null){
                 this.list.addAll(list);
@@ -72,7 +70,7 @@ public class ActivityListCell {
         @Override
         protected void onBindContentItemViewHolder(TextHolder textHolder, int position) {
 //            textHolder.view.setText(LangUtil.limitText(list.get(position).PayloadStored,120));
-			ActivityRowJson nf =list.get(position);
+			JV.ActivityView nf =list.get(position);
 			if(textHolder.notifyCell != null){
 				textHolder.notifyCell.bind(nf);
 			}
@@ -101,7 +99,7 @@ public class ActivityListCell {
 
         }
 
-        void bind(ActivityRowJson nf){
+        void bind(JV.ActivityView nf){
             try {
 //                nf.setloadFromStored();//json
                 x.root.setVisibility(View.VISIBLE);
@@ -109,7 +107,7 @@ public class ActivityListCell {
                 _setDate(nf.CreatedAt);
                 x.text_main.setMovementMethod(LinkMovementMethod.getInstance());
 
-                UserInfoJson actor = nf.Load.Actor;
+                JV.UserInlineWithMeView actor = nf.Load.Actor;
                 _setAvatar(actor);
                 ////////////////////////////////////////////////
                 // Posts: text_main,Photo,
@@ -138,8 +136,8 @@ public class ActivityListCell {
         void _bindPostText(Notify nf){}
         void _bindPostPhoto(Notify nf){}
 
-        void _bindComment(ActivityRowJson nf){
-            PostRowJson post = nf.Load.Post;
+        void _bindComment(JV.ActivityView nf){
+            JV.PostView post = nf.Load.Post;
             Spanny spanny = _getProfileSpany(nf.Load.Actor); //new Spanny(s, new StyleSpan(Typeface.BOLD), goToProfileSpan(uid));
             String tp ="";
             if(post != null){//must never happen
@@ -148,7 +146,7 @@ public class ActivityListCell {
                 if(post.TypeId == Constants.POST_TYPE_PHOTO){
                     tp = " بر روی عکس شما: \"%\" نظر داد: \"@$\".";
                     tp = tp.replace("%",LangUtil.limitText(nf.Load.Post.Text,40));
-                    _setPostImage(post.MediaUrl);
+                    _setPostImage(post.PhotoView);
                     _showExtraImage();
                 }else {
                     x.image_extra.setVisibility(View.GONE);
@@ -163,9 +161,9 @@ public class ActivityListCell {
             }
         }
 
-        void _bindLiked(ActivityRowJson nf){
-            PostRowJson post = nf.Load.Post;
-            UserInfoJson actor = nf.Load.Actor;
+        void _bindLiked(JV.ActivityView nf){
+            JV.PostView post = nf.Load.Post;
+            JV.UserInlineWithMeView actor = nf.Load.Actor;
 //            _setAvatar(actor);
             Spanny spanny = _getProfileSpany(actor); //new Spanny(s, new StyleSpan(Typeface.BOLD), goToProfileSpan(uid));
             String tp ="";
@@ -175,7 +173,7 @@ public class ActivityListCell {
                 if(post.TypeId == Constants.POST_TYPE_PHOTO){
                     tp = " عکس شما: \"%\" را پسندید.";
                     tp = tp.replace("%",LangUtil.limitText(nf.Load.Post.Text,40));
-                    _setPostImage(post.MediaUrl);
+                    _setPostImage(post.PhotoView);
                     _showExtraImage();
 //                    image_extra.setVisibility(View.VISIBLE);
                 }else {
@@ -186,9 +184,9 @@ public class ActivityListCell {
                 x.root.setOnClickListener((v)->Router.goToPost(nf.Load.Post));
             }
         }
-        void _bindFollowing(ActivityRowJson nf){
+        void _bindFollowing(JV.ActivityView nf){
             String tp ="";
-            UserInfoJson actor = nf.Load.Actor;
+            JV.UserInlineWithMeView actor = nf.Load.Actor;
             Spanny spanny = _getProfileSpany(actor);
             tp = " شما را دنبال می کند.";
             spanny.append(tp);
@@ -199,14 +197,17 @@ public class ActivityListCell {
 
         //////////////// Helpers /////////////////////
 
-        int dp50px = AndroidUtil.dpToPx(50);
-        void _setPostImage(String url){
+        static int dp50px = AndroidUtil.dpToPx(50);
+        void _setPostImage(JV.PhotoView photo){
             x.image_extra.setVisibility(View.VISIBLE);
-            Picasso.with(AppUtil.getContext())
-                    .load("http://localhost:5000/"+url)
-                    .resize(dp50px,dp50px)
-                    .centerCrop()
-                    .into(x.image_extra);
+			String url = Helper.postsGetBestPhotoResUrl(photo,dp50px);
+			if( !LangUtil.stringEmpty(url)){
+				Picasso.with(AppUtil.getContext())
+					.load(url)
+					.resize(dp50px,dp50px)
+					.centerCrop()
+					.into(x.image_extra);
+			}
         }
 
         void _setDate(int time){
@@ -214,7 +215,7 @@ public class ActivityListCell {
 			x.date.setText(FormaterUtil.timeAgo(time));
         }
 
-        void _setAvatar(UserInfoJson Actor){
+        void _setAvatar(JV.UserInlineWithMeView Actor){
 			x.avatar_image.setOnClickListener((v)-> Router.goToProfile(Actor.UserId));
             Helper.SetAvatar(x.avatar_image, Actor.AvatarUrl);
 			x.avatar_image.setOnClickListener((v)-> Router.goToProfile(Actor.UserId));
@@ -236,9 +237,9 @@ public class ActivityListCell {
 			x.following_button.setVisibility(View.VISIBLE);
         }
 
-        Spanny _getProfileSpany(UserInfoJson Actor){
+        Spanny _getProfileSpany(JV.UserInlineWithMeView Actor){
             /////////////////////////
-            String s = Actor.getFullName();
+            String s = Actor.FullName;
             int uid = Actor.UserId;
             Spanny spanny = new Spanny(s, new StyleSpan(Typeface.BOLD), goToProfileSpan(uid));
             return spanny;

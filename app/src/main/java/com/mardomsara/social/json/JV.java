@@ -9,19 +9,19 @@ import java.util.List;
 //needs manual changes
 
 public class JV {
-	/*public static class ActivityView {
-		public J.Activity Activity;
+	public static class ActivityView extends J.Activity{
+//		public J.Activity Activity;
 		public ActivityPayload Load;
 	}
 
 	public static class ActivityPayload {
-		public J.User Actor;
-		public J.Post Post;
+		public UserInlineWithMeView Actor;
+		public PostView Post;
 		public J.Comment Comment;
 
 	}
 
-	public static class NotificationView {
+	/*public static class NotificationView {
 		public J.Notification Notification;
 		public J.Load Load;
 
@@ -53,6 +53,10 @@ public class JV {
 		public String FullName;
 		public String AvatarUrl;
 
+	}
+
+	public static class UserInlineWithMeView extends  UserInlineView{
+		public int FollowingType;
 	}
 
 	public static class PhotoView {

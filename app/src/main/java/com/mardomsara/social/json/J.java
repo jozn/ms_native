@@ -5,7 +5,8 @@ public class J {
 		public Integer Id;
 		public Integer ActorUserId;
 		public Integer ActionTypeId;
-		public Integer TargetId;
+		public Integer RowId;
+		public Integer RootId;
 		public Integer RefId;
 		public Integer CreatedAt;
 	}
@@ -269,6 +270,7 @@ public class J {
 	}
 
 	public static class UserMetaInfo {
+		public Integer Id;
 		public Integer UserId;
 		public Integer IsNotificationDirty;
 		public Integer LastUserRecGen;

@@ -137,4 +137,11 @@ public class LangUtil {
             return hexString;
         }
     }
+
+    public static boolean stringEmpty(String s){
+		if(s == null || s.equals("")) {
+			return true;
+		}
+		return false;
+	}
 }
