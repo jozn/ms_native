@@ -47,7 +47,7 @@ public class X {
      //( index .Fields 0).ViewClass
 
     public static class Actions_Row {
-        public LinearLayout root;
+        public RelativeLayout root;
         public FrameLayout frame_layout;
         public ImageView image_extra;
         public FollowingButtonView following_button;
@@ -56,7 +56,7 @@ public class X {
         public ImageView avatar_image;
 
         public Actions_Row(ViewGroup parent) {
-            root = (LinearLayout) AppUtil.inflate(R.layout.actions__row,parent);
+            root = (RelativeLayout) AppUtil.inflate(R.layout.actions__row,parent);
             frame_layout = (FrameLayout) root.findViewById( R.id.frame_layout);
             image_extra = (ImageView) root.findViewById( R.id.image_extra);
             following_button = (FollowingButtonView) root.findViewById( R.id.following_button);
@@ -65,6 +65,30 @@ public class X {
             avatar_image = (ImageView) root.findViewById( R.id.avatar_image);
         }
         public Actions_Row() {
+            this(null);
+        }
+    }
+ //( index .Fields 0).ViewClass
+
+    public static class Actions_RowBk {
+        public LinearLayout root;
+        public FrameLayout frame_layout;
+        public ImageView image_extra;
+        public FollowingButtonView following_button;
+        public XTextView text_main;
+        public XTextView date;
+        public ImageView avatar_image;
+
+        public Actions_RowBk(ViewGroup parent) {
+            root = (LinearLayout) AppUtil.inflate(R.layout.actions__row_bk,parent);
+            frame_layout = (FrameLayout) root.findViewById( R.id.frame_layout);
+            image_extra = (ImageView) root.findViewById( R.id.image_extra);
+            following_button = (FollowingButtonView) root.findViewById( R.id.following_button);
+            text_main = (XTextView) root.findViewById( R.id.text_main);
+            date = (XTextView) root.findViewById( R.id.date);
+            avatar_image = (ImageView) root.findViewById( R.id.avatar_image);
+        }
+        public Actions_RowBk() {
             this(null);
         }
     }

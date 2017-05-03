@@ -23,7 +23,6 @@ import com.mardomsara.social.lib.AppClickableSpan;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
 import com.mardomsara.social.lib.Spanny;
 import com.mardomsara.social.models.Session;
-import com.mardomsara.social.models.tables.Notify;
 import com.mardomsara.social.ui.X;
 import com.squareup.picasso.Picasso;
 
@@ -142,10 +141,6 @@ public class ActivityListCell {
 
         //////////////// Notifications Types binders ///////////////
 
-        void _bindPost(Notify nf){}
-        void _bindPostText(Notify nf){}
-        void _bindPostPhoto(Notify nf){}
-
         void _bindComment_21(JV.ActivityView nf){
             JV.PostView post = nf.Load.Post;
             Spanny spanny = _getProfileSpany(nf.Load.Actor); //new Spanny(s, new StyleSpan(Typeface.BOLD), goToProfileSpan(uid));
@@ -226,7 +221,7 @@ public class ActivityListCell {
         void _bindFollowing_1(JV.ActivityView nf){
             String tp ="";
             JV.UserInlineWithMeView actor = nf.Load.Actor;
-            Spanny spanny = _getProfileSpany(actor);
+            Spanny spanny = StrHelper._getProfileSpanyWithSpace(actor);
 
 			CharSequence o;
 			if(Session.getUserId() == nf.RootId){
@@ -238,8 +233,10 @@ public class ActivityListCell {
 
             tp = " را دنبال می کند.";
             spanny.append(tp);
-            _showExtraFollowing(nf.Load.Followed);
-            x.root.setOnClickListener((v)->Router.goToProfile(actor.UserId));
+
+			_showExtraFollowing(nf.Load.Followed);
+
+            x.root.setOnClickListener((v)->Router.goToProfile(nf.Load.Followed.UserId));
 			x.text_main.setText(spanny);
         }
 
@@ -368,6 +365,14 @@ public class ActivityListCell {
 				}
 			};
 			return clickableSpan;
+		}
+
+		static Spanny _getProfileSpanyWithSpace(JV.UserInlineWithMeView Actor){
+			/////////////////////////
+			String s = Actor.FullName;
+			int uid = Actor.UserId;
+			Spanny spanny = new Spanny(s+ " ", new StyleSpan(Typeface.BOLD), goToProfileSpan(uid));
+			return spanny;
 		}
 	}
 }

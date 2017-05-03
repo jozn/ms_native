@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:app="http://schemas.android.com/apk/res-auto"
               android:orientation="horizontal"
               android:layout_width="match_parent"
@@ -17,6 +17,8 @@
         android:visibility="visible"
         android:layout_marginLeft="2dp"
         android:id="@+id/frame_layout"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
         >
         <ImageView
             android:layout_width="55dp"
@@ -33,50 +35,43 @@
 
     </FrameLayout>
 
-    <LinearLayout
-        android:layout_width="0dp"
+    <com.mardomsara.social.ui.views.x.XTextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:id="@+id/text_main"
+        android:gravity="right"
 
         android:layout_toRightOf="@+id/frame_layout"
         android:layout_toLeftOf="@+id/avatar_image"
-        android:layout_centerVertical="true"
-        android:orientation="vertical"
-        android:gravity="right"
+
+        style="@style/notify_row.text"
+
+        android:maxLines="2"
+
+        app:xFont="IranLight"
+        app:xEnableEmoji="true"
+        app:xEnableLinker="false"
+        />
+
+    <com.mardomsara.social.ui.views.x.XTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
-        >
+        android:id="@+id/date"
 
-        <com.mardomsara.social.ui.views.x.XTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:id="@+id/text_main"
-            android:gravity="right"
-            style="@style/notify_row.text"
+        android:layout_toRightOf="@+id/frame_layout"
+        android:layout_toLeftOf="@+id/avatar_image"
+        android:layout_below="@+id/text_main"
 
-            android:maxLines="2"
+        android:gravity="right"
+        style="@style/notify_row.date"
 
-            app:xFont="IranLight"
-            app:xEnableEmoji="true"
-            app:xEnableLinker="false"
-            />
+        app:xEnableLinker="false"
+        app:xFont="IranLight"
+        app:xEnableEmoji="false"
 
-        <com.mardomsara.social.ui.views.x.XTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:id="@+id/date"
-            android:gravity="right"
-            style="@style/notify_row.date"
-            android:layout_below="@id/text_main"
-            android:layout_toLeftOf="@id/avatar_image"
-
-            app:xEnableLinker="false"
-            app:xFont="IranLight"
-            app:xEnableEmoji="false"
-
-            />
-
-    </LinearLayout>
+        />
 
     <ImageView
         android:layout_width="50dp"
@@ -87,4 +82,4 @@
         android:layout_centerVertical="true"
         />
 
-</LinearLayout>
+</RelativeLayout>
