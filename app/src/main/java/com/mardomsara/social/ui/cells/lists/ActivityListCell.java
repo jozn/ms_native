@@ -142,36 +142,37 @@ public class ActivityListCell {
             Spanny spanny = _getProfileSpany(nf.Load.Actor); //new Spanny(s, new StyleSpan(Typeface.BOLD), goToProfileSpan(uid));
             String tp ="";
 
-			if(post.TypeId == Constants.POST_TYPE_PHOTO){
+			if(post.TypeId == Constants.POST_TYPE_PHOTO){//post
 				spanny.append(" بر روی عکس ");
-			}else {
-				spanny.append(" بر روی پست ");
-			}
+				spanny.append(StrHelper.getMeYouOrOthers_OfPostComment(nf));
 
-			if(Session.getUserId() == post.UserId){
-				spanny.append("شما: ");
-			}else if(post.UserId ==nf.Load.Comment.Id){
-				spanny.append("خودش: ");
-			}else {
-				spanny.append(_getSpanyProfile(post.Sender.FullName +": ",post.Sender.UserId ));
-			}
-
-			if(post.TypeId == Constants.POST_TYPE_PHOTO){
 				tp = "نظر داد: \"@$\".";
+				tp = tp.replace("@$",nf.Load.Comment.Text);
+
 				_setPostImage(post.PhotoView);
 				_showExtraImage();
-			}else {
+
+				spanny.append(tp);
+
+				x.text_main.setText(spanny);
+				x.root.setOnClickListener((v)->Router.goToPost(nf.Load.Post));
+
+			}else {//others
+				spanny.append(" بر روی پست ");
+				spanny.append(StrHelper.getMeYouOrOthers_OfPostComment(nf));
+
 				tp = "\"%\" نظر داد: \"@$\".";
 				tp = tp.replace("%",LangUtil.limitText(nf.Load.Post.Text,30));
-				x.image_extra.setVisibility(View.GONE);
+				tp = tp.replace("@$",nf.Load.Comment.Text);
+
+				_hideExtra();
+
+				spanny.append(tp);
+
+				x.text_main.setText(spanny);
+				x.root.setOnClickListener((v)->Router.goToPost(nf.Load.Post));
 			}
 
-			tp = tp.replace("@$",nf.Load.Comment.Text);
-
-			spanny.append(tp);
-
-			x.text_main.setText(spanny);
-			x.root.setOnClickListener((v)->Router.goToPost(nf.Load.Post));
         }
 
         void _bindLiked(JV.ActivityView nf){
@@ -197,6 +198,7 @@ public class ActivityListCell {
                 x.root.setOnClickListener((v)->Router.goToPost(nf.Load.Post));
             }
         }
+        
         void _bindFollowing(JV.ActivityView nf){
             String tp ="";
             JV.UserInlineWithMeView actor = nf.Load.Actor;
@@ -286,4 +288,34 @@ public class ActivityListCell {
             return clickableSpan;
         }
     }
+
+    private static class StrHelper {
+		static CharSequence getMeYouOrOthers_OfPostComment(JV.ActivityView nf){
+			CharSequence o ;
+			if(Session.getUserId() == nf.Load.Post.UserId){
+				o = "شما: ";
+			}else if(nf.Load.Post.UserId == nf.Load.Comment.Id){
+				o = "خودش: ";
+			}else {
+				o = _getSpanyProfile(nf.Load.Post.Sender.FullName +": ",nf.Load.Post.Sender.UserId );
+			}
+			return o;
+		}
+
+		static Spanny _getSpanyProfile(String name, int UserId){
+			/////////////////////////
+			Spanny spanny = new Spanny(name, new StyleSpan(Typeface.BOLD), goToProfileSpan(UserId));
+			return spanny;
+		}
+
+		static ClickableSpan goToProfileSpan(final int s){
+			AppClickableSpan clickableSpan = new AppClickableSpan() {
+				@Override
+				public void onClick(View view) {
+					Router.goToProfile(s);
+				}
+			};
+			return clickableSpan;
+		}
+	}
 }
