@@ -18,6 +18,7 @@ public class JV {
 		public UserInlineWithMeView Actor;
 		public PostView Post;
 		public J.Comment Comment;
+		public UserInlineWithMeView Followed;
 
 	}
 

@@ -42,8 +42,9 @@ public class Helper {
     }
 
     public static String postsGetBestPhotoResUrl(JV.PhotoView pv, int maxRes){
+		if( pv == null ) return null;
 		int size = 160;
-		if( pv.Sizes != null){
+		if(pv.Sizes != null){
 			Collections.sort(pv.Sizes);
 			for(Integer i: pv.Sizes){
 				if (i<=maxRes){

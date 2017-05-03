@@ -218,9 +218,18 @@ public class ActivityListCell {
             String tp ="";
             JV.UserInlineWithMeView actor = nf.Load.Actor;
             Spanny spanny = _getProfileSpany(actor);
-            tp = " شما را دنبال می کند.";
+
+			CharSequence o;
+			if(Session.getUserId() == nf.RootId){
+				o =   " " +"شما";
+			}else {
+				o = StrHelper._getSpanyProfile(nf.Load.Followed.FullName +" ",nf.Load.Followed.UserId );
+			}
+			spanny.append(o);
+
+            tp = " را دنبال می کند.";
             spanny.append(tp);
-            _showExtraFollowing();
+            _showExtraFollowing(nf.Load.Followed);
             x.root.setOnClickListener((v)->Router.goToProfile(actor.UserId));
 			x.text_main.setText(spanny);
         }
@@ -261,10 +270,11 @@ public class ActivityListCell {
 			x.following_button.setVisibility(View.GONE);
         }
 
-        void _showExtraFollowing(){
+        void _showExtraFollowing(JV.UserInlineWithMeView userInlineWithMeView){
 			x.frame_layout.setVisibility(View.VISIBLE);
 			x.image_extra.setVisibility(View.GONE);
 			x.following_button.setVisibility(View.VISIBLE);
+			x.following_button.setUser(userInlineWithMeView);
         }
 
         Spanny _getProfileSpany(JV.UserInlineWithMeView Actor){

@@ -13,6 +13,7 @@ import com.mardomsara.social.base.Http.Http;
 import com.mardomsara.social.base.Http.Result;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.json.HttpJson;
+import com.mardomsara.social.json.JV;
 import com.mardomsara.social.json.social.rows.UserInfoJson;
 import com.mardomsara.social.models.UserModel;
 import com.mardomsara.social.ui.views.FontCache;
@@ -70,10 +71,18 @@ public class FollowingButtonView extends TextView {
     }
 
     //deprecate
+	@Deprecated
     public void setUser(UserInfoJson user){
         userAndMe = user;
         updateUi();
     }
+
+	public void setUser(JV.UserInlineWithMeView user){
+		userAndMe = new UserInfoJson();
+		userAndMe.Id = user.UserId;
+		userAndMe.FollowingType = user.FollowingType;
+		updateUi();
+	}
 
     void updateUi(){
         if(userAndMe == null) return;
