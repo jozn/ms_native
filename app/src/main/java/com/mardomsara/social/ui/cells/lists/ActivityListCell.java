@@ -114,7 +114,7 @@ public class ActivityListCell {
                 // Posts: text_main,Photo,
                 String tp ="";
                 if(nf.ActionTypeId == Constants.NOTIFICATION_TYPE_POST_LIKED){
-                    _bindLiked(nf);
+                    _bindLiked_11(nf);
                 }
 
                 if(nf.ActionTypeId == Constants.NOTIFICATION_TYPE_POST_COMMENTED){
@@ -122,7 +122,7 @@ public class ActivityListCell {
                 }
 
                 if(nf.ActionTypeId == Constants.NOTIFICATION_TYPE_FOLLOWED_YOU){
-                    _bindFollowing(nf);
+                    _bindFollowing_1(nf);
                 }
 				//// TODO: 1/8/2017 set not supporetd upgrade message
 			}catch (Exception e){
@@ -163,7 +163,7 @@ public class ActivityListCell {
 
 				tp = "\"%\" نظر داد: \"@$\".";
 				tp = tp.replace("%",LangUtil.limitText(nf.Load.Post.Text,30));
-				tp = tp.replace("@$",nf.Load.Comment.Text);
+				tp = tp.replace("@$",LangUtil.limitText(nf.Load.Comment.Text,40));
 
 				_hideExtra();
 
@@ -175,31 +175,46 @@ public class ActivityListCell {
 
         }
 
-        void _bindLiked(JV.ActivityView nf){
+        void _bindLiked_11(JV.ActivityView nf){
             JV.PostView post = nf.Load.Post;
             JV.UserInlineWithMeView actor = nf.Load.Actor;
 //            _setAvatar(actor);
             Spanny spanny = _getProfileSpany(actor); //new Spanny(s, new StyleSpan(Typeface.BOLD), goToProfileSpan(uid));
             String tp ="";
-            if(post != null){//must never happen
-                tp = " پست شما: \"%\" را پسندید.";
-                tp = tp.replace("%",LangUtil.limitText(nf.Load.Post.Text,40));
-                if(post.TypeId == Constants.POST_TYPE_PHOTO){
-                    tp = " عکس شما: \"%\" را پسندید.";
-                    tp = tp.replace("%",LangUtil.limitText(nf.Load.Post.Text,40));
-                    _setPostImage(post.PhotoView);
-                    _showExtraImage();
-//                    image_extra.setVisibility(View.VISIBLE);
-                }else {
-                    x.image_extra.setVisibility(View.GONE);
-                }
-                spanny.append(tp);
-                x.text_main.setText(spanny);
-                x.root.setOnClickListener((v)->Router.goToPost(nf.Load.Post));
-            }
+
+
+			if(post.TypeId == Constants.POST_TYPE_PHOTO){//post
+				spanny.append(" عکس ");
+				spanny.append(StrHelper.getMeYouOrOthers_OfPostLike(nf));
+
+				tp = " را پسندید.";
+				_setPostImage(post.PhotoView);
+				_showExtraImage();
+
+				spanny.append(tp);
+
+				x.text_main.setText(spanny);
+				x.root.setOnClickListener((v)->Router.goToPost(nf.Load.Post));
+				return;
+
+			}else {//others
+				spanny.append(" پست ");
+				spanny.append(StrHelper.getMeYouOrOthers_OfPostLike(nf));
+
+				tp = ": \"$\" را پسندید.";
+				tp = tp.replace("$",LangUtil.limitText(nf.Load.Post.Text,30));
+
+				_hideExtra();
+
+				spanny.append(tp);
+
+				x.text_main.setText(spanny);
+				x.root.setOnClickListener((v)->Router.goToPost(nf.Load.Post));
+			}
+
         }
-        
-        void _bindFollowing(JV.ActivityView nf){
+
+        void _bindFollowing_1(JV.ActivityView nf){
             String tp ="";
             JV.UserInlineWithMeView actor = nf.Load.Actor;
             Spanny spanny = _getProfileSpany(actor);
@@ -293,11 +308,23 @@ public class ActivityListCell {
 		static CharSequence getMeYouOrOthers_OfPostComment(JV.ActivityView nf){
 			CharSequence o ;
 			if(Session.getUserId() == nf.Load.Post.UserId){
-				o = "شما: ";
+				o = "شما ";
 			}else if(nf.Load.Post.UserId == nf.Load.Comment.Id){
-				o = "خودش: ";
+				o = "خودش ";
 			}else {
-				o = _getSpanyProfile(nf.Load.Post.Sender.FullName +": ",nf.Load.Post.Sender.UserId );
+				o = _getSpanyProfile(nf.Load.Post.Sender.FullName +" ",nf.Load.Post.Sender.UserId );
+			}
+			return o;
+		}
+
+		static CharSequence getMeYouOrOthers_OfPostLike(JV.ActivityView nf){
+			CharSequence o ;
+			if(Session.getUserId() == nf.Load.Post.UserId){
+				o = "شما";
+			}else if(nf.Load.Post.UserId == nf.Load.Actor.UserId){
+				o = "خودش";
+			}else {
+				o = _getSpanyProfile(nf.Load.Post.Sender.FullName +"",nf.Load.Post.Sender.UserId );
 			}
 			return o;
 		}
