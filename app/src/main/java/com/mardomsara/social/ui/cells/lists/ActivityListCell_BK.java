@@ -21,7 +21,6 @@ import com.mardomsara.social.json.JV;
 import com.mardomsara.social.lib.AppClickableSpan;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
 import com.mardomsara.social.lib.Spanny;
-import com.mardomsara.social.models.Session;
 import com.mardomsara.social.models.tables.Notify;
 import com.mardomsara.social.ui.X;
 import com.squareup.picasso.Picasso;
@@ -32,7 +31,7 @@ import java.util.List;
 /**
  * Created by Hamid on 8/26/2016.
  */
-public class ActivityListCell {
+public class ActivityListCell_BK {
 
     public static class ActivitiesAdaptor extends AppHeaderFooterRecyclerViewAdapter<TextHolder> {
 
@@ -118,7 +117,7 @@ public class ActivityListCell {
                 }
 
                 if(nf.ActionTypeId == Constants.NOTIFICATION_TYPE_POST_COMMENTED){
-                    _bindComment_21(nf);
+                    _bindComment(nf);
                 }
 
                 if(nf.ActionTypeId == Constants.NOTIFICATION_TYPE_FOLLOWED_YOU){
@@ -137,41 +136,29 @@ public class ActivityListCell {
         void _bindPostText(Notify nf){}
         void _bindPostPhoto(Notify nf){}
 
-        void _bindComment_21(JV.ActivityView nf){
+        void _bindComment(JV.ActivityView nf){
             JV.PostView post = nf.Load.Post;
             Spanny spanny = _getProfileSpany(nf.Load.Actor); //new Spanny(s, new StyleSpan(Typeface.BOLD), goToProfileSpan(uid));
             String tp ="";
-
-			if(post.TypeId == Constants.POST_TYPE_PHOTO){
-				spanny.append(" بر روی عکس ");
-			}else {
-				spanny.append(" بر روی پست ");
-			}
-
-			if(Session.getUserId() == post.UserId){
-				spanny.append("شما: ");
-			}else if(post.UserId ==nf.Load.Comment.Id){
-				spanny.append("خودش: ");
-			}else {
-				spanny.append(_getSpanyProfile(post.Sender.FullName +": ",post.Sender.UserId ));
-			}
-
-			if(post.TypeId == Constants.POST_TYPE_PHOTO){
-				tp = "نظر داد: \"@$\".";
-				_setPostImage(post.PhotoView);
-				_showExtraImage();
-			}else {
-				tp = "\"%\" نظر داد: \"@$\".";
-				tp = tp.replace("%",LangUtil.limitText(nf.Load.Post.Text,30));
-				x.image_extra.setVisibility(View.GONE);
-			}
-
-			tp = tp.replace("@$",nf.Load.Comment.Text);
-
-			spanny.append(tp);
-
-			x.text_main.setText(spanny);
-			x.root.setOnClickListener((v)->Router.goToPost(nf.Load.Post));
+            if(post != null){//must never happen
+                tp = " بر روی پست شما: \"%\" نظر داد: \"@$\".";
+                tp = tp.replace("%",LangUtil.limitText(nf.Load.Post.Text,40));
+                if(post.TypeId == Constants.POST_TYPE_PHOTO){
+                    tp = " بر روی عکس شما: \"%\" نظر داد: \"@$\".";
+                    tp = tp.replace("%",LangUtil.limitText(nf.Load.Post.Text,40));
+                    _setPostImage(post.PhotoView);
+                    _showExtraImage();
+                }else {
+                    x.image_extra.setVisibility(View.GONE);
+                }
+                if(nf.Load.Comment!= null){
+                    tp = tp.replace("@$",nf.Load.Comment.Text);
+                }
+                spanny.append(tp);
+                x.root.setOnClickListener((v)->Router.goToPost(nf.Load.Post));
+                x.text_main.setText(spanny);
+                x.root.setOnClickListener((v)->Router.goToPost(nf.Load.Post));
+            }
         }
 
         void _bindLiked(JV.ActivityView nf){
@@ -210,7 +197,7 @@ public class ActivityListCell {
 
         //////////////// Helpers /////////////////////
 
-        static int dp50px = AndroidUtil.dpToPx(75);
+        static int dp50px = AndroidUtil.dpToPx(50);
         void _setPostImage(JV.PhotoView photo){
             x.image_extra.setVisibility(View.VISIBLE);
 			String url = Helper.postsGetBestPhotoResUrl(photo,dp50px);
@@ -257,12 +244,6 @@ public class ActivityListCell {
             Spanny spanny = new Spanny(s, new StyleSpan(Typeface.BOLD), goToProfileSpan(uid));
             return spanny;
         }
-
-		Spanny _getSpanyProfile(String name, int UserId){
-			/////////////////////////
-			Spanny spanny = new Spanny(name, new StyleSpan(Typeface.BOLD), goToProfileSpan(UserId));
-			return spanny;
-		}
 
         static ClickableSpan buildclick(final CharSequence s){
 

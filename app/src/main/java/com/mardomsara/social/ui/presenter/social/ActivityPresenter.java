@@ -41,6 +41,7 @@ public class ActivityPresenter extends BasePresenter implements AppHeaderFooterR
 		adaptor = new ActivityListCell.ActivitiesAdaptor(list);
 		RecyclerView recycler_view = ViewHelper.newRecyclerViewMatch();
 		LinearLayoutManager layoutManager = new LinearLayoutManager(AppUtil.getContext());
+		recycler_view.setHasFixedSize(true);
 		recycler_view.setLayoutManager(layoutManager);
 		recycler_view.setAdapter(adaptor);
 		adaptor.setUpForPaginationWith(recycler_view, layoutManager, this);

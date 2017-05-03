@@ -21,6 +21,7 @@ package com.mardomsara.social.lib;
  * Please report any issues
  * https://github.com/binaryfork/Spanny/issues
  */
+//ME: guide: https://github.com/binaryfork/Spanny
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
