@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.mardomsara.social.R;
 import com.mardomsara.social.app.Constants;
 import com.mardomsara.social.app.Router;
 import com.mardomsara.social.helpers.AndroidUtil;
@@ -48,7 +49,8 @@ public class ActivityListCell {
         @Override
         protected int getContentItemViewType(int position) {
 //            return super.getContentItemViewType(position);
-            return list.get(position).ActionTypeId;
+//            return list.get(position).ActionTypeId;
+			return type_gen(list.get(position).ActionTypeId);
         }
 
         @Override
@@ -58,9 +60,7 @@ public class ActivityListCell {
 
         @Override
         protected TextHolder onCreateContentItemViewHolder(ViewGroup parent, int contentViewType) {
-			if (contentViewType == Constants.NOTIFICATION_TYPE_POST_LIKED ||
-				contentViewType == Constants.NOTIFICATION_TYPE_POST_COMMENTED ||
-				contentViewType == Constants.NOTIFICATION_TYPE_FOLLOWED_YOU) {
+			if (type_gen(contentViewType) == 1) {
 				return new TextHolder(new NotifyCell(parent,contentViewType));
 			} else {
 				return new TextHolder(new X.NotifyNotSuportedCell(parent).root);
@@ -76,6 +76,15 @@ public class ActivityListCell {
 				textHolder.notifyCell.bind(nf);
 			}
         }
+
+        static int type_gen(int contentViewType){
+			if (contentViewType == Constants.NOTIFICATION_TYPE_POST_LIKED ||
+				contentViewType == Constants.NOTIFICATION_TYPE_POST_COMMENTED ||
+				contentViewType == Constants.NOTIFICATION_TYPE_FOLLOWED_YOU) {
+				return 1;
+			}
+			return 0;
+		}
     }
 
     public static class TextHolder extends RecyclerView.ViewHolder{
@@ -243,6 +252,12 @@ public class ActivityListCell {
 			if( !LangUtil.stringEmpty(url)){
 				Picasso.with(AppUtil.getContext())
 					.load(url)
+					.resize(dp50px,dp50px)
+					.centerCrop()
+					.into(x.image_extra);
+			}else {//empty image
+				Picasso.with(AppUtil.getContext())
+					.load(R.drawable.holder_recent_image)
 					.resize(dp50px,dp50px)
 					.centerCrop()
 					.into(x.image_extra);
