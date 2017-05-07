@@ -526,13 +526,13 @@ public class X {
         public LinearLayout root;
         public LinearLayout dialogplus_outmost_container;
         public LinearLayout container;
-        public TextView close;
+        public XTextView close;
 
         public Dialog_CheckboxContainer(ViewGroup parent) {
             root = (LinearLayout) AppUtil.inflate(R.layout.dialog__checkbox_container,parent);
             dialogplus_outmost_container = (LinearLayout) root.findViewById( R.id.dialogplus_outmost_container);
             container = (LinearLayout) root.findViewById( R.id.container);
-            close = (TextView) root.findViewById( R.id.close);
+            close = (XTextView) root.findViewById( R.id.close);
         }
         public Dialog_CheckboxContainer() {
             this(null);
@@ -542,12 +542,12 @@ public class X {
 
     public static class Dialog_CheckboxItem {
         public LinearLayout root;
-        public TextView name;
+        public XTextView name;
         public CheckBox checkbox;
 
         public Dialog_CheckboxItem(ViewGroup parent) {
             root = (LinearLayout) AppUtil.inflate(R.layout.dialog__checkbox_item,parent);
-            name = (TextView) root.findViewById( R.id.name);
+            name = (XTextView) root.findViewById( R.id.name);
             checkbox = (CheckBox) root.findViewById( R.id.checkbox);
         }
         public Dialog_CheckboxItem() {
@@ -608,35 +608,17 @@ public class X {
     }
  //( index .Fields 0).ViewClass
 
-    public static class Dialog_OptionsRoomRow2 {
-        public LinearLayout root;
-        public TextView profile;
-        public TextView delete;
-        public TextView clear;
-
-        public Dialog_OptionsRoomRow2(ViewGroup parent) {
-            root = (LinearLayout) AppUtil.inflate(R.layout.dialog__options_room_row2,parent);
-            profile = (TextView) root.findViewById( R.id.profile);
-            delete = (TextView) root.findViewById( R.id.delete);
-            clear = (TextView) root.findViewById( R.id.clear);
-        }
-        public Dialog_OptionsRoomRow2() {
-            this(null);
-        }
-    }
- //( index .Fields 0).ViewClass
-
     public static class Dialog_SimpleAlert {
         public LinearLayout root;
-        public TextView title;
-        public TextView body;
-        public TextView close;
+        public XTextView title;
+        public XTextView body;
+        public XTextView close;
 
         public Dialog_SimpleAlert(ViewGroup parent) {
             root = (LinearLayout) AppUtil.inflate(R.layout.dialog__simple_alert,parent);
-            title = (TextView) root.findViewById( R.id.title);
-            body = (TextView) root.findViewById( R.id.body);
-            close = (TextView) root.findViewById( R.id.close);
+            title = (XTextView) root.findViewById( R.id.title);
+            body = (XTextView) root.findViewById( R.id.body);
+            close = (XTextView) root.findViewById( R.id.close);
         }
         public Dialog_SimpleAlert() {
             this(null);
@@ -645,10 +627,10 @@ public class X {
  //( index .Fields 0).ViewClass
 
     public static class Dialog_SimpleBody {
-        public TextView root;
+        public XTextView root;
 
         public Dialog_SimpleBody(ViewGroup parent) {
-            root = (TextView) AppUtil.inflate(R.layout.dialog__simple_body,parent);
+            root = (XTextView) AppUtil.inflate(R.layout.dialog__simple_body,parent);
         }
         public Dialog_SimpleBody() {
             this(null);
@@ -657,10 +639,10 @@ public class X {
  //( index .Fields 0).ViewClass
 
     public static class Dialog_SimpleClose {
-        public TextView root;
+        public XTextView root;
 
         public Dialog_SimpleClose(ViewGroup parent) {
-            root = (TextView) AppUtil.inflate(R.layout.dialog__simple_close,parent);
+            root = (XTextView) AppUtil.inflate(R.layout.dialog__simple_close,parent);
         }
         public Dialog_SimpleClose() {
             this(null);
@@ -669,10 +651,10 @@ public class X {
  //( index .Fields 0).ViewClass
 
     public static class Dialog_SimpleMenuString {
-        public TextView root;
+        public XTextView root;
 
         public Dialog_SimpleMenuString(ViewGroup parent) {
-            root = (TextView) AppUtil.inflate(R.layout.dialog__simple_menu_string,parent);
+            root = (XTextView) AppUtil.inflate(R.layout.dialog__simple_menu_string,parent);
         }
         public Dialog_SimpleMenuString() {
             this(null);
@@ -681,10 +663,10 @@ public class X {
  //( index .Fields 0).ViewClass
 
     public static class Dialog_SimpleTitle {
-        public TextView root;
+        public XTextView root;
 
         public Dialog_SimpleTitle(ViewGroup parent) {
-            root = (TextView) AppUtil.inflate(R.layout.dialog__simple_title,parent);
+            root = (XTextView) AppUtil.inflate(R.layout.dialog__simple_title,parent);
         }
         public Dialog_SimpleTitle() {
             this(null);
@@ -1649,54 +1631,6 @@ public class X {
             avatar_image = (ImageView) root.findViewById( R.id.avatar_image);
         }
         public Notify_Row() {
-            this(null);
-        }
-    }
- //( index .Fields 0).ViewClass
-
-    public static class Notify_Row2 {
-        public LinearLayout root;
-        public FrameLayout frame_layout;
-        public ImageView image_extra;
-        public FollowingButtonView following_button;
-        public EmojiconTextView text;
-        public TextView date;
-        public ImageView avatar;
-
-        public Notify_Row2(ViewGroup parent) {
-            root = (LinearLayout) AppUtil.inflate(R.layout.notify__row2,parent);
-            frame_layout = (FrameLayout) root.findViewById( R.id.frame_layout);
-            image_extra = (ImageView) root.findViewById( R.id.image_extra);
-            following_button = (FollowingButtonView) root.findViewById( R.id.following_button);
-            text = (EmojiconTextView) root.findViewById( R.id.text);
-            date = (TextView) root.findViewById( R.id.date);
-            avatar = (ImageView) root.findViewById( R.id.avatar);
-        }
-        public Notify_Row2() {
-            this(null);
-        }
-    }
- //( index .Fields 0).ViewClass
-
-    public static class NotifyCell {
-        public LinearLayout root;
-        public FrameLayout frame_layout;
-        public ImageView image_extra;
-        public FollowingButtonView following_button;
-        public EmojiconTextView text;
-        public TextView date;
-        public ImageView avatar;
-
-        public NotifyCell(ViewGroup parent) {
-            root = (LinearLayout) AppUtil.inflate(R.layout.notify_cell,parent);
-            frame_layout = (FrameLayout) root.findViewById( R.id.frame_layout);
-            image_extra = (ImageView) root.findViewById( R.id.image_extra);
-            following_button = (FollowingButtonView) root.findViewById( R.id.following_button);
-            text = (EmojiconTextView) root.findViewById( R.id.text);
-            date = (TextView) root.findViewById( R.id.date);
-            avatar = (ImageView) root.findViewById( R.id.avatar);
-        }
-        public NotifyCell() {
             this(null);
         }
     }

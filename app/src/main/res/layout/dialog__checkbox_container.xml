@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    >
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,7 +16,7 @@
 
     </LinearLayout>
 
-    <TextView
+    <com.mardomsara.social.ui.views.x.XTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/close"
@@ -24,6 +24,8 @@
         android:gravity="center"
         android:padding="10dp"
         android:layout_marginTop="4dp"
-        style="@style/text.normal.black"
+        android:textColor="@color/black"
+        android:textSize="14dp"
+        app:xFont="IranMedium"
         />
 </LinearLayout>

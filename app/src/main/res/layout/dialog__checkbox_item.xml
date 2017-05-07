@@ -3,13 +3,14 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="10dp"
     android:orientation="horizontal"
     android:gravity="right|center_vertical"
     android:background="@drawable/border_bottom_1px"
     >
 
-    <TextView
+    <com.mardomsara.social.ui.views.x.XTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/name"
@@ -17,6 +18,7 @@
         style="@style/settings.row"
         android:layout_alignParentTop="true"
         android:gravity="right"
+        app:xFont="Iran"
         />
 
   <CheckBox

@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.mardomsara.social.Nav;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.lib.AppClickableSpan;
+import com.mardomsara.social.ui.presenter.pages.ProfilePage;
 import com.mardomsara.social.ui.presenter.pages.TagsPage;
 import com.mardomsara.social.ui.views.TextParser;
 
@@ -31,7 +32,8 @@ public class XTextViewUtils {
 		ClickableSpan clickableSpan = new AppClickableSpan() {
 			@Override
 			public void onClick(View view) {
-				Toast.makeText(AppUtil.getContext(), s, Toast.LENGTH_LONG).show();
+//				Toast.makeText(AppUtil.getContext(), s, Toast.LENGTH_LONG).show();
+				Nav.push(new ProfilePage(s.toString()));
 			}
 		};
 		return clickableSpan;

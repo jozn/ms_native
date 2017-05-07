@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.mardomsara.social.ui.views.x.XTextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:textSize="16dp"
 
     android:paddingTop="8dp"
@@ -9,10 +11,9 @@
     android:paddingRight="10dp"
     android:paddingLeft="10dp"
     android:gravity="right|center"
-    fontPath="@string/font_iran"
-
+    app:xFont="Iran"
 
     android:textColor="#000"
     >
 
-</TextView>
+</com.mardomsara.social.ui.views.x.XTextView>

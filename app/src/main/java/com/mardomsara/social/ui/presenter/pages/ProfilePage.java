@@ -21,6 +21,7 @@ public class ProfilePage extends BasePresenter {
 
 	X.Profile_Parent x;
     int UserId;
+	String userName ="";
     boolean isMyProfile =false;
     public ProfilePage(int userId) {
         UserId = userId;
@@ -31,6 +32,9 @@ public class ProfilePage extends BasePresenter {
 		this.isMyProfile = isMyProfile;
 	}
 
+	public ProfilePage(String userName) {
+		this.userName = userName;
+	}
     @Override
     public View buildView() {
 		x = new X.Profile_Parent();
@@ -62,6 +66,7 @@ public class ProfilePage extends BasePresenter {
 				.setQueryParam("page",""+page)
 				.setQueryParam("last",""+cell.getLastPostId(page))
 				.setQueryParam("profile_id",""+UserId)
+				.setQueryParam("user_name",""+userName)
 				.doAsyncUi((result)->{
 					cell.loadedPostsFromNetNew(result,page);
 				});
@@ -80,6 +85,7 @@ public class ProfilePage extends BasePresenter {
 	private void loadToInfoFromServer() {
 		Http.getPath("/v1/profile/info")
 			.setQueryParam("profile_id",""+UserId)
+			.setQueryParam("user_name",""+userName)
 			.doAsyncUi((result)->{
 				if(result.isOk()){
 					HttpJson<UserTableJson> data = Result.fromJson(result,UserTableJson.class);

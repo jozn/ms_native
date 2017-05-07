@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:textSize="16dp"
-    android:padding="10dp"
-    android:gravity="center"
-    fontPath="@string/font_iran_medium"
-    android:background="@color/transparent_0"
+<com.mardomsara.social.ui.views.x.XTextView xmlns:android="http://schemas.android.com/apk/res/android"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            xmlns:app="http://schemas.android.com/apk/res-auto"
+                                            android:textSize="16dp"
+                                            android:padding="10dp"
+                                            android:gravity="center"
+                                            android:background="@color/transparent_0"
+                                            app:xFont="IranMedium"
     >
 
-</TextView>
+</com.mardomsara.social.ui.views.x.XTextView>
