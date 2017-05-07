@@ -1,15 +1,11 @@
 package com.mardomsara.social.ui.presenter.pages;
 
 import android.view.View;
-import android.view.ViewGroup;
 
-import com.mardomsara.social.app.API;
 import com.mardomsara.social.base.Http.Http;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.X;
 import com.mardomsara.social.ui.adaptors.PostGeneralListCell;
-import com.mardomsara.social.ui.cells.Cells;
-import com.mardomsara.social.ui.cells.lists.PostsListCell;
 
 /**
  * Created by Hamid on 7/13/2016.
