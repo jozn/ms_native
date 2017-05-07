@@ -9,6 +9,7 @@ import com.facebook.imagepipeline.core.ImagePipelineConfig;
 import com.facebook.imagepipeline.listener.RequestListener;
 import com.facebook.imagepipeline.listener.RequestLoggingListener;
 import com.mardomsara.social.App;
+import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.models.NotifyModel;
 import com.mardomsara.social.models.Session;
@@ -95,7 +96,7 @@ public class LifeCycle {
 //        Sync.checkSyncContacts();
 //        Sync.syncAllFollowings();
 
-        NotifyModel.fetchSyncLasts();
+        AndroidUtil.runInBackgroundNoPanic(()-> NotifyModel.fetchSyncLasts() );
     }
 
     static boolean _afterActivityCalled = false;

@@ -22,13 +22,19 @@ public class JV {
 
 	}
 
-	/*public static class NotificationView {
-		public J.Notification Notification;
-		public J.Load Load;
+	public static class NotificationView extends J.Notification {
+		public NotifPayload Load;
+	}
+
+	public static class NotifPayload extends ActivityPayload {
+		/*public UserInlineWithMeView Actor;
+		public PostView Post;
+		public J.Comment Comment;
+		public UserInlineWithMeView Followed;*/
 
 	}
 
-	public static class NotifPayload {
+	/*public static class NotifPayload {
 		public J.Actor Actor;
 		public J.Post Post;
 		public J.Comment Comment;

@@ -5,18 +5,14 @@ import android.support.annotation.NonNull;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
 import android.text.style.StyleSpan;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mardomsara.social.App;
-import com.mardomsara.social.R;
 import com.mardomsara.social.app.Constants;
 import com.mardomsara.social.app.Router;
 import com.mardomsara.social.helpers.AndroidUtil;
@@ -24,8 +20,7 @@ import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.FormaterUtil;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.LangUtil;
-import com.mardomsara.social.json.social.rows.PostRowJson;
-import com.mardomsara.social.json.social.rows.UserInfoJson;
+import com.mardomsara.social.json.JV;
 import com.mardomsara.social.lib.AppClickableSpan;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
 import com.mardomsara.social.lib.Spanny;
@@ -42,9 +37,6 @@ import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import butterknife.Bind;
-import butterknife.ButterKnife;
 
 /**
  * Created by Hamid on 8/26/2016.
@@ -131,7 +123,6 @@ public class NotifyListCell
 		list.clear();
 		list.addAll(list0);
 
-
 		refreshLayout.setRefreshing(false);
 		adaptor.hideLoading();
 		adaptor.notifyDataChanged();
@@ -168,7 +159,7 @@ public class NotifyListCell
 				contentViewType == Constants.NOTIFICATION_TYPE_POST_COMMENTED ||
 				contentViewType == Constants.NOTIFICATION_TYPE_FOLLOWED_YOU){
 
-				return new TextHolder(new NotifyCell(parent));
+				return new TextHolder(new NotifyCell(new X.Notify_Row(parent)));
 			}else {
 				return  new NotSupported(new X.NotifyNotSuportedCell(parent).root);
 			}
@@ -187,7 +178,8 @@ public class NotifyListCell
         TextView view;
         NotifyCell notifyCell;
         public TextHolder(NotifyCell notifyCell) {
-            super(notifyCell.viewRoot);
+//            super(notifyCell.viewRoot);
+            super(notifyCell.x.root);
             this.notifyCell = notifyCell;
         }
     }
@@ -199,25 +191,17 @@ public class NotifyListCell
 	}
 
     public static class NotifyCell {
-        View viewRoot;
 
-        @Bind(R.id.avatar) ImageView avatar_image;
-        @Bind(R.id.frame_layout) FrameLayout frame_layout;
-        @Bind(R.id.image_extra) ImageView image_extra;
-        @Bind(R.id.following_button) View following_button;
-        @Bind(R.id.text) TextView text_main;
-        @Bind(R.id.date) TextView date;
-
-        public NotifyCell(ViewGroup parent) {
-            viewRoot = AppUtil.inflate(R.layout.notify_cell ,parent);
-            ButterKnife.bind(this,viewRoot);
+		X.Notify_Row x;
+        public NotifyCell(X.Notify_Row x) {
+			this.x = x;
         }
 
 
         void bind(Notify nf){
             try {
                 nf.setloadFromStored();//json
-                viewRoot.setVisibility(View.VISIBLE);
+                x.root.setVisibility(View.VISIBLE);
                 _hideExtra();
                 _setDate(nf.CreatedTime);
 
@@ -226,7 +210,7 @@ public class NotifyListCell
 				//not handeled
 //				text_main.setMovementMethod(LinkMovementMethod.getInstance());
 
-                UserInfoJson actor = nf.Load.Actor;
+                JV.UserInlineWithMeView actor = nf.Load.Actor;
                 _setAvatar(actor);
                 ////////////////////////////////////////////////
                 // Posts: text_main,Photo,
@@ -244,18 +228,14 @@ public class NotifyListCell
                 }
             }catch (Exception e){
                 e.printStackTrace();
-                viewRoot.setVisibility(View.GONE);//if we break hide view
+                x.root.setVisibility(View.GONE);//if we break hide view
             }
         }
 
         //////////////// Notifications Types binders ///////////////
 
-        void _bindPost(Notify nf){}
-        void _bindPostText(Notify nf){}
-        void _bindPostPhoto(Notify nf){}
-
         void _bindComment(Notify nf){
-            PostRowJson post = nf.Load.Post;
+			JV.PostView post = nf.Load.Post;
             Spanny spanny = _getProfileSpany(nf.Load.Actor); //new Spanny(s, new StyleSpan(Typeface.BOLD), goToProfileSpan(uid));
             String tp ="";
             if(post != null){//must never happen
@@ -264,24 +244,23 @@ public class NotifyListCell
                 if(post.TypeId == Constants.POST_TYPE_PHOTO){
                     tp = " بر روی عکس شما: \"%\" نظر داد: \"@$\".";
                     tp = tp.replace("%",LangUtil.limitText(nf.Load.Post.Text,40));
-                    _setPostImage(post.MediaUrl);
+                    _setPostImage(post.PhotoView);
                     _showExtraImage();
                 }else {
-                    image_extra.setVisibility(View.GONE);
+                    x.image_extra.setVisibility(View.GONE);
                 }
                 if(nf.Load.Comment!= null){
                     tp = tp.replace("@$",nf.Load.Comment.Text);
                 }
                 spanny.append(tp);
-//                root.setOnClickListener((v)->Router.goToPost_PartialData(nf.Load.Post));
-                text_main.setText(spanny);
-                viewRoot.setOnClickListener((v)->Router.goToPost_PartialData(nf.Load.Post));
+				x.text_main.setText(spanny);
+                x.root.setOnClickListener((v)->Router.goToPost(nf.Load.Post));
             }
         }
 
         void _bindLiked(Notify nf){
-            PostRowJson post = nf.Load.Post;
-            UserInfoJson actor = nf.Load.Actor;
+            JV.PostView post = nf.Load.Post;
+            JV.UserInlineWithMeView actor = nf.Load.Actor;
 //            _setAvatar(actor);
             Spanny spanny = _getProfileSpany(actor); //new Spanny(s, new StyleSpan(Typeface.BOLD), goToProfileSpan(uid));
             String tp ="";
@@ -291,71 +270,76 @@ public class NotifyListCell
                 if(post.TypeId == Constants.POST_TYPE_PHOTO){
                     tp = " عکس شما: \"%\" را پسندید.";
                     tp = tp.replace("%",LangUtil.limitText(nf.Load.Post.Text,40));
-                    _setPostImage(post.MediaUrl);
+                    _setPostImage(post.PhotoView);
                     _showExtraImage();
 //                    image_extra.setVisibility(View.VISIBLE);
                 }else {
-                    image_extra.setVisibility(View.GONE);
+                    x.image_extra.setVisibility(View.GONE);
                 }
                 spanny.append(tp);
-                text_main.setText(spanny);
-                viewRoot.setOnClickListener((v)->Router.goToPost_PartialData(nf.Load.Post));
+                x.text_main.setText(spanny);
+                x.root.setOnClickListener((v)->Router.goToPost(nf.Load.Post));
             }
         }
         void _bindFollowing(Notify nf){
             String tp ="";
-            UserInfoJson actor = nf.Load.Actor;
+            JV.UserInlineWithMeView actor = nf.Load.Actor;
             Spanny spanny = _getProfileSpany(actor);
             tp = " شما را دنبال می کند.";
             spanny.append(tp);
-            _showExtraFollowing();
-            viewRoot.setOnClickListener((v)->Router.goToProfile(actor.getUserId()));
-            text_main.setText(spanny);
+            _showExtraFollowing(actor);
+            x.root.setOnClickListener((v)->Router.goToProfile(actor.UserId));
+			x.text_main.setText(spanny);
         }
 
         //////////////// Helpers /////////////////////
 
-        int dp50px = AndroidUtil.dpToPx(50);
-        void _setPostImage(String url){
-            image_extra.setVisibility(View.VISIBLE);
-            Picasso.with(AppUtil.getContext())
-                    .load("http://localhost:5000/"+url)
-                    .resize(dp50px,dp50px)
-                    .centerCrop()
-                    .into(image_extra);
+        static int dp50px = AndroidUtil.dpToPx(70);
+        void _setPostImage(JV.PhotoView pv){
+
+			String url = Helper.postsGetBestPhotoResUrl(pv,dp50px);
+			if(url != null){
+				x.image_extra.setVisibility(View.VISIBLE);
+				Picasso.with(AppUtil.getContext())
+					.load(url)
+					.resize(dp50px,dp50px)
+					.centerCrop()
+					.into(x.image_extra);
+			}
         }
 
         void _setDate(int time){
 //            date.setText(FormaterUtil.timeToDayTime(time));
-            date.setText(FormaterUtil.timeAgoWithDateForTooFar(time));
+			x.date.setText(FormaterUtil.timeAgoWithDateForTooFar(time));
         }
 
-        void _setAvatar(UserInfoJson Actor){
-            avatar_image.setOnClickListener((v)-> Router.goToProfile(Actor.UserId));
-            Helper.SetAvatar(avatar_image, Actor.AvatarUrl);
-            avatar_image.setOnClickListener((v)-> Router.goToProfile(Actor.UserId));
+        void _setAvatar(JV.UserInlineWithMeView Actor){
+            x.avatar_image.setOnClickListener((v)-> Router.goToProfile(Actor.UserId));
+            Helper.SetAvatar(x.avatar_image, Actor.AvatarUrl);
+            x.avatar_image.setOnClickListener((v)-> Router.goToProfile(Actor.UserId));
         }
 
         void _hideExtra(){
-            frame_layout.setVisibility(View.GONE);
+			x.frame_layout.setVisibility(View.GONE);
         }
 
         void _showExtraImage(){
-            frame_layout.setVisibility(View.VISIBLE);
-            image_extra.setVisibility(View.VISIBLE);
-            following_button.setVisibility(View.GONE);
+            x.frame_layout.setVisibility(View.VISIBLE);
+            x.image_extra.setVisibility(View.VISIBLE);
+            x.following_button.setVisibility(View.GONE);
         }
 
-        void _showExtraFollowing(){
-            frame_layout.setVisibility(View.VISIBLE);
-            image_extra.setVisibility(View.GONE);
-            following_button.setVisibility(View.VISIBLE);
+        void _showExtraFollowing(JV.UserInlineWithMeView userInlineWithMeView){
+			x.following_button.setUser(userInlineWithMeView);
+            x.frame_layout.setVisibility(View.VISIBLE);
+            x.image_extra.setVisibility(View.GONE);
+            x.following_button.setVisibility(View.VISIBLE);
         }
 
-        Spanny _getProfileSpany(UserInfoJson Actor){
+        Spanny _getProfileSpany(JV.UserInlineWithMeView Actor){
             /////////////////////////
-            String s = Actor.getFullName();
-            int uid = Actor.getUserId();
+            String s = Actor.FullName;
+            int uid = Actor.UserId;
 			//// FIXME: 1/20/2017 if we set profile instan
 //            Spanny spanny = new Spanny(s, new StyleSpan(Typeface.BOLD), goToProfileSpan(uid));
             Spanny spanny = new Spanny(s, new StyleSpan(Typeface.BOLD));

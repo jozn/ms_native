@@ -4,14 +4,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.mardomsara.social.Nav;
-import com.mardomsara.social.R;
 import com.mardomsara.social.helpers.AndroidUtil;
-import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.DialogHelper;
 import com.mardomsara.social.helpers.FormaterUtil;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.json.JV;
-import com.mardomsara.social.json.social.rows.CommentRowJson;
 import com.mardomsara.social.models.Comment;
 import com.mardomsara.social.models.Session;
 import com.mardomsara.social.ui.X;
@@ -20,8 +17,6 @@ import com.mardomsara.social.ui.presenter.pages.ProfilePage;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import butterknife.ButterKnife;
 
 /**
  * Created by Hamid on 8/26/2016.

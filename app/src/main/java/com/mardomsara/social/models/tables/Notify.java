@@ -1,12 +1,14 @@
 package com.mardomsara.social.models.tables;
 
+import android.support.annotation.Nullable;
+
 import com.github.gfx.android.orma.annotation.Column;
 import com.github.gfx.android.orma.annotation.OnConflict;
 import com.github.gfx.android.orma.annotation.PrimaryKey;
 import com.github.gfx.android.orma.annotation.Table;
 import com.mardomsara.social.app.DB;
 import com.mardomsara.social.helpers.AppUtil;
-import com.mardomsara.social.json.social.rows.NotifyPayloadJson;
+import com.mardomsara.social.json.JV;
 
 /**
  * Created by Hamid on 9/1/2016.
@@ -15,7 +17,7 @@ import com.mardomsara.social.json.social.rows.NotifyPayloadJson;
 @Table
 public class Notify {
 
-    @PrimaryKey(auto = false,onConflict = OnConflict.IGNORE )
+    @PrimaryKey(auto = false,onConflict = OnConflict.REPLACE )
     public long Id;
 
     @Column(indexed = true)
@@ -31,7 +33,10 @@ public class Notify {
     public int ObjectTypeId;
 
     @Column(indexed = true)
-    public int TargetId;
+    public int RowId;
+
+	@Column(indexed = true)
+	public int RootId;
 
     @Column(indexed = false)
     public int SeenStatus;
@@ -39,18 +44,19 @@ public class Notify {
     @Column(indexed = true)
     public int CreatedTime;
 
+	@Nullable
     @Column(defaultExpr = "''")
     public String PayloadStored = "";
 
     /// No Sqlite ///
-    public NotifyPayloadJson Load;
+    public JV.NotifPayload Load;
 
     public void setPayloadStored(){
         PayloadStored = AppUtil.toJson(Load);
     }
 
     public void setloadFromStored(){
-        Load = AppUtil.fromJson(PayloadStored,NotifyPayloadJson.class);
+        Load = AppUtil.fromJson(PayloadStored,JV.NotifPayload.class);
     }
 
 	////////// Instance methods ///////

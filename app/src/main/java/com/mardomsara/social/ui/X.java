@@ -70,30 +70,6 @@ public class X {
     }
  //( index .Fields 0).ViewClass
 
-    public static class Actions_RowBk {
-        public LinearLayout root;
-        public FrameLayout frame_layout;
-        public ImageView image_extra;
-        public FollowingButtonView following_button;
-        public XTextView text_main;
-        public XTextView date;
-        public ImageView avatar_image;
-
-        public Actions_RowBk(ViewGroup parent) {
-            root = (LinearLayout) AppUtil.inflate(R.layout.actions__row_bk,parent);
-            frame_layout = (FrameLayout) root.findViewById( R.id.frame_layout);
-            image_extra = (ImageView) root.findViewById( R.id.image_extra);
-            following_button = (FollowingButtonView) root.findViewById( R.id.following_button);
-            text_main = (XTextView) root.findViewById( R.id.text_main);
-            date = (XTextView) root.findViewById( R.id.date);
-            avatar_image = (ImageView) root.findViewById( R.id.avatar_image);
-        }
-        public Actions_RowBk() {
-            this(null);
-        }
-    }
- //( index .Fields 0).ViewClass
-
     public static class ActivityCrop {
         public LinearLayout root;
         public Button gallery;
@@ -1649,6 +1625,54 @@ public class X {
             viewpager = (ViewPager) root.findViewById( R.id.viewpager);
         }
         public NavHeaderPagerMenu() {
+            this(null);
+        }
+    }
+ //( index .Fields 0).ViewClass
+
+    public static class Notify_Row {
+        public RelativeLayout root;
+        public FrameLayout frame_layout;
+        public ImageView image_extra;
+        public FollowingButtonView following_button;
+        public XTextView text_main;
+        public XTextView date;
+        public ImageView avatar_image;
+
+        public Notify_Row(ViewGroup parent) {
+            root = (RelativeLayout) AppUtil.inflate(R.layout.notify__row,parent);
+            frame_layout = (FrameLayout) root.findViewById( R.id.frame_layout);
+            image_extra = (ImageView) root.findViewById( R.id.image_extra);
+            following_button = (FollowingButtonView) root.findViewById( R.id.following_button);
+            text_main = (XTextView) root.findViewById( R.id.text_main);
+            date = (XTextView) root.findViewById( R.id.date);
+            avatar_image = (ImageView) root.findViewById( R.id.avatar_image);
+        }
+        public Notify_Row() {
+            this(null);
+        }
+    }
+ //( index .Fields 0).ViewClass
+
+    public static class Notify_Row2 {
+        public LinearLayout root;
+        public FrameLayout frame_layout;
+        public ImageView image_extra;
+        public FollowingButtonView following_button;
+        public EmojiconTextView text;
+        public TextView date;
+        public ImageView avatar;
+
+        public Notify_Row2(ViewGroup parent) {
+            root = (LinearLayout) AppUtil.inflate(R.layout.notify__row2,parent);
+            frame_layout = (FrameLayout) root.findViewById( R.id.frame_layout);
+            image_extra = (ImageView) root.findViewById( R.id.image_extra);
+            following_button = (FollowingButtonView) root.findViewById( R.id.following_button);
+            text = (EmojiconTextView) root.findViewById( R.id.text);
+            date = (TextView) root.findViewById( R.id.date);
+            avatar = (ImageView) root.findViewById( R.id.avatar);
+        }
+        public Notify_Row2() {
             this(null);
         }
     }

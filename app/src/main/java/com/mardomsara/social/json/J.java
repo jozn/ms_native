@@ -122,8 +122,9 @@ public class J {
 		public Integer ActorUserId;
 		public Integer ActionTypeId;
 		public Integer ObjectTypeId;
-		public Integer TargetId;
-		public Integer ObjectId;
+		public Integer RowId;
+		public Integer RootId;
+		public Integer RefId;
 		public Integer SeenStatus;
 		public Integer CreatedTime;
 	}

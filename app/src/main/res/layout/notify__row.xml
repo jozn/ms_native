@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:layout_height="70dp"
+              android:gravity="right|center_vertical"
+              android:layout_marginLeft="5dp"
+              android:layout_marginRight="5dp"
+              android:background="@drawable/light_border_below"
+
+    >
+
+    <FrameLayout
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:visibility="visible"
+        android:layout_marginLeft="2dp"
+        android:id="@+id/frame_layout"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        >
+        <ImageView
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:src="@drawable/spinner_black_76"
+            android:id="@+id/image_extra"
+            />
+        <com.mardomsara.social.ui.views.wigets.FollowingButtonView
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:visibility="gone"
+            android:id="@+id/following_button"
+            />
+
+    </FrameLayout>
+
+    <com.mardomsara.social.ui.views.x.XTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:id="@+id/text_main"
+        android:gravity="right"
+
+        android:layout_toRightOf="@+id/frame_layout"
+        android:layout_toLeftOf="@+id/avatar_image"
+
+        style="@style/notify_row.text"
+
+        android:maxLines="2"
+
+        app:xFont="IranLight"
+        app:xEnableEmoji="true"
+        app:xEnableLinker="false"
+        />
+
+    <com.mardomsara.social.ui.views.x.XTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:id="@+id/date"
+
+        android:layout_toRightOf="@+id/frame_layout"
+        android:layout_toLeftOf="@+id/avatar_image"
+        android:layout_below="@+id/text_main"
+
+        android:gravity="right"
+        style="@style/notify_row.date"
+
+        app:xEnableLinker="false"
+        app:xFont="IranLight"
+        app:xEnableEmoji="false"
+
+        />
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/avatar_image"
+        android:layout_marginLeft="10dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        />
+
+</RelativeLayout>
