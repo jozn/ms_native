@@ -9,12 +9,10 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.mardomsara.social.R;
-import com.mardomsara.social.app.Config;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.models.stores.Store;
 import com.mardomsara.social.models.stores.StoreConstants;
-import com.orhanobut.hawk.Hawk;
 
 import java.util.List;
 

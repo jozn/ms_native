@@ -19,8 +19,6 @@ import com.mardomsara.social.models.syncer.UserSyncer;
 import com.mardomsara.social.pipe.Pipe;
 import com.mardomsara.social.service.BackgroundService;
 import com.mardomsara.social.ui.BasePresenter;
-import com.orhanobut.hawk.Hawk;
-import com.orhanobut.hawk.HawkBuilder;
 import com.squareup.picasso.LruCache;
 import com.squareup.picasso.Picasso;
 
@@ -79,9 +77,6 @@ public class LifeCycle {
             Fresco.initialize(ctx, config);
             FLog.setMinimumLoggingLevel(FLog.VERBOSE);
 //         LeakCanary.install(ctx);
-            Hawk.init(ctx)
-                    .setEncryptionMethod(HawkBuilder.EncryptionMethod.NO_ENCRYPTION)
-                    .build();
 
             BasePresenter.context = ctx;
 //            BasePresenter.inflater = LayoutInflater.from(ctx);
