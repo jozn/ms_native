@@ -2,7 +2,6 @@ package com.mardomsara.social.helpers;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -12,10 +11,8 @@ import android.view.ViewTreeObserver;
 
 import com.google.gson.Gson;
 import com.mardomsara.social.App;
-import com.mardomsara.social.app.Config;
 import com.mardomsara.social.app.Singletons;
 import com.mardomsara.social.lib.TinyDB;
-import com.orhanobut.hawk.Hawk;
 
 import java.net.MalformedURLException;
 import java.net.URI;
@@ -145,7 +142,7 @@ public class AppUtil {
                     hw2= windowView.getHeight();
                     if (Math.abs(hw1-hw2)>150){
                         int kybordSize = Math.abs(hw1-hw2);
-                        Hawk.put(Config.KEYBOARD_HEIGHT,kybordSize);
+//                        Hawk.put(Config.KEYBOARD_HEIGHT,kybordSize);
                     }
                 };
             }

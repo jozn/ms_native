@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import com.mardomsara.social.app.DB;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
+import com.mardomsara.social.json.JV;
 import com.mardomsara.social.json.social.rows.UserInfoJson;
 import com.mardomsara.social.models.memory_store.MemoryStore_Users;
 import com.mardomsara.social.models.tables.ContactsCopy;
@@ -104,6 +105,22 @@ public class UserModel {
 		u.PrivacyProfile = userJson.PrivacyProfile;
 		u.AppVersion = 1;
 		
+		return u;
+	}
+
+	public static User UserMeViewJsonToUserTable(JV.UserMeView userJson){
+		User u = new User();
+		u.UserId = userJson.UserId;
+		u.FollowingType = userJson.FollowingType;
+		u.About = userJson.About;
+		u.FirstName = userJson.FirstName;
+		u.LastName = userJson.LastName;
+		u.FullName = userJson.FullName;
+		u.AvatarUrl = userJson.AvatarUrl;
+
+		u.PrivacyProfile = userJson.PrivacyProfile;
+		u.AppVersion = 1;
+
 		return u;
 	}
 

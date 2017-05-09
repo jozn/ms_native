@@ -8,7 +8,7 @@ import com.mardomsara.social.base.Http.Http;
 import com.mardomsara.social.base.Http.Result;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.json.HttpJson;
-import com.mardomsara.social.json.social.rows.UserTableJson;
+import com.mardomsara.social.json.JV;
 import com.mardomsara.social.models.Session;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.X;
@@ -54,7 +54,7 @@ public class ProfilePage extends BasePresenter {
 		profileTopInfo = new ProfileTopInfo(UserId);
 
 		if(Session.isUserIdMe(UserId)){
-			profileTopInfo.bind(Session.getUserInfo());
+			profileTopInfo.bind(Session.loadUserInfo());
 		}
 
 		postCell = new PostGeneralListCell(x.top_nav.getButtonPostMultiWayView(), (page, cell) -> {
@@ -88,7 +88,7 @@ public class ProfilePage extends BasePresenter {
 			.setQueryParam("user_name",""+userName)
 			.doAsyncUi((result)->{
 				if(result.isOk()){
-					HttpJson<UserTableJson> data = Result.fromJson(result,UserTableJson.class);
+					HttpJson<JV.UserMeView> data = Result.fromJson(result, JV.UserMeView.class);
 					if(data.isPayloadNoneEmpty()){
 						profileTopInfo.bind(data.Payload);
 					}
@@ -121,13 +121,13 @@ public class ProfilePage extends BasePresenter {
 			hideShowMyButns();
         }
 
-        ProfileTopInfo bind(UserTableJson user){
+        ProfileTopInfo bind(JV.UserMeView user){
 			if(user == null)return this;
 
 			hideShowMyButns();
 
             Helper.SetAvatar(x.avatar,user.AvatarUrl);
-            x.fullname.setText(user.getFullName());
+            x.fullname.setText(user.FullName);
             x.about.setText(""+user.About);
 
             x.posts_count.setText(""+user.PostsCount);

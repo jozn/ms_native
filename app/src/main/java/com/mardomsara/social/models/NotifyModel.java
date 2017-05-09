@@ -32,7 +32,7 @@ public class NotifyModel {
         loadFromServer(true);
     }
 
-	private static void loadFromServer(boolean force) {
+	public static void loadFromServer(boolean force) {
 		App.getBus().post(new NotifyChanged());
 		long l = getLast();
 		if(force) l=0;

@@ -11,6 +11,7 @@ import com.mardomsara.social.Nav;
 import com.mardomsara.social.R;
 import com.mardomsara.social.app.Router;
 import com.mardomsara.social.helpers.AndroidUtil;
+import com.mardomsara.social.json.JV;
 import com.mardomsara.social.json.social.rows.UserInfoJson;
 import com.mardomsara.social.models.RoomModel;
 import com.mardomsara.social.models.UserModel;
@@ -65,15 +66,16 @@ public class ChatButtonView extends IconTextView {
 		});
 	}
 
-	UserInfoJson userAndMe = null;
+	JV.UserMeView userAndMe = null;
 
-	public void setUser(UserInfoJson user){
+	public void setUser(JV.UserMeView user){
 		userAndMe = user;
 	}
 
+
 	void openChat(){
 		if(userAndMe == null)return;
-		User u = UserModel.UserInfoJsonToUserTable(userAndMe);
+		User u = UserModel.UserMeViewJsonToUserTable(userAndMe);
 		u.save();
 		Room room = RoomModel.getRoomByForUserAndLoadUser(u.UserId);
 		Nav.push(Router.getRoomEntry(room));

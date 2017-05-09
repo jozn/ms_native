@@ -84,6 +84,13 @@ public class FollowingButtonView extends TextView {
 		updateUi();
 	}
 
+	public void setUser(JV.UserMeView user){
+		userAndMe = new UserInfoJson();
+		userAndMe.Id = user.UserId;
+		userAndMe.FollowingType = user.FollowingType;
+		updateUi();
+	}
+
     void updateUi(){
         if(userAndMe == null) return;
         switch (userAndMe.getFollowingType()){

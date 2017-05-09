@@ -96,7 +96,7 @@ public class LifeCycle {
 //        Sync.checkSyncContacts();
 //        Sync.syncAllFollowings();
 
-        AndroidUtil.runInBackgroundNoPanic(()-> NotifyModel.fetchSyncLasts() );
+        AndroidUtil.runInBackgroundNoPanic(()-> NotifyModel.loadFromServer(false) );
     }
 
     static boolean _afterActivityCalled = false;

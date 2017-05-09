@@ -110,13 +110,17 @@ public class JV {
 		public int FollowingType;
 	}
 
-	public static class UserSyncAndMeView extends UserBasic{
-		public int UserId;
-		public int FollowingType;
+	public static class UserSyncAndMeView extends UserBasicAndMe{
+//		public int UserId;
+//		public int FollowingType;
 		public int AppVersion;
 		public String Phone;
-		public int UpdatedTime;
+//		public int UpdatedTime;
+	}
 
+	public static class UserMeView extends J.User{
+		public int UserId;
+		public int FollowingType;
 	}
 
 	/*public static class UserSession {
