@@ -44,6 +44,7 @@ public class ProfilePage extends BasePresenter {
 			x.top_nav.setVisibility(View.GONE);
 		}
         load2();
+
         return x.root;
     }
 
@@ -83,6 +84,10 @@ public class ProfilePage extends BasePresenter {
 	}
 
 	private void loadToInfoFromServer() {
+		if(Session.isUserIdMe(UserId)){
+			Session.fetchUserInfoFromServer();
+		}
+
 		Http.getPath("/v1/profile/info")
 			.setQueryParam("profile_id",""+UserId)
 			.setQueryParam("user_name",""+userName)
@@ -133,8 +138,6 @@ public class ProfilePage extends BasePresenter {
             x.posts_count.setText(""+user.PostsCount);
             x.followings_count.setText(""+user.FollowingCount);
             x.followers_count.setText(""+user.FollowersCount);
-
-
 
             //clicks
             x.followings_holder.setOnClickListener(getFollowings_click(user.Id));

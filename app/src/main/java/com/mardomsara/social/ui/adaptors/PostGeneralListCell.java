@@ -31,8 +31,13 @@ public class PostGeneralListCell
 	X.PostList_Parent x;
 	public PostsAdaptor adaptor;
 	NextPage nextPage;
+	OnReload onRelad;
 
-    public PostGeneralListCell(ButtonPostMultiWayView multiWayView, NextPage nextPage1) {
+	public void setOnRelad(OnReload onRelad) {
+		this.onRelad = onRelad;
+	}
+
+	public PostGeneralListCell(ButtonPostMultiWayView multiWayView, NextPage nextPage1) {
         init( multiWayView);
 		this.nextPage = nextPage1;
     }
@@ -79,7 +84,8 @@ public class PostGeneralListCell
 
     public void loadFromServer(int page) {
 		nextPage.nextPage(page,this);
-    }
+		if(onRelad != null) onRelad.load(page);
+	}
 
     public int getLastPostId(int page) {
 		if(page == 1)return 0;//fix for refreshing
@@ -228,5 +234,9 @@ public class PostGeneralListCell
 	//we must after requesting the page do cell.loadedPostsFromNetNew(http.Res)
 	public interface NextPage {
 		void nextPage(int pgae, PostGeneralListCell cell);
+	}
+
+	public interface OnReload {
+		void load(int pgae);
 	}
 }

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@color/white" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginBottom="20.0dip" android:layout_above="@+id/btnRegister">
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+                      android:weightSum="1">
+            <RelativeLayout android:layout_width="fill_parent" android:layout_height="130.0dip">
+                <View android:id="@+id/cover" android:layout_width="fill_parent" android:layout_height="80.0dip" />
+                <ImageView android:id="@+id/profilePicture" android:layout_width="60.0dip" android:layout_height="60.0dip" android:layout_marginTop="50.0dip" android:layout_marginRight="22.0dip" android:src="@drawable/camera_crop_width" android:scaleType="centerCrop" android:layout_alignParentRight="true"  />
+                <TextView android:textSize="12.0sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" android:layout_marginRight="5.0dip" android:text="avatarPicture" android:layout_toLeftOf="@+id/profilePicture" android:layout_below="@+id/cover" />
+                <TextView android:textSize="12.0sp" android:textColor="@color/text_gray_3" android:id="@+id/removeAvatar" android:background="@drawable/chat_input_border" android:padding="5.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:text="removeAvatar" android:layout_below="@+id/cover" />
+            </RelativeLayout>
+            <LinearLayout android:orientation="vertical" android:layout_width="133dp" android:layout_height="wrap_content"
+                          android:layout_weight="0.61">
+                <TextView android:textSize="14.0sp" android:layout_gravity="right" android:paddingRight="3.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="displayName" />
+                <com.mardomsara.social.ui.views.x.XEditTextView android:id="@+id/inputName" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="3.0dip" />
+                <TextView android:textSize="11.0sp" android:layout_gravity="right" android:paddingRight="3.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="3.0dip" android:text="displayNameNotice" />
+            </LinearLayout>
+            <LinearLayout android:orientation="vertical" android:id="@+id/descriptionRoot" android:layout_width="119dp" android:layout_height="wrap_content" android:layout_marginTop="25.0dip">
+                <TextView android:textSize="14.0sp" android:layout_gravity="right" android:paddingRight="3.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="description" />
+                <com.mardomsara.social.ui.views.x.XEditTextView android:id="@+id/inputDescription" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="3.0dip" />
+                <TextView android:textSize="11.0sp" android:layout_gravity="right" android:paddingRight="3.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="3.0dip" android:text="descriptionNotice" />
+            </LinearLayout>
+            <LinearLayout android:gravity="right" android:orientation="vertical" android:id="@+id/genderRoot" android:paddingRight="3.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="25.0dip" android:minWidth="240.0dip">
+                <TextView android:textSize="14.0sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="gender" />
+                <RadioGroup android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                    <RadioButton android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="female" />
+                    <RadioButton android:id="@+id/radioMale" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="true" android:text="male" />
+                </RadioGroup>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+    <Button android:id="@+id/btnRegister" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="20dp" android:text="string/sendInfo" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" />
+</RelativeLayout>

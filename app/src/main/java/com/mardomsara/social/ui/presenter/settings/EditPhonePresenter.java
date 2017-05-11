@@ -3,6 +3,7 @@ package com.mardomsara.social.ui.presenter.settings;
 import android.view.View;
 
 import com.mardomsara.social.ui.BasePresenter;
+import com.mardomsara.social.ui.X;
 import com.mardomsara.social.ui.cells.Cells;
 
 /**
@@ -12,10 +13,12 @@ import com.mardomsara.social.ui.cells.Cells;
 public class EditPhonePresenter extends BasePresenter {
 	@Override
 	public View buildView() {
-		Cells.NavAndEmptyView x = new Cells.NavAndEmptyView();
-		x.simpleTopNav.setTitle("شماره تلفن");
+		/*Cells.NavAndEmptyView x = new Cells.NavAndEmptyView();
+		x.simpleTopNav.setTitle("شماره تلفن");*/
 
-		return x.rootView;
+		X.Page_EditProfile x= new X.Page_EditProfile();
+
+		return x.root;
 	}
 
 

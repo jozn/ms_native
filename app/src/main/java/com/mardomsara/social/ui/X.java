@@ -6,6 +6,9 @@ import android.view.*;
 import android.webkit.WebView;
 
 
+import android.support.constraint.ConstraintLayout;
+import android.support.constraint.Guideline;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.percent.PercentFrameLayout;
 import android.support.percent.PercentRelativeLayout;
@@ -1648,6 +1651,58 @@ public class X {
     }
  //( index .Fields 0).ViewClass
 
+    public static class Page_EditProfile {
+        public LinearLayout root;
+        public SimpleTopNav simpleTopNav;
+        public ConstraintLayout container;
+        public ImageView avatar;
+        public TextView textView5;
+        public Guideline guideline3;
+        public TextView editText;
+        public EditText editText2;
+        public TextView textView6;
+        public EditText editText3;
+        public TextView textView7;
+        public EditText editText4;
+
+        public Page_EditProfile(ViewGroup parent) {
+            root = (LinearLayout) AppUtil.inflate(R.layout.page__edit_profile,parent);
+            simpleTopNav = (SimpleTopNav) root.findViewById( R.id.simpleTopNav);
+            container = (ConstraintLayout) root.findViewById( R.id.container);
+            avatar = (ImageView) root.findViewById( R.id.avatar);
+            textView5 = (TextView) root.findViewById( R.id.textView5);
+            guideline3 = (Guideline) root.findViewById( R.id.guideline3);
+            editText = (TextView) root.findViewById( R.id.editText);
+            editText2 = (EditText) root.findViewById( R.id.editText2);
+            textView6 = (TextView) root.findViewById( R.id.textView6);
+            editText3 = (EditText) root.findViewById( R.id.editText3);
+            textView7 = (TextView) root.findViewById( R.id.textView7);
+            editText4 = (EditText) root.findViewById( R.id.editText4);
+        }
+        public Page_EditProfile() {
+            this(null);
+        }
+    }
+ //( index .Fields 0).ViewClass
+
+    public static class Page_EditProfileBk {
+        public LinearLayout root;
+        public SimpleTopNav simpleTopNav;
+        public LinearLayout container;
+        public ImageView avatar;
+
+        public Page_EditProfileBk(ViewGroup parent) {
+            root = (LinearLayout) AppUtil.inflate(R.layout.page__edit_profile_bk,parent);
+            simpleTopNav = (SimpleTopNav) root.findViewById( R.id.simpleTopNav);
+            container = (LinearLayout) root.findViewById( R.id.container);
+            avatar = (ImageView) root.findViewById( R.id.avatar);
+        }
+        public Page_EditProfileBk() {
+            this(null);
+        }
+    }
+ //( index .Fields 0).ViewClass
+
     public static class Page_PostSingleEntry {
         public LinearLayout root;
         public SimpleTopNav simpleTopNav;
@@ -1661,6 +1716,60 @@ public class X {
             comments_holder = (FrameLayout) root.findViewById( R.id.comments_holder);
         }
         public Page_PostSingleEntry() {
+            this(null);
+        }
+    }
+ //( index .Fields 0).ViewClass
+
+    public static class Page_ProfileEdit2 {
+        public RelativeLayout root;
+        public View cover;
+        public ImageView profilePicture;
+        public TextView removeAvatar;
+        public XEditTextView inputName;
+        public LinearLayout descriptionRoot;
+        public XEditTextView inputDescription;
+        public LinearLayout genderRoot;
+        public RadioButton radioMale;
+        public Button btnRegister;
+
+        public Page_ProfileEdit2(ViewGroup parent) {
+            root = (RelativeLayout) AppUtil.inflate(R.layout.page__profile_edit2,parent);
+            cover = (View) root.findViewById( R.id.cover);
+            profilePicture = (ImageView) root.findViewById( R.id.profilePicture);
+            removeAvatar = (TextView) root.findViewById( R.id.removeAvatar);
+            inputName = (XEditTextView) root.findViewById( R.id.inputName);
+            descriptionRoot = (LinearLayout) root.findViewById( R.id.descriptionRoot);
+            inputDescription = (XEditTextView) root.findViewById( R.id.inputDescription);
+            genderRoot = (LinearLayout) root.findViewById( R.id.genderRoot);
+            radioMale = (RadioButton) root.findViewById( R.id.radioMale);
+            btnRegister = (Button) root.findViewById( R.id.btnRegister);
+        }
+        public Page_ProfileEdit2() {
+            this(null);
+        }
+    }
+ //( index .Fields 0).ViewClass
+
+    public static class Page_ProfileEdit3 {
+        public ConstraintLayout root;
+        public TextView textView3;
+        public ProgressBar progressBar;
+        public Guideline guideline;
+        public Guideline guideline2;
+        public TextView textView4;
+        public FloatingActionButton floatingActionButton;
+
+        public Page_ProfileEdit3(ViewGroup parent) {
+            root = (ConstraintLayout) AppUtil.inflate(R.layout.page__profile_edit3,parent);
+            textView3 = (TextView) root.findViewById( R.id.textView3);
+            progressBar = (ProgressBar) root.findViewById( R.id.progressBar);
+            guideline = (Guideline) root.findViewById( R.id.guideline);
+            guideline2 = (Guideline) root.findViewById( R.id.guideline2);
+            textView4 = (TextView) root.findViewById( R.id.textView4);
+            floatingActionButton = (FloatingActionButton) root.findViewById( R.id.floatingActionButton);
+        }
+        public Page_ProfileEdit3() {
             this(null);
         }
     }
@@ -2404,6 +2513,8 @@ public class X {
 //import android.widget.LinearLayout;
 //import android.widget.ListView;
 //import android.widget.ProgressBar;
+//import android.widget.RadioButton;
+//import android.widget.RadioGroup;
 //import android.widget.RelativeLayout;
 //import android.widget.ScrollView;
 //import android.widget.Space;
