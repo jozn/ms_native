@@ -6,38 +6,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
-import android.widget.TextView;
 
 import com.mardomsara.social.R;
 import com.mardomsara.social.helpers.AndroidUtil;
-import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.models.stores.Store;
 import com.mardomsara.social.models.stores.StoreConstants;
+import com.mardomsara.social.ui.X;
 
 import java.util.List;
-
-import butterknife.Bind;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 /**
  * Created by Hamid on 6/15/2016.
  */
 //todo [onDownloadProgress DON'T] migrate to dataBinding: on xml setOrReplace onClick={callback_listener.onPhotoClick()}
 public class KeyboardAttachmentCell implements RecentImagesCell.onRecentImageClicked{
-    @Bind(R.id.attach_video) View attach_video;
-    @Bind(R.id.attach_gallery) View attach_gallery;
-    @Bind(R.id.attach_camera) View attach_camera;
-    @Bind(R.id.attach_file) View attach_file;
 
-    @Bind(R.id.attachment_top) View attachment_top;
-
-    @Bind(R.id.close_send_btn) View close_send_btn;
-    @Bind(R.id.close_icon) TextView close_icon;
-    @Bind(R.id.close_text) TextView close_text;
-
-    @Bind(R.id.frame_layout) ViewGroup frame_layout;
-
+	X.KeywoardAttachment x;
 
     @NonNull Callbacks callback_listener;
     @NonNull RecentImagesCell recentImagesCell;
@@ -47,30 +31,39 @@ public class KeyboardAttachmentCell implements RecentImagesCell.onRecentImageCli
 
     public KeyboardAttachmentCell(Callbacks listener, View bottom_container) {
         callback_listener = listener;
-        View popupView = AppUtil.inflate(R.layout.cells_keywoard_attachment);
-        ButterKnife.bind(this,popupView);
+		x = new X.KeywoardAttachment();
 
         attachWindow = new PopupWindow(
-                popupView,
+                x.root,
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT);//keyboardSize);
 
         //view containg icons
-        View main_content = popupView.findViewById(R.id.attachment_main);
+        View main_content = x.root.findViewById(R.id.attachment_main);
         main_content.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, keyboardSize));
 
         setRecentImages();
         _updateCloseBtn();
+		setListerns();
 
         attachWindow.showAtLocation(bottom_container, Gravity.END,0,15000);
     }
 
     void setRecentImages(){
-        recentImagesCell = new RecentImagesCell(frame_layout);
-        recentImagesCell.insertInto(frame_layout);
+        recentImagesCell = new RecentImagesCell(x.frame_layout);
+        recentImagesCell.insertInto(x.frame_layout);
         recentImagesCell.setListener(this);
     }
 
+    void setListerns(){
+		x.close_send_btn.setOnClickListener((v) -> sendRecentImagesOrClose() );
+		x.attachment_top.setOnClickListener((v) -> topClicked() );
+		x.attach_video.setOnClickListener((v) -> attach_video() );
+		x.attach_camera.setOnClickListener((v) -> attach_camera() );
+		x.attach_gallery.setOnClickListener((v) -> attach_gallery() );
+		x.attach_audio.setOnClickListener((v) -> attach_audio() );
+		x.attach_file.setOnClickListener((v) -> attach_file() );
+	}
 
     //// Recent Images callbacks //////////////
     @Override
@@ -91,13 +84,13 @@ public class KeyboardAttachmentCell implements RecentImagesCell.onRecentImageCli
     void _updateCloseBtn(){
         int size = recentImagesCell.getSelected().size();
         if(size >0 ){
-            close_icon.setText("\uf2f6");
-            close_text.setText("بفرس("+size +")");
-            close_icon.setTextColor(AndroidUtil.getColor(R.color.btn_send));
+            x.close_icon.setText("\uf2f6");
+            x.close_text.setText("بفرس("+size +")");
+            x.close_icon.setTextColor(AndroidUtil.getColor(R.color.btn_send));
         }else {//clse
-            close_icon.setText("\uf404");
-            close_text.setText("بستن");
-            close_icon.setTextColor(AndroidUtil.getColor(R.color.btn_close));
+            x.close_icon.setText("\uf404");
+            x.close_text.setText("بستن");
+            x.close_icon.setTextColor(AndroidUtil.getColor(R.color.btn_close));
 
         }
     }
@@ -106,7 +99,6 @@ public class KeyboardAttachmentCell implements RecentImagesCell.onRecentImageCli
         attachWindow.dismiss();
     }
 
-    @OnClick(R.id.close_send_btn)
     void sendRecentImagesOrClose(){
         int size = recentImagesCell.getSelected().size();
         if(size >0 ){
@@ -116,40 +108,30 @@ public class KeyboardAttachmentCell implements RecentImagesCell.onRecentImageCli
         }
     }
 
-    @OnClick(R.id.attachment_top)
     void topClicked(){
         dismiss();
     }
 
-    @OnClick(R.id.attach_video)
     public void attach_video(){
         callback_listener.onVideoClick();
     }
 
-    @OnClick(R.id.attach_camera)
     public void attach_camera(){
         callback_listener.onCameraPhotoClick();
     }
 
-    @OnClick(R.id.attach_gallery)
-    public void setAttach_gallery(){
+    public void attach_gallery(){
         callback_listener.onGalleryClick();
     }
 
-    @OnClick(R.id.attach_audio)
-    public void setAttach_audio(){
+    public void attach_audio(){
         callback_listener.onAudioClick();
     }
 
-	@OnClick(R.id.attach_file)
-	public void setAttach_file(){
+
+	public void attach_file(){
 		callback_listener.onFileClick();
 	}
-
-    /*@OnClick(R.id.attach_location)
-    public void setAttach_location(){
-        callback_listener.onLocationClick();
-    }*/
 
 
     public interface Callbacks {
@@ -161,7 +143,5 @@ public class KeyboardAttachmentCell implements RecentImagesCell.onRecentImageCli
         void onFileClick();
         void onContactClick();
         void onRecentImagesSendClicked(List<String> imagesPath);
-
-
     }
 }

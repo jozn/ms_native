@@ -231,40 +231,6 @@ public class X {
     }
  //( index .Fields 0).ViewClass
 
-    public static class CellsKeywoardAttachment {
-        public LinearLayout root;
-        public LinearLayout attachment_top;
-        public LinearLayout attachment_main;
-        public RelativeLayout frame_layout;
-        public LinearLayout attach_video;
-        public LinearLayout attach_gallery;
-        public LinearLayout attach_camera;
-        public LinearLayout attach_audio;
-        public LinearLayout attach_file;
-        public LinearLayout close_send_btn;
-        public TextView close_icon;
-        public TextView close_text;
-
-        public CellsKeywoardAttachment(ViewGroup parent) {
-            root = (LinearLayout) AppUtil.inflate(R.layout.cells_keywoard_attachment,parent);
-            attachment_top = (LinearLayout) root.findViewById( R.id.attachment_top);
-            attachment_main = (LinearLayout) root.findViewById( R.id.attachment_main);
-            frame_layout = (RelativeLayout) root.findViewById( R.id.frame_layout);
-            attach_video = (LinearLayout) root.findViewById( R.id.attach_video);
-            attach_gallery = (LinearLayout) root.findViewById( R.id.attach_gallery);
-            attach_camera = (LinearLayout) root.findViewById( R.id.attach_camera);
-            attach_audio = (LinearLayout) root.findViewById( R.id.attach_audio);
-            attach_file = (LinearLayout) root.findViewById( R.id.attach_file);
-            close_send_btn = (LinearLayout) root.findViewById( R.id.close_send_btn);
-            close_icon = (TextView) root.findViewById( R.id.close_icon);
-            close_text = (TextView) root.findViewById( R.id.close_text);
-        }
-        public CellsKeywoardAttachment() {
-            this(null);
-        }
-    }
- //( index .Fields 0).ViewClass
-
     public static class Chat_EntryRoom {
         public LinearLayout root;
         public TextView room_name;
@@ -954,6 +920,40 @@ public class X {
             send_btn = (XIcon) root.findViewById( R.id.send_btn);
         }
         public InputTextAddSimpleText() {
+            this(null);
+        }
+    }
+ //( index .Fields 0).ViewClass
+
+    public static class KeywoardAttachment {
+        public LinearLayout root;
+        public LinearLayout attachment_top;
+        public LinearLayout attachment_main;
+        public RelativeLayout frame_layout;
+        public LinearLayout attach_video;
+        public LinearLayout attach_gallery;
+        public LinearLayout attach_camera;
+        public LinearLayout attach_audio;
+        public LinearLayout attach_file;
+        public LinearLayout close_send_btn;
+        public TextView close_icon;
+        public TextView close_text;
+
+        public KeywoardAttachment(ViewGroup parent) {
+            root = (LinearLayout) AppUtil.inflate(R.layout.keywoard_attachment,parent);
+            attachment_top = (LinearLayout) root.findViewById( R.id.attachment_top);
+            attachment_main = (LinearLayout) root.findViewById( R.id.attachment_main);
+            frame_layout = (RelativeLayout) root.findViewById( R.id.frame_layout);
+            attach_video = (LinearLayout) root.findViewById( R.id.attach_video);
+            attach_gallery = (LinearLayout) root.findViewById( R.id.attach_gallery);
+            attach_camera = (LinearLayout) root.findViewById( R.id.attach_camera);
+            attach_audio = (LinearLayout) root.findViewById( R.id.attach_audio);
+            attach_file = (LinearLayout) root.findViewById( R.id.attach_file);
+            close_send_btn = (LinearLayout) root.findViewById( R.id.close_send_btn);
+            close_icon = (TextView) root.findViewById( R.id.close_icon);
+            close_text = (TextView) root.findViewById( R.id.close_text);
+        }
+        public KeywoardAttachment() {
             this(null);
         }
     }
