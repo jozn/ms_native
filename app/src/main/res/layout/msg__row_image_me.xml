@@ -22,7 +22,7 @@
 
         </com.mardomsara.social.ui.views.wigets.ChatMediaNetworkLoader>
 
-        <com.mardomsara.emojicon.EmojiconTextView
+        <com.mardomsara.social.ui.views.x.XTextView
             style="@style/msg_text.peer"
             android:id="@+id/msg_text"
             />

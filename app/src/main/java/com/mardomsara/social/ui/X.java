@@ -233,26 +233,26 @@ public class X {
 
     public static class Chat_EntryRoom {
         public LinearLayout root;
-        public TextView room_name;
+        public XTextView room_name;
         public ImageView avatar;
-        public TextView back;
+        public XRawIcon back;
         public RecyclerView recycler_view;
         public LinearLayout bottom_container;
         public TextView emoji_opener_btn;
-        public EmojiconEditText edit_field;
+        public XEditTextView edit_field;
         public IconTextView attach_btn;
         public IconTextView attach2;
         public IconTextView send_msg_btn;
 
         public Chat_EntryRoom(ViewGroup parent) {
             root = (LinearLayout) AppUtil.inflate(R.layout.chat__entry_room,parent);
-            room_name = (TextView) root.findViewById( R.id.room_name);
+            room_name = (XTextView) root.findViewById( R.id.room_name);
             avatar = (ImageView) root.findViewById( R.id.avatar);
-            back = (TextView) root.findViewById( R.id.back);
+            back = (XRawIcon) root.findViewById( R.id.back);
             recycler_view = (RecyclerView) root.findViewById( R.id.recycler_view);
             bottom_container = (LinearLayout) root.findViewById( R.id.bottom_container);
             emoji_opener_btn = (TextView) root.findViewById( R.id.emoji_opener_btn);
-            edit_field = (EmojiconEditText) root.findViewById( R.id.edit_field);
+            edit_field = (XEditTextView) root.findViewById( R.id.edit_field);
             attach_btn = (IconTextView) root.findViewById( R.id.attach_btn);
             attach2 = (IconTextView) root.findViewById( R.id.attach2);
             send_msg_btn = (IconTextView) root.findViewById( R.id.send_msg_btn);
@@ -665,9 +665,9 @@ public class X {
 
     public static class FragmentChatEnteryPage {
         public LinearLayout root;
-        public TextView room_name;
+        public XTextView room_name;
         public ImageView avatar;
-        public TextView back;
+        public XRawIcon back;
         public ImageView imageView;
         public RecyclerView recycler_view;
         public LinearLayout bottom_container;
@@ -679,9 +679,9 @@ public class X {
 
         public FragmentChatEnteryPage(ViewGroup parent) {
             root = (LinearLayout) AppUtil.inflate(R.layout.fragment_chat_entery_page,parent);
-            room_name = (TextView) root.findViewById( R.id.room_name);
+            room_name = (XTextView) root.findViewById( R.id.room_name);
             avatar = (ImageView) root.findViewById( R.id.avatar);
-            back = (TextView) root.findViewById( R.id.back);
+            back = (XRawIcon) root.findViewById( R.id.back);
             imageView = (ImageView) root.findViewById( R.id.imageView);
             recycler_view = (RecyclerView) root.findViewById( R.id.recycler_view);
             bottom_container = (LinearLayout) root.findViewById( R.id.bottom_container);
@@ -791,15 +791,15 @@ public class X {
 
     public static class HeaderChatEntary {
         public RelativeLayout root;
-        public TextView room_name;
+        public XTextView room_name;
         public ImageView avatar;
-        public TextView back;
+        public XRawIcon back;
 
         public HeaderChatEntary(ViewGroup parent) {
             root = (RelativeLayout) AppUtil.inflate(R.layout.header_chat_entary,parent);
-            room_name = (TextView) root.findViewById( R.id.room_name);
+            room_name = (XTextView) root.findViewById( R.id.room_name);
             avatar = (ImageView) root.findViewById( R.id.avatar);
-            back = (TextView) root.findViewById( R.id.back);
+            back = (XRawIcon) root.findViewById( R.id.back);
         }
         public HeaderChatEntary() {
             this(null);
@@ -1209,11 +1209,11 @@ public class X {
 
     public static class Msg_RowAllMe {
         public LinearLayout root;
-        public TextView txt;
+        public XTextView txt;
 
         public Msg_RowAllMe(ViewGroup parent) {
             root = (LinearLayout) AppUtil.inflate(R.layout.msg__row_all_me,parent);
-            txt = (TextView) root.findViewById( R.id.txt);
+            txt = (XTextView) root.findViewById( R.id.txt);
         }
         public Msg_RowAllMe() {
             this(null);
@@ -1311,17 +1311,17 @@ public class X {
         public LinearLayout root;
         public LinearLayout msg_content_holder;
         public ChatMediaNetworkLoader image_holder;
-        public EmojiconTextView msg_text;
-        public TextView msg_time;
-        public TextView msg_delivery_status;
+        public XTextView msg_text;
+        public XTextView msg_time;
+        public XRawIcon msg_delivery_status;
 
         public Msg_RowImageMe(ViewGroup parent) {
             root = (LinearLayout) AppUtil.inflate(R.layout.msg__row_image_me,parent);
             msg_content_holder = (LinearLayout) root.findViewById( R.id.msg_content_holder);
             image_holder = (ChatMediaNetworkLoader) root.findViewById( R.id.image_holder);
-            msg_text = (EmojiconTextView) root.findViewById( R.id.msg_text);
-            msg_time = (TextView) root.findViewById( R.id.msg_time);
-            msg_delivery_status = (TextView) root.findViewById( R.id.msg_delivery_status);
+            msg_text = (XTextView) root.findViewById( R.id.msg_text);
+            msg_time = (XTextView) root.findViewById( R.id.msg_time);
+            msg_delivery_status = (XRawIcon) root.findViewById( R.id.msg_delivery_status);
         }
         public Msg_RowImageMe() {
             this(null);
@@ -1333,14 +1333,14 @@ public class X {
         public LinearLayout root;
         public LinearLayout msg_content_holder;
         public ChatMediaNetworkLoader image_holder;
-        public EmojiconTextView msg_text;
+        public XTextView msg_text;
         public TextView msg_time;
 
         public Msg_RowImagePeer(ViewGroup parent) {
             root = (LinearLayout) AppUtil.inflate(R.layout.msg__row_image_peer,parent);
             msg_content_holder = (LinearLayout) root.findViewById( R.id.msg_content_holder);
             image_holder = (ChatMediaNetworkLoader) root.findViewById( R.id.image_holder);
-            msg_text = (EmojiconTextView) root.findViewById( R.id.msg_text);
+            msg_text = (XTextView) root.findViewById( R.id.msg_text);
             msg_time = (TextView) root.findViewById( R.id.msg_time);
         }
         public Msg_RowImagePeer() {
@@ -1376,12 +1376,12 @@ public class X {
     public static class Msg_RowNotSupportedPeer {
         public LinearLayout root;
         public LinearLayout msg_content_holder;
-        public EmojiconTextView msg_text;
+        public XTextView msg_text;
 
         public Msg_RowNotSupportedPeer(ViewGroup parent) {
             root = (LinearLayout) AppUtil.inflate(R.layout.msg__row_not_supported_peer,parent);
             msg_content_holder = (LinearLayout) root.findViewById( R.id.msg_content_holder);
-            msg_text = (EmojiconTextView) root.findViewById( R.id.msg_text);
+            msg_text = (XTextView) root.findViewById( R.id.msg_text);
         }
         public Msg_RowNotSupportedPeer() {
             this(null);
@@ -1452,14 +1452,14 @@ public class X {
     public static class Msg_RowTextMe {
         public LinearLayout root;
         public LinearLayout msg_content_holder;
-        public EmojiconTextView msg_text;
+        public XTextView msg_text;
         public TextView msg_time;
         public TextView msg_delivery_status;
 
         public Msg_RowTextMe(ViewGroup parent) {
             root = (LinearLayout) AppUtil.inflate(R.layout.msg__row_text_me,parent);
             msg_content_holder = (LinearLayout) root.findViewById( R.id.msg_content_holder);
-            msg_text = (EmojiconTextView) root.findViewById( R.id.msg_text);
+            msg_text = (XTextView) root.findViewById( R.id.msg_text);
             msg_time = (TextView) root.findViewById( R.id.msg_time);
             msg_delivery_status = (TextView) root.findViewById( R.id.msg_delivery_status);
         }
@@ -1472,13 +1472,13 @@ public class X {
     public static class Msg_RowTextPeer {
         public LinearLayout root;
         public LinearLayout msg_content_holder;
-        public EmojiconTextView msg_text;
+        public XTextView msg_text;
         public TextView msg_time;
 
         public Msg_RowTextPeer(ViewGroup parent) {
             root = (LinearLayout) AppUtil.inflate(R.layout.msg__row_text_peer,parent);
             msg_content_holder = (LinearLayout) root.findViewById( R.id.msg_content_holder);
-            msg_text = (EmojiconTextView) root.findViewById( R.id.msg_text);
+            msg_text = (XTextView) root.findViewById( R.id.msg_text);
             msg_time = (TextView) root.findViewById( R.id.msg_time);
         }
         public Msg_RowTextPeer() {
@@ -1491,17 +1491,17 @@ public class X {
         public LinearLayout root;
         public RelativeLayout msg_content_holder;
         public SimpleDraweeView msg_image;
-        public EmojiconTextView msg_text;
-        public TextView msg_time;
-        public TextView msg_delivery_status;
+        public XTextView msg_text;
+        public XTextView msg_time;
+        public XRawIcon msg_delivery_status;
 
         public Msg_RowVideoMe(ViewGroup parent) {
             root = (LinearLayout) AppUtil.inflate(R.layout.msg__row_video_me,parent);
             msg_content_holder = (RelativeLayout) root.findViewById( R.id.msg_content_holder);
             msg_image = (SimpleDraweeView) root.findViewById( R.id.msg_image);
-            msg_text = (EmojiconTextView) root.findViewById( R.id.msg_text);
-            msg_time = (TextView) root.findViewById( R.id.msg_time);
-            msg_delivery_status = (TextView) root.findViewById( R.id.msg_delivery_status);
+            msg_text = (XTextView) root.findViewById( R.id.msg_text);
+            msg_time = (XTextView) root.findViewById( R.id.msg_time);
+            msg_delivery_status = (XRawIcon) root.findViewById( R.id.msg_delivery_status);
         }
         public Msg_RowVideoMe() {
             this(null);
@@ -1537,13 +1537,13 @@ public class X {
 
     public static class Msg_SharedTimeStatus {
         public LinearLayout root;
-        public TextView msg_time;
-        public TextView msg_delivery_status;
+        public XTextView msg_time;
+        public XRawIcon msg_delivery_status;
 
         public Msg_SharedTimeStatus(ViewGroup parent) {
             root = (LinearLayout) AppUtil.inflate(R.layout.msg__shared_time_status,parent);
-            msg_time = (TextView) root.findViewById( R.id.msg_time);
-            msg_delivery_status = (TextView) root.findViewById( R.id.msg_delivery_status);
+            msg_time = (XTextView) root.findViewById( R.id.msg_time);
+            msg_delivery_status = (XRawIcon) root.findViewById( R.id.msg_delivery_status);
         }
         public Msg_SharedTimeStatus() {
             this(null);
@@ -2135,13 +2135,13 @@ public class X {
         public FrameLayout root;
         public SimpleDraweeView image_drawee;
         public FrameLayout text_holder;
-        public TextView text_icon;
+        public XRawIcon text_icon;
 
         public RecentImagesAddPost_ImageItem(ViewGroup parent) {
             root = (FrameLayout) AppUtil.inflate(R.layout.recent_images_add_post__image_item,parent);
             image_drawee = (SimpleDraweeView) root.findViewById( R.id.image_drawee);
             text_holder = (FrameLayout) root.findViewById( R.id.text_holder);
-            text_icon = (TextView) root.findViewById( R.id.text_icon);
+            text_icon = (XRawIcon) root.findViewById( R.id.text_icon);
         }
         public RecentImagesAddPost_ImageItem() {
             this(null);

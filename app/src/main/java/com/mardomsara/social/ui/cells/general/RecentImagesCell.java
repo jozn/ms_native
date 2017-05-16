@@ -10,11 +10,9 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.facebook.drawee.generic.GenericDraweeHierarchy;
 import com.facebook.drawee.generic.GenericDraweeHierarchyBuilder;
-import com.facebook.drawee.view.SimpleDraweeView;
 import com.mardomsara.MediaFacade.media.image.ImageCursor;
 import com.mardomsara.MediaFacade.media.image.ImageProviderHelper;
 import com.mardomsara.social.App;
@@ -28,20 +26,17 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
-//import jp.wasabeef.recyclerview.adapters.AlphaInAnimationAdapter;
 import pl.tajchert.nammu.Nammu;
 import pl.tajchert.nammu.PermissionCallback;
+
+//import jp.wasabeef.recyclerview.adapters.AlphaInAnimationAdapter;
 
 /**
  * Created by Hamid on 6/17/2016.
  */
 //image size is 80dp
 public class RecentImagesCell {
-    View view;
-    String Tag = "Gallery";
-    Cursor cursor ;
+
     int maxSelection = 10;
 
     onRecentImageClicked listener;
@@ -183,8 +178,6 @@ public class RecentImagesCell {
 
             public VH(X.RecentImages_ImageItem x) {
                 super(x.root);
-//                view = itemView;
-//                ButterKnife.bind(this,itemView);
 				this.x = x;
                 x.root.setOnClickListener(onSelect);
             }
@@ -199,7 +192,7 @@ public class RecentImagesCell {
                     thisRunid = imageCursor.id();
                     path = imageCursor.data();
                     filePath = imageCursor.data();
-                    view.setTag(position);
+                    x.root.setTag(position);
                     if(selected.contains(filePath)){
                         x.text_icon.setVisibility(View.VISIBLE);
                         x.text_holder.setBackgroundColor(AndroidUtil.getColor(R.color.transparent_selection));

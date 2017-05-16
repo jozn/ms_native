@@ -6,7 +6,7 @@
         android:id="@+id/msg_content_holder"
         style="@style/msg.content_holder.me"
         >
-        <com.mardomsara.emojicon.EmojiconTextView
+        <com.mardomsara.social.ui.views.x.XTextView
             style="@style/msg_text.me"
             android:id="@+id/msg_text"
             />

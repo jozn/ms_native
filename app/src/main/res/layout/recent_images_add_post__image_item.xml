@@ -22,12 +22,13 @@
         android:background="@color/transparent_0"
         >
 
-        <TextView
+        <com.mardomsara.social.ui.views.XRawIcon
             android:layout_width="80dp"
             android:layout_height="match_parent"
             style="@style/recent_images.icon_selected"
             android:text="\uf383"
             android:id="@+id/text_icon"
+            fresco:xIconFont="IonIcons"
             />
     </FrameLayout>
 

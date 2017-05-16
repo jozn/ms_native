@@ -5,13 +5,13 @@
     android:layout_marginTop="5dp"
     android:background="@color/white"
     android:gravity="left">
-    <TextView
+    <com.mardomsara.social.ui.views.x.XTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="!! Hello Wolrld row !!"
         android:gravity="left"
         android:id="@+id/txt"/>
-    <TextView
+    <com.mardomsara.social.ui.views.x.XTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text=" --ME --"

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_gravity="center"
-    android:background="@color/white"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:layout_gravity="center"
+              android:background="@color/white"
     >
 
     <include layout="@layout/header_chat_entary"
@@ -48,7 +49,7 @@
                 style="@style/input_bar_icon"
                 android:id="@+id/emoji_opener_btn"
                 />
-            <com.mardomsara.emojicon.EmojiconEditText
+            <com.mardomsara.social.ui.views.x.XEditTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@null"
@@ -66,6 +67,7 @@
                 android:soundEffectsEnabled="true"
                 android:hint="پیام..."
                 style="@style/text_light"
+                app:xFont="IranLight"
                 />
             <com.joanzapata.iconify.widget.IconTextView
                 style="@style/input_bar_icon"

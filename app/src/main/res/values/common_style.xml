@@ -43,7 +43,7 @@
 
 
     <style name="text_light">
-        <item name="fontPath">@string/font_iran_light</item>
+        <!--<item name="fontPath">@string/font_iran_light</item>-->
         <item name="android:textSize">14dp</item>
         <item name="android:textColor">@color/black</item>
 
@@ -78,7 +78,7 @@
     </style>
 
     <style name="text_ionic">
-        <item name="fontPath">@string/font_ionic</item>
+        <!--<item name="fontPath">@string/font_ionic</item>-->
         <item name="android:textSize">25dp</item>
     </style>
 
