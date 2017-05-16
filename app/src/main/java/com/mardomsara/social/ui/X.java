@@ -300,18 +300,18 @@ public class X {
     public static class Chat_ListRow {
         public ChatListRowWhithBorderRelativeLayout root;
         public SimpleDraweeView avatar;
-        public EmojiconTextView name_txt;
-        public TextView date_txt;
+        public XTextView name_txt;
+        public XTextView date_txt;
         public CountView2 unseen_count_txt;
-        public EmojiconTextView last_msg_txt;
+        public XTextView last_msg_txt;
 
         public Chat_ListRow(ViewGroup parent) {
             root = (ChatListRowWhithBorderRelativeLayout) AppUtil.inflate(R.layout.chat__list_row,parent);
             avatar = (SimpleDraweeView) root.findViewById( R.id.avatar);
-            name_txt = (EmojiconTextView) root.findViewById( R.id.name_txt);
-            date_txt = (TextView) root.findViewById( R.id.date_txt);
+            name_txt = (XTextView) root.findViewById( R.id.name_txt);
+            date_txt = (XTextView) root.findViewById( R.id.date_txt);
             unseen_count_txt = (CountView2) root.findViewById( R.id.unseen_count_txt);
-            last_msg_txt = (EmojiconTextView) root.findViewById( R.id.last_msg_txt);
+            last_msg_txt = (XTextView) root.findViewById( R.id.last_msg_txt);
         }
         public Chat_ListRow() {
             this(null);
@@ -430,15 +430,15 @@ public class X {
     public static class ContactsFollowingsList_Row {
         public LinearLayout root;
         public FollowingButtonView following_button;
-        public EmojiconTextView second_name;
-        public EmojiconTextView primary_name;
+        public XTextView second_name;
+        public XTextView primary_name;
         public SimpleDraweeView avatar;
 
         public ContactsFollowingsList_Row(ViewGroup parent) {
             root = (LinearLayout) AppUtil.inflate(R.layout.contacts_followings_list__row,parent);
             following_button = (FollowingButtonView) root.findViewById( R.id.following_button);
-            second_name = (EmojiconTextView) root.findViewById( R.id.second_name);
-            primary_name = (EmojiconTextView) root.findViewById( R.id.primary_name);
+            second_name = (XTextView) root.findViewById( R.id.second_name);
+            primary_name = (XTextView) root.findViewById( R.id.primary_name);
             avatar = (SimpleDraweeView) root.findViewById( R.id.avatar);
         }
         public ContactsFollowingsList_Row() {
@@ -448,12 +448,12 @@ public class X {
  //( index .Fields 0).ViewClass
 
     public static class ContactsFollowingsList_RowUnregisteredContact {
-        public TextView root;
-        public TextView name_text;
+        public XTextView root;
+        public XTextView name_text;
 
         public ContactsFollowingsList_RowUnregisteredContact(ViewGroup parent) {
-            root = (TextView) AppUtil.inflate(R.layout.contacts_followings_list__row_unregistered_contact,parent);
-            name_text = (TextView) root.findViewById( R.id.name_text);
+            root = (XTextView) AppUtil.inflate(R.layout.contacts_followings_list__row_unregistered_contact,parent);
+            name_text = (XTextView) root.findViewById( R.id.name_text);
         }
         public ContactsFollowingsList_RowUnregisteredContact() {
             this(null);
@@ -463,24 +463,24 @@ public class X {
 
     public static class ContactsFollowingsList_Screen {
         public LinearLayout root;
-        public Button followings_tab_btn;
-        public Button contacts_tab_btn;
+        public XTextView followings_tab_btn;
+        public XTextView contacts_tab_btn;
         public SwipeRefreshLayout layout_contacts;
-        public TextView empty_contacts_msg;
+        public XTextView empty_contacts_msg;
         public RecyclerView contacts_list_rv;
         public SwipeRefreshLayout layout_followings;
-        public TextView empty_followings_msg;
+        public XTextView empty_followings_msg;
         public RecyclerView followings_list_rv;
 
         public ContactsFollowingsList_Screen(ViewGroup parent) {
             root = (LinearLayout) AppUtil.inflate(R.layout.contacts_followings_list__screen,parent);
-            followings_tab_btn = (Button) root.findViewById( R.id.followings_tab_btn);
-            contacts_tab_btn = (Button) root.findViewById( R.id.contacts_tab_btn);
+            followings_tab_btn = (XTextView) root.findViewById( R.id.followings_tab_btn);
+            contacts_tab_btn = (XTextView) root.findViewById( R.id.contacts_tab_btn);
             layout_contacts = (SwipeRefreshLayout) root.findViewById( R.id.layout_contacts);
-            empty_contacts_msg = (TextView) root.findViewById( R.id.empty_contacts_msg);
+            empty_contacts_msg = (XTextView) root.findViewById( R.id.empty_contacts_msg);
             contacts_list_rv = (RecyclerView) root.findViewById( R.id.contacts_list_rv);
             layout_followings = (SwipeRefreshLayout) root.findViewById( R.id.layout_followings);
-            empty_followings_msg = (TextView) root.findViewById( R.id.empty_followings_msg);
+            empty_followings_msg = (XTextView) root.findViewById( R.id.empty_followings_msg);
             followings_list_rv = (RecyclerView) root.findViewById( R.id.followings_list_rv);
         }
         public ContactsFollowingsList_Screen() {

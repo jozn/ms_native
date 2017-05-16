@@ -5,9 +5,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
-import com.facebook.drawee.view.SimpleDraweeView;
 import com.mardomsara.social.App;
 import com.mardomsara.social.Nav;
 import com.mardomsara.social.R;
@@ -28,16 +26,13 @@ import com.mardomsara.social.models.memory_store.MemoryStore_Rooms;
 import com.mardomsara.social.models.tables.Message;
 import com.mardomsara.social.models.tables.Room;
 import com.mardomsara.social.play.DividerItemDecoration;
-import com.mardomsara.social.ui.views.wigets.CountView2;
+import com.mardomsara.social.ui.X;
 
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import butterknife.Bind;
-import butterknife.ButterKnife;
 
 /**
  * Created by Hamid on 9/7/2016.
@@ -117,10 +112,10 @@ public class RoomsListCell {
         RoomRowCell roomRowCell;
 
         public RoomRowCellHolder(RoomRowCell rowCell) {
-            super(rowCell.root_view);
+            super(rowCell.x.root);
             roomRowCell =rowCell;
 
-            root_view = rowCell.root_view;
+            root_view = rowCell.x.root;
         }
 
         public void bind(Room room){
@@ -138,23 +133,17 @@ public class RoomsListCell {
         public Room room;
         RoomsListAdaptor adaptor;
 
-        private View root_view;
-        @Bind(R.id.avatar)public SimpleDraweeView avatar;
-        @Bind(R.id.date_txt) public TextView date_txt;
-        @Bind(R.id.name_txt) public TextView name_txt;
-        @Bind(R.id.unseen_count_txt)public CountView2 unseen_count_txt;
-        @Bind(R.id.last_msg_txt)public TextView last_msg_txt;
+		X.Chat_ListRow x;
 
         public RoomRowCell(ViewGroup parent, RoomsListAdaptor adaptor) {
-            root_view = AppUtil.inflate(R.layout.chat__list_row,parent);
-            ButterKnife.bind(this,root_view);
+			x = new X.Chat_ListRow(parent);
             this.adaptor = adaptor;
 
-            root_view.setOnClickListener((vv)->{
+            x.root.setOnClickListener((vv)->{
                 if (room!= null) Nav.push(Router.getRoomEntry(room));
             });
 
-            root_view.setOnLongClickListener((vv)->{
+            x.root.setOnLongClickListener((vv)->{
                 RoomHelper.moreRoomOptin(room,adaptor);
                 return true;
             });
@@ -163,17 +152,17 @@ public class RoomsListCell {
         public void bind(Room room){
             Message lastMsg = MemoryStore_LastMsgs.getForRoom(room);
             this.room = room;
-            name_txt.setText(room.getRoomName());
-            date_txt.setText(""+ FormaterUtil.friendlyTimeClockOrDayMs(room.UpdatedMs));//+"قبل");
-            unseen_count_txt.setCount(room.UnseenMessageCount);
+            x.name_txt.setText(room.getRoomName());
+            x.date_txt.setText(""+ FormaterUtil.friendlyTimeClockOrDayMs(room.UpdatedMs));//+"قبل");
+            x.unseen_count_txt.setCount(room.UnseenMessageCount);
 
             if(lastMsg != null){
-                last_msg_txt.setText(RoomHelper.getLastMsgFormatedText(lastMsg));
+                x.last_msg_txt.setText(RoomHelper.getLastMsgFormatedText(lastMsg));
             }else {//clear from previus
-                last_msg_txt.setText("");
+                x.last_msg_txt.setText("");
             }
             Uri imageUri = Helper.PathToUserAvatarUri(room.getRoomAvatarUrl());
-            avatar.setImageURI(imageUri);
+            x.avatar.setImageURI(imageUri);
         }
     }
 

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:paddingRight="10dp"
-    android:paddingLeft="10dp"
-    android:background="@color/white"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:paddingRight="10dp"
+              android:paddingLeft="10dp"
+              android:background="@color/white"
     >
 
     <Space
@@ -18,22 +18,25 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         >
-        <Button
+        <com.mardomsara.social.ui.views.x.XTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/followings_tab_btn"
             android:text="دنبال شدگان"
             style="@style/minitab_cell"
             android:background="@drawable/minitab_cell_left"
+            android:clickable="true"
+            app:xFont="IranMedium"
             />
-        <Button
+        <com.mardomsara.social.ui.views.x.XTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/contacts_tab_btn"
             android:text="مخاطبین"
             style="@style/minitab_cell"
             android:background="@drawable/minitab_cell_right"
-
+            android:clickable="true"
+            app:xFont="IranMedium"
             />
 
     </LinearLayout>
@@ -53,12 +56,13 @@
             android:orientation="vertical"
 
             >
-            <TextView
+            <com.mardomsara.social.ui.views.x.XTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/empty_contacts_msg"
                 style="@style/minitab_container_empty_msg"
                 android:text="@string/contacts_list_presenter.none_of_your_contacts_registered"
+                app:xFont="Iran"
                 />
 
             <android.support.v7.widget.RecyclerView
@@ -93,12 +97,13 @@
             android:orientation="vertical"
             >
 
-            <TextView
+            <com.mardomsara.social.ui.views.x.XTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/empty_followings_msg"
                 style="@style/minitab_container_empty_msg"
                 android:text="@string/contacts_list_presenter.you_not_following_anybody"
+                app:xFont="Iran"
                 />
 
             <android.support.v7.widget.RecyclerView

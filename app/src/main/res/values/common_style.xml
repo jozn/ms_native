@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="text">
-        <item name="fontPath">@string/font_iran_medium</item>
+        <!--<item name="fontPath">@string/font_iran_medium</item>-->
 
     </style>
-
 
     <style name="text.normal">
         <item name="android:textSize">14dp</item>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:fresco="http://schemas.android.com/apk/res-auto"
-    style="@style/text.normal"
+<com.mardomsara.social.ui.views.x.XTextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:paddingTop="5dp"
@@ -13,9 +13,13 @@
     android:id="@+id/name_text"
 
     android:layout_marginBottom="1dp"
+    app:xFont="IranLight"
+    android:textColor="@color/text_gray_1"
+    android:textSize="14dp"
+
 
     >
     <!--android:background="@drawable/general_border_bottom_1px"-->
 
 
-</TextView>
+</com.mardomsara.social.ui.views.x.XTextView>

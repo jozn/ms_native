@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.mardomsara.social.ui.views.wigets.ChatListRowWhithBorderRelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:fresco="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
     android:layout_width="match_parent"
@@ -26,12 +27,10 @@
         android:layout_centerVertical="true"
         />
 
-
-    <com.mardomsara.emojicon.EmojiconTextView
+    <com.mardomsara.social.ui.views.x.XTextView
         android:id="@+id/name_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        fontPath="@string/font_iran_medium"
         android:layout_weight="1"
         android:textSize="16dp"
         android:textColor="@color/navbar_background"
@@ -39,16 +38,16 @@
         android:layout_toLeftOf="@id/avatar"
         android:layout_alignParentTop="true"
         android:paddingRight="8dp"
+        app:xFont="IranMedium"
         />
 
-    <TextView
+    <com.mardomsara.social.ui.views.x.XTextView
         android:id="@+id/date_txt"
         style="@style/room_row_date"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
+        app:xFont="IranLight"
         />
-
-
 
     <com.mardomsara.social.ui.views.wigets.CountView2
         android:layout_width="wrap_content"
@@ -69,14 +68,13 @@
         android:layout_below="@id/date_txt"
         />
 
-    <com.mardomsara.emojicon.EmojiconTextView
+    <com.mardomsara.social.ui.views.x.XTextView
         android:id="@+id/last_msg_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:maxLines="1"
         android:gravity="right"
-        fontPath="@string/font_iran_light"
         android:textSize="15dp"
         emojiconSize="75dp"
         android:layout_toLeftOf="@id/avatar"
@@ -84,10 +82,8 @@
         android:layout_below="@id/name_txt"
         android:layout_alignParentBottom="true"
         android:paddingRight="8dp"
-
+        app:xFont="IranLight"
 
         />
-
-
 
 </com.mardomsara.social.ui.views.wigets.ChatListRowWhithBorderRelativeLayout>
