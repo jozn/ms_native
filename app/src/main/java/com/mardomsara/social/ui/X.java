@@ -2397,6 +2397,26 @@ public class X {
     }
  //( index .Fields 0).ViewClass
 
+    public static class UserList_TypeFollowRow {
+        public UserListGeneralFollowRowWhithBorderLinearLayout root;
+        public FollowingButtonView following_button;
+        public XTextView primary_name;
+        public XTextView second_name;
+        public SimpleDraweeView avatar;
+
+        public UserList_TypeFollowRow(ViewGroup parent) {
+            root = (UserListGeneralFollowRowWhithBorderLinearLayout) AppUtil.inflate(R.layout.user_list__type_follow_row,parent);
+            following_button = (FollowingButtonView) root.findViewById( R.id.following_button);
+            primary_name = (XTextView) root.findViewById( R.id.primary_name);
+            second_name = (XTextView) root.findViewById( R.id.second_name);
+            avatar = (SimpleDraweeView) root.findViewById( R.id.avatar);
+        }
+        public UserList_TypeFollowRow() {
+            this(null);
+        }
+    }
+ //( index .Fields 0).ViewClass
+
     public static class ViewRecyclerView {
         public RecyclerView root;
 
@@ -2459,26 +2479,6 @@ public class X {
             
             text = (XTextView) root.findViewById( R.id.text);
             icon = (TextView) root.findViewById( R.id.icon);
-        }
-    }
- //( index .Fields 0).ViewClass
-
-    public static class WigetUserListTypeFollowRow {
-        public UserListGeneralFollowRowWhithBorderLinearLayout root;
-        public FollowingButtonView following_button;
-        public XTextView primary_name;
-        public EmojiconTextView second_name;
-        public SimpleDraweeView avatar;
-
-        public WigetUserListTypeFollowRow(ViewGroup parent) {
-            root = (UserListGeneralFollowRowWhithBorderLinearLayout) AppUtil.inflate(R.layout.wiget_user_list_type_follow_row,parent);
-            following_button = (FollowingButtonView) root.findViewById( R.id.following_button);
-            primary_name = (XTextView) root.findViewById( R.id.primary_name);
-            second_name = (EmojiconTextView) root.findViewById( R.id.second_name);
-            avatar = (SimpleDraweeView) root.findViewById( R.id.avatar);
-        }
-        public WigetUserListTypeFollowRow() {
-            this(null);
         }
     }
  //( index .Fields 0).ViewClass

@@ -1,23 +1,17 @@
 package com.mardomsara.social.ui.ui;
 
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
-import com.facebook.drawee.view.SimpleDraweeView;
-import com.mardomsara.social.R;
 import com.mardomsara.social.app.Router;
-import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.json.social.rows.UserInfoJson;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
-import com.mardomsara.social.ui.views.wigets.FollowingButtonView;
+import com.mardomsara.social.ui.X;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
 import butterknife.ButterKnife;
 
 /**
@@ -38,7 +32,7 @@ public class UserListUI {
 
         @Override
         protected UserRowViewHolder onCreateContentItemViewHolder(ViewGroup parent, int contentViewType) {
-            return new UserRowViewHolder(AppUtil.inflate(R.layout.wiget_user_list_type_follow_row,parent));
+            return new UserRowViewHolder(new X.UserList_TypeFollowRow(parent));
         }
 
         @Override
@@ -49,31 +43,13 @@ public class UserListUI {
 
     public static class UserRowViewHolder extends RecyclerView.ViewHolder {
 
-   /*     public
-        static View.OnClickListener onClick = (v)->{
-            Router.goToProfile();
-        };*/
-
-        @Bind(R.id.following_button)
-        public FollowingButtonView following_button;
-
-        @Bind(R.id.second_name)
-        public TextView second_name;
-
-        @Bind(R.id.primary_name)
-        public TextView primary_name;
-
-        @Bind(R.id.avatar)
-        public SimpleDraweeView avatar;
-
-        View view;
+		X.UserList_TypeFollowRow x ;
 
 		UserInfoJson row;
 
-        public UserRowViewHolder(View itemView) {
-            super(itemView);
-            view = itemView;
-            view.setOnClickListener((v)->{
+        public UserRowViewHolder(X.UserList_TypeFollowRow x) {
+            super(x.root);
+            x.root.setOnClickListener((v)->{
                 Router.goToProfile(row.UserId);
             });
             ButterKnife.bind(this,itemView);
@@ -81,10 +57,10 @@ public class UserListUI {
 
         public void bind(UserInfoJson row){
             this.row = row;
-            primary_name.setText(row.FullName);
-            second_name.setText("@"+row.UserName);
-            Helper.SetAvatar(avatar, row.AvatarUrl);
-            following_button.setUser(row);
+            x.primary_name.setText(row.FullName);
+            x.second_name.setText("@"+row.UserName);
+            Helper.SetAvatar(x.avatar, row.AvatarUrl);
+            x.following_button.setUser(row);
         }
     }
 

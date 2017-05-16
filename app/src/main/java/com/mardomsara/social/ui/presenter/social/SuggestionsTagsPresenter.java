@@ -6,11 +6,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 
-import com.joanzapata.iconify.widget.IconTextView;
 import com.mardomsara.social.Nav;
-import com.mardomsara.social.R;
 import com.mardomsara.social.base.Http.Http;
 import com.mardomsara.social.base.Http.Result;
 import com.mardomsara.social.helpers.AndroidUtil;
@@ -30,9 +27,6 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import butterknife.Bind;
-import butterknife.ButterKnife;
 
 /**
  * Created by Hamid on 8/23/2016.
@@ -105,11 +99,6 @@ public class SuggestionsTagsPresenter extends BasePresenter implements AppHeader
     public void loadNextPage(int pageNum) {
 		Helper.showDebugMessage("page tags: "+ pageNum);
 
-		//for now just one page
-		/*if(pageNum > 1){
-			adaptor.setHasMorePage(false);
-			return;
-		}*/
 		loadFromServer(pageNum);
     }
 
@@ -134,27 +123,15 @@ public class SuggestionsTagsPresenter extends BasePresenter implements AppHeader
     }
 
     public static class TagHolder extends RecyclerView.ViewHolder {
-//        View rootView;
 		X.Recommend_TopTags x;
-
-        /*@Bind(R.id.image1) ImageView image1;
-        @Bind(R.id.image2) ImageView image2;
-        @Bind(R.id.image3) ImageView image3;
-        @Bind(R.id.text) TextView text;
-        @Bind(R.id.see_more)*/
-//		IconTextView see_more;
 
         int size =0;
 
         public TagHolder( X.Recommend_TopTags x) {
             super(x.root);
 			this.x = x;
-//            rootView = itemView;
-//            ButterKnife.bind(this,itemView);
 
             size = AndroidUtil.getScreenWidth()/3;
-
-//            image1.setLayoutParams(new LinearLayout.LayoutParams(size,size));
         }
 
         void bind(JV.TopTagsWithPostsView tagJson){

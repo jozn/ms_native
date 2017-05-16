@@ -43,7 +43,7 @@
 
             />
 
-        <com.mardomsara.emojicon.EmojiconTextView
+        <com.mardomsara.social.ui.views.x.XTextView
             android:id="@+id/second_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
