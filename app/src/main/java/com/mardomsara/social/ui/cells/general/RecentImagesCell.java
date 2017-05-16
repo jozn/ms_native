@@ -22,6 +22,7 @@ import com.mardomsara.social.R;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.ui.CursorRecyclerViewAdapter;
+import com.mardomsara.social.ui.X;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -47,8 +48,6 @@ public class RecentImagesCell {
 
     List<String> selected = new ArrayList<>();
 
-
-    @Bind(R.id.recycler_view)
     public RecyclerView recycler_view;
     Context context = AppUtil.getContext();
 
@@ -144,13 +143,14 @@ public class RecentImagesCell {
 
         @Override
         public VH onCreateViewHolder(ViewGroup parent, int viewType) {
-            return new VH(AppUtil.inflate(R.layout.recent_images_image_item));
+//            return new VH(AppUtil.inflate(R.layout.recent_images__image_item));
+            return new VH(new X.RecentImages_ImageItem(parent));
         }
 
         @Override
         public void onViewRecycled(VH holder) {
             super.onViewRecycled(holder);
-            holder.image.setImageBitmap(null);
+            holder.x.image.setImageBitmap(null);
         }
 
         //on select item
@@ -160,14 +160,8 @@ public class RecentImagesCell {
         }
 
         public class VH extends RecyclerView.ViewHolder {
-            @Bind(R.id.image)
-            SimpleDraweeView image;
-            @Bind(R.id.text_icon)
-            TextView  text_icon;
-            @Bind(R.id.text_holder)
-            View  text_holder;
 
-            View view;
+			X.RecentImages_ImageItem x;
             String filePath;
 
             View.OnClickListener onSelect = (v)->{
@@ -187,11 +181,12 @@ public class RecentImagesCell {
                 if(listener != null) listener.onRecentImageClicked(filePath);
             };
 
-            public VH(View itemView) {
-                super(itemView);
-                view = itemView;
-                ButterKnife.bind(this,itemView);
-                view.setOnClickListener(onSelect);
+            public VH(X.RecentImages_ImageItem x) {
+                super(x.root);
+//                view = itemView;
+//                ButterKnife.bind(this,itemView);
+				this.x = x;
+                x.root.setOnClickListener(onSelect);
             }
             Long thisViewcurrentId;
             void bind(ImageCursor imageCursor,int position){
@@ -206,13 +201,13 @@ public class RecentImagesCell {
                     filePath = imageCursor.data();
                     view.setTag(position);
                     if(selected.contains(filePath)){
-                        text_icon.setVisibility(View.VISIBLE);
-                        text_holder.setBackgroundColor(AndroidUtil.getColor(R.color.transparent_selection));
+                        x.text_icon.setVisibility(View.VISIBLE);
+                        x.text_holder.setBackgroundColor(AndroidUtil.getColor(R.color.transparent_selection));
                     }else{//for recyled this is neccessory
-                        text_icon.setVisibility(View.INVISIBLE);
-                        text_holder.setBackgroundColor(AndroidUtil.getColor(R.color.transparent_0));
+                        x.text_icon.setVisibility(View.INVISIBLE);
+                        x.text_holder.setBackgroundColor(AndroidUtil.getColor(R.color.transparent_0));
                     }
-                    image.setHierarchy(hierarchy);
+                    x.image.setHierarchy(hierarchy);
                 }
 
 //                synchronized (image){
@@ -226,11 +221,11 @@ public class RecentImagesCell {
                                 if(bm==null){
                                     if(thisRunid.equals(thisViewcurrentId)){
 //                                        image.setImageURI(path);
-                                        image.setImageURI(Uri.parse(path));
+                                        x.image.setImageURI(Uri.parse(path));
                                     }
                                 }else {
                                     if(thisRunid.equals(thisViewcurrentId)) {
-                                        image.setImageBitmap(bm);
+                                        x.image.setImageBitmap(bm);
                                     }
                                 }
 //                            }

@@ -51,14 +51,16 @@
                 style="@style/attachment_cell_holder"
                 android:id="@+id/attach_video"
                 >
-                <TextView
+                <com.mardomsara.social.ui.views.XRawIcon
                     android:text="\uf4cd"
                     style="@style/attachment_cell_icon"
                     android:textColor="#ff3e48"
+                    app:xIconFont="IonIcons"
                     />
-                <TextView
+                <com.mardomsara.social.ui.views.x.XTextView
                     style="@style/attachment_cell_text"
                     android:text="ویدیو"
+                    app:xFont="IranLight"
                     />
             </LinearLayout>
 
@@ -67,14 +69,16 @@
                 style="@style/attachment_cell_holder"
                 android:id="@+id/attach_gallery"
                 >
-                <TextView
+                <com.mardomsara.social.ui.views.XRawIcon
                     style="@style/attachment_cell_icon"
                     android:text="\uf148"
                     android:textColor="@color/btn_backgrounds"
+                    app:xIconFont="IonIcons"
                     />
-                <TextView
+                <com.mardomsara.social.ui.views.x.XTextView
                     style="@style/attachment_cell_text"
                     android:text="گالری"
+                    app:xFont="IranLight"
                     />
             </LinearLayout>
 
@@ -82,15 +86,17 @@
                 style="@style/attachment_cell_holder"
                 android:id="@+id/attach_camera"
                 >
-                <TextView
+                <com.mardomsara.social.ui.views.XRawIcon
                     style="@style/attachment_cell_icon"
                     android:text="\uf3f6"
                     android:textColor="#00a400"
+                    app:xIconFont="IonIcons"
                     />
 
-                <TextView
+                <com.mardomsara.social.ui.views.x.XTextView
                     style="@style/attachment_cell_text"
                     android:text="دوربین"
+                    app:xFont="IranLight"
                     />
             </LinearLayout>
 
@@ -107,14 +113,16 @@
                 style="@style/attachment_cell_holder"
                 android:id="@+id/attach_audio"
                 >
-                <TextView
+                <com.mardomsara.social.ui.views.XRawIcon
                     android:text="\uf20c"
                     style="@style/attachment_cell_icon"
                     android:textColor="#00ffff"
+                    app:xIconFont="IonIcons"
                     />
-                <TextView
+                <com.mardomsara.social.ui.views.x.XTextView
                     style="@style/attachment_cell_text"
                     android:text="صوت"
+                    app:xFont="IranLight"
                     />
             </LinearLayout>
 
@@ -123,14 +131,16 @@
                 style="@style/attachment_cell_holder"
                 android:id="@+id/attach_file"
                 >
-                <TextView
+                <com.mardomsara.social.ui.views.XRawIcon
                     style="@style/attachment_cell_icon"
                     android:text="\uf3ef"
                     android:textColor="#c101c1"
+                    app:xIconFont="IonIcons"
                     />
-                <TextView
+                <com.mardomsara.social.ui.views.x.XTextView
                     style="@style/attachment_cell_text"
                     android:text="فایل"
+                    app:xFont="IranLight"
                     />
             </LinearLayout>
 
@@ -138,19 +148,20 @@
                 style="@style/attachment_cell_holder"
                 android:id="@+id/close_send_btn"
                 >
-                <TextView
+                <com.mardomsara.social.ui.views.XRawIcon
                     style="@style/attachment_cell_icon"
                     android:text="\uf404"
                     android:textColor="#d28808"
                     android:id="@+id/close_icon"
+                    app:xIconFont="IonIcons"
                     />
 
-                <TextView
+                <com.mardomsara.social.ui.views.x.XTextView
                     style="@style/attachment_cell_text"
                     android:text=""
                     android:id="@+id/close_text"
                     android:maxLines="1"
-
+                    app:xFont="IranLight"
                     />
             </LinearLayout>
 

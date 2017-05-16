@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:fresco="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="@dimen/recent_images_image_size"
@@ -22,12 +23,13 @@
         android:background="@color/transparent_0"
         >
 
-        <TextView
+        <com.mardomsara.social.ui.views.XRawIcon
             android:layout_width="80dp"
             android:layout_height="match_parent"
             style="@style/recent_images.icon_selected"
             android:text="\uf383"
             android:id="@+id/text_icon"
+            app:xIconFont="IonIcons"
             />
     </FrameLayout>
 

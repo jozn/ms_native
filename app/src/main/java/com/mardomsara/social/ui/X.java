@@ -936,8 +936,8 @@ public class X {
         public LinearLayout attach_audio;
         public LinearLayout attach_file;
         public LinearLayout close_send_btn;
-        public TextView close_icon;
-        public TextView close_text;
+        public XRawIcon close_icon;
+        public XTextView close_text;
 
         public KeywoardAttachment(ViewGroup parent) {
             root = (LinearLayout) AppUtil.inflate(R.layout.keywoard_attachment,parent);
@@ -950,8 +950,8 @@ public class X {
             attach_audio = (LinearLayout) root.findViewById( R.id.attach_audio);
             attach_file = (LinearLayout) root.findViewById( R.id.attach_file);
             close_send_btn = (LinearLayout) root.findViewById( R.id.close_send_btn);
-            close_icon = (TextView) root.findViewById( R.id.close_icon);
-            close_text = (TextView) root.findViewById( R.id.close_text);
+            close_icon = (XRawIcon) root.findViewById( R.id.close_icon);
+            close_text = (XTextView) root.findViewById( R.id.close_text);
         }
         public KeywoardAttachment() {
             this(null);
@@ -2113,6 +2113,24 @@ public class X {
     }
  //( index .Fields 0).ViewClass
 
+    public static class RecentImages_ImageItem {
+        public FrameLayout root;
+        public SimpleDraweeView image;
+        public FrameLayout text_holder;
+        public XRawIcon text_icon;
+
+        public RecentImages_ImageItem(ViewGroup parent) {
+            root = (FrameLayout) AppUtil.inflate(R.layout.recent_images__image_item,parent);
+            image = (SimpleDraweeView) root.findViewById( R.id.image);
+            text_holder = (FrameLayout) root.findViewById( R.id.text_holder);
+            text_icon = (XRawIcon) root.findViewById( R.id.text_icon);
+        }
+        public RecentImages_ImageItem() {
+            this(null);
+        }
+    }
+ //( index .Fields 0).ViewClass
+
     public static class RecentImagesAddPost_ImageItem {
         public FrameLayout root;
         public SimpleDraweeView image_drawee;
@@ -2126,24 +2144,6 @@ public class X {
             text_icon = (TextView) root.findViewById( R.id.text_icon);
         }
         public RecentImagesAddPost_ImageItem() {
-            this(null);
-        }
-    }
- //( index .Fields 0).ViewClass
-
-    public static class RecentImagesImageItem {
-        public FrameLayout root;
-        public SimpleDraweeView image;
-        public FrameLayout text_holder;
-        public TextView text_icon;
-
-        public RecentImagesImageItem(ViewGroup parent) {
-            root = (FrameLayout) AppUtil.inflate(R.layout.recent_images_image_item,parent);
-            image = (SimpleDraweeView) root.findViewById( R.id.image);
-            text_holder = (FrameLayout) root.findViewById( R.id.text_holder);
-            text_icon = (TextView) root.findViewById( R.id.text_icon);
-        }
-        public RecentImagesImageItem() {
             this(null);
         }
     }

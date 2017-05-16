@@ -27,7 +27,7 @@
         <item name="android:textSize">60dp</item>
         <item name="android:gravity">center</item>
         <!--<item name="android:layout_weight">1</item>-->
-        <item name="fontPath">@string/font_ionic</item>
+        <!--<item name="fontPath">@string/font_ionic</item>-->
     </style>
 
     <style name="attachment_cell_text" parent="">
@@ -36,7 +36,7 @@
         <item name="android:textSize">12dp</item>
         <item name="android:gravity">center_horizontal|top</item>
         <item name="android:layout_weight">1</item>
-        <item name="fontPath">@string/font_iran_light</item>
+        <!--<item name="fontPath">@string/font_iran_light</item>-->
         <item name="android:textColor">@color/text_gray_2</item>
     </style>
 
