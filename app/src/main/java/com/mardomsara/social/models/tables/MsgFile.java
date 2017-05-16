@@ -1,6 +1,7 @@
 package com.mardomsara.social.models.tables;
 
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 
 import com.github.gfx.android.orma.annotation.Column;
 import com.github.gfx.android.orma.annotation.OnConflict;
@@ -20,7 +21,7 @@ public class MsgFile {
 
     @NonNull
 	@Column(defaultExpr = "''" , indexed = true)
-    public String Hash = "XX";
+    public String Hash = "";
 
 	@Column(defaultExpr = "''" , indexed = true)
 	public String ServerSrc = "";
@@ -32,7 +33,7 @@ public class MsgFile {
 	public int Status=0;
 
 	@Column(defaultExpr = "0" ,helpers = Column.Helpers.CONDITION_EQ)
-	public int Origin =0; // 0:here 1:downloaded from net
+	public int Origin =0; // 1:here 2:downloaded from net
 
 	@Column(defaultExpr = "''")
 	public String Name = "";
@@ -65,6 +66,10 @@ public class MsgFile {
 
 	@Column(defaultExpr = "''")
 	public String Thumb64 = "";
+
+	@Column
+	@Nullable
+	public byte[] ThumbData = null;
 
 	@Column(defaultExpr = "''" )
 	public String ThumbLocalSrc = "";

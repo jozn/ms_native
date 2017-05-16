@@ -55,7 +55,7 @@ public class MessageModel {
     public static Message newTextMsgForRoom_ByMe(@NonNull Room room) {
         Message msg = new Message();
         msg.RoomKey = room.RoomKey;
-        msg.DeliveryStatus = 0;
+//        msg.DeliveryStatus = 0;
         msg.IsByMe = 1;
         msg.RoomTypeId = room.RoomTypeId;
         msg.CreatedMs = AppUtil.getTimeMs();
@@ -112,6 +112,7 @@ public class MessageModel {
 			msg.MsgFile_LocalSrc = filePath;
 			Bitmap mBitmap = BitmapFactory.decodeFile(filePath);
 			msgFile.Thumb64 = ImageUtil.blurThumbnailToBase64(mBitmap);
+			msgFile.ThumbData = ImageUtil.blurThumbnailToBytesArray(mBitmap);
 			msgFile.Height = mBitmap.getHeight();
 			msgFile.Width = mBitmap.getWidth();
 			msgFile.LocalSrc = filePath;
@@ -163,6 +164,7 @@ public class MessageModel {
 			msgFile.ThumbSize = (int) fileThumb.length();
 //			msgFile.ExtraJson = JsonUtil.toJson(extr);
 			msgFile.Thumb64 = ImageUtil.blurThumbnailToBase64(thumbBitmap);
+			msgFile.ThumbData = ImageUtil.blurThumbnailToBytesArray(thumbBitmap);
 		}
 	}
 

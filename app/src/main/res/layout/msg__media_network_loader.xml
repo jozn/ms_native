@@ -20,7 +20,7 @@
         android:id="@+id/loading_holder"
         >
 
-        <TextView
+        <com.mardomsara.social.ui.views.XRawIcon
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/icon_action_btn"

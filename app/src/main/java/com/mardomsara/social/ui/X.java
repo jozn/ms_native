@@ -1193,7 +1193,7 @@ public class X {
         public ViewGroup root;
         public SimpleDraweeView msg_image;
         public FrameLayout loading_holder;
-        public TextView icon_action_btn;
+        public XRawIcon icon_action_btn;
         public CircularProgressView loading_progress;
 
         public Msg_MediaNetworkLoader(ViewGroup parent) {
@@ -1201,7 +1201,7 @@ public class X {
             
             msg_image = (SimpleDraweeView) root.findViewById( R.id.msg_image);
             loading_holder = (FrameLayout) root.findViewById( R.id.loading_holder);
-            icon_action_btn = (TextView) root.findViewById( R.id.icon_action_btn);
+            icon_action_btn = (XRawIcon) root.findViewById( R.id.icon_action_btn);
             loading_progress = (CircularProgressView) root.findViewById( R.id.loading_progress);
         }
     }

@@ -64,10 +64,13 @@ public class RoomModel {
         room.LastRoomOpenedTimeMs = TimeUtil.getTimeMs();
         room.UnseenMessageCount = 0;
         AndroidUtil.runInBackgroundNoPanic(()->{
-            update(room);
-            RoomInfoChangedEvent event = new RoomInfoChangedEvent();
-            event.RoomKey = room.RoomKey;
-            EventBus.getDefault().post(event);
+			//just if we actuly has message in the room, not just opening the room
+			if(DB.db.selectFromMessage().RoomKeyEq(room.RoomKey).count() > 0 ){
+				update(room);
+				RoomInfoChangedEvent event = new RoomInfoChangedEvent();
+				event.RoomKey = room.RoomKey;
+				EventBus.getDefault().post(event);
+			}
         });
 
     }

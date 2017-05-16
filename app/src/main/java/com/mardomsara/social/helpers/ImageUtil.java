@@ -182,6 +182,13 @@ public class ImageUtil {
         return base64;
     }
 
+	public static byte[] blurThumbnailToBytesArray(Bitmap mBitmap){
+		Bitmap bm = ImageUtil.fastblur(ImageUtil.getResizedBitmapRatio(mBitmap,160),1,10);
+		byte[] res = compressToBytes(bm,30);
+		bm.recycle();
+		return res;
+	}
+
     public static Bitmap getResizedBitmap(Bitmap bm, int newWidth, int newHeight) {
         int width = bm.getWidth();
         int height = bm.getHeight();
