@@ -60,7 +60,7 @@
         <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
 
         <service
-            android:name=".service.PingService"
+            android:name=".service.PingService_DEp"
             android:enabled="true"
             android:exported="true" />
         <service

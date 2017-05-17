@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/black"
-    android:id="@+id/window"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/black"
+                android:id="@+id/window"
     >
 
     <me.relex.photodraweeview.PhotoDraweeView
@@ -25,8 +26,9 @@
         android:gravity="right"
         android:background="@color/transparent_gray_darkest"
         >
-        <TextView
+        <com.mardomsara.social.ui.views.XRawIcon
             style="@style/back_nav_btn.white"
+            app:xIconFont="IonIcons"
             />
     </LinearLayout>
 
@@ -45,16 +47,20 @@
             android:background="@color/transparent_0"
 
             >
-            <com.mardomsara.emojicon.EmojiconTextView
+            <com.mardomsara.social.ui.views.x.XTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/text.normal.white"
                 android:id="@+id/text_view"
                 android:background="@color/transparent_gray_darkest"
-                android:text="asdasdas fsdfsdfsdfsdfsdfsdfsd"
+                android:text=""
                 android:gravity="right"
 
                 android:scrollbars="vertical"
+
+                app:xFont="IranLight"
+                app:xEnableEmoji="true"
+                app:xEnableLinker="false"
                 />
         </ScrollView>
 

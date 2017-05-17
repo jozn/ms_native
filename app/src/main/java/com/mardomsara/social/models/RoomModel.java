@@ -30,10 +30,6 @@ import java.util.Map;
 public class RoomModel {
 
     //////////////////// CRUD ////////////////////
-    public static void update(Room room) {
-		DB.db.prepareInsertIntoRoom(OnConflict.REPLACE,true).execute(room);
-    }
-
     public static void updateOrInsert(Room room) {
         DB.db.prepareInsertIntoRoom(OnConflict.REPLACE,true).execute(room);
     }
@@ -66,7 +62,7 @@ public class RoomModel {
         AndroidUtil.runInBackgroundNoPanic(()->{
 			//just if we actuly has message in the room, not just opening the room
 			if(DB.db.selectFromMessage().RoomKeyEq(room.RoomKey).count() > 0 ){
-				update(room);
+				updateOrInsert(room);
 				RoomInfoChangedEvent event = new RoomInfoChangedEvent();
 				event.RoomKey = room.RoomKey;
 				EventBus.getDefault().post(event);
@@ -141,7 +137,7 @@ public class RoomModel {
         return rooms;
     }
 
-    public static void loadAllUserForRooms(List<Room> rooms) {
+    private static void loadAllUserForRooms(List<Room> rooms) {
 
         List<Integer> in  = new ArrayList<>();
         for (Room room : rooms){
@@ -219,7 +215,7 @@ public class RoomModel {
 		});
 	}
 
-	public static String roomKeyForPeerUserId(int PeerUserId){
+	private static String roomKeyForPeerUserId(int PeerUserId){
 		int me = Session.getUserId();
 		if(me < PeerUserId){
 			return "p"+me+"_"+PeerUserId;

@@ -20,7 +20,6 @@ import com.mardomsara.social.helpers.AppUtil;
 
 import java.io.File;
 
-import butterknife.Bind;
 import butterknife.OnClick;
 import me.relex.photodraweeview.OnViewTapListener;
 import me.relex.photodraweeview.PhotoDraweeView;
@@ -29,14 +28,10 @@ import me.relex.photodraweeview.PhotoDraweeView;
  * Created by Hamid on 6/22/2016.
  */
 public class FullScreenImage_Fresco {
-    @Bind(R.id.window) View window;
-//    @Bind(R.id.clear) View clear;
-//    @Bind(R.id.outer) View outer;
-    @Bind(R.id.top_nav) View top_nav;
-    @Bind(R.id.back_btn) View back_btn;
-//    @Bind(R.id.image_view) SimpleDraweeView image_view;
-    @Bind(R.id.image_view) PhotoDraweeView image_view;
-    @Bind(R.id.text_view) TextView text_view;
+	View top_nav;
+	View back_btn;
+	PhotoDraweeView image_view;
+	TextView text_view;
     String TAG = "FullScreenImage";
     PopupWindow attachWindow;
     ViewGroup popupView = (ViewGroup)AppUtil.inflate(R.layout.full_screen_image_fresco, AppUtil.global_window);
@@ -58,10 +53,7 @@ public class FullScreenImage_Fresco {
                 popupView,
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT);
-//        ButterKnife.bind(this, popupView);
 
-//        clear = popupView.findViewById(R.id.clear);
-//        outer = popupView.findViewById(R.id.outer);
         top_nav = popupView.findViewById(R.id.top_nav);
         back_btn = popupView.findViewById(R.id.back_btn);
         image_view = (PhotoDraweeView) popupView.findViewById(R.id.image_view);
@@ -112,12 +104,6 @@ public class FullScreenImage_Fresco {
         Log.d(TAG,"onBack()");
         close();
     }
-
-//    @OnClick(R.id.window)
-//    void onChange(View v){
-//        top_nav.setVisibility(View.INVISIBLE);
-//        text_view.setVisibility(View.INVISIBLE);
-//    }
 
     public void show(){
         Log.d(TAG,"show()"+ imageUrlPath + text);

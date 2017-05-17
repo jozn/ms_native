@@ -32,27 +32,28 @@ import static okhttp3.ws.WebSocket.TEXT;
  * Created by Hamid on 9/11/2016.
  */
 public class WS {
-    private static String wsUrl = "ws://192.168.0.10:5000/ws_call?UserId="+ Session.getUserId();
+    private static String wsUrl = "ws://192.168.0.10:5000/ws_call?user_id="+ Session.getUserId();
     private static String LOGTAG = "WS";
     private static WS instance;
 
     private STATUS status = STATUS.CLOSED;
 
-    private Executor sequnceSendThread = Executors.newSingleThreadExecutor();
+//    private Executor sequnceSendThread = Executors.newSingleThreadExecutor();
     WSConnection connection;
 
     int delayReconnect = 5;//seconds
 
 //    private Thread senderThread;
     BlockingQueue<Call> wsSendChannel = new LinkedBlockingQueue<>();
-    BlockingQueue<byte[]> wsSendChannelBinary = new LinkedBlockingQueue<>();
+//    BlockingQueue<byte[]> wsSendChannelBinary = new LinkedBlockingQueue<>();
+
     //for now use just single thread, maybe using multi thread could cause data racing or others bug
     ExecutorService singleReciverHandlerExecuter = Executors.newSingleThreadExecutor();
     WebSocket webSocket;
 
     private WS() {
         instance = this;
-        Log.d(LOGTAG, "WSService onCreate");
+        Log.i(LOGTAG, "WSService onCreate");
 		AndroidUtil.runInBackgroundNoPanic(()->{
 			runSenderThread();
 			connectToServer();
@@ -91,14 +92,6 @@ public class WS {
         return instance;
     }
 
-    /*void sendString(String callString){
-        try {
-            wsSendChannel.put(callString);//sendString to chanel
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }*/
-
 	public boolean isOpen(){
 		return status == STATUS.OPEN;
 	}
@@ -120,7 +113,7 @@ public class WS {
 	}
 
     void connectToServer(){
-        Log.d(LOGTAG, " connectToServer");
+        Log.i(LOGTAG, " connectToServer");
         //just make sure there is only one conncetion open to server
         if(connection != null && webSocket != null ){
 //            closeConnection();
@@ -164,18 +157,17 @@ public class WS {
         OkHttpClient client;// = new OkHttpClient.Builder();
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
         builder.connectTimeout(10, TimeUnit.SECONDS);
-        builder.readTimeout(4*3600, TimeUnit.SECONDS);
-        builder.writeTimeout(4*3600, TimeUnit.SECONDS);
+        builder.readTimeout(1*3600, TimeUnit.SECONDS);
+        builder.writeTimeout(1*3600, TimeUnit.SECONDS);
         client = builder.build();
         Request request = new Request.Builder()
-//                .url("ws://echo.websocket.org")
                 .url(wsUrl)
                 .build();
         WebSocketCall.create(client, request).enqueue(connection);
     }
 
     void runSenderThread() {
-        Log.d(LOGTAG, "runSenderThread called");
+        Log.i(LOGTAG, "runSenderThread called");
         Runnable run = ()->{
             String body = "";
             RequestBody req;
@@ -185,11 +177,22 @@ public class WS {
                         Call call = wsSendChannel.take();
 						if(call == null) continue;
 						body = JsonUtil.toJson(call);
-                        Log.d(LOGTAG, "sending text from WSchanel" + body);
+                        Log.i(LOGTAG, "sending text from WSchanel" + body);
                         req = RequestBody.create(TEXT, body);
-                        webSocket.sendMessage(req);
+						if(status == STATUS.OPEN){
+							webSocket.sendMessage(req);
+						}else {
+							tryConnect();
+							try {
+								wsSendChannel.offer(call);
+							}catch (Exception e){
+								e.printStackTrace();
+							}
+							return;
+						}
                     }else {
-                        Thread.sleep(200);
+						return; //we must reconnect again
+//                        Thread.sleep(200);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -202,7 +205,7 @@ public class WS {
 	void handleNetMessage(String body){
 		logIt("onMessage: message :" + body);
 		Call call = AppUtil.fromJson(body, Call.class);
-		Log.d("ws", ""+call);
+		Log.i("ws", ""+call);
 
 		if(call == null) return;
 
@@ -234,17 +237,20 @@ public class WS {
 
     /////////////////////// Websocket Connection callbacks ////////////////////////////////////
     void onOpen(WebSocket webSocket, Response response) {
-        Log.d(LOGTAG, "onOpen: Response:" + response.message());
+        Log.i(LOGTAG, "onOpen: Response:" + response.message());
         this.webSocket = webSocket;
         status = STATUS.OPEN;
         isReconnectingRunning = false;
         delayReconnect = 5;
+
+		runSenderThread();
+
 		FlushStoredDataToServer.flushAllMessages();
 //        sendStoredCommands();
     }
 
     void onFailure(IOException e, Response response) {
-        Log.d(LOGTAG, "onFailure: IOException - Response:" + e.toString() );
+        Log.i(LOGTAG, "onFailure: IOException - Response:" + e.toString() );
         status = STATUS.CLOSED;
         prepareForReqonecting();
     }
@@ -265,7 +271,7 @@ public class WS {
     }
 
     void onPong(Buffer payload) {
-        Log.d(LOGTAG, "onPong: payload:" + payload);
+        Log.i(LOGTAG, "onPong: payload:" + payload);
     }
 
     void onClose(int code, String reason) {
@@ -275,20 +281,19 @@ public class WS {
     }
 
     static void logIt(String msg){
-        Log.d(LOGTAG,"Thread: "+Thread.currentThread().getName() + " " + msg);
+        Log.i(LOGTAG,"Thread: "+Thread.currentThread().getName() + " " + msg);
     }
 
     /////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////
 
     static class WSConnection implements WebSocketListener {
-        public WebSocket webSocket;
+		WS ws;
 
-        public WSConnection(WS ws) {
+        WSConnection(WS ws) {
             this.ws = ws;
         }
 
-        WS ws;
         @Override
         public void onOpen(WebSocket webSocket, Response response) {
             ws.onOpen(webSocket, response);

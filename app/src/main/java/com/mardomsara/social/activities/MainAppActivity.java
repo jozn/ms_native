@@ -26,7 +26,6 @@ import com.mardomsara.social.app.LifeCycle;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.play.Play_TestsPresenter;
-import com.mardomsara.social.service.PingService;
 
 import io.fabric.sdk.android.Fabric;
 import pl.tajchert.nammu.Nammu;
@@ -67,7 +66,7 @@ public class MainAppActivity extends AppActivity {
 		App.mFragmentManager = getSupportFragmentManager();
 		//EventBus.getDefault().register(this);
 
-		startService(new Intent(this, PingService.class));
+//		startService(new Intent(this, PingService.class));
 		logIt("onCreate");
 
 		///////// Nav ////////////

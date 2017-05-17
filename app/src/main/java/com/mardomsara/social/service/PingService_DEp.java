@@ -8,10 +8,11 @@ import android.util.Log;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
-public class PingService extends Service {
+@Deprecated
+public class PingService_DEp extends Service {
     private String LOGTAG = "service";
     private Executor _exe ;
-    public PingService() {
+    public PingService_DEp() {
     }
 
     @Override

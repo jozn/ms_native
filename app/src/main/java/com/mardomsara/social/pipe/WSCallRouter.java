@@ -9,8 +9,6 @@ import com.mardomsara.social.pipe.from_net_calls.NotifyCallsFromServer;
 import java.util.HashMap;
 import java.util.Map;
 
-//import com.mardomsara.social.events.from_server.MsgCommand;
-
 /**
  * Created by Hamid on 3/31/2016.
  */
@@ -21,13 +19,15 @@ public class WSCallRouter {
         buildMapper();
     }
 
-    public static Map<String,NetEventHandler> mapper;
+    static Map<String,NetEventHandler> mapper;
 
     static void register(String command, NetEventHandler handler){
         mapper.put(command,handler);
     }
 
     public static void handle(String command, Call call){
+		if(call == null || command == null) return;
+
 		String data = call.Data;
         AppUtil.log("WS handle: "+ command + " data : "+ data);
         try {
@@ -61,7 +61,7 @@ public class WSCallRouter {
 //		register("NotifyAddOne", MsgCallsFromServer.MsgAddMany);
     }
 
-	public static void TimeMs(Call call) {
+	static void TimeMs(Call call) {
 		AppModel.timeDiffToServer = call.TimeMs - TimeUtil.getTimeMs();
 
 	}

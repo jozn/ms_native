@@ -760,14 +760,14 @@ public class X {
         public RelativeLayout window;
         public PhotoDraweeView image_view;
         public LinearLayout top_nav;
-        public EmojiconTextView text_view;
+        public XTextView text_view;
 
         public FullScreenImageFresco(ViewGroup parent) {
             root = (RelativeLayout) AppUtil.inflate(R.layout.full_screen_image_fresco,parent);
             window = (RelativeLayout) root.findViewById( R.id.window);
             image_view = (PhotoDraweeView) root.findViewById( R.id.image_view);
             top_nav = (LinearLayout) root.findViewById( R.id.top_nav);
-            text_view = (EmojiconTextView) root.findViewById( R.id.text_view);
+            text_view = (XTextView) root.findViewById( R.id.text_view);
         }
         public FullScreenImageFresco() {
             this(null);

@@ -11,13 +11,9 @@ import java.util.concurrent.Executors;
 /**
  * Created by Hamid on 5/12/2016.
  */
-public class CallRespondCallbacksRegistery {
+class CallRespondCallbacksRegistery {
 //    public static String CMD_RES ="ResCmd" ;
     private static  Map<Long, CallRespondCallback>  _mapper = Collections.synchronizedMap(new HashMap<>());
-
-	static {
-		intervalRun();
-	}
 
 	public static void register(CallRespondCallback handler) {
 		if(handler.clientCallId != 0 ){
@@ -29,7 +25,7 @@ public class CallRespondCallbacksRegistery {
 		setNextChecker();
 	}
 
-    public static void trySucceeded(long ReqId) {
+    static void trySucceeded(long ReqId) {
 		CallRespondCallback h = _mapper.get(ReqId);
         if(h != null){
 			if(h.success != null ){
@@ -39,7 +35,7 @@ public class CallRespondCallbacksRegistery {
         }
     }
 
-	static void cleanCall(Call call){
+	private static void cleanCall(Call call){
 		_mapper.remove(call.ClientCallId);
 		Pipe.cancelCall(call);
 	}
@@ -58,7 +54,7 @@ public class CallRespondCallbacksRegistery {
 		_mapper.remove(ReqId);
 	}
 
-	public static void runErrorOfTimeouts() {
+	private static void runErrorOfTimeouts() {
 		AppUtil.log(" Pipes runErrorOfTimeouts() ");
 		for(CallRespondCallback call : _mapper.values()){
 			if(call.timeoutAtMs < TimeUtil.getTimeMs()){
@@ -75,14 +71,14 @@ public class CallRespondCallbacksRegistery {
 			}
 		}
 	}
-	static boolean hasSetInterval = false;
-	static synchronized void setHasSetInterval(boolean val){
+	private static boolean hasSetInterval = false;
+	private static synchronized void setHasSetInterval(boolean val){
 		hasSetInterval = val;
 	}
-	static synchronized boolean getHasSetInterval(){
+	private static synchronized boolean getHasSetInterval(){
 		return hasSetInterval;
 	}
-	static void setNextChecker(){
+	private static void setNextChecker(){
 		if(getHasSetInterval()){
 			return;
 		}
@@ -91,7 +87,7 @@ public class CallRespondCallbacksRegistery {
 			int n = 0;
 			while (n < 5){ // 5 times * 1 second  = 5sec
 				try {
-					Thread.currentThread().sleep(1000);
+					Thread.sleep(1000);
 					runErrorOfTimeouts();
 				}catch (Exception e){
 					e.printStackTrace();
@@ -104,23 +100,5 @@ public class CallRespondCallbacksRegistery {
 			}
 		};
 		Executors.newSingleThreadExecutor().execute(runner);
-	}
-
-	@Deprecated
-	static void intervalRun(){
-		Runnable runer  = ()->{
-			int n = 0;
-			while (n < 1){
-				try {
-					Thread.currentThread().sleep(1000);
-					runErrorOfTimeouts();
-				}catch (Exception e){
-					e.printStackTrace();
-				}
-			}
-		};
-
-
-//		new Thread(runer,"WS Call timeout checker").run();
 	}
 }
