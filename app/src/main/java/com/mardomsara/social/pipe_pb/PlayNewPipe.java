@@ -21,6 +21,7 @@ public class PlayNewPipe {
 		PipeWS.getInstance();
 
 		AndroidUtil.runInBackgroundNoPanic(()->{
+			int i =0;
 			List<Message> msgs=  DB.db.selectFromMessage().toList();
 			for (Message m : msgs){
 				PipeCallBack<PB_ResponseMsgAddOne> callBack = (pb_responsMsgAddOne) -> pb_responsMsgAddOne.getResponse() ;
@@ -32,6 +33,8 @@ public class PlayNewPipe {
 				PB_Message pb_message = PBConv.Message_toNew_PB_Message(m);
 				AppUtil.log("MSG_ADD_DAT " + pb_message.toString());
 				Pipe.makeCall("MSG_ADD" ,pb_message, callBack,err ) ;
+				if (i == 2) return;
+				i++;
 				try {
 					Thread.sleep(1000);
 				} catch (InterruptedException e) {

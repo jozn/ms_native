@@ -20,7 +20,7 @@ import com.mardomsara.social.models.RoomModel;
 import com.mardomsara.social.models.interfaces.MessageProgressListener;
 import com.mardomsara.social.models.memory_store.MemoryStore_LastMsgs;
 import com.mardomsara.social.models.memory_store.MemoryStore_Rooms;
-import com.mardomsara.social.pipe.from_net_calls.MsgsCallToServer;
+import com.mardomsara.social.pipe_pb.from_net_calls.MsgsCallToServer;
 
 import java.io.File;
 

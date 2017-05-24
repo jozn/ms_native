@@ -16,8 +16,6 @@ import com.mardomsara.social.models.Session;
 import com.mardomsara.social.models.stores.Store;
 import com.mardomsara.social.models.syncer.ContactsCopySyncer;
 import com.mardomsara.social.models.syncer.UserSyncer;
-import com.mardomsara.social.pipe.Pipe_OLD;
-import com.mardomsara.social.pipe_pb.Pipe;
 import com.mardomsara.social.pipe_pb.PlayNewPipe;
 import com.mardomsara.social.service.BackgroundService;
 import com.mardomsara.social.ui.BasePresenter;
@@ -27,7 +25,6 @@ import com.squareup.picasso.Picasso;
 import java.util.HashSet;
 import java.util.Set;
 
-import ir.ms.pb.PB;
 import pl.tajchert.nammu.Nammu;
 
 /**
@@ -115,7 +112,7 @@ public class LifeCycle {
         //////////////
         AppFiles.buildAllDirs();
         //////////////
-		Pipe_OLD.sendCall("Echo","",null,null);
+//		Pipe_OLD.sendCall("Echo","",null,null);
 
 		PlayNewPipe.run1();
 

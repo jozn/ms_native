@@ -4,8 +4,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.mardomsara.social.helpers.AndroidUtil;
-import com.mardomsara.social.helpers.Helper;
-import com.mardomsara.social.pipe.Pipe_OLD;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.cells.Cells;
 
@@ -27,14 +25,14 @@ public class Play_WSCallPresenter extends BasePresenter {
     }
 
 	private void callEcho() {
-		Pipe_OLD.sendCall("echo","Hi From go",
+		/*Pipe_OLD.sendCall("echo","Hi From go",
 			()->{
 				Helper.showDebugMessage("Echo Call Success");
 			},
 			()->{
 				Helper.showDebugMessage("Echo Call Error");
 			}
-		);
+		);*/
 	}
 
 	View newTitle(String title, Runnable runnable){
