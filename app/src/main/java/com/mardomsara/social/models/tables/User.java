@@ -56,7 +56,7 @@ public class User {
 	public String About = "";
 
 
-    /////////// FOr contacts
+    /////////// FOr contacts //// this step seems to be set automaticlay befoer save - no need for manual setting
     @Column(defaultExpr = "0", helpers = Column.Helpers.CONDITIONS)
     public int IsPhoneContact = 0;
 

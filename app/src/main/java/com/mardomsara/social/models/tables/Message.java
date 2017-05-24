@@ -43,7 +43,7 @@ public class Message  implements Comparable<Message>, UploadProgressListener,Dow
     public String RoomKey;
 
     @Column(defaultExpr = "0", helpers = Column.Helpers.CONDITION_EQ)
-    public int UserId =0 ;//-1: system
+    public long UserId =0 ;//-1: system
 
     @Column(defaultExpr = "1")
     public int RoomTypeId = 1;//1: peer-to-peer 2:private-group
@@ -89,11 +89,11 @@ public class Message  implements Comparable<Message>, UploadProgressListener,Dow
     @Column(defaultExpr = "0" ,helpers = Column.Helpers.CONDITION_EQ)
     public long ServerDeletedTime = 0;
 
-    @Column(defaultExpr = "0", helpers = Column.Helpers.CONDITION_EQ)
-    public int ToPush = 0;
-
 	@Column(defaultExpr = "0", helpers = Column.Helpers.CONDITION_EQ)
 	public long ISeenTime = 0;
+
+	@Column(defaultExpr = "0", helpers = Column.Helpers.CONDITION_EQ)
+    public int ToPush = 0;
 
 	@Column(defaultExpr = "0" ,indexed = true)
 	public String MsgFile_LocalSrc= "";

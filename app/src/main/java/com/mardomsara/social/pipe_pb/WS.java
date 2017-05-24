@@ -1,50 +1,53 @@
-package com.mardomsara.social.pipe;
+package com.mardomsara.social.pipe_pb;
 
 import android.util.Log;
 
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
-import com.mardomsara.social.helpers.JsonUtil;
 import com.mardomsara.social.models.Session;
-import com.mardomsara.social.pipe.from_net_calls.FlushStoredDataToServer;
+import com.mardomsara.social.pipe_pb.from_net_calls.FlushStoredDataToServer;
 
-import java.io.IOException;
+import org.greenrobot.essentials.Base64;
+
 import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
 
+import ir.ms.pb.PB_CommandToServer;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
-import okhttp3.ResponseBody;
-import okhttp3.ws.WebSocket;
-import okhttp3.ws.WebSocketCall;
-import okhttp3.ws.WebSocketListener;
+//import okhttp3.ws.WebSocket;
+//import okhttp3.ws.WebSocketCall;
+//import okhttp3.ws.WebSocketListener;
+import okhttp3.WebSocket;
+import okhttp3.WebSocketListener;
 import okio.Buffer;
+import okio.ByteString;
 
-import static okhttp3.ws.WebSocket.TEXT;
+import static okhttp3.ws.WebSocket.BINARY;
 
 /**
  * Created by Hamid on 9/11/2016.
  */
 public class WS {
-    private static String wsUrl = "ws://192.168.0.10:5000/ws_call?user_id="+ Session.getUserId();
+    private static String wsUrl = "ws://192.168.0.10:5000/ws_pb_call?user_id="+ Session.getUserId();
     private static String LOGTAG = "WS";
     private static WS instance;
 
     private STATUS status = STATUS.CLOSED;
 
 //    private Executor sequnceSendThread = Executors.newSingleThreadExecutor();
-    WSConnection connection;
+    WSConnectionListener wsConnectionListener;
 
     int delayReconnect = 5;//seconds
 
 //    private Thread senderThread;
-    BlockingQueue<Call> wsSendChannel = new LinkedBlockingQueue<>();
+//    BlockingQueue<Call_DEP> wsSendChannel = new LinkedBlockingQueue<>();
+    BlockingQueue<PB_CommandToServer> wsSendChannel = new LinkedBlockingQueue<>();
 //    BlockingQueue<byte[]> wsSendChannelBinary = new LinkedBlockingQueue<>();
 
     //for now use just single thread, maybe using multi thread could cause data racing or others bug
@@ -96,17 +99,18 @@ public class WS {
 		return status == STATUS.OPEN;
 	}
 
-	void sendCall(Call call){
+
+	void sendCall(PB_CommandToServer pb_commandToServer){
 		try {
-			wsSendChannel.put(call);//sendString to chanel
+			wsSendChannel.put(pb_commandToServer);//sendString to chanel
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
-	void cancelCall(Call call){
+	void cancelCall(PB_CommandToServer pb_commandToServer){
 		try {
-			wsSendChannel.remove(call);//sendString to chanel
+			wsSendChannel.remove(pb_commandToServer);//sendString to chanel
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -115,7 +119,7 @@ public class WS {
     void connectToServer(){
         Log.i(LOGTAG, " connectToServer");
         //just make sure there is only one conncetion open to server
-        if(connection != null && webSocket != null ){
+        if(wsConnectionListener != null && webSocket != null ){
 //            closeConnection();
         }
 
@@ -151,7 +155,7 @@ public class WS {
     }
 
     void tryConnect() {
-        /*connection = new WSConnection(this);
+        wsConnectionListener = new WSConnectionListener(this);
         if(status == STATUS.CONNECTING || status == STATUS.OPEN ) return;//OPEN or CONNECTING return;
         status = STATUS.CONNECTING;
         OkHttpClient client;// = new OkHttpClient.Builder();
@@ -163,7 +167,8 @@ public class WS {
         Request request = new Request.Builder()
                 .url(wsUrl)
                 .build();
-        WebSocketCall.create(client, request).enqueue(connection);*/
+		client.newWebSocket(request,wsConnectionListener);
+//        WebSocketCall.create(client, request).enqueue(wsConnectionListener);
     }
 
     void runSenderThread() {
@@ -174,13 +179,15 @@ public class WS {
             while (true) {
                 try {
                     if(webSocket != null && status == STATUS.OPEN){
-                        Call call = wsSendChannel.take();
+                        PB_CommandToServer call = wsSendChannel.take();
 						if(call == null) continue;
-						body = JsonUtil.toJson(call);
-                        Log.i(LOGTAG, "sending text from WSchanel" + body);
-                        req = RequestBody.create(TEXT, body);
+//						body = JsonUtil.toJson(call);
+                        Log.i(LOGTAG, "sending PB_CommandToServer from WSchanel" + call.toString());
+//                        req = RequestBody.create(TEXT, body);
+						Log.i("MSG_add: ", Base64.encodeBytes(call.toByteArray()) );
+                        req = RequestBody.create(BINARY, call.toByteArray());
 						if(status == STATUS.OPEN){
-							webSocket.sendMessage(req);
+							webSocket.send(ByteString.of(call.toByteArray()));
 						}else {
 							tryConnect();
 							try {
@@ -204,7 +211,7 @@ public class WS {
 
 	void handleNetMessage(String body){
 		logIt("onMessage: message :" + body);
-		Call call = AppUtil.fromJson(body, Call.class);
+		Call_DEP call = AppUtil.fromJson(body, Call_DEP.class);
 		Log.i("ws", ""+call);
 
 		if(call == null) return;
@@ -215,11 +222,11 @@ public class WS {
 					sendToServer_CallReceivedToAndroid(call.ServerCallId);
 				}
 				if (call.Name.equals("CallReceivedToServer")) {
-					CallRespondCallbacksRegistery.trySucceeded(call.ClientCallId);
+					CallRespondCallbacksRegistery_DEP.trySucceeded(call.ClientCallId);
 					return;
 				}
 
-				WSCallRouter.handle(call.Name, call);
+				WSCallRouter_DEP.handle(call.Name, call);
 			}catch (Exception e){
 				e.printStackTrace();
 			}
@@ -228,11 +235,11 @@ public class WS {
 	}
 
 	void sendToServer_CallReceivedToAndroid(long ServerCallId){
-		Call call = new Call("CallReceivedToClient");
+		/*Call_DEP call = new Call_DEP("CallReceivedToClient");
 		call.ClientCallId = 0;//tell server don't respond
 		call.ServerCallId = ServerCallId;
 
-		sendCall(call);
+		sendCall(call);*/
 	}
 
     /////////////////////// Websocket Connection callbacks ////////////////////////////////////
@@ -249,15 +256,15 @@ public class WS {
 //        sendStoredCommands();
     }
 
-    void onFailure(IOException e, Response response) {
+    void onFailure(Throwable e, Response response) {
         Log.i(LOGTAG, "onFailure: IOException - Response:" + e.toString() );
         status = STATUS.CLOSED;
         prepareForReqonecting();
     }
 
-    void onMessage(ResponseBody message) {
+    void onMessage(ByteString message) {
 		try {
-			String body =  message.string();
+			String body =  message.toString();
 			AndroidUtil.runInBackgroundNoPanic(()->{
 				handleNetMessage(body);
 			});
@@ -265,7 +272,7 @@ public class WS {
 			e.printStackTrace();
 		}finally {
 			if(message != null){
-				message.close();
+				//message.close();
 			}
 		}
     }
@@ -287,10 +294,10 @@ public class WS {
     /////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////
 
-    static class WSConnection implements WebSocketListener {
+    static class WSConnectionListener extends WebSocketListener {
 		WS ws;
 
-        WSConnection(WS ws) {
+        WSConnectionListener(WS ws) {
             this.ws = ws;
         }
 
@@ -299,25 +306,43 @@ public class WS {
             ws.onOpen(webSocket, response);
         }
 
-        @Override
-        public void onFailure(IOException e, Response response) {
-            ws.onFailure(e,response);
-        }
+		@Override
+		public void onMessage(WebSocket webSocket, String text) {
+			super.onMessage(webSocket, text);
+		}
 
-        @Override
-        public void onMessage(ResponseBody message) throws IOException {
-            ws.onMessage(message);
-        }
+		@Override
+		public void onMessage(WebSocket webSocket, ByteString bytes) {
+			super.onMessage(webSocket, bytes);
+			ws.onMessage(bytes);
+		}
+
+		@Override
+		public void onClosing(WebSocket webSocket, int code, String reason) {
+			super.onClosing(webSocket, code, reason);
+		}
+
+		@Override
+		public void onClosed(WebSocket webSocket, int code, String reason) {
+			super.onClosed(webSocket, code, reason);
+			ws.onClose(code,reason);
+		}
+
+		@Override
+		public void onFailure(WebSocket webSocket, Throwable t, Response response) {
+			super.onFailure(webSocket, t, response);
+			ws.onFailure(t,response);
+		}
+
+        /*@Override
+
 
         @Override
         public void onPong(Buffer payload) {
             ws.onPong(payload);
         }
 
-        @Override
-        public void onClose(int code, String reason) {
-            ws.onClose(code,reason);
-        }
+        }*/
 
     }
 

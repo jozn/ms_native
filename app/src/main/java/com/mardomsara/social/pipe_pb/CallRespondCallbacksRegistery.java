@@ -1,4 +1,4 @@
-package com.mardomsara.social.pipe;
+package com.mardomsara.social.pipe_pb;
 
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.TimeUtil;
@@ -25,19 +25,25 @@ class CallRespondCallbacksRegistery {
 		setNextChecker();
 	}
 
+	//FIXME
     static void trySucceeded(long ReqId) {
 		CallRespondCallback h = _mapper.get(ReqId);
         if(h != null){
 			if(h.success != null ){
-				h.success.run();
+				h.success.onResponse(null);
 			}
-			cleanCall(h.call);
+			cleanCall(h.clientCallId);
         }
     }
 
-	private static void cleanCall(Call call){
+	private static void cleanCall(Call_DEP call){
 		_mapper.remove(call.ClientCallId);
-		Pipe_OLD.cancelCall(call);
+		Pipe.cancelCall(call);
+	}
+
+	private static void cleanCall(long ClientCallId){
+		_mapper.remove(ClientCallId);
+		Pipe.cancelCall(null);
 	}
 
 	//just in case of timeout -- or server did't respond
@@ -45,7 +51,7 @@ class CallRespondCallbacksRegistery {
 		CallRespondCallback h = _mapper.get(ReqId);
 		if(h != null){
 			if(h.error != null ){
-				h.success.run();
+				h.success.onResponse(null);
 			}
 		}
 	}
@@ -65,7 +71,7 @@ class CallRespondCallbacksRegistery {
 				}catch (Exception e){
 					e.printStackTrace();
 				}finally {
-					cleanCall(call.call);
+					cleanCall(call.clientCallId);
 //					_mapper.remove(call.clientCallId);
 				}
 			}

@@ -12,6 +12,7 @@ import com.mardomsara.social.R;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.DialogHelper;
+import com.mardomsara.social.pipe_pb.PlayNewPipe;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.cells.Cells;
 import com.orhanobut.dialogplus.DialogPlus;
@@ -41,6 +42,11 @@ public class Play_DiaolgPresenter extends BasePresenter {
 
 		layout.addView(newTitle("play: simpleAlert2 (just in play code_) ",()->{
 			simpleAlert2(AppUtil.getContext(),"Hi ttitle", "sample body");
+		}));
+
+
+		layout.addView(newTitle("play: simpleAlert2 (just in play code_)run PlayNewPipe,ru1() ",()->{
+			PlayNewPipe.run1();
 		}));
 
 

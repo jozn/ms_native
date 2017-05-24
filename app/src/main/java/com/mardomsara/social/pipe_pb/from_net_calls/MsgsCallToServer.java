@@ -1,4 +1,4 @@
-package com.mardomsara.social.pipe.from_net_calls;
+package com.mardomsara.social.pipe_pb.from_net_calls;
 
 import com.mardomsara.social.app.Constants;
 import com.mardomsara.social.app.DB;
@@ -9,9 +9,9 @@ import com.mardomsara.social.helpers.JsonUtil;
 import com.mardomsara.social.helpers.TimeUtil;
 import com.mardomsara.social.models.tables.Message;
 import com.mardomsara.social.models.tables.MsgSeen;
-import com.mardomsara.social.pipe.Call;
-import com.mardomsara.social.pipe.Pipe_OLD;
-import com.mardomsara.social.pipe.from_net_calls.events.MsgReceivedToServerEvent;
+import com.mardomsara.social.pipe_pb.Call_DEP;
+import com.mardomsara.social.pipe_pb.Pipe_DEP;
+import com.mardomsara.social.pipe_pb.from_net_calls.events.MsgReceivedToServerEvent;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -25,7 +25,7 @@ import static com.mardomsara.social.base.Http.Http.upload;
 
 public class MsgsCallToServer {
 	public static void addNewTextMsg(Message msg){
-		Call call = new Call("MsgsAddOne",msg);
+		Call_DEP call = new Call_DEP("MsgsAddOne",msg);
 
 		Runnable succ =  ()->{
 			msg.setToPush(0);
@@ -35,11 +35,11 @@ public class MsgsCallToServer {
 			MsgReceivedToServerEvent.publishNew(msg);
 		};
 
-		Pipe_OLD.sendCall(call,succ,null);
+		Pipe_DEP.sendCall(call,succ,null);
 	}
 
 	public static void addManyMsgs(List<Message> msgs){
-		Call call = new Call("MsgsAddMany",msgs);
+		Call_DEP call = new Call_DEP("MsgsAddMany",msgs);
 
 		Runnable succ =  ()->{
 			DB.db.transactionSync(()->{
@@ -55,7 +55,7 @@ public class MsgsCallToServer {
 			}
 		};
 
-		Pipe_OLD.sendCall(call,succ,null);
+		Pipe_DEP.sendCall(call,succ,null);
 	}
 
 	public static void sendNewPhoto(Message msg, File resizedFile,File fileOriginal, final boolean deleteOrginal){
@@ -110,7 +110,7 @@ public class MsgsCallToServer {
 	}
 
 	public static void sendSeenMsgs(List<MsgSeen> msgsSeen) {
-		Call call = new Call("MsgsSeenMany",msgsSeen);
+		Call_DEP call = new Call_DEP("MsgsSeenMany",msgsSeen);
 
 		Runnable succ =  ()->{
 			DB.db.transactionSync(()->{
@@ -122,7 +122,7 @@ public class MsgsCallToServer {
 			});
 		};
 
-		Pipe_OLD.sendCall(call,succ,null);
+		Pipe_DEP.sendCall(call,succ,null);
 	}
 
 }

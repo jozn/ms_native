@@ -5,7 +5,7 @@ import com.mardomsara.social.helpers.AndroidUtil;
 /**
  * Created by Hamid on 10/5/2016.
  */
-public class Pipe {
+public class Pipe_OLD {
 
 	public static void sendCall(Call call, Runnable success , Runnable error){
 		AndroidUtil.runInBackgroundNoPanic(()->{

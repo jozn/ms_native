@@ -1,4 +1,4 @@
-package com.mardomsara.social.pipe;
+package com.mardomsara.social.pipe_pb;
 
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.TimeUtil;
@@ -11,11 +11,11 @@ import java.util.concurrent.Executors;
 /**
  * Created by Hamid on 5/12/2016.
  */
-class CallRespondCallbacksRegistery {
+class CallRespondCallbacksRegistery_DEP {
 //    public static String CMD_RES ="ResCmd" ;
-    private static  Map<Long, CallRespondCallback>  _mapper = Collections.synchronizedMap(new HashMap<>());
+    private static  Map<Long, CallRespondCallback_DEP>  _mapper = Collections.synchronizedMap(new HashMap<>());
 
-	public static void register(CallRespondCallback handler) {
+	public static void register(CallRespondCallback_DEP handler) {
 		if(handler.clientCallId != 0 ){
 			if(handler.timeoutAtMs == 0){
 				handler.timeoutAtMs = TimeUtil.getTimeMs() + 2001;
@@ -26,7 +26,7 @@ class CallRespondCallbacksRegistery {
 	}
 
     static void trySucceeded(long ReqId) {
-		CallRespondCallback h = _mapper.get(ReqId);
+		CallRespondCallback_DEP h = _mapper.get(ReqId);
         if(h != null){
 			if(h.success != null ){
 				h.success.run();
@@ -35,14 +35,14 @@ class CallRespondCallbacksRegistery {
         }
     }
 
-	private static void cleanCall(Call call){
+	private static void cleanCall(Call_DEP call){
 		_mapper.remove(call.ClientCallId);
-		Pipe_OLD.cancelCall(call);
+		Pipe_DEP.cancelCall(call);
 	}
 
 	//just in case of timeout -- or server did't respond
 	public static void tryErr(long ReqId) {
-		CallRespondCallback h = _mapper.get(ReqId);
+		CallRespondCallback_DEP h = _mapper.get(ReqId);
 		if(h != null){
 			if(h.error != null ){
 				h.success.run();
@@ -56,7 +56,7 @@ class CallRespondCallbacksRegistery {
 
 	private static void runErrorOfTimeouts() {
 		AppUtil.log(" Pipes runErrorOfTimeouts() ");
-		for(CallRespondCallback call : _mapper.values()){
+		for(CallRespondCallback_DEP call : _mapper.values()){
 			if(call.timeoutAtMs < TimeUtil.getTimeMs()){
 				try {
 					if(call.error != null){

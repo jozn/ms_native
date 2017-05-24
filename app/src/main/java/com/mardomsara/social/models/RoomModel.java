@@ -189,7 +189,7 @@ public class RoomModel {
 				MsgSeen mseen = new MsgSeen();
 				mseen.MsgKey = msg.MessageKey;
 				mseen.RoomKey = msg.RoomKey;
-				mseen.ToUserId = msg.UserId;
+				mseen.ToUserId = (int) msg.UserId;
 				msgsSeen.add(mseen);
 			}
 
