@@ -2,10 +2,8 @@ package com.mardomsara.social.pipe_pb;
 
 import android.util.Log;
 
-import com.mardomsara.social.helpers.TimeUtil;
-import com.mardomsara.social.models.AppModel;
-import com.mardomsara.social.pipe_pb.from_net_calls.MsgCallsFromServer;
-import com.mardomsara.social.pipe_pb.from_net_calls.NotifyCallsFromServer;
+import com.mardomsara.social.pipe_pb.from_net_calls.MsgCallsFromServer_DEP;
+import com.mardomsara.social.pipe_pb.from_net_calls.NotifyCallsFromServer_DEP;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -17,9 +15,7 @@ import okio.ByteString;
 /**
  * Created by Hamid on 3/31/2016.
  */
-public class WSCallRouter {
-
-
+public class PipeReceivedCallRouter {
 	private static ExecutorService singleReciverHandlerExecuter = Executors.newSingleThreadExecutor();
 
     static {
@@ -27,11 +23,15 @@ public class WSCallRouter {
         buildMapper();
     }
 
-    static Map<String,NetEventHandler> mapper;
+    static Map<String,PipeNetEventHandler> mapper;
 
     static void register(String command, NetEventHandler handler){
-        mapper.put(command,handler);
+//        mapper.put(command,handler);
     }
+
+	static void register2(String command, PipeNetEventHandler handler){
+        mapper.put(command,handler);
+	}
 
     public static void handlePushes(String command, byte[] call){
 		/*AppUtil.log("WS handlePushes: "+ command + " data : "+ call.length);
@@ -54,15 +54,15 @@ public class WSCallRouter {
     private static void buildMapper() {
 
         //Messages
-		register("MsgAddOne", MsgCallsFromServer.MsgAddOne);
-		register("MsgAddMany", MsgCallsFromServer.MsgAddMany);
-        register("MsgsReceivedToPeerMany", MsgCallsFromServer.MsgsReceivedToPeerMany);
-        register("MsgsDeletedFromServerMany", MsgCallsFromServer.MsgsDeletedFromServerMany);
-        register("MsgsSeenByPeerMany", MsgCallsFromServer.MsgsSeenByPeerMany);
+		register("MsgAddOne", MsgCallsFromServer_DEP.MsgAddOne);
+		register("MsgAddMany", MsgCallsFromServer_DEP.MsgAddMany);
+        register("MsgsReceivedToPeerMany", MsgCallsFromServer_DEP.MsgsReceivedToPeerMany);
+        register("MsgsDeletedFromServerMany", MsgCallsFromServer_DEP.MsgsDeletedFromServerMany);
+        register("MsgsSeenByPeerMany", MsgCallsFromServer_DEP.MsgsSeenByPeerMany);
 
 		//Notify
-        register("NotifyAddOne", NotifyCallsFromServer.NotifyAddOne);
-        register("NotifyRemoveMany", NotifyCallsFromServer.NotifyRemoveMany);
+        register("NotifyAddOne", NotifyCallsFromServer_DEP.NotifyAddOne);
+        register("NotifyRemoveMany", NotifyCallsFromServer_DEP.NotifyRemoveMany);
 
 //		register("NotifyRemoveMany", MsgCallsFromServer.MsgAddOne);
 //		register("NotifyAddOne", MsgCallsFromServer.MsgAddMany);
@@ -90,7 +90,7 @@ public class WSCallRouter {
 				}else if(pbCommandToClient.getCommand().equals("CallResponse")){
 					CallRespondCallbacksRegistery.trySucceeded(pbCommandToClient.getCallId() , pbCommandToClient.getData().toByteArray());
 				}else {
-					WSCallRouter.handlePushes(pbCommandToClient.getCommand(), pbCommandToClient.getData().toByteArray() );
+					PipeReceivedCallRouter.handlePushes(pbCommandToClient.getCommand(), pbCommandToClient.getData().toByteArray() );
 
 				}
 

@@ -30,7 +30,7 @@ import java.util.Map;
 /**
  * Created by Hamid on 5/2/2016.
  */
-public class MsgCallsFromServer {
+public class MsgCallsFromServer_DEP {
     public static NetEventHandler MsgAddOne = (data) ->{
 		MsgAddOneJson jd = AppUtil.fromJson(data,MsgAddOneJson.class);
         if(jd==null || jd.Message == null )return;

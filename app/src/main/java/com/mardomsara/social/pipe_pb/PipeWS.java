@@ -32,10 +32,10 @@ import static okhttp3.ws.WebSocket.BINARY;
 /**
  * Created by Hamid on 9/11/2016.
  */
-public class WS {
+public class PipeWS {
     private static String wsUrl = "ws://192.168.0.10:5000/ws_pb_call?user_id="+ Session.getUserId();
     private static String LOGTAG = "WS";
-    private static WS instance;
+    private static PipeWS instance;
 
     private STATUS status = STATUS.CLOSED;
 
@@ -53,7 +53,7 @@ public class WS {
     ExecutorService singleReciverHandlerExecuter = Executors.newSingleThreadExecutor();
     WebSocket webSocket;
 
-    private WS() {
+    private PipeWS() {
         instance = this;
         Log.i(LOGTAG, "WSService onCreate");
 		AndroidUtil.runInBackgroundNoPanic(()->{
@@ -87,9 +87,9 @@ public class WS {
 
     }
 
-    public static WS getInstance(){
+    public static PipeWS getInstance(){
         if(instance == null){
-            instance = new WS();
+            instance = new PipeWS();
         }
         return instance;
     }
@@ -241,7 +241,7 @@ public class WS {
 		try {
 			String body =  message.toString();
 			AndroidUtil.runInBackgroundNoPanic(()->{
-				WSCallRouter.handleNetWSMessage(message);
+				PipeReceivedCallRouter.handleNetWSMessage(message);
 			});
 		}catch (Exception e){
 			e.printStackTrace();
@@ -270,9 +270,9 @@ public class WS {
     /////////////////////////////////////////////////////////////////////
 
     static class WSConnectionListener extends WebSocketListener {
-		WS ws;
+		PipeWS ws;
 
-        WSConnectionListener(WS ws) {
+        WSConnectionListener(PipeWS ws) {
             this.ws = ws;
         }
 

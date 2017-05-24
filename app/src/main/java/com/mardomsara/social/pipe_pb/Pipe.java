@@ -26,7 +26,7 @@ public class Pipe {
 		});
 	}
 
-	public static <T> void makeCall(String command, AbstractMessageLite data, CommandCallBack<T> callBack, Runnable errorBack){
+	public static <T> void makeCall(String command, AbstractMessageLite data, PipeCallBack<T> callBack, Runnable errorBack){
 		if(data == null) return;
 		long callId = TimeUtil.getTimeNano();
 		PB_CommandToServer pb_commandToServer = PB_CommandToServer.newBuilder()
@@ -36,10 +36,10 @@ public class Pipe {
 			.build();
 
 
-		if(WS.getInstance().isOpen()){
+		if(PipeWS.getInstance().isOpen()){
 			CallRespondCallback callRespondCallback = new CallRespondCallback(callBack,errorBack,callId);
 			CallRespondCallbacksRegistery.register(callRespondCallback);
-			WS.getInstance().sendCall(pb_commandToServer);
+			PipeWS.getInstance().sendCall(pb_commandToServer);
 //			WS.getInstance().sendCall(call);
 		}else {
 			if(errorBack != null){
@@ -50,7 +50,7 @@ public class Pipe {
 
 	}
 
-	public static <T> void makeCall(String command, AbstractMessageLite data, CommandCallBack<T> callBack, Runnable errorBack ,Class cls){
+	public static <T> void makeCall(String command, AbstractMessageLite data, PipeCallBack<T> callBack, Runnable errorBack , Class cls){
 		if(data == null) return;
 		long callId = TimeUtil.getTimeNano();
 		PB_CommandToServer pb_commandToServer = PB_CommandToServer.newBuilder()
@@ -60,11 +60,11 @@ public class Pipe {
 			.build();
 
 
-		if(WS.getInstance().isOpen()){
+		if(PipeWS.getInstance().isOpen()){
 			CallRespondCallback callRespondCallback = new CallRespondCallback(callBack,errorBack,callId);
 			callRespondCallback.responseClass = cls.getName();
 			CallRespondCallbacksRegistery.register(callRespondCallback);
-			WS.getInstance().sendCall(pb_commandToServer);
+			PipeWS.getInstance().sendCall(pb_commandToServer);
 //			WS.getInstance().sendCall(call);
 		}else {
 			if(errorBack != null){
@@ -84,10 +84,10 @@ public class Pipe {
 			.setData(com.google.protobuf.ByteString.copyFrom(data.toByteArray()))
 			.build();
 
-		if(WS.getInstance().isOpen()){
+		if(PipeWS.getInstance().isOpen()){
 			CallRespondCallback callRespondCallback = new CallRespondCallback(succBack,errorBack,callId);
 			CallRespondCallbacksRegistery.register(callRespondCallback);
-			WS.getInstance().sendCall(pb_commandToServer);
+			PipeWS.getInstance().sendCall(pb_commandToServer);
 //			WS.getInstance().sendCall(call);
 		}else {
 			if(errorBack != null){

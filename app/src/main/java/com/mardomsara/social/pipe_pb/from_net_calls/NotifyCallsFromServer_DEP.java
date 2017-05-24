@@ -6,15 +6,13 @@ import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.models.events.NotifyAddedEvent;
 import com.mardomsara.social.models.tables.Notify;
 import com.mardomsara.social.pipe_pb.NetEventHandler;
-import com.mardomsara.social.pipe_pb.Pipe;
-import com.mardomsara.social.pipe_pb.PipeNetEventHandler;
 import com.mardomsara.social.pipe_pb.from_net_calls.json.MsgAddOneJson;
 
 /**
  * Created by Hamid on 5/2/2016.
  */
-public class NotifyCallsFromServer {
-    public static  PipeNetEventHandler<String> NotifyRemoveMany = (data) ->{
+public class NotifyCallsFromServer_DEP {
+    public static NetEventHandler NotifyRemoveMany = (data) ->{
 		MsgAddOneJson jd = AppUtil.fromJson(data,MsgAddOneJson.class);
         if(jd==null || jd.Message == null )return;
         AppUtil.log("NotifyRemoveMany: -> "+data);

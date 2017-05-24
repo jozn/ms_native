@@ -18,12 +18,12 @@ import ir.ms.pb.PB_ResponseMsgAddOne;
 public class PlayNewPipe {
 
 	public static void run1(){
-		WS.getInstance();
+		PipeWS.getInstance();
 
 		AndroidUtil.runInBackgroundNoPanic(()->{
 			List<Message> msgs=  DB.db.selectFromMessage().toList();
 			for (Message m : msgs){
-				CommandCallBack<PB_ResponseMsgAddOne> callBack = (pb_responsMsgAddOne) -> pb_responsMsgAddOne.getResponse() ;
+				PipeCallBack<PB_ResponseMsgAddOne> callBack = (pb_responsMsgAddOne) -> pb_responsMsgAddOne.getResponse() ;
 				Runnable err = ()->{
 					AppUtil.log("+++++++++++++++++ ERRoR");
 					Helper.showDebugMessage("TTTTT");
