@@ -3,7 +3,6 @@ package com.mardomsara.social.pipe_pb;
 import android.util.Log;
 
 import com.mardomsara.social.helpers.AndroidUtil;
-import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.models.Session;
 import com.mardomsara.social.pipe_pb.from_net_calls.FlushStoredDataToServer;
 
@@ -209,30 +208,6 @@ public class WS {
         Executors.newSingleThreadExecutor().execute(run);
     }
 
-	void handleNetMessage(String body){
-		logIt("onMessage: message :" + body);
-		Call_DEP call = AppUtil.fromJson(body, Call_DEP.class);
-		Log.i("ws", ""+call);
-
-		if(call == null) return;
-
-		Runnable r = ()->{
-			try {
-				if (call.ServerCallId != 0) {//respond call
-					sendToServer_CallReceivedToAndroid(call.ServerCallId);
-				}
-				if (call.Name.equals("CallReceivedToServer")) {
-					CallRespondCallbacksRegistery_DEP.trySucceeded(call.ClientCallId);
-					return;
-				}
-
-				WSCallRouter_DEP.handle(call.Name, call);
-			}catch (Exception e){
-				e.printStackTrace();
-			}
-		};
-		singleReciverHandlerExecuter.execute(r);
-	}
 
 	void sendToServer_CallReceivedToAndroid(long ServerCallId){
 		/*Call_DEP call = new Call_DEP("CallReceivedToClient");
@@ -266,7 +241,7 @@ public class WS {
 		try {
 			String body =  message.toString();
 			AndroidUtil.runInBackgroundNoPanic(()->{
-				handleNetMessage(body);
+				WSCallRouter.handleNetWSMessage(message);
 			});
 		}catch (Exception e){
 			e.printStackTrace();
@@ -353,3 +328,31 @@ public class WS {
     }
 
 }
+
+/*
+void handleNetWSMessage(String body){
+		logIt("onMessage: message :" + body);
+		Call_DEP call = AppUtil.fromJson(body, Call_DEP.class);
+		Log.i("ws", ""+call);
+
+		if(call == null) return;
+
+		Runnable r = ()->{
+			try {
+				if (call.ServerCallId != 0) {//respond call
+					sendToServer_CallReceivedToAndroid(call.ServerCallId);
+				}
+				if (call.Name.equals("CallReceivedToServer")) {
+					CallRespondCallbacksRegistery_DEP.trySucceeded(call.ClientCallId);
+					return;
+				}
+
+				WSCallRouter_DEP.handlePushes(call.Name, call);
+			}catch (Exception e){
+				e.printStackTrace();
+			}
+		};
+		singleReciverHandlerExecuter.execute(r);
+	}
+
+*/

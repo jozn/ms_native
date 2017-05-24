@@ -24,8 +24,8 @@ import com.mardomsara.social.base.old.Command;
 
 //                Item.class
 
-        }, // Give model classes to handle
-        excludes = {  } // Give model classes not to handle
+        }, // Give model classes to handlePushes
+        excludes = {  } // Give model classes not to handlePushes
 )
 // The annotated class is not used, but the package name is used to place the OrmaDatabase class.
 public class AppDb_Config {

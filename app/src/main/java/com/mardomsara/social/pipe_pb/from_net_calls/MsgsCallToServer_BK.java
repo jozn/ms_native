@@ -10,20 +10,12 @@ import com.mardomsara.social.helpers.TimeUtil;
 import com.mardomsara.social.models.tables.Message;
 import com.mardomsara.social.models.tables.MsgSeen;
 import com.mardomsara.social.pipe_pb.Call_DEP;
-import com.mardomsara.social.pipe_pb.CommandCallBack;
-import com.mardomsara.social.pipe_pb.PBConv;
-import com.mardomsara.social.pipe_pb.Pipe;
 import com.mardomsara.social.pipe_pb.Pipe_DEP;
-import com.mardomsara.social.pipe_pb.WSCallRouter;
 import com.mardomsara.social.pipe_pb.from_net_calls.events.MsgReceivedToServerEvent;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-
-import ir.ms.pb.PB_Message;
-import ir.ms.pb.PB_RequestMsgAddMany;
-import ir.ms.pb.PB_Response;
 
 import static com.mardomsara.social.base.Http.Http.upload;
 
@@ -31,13 +23,9 @@ import static com.mardomsara.social.base.Http.Http.upload;
  * Created by Hamid on 10/12/2016.
  */
 
-public class MsgsCallToServer {
+public class MsgsCallToServer_BK {
 	public static void addNewTextMsg(Message msg){
-
-		PB_Message pb_message = PBConv.Message_toNew_PB_Message(msg);
-		PB_RequestMsgAddMany pb_requestMsgAddMany = PB_RequestMsgAddMany.newBuilder()
-			.addMessages(pb_message)
-			.build();
+		Call_DEP call = new Call_DEP("MsgsAddOne",msg);
 
 		Runnable succ =  ()->{
 			msg.setToPush(0);
@@ -47,18 +35,11 @@ public class MsgsCallToServer {
 			MsgReceivedToServerEvent.publishNew(msg);
 		};
 
-		Pipe.makeCall(Pipe.PB_RequestMsgAddMany,
-			pb_requestMsgAddMany ,
-			succ,null
-		);
-
+		Pipe_DEP.sendCall(call,succ,null);
 	}
 
 	public static void addManyMsgs(List<Message> msgs){
-		List<PB_Message> pb_message = PBConv.Message_toNew_PB_Message_List(msgs);
-		PB_RequestMsgAddMany pb_requestMsgAddMany = PB_RequestMsgAddMany.newBuilder()
-			.addAllMessages(pb_message)
-			.build();
+		Call_DEP call = new Call_DEP("MsgsAddMany",msgs);
 
 		Runnable succ =  ()->{
 			DB.db.transactionSync(()->{
@@ -74,11 +55,7 @@ public class MsgsCallToServer {
 			}
 		};
 
-		Pipe.makeCall(Pipe.PB_RequestMsgAddMany,
-			pb_requestMsgAddMany ,
-			succ,null
-		);
-
+		Pipe_DEP.sendCall(call,succ,null);
 	}
 
 	public static void sendNewPhoto(Message msg, File resizedFile,File fileOriginal, final boolean deleteOrginal){

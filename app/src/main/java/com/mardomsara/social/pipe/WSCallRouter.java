@@ -29,7 +29,7 @@ public class WSCallRouter {
 		if(call == null || command == null) return;
 
 		String data = call.Data;
-        AppUtil.log("WS handle: "+ command + " data : "+ data);
+        AppUtil.log("WS handlePushes: "+ command + " data : "+ data);
         try {
             NetEventHandler handler =  mapper.get(command);
             if(handler != null){

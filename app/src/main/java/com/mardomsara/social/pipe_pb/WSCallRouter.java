@@ -1,6 +1,7 @@
 package com.mardomsara.social.pipe_pb;
 
-import com.mardomsara.social.helpers.AppUtil;
+import android.util.Log;
+
 import com.mardomsara.social.helpers.TimeUtil;
 import com.mardomsara.social.models.AppModel;
 import com.mardomsara.social.pipe_pb.from_net_calls.MsgCallsFromServer;
@@ -8,37 +9,36 @@ import com.mardomsara.social.pipe_pb.from_net_calls.NotifyCallsFromServer;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+import okio.ByteString;
 
 /**
  * Created by Hamid on 3/31/2016.
  */
 public class WSCallRouter {
-	public static final String  PB_CommandToServer = "PB_CommandToServer";
-	public static final String  PB_CommandToClient = "PB_CommandToClient";
 
-	public static final String  PB_RequestMsgAddMany = "PB_RequestMsgAddMany";
-	public static final String  PB_RequestMsgAddOne = "PB_ResponseMsgAddMany";
 
-	public static final String  PB_PushMsgAddMany = "PB_PushMsgAddMany";
+	private static ExecutorService singleReciverHandlerExecuter = Executors.newSingleThreadExecutor();
 
     static {
         mapper = new HashMap<>();//must be here - otherwise it will not inintilaze befor buildMapper()
         buildMapper();
     }
 
-    static Map<String,NetEventHandler_DEP> mapper;
+    static Map<String,NetEventHandler> mapper;
 
-    static void register(String command, NetEventHandler_DEP handler){
+    static void register(String command, NetEventHandler handler){
         mapper.put(command,handler);
     }
 
-    public static void handle(String command, Call_DEP call){
-		if(call == null || command == null) return;
+    public static void handlePushes(String command, byte[] call){
+		/*AppUtil.log("WS handlePushes: "+ command + " data : "+ call.length);
+		if(call == null || command == null || command.equals("") ) return;
 
-		String data = call.Data;
-        AppUtil.log("WS handle: "+ command + " data : "+ data);
         try {
-            NetEventHandler_DEP handler =  mapper.get(command);
+            NetEventHandler handler =  mapper.get(command);
             if(handler != null){
                 handler.handle(data);
             }else if(command.equals("TimeMs")) {
@@ -48,7 +48,7 @@ public class WSCallRouter {
             }
         }catch (Exception e){
             e.printStackTrace();
-        }
+        }*/
     }
 
     private static void buildMapper() {
@@ -68,9 +68,36 @@ public class WSCallRouter {
 //		register("NotifyAddOne", MsgCallsFromServer.MsgAddMany);
     }
 
-	static void TimeMs(Call_DEP call) {
+	/*static void TimeMs(Call_DEP call) {
 		AppModel.timeDiffToServer = call.TimeMs - TimeUtil.getTimeMs();
 
-	}
+	}*/
 
+	public static void handleNetWSMessage(ByteString body) {
+		if(body == null) return;
+		Log.i("WS: " ,"onMessage: message :" + body);
+
+		Runnable r = ()->{
+			try {
+				ir.ms.pb.PB_CommandToClient pbCommandToClient = ir.ms.pb.PB_CommandToClient.parseFrom(body.toByteArray());
+				if (pbCommandToClient.getCallId() != 0) {//respond call
+//					WS.getInstance().sendToServer_CallReceivedToAndroid(pbCommandToClient.getCallId());
+				}
+
+				if (pbCommandToClient.getCommand().equals("CallReceivedToServer")) {
+					CallRespondCallbacksRegistery.tryReachedServer(pbCommandToClient.getCallId());
+					return;
+				}else if(pbCommandToClient.getCommand().equals("CallResponse")){
+					CallRespondCallbacksRegistery.trySucceeded(pbCommandToClient.getCallId() , pbCommandToClient.getData().toByteArray());
+				}else {
+					WSCallRouter.handlePushes(pbCommandToClient.getCommand(), pbCommandToClient.getData().toByteArray() );
+
+				}
+
+			}catch (Exception e){
+				e.printStackTrace();
+			}
+		};
+		singleReciverHandlerExecuter.execute(r);
+	}
 }

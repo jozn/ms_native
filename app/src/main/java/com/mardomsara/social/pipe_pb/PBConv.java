@@ -3,6 +3,9 @@ package com.mardomsara.social.pipe_pb;
 import com.mardomsara.social.models.tables.Message;
 import com.mardomsara.social.models.tables.User;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import ir.ms.pb.PB_Message;
 import ir.ms.pb.PB_UserWithMe;
 
@@ -65,6 +68,14 @@ public class PBConv {
 		b.setMsgFileStatus(msg.MsgFile_Status);
 
 		return b.build();
+	}
+
+	public static List<PB_Message> Message_toNew_PB_Message_List(List<Message > msgs){
+		List<PB_Message > list = new ArrayList<>();
+		for (Message message : msgs){
+			list.add(Message_toNew_PB_Message(message));
+		}
+		return list;
 	}
 
 	public static User PB_UserWithMe_toNew_User(PB_UserWithMe pb_user){

@@ -1,12 +1,16 @@
 package com.mardomsara.social.pipe_pb;
 
+import com.google.protobuf.InvalidProtocolBufferException;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.TimeUtil;
 
+import java.lang.reflect.Method;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.Executors;
+
+import ir.ms.pb.PB_Message;
 
 /**
  * Created by Hamid on 5/12/2016.
@@ -26,24 +30,40 @@ class CallRespondCallbacksRegistery {
 	}
 
 	//FIXME
-    static void trySucceeded(long ReqId) {
+//	@SuppressWarnings("All")
+	static void trySucceeded(long ReqId, byte[] bytes) {
 		CallRespondCallback h = _mapper.get(ReqId);
         if(h != null){
 			if(h.success != null ){
-				h.success.onResponse(null);
+				try {
+					Method m = Class.forName(h.responseClass).getMethod("parseFrom", byte[].class);
+					Object res = m.invoke(bytes);
+//					PB_Message res = PB_Message.parseFrom(bytes);
+					h.success.onResponse(res);
+				} catch (InvalidProtocolBufferException e) {
+					e.printStackTrace();
+				} catch (Exception e2){
+					e2.printStackTrace();
+				}
+
+//				h.success.onResponse(null);
 			}
 			cleanCall(h.clientCallId);
         }
     }
 
-	private static void cleanCall(Call_DEP call){
-		_mapper.remove(call.ClientCallId);
-		Pipe.cancelCall(call);
+	static void tryReachedServer(long ReqId) {
+		CallRespondCallback h = _mapper.get(ReqId);
+		if(h != null){
+			if(h.reachedServer != null ) {
+				h.reachedServer.run();
+			}
+		}
 	}
 
 	private static void cleanCall(long ClientCallId){
 		_mapper.remove(ClientCallId);
-		Pipe.cancelCall(null);
+		Pipe.cancelCall(ClientCallId);
 	}
 
 	//just in case of timeout -- or server did't respond
@@ -51,7 +71,7 @@ class CallRespondCallbacksRegistery {
 		CallRespondCallback h = _mapper.get(ReqId);
 		if(h != null){
 			if(h.error != null ){
-				h.success.onResponse(null);
+				h.error.run();
 			}
 		}
 	}

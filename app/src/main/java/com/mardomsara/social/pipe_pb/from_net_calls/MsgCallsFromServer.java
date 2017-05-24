@@ -16,7 +16,7 @@ import com.mardomsara.social.models.UserModel;
 import com.mardomsara.social.models.tables.Message;
 import com.mardomsara.social.models.tables.MsgFile;
 import com.mardomsara.social.models.tables.User;
-import com.mardomsara.social.pipe_pb.NetEventHandler_DEP;
+import com.mardomsara.social.pipe_pb.NetEventHandler;
 import com.mardomsara.social.pipe_pb.from_net_calls.json.MsgAddManyJson;
 import com.mardomsara.social.pipe_pb.from_net_calls.json.MsgAddOneJson;
 import com.mardomsara.social.pipe_pb.from_net_calls.json.MsgDeletedFromServerJson;
@@ -31,7 +31,7 @@ import java.util.Map;
  * Created by Hamid on 5/2/2016.
  */
 public class MsgCallsFromServer {
-    public static NetEventHandler_DEP MsgAddOne = (data) ->{
+    public static NetEventHandler MsgAddOne = (data) ->{
 		MsgAddOneJson jd = AppUtil.fromJson(data,MsgAddOneJson.class);
         if(jd==null || jd.Message == null )return;
         AppUtil.log("NotifyRemoveMany: -> "+data);
@@ -41,7 +41,7 @@ public class MsgCallsFromServer {
 		App.getBus().post(jd);
     };
 
-	public static NetEventHandler_DEP MsgAddMany = (data) ->{
+	public static NetEventHandler MsgAddMany = (data) ->{
 		MsgAddManyJson jd = AppUtil.fromJson(data,MsgAddManyJson.class);
 		if(jd==null || jd.Messages == null )return;
 		AppUtil.log("NotifyAddOne: cmd -> "+data);
@@ -87,7 +87,7 @@ public class MsgCallsFromServer {
 	}
 
 
-	public static NetEventHandler_DEP MsgsReceivedToPeerMany = (data) ->{
+	public static NetEventHandler MsgsReceivedToPeerMany = (data) ->{
 		AppUtil.log("MsgsReceivedToPeerMany: cmd -> "+data);
 		List<MsgReceivedToPeerJson> res = JsonUtil.fromJsonList(data,MsgReceivedToPeerJson.class);
 		if(res == null || res.size() ==0)return;
@@ -108,7 +108,7 @@ public class MsgCallsFromServer {
 		}
 	};
 
-	public static NetEventHandler_DEP MsgsDeletedFromServerMany = (data) ->{
+	public static NetEventHandler MsgsDeletedFromServerMany = (data) ->{
 		List<MsgDeletedFromServerJson> res = JsonUtil.fromJsonList(data,MsgDeletedFromServerJson.class);
 		if(res == null || res.size() ==0)return;
 
@@ -127,7 +127,7 @@ public class MsgCallsFromServer {
 		}
 	};
 
-	public static NetEventHandler_DEP MsgsSeenByPeerMany = (data) ->{
+	public static NetEventHandler MsgsSeenByPeerMany = (data) ->{
 		List<MsgSeenByPeerJson> res = JsonUtil.fromJsonList(data, MsgSeenByPeerJson.class);
 		if(res == null || res.size() ==0)return;
 

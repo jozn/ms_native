@@ -71,7 +71,7 @@ public class Nav {
 		getDefaultTree().resetBranch(branch);
     }
 
-    //returns means: true Nav handeld - activit don't do anything --- false: we didn't handle activity handle it
+    //returns means: true Nav handeld - activit don't do anything --- false: we didn't handlePushes activity handlePushes it
     public static boolean onBackPress() {
 		return getDefaultTree().onBackPress();
     }
@@ -326,9 +326,9 @@ public class Nav {
 			footerFrame.addView(footerCell.getRoot());
 		}
 
-		//returns means: true Nav handeld - activit don't do anything --- false: we didn't handle activity handle it
+		//returns means: true Nav handeld - activit don't do anything --- false: we didn't handlePushes activity handlePushes it
 		public boolean onBackPress() {
-			//handle customs
+			//handlePushes customs
 			boolean customHandled = false;
 			for(OnBackPressHandler handler : customOnBackPressHandler){
 				customHandled = handler.handle();
