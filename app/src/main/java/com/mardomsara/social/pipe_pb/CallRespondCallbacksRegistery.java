@@ -40,8 +40,8 @@ class CallRespondCallbacksRegistery {
 					Object res = m.invoke(bytes);
 //					PB_Message res = PB_Message.parseFrom(bytes);
 					h.success.onResponse(res);
-				} catch (InvalidProtocolBufferException e) {
-					e.printStackTrace();
+				/*} catch (InvalidProtocolBufferException e) {
+					e.printStackTrace();*/
 				} catch (Exception e2){
 					e2.printStackTrace();
 				}

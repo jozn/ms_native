@@ -8,11 +8,20 @@ public interface PB_RequestMsgAddManyOrBuilder extends
     com.google.protobuf.MessageLiteOrBuilder {
 
   /**
+   * <code>.PB_Request Request = 1;</code>
+   */
+  boolean hasRequest();
+  /**
+   * <code>.PB_Request Request = 1;</code>
+   */
+  ir.ms.pb.PB_Request getRequest();
+
+  /**
    * <pre>
    * repeated PB_UserWithMe Users = 2;
    * </pre>
    *
-   * <code>repeated .PB_Message Messages = 1;</code>
+   * <code>repeated .PB_Message Messages = 2;</code>
    */
   java.util.List<ir.ms.pb.PB_Message> 
       getMessagesList();
@@ -21,7 +30,7 @@ public interface PB_RequestMsgAddManyOrBuilder extends
    * repeated PB_UserWithMe Users = 2;
    * </pre>
    *
-   * <code>repeated .PB_Message Messages = 1;</code>
+   * <code>repeated .PB_Message Messages = 2;</code>
    */
   ir.ms.pb.PB_Message getMessages(int index);
   /**
@@ -29,7 +38,7 @@ public interface PB_RequestMsgAddManyOrBuilder extends
    * repeated PB_UserWithMe Users = 2;
    * </pre>
    *
-   * <code>repeated .PB_Message Messages = 1;</code>
+   * <code>repeated .PB_Message Messages = 2;</code>
    */
   int getMessagesCount();
 }

@@ -7,14 +7,17 @@ import com.mardomsara.social.helpers.TimeUtil;
 import ir.ms.pb.PB_CommandToServer;
 
 public class Pipe {
+	public static class REQUESTS {
+		public static final String  REQUEST_PB_CommandToServer = "PB_CommandToServer";
+		public static final String  REQUEST_PB_CommandToClient = "PB_CommandToClient";
 
-	public static final String  PB_CommandToServer = "PB_CommandToServer";
-	public static final String  PB_CommandToClient = "PB_CommandToClient";
+		public static final String  PB_RequestMsgAddMany = "PB_RequestMsgAddMany";
+		public static final String  PB_RequestMsgsSeen = "PB_RequestMsgsSeen";
+		public static final String  REQUEST_PB_RequestMsgAddOne = "PB_ResponseMsgAddMany";
 
-	public static final String  PB_RequestMsgAddMany = "PB_RequestMsgAddMany";
-	public static final String  PB_RequestMsgAddOne = "PB_ResponseMsgAddMany";
+		public static final String  REQUEST_PB_PushMsgAddMany = "PB_PushMsgAddMany";
+	}
 
-	public static final String  PB_PushMsgAddMany = "PB_PushMsgAddMany";
 
 
 	public static void cancelCall(long callid){

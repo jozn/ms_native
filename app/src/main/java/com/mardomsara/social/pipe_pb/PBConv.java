@@ -1,12 +1,14 @@
 package com.mardomsara.social.pipe_pb;
 
 import com.mardomsara.social.models.tables.Message;
+import com.mardomsara.social.models.tables.MsgSeen;
 import com.mardomsara.social.models.tables.User;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import ir.ms.pb.PB_Message;
+import ir.ms.pb.PB_MsgSeen;
 import ir.ms.pb.PB_UserWithMe;
 
 /**
@@ -100,5 +102,24 @@ public class PBConv {
 		u.Phone = pb_user.getPhone();
 
 		return u;
+	}
+
+	public static PB_MsgSeen MsgSeen_to_PB_MsgSeen(MsgSeen seen){
+		PB_MsgSeen pb_msgSeen = PB_MsgSeen.newBuilder()
+			.setUserId(seen.PeerUserId)
+			.setMessageKey(seen.MsgKey)
+			.setRoomKey(seen.RoomKey)
+			.setAtTime(seen.AtTime)
+			.build();
+
+		return pb_msgSeen;
+	}
+
+	public static List<PB_MsgSeen> MsgSeen_to_PB_MsgSeen_List(List<MsgSeen> seens){
+		List<PB_MsgSeen > list = new ArrayList<>();
+		for (MsgSeen s : seens){
+			list.add(MsgSeen_to_PB_MsgSeen(s));
+		}
+		return list;
 	}
 }

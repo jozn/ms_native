@@ -9,12 +9,8 @@ import com.mardomsara.social.helpers.JsonUtil;
 import com.mardomsara.social.helpers.TimeUtil;
 import com.mardomsara.social.models.tables.Message;
 import com.mardomsara.social.models.tables.MsgSeen;
-import com.mardomsara.social.pipe_pb.Call_DEP;
-import com.mardomsara.social.pipe_pb.CommandCallBack;
 import com.mardomsara.social.pipe_pb.PBConv;
 import com.mardomsara.social.pipe_pb.Pipe;
-import com.mardomsara.social.pipe_pb.Pipe_DEP;
-import com.mardomsara.social.pipe_pb.WSCallRouter;
 import com.mardomsara.social.pipe_pb.from_net_calls.events.MsgReceivedToServerEvent;
 
 import java.io.File;
@@ -23,7 +19,7 @@ import java.util.List;
 
 import ir.ms.pb.PB_Message;
 import ir.ms.pb.PB_RequestMsgAddMany;
-import ir.ms.pb.PB_Response;
+import ir.ms.pb.PB_RequestMsgsSeen;
 
 import static com.mardomsara.social.base.Http.Http.upload;
 
@@ -47,7 +43,7 @@ public class MsgsCallToServer {
 			MsgReceivedToServerEvent.publishNew(msg);
 		};
 
-		Pipe.makeCall(Pipe.PB_RequestMsgAddMany,
+		Pipe.makeCall(Pipe.REQUESTS.PB_RequestMsgAddMany,
 			pb_requestMsgAddMany ,
 			succ,null
 		);
@@ -74,7 +70,7 @@ public class MsgsCallToServer {
 			}
 		};
 
-		Pipe.makeCall(Pipe.PB_RequestMsgAddMany,
+		Pipe.makeCall(Pipe.REQUESTS.PB_RequestMsgAddMany,
 			pb_requestMsgAddMany ,
 			succ,null
 		);
@@ -133,7 +129,10 @@ public class MsgsCallToServer {
 	}
 
 	public static void sendSeenMsgs(List<MsgSeen> msgsSeen) {
-		Call_DEP call = new Call_DEP("MsgsSeenMany",msgsSeen);
+
+		PB_RequestMsgsSeen pb_request = PB_RequestMsgsSeen.newBuilder()
+			.addAllSeen(PBConv.MsgSeen_to_PB_MsgSeen_List(msgsSeen))
+			.build();
 
 		Runnable succ =  ()->{
 			DB.db.transactionSync(()->{
@@ -145,7 +144,9 @@ public class MsgsCallToServer {
 			});
 		};
 
-		Pipe_DEP.sendCall(call,succ,null);
+		Pipe.makeCall(Pipe.REQUESTS.PB_RequestMsgsSeen,
+			pb_request,
+			succ,null);
 	}
 
 }

@@ -4,6 +4,10 @@
 package ir.ms.pb;
 
 /**
+ * <pre>
+ *DEP
+ * </pre>
+ *
  * Protobuf type {@code PB_RequestMsgAddOne}
  */
 public  final class PB_RequestMsgAddOne extends
@@ -213,6 +217,10 @@ public  final class PB_RequestMsgAddOne extends
   }
 
   /**
+   * <pre>
+   *DEP
+   * </pre>
+   *
    * Protobuf type {@code PB_RequestMsgAddOne}
    */
   public static final class Builder extends
