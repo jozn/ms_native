@@ -2,12 +2,15 @@ package com.mardomsara.social.pipe_pb;
 
 import android.util.Log;
 
+import com.mardomsara.social.app.AppFiles;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.models.Session;
 import com.mardomsara.social.pipe_pb.from_net_calls.FlushStoredDataToServer;
 
 import org.greenrobot.essentials.Base64;
+import org.greenrobot.essentials.io.FileUtils;
 
+import java.io.File;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -19,15 +22,16 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
-//import okhttp3.ws.WebSocket;
-//import okhttp3.ws.WebSocketCall;
-//import okhttp3.ws.WebSocketListener;
 import okhttp3.WebSocket;
 import okhttp3.WebSocketListener;
 import okio.Buffer;
 import okio.ByteString;
 
 import static okhttp3.ws.WebSocket.BINARY;
+
+//import okhttp3.ws.WebSocket;
+//import okhttp3.ws.WebSocketCall;
+//import okhttp3.ws.WebSocketListener;
 
 /**
  * Created by Hamid on 9/11/2016.
@@ -170,6 +174,7 @@ public class PipeWS {
 //        WebSocketCall.create(client, request).enqueue(wsConnectionListener);
     }
 
+    static int ii = 0;
     void runSenderThread() {
         Log.i(LOGTAG, "runSenderThread called");
         Runnable run = ()->{
@@ -183,7 +188,10 @@ public class PipeWS {
 //						body = JsonUtil.toJson(call);
                         Log.i(LOGTAG, "sending PB_CommandToServer from WSchanel" + call.toString());
 //                        req = RequestBody.create(TEXT, body);
-						Log.i("MSG_add: ", Base64.encodeBytes(call.toByteArray()) );
+						byte[] data = call.toByteArray();
+//						Log.i("MSG_add: ", Base64.encodeBytes(data) );
+						ii++;
+						FileUtils.writeBytes(new File(AppFiles.PHOTO_DIR_PATH + ""+ii), data );
                         req = RequestBody.create(BINARY, call.toByteArray());
 						if(status == STATUS.OPEN){
 							webSocket.send(ByteString.of(call.toByteArray()));

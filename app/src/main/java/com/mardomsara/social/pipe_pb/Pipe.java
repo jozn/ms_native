@@ -1,6 +1,7 @@
 package com.mardomsara.social.pipe_pb;
 
 import com.google.protobuf.AbstractMessageLite;
+import com.google.protobuf.ByteString;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.TimeUtil;
 
@@ -30,7 +31,7 @@ public class Pipe {
 		if(data == null) return;
 		long callId = TimeUtil.getTimeNano();
 		PB_CommandToServer pb_commandToServer = PB_CommandToServer.newBuilder()
-			.setCommand(command)
+			.setCommandBytes(ByteString.copyFromUtf8(command))
 			.setCallId(callId)
 			.setData(com.google.protobuf.ByteString.copyFrom(data.toByteArray()))
 			.build();
@@ -79,7 +80,7 @@ public class Pipe {
 		if(data == null) return;
 		long callId = TimeUtil.getTimeNano();
 		PB_CommandToServer pb_commandToServer = PB_CommandToServer.newBuilder()
-			.setCommand(command)
+			.setCommandBytes(ByteString.copyFromUtf8(command))
 			.setCallId(callId)
 			.setData(com.google.protobuf.ByteString.copyFrom(data.toByteArray()))
 			.build();

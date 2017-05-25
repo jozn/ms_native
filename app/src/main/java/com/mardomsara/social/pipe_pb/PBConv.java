@@ -1,5 +1,6 @@
 package com.mardomsara.social.pipe_pb;
 
+import com.google.protobuf.ByteString;
 import com.mardomsara.social.models.tables.Message;
 import com.mardomsara.social.models.tables.MsgSeen;
 import com.mardomsara.social.models.tables.User;
@@ -47,13 +48,14 @@ public class PBConv {
 	public static PB_Message Message_toNew_PB_Message(Message msg){
 		PB_Message.Builder b = PB_Message.newBuilder();
 //		b.setNanoId(0);
-		b.setMessageKey(msg.MessageKey);
-		b.setRoomKey(msg.RoomKey);
+
+		b.setMessageKeyBytes(toUtf8(msg.MessageKey));
+		b.setRoomKeyBytes(toUtf8(msg.RoomKey));
 		b.setUserId(msg.UserId);
 		b.setRoomTypeId(msg.RoomTypeId);
 		b.setMessageTypeId(msg.MessageTypeId);
-		b.setText(msg.Text);
-		b.setExtraJson(msg.ExtraJson);
+		b.setTextBytes(toUtf8(msg.Text));
+		b.setExtraJsonBytes(toUtf8(msg.ExtraJson));
 		b.setIsByMe(msg.IsByMe);
 		b.setIsStared(msg.IsStared);
 		b.setCreatedMs(msg.CreatedMs);
@@ -66,7 +68,7 @@ public class PBConv {
 		b.setISeenTime(msg.ISeenTime);
 		b.setToPush(msg.ToPush);
 
-		b.setMsgFileLocalSrc(msg.MsgFile_LocalSrc);
+		b.setMsgFileLocalSrcBytes(toUtf8(msg.MsgFile_LocalSrc));
 		b.setMsgFileStatus(msg.MsgFile_Status);
 
 		return b.build();
@@ -108,7 +110,7 @@ public class PBConv {
 		PB_MsgSeen pb_msgSeen = PB_MsgSeen.newBuilder()
 			.setUserId(seen.PeerUserId)
 			.setMessageKey(seen.MsgKey)
-			.setRoomKey(seen.RoomKey)
+			.setRoomKeyBytes(toUtf8(seen.RoomKey))
 			.setAtTime(seen.AtTime)
 			.build();
 
@@ -121,5 +123,9 @@ public class PBConv {
 			list.add(MsgSeen_to_PB_MsgSeen(s));
 		}
 		return list;
+	}
+
+	static ByteString toUtf8(String str){
+		return ByteString.copyFromUtf8(str);
 	}
 }
