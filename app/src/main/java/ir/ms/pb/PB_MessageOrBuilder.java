@@ -33,6 +33,11 @@ public interface PB_MessageOrBuilder extends
   long getUserId();
 
   /**
+   * <code>int64 PeerId = 20;</code>
+   */
+  long getPeerId();
+
+  /**
    * <code>int32 RoomTypeId = 4;</code>
    */
   int getRoomTypeId();

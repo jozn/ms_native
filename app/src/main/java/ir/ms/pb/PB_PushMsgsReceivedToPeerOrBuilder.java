@@ -3,18 +3,18 @@
 
 package ir.ms.pb;
 
-public interface PB_RequestMsgsSeenOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:PB_RequestMsgsSeen)
+public interface PB_PushMsgsReceivedToPeerOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:PB_PushMsgsReceivedToPeer)
     com.google.protobuf.MessageLiteOrBuilder {
 
   /**
-   * <code>.PB_Request Request = 1;</code>
+   * <code>.PB_Push Push = 1;</code>
    */
-  boolean hasRequest();
+  boolean hasPush();
   /**
-   * <code>.PB_Request Request = 1;</code>
+   * <code>.PB_Push Push = 1;</code>
    */
-  ir.ms.pb.PB_Request getRequest();
+  ir.ms.pb.PB_Push getPush();
 
   /**
    * <code>repeated .PB_MsgSeen Seen = 2;</code>

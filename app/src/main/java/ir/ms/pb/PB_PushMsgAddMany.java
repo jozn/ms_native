@@ -4,6 +4,10 @@
 package ir.ms.pb;
 
 /**
+ * <pre>
+ *&#47;
+ * </pre>
+ *
  * Protobuf type {@code PB_PushMsgAddMany}
  */
 public  final class PB_PushMsgAddMany extends
@@ -15,35 +19,88 @@ public  final class PB_PushMsgAddMany extends
     messages_ = emptyProtobufList();
     users_ = emptyProtobufList();
   }
-  public static final int MESSAGES_FIELD_NUMBER = 1;
+  private int bitField0_;
+  public static final int PUSH_FIELD_NUMBER = 1;
+  private ir.ms.pb.PB_Push push_;
+  /**
+   * <code>.PB_Push Push = 1;</code>
+   */
+  public boolean hasPush() {
+    return push_ != null;
+  }
+  /**
+   * <code>.PB_Push Push = 1;</code>
+   */
+  public ir.ms.pb.PB_Push getPush() {
+    return push_ == null ? ir.ms.pb.PB_Push.getDefaultInstance() : push_;
+  }
+  /**
+   * <code>.PB_Push Push = 1;</code>
+   */
+  private void setPush(ir.ms.pb.PB_Push value) {
+    if (value == null) {
+      throw new NullPointerException();
+    }
+    push_ = value;
+    
+    }
+  /**
+   * <code>.PB_Push Push = 1;</code>
+   */
+  private void setPush(
+      ir.ms.pb.PB_Push.Builder builderForValue) {
+    push_ = builderForValue.build();
+    
+  }
+  /**
+   * <code>.PB_Push Push = 1;</code>
+   */
+  private void mergePush(ir.ms.pb.PB_Push value) {
+    if (push_ != null &&
+        push_ != ir.ms.pb.PB_Push.getDefaultInstance()) {
+      push_ =
+        ir.ms.pb.PB_Push.newBuilder(push_).mergeFrom(value).buildPartial();
+    } else {
+      push_ = value;
+    }
+    
+  }
+  /**
+   * <code>.PB_Push Push = 1;</code>
+   */
+  private void clearPush() {  push_ = null;
+    
+  }
+
+  public static final int MESSAGES_FIELD_NUMBER = 2;
   private com.google.protobuf.Internal.ProtobufList<ir.ms.pb.PB_Message> messages_;
   /**
-   * <code>repeated .PB_Message Messages = 1;</code>
+   * <code>repeated .PB_Message Messages = 2;</code>
    */
   public java.util.List<ir.ms.pb.PB_Message> getMessagesList() {
     return messages_;
   }
   /**
-   * <code>repeated .PB_Message Messages = 1;</code>
+   * <code>repeated .PB_Message Messages = 2;</code>
    */
   public java.util.List<? extends ir.ms.pb.PB_MessageOrBuilder> 
       getMessagesOrBuilderList() {
     return messages_;
   }
   /**
-   * <code>repeated .PB_Message Messages = 1;</code>
+   * <code>repeated .PB_Message Messages = 2;</code>
    */
   public int getMessagesCount() {
     return messages_.size();
   }
   /**
-   * <code>repeated .PB_Message Messages = 1;</code>
+   * <code>repeated .PB_Message Messages = 2;</code>
    */
   public ir.ms.pb.PB_Message getMessages(int index) {
     return messages_.get(index);
   }
   /**
-   * <code>repeated .PB_Message Messages = 1;</code>
+   * <code>repeated .PB_Message Messages = 2;</code>
    */
   public ir.ms.pb.PB_MessageOrBuilder getMessagesOrBuilder(
       int index) {
@@ -57,7 +114,7 @@ public  final class PB_PushMsgAddMany extends
   }
 
   /**
-   * <code>repeated .PB_Message Messages = 1;</code>
+   * <code>repeated .PB_Message Messages = 2;</code>
    */
   private void setMessages(
       int index, ir.ms.pb.PB_Message value) {
@@ -68,7 +125,7 @@ public  final class PB_PushMsgAddMany extends
     messages_.set(index, value);
   }
   /**
-   * <code>repeated .PB_Message Messages = 1;</code>
+   * <code>repeated .PB_Message Messages = 2;</code>
    */
   private void setMessages(
       int index, ir.ms.pb.PB_Message.Builder builderForValue) {
@@ -76,7 +133,7 @@ public  final class PB_PushMsgAddMany extends
     messages_.set(index, builderForValue.build());
   }
   /**
-   * <code>repeated .PB_Message Messages = 1;</code>
+   * <code>repeated .PB_Message Messages = 2;</code>
    */
   private void addMessages(ir.ms.pb.PB_Message value) {
     if (value == null) {
@@ -86,7 +143,7 @@ public  final class PB_PushMsgAddMany extends
     messages_.add(value);
   }
   /**
-   * <code>repeated .PB_Message Messages = 1;</code>
+   * <code>repeated .PB_Message Messages = 2;</code>
    */
   private void addMessages(
       int index, ir.ms.pb.PB_Message value) {
@@ -97,7 +154,7 @@ public  final class PB_PushMsgAddMany extends
     messages_.add(index, value);
   }
   /**
-   * <code>repeated .PB_Message Messages = 1;</code>
+   * <code>repeated .PB_Message Messages = 2;</code>
    */
   private void addMessages(
       ir.ms.pb.PB_Message.Builder builderForValue) {
@@ -105,7 +162,7 @@ public  final class PB_PushMsgAddMany extends
     messages_.add(builderForValue.build());
   }
   /**
-   * <code>repeated .PB_Message Messages = 1;</code>
+   * <code>repeated .PB_Message Messages = 2;</code>
    */
   private void addMessages(
       int index, ir.ms.pb.PB_Message.Builder builderForValue) {
@@ -113,7 +170,7 @@ public  final class PB_PushMsgAddMany extends
     messages_.add(index, builderForValue.build());
   }
   /**
-   * <code>repeated .PB_Message Messages = 1;</code>
+   * <code>repeated .PB_Message Messages = 2;</code>
    */
   private void addAllMessages(
       java.lang.Iterable<? extends ir.ms.pb.PB_Message> values) {
@@ -122,48 +179,48 @@ public  final class PB_PushMsgAddMany extends
         values, messages_);
   }
   /**
-   * <code>repeated .PB_Message Messages = 1;</code>
+   * <code>repeated .PB_Message Messages = 2;</code>
    */
   private void clearMessages() {
     messages_ = emptyProtobufList();
   }
   /**
-   * <code>repeated .PB_Message Messages = 1;</code>
+   * <code>repeated .PB_Message Messages = 2;</code>
    */
   private void removeMessages(int index) {
     ensureMessagesIsMutable();
     messages_.remove(index);
   }
 
-  public static final int USERS_FIELD_NUMBER = 2;
+  public static final int USERS_FIELD_NUMBER = 3;
   private com.google.protobuf.Internal.ProtobufList<ir.ms.pb.PB_UserWithMe> users_;
   /**
-   * <code>repeated .PB_UserWithMe Users = 2;</code>
+   * <code>repeated .PB_UserWithMe Users = 3;</code>
    */
   public java.util.List<ir.ms.pb.PB_UserWithMe> getUsersList() {
     return users_;
   }
   /**
-   * <code>repeated .PB_UserWithMe Users = 2;</code>
+   * <code>repeated .PB_UserWithMe Users = 3;</code>
    */
   public java.util.List<? extends ir.ms.pb.PB_UserWithMeOrBuilder> 
       getUsersOrBuilderList() {
     return users_;
   }
   /**
-   * <code>repeated .PB_UserWithMe Users = 2;</code>
+   * <code>repeated .PB_UserWithMe Users = 3;</code>
    */
   public int getUsersCount() {
     return users_.size();
   }
   /**
-   * <code>repeated .PB_UserWithMe Users = 2;</code>
+   * <code>repeated .PB_UserWithMe Users = 3;</code>
    */
   public ir.ms.pb.PB_UserWithMe getUsers(int index) {
     return users_.get(index);
   }
   /**
-   * <code>repeated .PB_UserWithMe Users = 2;</code>
+   * <code>repeated .PB_UserWithMe Users = 3;</code>
    */
   public ir.ms.pb.PB_UserWithMeOrBuilder getUsersOrBuilder(
       int index) {
@@ -177,7 +234,7 @@ public  final class PB_PushMsgAddMany extends
   }
 
   /**
-   * <code>repeated .PB_UserWithMe Users = 2;</code>
+   * <code>repeated .PB_UserWithMe Users = 3;</code>
    */
   private void setUsers(
       int index, ir.ms.pb.PB_UserWithMe value) {
@@ -188,7 +245,7 @@ public  final class PB_PushMsgAddMany extends
     users_.set(index, value);
   }
   /**
-   * <code>repeated .PB_UserWithMe Users = 2;</code>
+   * <code>repeated .PB_UserWithMe Users = 3;</code>
    */
   private void setUsers(
       int index, ir.ms.pb.PB_UserWithMe.Builder builderForValue) {
@@ -196,7 +253,7 @@ public  final class PB_PushMsgAddMany extends
     users_.set(index, builderForValue.build());
   }
   /**
-   * <code>repeated .PB_UserWithMe Users = 2;</code>
+   * <code>repeated .PB_UserWithMe Users = 3;</code>
    */
   private void addUsers(ir.ms.pb.PB_UserWithMe value) {
     if (value == null) {
@@ -206,7 +263,7 @@ public  final class PB_PushMsgAddMany extends
     users_.add(value);
   }
   /**
-   * <code>repeated .PB_UserWithMe Users = 2;</code>
+   * <code>repeated .PB_UserWithMe Users = 3;</code>
    */
   private void addUsers(
       int index, ir.ms.pb.PB_UserWithMe value) {
@@ -217,7 +274,7 @@ public  final class PB_PushMsgAddMany extends
     users_.add(index, value);
   }
   /**
-   * <code>repeated .PB_UserWithMe Users = 2;</code>
+   * <code>repeated .PB_UserWithMe Users = 3;</code>
    */
   private void addUsers(
       ir.ms.pb.PB_UserWithMe.Builder builderForValue) {
@@ -225,7 +282,7 @@ public  final class PB_PushMsgAddMany extends
     users_.add(builderForValue.build());
   }
   /**
-   * <code>repeated .PB_UserWithMe Users = 2;</code>
+   * <code>repeated .PB_UserWithMe Users = 3;</code>
    */
   private void addUsers(
       int index, ir.ms.pb.PB_UserWithMe.Builder builderForValue) {
@@ -233,7 +290,7 @@ public  final class PB_PushMsgAddMany extends
     users_.add(index, builderForValue.build());
   }
   /**
-   * <code>repeated .PB_UserWithMe Users = 2;</code>
+   * <code>repeated .PB_UserWithMe Users = 3;</code>
    */
   private void addAllUsers(
       java.lang.Iterable<? extends ir.ms.pb.PB_UserWithMe> values) {
@@ -242,13 +299,13 @@ public  final class PB_PushMsgAddMany extends
         values, users_);
   }
   /**
-   * <code>repeated .PB_UserWithMe Users = 2;</code>
+   * <code>repeated .PB_UserWithMe Users = 3;</code>
    */
   private void clearUsers() {
     users_ = emptyProtobufList();
   }
   /**
-   * <code>repeated .PB_UserWithMe Users = 2;</code>
+   * <code>repeated .PB_UserWithMe Users = 3;</code>
    */
   private void removeUsers(int index) {
     ensureUsersIsMutable();
@@ -257,11 +314,14 @@ public  final class PB_PushMsgAddMany extends
 
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
+    if (push_ != null) {
+      output.writeMessage(1, getPush());
+    }
     for (int i = 0; i < messages_.size(); i++) {
-      output.writeMessage(1, messages_.get(i));
+      output.writeMessage(2, messages_.get(i));
     }
     for (int i = 0; i < users_.size(); i++) {
-      output.writeMessage(2, users_.get(i));
+      output.writeMessage(3, users_.get(i));
     }
   }
 
@@ -270,13 +330,17 @@ public  final class PB_PushMsgAddMany extends
     if (size != -1) return size;
 
     size = 0;
+    if (push_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(1, getPush());
+    }
     for (int i = 0; i < messages_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(1, messages_.get(i));
+        .computeMessageSize(2, messages_.get(i));
     }
     for (int i = 0; i < users_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(2, users_.get(i));
+        .computeMessageSize(3, users_.get(i));
     }
     memoizedSerializedSize = size;
     return size;
@@ -351,6 +415,10 @@ public  final class PB_PushMsgAddMany extends
   }
 
   /**
+   * <pre>
+   *&#47;
+   * </pre>
+   *
    * Protobuf type {@code PB_PushMsgAddMany}
    */
   public static final class Builder extends
@@ -365,25 +433,70 @@ public  final class PB_PushMsgAddMany extends
 
 
     /**
-     * <code>repeated .PB_Message Messages = 1;</code>
+     * <code>.PB_Push Push = 1;</code>
+     */
+    public boolean hasPush() {
+      return instance.hasPush();
+    }
+    /**
+     * <code>.PB_Push Push = 1;</code>
+     */
+    public ir.ms.pb.PB_Push getPush() {
+      return instance.getPush();
+    }
+    /**
+     * <code>.PB_Push Push = 1;</code>
+     */
+    public Builder setPush(ir.ms.pb.PB_Push value) {
+      copyOnWrite();
+      instance.setPush(value);
+      return this;
+      }
+    /**
+     * <code>.PB_Push Push = 1;</code>
+     */
+    public Builder setPush(
+        ir.ms.pb.PB_Push.Builder builderForValue) {
+      copyOnWrite();
+      instance.setPush(builderForValue);
+      return this;
+    }
+    /**
+     * <code>.PB_Push Push = 1;</code>
+     */
+    public Builder mergePush(ir.ms.pb.PB_Push value) {
+      copyOnWrite();
+      instance.mergePush(value);
+      return this;
+    }
+    /**
+     * <code>.PB_Push Push = 1;</code>
+     */
+    public Builder clearPush() {  copyOnWrite();
+      instance.clearPush();
+      return this;
+    }
+
+    /**
+     * <code>repeated .PB_Message Messages = 2;</code>
      */
     public java.util.List<ir.ms.pb.PB_Message> getMessagesList() {
       return java.util.Collections.unmodifiableList(
           instance.getMessagesList());
     }
     /**
-     * <code>repeated .PB_Message Messages = 1;</code>
+     * <code>repeated .PB_Message Messages = 2;</code>
      */
     public int getMessagesCount() {
       return instance.getMessagesCount();
     }/**
-     * <code>repeated .PB_Message Messages = 1;</code>
+     * <code>repeated .PB_Message Messages = 2;</code>
      */
     public ir.ms.pb.PB_Message getMessages(int index) {
       return instance.getMessages(index);
     }
     /**
-     * <code>repeated .PB_Message Messages = 1;</code>
+     * <code>repeated .PB_Message Messages = 2;</code>
      */
     public Builder setMessages(
         int index, ir.ms.pb.PB_Message value) {
@@ -392,7 +505,7 @@ public  final class PB_PushMsgAddMany extends
       return this;
     }
     /**
-     * <code>repeated .PB_Message Messages = 1;</code>
+     * <code>repeated .PB_Message Messages = 2;</code>
      */
     public Builder setMessages(
         int index, ir.ms.pb.PB_Message.Builder builderForValue) {
@@ -401,7 +514,7 @@ public  final class PB_PushMsgAddMany extends
       return this;
     }
     /**
-     * <code>repeated .PB_Message Messages = 1;</code>
+     * <code>repeated .PB_Message Messages = 2;</code>
      */
     public Builder addMessages(ir.ms.pb.PB_Message value) {
       copyOnWrite();
@@ -409,7 +522,7 @@ public  final class PB_PushMsgAddMany extends
       return this;
     }
     /**
-     * <code>repeated .PB_Message Messages = 1;</code>
+     * <code>repeated .PB_Message Messages = 2;</code>
      */
     public Builder addMessages(
         int index, ir.ms.pb.PB_Message value) {
@@ -418,7 +531,7 @@ public  final class PB_PushMsgAddMany extends
       return this;
     }
     /**
-     * <code>repeated .PB_Message Messages = 1;</code>
+     * <code>repeated .PB_Message Messages = 2;</code>
      */
     public Builder addMessages(
         ir.ms.pb.PB_Message.Builder builderForValue) {
@@ -427,7 +540,7 @@ public  final class PB_PushMsgAddMany extends
       return this;
     }
     /**
-     * <code>repeated .PB_Message Messages = 1;</code>
+     * <code>repeated .PB_Message Messages = 2;</code>
      */
     public Builder addMessages(
         int index, ir.ms.pb.PB_Message.Builder builderForValue) {
@@ -436,7 +549,7 @@ public  final class PB_PushMsgAddMany extends
       return this;
     }
     /**
-     * <code>repeated .PB_Message Messages = 1;</code>
+     * <code>repeated .PB_Message Messages = 2;</code>
      */
     public Builder addAllMessages(
         java.lang.Iterable<? extends ir.ms.pb.PB_Message> values) {
@@ -445,7 +558,7 @@ public  final class PB_PushMsgAddMany extends
       return this;
     }
     /**
-     * <code>repeated .PB_Message Messages = 1;</code>
+     * <code>repeated .PB_Message Messages = 2;</code>
      */
     public Builder clearMessages() {
       copyOnWrite();
@@ -453,7 +566,7 @@ public  final class PB_PushMsgAddMany extends
       return this;
     }
     /**
-     * <code>repeated .PB_Message Messages = 1;</code>
+     * <code>repeated .PB_Message Messages = 2;</code>
      */
     public Builder removeMessages(int index) {
       copyOnWrite();
@@ -462,25 +575,25 @@ public  final class PB_PushMsgAddMany extends
     }
 
     /**
-     * <code>repeated .PB_UserWithMe Users = 2;</code>
+     * <code>repeated .PB_UserWithMe Users = 3;</code>
      */
     public java.util.List<ir.ms.pb.PB_UserWithMe> getUsersList() {
       return java.util.Collections.unmodifiableList(
           instance.getUsersList());
     }
     /**
-     * <code>repeated .PB_UserWithMe Users = 2;</code>
+     * <code>repeated .PB_UserWithMe Users = 3;</code>
      */
     public int getUsersCount() {
       return instance.getUsersCount();
     }/**
-     * <code>repeated .PB_UserWithMe Users = 2;</code>
+     * <code>repeated .PB_UserWithMe Users = 3;</code>
      */
     public ir.ms.pb.PB_UserWithMe getUsers(int index) {
       return instance.getUsers(index);
     }
     /**
-     * <code>repeated .PB_UserWithMe Users = 2;</code>
+     * <code>repeated .PB_UserWithMe Users = 3;</code>
      */
     public Builder setUsers(
         int index, ir.ms.pb.PB_UserWithMe value) {
@@ -489,7 +602,7 @@ public  final class PB_PushMsgAddMany extends
       return this;
     }
     /**
-     * <code>repeated .PB_UserWithMe Users = 2;</code>
+     * <code>repeated .PB_UserWithMe Users = 3;</code>
      */
     public Builder setUsers(
         int index, ir.ms.pb.PB_UserWithMe.Builder builderForValue) {
@@ -498,7 +611,7 @@ public  final class PB_PushMsgAddMany extends
       return this;
     }
     /**
-     * <code>repeated .PB_UserWithMe Users = 2;</code>
+     * <code>repeated .PB_UserWithMe Users = 3;</code>
      */
     public Builder addUsers(ir.ms.pb.PB_UserWithMe value) {
       copyOnWrite();
@@ -506,7 +619,7 @@ public  final class PB_PushMsgAddMany extends
       return this;
     }
     /**
-     * <code>repeated .PB_UserWithMe Users = 2;</code>
+     * <code>repeated .PB_UserWithMe Users = 3;</code>
      */
     public Builder addUsers(
         int index, ir.ms.pb.PB_UserWithMe value) {
@@ -515,7 +628,7 @@ public  final class PB_PushMsgAddMany extends
       return this;
     }
     /**
-     * <code>repeated .PB_UserWithMe Users = 2;</code>
+     * <code>repeated .PB_UserWithMe Users = 3;</code>
      */
     public Builder addUsers(
         ir.ms.pb.PB_UserWithMe.Builder builderForValue) {
@@ -524,7 +637,7 @@ public  final class PB_PushMsgAddMany extends
       return this;
     }
     /**
-     * <code>repeated .PB_UserWithMe Users = 2;</code>
+     * <code>repeated .PB_UserWithMe Users = 3;</code>
      */
     public Builder addUsers(
         int index, ir.ms.pb.PB_UserWithMe.Builder builderForValue) {
@@ -533,7 +646,7 @@ public  final class PB_PushMsgAddMany extends
       return this;
     }
     /**
-     * <code>repeated .PB_UserWithMe Users = 2;</code>
+     * <code>repeated .PB_UserWithMe Users = 3;</code>
      */
     public Builder addAllUsers(
         java.lang.Iterable<? extends ir.ms.pb.PB_UserWithMe> values) {
@@ -542,7 +655,7 @@ public  final class PB_PushMsgAddMany extends
       return this;
     }
     /**
-     * <code>repeated .PB_UserWithMe Users = 2;</code>
+     * <code>repeated .PB_UserWithMe Users = 3;</code>
      */
     public Builder clearUsers() {
       copyOnWrite();
@@ -550,7 +663,7 @@ public  final class PB_PushMsgAddMany extends
       return this;
     }
     /**
-     * <code>repeated .PB_UserWithMe Users = 2;</code>
+     * <code>repeated .PB_UserWithMe Users = 3;</code>
      */
     public Builder removeUsers(int index) {
       copyOnWrite();
@@ -581,10 +694,12 @@ public  final class PB_PushMsgAddMany extends
       case VISIT: {
         Visitor visitor = (Visitor) arg0;
         ir.ms.pb.PB_PushMsgAddMany other = (ir.ms.pb.PB_PushMsgAddMany) arg1;
+        push_ = visitor.visitMessage(push_, other.push_);
         messages_= visitor.visitList(messages_, other.messages_);
         users_= visitor.visitList(users_, other.users_);
         if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
             .INSTANCE) {
+          bitField0_ |= other.bitField0_;
         }
         return this;
       }
@@ -608,6 +723,19 @@ public  final class PB_PushMsgAddMany extends
                 break;
               }
               case 10: {
+                ir.ms.pb.PB_Push.Builder subBuilder = null;
+                if (push_ != null) {
+                  subBuilder = push_.toBuilder();
+                }
+                push_ = input.readMessage(ir.ms.pb.PB_Push.parser(), extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(push_);
+                  push_ = subBuilder.buildPartial();
+                }
+
+                break;
+              }
+              case 18: {
                 if (!messages_.isModifiable()) {
                   messages_ =
                       com.google.protobuf.GeneratedMessageLite.mutableCopy(messages_);
@@ -616,7 +744,7 @@ public  final class PB_PushMsgAddMany extends
                     input.readMessage(ir.ms.pb.PB_Message.parser(), extensionRegistry));
                 break;
               }
-              case 18: {
+              case 26: {
                 if (!users_.isModifiable()) {
                   users_ =
                       com.google.protobuf.GeneratedMessageLite.mutableCopy(users_);

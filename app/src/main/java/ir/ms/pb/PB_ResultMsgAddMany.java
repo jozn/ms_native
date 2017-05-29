@@ -13,62 +13,62 @@ public  final class PB_ResultMsgAddMany extends
     PB_ResultMsgAddManyOrBuilder {
   private PB_ResultMsgAddMany() {
   }
-  public static final int RESPONSE_FIELD_NUMBER = 1;
-  private ir.ms.pb.PB_Response response_;
+  public static final int RESULT_FIELD_NUMBER = 1;
+  private ir.ms.pb.PB_Result result_;
   /**
-   * <code>.PB_Response Response = 1;</code>
+   * <code>.PB_Result Result = 1;</code>
    */
-  public boolean hasResponse() {
-    return response_ != null;
+  public boolean hasResult() {
+    return result_ != null;
   }
   /**
-   * <code>.PB_Response Response = 1;</code>
+   * <code>.PB_Result Result = 1;</code>
    */
-  public ir.ms.pb.PB_Response getResponse() {
-    return response_ == null ? ir.ms.pb.PB_Response.getDefaultInstance() : response_;
+  public ir.ms.pb.PB_Result getResult() {
+    return result_ == null ? ir.ms.pb.PB_Result.getDefaultInstance() : result_;
   }
   /**
-   * <code>.PB_Response Response = 1;</code>
+   * <code>.PB_Result Result = 1;</code>
    */
-  private void setResponse(ir.ms.pb.PB_Response value) {
+  private void setResult(ir.ms.pb.PB_Result value) {
     if (value == null) {
       throw new NullPointerException();
     }
-    response_ = value;
+    result_ = value;
     
     }
   /**
-   * <code>.PB_Response Response = 1;</code>
+   * <code>.PB_Result Result = 1;</code>
    */
-  private void setResponse(
-      ir.ms.pb.PB_Response.Builder builderForValue) {
-    response_ = builderForValue.build();
+  private void setResult(
+      ir.ms.pb.PB_Result.Builder builderForValue) {
+    result_ = builderForValue.build();
     
   }
   /**
-   * <code>.PB_Response Response = 1;</code>
+   * <code>.PB_Result Result = 1;</code>
    */
-  private void mergeResponse(ir.ms.pb.PB_Response value) {
-    if (response_ != null &&
-        response_ != ir.ms.pb.PB_Response.getDefaultInstance()) {
-      response_ =
-        ir.ms.pb.PB_Response.newBuilder(response_).mergeFrom(value).buildPartial();
+  private void mergeResult(ir.ms.pb.PB_Result value) {
+    if (result_ != null &&
+        result_ != ir.ms.pb.PB_Result.getDefaultInstance()) {
+      result_ =
+        ir.ms.pb.PB_Result.newBuilder(result_).mergeFrom(value).buildPartial();
     } else {
-      response_ = value;
+      result_ = value;
     }
     
   }
   /**
-   * <code>.PB_Response Response = 1;</code>
+   * <code>.PB_Result Result = 1;</code>
    */
-  private void clearResponse() {  response_ = null;
+  private void clearResult() {  result_ = null;
     
   }
 
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (response_ != null) {
-      output.writeMessage(1, getResponse());
+    if (result_ != null) {
+      output.writeMessage(1, getResult());
     }
   }
 
@@ -77,9 +77,9 @@ public  final class PB_ResultMsgAddMany extends
     if (size != -1) return size;
 
     size = 0;
-    if (response_ != null) {
+    if (result_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(1, getResponse());
+        .computeMessageSize(1, getResult());
     }
     memoizedSerializedSize = size;
     return size;
@@ -168,47 +168,47 @@ public  final class PB_ResultMsgAddMany extends
 
 
     /**
-     * <code>.PB_Response Response = 1;</code>
+     * <code>.PB_Result Result = 1;</code>
      */
-    public boolean hasResponse() {
-      return instance.hasResponse();
+    public boolean hasResult() {
+      return instance.hasResult();
     }
     /**
-     * <code>.PB_Response Response = 1;</code>
+     * <code>.PB_Result Result = 1;</code>
      */
-    public ir.ms.pb.PB_Response getResponse() {
-      return instance.getResponse();
+    public ir.ms.pb.PB_Result getResult() {
+      return instance.getResult();
     }
     /**
-     * <code>.PB_Response Response = 1;</code>
+     * <code>.PB_Result Result = 1;</code>
      */
-    public Builder setResponse(ir.ms.pb.PB_Response value) {
+    public Builder setResult(ir.ms.pb.PB_Result value) {
       copyOnWrite();
-      instance.setResponse(value);
+      instance.setResult(value);
       return this;
       }
     /**
-     * <code>.PB_Response Response = 1;</code>
+     * <code>.PB_Result Result = 1;</code>
      */
-    public Builder setResponse(
-        ir.ms.pb.PB_Response.Builder builderForValue) {
+    public Builder setResult(
+        ir.ms.pb.PB_Result.Builder builderForValue) {
       copyOnWrite();
-      instance.setResponse(builderForValue);
+      instance.setResult(builderForValue);
       return this;
     }
     /**
-     * <code>.PB_Response Response = 1;</code>
+     * <code>.PB_Result Result = 1;</code>
      */
-    public Builder mergeResponse(ir.ms.pb.PB_Response value) {
+    public Builder mergeResult(ir.ms.pb.PB_Result value) {
       copyOnWrite();
-      instance.mergeResponse(value);
+      instance.mergeResult(value);
       return this;
     }
     /**
-     * <code>.PB_Response Response = 1;</code>
+     * <code>.PB_Result Result = 1;</code>
      */
-    public Builder clearResponse() {  copyOnWrite();
-      instance.clearResponse();
+    public Builder clearResult() {  copyOnWrite();
+      instance.clearResult();
       return this;
     }
 
@@ -233,7 +233,7 @@ public  final class PB_ResultMsgAddMany extends
       case VISIT: {
         Visitor visitor = (Visitor) arg0;
         ir.ms.pb.PB_ResultMsgAddMany other = (ir.ms.pb.PB_ResultMsgAddMany) arg1;
-        response_ = visitor.visitMessage(response_, other.response_);
+        result_ = visitor.visitMessage(result_, other.result_);
         if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
             .INSTANCE) {
         }
@@ -259,14 +259,14 @@ public  final class PB_ResultMsgAddMany extends
                 break;
               }
               case 10: {
-                ir.ms.pb.PB_Response.Builder subBuilder = null;
-                if (response_ != null) {
-                  subBuilder = response_.toBuilder();
+                ir.ms.pb.PB_Result.Builder subBuilder = null;
+                if (result_ != null) {
+                  subBuilder = result_.toBuilder();
                 }
-                response_ = input.readMessage(ir.ms.pb.PB_Response.parser(), extensionRegistry);
+                result_ = input.readMessage(ir.ms.pb.PB_Result.parser(), extensionRegistry);
                 if (subBuilder != null) {
-                  subBuilder.mergeFrom(response_);
-                  response_ = subBuilder.buildPartial();
+                  subBuilder.mergeFrom(result_);
+                  result_ = subBuilder.buildPartial();
                 }
 
                 break;

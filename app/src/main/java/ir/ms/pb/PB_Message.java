@@ -133,6 +133,29 @@ public  final class PB_Message extends
     userId_ = 0L;
   }
 
+  public static final int PEERID_FIELD_NUMBER = 20;
+  private long peerId_;
+  /**
+   * <code>int64 PeerId = 20;</code>
+   */
+  public long getPeerId() {
+    return peerId_;
+  }
+  /**
+   * <code>int64 PeerId = 20;</code>
+   */
+  private void setPeerId(long value) {
+    
+    peerId_ = value;
+  }
+  /**
+   * <code>int64 PeerId = 20;</code>
+   */
+  private void clearPeerId() {
+    
+    peerId_ = 0L;
+  }
+
   public static final int ROOMTYPEID_FIELD_NUMBER = 4;
   private int roomTypeId_;
   /**
@@ -629,6 +652,9 @@ public  final class PB_Message extends
     if (msgFileStatus_ != 0) {
       output.writeInt32(19, msgFileStatus_);
     }
+    if (peerId_ != 0L) {
+      output.writeInt64(20, peerId_);
+    }
   }
 
   public int getSerializedSize() {
@@ -711,6 +737,10 @@ public  final class PB_Message extends
     if (msgFileStatus_ != 0) {
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(19, msgFileStatus_);
+    }
+    if (peerId_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(20, peerId_);
     }
     memoizedSerializedSize = size;
     return size;
@@ -898,6 +928,29 @@ public  final class PB_Message extends
     public Builder clearUserId() {
       copyOnWrite();
       instance.clearUserId();
+      return this;
+    }
+
+    /**
+     * <code>int64 PeerId = 20;</code>
+     */
+    public long getPeerId() {
+      return instance.getPeerId();
+    }
+    /**
+     * <code>int64 PeerId = 20;</code>
+     */
+    public Builder setPeerId(long value) {
+      copyOnWrite();
+      instance.setPeerId(value);
+      return this;
+    }
+    /**
+     * <code>int64 PeerId = 20;</code>
+     */
+    public Builder clearPeerId() {
+      copyOnWrite();
+      instance.clearPeerId();
       return this;
     }
 
@@ -1347,6 +1400,8 @@ public  final class PB_Message extends
             !other.roomKey_.isEmpty(), other.roomKey_);
         userId_ = visitor.visitLong(userId_ != 0L, userId_,
             other.userId_ != 0L, other.userId_);
+        peerId_ = visitor.visitLong(peerId_ != 0L, peerId_,
+            other.peerId_ != 0L, other.peerId_);
         roomTypeId_ = visitor.visitInt(roomTypeId_ != 0, roomTypeId_,
             other.roomTypeId_ != 0, other.roomTypeId_);
         messageTypeId_ = visitor.visitInt(messageTypeId_ != 0, messageTypeId_,
@@ -1501,6 +1556,11 @@ public  final class PB_Message extends
               case 152: {
 
                 msgFileStatus_ = input.readInt32();
+                break;
+              }
+              case 160: {
+
+                peerId_ = input.readInt64();
                 break;
               }
             }

@@ -3,8 +3,8 @@
 
 package ir.ms.pb;
 
-public interface PB_ResultMsgAddManyOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:PB_ResultMsgAddMany)
+public interface PB_ResultMsgEventsOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:PB_ResultMsgEvents)
     com.google.protobuf.MessageLiteOrBuilder {
 
   /**
