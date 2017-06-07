@@ -3,9 +3,9 @@ package com.mardomsara.social.pipe_pb;
 import com.mardomsara.social.helpers.TimeUtil;
 
 class CallRespondCallback {
-	public PipeCallBack success;
-	public Runnable error;
-	public Runnable reachedServer;
+	PipeCallBack success;
+	Runnable error;
+	Runnable reachedServer;
 	long timeoutAtMs = TimeUtil.getTimeMs() + 5000;//5second timeout
 	long clientCallId = TimeUtil.getTimeNano();
 

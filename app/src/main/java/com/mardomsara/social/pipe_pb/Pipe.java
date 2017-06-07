@@ -16,7 +16,7 @@ public class Pipe {
 		public static final String  PB_RequestMsgsSeen = "PB_RequestMsgsSeen";
 		public static final String  REQUEST_PB_RequestMsgAddOne = "PB_ResponseMsgAddMany";
 
-		public static final String  REQUEST_PB_PushMsgAddMany = "PB_PushMsgAddMany";
+		public static final String  REQUEST_PB_PushMsgAddMany = "PB_PushMsgAddMany_Handler";
 	}
 
 

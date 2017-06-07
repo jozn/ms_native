@@ -3,6 +3,7 @@ package com.mardomsara.social.pipe_pb;
 import android.util.Log;
 
 import com.mardomsara.social.app.AppFiles;
+import com.mardomsara.social.app.Constants;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.models.Session;
 import com.mardomsara.social.pipe_pb.from_net_calls.FlushStoredDataToServer;
@@ -17,6 +18,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
 
+import ir.ms.pb.PB_CommandReceivedToClient;
 import ir.ms.pb.PB_CommandToServer;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -218,6 +220,9 @@ public class PipeWS {
 
 
 	void sendToServer_CallReceivedToAndroid(long ServerCallId){
+		PB_CommandReceivedToClient pb = PB_CommandReceivedToClient.newBuilder().setServerCallId(ServerCallId).build();
+		Runnable r = ()->{};
+		Pipe.makeCall(Constants.PB_CommandReceivedToClient , pb, r,r);
 		/*Call_DEP call = new Call_DEP("CallReceivedToClient");
 		call.ClientCallId = 0;//tell server don't respond
 		call.ServerCallId = ServerCallId;

@@ -50,6 +50,22 @@ public class Constants {
 
 
 
+	//////////////////////////////////////////////////////////////////////////////
+	//PBs
 
+	public static final Integer MESSAGE_PUSH_EVENT_RECEIVED_TO_PEER = 1;
+	public static final Integer MESSAGE_PUSH_EVENT_DELETED_FROM_SERVER = 2;
+	public static final Integer MESSAGE_PUSH_EVENT_SEEN_BY_PEER = 3;
+
+	public static final String PB_CommandReceivedToServer = "PB_CommandReceivedToServer";
+	public static final String PB_CommandReceivedToClient = "PB_CommandReceivedToClient";
+
+	public static final String PB_RequestMsgAddMany = "PB_RequestMsgAddMany";
+	public static final String PB_RequestMsgsSeen = "PB_RequestMsgsSeen";
+
+	public static final String PB_PushMsgAddMany = "PB_PushMsgAddMany_Handler";
+	public static final String PB_PushMsgEvents = "PB_PushMsgEvents";
+
+////////////////////////////////////////////////////////////////////////////////////
 
 }

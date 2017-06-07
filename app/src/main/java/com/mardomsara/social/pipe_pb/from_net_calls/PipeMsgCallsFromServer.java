@@ -9,6 +9,7 @@ import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.FileUtil;
 import com.mardomsara.social.helpers.FormaterUtil;
+import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.JsonUtil;
 import com.mardomsara.social.models.MessageModel;
 import com.mardomsara.social.models.RoomModel;
@@ -17,8 +18,9 @@ import com.mardomsara.social.models.tables.Message;
 import com.mardomsara.social.models.tables.MsgFile;
 import com.mardomsara.social.models.tables.User;
 import com.mardomsara.social.pipe_pb.NetEventHandler_DEP;
+import com.mardomsara.social.pipe_pb.PBConv;
+import com.mardomsara.social.pipe_pb.PipeNetEventHandler;
 import com.mardomsara.social.pipe_pb.from_net_calls.json.MsgAddManyJson;
-import com.mardomsara.social.pipe_pb.from_net_calls.json.MsgAddOneJson;
 import com.mardomsara.social.pipe_pb.from_net_calls.json.MsgDeletedFromServerJson;
 import com.mardomsara.social.pipe_pb.from_net_calls.json.MsgReceivedToPeerJson;
 import com.mardomsara.social.pipe_pb.from_net_calls.json.MsgSeenByPeerJson;
@@ -27,18 +29,33 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import ir.ms.pb.PB_Message;
+import ir.ms.pb.PB_PushMsgAddMany;
+import ir.ms.pb.PB_UserWithMe;
+
 /**
  * Created by Hamid on 5/2/2016.
  */
-public class MsgCallsFromServer_DEP {
-    public static NetEventHandler_DEP MsgAddOne = (data) ->{
-		MsgAddOneJson jd = AppUtil.fromJson(data,MsgAddOneJson.class);
+public class PipeMsgCallsFromServer {
+    public static PipeNetEventHandler PB_PushMsgAddMany_Handler = (data) ->{
+		PB_PushMsgAddMany pbPushMsgAddMany = PB_PushMsgAddMany.parseFrom(data);
+		for (PB_Message pbMsg :pbPushMsgAddMany.getMessagesList()){
+			handleNewSingleMsg(PBConv.PB_Message_toNew_Message(pbMsg));
+		}
+
+		for (PB_UserWithMe pbMsg :pbPushMsgAddMany.getUsersList()){
+			handleNewUser(PBConv.PB_UserWithMe_toNew_User(pbMsg));
+		}
+
+		Helper.showDebugMessage("Msg: "+pbPushMsgAddMany.getMessagesList().size() + " Users: "  + pbPushMsgAddMany.getUsersList().size() );
+
+		/*MsgAddOneJson jd = AppUtil.fromJson(data,MsgAddOneJson.class);
         if(jd==null || jd.Message == null )return;
         AppUtil.log("NotifyRemoveMany: -> "+data);
 
 		handleNewSingleMsg(jd.Message);
-		handleNewUser(jd.User);
-		App.getBus().post(jd);
+		handleNewUser(jd.User);*/
+//		App.getBus().post(jd);
     };
 
 	public static NetEventHandler_DEP MsgAddMany = (data) ->{
