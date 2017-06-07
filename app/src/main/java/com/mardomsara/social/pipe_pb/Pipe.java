@@ -32,7 +32,7 @@ public class Pipe {
 		long callId = TimeUtil.getTimeNano();
 		PB_CommandToServer pb_commandToServer = PB_CommandToServer.newBuilder()
 			.setCommandBytes(ByteString.copyFromUtf8(command))
-			.setCallId(callId)
+			.setClientCallId(callId)
 			.setData(com.google.protobuf.ByteString.copyFrom(data.toByteArray()))
 			.build();
 
@@ -56,7 +56,7 @@ public class Pipe {
 		long callId = TimeUtil.getTimeNano();
 		PB_CommandToServer pb_commandToServer = PB_CommandToServer.newBuilder()
 			.setCommand(command)
-			.setCallId(callId)
+			.setClientCallId(callId)
 			.setData(com.google.protobuf.ByteString.copyFrom(data.toByteArray()))
 			.build();
 
@@ -81,7 +81,7 @@ public class Pipe {
 		long callId = TimeUtil.getTimeNano();
 		PB_CommandToServer pb_commandToServer = PB_CommandToServer.newBuilder()
 			.setCommandBytes(ByteString.copyFromUtf8(command))
-			.setCallId(callId)
+			.setClientCallId(callId)
 			.setData(com.google.protobuf.ByteString.copyFrom(data.toByteArray()))
 			.build();
 

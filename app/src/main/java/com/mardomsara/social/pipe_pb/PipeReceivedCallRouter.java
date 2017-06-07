@@ -80,15 +80,15 @@ public class PipeReceivedCallRouter {
 		Runnable r = ()->{
 			try {
 				ir.ms.pb.PB_CommandToClient pbCommandToClient = ir.ms.pb.PB_CommandToClient.parseFrom(body.toByteArray());
-				if (pbCommandToClient.getCallId() != 0) {//respond call
+				if (pbCommandToClient.getServerCallId() != 0) {//respond call
 //					WS.getInstance().sendToServer_CallReceivedToAndroid(pbCommandToClient.getCallId());
 				}
 
 				if (pbCommandToClient.getCommand().equals("CallReceivedToServer")) {
-					CallRespondCallbacksRegistery.tryReachedServer(pbCommandToClient.getCallId());
+					CallRespondCallbacksRegistery.tryReachedServer(pbCommandToClient.getServerCallId());
 					return;
 				}else if(pbCommandToClient.getCommand().equals("CallResponse")){
-					CallRespondCallbacksRegistery.trySucceeded(pbCommandToClient.getCallId() , pbCommandToClient.getData().toByteArray());
+					CallRespondCallbacksRegistery.trySucceeded(pbCommandToClient.getServerCallId() , pbCommandToClient.getData().toByteArray());
 				}else {
 					PipeReceivedCallRouter.handlePushes(pbCommandToClient.getCommand(), pbCommandToClient.getData().toByteArray() );
 
