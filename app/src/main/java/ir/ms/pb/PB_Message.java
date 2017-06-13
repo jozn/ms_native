@@ -593,6 +593,58 @@ public  final class PB_Message extends
     msgFileStatus_ = 0;
   }
 
+  public static final int FILE_FIELD_NUMBER = 100;
+  private ir.ms.pb.PB_MsgFile file_;
+  /**
+   * <code>.PB_MsgFile File = 100;</code>
+   */
+  public boolean hasFile() {
+    return file_ != null;
+  }
+  /**
+   * <code>.PB_MsgFile File = 100;</code>
+   */
+  public ir.ms.pb.PB_MsgFile getFile() {
+    return file_ == null ? ir.ms.pb.PB_MsgFile.getDefaultInstance() : file_;
+  }
+  /**
+   * <code>.PB_MsgFile File = 100;</code>
+   */
+  private void setFile(ir.ms.pb.PB_MsgFile value) {
+    if (value == null) {
+      throw new NullPointerException();
+    }
+    file_ = value;
+    
+    }
+  /**
+   * <code>.PB_MsgFile File = 100;</code>
+   */
+  private void setFile(
+      ir.ms.pb.PB_MsgFile.Builder builderForValue) {
+    file_ = builderForValue.build();
+    
+  }
+  /**
+   * <code>.PB_MsgFile File = 100;</code>
+   */
+  private void mergeFile(ir.ms.pb.PB_MsgFile value) {
+    if (file_ != null &&
+        file_ != ir.ms.pb.PB_MsgFile.getDefaultInstance()) {
+      file_ =
+        ir.ms.pb.PB_MsgFile.newBuilder(file_).mergeFrom(value).buildPartial();
+    } else {
+      file_ = value;
+    }
+    
+  }
+  /**
+   * <code>.PB_MsgFile File = 100;</code>
+   */
+  private void clearFile() {  file_ = null;
+    
+  }
+
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
     if (!messageKey_.isEmpty()) {
@@ -654,6 +706,9 @@ public  final class PB_Message extends
     }
     if (peerId_ != 0L) {
       output.writeInt64(20, peerId_);
+    }
+    if (file_ != null) {
+      output.writeMessage(100, getFile());
     }
   }
 
@@ -741,6 +796,10 @@ public  final class PB_Message extends
     if (peerId_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(20, peerId_);
+    }
+    if (file_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(100, getFile());
     }
     memoizedSerializedSize = size;
     return size;
@@ -1373,6 +1432,51 @@ public  final class PB_Message extends
       return this;
     }
 
+    /**
+     * <code>.PB_MsgFile File = 100;</code>
+     */
+    public boolean hasFile() {
+      return instance.hasFile();
+    }
+    /**
+     * <code>.PB_MsgFile File = 100;</code>
+     */
+    public ir.ms.pb.PB_MsgFile getFile() {
+      return instance.getFile();
+    }
+    /**
+     * <code>.PB_MsgFile File = 100;</code>
+     */
+    public Builder setFile(ir.ms.pb.PB_MsgFile value) {
+      copyOnWrite();
+      instance.setFile(value);
+      return this;
+      }
+    /**
+     * <code>.PB_MsgFile File = 100;</code>
+     */
+    public Builder setFile(
+        ir.ms.pb.PB_MsgFile.Builder builderForValue) {
+      copyOnWrite();
+      instance.setFile(builderForValue);
+      return this;
+    }
+    /**
+     * <code>.PB_MsgFile File = 100;</code>
+     */
+    public Builder mergeFile(ir.ms.pb.PB_MsgFile value) {
+      copyOnWrite();
+      instance.mergeFile(value);
+      return this;
+    }
+    /**
+     * <code>.PB_MsgFile File = 100;</code>
+     */
+    public Builder clearFile() {  copyOnWrite();
+      instance.clearFile();
+      return this;
+    }
+
     // @@protoc_insertion_point(builder_scope:PB_Message)
   }
   protected final Object dynamicMethod(
@@ -1434,6 +1538,7 @@ public  final class PB_Message extends
             !other.msgFileLocalSrc_.isEmpty(), other.msgFileLocalSrc_);
         msgFileStatus_ = visitor.visitInt(msgFileStatus_ != 0, msgFileStatus_,
             other.msgFileStatus_ != 0, other.msgFileStatus_);
+        file_ = visitor.visitMessage(file_, other.file_);
         if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
             .INSTANCE) {
         }
@@ -1561,6 +1666,19 @@ public  final class PB_Message extends
               case 160: {
 
                 peerId_ = input.readInt64();
+                break;
+              }
+              case 802: {
+                ir.ms.pb.PB_MsgFile.Builder subBuilder = null;
+                if (file_ != null) {
+                  subBuilder = file_.toBuilder();
+                }
+                file_ = input.readMessage(ir.ms.pb.PB_MsgFile.parser(), extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(file_);
+                  file_ = subBuilder.buildPartial();
+                }
+
                 break;
               }
             }

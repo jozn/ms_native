@@ -1,8 +1,11 @@
 package com.mardomsara.social;
 
 import android.app.Application;
+import android.content.ComponentCallbacks2;
 import android.content.Context;
+import android.support.multidex.MultiDexApplication;
 
+import com.facebook.imagepipeline.core.ImagePipelineConfig;
 import com.joanzapata.iconify.Iconify;
 import com.joanzapata.iconify.fonts.IoniconsModule;
 import com.joanzapata.iconify.fonts.SimpleLineIconsModule;
@@ -15,7 +18,7 @@ import com.squareup.leakcanary.RefWatcher;
  * Created by Hamid on 6/17/2016.
  */
 //public class AppAplication extends MultiDexApplication  {
-public class AppAplication extends Application {
+public class AppAplication extends MultiDexApplication {
 
     public static RefWatcher getRefWatcher(Context context) {
 //        AppAplication application = (AppAplication) context.getApplicationContext();
@@ -27,14 +30,16 @@ public class AppAplication extends Application {
 
     @Override public void onCreate() {
         super.onCreate();
-        Iconify
+//		ImagePipelineConfig
+//		ComponentCallbacks2.TRIM_MEMORY_BACKGROUND
+/*        Iconify
                 .with(new SimpleLineIconsModule())
                 .with(new IoniconsModule());
 
 		XIconify
 			.with(new com.mardomsara.x.iconify.icons.SimpleLineIconsModule())
 			.with(new com.mardomsara.x.iconify.icons.IoniconsModule())
-			.with(new com.mardomsara.x.iconify.icons.MaterialModule());
+			.with(new com.mardomsara.x.iconify.icons.MaterialModule());*/
 
 //        LeakCanary.install(this);
         //refWatcher = LeakCanary.install(this);

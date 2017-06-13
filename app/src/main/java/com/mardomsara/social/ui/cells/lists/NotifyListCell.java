@@ -101,13 +101,13 @@ public class NotifyListCell
     }
 
 	@Subscribe(threadMode = ThreadMode.MAIN)
-	void event(NotifyChanged notifyChanged){
+	public void event(NotifyChanged notifyChanged){
 		load();
 		Helper.showDebugMessage("event: NotifyChanged");
 	}
 
 	@Subscribe(threadMode = ThreadMode.MAIN)
-	void event(NotifyAddedEvent notifyChanged){
+	public void event(NotifyAddedEvent notifyChanged){
 		Helper.showDebugMessage("event: NotifyAddedEvent");
 		if(notifyChanged.notify == null){
 			Helper.showDebugMessage("event: NotifyAddedEvent is null");

@@ -2,14 +2,9 @@ package com.mardomsara.social.pipe_pb;
 
 import com.mardomsara.social.app.DB;
 import com.mardomsara.social.helpers.AndroidUtil;
-import com.mardomsara.social.helpers.AppUtil;
-import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.models.tables.Message;
 
 import java.util.List;
-
-import ir.ms.pb.PB_Message;
-import ir.ms.pb.PB_ResponseMsgAddOne;
 
 /**
  * Created by Hamid on 5/24/2017.
@@ -24,7 +19,7 @@ public class PlayNewPipe {
 			int i =0;
 			List<Message> msgs=  DB.db.selectFromMessage().toList();
 			for (Message m : msgs){
-				PipeCallBack<PB_ResponseMsgAddOne> callBack = (pb_responsMsgAddOne) -> pb_responsMsgAddOne.getResponse() ;
+				/*PipeCallBack<PB_ResponseMsgAddOne> callBack = (pb_responsMsgAddOne) -> pb_responsMsgAddOne.getResponse() ;
 				Runnable err = ()->{
 					AppUtil.log("+++++++++++++++++ ERRoR");
 					Helper.showDebugMessage("TTTTT");
@@ -39,7 +34,7 @@ public class PlayNewPipe {
 					Thread.sleep(1000);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
-				}
+				}*/
 			}
 
 		});

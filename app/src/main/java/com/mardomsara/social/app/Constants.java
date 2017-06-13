@@ -63,7 +63,7 @@ public class Constants {
 	public static final String PB_RequestMsgAddMany = "PB_RequestMsgAddMany";
 	public static final String PB_RequestMsgsSeen = "PB_RequestMsgsSeen";
 
-	public static final String PB_PushMsgAddMany = "PB_PushMsgAddMany_Handler";
+	public static final String PB_PushMsgAddMany = "PB_PushMsgAddMany";
 	public static final String PB_PushMsgEvents = "PB_PushMsgEvents";
 
 ////////////////////////////////////////////////////////////////////////////////////

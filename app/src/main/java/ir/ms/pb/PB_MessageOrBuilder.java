@@ -131,4 +131,13 @@ public interface PB_MessageOrBuilder extends
    * <code>int32 MsgFile_Status = 19;</code>
    */
   int getMsgFileStatus();
+
+  /**
+   * <code>.PB_MsgFile File = 100;</code>
+   */
+  boolean hasFile();
+  /**
+   * <code>.PB_MsgFile File = 100;</code>
+   */
+  ir.ms.pb.PB_MsgFile getFile();
 }

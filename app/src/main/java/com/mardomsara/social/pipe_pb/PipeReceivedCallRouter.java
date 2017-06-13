@@ -46,7 +46,7 @@ public class PipeReceivedCallRouter {
             }else if(command.equals("TimeMs")) {
 //				TimeMs(data);
 			}else {
-                AppUtil.error("NetEventRouter for "+ command +" has not been registered. ");
+                AppUtil.error(" ws NetEventRouter for "+ command +" has not been registered. ");
             }
         }catch (Exception e){
             e.printStackTrace();

@@ -3,3 +3,14 @@ Page is Presenter
 Tab is Page
 so: Tab > Page > Presenter -- in naming convention drop Presenter for Pages and Tabs
 ===============
+GRPC:
+Important:
+If you don't want to spend 6hours debuging version incosisinsy between gRPC libs just use this config:
+ -use protoc.exe 3.2.0Rc of from github.com/google/protobuf  - this is just for genrating protcol buffers not grpc
+ -use from github.com/grpc/grpc-java use version 1.0.2 to 1.4.0 works - download the binery from 'https://search.maven.org/#search%7Cga%7C1%7Cgrpc%20java' this binery is for producing just rpc methods in java -  for the compiler config see :https://github.com/grpc/grpc-java/tree/master/compiler
+ -use this in the build.gradle and NEVER touch it:
+    compile 'io.grpc:grpc-okhttp:1.4.0' // CURRENT_GRPC_VERSION
+     compile 'io.grpc:grpc-protobuf-lite:1.4.0' // CURRENT_GRPC_VERSION
+     compile 'io.grpc:grpc-stub:1.4.0' // CURRENT_GRPC_VERSION
+     compile 'javax.annotation:javax.annotation-api:1.2'
+     compile files('libs/protobuf-java-3.3.1.jar')

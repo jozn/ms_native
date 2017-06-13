@@ -8,12 +8,12 @@ package ir.ms.pb;
  *&#47;
  * </pre>
  *
- * Protobuf type {@code PB_PushMsgAddMany_Handler}
+ * Protobuf type {@code PB_PushMsgAddMany}
  */
 public  final class PB_PushMsgAddMany extends
     com.google.protobuf.GeneratedMessageLite<
         PB_PushMsgAddMany, PB_PushMsgAddMany.Builder> implements
-    // @@protoc_insertion_point(message_implements:PB_PushMsgAddMany_Handler)
+    // @@protoc_insertion_point(message_implements:PB_PushMsgAddMany)
     PB_PushMsgAddManyOrBuilder {
   private PB_PushMsgAddMany() {
     messages_ = emptyProtobufList();
@@ -419,14 +419,14 @@ public  final class PB_PushMsgAddMany extends
    *&#47;
    * </pre>
    *
-   * Protobuf type {@code PB_PushMsgAddMany_Handler}
+   * Protobuf type {@code PB_PushMsgAddMany}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageLite.Builder<
         ir.ms.pb.PB_PushMsgAddMany, Builder> implements
-      // @@protoc_insertion_point(builder_implements:PB_PushMsgAddMany_Handler)
+      // @@protoc_insertion_point(builder_implements:PB_PushMsgAddMany)
       ir.ms.pb.PB_PushMsgAddManyOrBuilder {
-    // Construct using ir.ms.pb.PB_PushMsgAddMany_Handler.newBuilder()
+    // Construct using ir.ms.pb.PB_PushMsgAddMany.newBuilder()
     private Builder() {
       super(DEFAULT_INSTANCE);
     }
@@ -671,7 +671,7 @@ public  final class PB_PushMsgAddMany extends
       return this;
     }
 
-    // @@protoc_insertion_point(builder_scope:PB_PushMsgAddMany_Handler)
+    // @@protoc_insertion_point(builder_scope:PB_PushMsgAddMany)
   }
   protected final Object dynamicMethod(
       com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
@@ -781,7 +781,7 @@ public  final class PB_PushMsgAddMany extends
   }
 
 
-  // @@protoc_insertion_point(class_scope:PB_PushMsgAddMany_Handler)
+  // @@protoc_insertion_point(class_scope:PB_PushMsgAddMany)
   private static final ir.ms.pb.PB_PushMsgAddMany DEFAULT_INSTANCE;
   static {
     DEFAULT_INSTANCE = new PB_PushMsgAddMany();

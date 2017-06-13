@@ -17,6 +17,13 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.crashlytics.android.Crashlytics;
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.imagepipeline.core.ImagePipelineConfig;
+import com.facebook.imagepipeline.listener.RequestListener;
+import com.facebook.imagepipeline.listener.RequestLoggingListener;
+import com.joanzapata.iconify.Iconify;
+import com.joanzapata.iconify.fonts.IoniconsModule;
+import com.joanzapata.iconify.fonts.SimpleLineIconsModule;
 import com.mardomsara.emojicon.EmojiconsPopup;
 import com.mardomsara.social.App;
 import com.mardomsara.social.Nav;
@@ -26,6 +33,10 @@ import com.mardomsara.social.app.LifeCycle;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.play.Play_TestsPresenter;
+import com.mardomsara.x.iconify.XIconify;
+
+import java.util.HashSet;
+import java.util.Set;
 
 import io.fabric.sdk.android.Fabric;
 import pl.tajchert.nammu.Nammu;
@@ -51,6 +62,17 @@ public class MainAppActivity extends AppActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		instance = this;
+
+		Iconify
+			.with(new SimpleLineIconsModule())
+			.with(new IoniconsModule());
+
+		XIconify
+			.with(new com.mardomsara.x.iconify.icons.SimpleLineIconsModule())
+			.with(new com.mardomsara.x.iconify.icons.IoniconsModule())
+			.with(new com.mardomsara.x.iconify.icons.MaterialModule());
+
+
 		Fabric.with(this, new Crashlytics());
 
 		setContentView(R.layout.activity_main_app);
@@ -65,6 +87,16 @@ public class MainAppActivity extends AppActivity {
 		App.activity(this);
 		App.mFragmentManager = getSupportFragmentManager();
 		//EventBus.getDefault().register(this);
+
+		//////////////////// Fresco ////////////////////////
+		Set<RequestListener> requestListeners = new HashSet<>();
+		requestListeners.add(new RequestLoggingListener());
+		ImagePipelineConfig config = ImagePipelineConfig.newBuilder(getApplicationContext())
+			// other setters
+			.setRequestListeners(requestListeners)
+			.build();
+		Fresco.initialize(getApplicationContext(), config);
+		/////////////////// End of Fresco ////////////////////////
 
 //		startService(new Intent(this, PingService.class));
 		logIt("onCreate");
@@ -113,6 +145,7 @@ public class MainAppActivity extends AppActivity {
 		super.onTrimMemory(level);
 		logIt("onTrimMemory");
 		Helper.showDebugMessage("onTrimMemory - leve:" + level);
+		//TODO call fresco in here and passs level
 	}
 
 	@Override

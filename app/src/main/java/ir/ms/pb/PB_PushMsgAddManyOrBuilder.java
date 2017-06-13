@@ -4,7 +4,7 @@
 package ir.ms.pb;
 
 public interface PB_PushMsgAddManyOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:PB_PushMsgAddMany_Handler)
+    // @@protoc_insertion_point(interface_extends:PB_PushMsgAddMany)
     com.google.protobuf.MessageLiteOrBuilder {
 
   /**

@@ -30,7 +30,7 @@ android {
     dexOptions{
         javaMaxHeapSize "2g"
         preDexLibraries true
-        incremental true
+//        incremental true
     }
 
     lintOptions {
@@ -46,7 +46,7 @@ android {
     defaultConfig {
         applicationId "com.mardomsara.social"
         minSdkVersion 16
-        targetSdkVersion 23
+        targetSdkVersion 25
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
@@ -75,11 +75,16 @@ android {
 
     }
 
+    /*configurations {
+        all*.exclude group: 'com.android.support', module: 'support-v4'
+        all*.exclude group: 'com.android.support', module: 'support-annotations'
+    }*/
+
     productFlavors {
         dev {
             // Enable pre-dexing to produce an APK that can be tested on
             // Android 5.0+ without the time-consuming DEX build processes.
-            minSdkVersion 21
+            minSdkVersion 21//21
         }
         prod {
             // The actual minSdkVersion for the production version.
@@ -99,7 +104,7 @@ android {
             buildConfigField "String", "API_URL", "\"http://localhost:5555\""
             debuggable true
 
-//            minSdkVersion 21
+//            minSdkVersion 16
 //            minifyEnabled true
 //            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
@@ -110,6 +115,9 @@ android {
         pickFirst  'META-INF/LICENSE.txt'
         pickFirst  'META-INF/NOTICE.txt'
 
+        pickFirst "META-INF/org/aspectj/internal/lang/annotation/ajcDeclareAnnotation/"
+        pickFirst "org/aspectj/internal/lang/annotation/ajcDeclareAnnotation/"
+
         exclude 'META-INF/services/javax.annotation.processing.Processor' // butterknife
     }
 
@@ -118,6 +126,31 @@ android {
 //    configurations {
 //        all*.exclude group: 'com.android.support', module: 'support-v4'
 //    }
+
+    /*protobuf {
+        protoc {
+            artifact = 'com.google.protobuf:protoc:3.3.0'
+        }
+        plugins {
+            javalite {
+                artifact = "com.google.protobuf:protoc-gen-javalite:3.0.0"
+            }
+            grpc {
+                artifact = 'io.grpc:protoc-gen-grpc-java:1.3.0' // CURRENT_GRPC_VERSION
+            }
+        }
+        generateProtoTasks {
+            all().each { task ->
+                task.plugins {
+                    javalite {}
+                    grpc {
+                        // Options added to --grpc_out
+                        option 'lite'
+                    }
+                }
+            }
+        }
+    }*/
 
 }
 
@@ -133,6 +166,14 @@ dependencies {
     compile 'com.android.support:design:25.0.0'
     compile 'com.android.support:percent:25.0.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.1'
+    /*
+    * compile 'com.android.support:appcompat-v7:25.3.0'
+    compile 'com.android.support:recyclerview-v7:25.3.0'
+    compile 'com.android.support:support-v4:25.3.0'
+    compile 'com.android.support:support-v13:25.3.0'
+    compile 'com.android.support:design:25.3.0'
+    compile 'com.android.support:percent:25.3.0'
+    compile 'com.android.support.constraint:constraint-layout:1.0.1'*/
     /*compile 'com.android.support:appcompat-v7:24.2.0'
                 compile 'com.android.support:recyclerview-v7:24.2.0'
                 compile 'com.android.support:support-v4:24.2.0'
@@ -142,10 +183,11 @@ dependencies {
     compile 'org.greenrobot:eventbus:3.0.0'
     compile 'uk.co.chrisjenx:calligraphy:2.1.0'
     //    compile 'com.facebook.fresco:fresco:0.8.1'
-    compile 'com.facebook.fresco:fresco:0.12.0'
+//    compile 'com.facebook.fresco:fresco:0.12.0'
+    compile 'com.facebook.fresco:fresco:1.3.0'
     compile 'com.google.code.gson:gson:2.5'
     compile 'com.squareup.okhttp3:okhttp:3.8.0'//3.2.0
-    compile 'com.squareup.okhttp3:okhttp-ws:3.2.0'
+//    compile 'com.squareup.okhttp3:okhttp-ws:3.2.0'
     //    compile 'com.facebook.stetho:stetho:1.3.0'
     //    compile 'com.facebook.stetho:stetho-okhttp3:1.3.0'
     compile 'com.jakewharton:butterknife:7.0.1'
@@ -181,13 +223,26 @@ dependencies {
     // (v1.0.0)
     compile 'com.squareup.moshi:moshi:1.2.0'
     compile 'org.greenrobot:essentials:3.0.0-RC1'
-    compile 'jp.wasabeef:picasso-transformations:2.1.2'
+//    compile 'jp.wasabeef:picasso-transformations:2.1.2'
     compile 'com.github.chrisbanes:PhotoView:2.0.0'
     //    compile 'com.flurgle:camerakit:0.9.15'
     //grpc
-    compile 'io.grpc:grpc-okhttp:1.3.0'
+    /*compile 'io.grpc:grpc-okhttp:1.4.0'
+    compile 'io.grpc:grpc-protobuf-lite:1.4.0'
+    compile 'io.grpc:grpc-stub:1.4.0'
+    compile 'javax.annotation:javax.annotation-api:1.2'*/
+    // https://mvnrepository.com/artifact/com.google.protobuf/protobuf-java
+    /*compile 'io.grpc:grpc-okhttp:1.3.0'
     compile 'io.grpc:grpc-protobuf-lite:1.3.0'
     compile 'io.grpc:grpc-stub:1.3.0'
+    compile group: 'com.google.protobuf', name: 'protobuf-java', version: '3.3.0'
+    compile 'javax.annotation:javax.annotation-api:1.2'*/
+
+    compile 'io.grpc:grpc-okhttp:1.4.0' // CURRENT_GRPC_VERSION
+    compile 'io.grpc:grpc-protobuf-lite:1.4.0' // CURRENT_GRPC_VERSION
+    compile 'io.grpc:grpc-stub:1.4.0' // CURRENT_GRPC_VERSION
+    compile 'javax.annotation:javax.annotation-api:1.2'
+
     //    compile 'me.zhanghai.android.materialprogressbar:library:1.3.0'
     //    compile 'com.facebook.react:react-native:0.21.1'
     //    compile 'com.facebook.react:react-native:0.18.+'
@@ -196,10 +251,14 @@ dependencies {
     //    androidTestCompile 'com.android.support:support-annotations:24.2.0'
     //    compile 'com.yovenny.VideoCompress:videocompress:1.0.0'
     //    compile project(':videocompress')
-    compile files('libs/protobuf-java-3.0.0-beta-3.jar')
-    compile files('libs/protobuf-java-3.0.0-alpha-3.jar')
-    compile files('libs/protobuf-java-3.2.0.jar')
+    /*compile files('libs/protobuf-java-3.0.0-beta-3.jar')
+    compile files('libs/protobuf-java-3.0.0-alpha-3.jar')*/
+    compile files('libs/protobuf-java-3.3.1.jar')
 
 
-    compile 'com.iceteck.silicompressorr:silicompressor:2.0'
+//    compile 'com.iceteck.silicompressorr:silicompressor:2.0'
+
+    compile 'jp.co.cyberagent.android.gpuimage:gpuimage-library:1.4.1'
+
+    compile 'com.android.support:multidex:1.0.1'
 }

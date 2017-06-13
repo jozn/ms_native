@@ -8,7 +8,6 @@ import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.models.Session;
 import com.mardomsara.social.pipe_pb.from_net_calls.FlushStoredDataToServer;
 
-import org.greenrobot.essentials.Base64;
 import org.greenrobot.essentials.io.FileUtils;
 
 import java.io.File;
@@ -29,7 +28,6 @@ import okhttp3.WebSocketListener;
 import okio.Buffer;
 import okio.ByteString;
 
-import static okhttp3.ws.WebSocket.BINARY;
 
 //import okhttp3.ws.WebSocket;
 //import okhttp3.ws.WebSocketCall;
@@ -194,7 +192,7 @@ public class PipeWS {
 //						Log.i("MSG_add: ", Base64.encodeBytes(data) );
 						ii++;
 						FileUtils.writeBytes(new File(AppFiles.PHOTO_DIR_PATH + ""+ii), data );
-                        req = RequestBody.create(BINARY, call.toByteArray());
+//                        req = RequestBody.create(BINARY, call.toByteArray());
 						if(status == STATUS.OPEN){
 							webSocket.send(ByteString.of(call.toByteArray()));
 						}else {

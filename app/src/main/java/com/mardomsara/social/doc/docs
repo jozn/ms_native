@@ -1,0 +1,6 @@
+adb shell dumpsys meminfo com.mardomsara.social
+========
+AppAplication must extends MultiDexApplication for android beloew 5 to support multidex
+AppAplication must extends Application for 5 and above for instant view (debug only)
+========
+

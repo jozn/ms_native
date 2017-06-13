@@ -1,0 +1,158 @@
+
+syntax = "proto3";
+
+option java_package = "ir.ms.pb";
+option java_outer_classname = "PB";
+option java_multiple_files = false;
+option optimize_for = LITE_RUNTIME; //CODE_SIZE;
+
+option go_package = "x";
+
+service Greeter {
+  // Sends a greeting
+  rpc SayHello (PB_Message) returns (PB_UserWithMe) {}
+}
+
+message PB_CommandToServer {
+	int64 ClientCallId = 1;
+	string Command = 2;
+	bytes Data = 3;
+}
+
+message PB_CommandToClient {
+	int64 ServerCallId = 1;
+	string Command = 2;
+	bytes Data = 3;
+}
+
+
+message PB_CommandReceivedToServer {
+	int64 ClientCallId = 1;
+}
+
+message PB_CommandReceivedToClient {
+	int64 ServerCallId = 1;
+}
+
+
+/////////////////////////////////
+
+message PB_UserWithMe {
+	int32 UserId = 1;
+    string UserName = 2;
+    string FirstName = 3;
+    string LastName = 4;
+    string About = 5;
+    string FullName = 6;
+    string AvatarUrl = 7;
+    int32 PrivacyProfile = 8;
+    string Phone = 9;
+    int32 UpdatedTime = 10;
+    int32 AppVersion = 11;
+
+    int32 FollowingType = 14;
+}
+
+message PB_Message {
+    string MessageKey = 1 ;
+    string RoomKey = 2 ;
+    int64 UserId = 3;
+    int64 PeerId = 20;
+    int32 RoomTypeId = 4;
+    int32 MessageTypeId = 5;
+    string Text = 6;
+    string ExtraJson = 7;
+    int32 IsByMe = 8;
+    int32 IsStared = 9;
+    int64 CreatedMs = 10;
+    int64 CreatedDeviceMs = 11;
+    int64 SortId = 12;
+    int64 PeerSeenTime = 13;
+    int64 ServerReceivedTime = 14;
+    int64 ServerDeletedTime = 15;
+    int64 ISeenTime = 16;
+    int32 ToPush = 17;
+    string MsgFile_LocalSrc = 18;
+    int32 MsgFile_Status = 19;
+
+    PB_MsgFile File = 100;
+}
+
+message PB_MsgFile {
+    //general
+    string Name = 1 ;
+    int64 Size = 2;
+    int32 FileType = 3;
+    string MimeType = 4;
+    int32 Width = 5;
+    int32 Height = 6;
+    int32 Duration = 7;
+    string Extension = 8;
+    bytes ThumbData = 11;
+
+    //just set in the client to server - data must be fetched sepratily for pushed msgs via ServerSrc
+    bytes Data = 10;
+
+    //just set for push data
+    string ServerSrc = 101;
+}
+
+message PB_Response {
+	int32 Status = 1;
+}
+
+message PB_Request {
+	int32 Status = 1;
+}
+
+////
+message PB_RequestMsgAddMany {
+	PB_Request Request = 1;
+	repeated PB_Message Messages = 2;
+	// repeated PB_UserWithMe Users = 2;
+}
+
+message PB_ResponseMsgAddMany {
+	PB_Response Response = 1;
+}
+
+//////////////////////
+
+//////////// Pushes ////////////
+message PB_Push {
+	int32 Status = 1;
+}
+
+message PB_Result {
+	int32 Status = 1;
+}
+
+///
+message PB_PushMsgAddMany {
+	PB_Push Push = 1;
+	repeated PB_Message Messages = 2;
+	repeated PB_UserWithMe Users = 3;
+}
+
+message PB_ResultMsgAddMany {
+	PB_Result Result = 1;
+}
+///
+
+message PB_MsgEvent {
+	string MessageKey = 1 ;
+	string RoomKey = 2 ;
+    int64 PeerUserId = 3;
+    int32 EventType = 4;
+    int64 AtTime = 10;
+}
+
+message PB_PushMsgEvents {
+	PB_Push Push = 1;
+	repeated PB_MsgEvent Events = 2;
+}
+
+message PB_ResultMsgEvents {
+	PB_Result Result = 1;
+}
+

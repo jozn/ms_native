@@ -1,0 +1,33 @@
+syntax = "proto3";
+import "pb_global.proto";
+
+option java_package = "ir.ms.pb";
+option java_multiple_files = true;
+option optimize_for = LITE_RUNTIME; //CODE_SIZE;
+option go_package = "x";
+
+message PB_MsgsSeenFromClient {
+	string MessageKey = 1 ;
+	string RoomKey = 2 ;
+    int64 UserId = 3;
+    int64 AtTime = 10;
+}
+
+message PB_MsgSeen {
+	string MessageKey = 1 ;
+	string RoomKey = 2 ;
+    int64 UserId = 3;
+    int64 AtTime = 10;
+}
+
+message PB_RequestMsgsSeen {
+	PB_Request Request = 1;
+	repeated PB_MsgSeen Seen = 2;
+}
+
+message PB_ResponseMsgsSeen {
+	PB_Response Response = 1;
+}
+
+//////////////////////////////
+

@@ -68,13 +68,13 @@ public class LifeCycle {
             /////////////////////////////////////////
 
             Nammu.init(ctx);
-            Set<RequestListener> requestListeners = new HashSet<>();
-            requestListeners.add(new RequestLoggingListener());
-            ImagePipelineConfig config = ImagePipelineConfig.newBuilder(ctx)
+/*            Set<RequestListener> requestListeners = new HashSet<>();
+            requestListeners.add(new RequestLoggingListener());*/
+            /*ImagePipelineConfig config = ImagePipelineConfig.newBuilder(ctx)
                     // other setters
                     .setRequestListeners(requestListeners)
                     .build();
-            Fresco.initialize(ctx, config);
+            Fresco.initialize(ctx, config);*/
             FLog.setMinimumLoggingLevel(FLog.VERBOSE);
 //         LeakCanary.install(ctx);
 

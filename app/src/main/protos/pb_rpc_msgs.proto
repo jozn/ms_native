@@ -1,0 +1,24 @@
+syntax = "proto3";
+import "pb_global.proto";
+
+option java_package = "ir.ms.pb";
+option java_multiple_files = true;
+option optimize_for = LITE_RUNTIME; //CODE_SIZE;
+option go_package = "x";
+
+message PB_ReqRpcAddMsg {
+	PB_Request Request = 1;
+    PB_Message Message = 2;
+}
+
+message PB_ResRpcAddMsg {
+    PB_Response Response = 1;
+    string ServerSrc = 2;
+}
+
+service RpcMsgs {
+    // Sends a greeting
+    rpc UploadNewMsg (PB_Message) returns (PB_ResRpcAddMsg) {}
+}
+//////////////////////////////
+
