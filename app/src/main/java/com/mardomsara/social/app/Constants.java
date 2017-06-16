@@ -53,9 +53,9 @@ public class Constants {
 	//////////////////////////////////////////////////////////////////////////////
 	//PBs
 
-	public static final Integer MESSAGE_PUSH_EVENT_RECEIVED_TO_PEER = 1;
-	public static final Integer MESSAGE_PUSH_EVENT_DELETED_FROM_SERVER = 2;
-	public static final Integer MESSAGE_PUSH_EVENT_SEEN_BY_PEER = 3;
+	public static final int MESSAGE_PUSH_EVENT_RECEIVED_TO_PEER = 1;
+	public static final int MESSAGE_PUSH_EVENT_DELETED_FROM_SERVER = 2;
+	public static final int MESSAGE_PUSH_EVENT_SEEN_BY_PEER = 3;
 
 	public static final String PB_CommandReceivedToServer = "PB_CommandReceivedToServer";
 	public static final String PB_CommandReceivedToClient = "PB_CommandReceivedToClient";

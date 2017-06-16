@@ -4,9 +4,7 @@ import android.util.Log;
 
 import com.mardomsara.social.app.Constants;
 import com.mardomsara.social.helpers.AppUtil;
-import com.mardomsara.social.pipe_pb.from_net_calls.del.MsgCallsFromServer_DEP;
 import com.mardomsara.social.pipe_pb.from_net_calls.del.NotifyCallsFromServer_DEP;
-import com.mardomsara.social.pipe_pb.from_net_calls.PipeMsgCallsFromServer;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -56,17 +54,13 @@ public class PipeReceivedCallRouter {
 	private static void buildMapper() {
 
 		//Messages
-		register(Constants.PB_PushMsgAddMany, PipeMsgCallsFromServer.PB_PushMsgAddMany_Handler);
-		register(Constants.PB_PushMsgEvents, PipeMsgCallsFromServer.PB_PushMsgAddMany_Handler);
+		register(Constants.PB_PushMsgAddMany, PipeCallsFromServerProxy.PB_PushMsgAddMany_Handler);
+		register(Constants.PB_PushMsgEvents, PipeCallsFromServerProxy.PB_PushMsgEvents_Handler);
 
-
-
-
-
-		register_old("MsgAddMany", MsgCallsFromServer_DEP.MsgAddMany);
+		/*register_old("MsgAddMany", MsgCallsFromServer_DEP.MsgAddMany);
 		register_old("MsgsReceivedToPeerMany", MsgCallsFromServer_DEP.MsgsReceivedToPeerMany);
 		register_old("MsgsDeletedFromServerMany", MsgCallsFromServer_DEP.MsgsDeletedFromServerMany);
-		register_old("MsgsSeenByPeerMany", MsgCallsFromServer_DEP.MsgsSeenByPeerMany);
+		register_old("MsgsSeenByPeerMany", MsgCallsFromServer_DEP.MsgsSeenByPeerMany);*/
 
 		//Notify
 		register_old("NotifyAddOne", NotifyCallsFromServer_DEP.NotifyAddOne);
@@ -75,28 +69,6 @@ public class PipeReceivedCallRouter {
 //		register_old("NotifyRemoveMany", MsgCallsFromServer.PB_PushMsgAddMany_Handler);
 //		register_old("NotifyAddOne", MsgCallsFromServer.MsgAddMany);
 	}
-
-    private static void buildMapper2() {
-
-        //Messages
-		register_old("PB_PushMsgAddMany_Handler", MsgCallsFromServer_DEP.MsgAddOne);
-		register_old("MsgAddMany", MsgCallsFromServer_DEP.MsgAddMany);
-        register_old("MsgsReceivedToPeerMany", MsgCallsFromServer_DEP.MsgsReceivedToPeerMany);
-        register_old("MsgsDeletedFromServerMany", MsgCallsFromServer_DEP.MsgsDeletedFromServerMany);
-        register_old("MsgsSeenByPeerMany", MsgCallsFromServer_DEP.MsgsSeenByPeerMany);
-
-		//Notify
-        register_old("NotifyAddOne", NotifyCallsFromServer_DEP.NotifyAddOne);
-        register_old("NotifyRemoveMany", NotifyCallsFromServer_DEP.NotifyRemoveMany);
-
-//		register_old("NotifyRemoveMany", MsgCallsFromServer.PB_PushMsgAddMany_Handler);
-//		register_old("NotifyAddOne", MsgCallsFromServer.MsgAddMany);
-    }
-
-	/*static void TimeMs(Call_DEP call) {
-		AppModel.timeDiffToServer = call.TimeMs - TimeUtil.getTimeMs();
-
-	}*/
 
 	static void handleNetWSMessage(ByteString body) {
 		if(body == null) return;
