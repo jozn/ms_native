@@ -20,7 +20,7 @@ public class TagsPage extends BasePresenter {
 
     @Override
     public View buildView() {
-		X.PageTag_Parent x= new X.PageTag_Parent(null);
+		X.PageTag_Parent x= new X.PageTag_Parent();
 		PostGeneralListCell cell = new PostGeneralListCell(x.top_nav.getButtonPostMultiWayView(), (page, cell2)->{
 			Http.getPath("v1/tags/list")
 				.setQueryParam("tag",""+tagName.replace("#",""))

@@ -1,4 +1,4 @@
-package com.mardomsara.social.pipe_pb.from_net_calls;
+package com.mardomsara.social.pipe_pb.from_net_calls.del;
 
 import com.mardomsara.social.App;
 import com.mardomsara.social.app.AppFiles;

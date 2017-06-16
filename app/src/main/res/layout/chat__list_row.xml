@@ -39,6 +39,7 @@
         android:layout_alignParentTop="true"
         android:paddingRight="8dp"
         app:xFont="IranMedium"
+        style="@style/AlertDialog.AppCompat"
         />
 
     <com.mardomsara.social.ui.views.x.XTextView

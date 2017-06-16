@@ -4,8 +4,8 @@ import android.util.Log;
 
 import com.mardomsara.social.app.Constants;
 import com.mardomsara.social.helpers.AppUtil;
-import com.mardomsara.social.pipe_pb.from_net_calls.MsgCallsFromServer_DEP;
-import com.mardomsara.social.pipe_pb.from_net_calls.NotifyCallsFromServer_DEP;
+import com.mardomsara.social.pipe_pb.from_net_calls.del.MsgCallsFromServer_DEP;
+import com.mardomsara.social.pipe_pb.from_net_calls.del.NotifyCallsFromServer_DEP;
 import com.mardomsara.social.pipe_pb.from_net_calls.PipeMsgCallsFromServer;
 
 import java.util.HashMap;
@@ -57,6 +57,7 @@ public class PipeReceivedCallRouter {
 
 		//Messages
 		register(Constants.PB_PushMsgAddMany, PipeMsgCallsFromServer.PB_PushMsgAddMany_Handler);
+		register(Constants.PB_PushMsgEvents, PipeMsgCallsFromServer.PB_PushMsgAddMany_Handler);
 
 
 

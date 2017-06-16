@@ -261,4 +261,8 @@ dependencies {
     compile 'jp.co.cyberagent.android.gpuimage:gpuimage-library:1.4.1'
 
     compile 'com.android.support:multidex:1.0.1'
+
 }
+
+// Add to the bottom of the file
+apply plugin: 'com.google.gms.google-services'

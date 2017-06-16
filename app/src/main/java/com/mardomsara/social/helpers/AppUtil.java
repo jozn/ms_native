@@ -67,6 +67,7 @@ public class AppUtil {
 
     public static Context getContext(){
         return _context;
+//		LayoutInflater.from(_context).
     }
 
     public static<T> T  fromJson(String str,  Class<T> cls){

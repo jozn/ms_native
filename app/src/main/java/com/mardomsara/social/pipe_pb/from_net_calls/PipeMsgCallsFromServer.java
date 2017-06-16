@@ -1,9 +1,12 @@
 package com.mardomsara.social.pipe_pb.from_net_calls;
 
+import com.google.protobuf.InvalidProtocolBufferException;
 import com.mardomsara.social.App;
 import com.mardomsara.social.app.AppFiles;
 import com.mardomsara.social.app.Constants;
 import com.mardomsara.social.app.DB;
+import com.mardomsara.social.app.Monitor;
+import com.mardomsara.social.app.MonitorCraches;
 import com.mardomsara.social.base.HttpOld;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
@@ -12,6 +15,7 @@ import com.mardomsara.social.helpers.FormaterUtil;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.JsonUtil;
 import com.mardomsara.social.models.MessageModel;
+import com.mardomsara.social.models.MessageNetModel;
 import com.mardomsara.social.models.RoomModel;
 import com.mardomsara.social.models.UserModel;
 import com.mardomsara.social.models.tables.Message;
@@ -37,11 +41,36 @@ import ir.ms.pb.PB_UserWithMe;
  * Created by Hamid on 5/2/2016.
  */
 public class PipeMsgCallsFromServer {
-    public static PipeNetEventHandler PB_PushMsgAddMany_Handler = (data) ->{
+    public static PipeNetEventHandler PB_PushMsgAddMany_Handler = (data) -> {
+		try {
+			PB_PushMsgAddMany pbPushMsgAddMany = PB_PushMsgAddMany.parseFrom(data);
+			MessageNetModel.onNewMessagesFromPipe(pbPushMsgAddMany);
+		}catch (InvalidProtocolBufferException e){
+			MonitorCraches.log(e);
+		}
+    };
+
+	public static PipeNetEventHandler PB_PushMsgAddMany_Handler2 = (data) ->{
 		PB_PushMsgAddMany pbPushMsgAddMany = PB_PushMsgAddMany.parseFrom(data);
 		for (PB_Message pbMsg :pbPushMsgAddMany.getMessagesList()){
 			handleNewSingleMsg(PBConv.PB_Message_toNew_Message(pbMsg));
 		}
+
+		DB.db.transactionSync(()->{
+
+			/*for(Message msg: jd.Messages){
+				MessageModel.setParamsForNewMsgRecivedFromNet(msg);
+				handleNewMsgFunctionalitiesForTypes(msg);
+
+				msg.save();
+			}*/
+		});
+
+		DB.db.transactionSync(()->{
+			/*for(User user: jd.Users){
+				UserModel.saveNewUser(user);
+			}*/
+		});
 
 		for (PB_UserWithMe pbMsg :pbPushMsgAddMany.getUsersList()){
 			handleNewUser(PBConv.PB_UserWithMe_toNew_User(pbMsg));
@@ -56,7 +85,7 @@ public class PipeMsgCallsFromServer {
 		handleNewSingleMsg(jd.Message);
 		handleNewUser(jd.User);*/
 //		App.getBus().post(jd);
-    };
+	};
 
 	public static NetEventHandler_DEP MsgAddMany = (data) ->{
 		MsgAddManyJson jd = AppUtil.fromJson(data,MsgAddManyJson.class);
@@ -89,7 +118,7 @@ public class PipeMsgCallsFromServer {
 		App.getBus().post(jd);
 	};
 
-	static void handleNewSingleMsg(Message msg){
+	private static void handleNewSingleMsg(Message msg){
 		MessageModel.setParamsForNewMsgRecivedFromNet(msg);
 		handleNewMsgFunctionalitiesForTypes(msg);
 

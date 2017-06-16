@@ -14,7 +14,7 @@ public class LastPostsPage extends BasePresenter {
 
 	@Override
 	public View buildView() {
-		X.PageRecentPosts_Parent x= new X.PageRecentPosts_Parent(null);
+		X.PageRecentPosts_Parent x= new X.PageRecentPosts_Parent();
 		PostGeneralListCell cell = new PostGeneralListCell(x.top_nav.getButtonPostMultiWayView(), (page, cell2)->{
 			Http.getPath("v1/post/latest")
 				.setQueryParam("page",""+page)
