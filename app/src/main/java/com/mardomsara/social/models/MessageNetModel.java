@@ -3,6 +3,7 @@ package com.mardomsara.social.models;
 import com.mardomsara.social.app.AppFiles;
 import com.mardomsara.social.app.Constants;
 import com.mardomsara.social.app.DB;
+import com.mardomsara.social.app.Events;
 import com.mardomsara.social.base.HttpOld;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
@@ -13,6 +14,9 @@ import com.mardomsara.social.models.tables.Message;
 import com.mardomsara.social.models.tables.MsgFile;
 import com.mardomsara.social.models.tables.User;
 import com.mardomsara.social.pipe_pb.PBConv;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import ir.ms.pb.PB_Message;
 import ir.ms.pb.PB_MsgEvent;
@@ -26,6 +30,7 @@ import ir.ms.pb.PB_UserWithMe;
 
 public class MessageNetModel {
 	public static void onNewMessagesFromPipe(PB_PushMsgAddMany pbPushMsgAddMany){
+		List<String> msgkeys = new ArrayList<>();
 
 		DB.db.transactionSync(()-> {
 			for (PB_Message pbMsg :pbPushMsgAddMany.getMessagesList()){
@@ -33,7 +38,8 @@ public class MessageNetModel {
 				MessageModel.setParamsForNewMsgRecivedFromNet(msgRow);
 				handleNewMsgFunctionalitiesForTypes(msgRow);
 
-				msgRow.save();
+				msgkeys.add(msgRow.MessageKey);
+				msgRow.saveWithRoom();
 			}
 		});
 
@@ -49,9 +55,13 @@ public class MessageNetModel {
 			handleNewUser(PBConv.PB_UserWithMe_toNew_User(pbMsg));
 		}
 
+		Events.publish(new Events.NewMessages(msgkeys) );
+
 		Helper.showDebugMessage("Msg: "+pbPushMsgAddMany.getMessagesList().size() + " Users: "  + pbPushMsgAddMany.getUsersList().size() );
 	}
+
 	public static void onNewMessagesEventsFromPipe(PB_PushMsgEvents data){
+		List<String> msgkeys = new ArrayList<>();
 
 		DB.db.transactionSync(()->{
 			for(PB_MsgEvent meta : data.getEventsList()){
@@ -84,20 +94,16 @@ public class MessageNetModel {
 						AppUtil.error(" Msg Event from pipe is unknowen "+ meta.getEventType());
 				}
 
-
-
+				msgkeys.add(meta.getMessageKey());
 			}
 		});
 
-		/*for(MsgDeletedFromServerJson meta : res){
-			App.getBus().post(meta);
-		}*/
-
+		Events.publish(new Events.MsgsMetaInfoChanged(msgkeys) );
 
 	}
 
 
-	static void handleNewUser(User user){
+	private static void handleNewUser(User user){
 		UserModel.saveNewUser(user);
 	}
 
