@@ -68,7 +68,6 @@ public class RoomModel {
 				EventBus.getDefault().post(event);
 			}
         });
-
     }
 
 	static int getUnseenCountForRoom(String RoomKey, long LastSeenTimeMs ){

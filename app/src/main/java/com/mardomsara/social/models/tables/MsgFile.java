@@ -39,7 +39,7 @@ public class MsgFile {
 	public String Name = "";
 
 	@Column(defaultExpr = "0")
-	public int Size = 0;
+	public long Size = 0;
 
 	@Column(defaultExpr = "0")
 	public int Duration = 0;
@@ -51,7 +51,7 @@ public class MsgFile {
 	public int Width = 0;
 
 	@Column(defaultExpr = "''")
-	public String Extension = "";
+	public String Extension = "";//with dot
 
 	//Thumb
 
