@@ -73,6 +73,7 @@ public class MessageModel {
 
     public static  void setParamsForNewMsgRecivedFromNet(Message msg){
         msg.CreatedDeviceMs = TimeUtil.getTimeMs();
+        msg.SortId = TimeUtil.getTimeNano();
         msg.IsByMe = 0;
         msg.setToPush(0);
         msg.setMsgFile_Status(0);

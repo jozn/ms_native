@@ -5,14 +5,13 @@ package com.mardomsara.social.app;
  */
 public class Constants {
 
-    public static String MsgsAddNew = "MsgsAddNew";
+   /* public static String MsgsAddNew = "MsgsAddNew";
     public static String MsgsReceivedToServer = "MsgsReceivedToServer";
     public static String MsgsReceivedToPeer = "MsgsReceivedToPeer";
     public static String MsgsSeenByPeer = "MsgsSeenByPeer";
     public static String MsgsDeletedFromServer = "MsgsDeletedFromServer";
 
-    public static String CommandsReceivedToServer = "CommandsReceivedToServer";
-
+    public static String CommandsReceivedToServer = "CommandsReceivedToServer";*/
 
     //messages Types
     public static final int MESSAGE_TEXT = 10;
@@ -47,8 +46,6 @@ public class Constants {
     public static int POST_TYPE_PHOTO = 2;
     //Hawk
     public static String SessionUserInfo = "SessionUserInfo";
-
-
 
 	//////////////////////////////////////////////////////////////////////////////
 	//PBs

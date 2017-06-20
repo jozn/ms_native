@@ -10,15 +10,17 @@ import com.mardomsara.social.models.tables.Room;
 import org.greenrobot.essentials.StringUtils;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Created by Hamid on 5/31/2016.
  */
 public class MemoryStore_LastMsgs {
-    private static Map<String,Message> map = new HashMap<>();
+    private static Map<String,Message> map = (new ConcurrentHashMap<>());
 
 	public static void set(Message msgNew){
 		Message msg2 =map.get(msgNew.RoomKey);
@@ -49,9 +51,10 @@ public class MemoryStore_LastMsgs {
 		loadAutoForRoomKeys(roomKeys);
     }
 
-	public static void loadAutoForRoomKeys(Iterable<String> roomKeys){
-		if(roomKeys == null /*|| roomKeys.size() ==0*/)return;
+	static void loadAutoForRoomKeys(Iterable<String> roomKeys){
+		if(roomKeys == null  /*|| roomKeys ==0*/)return;
 		String ins = StringUtils.join(roomKeys,"','");
+		if (ins.length()  < 1 ) return;
 		ins = "'"+ins+"'";
 		Cursor cursor =  DB.db.getConnection().rawQuery("select * from Message where RoomKey in("+ ins + ") GROUP BY RoomKey order by NanoId Desc ");
 

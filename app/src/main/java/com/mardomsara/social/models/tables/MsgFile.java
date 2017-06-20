@@ -8,6 +8,7 @@ import com.github.gfx.android.orma.annotation.OnConflict;
 import com.github.gfx.android.orma.annotation.PrimaryKey;
 import com.github.gfx.android.orma.annotation.Table;
 import com.mardomsara.social.app.DB;
+import com.mardomsara.social.models.CacheBank;
 
 /**
  * Created by Hamid on 9/4/2016.
@@ -100,6 +101,7 @@ public class MsgFile {
 	public void save() {
 		if(LocalSrc.equals("")) return;//avoid bugs
 		//todo calculate hash
+		CacheBank.getMsgFile().put(LocalSrc,this);
 		DB.db.prepareInsertIntoMsgFile(OnConflict.REPLACE,false).execute(this);
 	}
 

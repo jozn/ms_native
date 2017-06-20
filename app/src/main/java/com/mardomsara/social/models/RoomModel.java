@@ -55,7 +55,6 @@ public class RoomModel {
 		return room;
 	}
 
-
 	public static void onRoomOpened_InBackground(Room room){
         room.LastRoomOpenedTimeMs = TimeUtil.getTimeMs();
         room.UnseenMessageCount = 0;
@@ -70,7 +69,7 @@ public class RoomModel {
         });
     }
 
-	static int getUnseenCountForRoom(String RoomKey, long LastSeenTimeMs ){
+	private static int countUnseenMsgsForRoom(String RoomKey, long LastSeenTimeMs ){
 		int count = DB.db.relationOfMessage()
 			.RoomKeyEq(RoomKey)
 			.NanoIdGe(LastSeenTimeMs*1000000)
@@ -80,7 +79,7 @@ public class RoomModel {
 		return count;
 	}
 
-	public static Room onReceivedNewMsg3_NotSave(@NonNull Message msg, Room roomMem){
+	public static Room onReceivedNewMsg_NotSave(@NonNull Message msg, Room roomMem){
 		if(roomMem == null){
 			roomMem = getRoomByRoomKey(msg.RoomKey);
 		}
@@ -91,7 +90,7 @@ public class RoomModel {
 			roomMem.CreatedMs = TimeUtil.getTimeMs();
 		}
 
-		int count = getUnseenCountForRoom(msg.RoomKey,roomMem.LastSeenTimeMs);
+		int count = countUnseenMsgsForRoom(msg.RoomKey,roomMem.LastSeenTimeMs);
 		roomMem.UnseenMessageCount = count;
 
 		roomMem.UpdatedMs = msg.CreatedMs;//this one we show to user
@@ -102,7 +101,7 @@ public class RoomModel {
 	public static void massUpdateOfRoomsForNewMsgs(Collection<Message> LastMsgs){
 		List<Room> rooms = new ArrayList<>();
 		for(Message msg: LastMsgs){
-			Room room = onReceivedNewMsg3_NotSave(msg,null);
+			Room room = onReceivedNewMsg_NotSave(msg,null);
 			rooms.add(room);
 		}
 		DB.db.transactionSync(()->{
@@ -222,6 +221,29 @@ public class RoomModel {
 
 		return "p"+PeerUserId+"_"+me;
 	}
+
+
+	////////////////////////////// New api - after PB///////////////
+	public static void onNewMsgsRecivedForRooms(List<String> list){
+//		List<Room> rooms =  DB.db.selectFromRoom().RoomKeyIn(list).orderByCreatedMsAsc();
+//		DB.db.selectFromRoom()
+//		List<Room> rooms = new ArrayList<>();
+		/*for(Message msg: LastMsgs){
+			Room room = onReceivedNewMsg_NotSave(msg,null);
+			rooms.add(room);
+		}
+		DB.db.transactionSync(()->{
+			for(Room room: rooms){
+				room.save();
+			}
+		});*/
+
+		List<Room> rooms = getAllRoomsList(-1);
+
+
+		MemoryStore_Rooms.reloadForAllAndEmit();
+	}
+
 
 
 }

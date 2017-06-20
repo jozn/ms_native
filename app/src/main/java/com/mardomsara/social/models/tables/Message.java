@@ -15,6 +15,7 @@ import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.TimeUtil;
+import com.mardomsara.social.models.CacheBank;
 import com.mardomsara.social.models.MessageModel;
 import com.mardomsara.social.models.RoomModel;
 import com.mardomsara.social.models.interfaces.MessageProgressListener;
@@ -224,11 +225,13 @@ public class Message implements Comparable<Message>, UploadProgressListener, Dow
 		}
 
 		MemoryStore_LastMsgs.set(this);
+		CacheBank.getMessage().put(MessageKey,this);
+
 	}
 
 	private void onAfterSave() {
 		Room room = MemoryStore_Rooms.getOrNull(RoomKey);
-		room = RoomModel.onReceivedNewMsg3_NotSave(this, room);
+		room = RoomModel.onReceivedNewMsg_NotSave(this, room);
 		if (room.SortTimeMs < CreatedDeviceMs) {
 			room.SortTimeMs = CreatedDeviceMs;
 		}

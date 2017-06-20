@@ -18,6 +18,7 @@ import java.util.Map;
  * Created by Hamid on 10/15/2016.
  */
 
+@Deprecated //use CacheBank
 public class MemoryStore_Users {
 	final static Map<Integer,User> map = new HashMap<>();
 

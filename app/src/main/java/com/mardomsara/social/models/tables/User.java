@@ -7,6 +7,7 @@ import com.mardomsara.social.app.DB;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.JsonUtil;
 import com.mardomsara.social.json.social.rows.UserInfoJson;
+import com.mardomsara.social.models.CacheBank;
 import com.mardomsara.social.models.UserModel;
 import com.mardomsara.social.models.memory_store.MemoryStore_Users;
 
@@ -101,6 +102,7 @@ public class User {
 		}
 
 		MemoryStore_Users.set(this);
+		CacheBank.getUser().put(UserId,this);
 //		AppUtil.log("user: " + JsonUtil.toJson(this));
         DB.db.relationOfUser().upserter().execute(this);
     }

@@ -16,7 +16,9 @@ import com.mardomsara.social.models.tables.User;
 import com.mardomsara.social.pipe_pb.PBConv;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import ir.ms.pb.PB_Message;
 import ir.ms.pb.PB_MsgEvent;
@@ -32,7 +34,9 @@ import ir.ms.pb.PB_UserWithMe;
 public class MessageNetModel {
 	public static void onNewMessagesFromPipe(PB_PushMsgAddMany pbPushMsgAddMany) {
 		List<String> msgkeys = new ArrayList<>();
+		Map<String, Boolean> roomsKeys = new HashMap<>();
 
+		//TODO Extract msg for reuse in the add new by me
 		DB.db.transactionSync(() -> {
 			for (PB_Message pbMsg : pbPushMsgAddMany.getMessagesList()) {
 				Message msgRow = PBConv.PB_Message_toNew_Message(pbMsg);
@@ -40,10 +44,13 @@ public class MessageNetModel {
 				handleNewMsgFunctionalityForDifferentTypes(msgRow);
 
 				msgkeys.add(msgRow.MessageKey);
+				roomsKeys.put(msgRow.RoomKey, true);
+
 				msgRow.saveWithRoom();
 			}
 		});
 
+		//first user then rooms updates and events
 		DB.db.transactionSync(() -> {
 			for (PB_UserWithMe pbMsg : pbPushMsgAddMany.getUsersList()) {
 				User userRow = PBConv.PB_UserWithMe_toNew_User(pbMsg);
@@ -51,9 +58,9 @@ public class MessageNetModel {
 			}
 		});
 
-		for (PB_UserWithMe pbMsg : pbPushMsgAddMany.getUsersList()) {
-			handleNewUser(PBConv.PB_UserWithMe_toNew_User(pbMsg));
-		}
+
+
+
 
 		Events.publish(new Events.NewMessages(msgkeys));
 

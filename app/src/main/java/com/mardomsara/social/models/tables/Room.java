@@ -9,6 +9,7 @@ import com.github.gfx.android.orma.annotation.Table;
 import com.mardomsara.social.BuildConfig;
 import com.mardomsara.social.app.DB;
 import com.mardomsara.social.helpers.LangUtil;
+import com.mardomsara.social.models.CacheBank;
 import com.mardomsara.social.models.Session;
 import com.mardomsara.social.models.UserModel;
 import com.mardomsara.social.models.memory_store.MemoryStore_Rooms;
@@ -61,12 +62,18 @@ public class Room implements Comparable<Room> {
     ////////////////// Helpers ///////////////////
     public void saveAndEmit() {
 		MemoryStore_Rooms.setAndEmit(this);
-        DB.db.prepareInsertIntoRoom(OnConflict.REPLACE,false).execute(this);
+		saveToCahce();
+		DB.db.prepareInsertIntoRoom(OnConflict.REPLACE,false).execute(this);
     }
 
 	public void save() {
+		saveToCahce();
 //		MemoryStore_Rooms.set(this);
 		DB.db.prepareInsertIntoRoom(OnConflict.REPLACE,false).execute(this);
+	}
+
+	private void saveToCahce(){
+		CacheBank.getRoom().put(RoomKey,this);
 	}
 
     public User User;

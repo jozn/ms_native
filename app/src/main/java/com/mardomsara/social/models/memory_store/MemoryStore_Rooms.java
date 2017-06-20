@@ -14,7 +14,8 @@ import java.util.List;
 
 public class MemoryStore_Rooms {
 //	final static Map<String,Room> map = new HashMap<>();
-	static ArrayListHashSetKey<Room,String> listRooms = new ArrayListHashSetKey<>((room)->room.RoomKey);
+	//TODO upgrade this collection to some java deualt class???
+	static final ArrayListHashSetKey<Room,String> listRooms = new ArrayListHashSetKey<>((room)->room.RoomKey);
 
 
 	public static void setAndEmit(Room room){
@@ -45,7 +46,7 @@ public class MemoryStore_Rooms {
 
 
 	public static void reloadForAll(){
-		List<Room> list = RoomModel.getAllRoomsList(0);
+		List<Room> list = RoomModel.getAllRoomsList(-1);
 		listRooms.clear();
 		listRooms.fromList(list);
 		listRooms.sort();
