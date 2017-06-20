@@ -8,10 +8,14 @@ import java.util.List;
 //All event with their classes must be implemented in here
 public class Events {
 
+	private Events() {
+	}
 
 	public static void publish(Object object){
 		org.greenrobot.eventbus.EventBus.getDefault().post(object);
 	}
+
+	////////////////////// Classes /////////////////////////
 
 	public static class NewMessages {
 		public List<String> msgKeys;
@@ -20,11 +24,29 @@ public class Events {
 			this.msgKeys = msgKeys;
 		}
 	}
+
+	public static class RoomChanged {
+		public List<String> roomsKeys;
+
+		public RoomChanged(List<String> msgKeys) {
+			this.roomsKeys = msgKeys;
+		}
+	}
+
+
 	public static class MsgsMetaInfoChanged {
 		public List<String> msgKeys;
 
 		public MsgsMetaInfoChanged(List<String> msgKeys) {
 			this.msgKeys = msgKeys;
+		}
+	}
+
+	public static class RoomInfoChangedEvent {
+		public String RoomKey;
+
+		public RoomInfoChangedEvent(String roomKey) {
+			RoomKey = roomKey;
 		}
 	}
 

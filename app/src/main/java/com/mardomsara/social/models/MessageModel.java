@@ -52,6 +52,20 @@ public class MessageModel {
         return DB.db.selectFromMessage().MessageKeyEq(msgKey).getOrNull(0);
     }
 
+	public static Message getLastMsgOfRoom(String roomKey) {
+		return onLoadMessage(DB.db.selectFromMessage().orderByNanoIdDesc().limit(1).getOrNull(0));
+	}
+
+	public static List<Message> onLoadMessages(List<Message> list){
+		list.forEach(MemoryStore_LastMsgs::set);
+		return list;
+	}
+
+	public static Message onLoadMessage(Message msg){
+		MemoryStore_LastMsgs.set(msg);
+		return msg;
+	}
+
     public static Message newTextMsgForRoom_ByMe(@NonNull Room room) {
         Message msg = new Message();
         msg.RoomKey = room.RoomKey;

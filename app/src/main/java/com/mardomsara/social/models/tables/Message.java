@@ -224,6 +224,10 @@ public class Message implements Comparable<Message>, UploadProgressListener, Dow
 			NanoId = TimeUtil.getTimeNano();// * 10000+( (long)(Math.random()*10000));
 		}
 
+		if (SortId <1) {
+			SortId = TimeUtil.getTimeNano();// * 10000+( (long)(Math.random()*10000));
+		}
+
 		MemoryStore_LastMsgs.set(this);
 		CacheBank.getMessage().put(MessageKey,this);
 

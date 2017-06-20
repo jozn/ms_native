@@ -4,6 +4,8 @@ import android.database.Cursor;
 import android.support.annotation.Nullable;
 
 import com.mardomsara.social.app.DB;
+import com.mardomsara.social.models.MessageModel;
+import com.mardomsara.social.models.RoomModel;
 import com.mardomsara.social.models.tables.Message;
 import com.mardomsara.social.models.tables.Room;
 
@@ -23,6 +25,7 @@ public class MemoryStore_LastMsgs {
     private static Map<String,Message> map = (new ConcurrentHashMap<>());
 
 	public static void set(Message msgNew){
+		if(msgNew == null)return;
 		Message msg2 =map.get(msgNew.RoomKey);
 		if(msg2 == null){
 			map.put(msgNew.RoomKey,msgNew);
@@ -75,6 +78,9 @@ public class MemoryStore_LastMsgs {
 
 	public static @Nullable Message getForRoom(String roomKey){
 		if(roomKey == null || roomKey.equals(""))return null;
+		return map.get(roomKey);
+	}
+	public static @Nullable Message getorLoadForRoom(String roomKey){
 		return map.get(roomKey);
 	}
 

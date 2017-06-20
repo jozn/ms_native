@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 
 import com.github.gfx.android.orma.annotation.OnConflict;
 import com.mardomsara.social.app.DB;
+import com.mardomsara.social.app.Events;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.LangUtil;
 import com.mardomsara.social.helpers.TimeUtil;
@@ -39,6 +40,16 @@ public class RoomModel {
         return DB.db.selectFromRoom().RoomKeyEq(roomKey).getOrNull(0);
     }
 
+	public static List<Room> loadListOfRoomByRoomKeys(List<String> roomKeys){
+		List<Room> rooms = DB.db.selectFromRoom().RoomKeyIn(roomKeys).toList();
+		for (Room r : rooms){
+			CacheBank.getRoom().put(r.RoomKey,r);
+		}
+		return rooms;
+	}
+
+
+
 	@Nullable
 	public static Room getRoomByForUserAndLoadUser(int peerUserId){
 		String roomKey = roomKeyForPeerUserId(peerUserId);
@@ -62,9 +73,10 @@ public class RoomModel {
 			//just if we actuly has message in the room, not just opening the room
 			if(DB.db.selectFromMessage().RoomKeyEq(room.RoomKey).count() > 0 ){
 				updateOrInsert(room);
-				RoomInfoChangedEvent event = new RoomInfoChangedEvent();
+				/*RoomInfoChangedEvent event = new RoomInfoChangedEvent();
 				event.RoomKey = room.RoomKey;
-				EventBus.getDefault().post(event);
+				EventBus.getDefault().post(event);*/
+				Events.publish(new Events.RoomInfoChangedEvent(room.RoomKey));
 			}
         });
     }
@@ -224,8 +236,8 @@ public class RoomModel {
 
 
 	////////////////////////////// New api - after PB///////////////
-	public static void onNewMsgsRecivedForRooms(List<String> list){
-//		List<Room> rooms =  DB.db.selectFromRoom().RoomKeyIn(list).orderByCreatedMsAsc();
+	public static void onNewMsgsRecivedForRooms(Iterable<String> roomKeys){
+//		List<Room> rooms =  DB.db.selectFromRoom().RoomKeyIn(roomKeys).orderByCreatedMsAsc();
 //		DB.db.selectFromRoom()
 //		List<Room> rooms = new ArrayList<>();
 		/*for(Message msg: LastMsgs){
@@ -238,10 +250,33 @@ public class RoomModel {
 			}
 		});*/
 
-		List<Room> rooms = getAllRoomsList(-1);
+		Map<String, Room> roomsMap = CacheBank.getOrLoadRoomsMapByRoomKeys(roomKeys);
 
+		for (String rk: roomKeys){
+			Room roomMem = roomsMap.get(rk);
+			Message lastMsg  = MemoryStore_LastMsgs.getForRoom(rk);
+			if(roomMem == null){//create new room
+				roomMem = new Room();
+				roomMem.RoomKey = rk;
+				roomMem.RoomTypeId = 1;//todo: extarct from here
+				if(lastMsg != null){
+					roomMem.CreatedMs = lastMsg.CreatedMs; //must be last msg not
+				}
+				roomsMap.put(rk,roomMem);
+			}
 
-		MemoryStore_Rooms.reloadForAllAndEmit();
+			if(lastMsg != null){
+				roomMem.SortTimeMs = lastMsg.CreatedMs; //must be last msg not
+				roomMem.UpdatedMs = lastMsg.CreatedMs; //must be last msg not
+			}else {//???
+				roomMem.UpdatedMs = TimeUtil.getTimeMs();//this one we show to user
+			}
+			roomMem.UnseenMessageCount = countUnseenMsgsForRoom(rk,roomMem.LastSeenTimeMs);
+		}
+
+		DB.db.transactionSync(()->{
+			roomsMap.values().forEach(Room::save);
+		});
 	}
 
 

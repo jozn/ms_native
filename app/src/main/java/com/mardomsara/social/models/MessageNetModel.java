@@ -46,7 +46,8 @@ public class MessageNetModel {
 				msgkeys.add(msgRow.MessageKey);
 				roomsKeys.put(msgRow.RoomKey, true);
 
-				msgRow.saveWithRoom();
+//				msgRow.saveWithRoom();
+				msgRow.save();
 			}
 		});
 
@@ -59,10 +60,11 @@ public class MessageNetModel {
 		});
 
 
-
+		RoomModel.onNewMsgsRecivedForRooms(roomsKeys.keySet());
 
 
 		Events.publish(new Events.NewMessages(msgkeys));
+		Events.publish(new Events.RoomChanged(new ArrayList(roomsKeys.keySet())));
 
 		Helper.showDebugMessage("Msg: " + pbPushMsgAddMany.getMessagesList().size() + " Users: " + pbPushMsgAddMany.getUsersList().size());
 	}
