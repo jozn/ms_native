@@ -50,5 +50,7 @@ public class Events {
 		}
 	}
 
+	public static class RoomOrderChanged {
+	}
 
 }

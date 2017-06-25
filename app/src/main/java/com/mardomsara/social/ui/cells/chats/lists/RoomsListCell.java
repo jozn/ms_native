@@ -10,6 +10,7 @@ import com.mardomsara.social.App;
 import com.mardomsara.social.Nav;
 import com.mardomsara.social.R;
 import com.mardomsara.social.app.Constants;
+import com.mardomsara.social.app.Events;
 import com.mardomsara.social.app.Router;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
@@ -20,7 +21,6 @@ import com.mardomsara.social.helpers.LangUtil;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
 import com.mardomsara.social.lib.ms.ArrayListHashSetKey;
 import com.mardomsara.social.models.RoomModel;
-import com.mardomsara.social.models.events.RoomOrderChanged;
 import com.mardomsara.social.models.memory_store.MemoryStore_LastMsgs;
 import com.mardomsara.social.models.memory_store.MemoryStore_Rooms;
 import com.mardomsara.social.models.tables.Message;
@@ -66,8 +66,16 @@ public class RoomsListCell {
 		rv.setLayoutManager(mLayoutManager);
     }
 
+    /*@Deprecated
 	@Subscribe(threadMode = ThreadMode.MAIN)
 	public void onEvent(RoomOrderChanged data){
+		AppUtil.log("event RoomOrderChanged");
+		listRooms = MemoryStore_Rooms.getListRooms();
+		adp.notifyDataSetChanged();
+	}*/
+
+	@Subscribe(threadMode = ThreadMode.MAIN)
+	public void onEvent(Events.RoomOrderChanged data){
 		AppUtil.log("event RoomOrderChanged");
 		listRooms = MemoryStore_Rooms.getListRooms();
 		adp.notifyDataSetChanged();

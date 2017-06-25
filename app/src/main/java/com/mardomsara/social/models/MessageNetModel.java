@@ -66,6 +66,10 @@ public class MessageNetModel {
 		Events.publish(new Events.NewMessages(msgkeys));
 		Events.publish(new Events.RoomChanged(new ArrayList(roomsKeys.keySet())));
 
+		for (String key : roomsKeys.keySet()) {
+			Events.publish(new Events.RoomInfoChangedEvent(key));
+		}
+
 		Helper.showDebugMessage("Msg: " + pbPushMsgAddMany.getMessagesList().size() + " Users: " + pbPushMsgAddMany.getUsersList().size());
 	}
 

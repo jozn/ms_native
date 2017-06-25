@@ -9,6 +9,9 @@ import com.mardomsara.social.app.LifeCycle;
 
 import org.greenrobot.eventbus.EventBus;
 
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
+
 /**
  * Created by Hamid on 1/4/2016.
  */
@@ -39,6 +42,14 @@ public class App {
       context = ctx;
       LifeCycle.initFromActivity(ctx);
 
+   }
+
+   private static Executor networkThreads;
+   public static Executor getDefultNetworkExecuter(){
+	   if(networkThreads == null){
+		   networkThreads = Executors.newFixedThreadPool(3);
+	   }
+	   return networkThreads;
    }
 
 }

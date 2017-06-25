@@ -22,7 +22,7 @@ import com.mardomsara.social.models.memory_store.MemoryStore_LastMsgs;
 import com.mardomsara.social.models.tables.Message;
 import com.mardomsara.social.models.tables.MsgFile;
 import com.mardomsara.social.models.tables.Room;
-import com.mardomsara.social.pipe_pb.from_net_calls.MsgsCallToServer;
+import com.mardomsara.social.models.flusher.MsgsCallToServer;
 
 import java.io.File;
 import java.util.ArrayList;

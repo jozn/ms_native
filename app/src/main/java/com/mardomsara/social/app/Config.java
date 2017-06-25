@@ -17,4 +17,8 @@ public class Config {
     public static String SYNC_CONTACTS_TO_PUSH_SERVER= "SYNC_CONTACTS_TO_PUSH_SERVER";
 
 
+	public static String WEBSOCKET_SERVER_ADDRESS = "";
+	public static Integer WEBSOCKET_SERVER_PORT = 10000;
+
+
 }

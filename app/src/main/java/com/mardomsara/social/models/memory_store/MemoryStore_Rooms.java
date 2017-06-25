@@ -1,9 +1,8 @@
 package com.mardomsara.social.models.memory_store;
 
-import com.mardomsara.social.App;
+import com.mardomsara.social.app.Events;
 import com.mardomsara.social.lib.ms.ArrayListHashSetKey;
 import com.mardomsara.social.models.RoomModel;
-import com.mardomsara.social.models.events.RoomOrderChanged;
 import com.mardomsara.social.models.tables.Room;
 
 import java.util.List;
@@ -24,7 +23,8 @@ public class MemoryStore_Rooms {
 			listRooms.setOrReplace(0,room);
 			listRooms.sort();
 		}
-		App.getBus().post(new RoomOrderChanged());
+//		App.getBus().post(new RoomOrderChanged());
+		Events.publish(new Events.RoomOrderChanged());
 	}
 
 	public static void sort(){
@@ -57,7 +57,8 @@ public class MemoryStore_Rooms {
 
 	public static void reloadForAllAndEmit() {
 		reloadForAll();
-		App.getBus().post(new RoomOrderChanged());
+//		App.getBus().post(new RoomOrderChanged());
+		Events.publish(new Events.RoomOrderChanged());
 	}
 
 }

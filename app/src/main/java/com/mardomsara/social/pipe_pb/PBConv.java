@@ -4,6 +4,7 @@ import android.support.annotation.NonNull;
 
 import com.google.protobuf.ByteString;
 import com.mardomsara.social.app.Constants;
+import com.mardomsara.social.helpers.FileUtil;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.TimeUtil;
 import com.mardomsara.social.models.tables.Message;
@@ -11,6 +12,10 @@ import com.mardomsara.social.models.tables.MsgFile;
 import com.mardomsara.social.models.tables.MsgSeen;
 import com.mardomsara.social.models.tables.User;
 
+import org.apache.commons.io.FileUtils;
+
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,8 +54,8 @@ public class PBConv {
 //		message.MsgFile_LocalSrc = pb_message.getMsgFileLocalSrc();
 //		message.MsgFile_Status = pb_message.getMsgFileStatus();
 
-		if ( pb_message.getFile() != null) {
-			message.MsgFile = PB_MsgFile_to_MsgFIle( pb_message.getFile());
+		if (pb_message.getFile() != null) {
+			message.MsgFile = PB_MsgFile_to_MsgFIle(pb_message.getFile());
 		}
 
 		return message;
@@ -81,6 +86,10 @@ public class PBConv {
 
 		b.setMsgFileLocalSrcBytes(toUtf8(msg.MsgFile_LocalSrc));
 		b.setMsgFileStatus(msg.MsgFile_Status);
+
+		if (msg.getMsgFile() != null) {
+			b.setFile(MsgFile_to_PB_MsgFile(msg.getMsgFile(), true));
+		}
 
 		return b.build();
 	}
@@ -158,13 +167,52 @@ public class PBConv {
 		f.ThumbHeight = 0;
 		f.ThumbWidth = 0;
 		f.Thumb64 = "";
-		if(p.getThumbData() != null) {
+		if (p.getThumbData() != null) {
 			f.ThumbData = p.getThumbData().toByteArray();
 		}
 		f.ThumbLocalSrc = "---";
 		f.CreatedMs = TimeUtil.getTimeMs();
 
 		return f;
+	}
+
+	@NonNull
+	public static PB_MsgFile MsgFile_to_PB_MsgFile(MsgFile f, boolean withData) {
+//		Helper.showDebugMessage("ServerSrc: " +f.getServerSrc());
+//		MsgFile p = PB_MsgFile.newBuilder();
+		PB_MsgFile.Builder mfB = PB_MsgFile.newBuilder()
+			.setServerSrc(f.ServerSrc)
+			.setFileType(f.FileType)
+			.setMimeType("")//// FIXME: 6/20/2017 this
+			.setName(f.Name)
+			.setSize(f.Size)
+			.setDuration(f.Duration)
+			.setHeight(f.Height)
+			.setWidth(f.Width)
+			.setExtension(f.Extension);
+
+		//TODO add other thums to pb
+		/*p.ThumbSize = 0;
+		p.ThumbHeight = 0;
+		p.ThumbWidth = 0;
+		p.Thumb64 = "";*/
+		if (f.ThumbData != null) {
+			mfB.setThumbData(ByteString.copyFrom(f.ThumbData)); //
+		}
+		if (withData) {
+			File file = new File(f.LocalSrc);
+			if (file != null && file.exists()) {
+				try {
+					mfB.setData(ByteString.copyFrom(FileUtils.readFileToByteArray(file)));
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+
+		PB_MsgFile pb_msgFile = mfB.build();
+
+		return pb_msgFile;
 	}
 
 	static ByteString toUtf8(String str) {

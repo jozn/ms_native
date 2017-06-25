@@ -1,9 +1,11 @@
-package com.mardomsara.social.pipe_pb.from_net_calls;
+package com.mardomsara.social.models.flusher;
 
+import com.mardomsara.social.app.API;
 import com.mardomsara.social.app.Constants;
 import com.mardomsara.social.app.DB;
 import com.mardomsara.social.base.Http.Http;
 import com.mardomsara.social.base.Http.Req;
+import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.JsonUtil;
 import com.mardomsara.social.helpers.TimeUtil;
@@ -20,6 +22,7 @@ import java.util.List;
 import ir.ms.pb.PB_Message;
 import ir.ms.pb.PB_RequestMsgAddMany;
 import ir.ms.pb.PB_RequestMsgsSeen;
+import ir.ms.pb.PB_ResRpcAddMsg;
 
 import static com.mardomsara.social.base.Http.Http.upload;
 
@@ -79,7 +82,28 @@ public class MsgsCallToServer {
 
 	public static void sendNewPhoto(Message msg, File resizedFile,File fileOriginal, final boolean deleteOrginal){
 		msg.setNetWorkTransferring(true);
-		Req req = Http.upload("http://localhost:5000/msgs/v1/add_one",resizedFile)
+
+		AndroidUtil.runInBackgroundNoPanic(()->{
+			PB_ResRpcAddMsg resRpcAddMsg = GRPC.getNewBlockingMsgRpc().uploadNewMsg(PBConv.Message_toNew_PB_Message(msg));
+			Helper.showDebugMessage("sendNewPhoto: "+resRpcAddMsg.hasResponse());
+			if(resRpcAddMsg != null){
+				msg.setNetWorkTransferring(false);
+				msg.setMsgFile_Status((Constants.Msg_Media_Uploaded));
+				msg.setToPush(0);
+				msg.ServerReceivedTime = TimeUtil.getTimeSec();
+				msg.saveWithRoom();
+				if(deleteOrginal == true &&  fileOriginal != null){
+					fileOriginal.delete();
+				}
+
+				MsgReceivedToServerEvent.publishNew(msg);
+			}
+
+
+		});
+
+
+		Req req = Http.upload(API.BASE_DOMAIN_URL_STR+"/msgs/v1/add_one",resizedFile)
 			.setFormParam("message", JsonUtil.toJson(msg))
 			.setUploadProgress(msg)
 			.doAsync(
@@ -108,7 +132,7 @@ public class MsgsCallToServer {
 
 	public static void sendNewVideo(Message msg, File resizedFile){
 		msg.setNetWorkTransferring(true);
-		Req req = upload("http://localhost:5000/msgs/v1/add_one",resizedFile)
+		Req req = upload(API.BASE_DOMAIN_URL_STR +"msgs/v1/add_one",resizedFile)
 			.setFormParam("message", JsonUtil.toJson(msg))
 			.setUploadProgress(msg)
 			.doAsync(
@@ -147,6 +171,44 @@ public class MsgsCallToServer {
 		Pipe.makeCall(Pipe.REQUESTS.PB_RequestMsgsSeen,
 			pb_request,
 			succ,null);
+	}
+
+
+	////////////////////////// OLD - DELETE //////////////////////
+
+	public static void sendNewPhoto_OLD(Message msg, File resizedFile,File fileOriginal, final boolean deleteOrginal){
+		msg.setNetWorkTransferring(true);
+		Req req = Http.upload(API.BASE_DOMAIN_URL_STR +"/msgs/v1/add_one",resizedFile)
+			.setFormParam("message", JsonUtil.toJson(msg))
+			.setUploadProgress(msg)
+			.doAsync(
+				(result)->{
+					Helper.showDebugMessage("sendNewPhoto "+result.isOk());
+					msg.setNetWorkTransferring(false);
+					if (result.isOk()){
+						Helper.showDebugMessage("sendNewPhoto ok");
+						msg.setMsgFile_Status((Constants.Msg_Media_Uploaded));
+						msg.setToPush(0);
+						msg.ServerReceivedTime = TimeUtil.getTimeSec();
+						msg.saveWithRoom();
+						if(deleteOrginal == true &&  fileOriginal != null){
+							fileOriginal.delete();
+						}
+
+						MsgReceivedToServerEvent.publishNew(msg);
+					}else {
+
+					}
+				});
+
+		msg.req = req;
+	}
+
+	void play(){
+		/*Double.MAX_VALUE;
+
+		Float.MIN_NORMAL*/
+
 	}
 
 }
