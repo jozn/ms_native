@@ -1,0 +1,1904 @@
+Parallel execution is an incubating feature.
+NDK is missing a "platforms" directory.
+If you are using NDK, verify the ndk.dir is set to a valid NDK directory.  It is currently set to D:\_sdk4\ndk-bundle.
+If you are not using NDK, unset the NDK variable from ANDROID_NDK_HOME or local.properties to remove this warning.
+
+google-services plugin could not detect any version for com.google.android.gms or com.google.firebase, default version: 9.0.0 will be used.
+please apply google-services plugin at the bottom of the build file.
+Jack is disabled, but one of the plugins you are using supports Java 8 language features.
+Jack is disabled, but one of the plugins you are using supports Java 8 language features.
+Jack is disabled, but one of the plugins you are using supports Java 8 language features.
+Jack is disabled, but one of the plugins you are using supports Java 8 language features.
+:app:dependencies
+
+------------------------------------------------------------
+Project :app
+------------------------------------------------------------
+
+_devDebugAndroidTestAnnotationProcessor - ## Internal use, do not manually configure ##
+No dependencies
+
+_devDebugAndroidTestApk - ## Internal use, do not manually configure ##
+\--- com.android.support:multidex-instrumentation:1.0.1
+     \--- com.android.support:multidex:1.0.1
+
+_devDebugAndroidTestCompile - ## Internal use, do not manually configure ##
+\--- com.android.support:multidex-instrumentation:1.0.1
+     \--- com.android.support:multidex:1.0.1
+
+_devDebugAndroidTestJackPlugin - ## Internal use, do not manually configure ##
+No dependencies
+
+_devDebugAnnotationProcessor - ## Internal use, do not manually configure ##
+No dependencies
+
+_devDebugApk - ## Internal use, do not manually configure ##
++--- com.android.support:multidex:1.0.1
++--- com.jakewharton.hugo:hugo-annotations:1.2.1
++--- io.realm:realm-android-library:3.4.0
+|    +--- io.realm:realm-annotations:3.4.0
+|    \--- com.getkeepsafe.relinker:relinker:1.2.2
++--- io.realm:realm-annotations:3.4.0
++--- com.android.support:appcompat-v7:25.0.0
+|    +--- com.android.support:support-v4:25.0.0
+|    |    +--- com.android.support:support-compat:25.0.0 -> 25.3.0
+|    |    |    \--- com.android.support:support-annotations:25.3.0
+|    |    +--- com.android.support:support-media-compat:25.0.0
+|    |    |    \--- com.android.support:support-compat:25.0.0 -> 25.3.0 (*)
+|    |    +--- com.android.support:support-core-utils:25.0.0 -> 25.3.0
+|    |    |    +--- com.android.support:support-annotations:25.3.0
+|    |    |    \--- com.android.support:support-compat:25.3.0 (*)
+|    |    +--- com.android.support:support-core-ui:25.0.0
+|    |    |    \--- com.android.support:support-compat:25.0.0 -> 25.3.0 (*)
+|    |    \--- com.android.support:support-fragment:25.0.0
+|    |         +--- com.android.support:support-compat:25.0.0 -> 25.3.0 (*)
+|    |         +--- com.android.support:support-media-compat:25.0.0 (*)
+|    |         +--- com.android.support:support-core-ui:25.0.0 (*)
+|    |         \--- com.android.support:support-core-utils:25.0.0 -> 25.3.0 (*)
+|    +--- com.android.support:support-vector-drawable:25.0.0
+|    |    \--- com.android.support:support-compat:25.0.0 -> 25.3.0 (*)
+|    \--- com.android.support:animated-vector-drawable:25.0.0
+|         \--- com.android.support:support-vector-drawable:25.0.0 (*)
++--- com.android.support:recyclerview-v7:25.0.0
+|    +--- com.android.support:support-annotations:25.0.0 -> 25.3.0
+|    +--- com.android.support:support-compat:25.0.0 -> 25.3.0 (*)
+|    \--- com.android.support:support-core-ui:25.0.0 (*)
++--- com.android.support:support-v4:25.0.0 (*)
++--- com.android.support:support-v13:25.0.0
+|    \--- com.android.support:support-v4:25.0.0 (*)
++--- com.android.support:design:25.0.0
+|    +--- com.android.support:support-v4:25.0.0 (*)
+|    +--- com.android.support:appcompat-v7:25.0.0 (*)
+|    +--- com.android.support:recyclerview-v7:25.0.0 (*)
+|    \--- com.android.support:transition:25.0.0
+|         \--- com.android.support:support-v4:25.0.0 (*)
++--- com.android.support:percent:25.0.0
+|    \--- com.android.support:support-compat:25.0.0 -> 25.3.0 (*)
++--- com.android.support.constraint:constraint-layout:1.0.1
+|    \--- com.android.support.constraint:constraint-layout-solver:1.0.1
++--- org.greenrobot:eventbus:3.0.0
++--- uk.co.chrisjenx:calligraphy:2.1.0
+|    \--- com.android.support:appcompat-v7:22.1.1 -> 25.0.0 (*)
++--- com.facebook.fresco:fresco:1.3.0
+|    +--- com.facebook.fresco:drawee:1.3.0
+|    |    \--- com.facebook.fresco:fbcore:1.3.0
+|    +--- com.facebook.fresco:fbcore:1.3.0
+|    \--- com.facebook.fresco:imagepipeline:1.3.0
+|         +--- com.parse.bolts:bolts-tasks:1.4.0
+|         +--- com.facebook.fresco:fbcore:1.3.0
+|         \--- com.facebook.fresco:imagepipeline-base:1.3.0
+|              +--- com.parse.bolts:bolts-tasks:1.4.0
+|              \--- com.facebook.fresco:fbcore:1.3.0
++--- com.google.code.gson:gson:2.5
++--- com.squareup.okhttp3:okhttp:3.8.0
+|    \--- com.squareup.okio:okio:1.13.0
++--- com.jakewharton:butterknife:7.0.1
++--- commons-io:commons-io:2.4
++--- org.apache.commons:commons-lang3:3.4
++--- com.crashlytics.sdk.android:crashlytics:2.5.5
+|    +--- com.crashlytics.sdk.android:answers:1.3.6
+|    |    \--- io.fabric.sdk.android:fabric:1.3.10
+|    +--- com.crashlytics.sdk.android:crashlytics-core:2.3.8
+|    |    +--- com.crashlytics.sdk.android:answers:1.3.6 (*)
+|    |    \--- io.fabric.sdk.android:fabric:1.3.10
+|    +--- io.fabric.sdk.android:fabric:1.3.10
+|    \--- com.crashlytics.sdk.android:beta:1.1.4
++--- jp.wasabeef:recyclerview-animators:1.3.0
++--- me.relex:photodraweeview:1.0.0
++--- com.github.rahatarmanahmed:circularprogressview:2.5.0
++--- com.github.gfx.android.orma:orma:2.6.0
+|    +--- com.github.gfx.android.orma:orma-migration:2.6.0
+|    |    +--- com.tunnelvisionlabs:antlr4-runtime:4.5
+|    |    \--- com.android.support:support-annotations:24.2.0 -> 25.3.0
+|    +--- com.github.gfx.android.orma:orma-annotations:2.6.0
+|    +--- io.reactivex:rxjava:1.1.9
+|    +--- com.android.support:support-compat:24.2.0 -> 25.3.0 (*)
+|    \--- com.android.support:support-annotations:24.2.0 -> 25.3.0
++--- com.joanzapata.iconify:android-iconify:2.2.2
+|    \--- com.android.support:support-v4:22.2.1 -> 25.0.0 (*)
++--- com.joanzapata.iconify:android-iconify-ionicons:2.2.2
+|    \--- com.joanzapata.iconify:android-iconify:2.2.2 (*)
++--- com.joanzapata.iconify:android-iconify-simplelineicons:2.2.2
+|    \--- com.joanzapata.iconify:android-iconify:2.2.2 (*)
++--- com.squareup.moshi:moshi:1.2.0
+|    \--- com.squareup.okio:okio:1.8.0 -> 1.13.0
++--- org.greenrobot:essentials:3.0.0-RC1
++--- com.github.chrisbanes:PhotoView:2.0.0
+|    \--- com.android.support:support-core-utils:25.3.0 (*)
++--- io.grpc:grpc-okhttp:1.3.0
+|    +--- io.grpc:grpc-core:[1.3.0] -> 1.3.0
+|    |    +--- com.google.guava:guava:19.0
+|    |    +--- com.google.errorprone:error_prone_annotations:2.0.19
+|    |    +--- com.google.code.findbugs:jsr305:3.0.0
+|    |    +--- io.grpc:grpc-context:1.3.0
+|    |    \--- com.google.instrumentation:instrumentation-api:0.3.0
+|    |         \--- com.google.code.findbugs:jsr305:3.0.0
+|    +--- com.squareup.okhttp:okhttp:2.5.0
+|    |    \--- com.squareup.okio:okio:1.6.0 -> 1.13.0
+|    \--- com.squareup.okio:okio:1.6.0 -> 1.13.0
++--- io.grpc:grpc-protobuf-lite:1.3.0
+|    +--- io.grpc:grpc-core:1.3.0 (*)
+|    +--- com.google.protobuf:protobuf-lite:3.0.1
+|    \--- com.google.guava:guava:19.0
++--- io.grpc:grpc-stub:1.3.0
+|    \--- io.grpc:grpc-core:1.3.0 (*)
++--- jp.co.cyberagent.android.gpuimage:gpuimage-library:1.4.1
++--- com.google.firebase:firebase-core:9.0.0
+|    \--- com.google.firebase:firebase-analytics:9.0.0
+|         +--- com.google.android.gms:play-services-basement:9.0.0
+|         |    \--- com.android.support:support-v4:23.0.0 -> 25.0.0 (*)
+|         +--- com.google.firebase:firebase-common:9.0.0
+|         |    +--- com.google.android.gms:play-services-basement:9.0.0 (*)
+|         |    \--- com.google.android.gms:play-services-tasks:9.0.0
+|         |         \--- com.google.android.gms:play-services-basement:9.0.0 (*)
+|         \--- com.google.firebase:firebase-analytics-impl:9.0.0
+|              +--- com.google.android.gms:play-services-base:9.0.0
+|              |    +--- com.google.android.gms:play-services-basement:9.0.0 (*)
+|              |    +--- com.google.firebase:firebase-common:9.0.0 (*)
+|              |    \--- com.google.android.gms:play-services-tasks:9.0.0 (*)
+|              +--- com.google.android.gms:play-services-basement:9.0.0 (*)
+|              +--- com.google.firebase:firebase-iid:9.0.0
+|              |    +--- com.google.android.gms:play-services-basement:9.0.0 (*)
+|              |    \--- com.google.firebase:firebase-common:9.0.0 (*)
+|              \--- com.google.firebase:firebase-common:9.0.0 (*)
++--- com.jakewharton.hugo:hugo-runtime:1.2.1
+|    +--- com.jakewharton.hugo:hugo-annotations:1.2.1
+|    \--- org.aspectj:aspectjrt:1.8.5
++--- org.aspectj:aspectjrt:1.8.5
+\--- com.squareup.leakcanary:leakcanary-android:1.4-beta2
+     \--- com.squareup.leakcanary:leakcanary-analyzer:1.4-beta2
+          +--- com.squareup.leakcanary:leakcanary-watcher:1.4-beta2
+          \--- com.squareup.haha:haha:2.0.2
+
+_devDebugCompile - ## Internal use, do not manually configure ##
++--- com.android.support:multidex:1.0.1
++--- com.jakewharton.hugo:hugo-annotations:1.2.1
++--- io.realm:realm-android-library:3.4.0
+|    +--- io.realm:realm-annotations:3.4.0
+|    \--- com.getkeepsafe.relinker:relinker:1.2.2
++--- io.realm:realm-annotations:3.4.0
++--- com.android.support:appcompat-v7:25.0.0
+|    +--- com.android.support:support-v4:25.0.0
+|    |    +--- com.android.support:support-compat:25.0.0 -> 25.3.0
+|    |    |    \--- com.android.support:support-annotations:25.3.0
+|    |    +--- com.android.support:support-media-compat:25.0.0
+|    |    |    \--- com.android.support:support-compat:25.0.0 -> 25.3.0 (*)
+|    |    +--- com.android.support:support-core-utils:25.0.0 -> 25.3.0
+|    |    |    +--- com.android.support:support-annotations:25.3.0
+|    |    |    \--- com.android.support:support-compat:25.3.0 (*)
+|    |    +--- com.android.support:support-core-ui:25.0.0
+|    |    |    \--- com.android.support:support-compat:25.0.0 -> 25.3.0 (*)
+|    |    \--- com.android.support:support-fragment:25.0.0
+|    |         +--- com.android.support:support-compat:25.0.0 -> 25.3.0 (*)
+|    |         +--- com.android.support:support-media-compat:25.0.0 (*)
+|    |         +--- com.android.support:support-core-ui:25.0.0 (*)
+|    |         \--- com.android.support:support-core-utils:25.0.0 -> 25.3.0 (*)
+|    +--- com.android.support:support-vector-drawable:25.0.0
+|    |    \--- com.android.support:support-compat:25.0.0 -> 25.3.0 (*)
+|    \--- com.android.support:animated-vector-drawable:25.0.0
+|         \--- com.android.support:support-vector-drawable:25.0.0 (*)
++--- com.android.support:recyclerview-v7:25.0.0
+|    +--- com.android.support:support-annotations:25.0.0 -> 25.3.0
+|    +--- com.android.support:support-compat:25.0.0 -> 25.3.0 (*)
+|    \--- com.android.support:support-core-ui:25.0.0 (*)
++--- com.android.support:support-v4:25.0.0 (*)
++--- com.android.support:support-v13:25.0.0
+|    \--- com.android.support:support-v4:25.0.0 (*)
++--- com.android.support:design:25.0.0
+|    +--- com.android.support:support-v4:25.0.0 (*)
+|    +--- com.android.support:appcompat-v7:25.0.0 (*)
+|    +--- com.android.support:recyclerview-v7:25.0.0 (*)
+|    \--- com.android.support:transition:25.0.0
+|         \--- com.android.support:support-v4:25.0.0 (*)
++--- com.android.support:percent:25.0.0
+|    \--- com.android.support:support-compat:25.0.0 -> 25.3.0 (*)
++--- com.android.support.constraint:constraint-layout:1.0.1
+|    \--- com.android.support.constraint:constraint-layout-solver:1.0.1
++--- org.greenrobot:eventbus:3.0.0
++--- uk.co.chrisjenx:calligraphy:2.1.0
+|    \--- com.android.support:appcompat-v7:22.1.1 -> 25.0.0 (*)
++--- com.facebook.fresco:fresco:1.3.0
+|    +--- com.facebook.fresco:drawee:1.3.0
+|    |    \--- com.facebook.fresco:fbcore:1.3.0
+|    +--- com.facebook.fresco:fbcore:1.3.0
+|    \--- com.facebook.fresco:imagepipeline:1.3.0
+|         +--- com.parse.bolts:bolts-tasks:1.4.0
+|         +--- com.facebook.fresco:fbcore:1.3.0
+|         \--- com.facebook.fresco:imagepipeline-base:1.3.0
+|              +--- com.parse.bolts:bolts-tasks:1.4.0
+|              \--- com.facebook.fresco:fbcore:1.3.0
++--- com.google.code.gson:gson:2.5
++--- com.squareup.okhttp3:okhttp:3.8.0
+|    \--- com.squareup.okio:okio:1.13.0
++--- com.jakewharton:butterknife:7.0.1
++--- commons-io:commons-io:2.4
++--- org.apache.commons:commons-lang3:3.4
++--- com.crashlytics.sdk.android:crashlytics:2.5.5
+|    +--- com.crashlytics.sdk.android:answers:1.3.6
+|    |    \--- io.fabric.sdk.android:fabric:1.3.10
+|    +--- com.crashlytics.sdk.android:crashlytics-core:2.3.8
+|    |    +--- com.crashlytics.sdk.android:answers:1.3.6 (*)
+|    |    \--- io.fabric.sdk.android:fabric:1.3.10
+|    +--- io.fabric.sdk.android:fabric:1.3.10
+|    \--- com.crashlytics.sdk.android:beta:1.1.4
++--- jp.wasabeef:recyclerview-animators:1.3.0
++--- me.relex:photodraweeview:1.0.0
++--- com.github.rahatarmanahmed:circularprogressview:2.5.0
++--- com.github.gfx.android.orma:orma:2.6.0
+|    +--- com.github.gfx.android.orma:orma-migration:2.6.0
+|    |    +--- com.tunnelvisionlabs:antlr4-runtime:4.5
+|    |    \--- com.android.support:support-annotations:24.2.0 -> 25.3.0
+|    +--- com.github.gfx.android.orma:orma-annotations:2.6.0
+|    +--- io.reactivex:rxjava:1.1.9
+|    +--- com.android.support:support-compat:24.2.0 -> 25.3.0 (*)
+|    \--- com.android.support:support-annotations:24.2.0 -> 25.3.0
++--- com.joanzapata.iconify:android-iconify:2.2.2
+|    \--- com.android.support:support-v4:22.2.1 -> 25.0.0 (*)
++--- com.joanzapata.iconify:android-iconify-ionicons:2.2.2
+|    \--- com.joanzapata.iconify:android-iconify:2.2.2 (*)
++--- com.joanzapata.iconify:android-iconify-simplelineicons:2.2.2
+|    \--- com.joanzapata.iconify:android-iconify:2.2.2 (*)
++--- com.squareup.moshi:moshi:1.2.0
+|    \--- com.squareup.okio:okio:1.8.0 -> 1.13.0
++--- org.greenrobot:essentials:3.0.0-RC1
++--- com.github.chrisbanes:PhotoView:2.0.0
+|    \--- com.android.support:support-core-utils:25.3.0 (*)
++--- io.grpc:grpc-okhttp:1.3.0
+|    +--- io.grpc:grpc-core:[1.3.0] -> 1.3.0
+|    |    +--- com.google.guava:guava:19.0
+|    |    +--- com.google.errorprone:error_prone_annotations:2.0.19
+|    |    +--- com.google.code.findbugs:jsr305:3.0.0
+|    |    +--- io.grpc:grpc-context:1.3.0
+|    |    \--- com.google.instrumentation:instrumentation-api:0.3.0
+|    |         \--- com.google.code.findbugs:jsr305:3.0.0
+|    +--- com.squareup.okhttp:okhttp:2.5.0
+|    |    \--- com.squareup.okio:okio:1.6.0 -> 1.13.0
+|    \--- com.squareup.okio:okio:1.6.0 -> 1.13.0
++--- io.grpc:grpc-protobuf-lite:1.3.0
+|    +--- io.grpc:grpc-core:1.3.0 (*)
+|    +--- com.google.protobuf:protobuf-lite:3.0.1
+|    \--- com.google.guava:guava:19.0
++--- io.grpc:grpc-stub:1.3.0
+|    \--- io.grpc:grpc-core:1.3.0 (*)
++--- jp.co.cyberagent.android.gpuimage:gpuimage-library:1.4.1
++--- com.google.firebase:firebase-core:9.0.0
+|    \--- com.google.firebase:firebase-analytics:9.0.0
+|         +--- com.google.android.gms:play-services-basement:9.0.0
+|         |    \--- com.android.support:support-v4:23.0.0 -> 25.0.0 (*)
+|         +--- com.google.firebase:firebase-common:9.0.0
+|         |    +--- com.google.android.gms:play-services-basement:9.0.0 (*)
+|         |    \--- com.google.android.gms:play-services-tasks:9.0.0
+|         |         \--- com.google.android.gms:play-services-basement:9.0.0 (*)
+|         \--- com.google.firebase:firebase-analytics-impl:9.0.0
+|              +--- com.google.android.gms:play-services-base:9.0.0
+|              |    +--- com.google.android.gms:play-services-basement:9.0.0 (*)
+|              |    +--- com.google.firebase:firebase-common:9.0.0 (*)
+|              |    \--- com.google.android.gms:play-services-tasks:9.0.0 (*)
+|              +--- com.google.android.gms:play-services-basement:9.0.0 (*)
+|              +--- com.google.firebase:firebase-iid:9.0.0
+|              |    +--- com.google.android.gms:play-services-basement:9.0.0 (*)
+|              |    \--- com.google.firebase:firebase-common:9.0.0 (*)
+|              \--- com.google.firebase:firebase-common:9.0.0 (*)
++--- com.jakewharton.hugo:hugo-runtime:1.2.1
+|    +--- com.jakewharton.hugo:hugo-annotations:1.2.1
+|    \--- org.aspectj:aspectjrt:1.8.5
++--- org.aspectj:aspectjrt:1.8.5
+\--- com.squareup.leakcanary:leakcanary-android:1.4-beta2
+     \--- com.squareup.leakcanary:leakcanary-analyzer:1.4-beta2
+          +--- com.squareup.leakcanary:leakcanary-watcher:1.4-beta2
+          \--- com.squareup.haha:haha:2.0.2
+
+_devDebugJackPlugin - ## Internal use, do not manually configure ##
+No dependencies
+
+_devDebugUnitTestAnnotationProcessor - ## Internal use, do not manually configure ##
+No dependencies
+
+_devDebugUnitTestApk - ## Internal use, do not manually configure ##
++--- junit:junit:4.12
+|    \--- org.hamcrest:hamcrest-core:1.3
+\--- com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2
+
+_devDebugUnitTestCompile - ## Internal use, do not manually configure ##
++--- junit:junit:4.12
+|    \--- org.hamcrest:hamcrest-core:1.3
+\--- com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2
+
+_devDebugUnitTestJackPlugin - ## Internal use, do not manually configure ##
+No dependencies
+
+_devReleaseAnnotationProcessor - ## Internal use, do not manually configure ##
+No dependencies
+
+_devReleaseApk - ## Internal use, do not manually configure ##
++--- com.android.support:multidex:1.0.1
++--- com.jakewharton.hugo:hugo-annotations:1.2.1
++--- io.realm:realm-android-library:3.4.0
+|    +--- io.realm:realm-annotations:3.4.0
+|    \--- com.getkeepsafe.relinker:relinker:1.2.2
++--- io.realm:realm-annotations:3.4.0
++--- com.android.support:appcompat-v7:25.0.0
+|    +--- com.android.support:support-v4:25.0.0
+|    |    +--- com.android.support:support-compat:25.0.0 -> 25.3.0
+|    |    |    \--- com.android.support:support-annotations:25.3.0
+|    |    +--- com.android.support:support-media-compat:25.0.0
+|    |    |    \--- com.android.support:support-compat:25.0.0 -> 25.3.0 (*)
+|    |    +--- com.android.support:support-core-utils:25.0.0 -> 25.3.0
+|    |    |    +--- com.android.support:support-annotations:25.3.0
+|    |    |    \--- com.android.support:support-compat:25.3.0 (*)
+|    |    +--- com.android.support:support-core-ui:25.0.0
+|    |    |    \--- com.android.support:support-compat:25.0.0 -> 25.3.0 (*)
+|    |    \--- com.android.support:support-fragment:25.0.0
+|    |         +--- com.android.support:support-compat:25.0.0 -> 25.3.0 (*)
+|    |         +--- com.android.support:support-media-compat:25.0.0 (*)
+|    |         +--- com.android.support:support-core-ui:25.0.0 (*)
+|    |         \--- com.android.support:support-core-utils:25.0.0 -> 25.3.0 (*)
+|    +--- com.android.support:support-vector-drawable:25.0.0
+|    |    \--- com.android.support:support-compat:25.0.0 -> 25.3.0 (*)
+|    \--- com.android.support:animated-vector-drawable:25.0.0
+|         \--- com.android.support:support-vector-drawable:25.0.0 (*)
++--- com.android.support:recyclerview-v7:25.0.0
+|    +--- com.android.support:support-annotations:25.0.0 -> 25.3.0
+|    +--- com.android.support:support-compat:25.0.0 -> 25.3.0 (*)
+|    \--- com.android.support:support-core-ui:25.0.0 (*)
++--- com.android.support:support-v4:25.0.0 (*)
++--- com.android.support:support-v13:25.0.0
+|    \--- com.android.support:support-v4:25.0.0 (*)
++--- com.android.support:design:25.0.0
+|    +--- com.android.support:support-v4:25.0.0 (*)
+|    +--- com.android.support:appcompat-v7:25.0.0 (*)
+|    +--- com.android.support:recyclerview-v7:25.0.0 (*)
+|    \--- com.android.support:transition:25.0.0
+|         \--- com.android.support:support-v4:25.0.0 (*)
++--- com.android.support:percent:25.0.0
+|    \--- com.android.support:support-compat:25.0.0 -> 25.3.0 (*)
++--- com.android.support.constraint:constraint-layout:1.0.1
+|    \--- com.android.support.constraint:constraint-layout-solver:1.0.1
++--- org.greenrobot:eventbus:3.0.0
++--- uk.co.chrisjenx:calligraphy:2.1.0
+|    \--- com.android.support:appcompat-v7:22.1.1 -> 25.0.0 (*)
++--- com.facebook.fresco:fresco:1.3.0
+|    +--- com.facebook.fresco:drawee:1.3.0
+|    |    \--- com.facebook.fresco:fbcore:1.3.0
+|    +--- com.facebook.fresco:fbcore:1.3.0
+|    \--- com.facebook.fresco:imagepipeline:1.3.0
+|         +--- com.parse.bolts:bolts-tasks:1.4.0
+|         +--- com.facebook.fresco:fbcore:1.3.0
+|         \--- com.facebook.fresco:imagepipeline-base:1.3.0
+|              +--- com.parse.bolts:bolts-tasks:1.4.0
+|              \--- com.facebook.fresco:fbcore:1.3.0
++--- com.google.code.gson:gson:2.5
++--- com.squareup.okhttp3:okhttp:3.8.0
+|    \--- com.squareup.okio:okio:1.13.0
++--- com.jakewharton:butterknife:7.0.1
++--- commons-io:commons-io:2.4
++--- org.apache.commons:commons-lang3:3.4
++--- com.crashlytics.sdk.android:crashlytics:2.5.5
+|    +--- com.crashlytics.sdk.android:answers:1.3.6
+|    |    \--- io.fabric.sdk.android:fabric:1.3.10
+|    +--- com.crashlytics.sdk.android:crashlytics-core:2.3.8
+|    |    +--- com.crashlytics.sdk.android:answers:1.3.6 (*)
+|    |    \--- io.fabric.sdk.android:fabric:1.3.10
+|    +--- io.fabric.sdk.android:fabric:1.3.10
+|    \--- com.crashlytics.sdk.android:beta:1.1.4
++--- jp.wasabeef:recyclerview-animators:1.3.0
++--- me.relex:photodraweeview:1.0.0
++--- com.github.rahatarmanahmed:circularprogressview:2.5.0
++--- com.github.gfx.android.orma:orma:2.6.0
+|    +--- com.github.gfx.android.orma:orma-migration:2.6.0
+|    |    +--- com.tunnelvisionlabs:antlr4-runtime:4.5
+|    |    \--- com.android.support:support-annotations:24.2.0 -> 25.3.0
+|    +--- com.github.gfx.android.orma:orma-annotations:2.6.0
+|    +--- io.reactivex:rxjava:1.1.9
+|    +--- com.android.support:support-compat:24.2.0 -> 25.3.0 (*)
+|    \--- com.android.support:support-annotations:24.2.0 -> 25.3.0
++--- com.joanzapata.iconify:android-iconify:2.2.2
+|    \--- com.android.support:support-v4:22.2.1 -> 25.0.0 (*)
++--- com.joanzapata.iconify:android-iconify-ionicons:2.2.2
+|    \--- com.joanzapata.iconify:android-iconify:2.2.2 (*)
++--- com.joanzapata.iconify:android-iconify-simplelineicons:2.2.2
+|    \--- com.joanzapata.iconify:android-iconify:2.2.2 (*)
++--- com.squareup.moshi:moshi:1.2.0
+|    \--- com.squareup.okio:okio:1.8.0 -> 1.13.0
++--- org.greenrobot:essentials:3.0.0-RC1
++--- com.github.chrisbanes:PhotoView:2.0.0
+|    \--- com.android.support:support-core-utils:25.3.0 (*)
++--- io.grpc:grpc-okhttp:1.3.0
+|    +--- io.grpc:grpc-core:[1.3.0] -> 1.3.0
+|    |    +--- com.google.guava:guava:19.0
+|    |    +--- com.google.errorprone:error_prone_annotations:2.0.19
+|    |    +--- com.google.code.findbugs:jsr305:3.0.0
+|    |    +--- io.grpc:grpc-context:1.3.0
+|    |    \--- com.google.instrumentation:instrumentation-api:0.3.0
+|    |         \--- com.google.code.findbugs:jsr305:3.0.0
+|    +--- com.squareup.okhttp:okhttp:2.5.0
+|    |    \--- com.squareup.okio:okio:1.6.0 -> 1.13.0
+|    \--- com.squareup.okio:okio:1.6.0 -> 1.13.0
++--- io.grpc:grpc-protobuf-lite:1.3.0
+|    +--- io.grpc:grpc-core:1.3.0 (*)
+|    +--- com.google.protobuf:protobuf-lite:3.0.1
+|    \--- com.google.guava:guava:19.0
++--- io.grpc:grpc-stub:1.3.0
+|    \--- io.grpc:grpc-core:1.3.0 (*)
++--- jp.co.cyberagent.android.gpuimage:gpuimage-library:1.4.1
++--- com.google.firebase:firebase-core:9.0.0
+|    \--- com.google.firebase:firebase-analytics:9.0.0
+|         +--- com.google.android.gms:play-services-basement:9.0.0
+|         |    \--- com.android.support:support-v4:23.0.0 -> 25.0.0 (*)
+|         +--- com.google.firebase:firebase-common:9.0.0
+|         |    +--- com.google.android.gms:play-services-basement:9.0.0 (*)
+|         |    \--- com.google.android.gms:play-services-tasks:9.0.0
+|         |         \--- com.google.android.gms:play-services-basement:9.0.0 (*)
+|         \--- com.google.firebase:firebase-analytics-impl:9.0.0
+|              +--- com.google.android.gms:play-services-base:9.0.0
+|              |    +--- com.google.android.gms:play-services-basement:9.0.0 (*)
+|              |    +--- com.google.firebase:firebase-common:9.0.0 (*)
+|              |    \--- com.google.android.gms:play-services-tasks:9.0.0 (*)
+|              +--- com.google.android.gms:play-services-basement:9.0.0 (*)
+|              +--- com.google.firebase:firebase-iid:9.0.0
+|              |    +--- com.google.android.gms:play-services-basement:9.0.0 (*)
+|              |    \--- com.google.firebase:firebase-common:9.0.0 (*)
+|              \--- com.google.firebase:firebase-common:9.0.0 (*)
+\--- com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2
+
+_devReleaseCompile - ## Internal use, do not manually configure ##
++--- com.android.support:multidex:1.0.1
++--- com.jakewharton.hugo:hugo-annotations:1.2.1
++--- io.realm:realm-android-library:3.4.0
+|    +--- io.realm:realm-annotations:3.4.0
+|    \--- com.getkeepsafe.relinker:relinker:1.2.2
++--- io.realm:realm-annotations:3.4.0
++--- com.android.support:appcompat-v7:25.0.0
+|    +--- com.android.support:support-v4:25.0.0
+|    |    +--- com.android.support:support-compat:25.0.0 -> 25.3.0
+|    |    |    \--- com.android.support:support-annotations:25.3.0
+|    |    +--- com.android.support:support-media-compat:25.0.0
+|    |    |    \--- com.android.support:support-compat:25.0.0 -> 25.3.0 (*)
+|    |    +--- com.android.support:support-core-utils:25.0.0 -> 25.3.0
+|    |    |    +--- com.android.support:support-annotations:25.3.0
+|    |    |    \--- com.android.support:support-compat:25.3.0 (*)
+|    |    +--- com.android.support:support-core-ui:25.0.0
+|    |    |    \--- com.android.support:support-compat:25.0.0 -> 25.3.0 (*)
+|    |    \--- com.android.support:support-fragment:25.0.0
+|    |         +--- com.android.support:support-compat:25.0.0 -> 25.3.0 (*)
+|    |         +--- com.android.support:support-media-compat:25.0.0 (*)
+|    |         +--- com.android.support:support-core-ui:25.0.0 (*)
+|    |         \--- com.android.support:support-core-utils:25.0.0 -> 25.3.0 (*)
+|    +--- com.android.support:support-vector-drawable:25.0.0
+|    |    \--- com.android.support:support-compat:25.0.0 -> 25.3.0 (*)
+|    \--- com.android.support:animated-vector-drawable:25.0.0
+|         \--- com.android.support:support-vector-drawable:25.0.0 (*)
++--- com.android.support:recyclerview-v7:25.0.0
+|    +--- com.android.support:support-annotations:25.0.0 -> 25.3.0
+|    +--- com.android.support:support-compat:25.0.0 -> 25.3.0 (*)
+|    \--- com.android.support:support-core-ui:25.0.0 (*)
++--- com.android.support:support-v4:25.0.0 (*)
++--- com.android.support:support-v13:25.0.0
+|    \--- com.android.support:support-v4:25.0.0 (*)
++--- com.android.support:design:25.0.0
+|    +--- com.android.support:support-v4:25.0.0 (*)
+|    +--- com.android.support:appcompat-v7:25.0.0 (*)
+|    +--- com.android.support:recyclerview-v7:25.0.0 (*)
+|    \--- com.android.support:transition:25.0.0
+|         \--- com.android.support:support-v4:25.0.0 (*)
++--- com.android.support:percent:25.0.0
+|    \--- com.android.support:support-compat:25.0.0 -> 25.3.0 (*)
++--- com.android.support.constraint:constraint-layout:1.0.1
+|    \--- com.android.support.constraint:constraint-layout-solver:1.0.1
++--- org.greenrobot:eventbus:3.0.0
++--- uk.co.chrisjenx:calligraphy:2.1.0
+|    \--- com.android.support:appcompat-v7:22.1.1 -> 25.0.0 (*)
++--- com.facebook.fresco:fresco:1.3.0
+|    +--- com.facebook.fresco:drawee:1.3.0
+|    |    \--- com.facebook.fresco:fbcore:1.3.0
+|    +--- com.facebook.fresco:fbcore:1.3.0
+|    \--- com.facebook.fresco:imagepipeline:1.3.0
+|         +--- com.parse.bolts:bolts-tasks:1.4.0
+|         +--- com.facebook.fresco:fbcore:1.3.0
+|         \--- com.facebook.fresco:imagepipeline-base:1.3.0
+|              +--- com.parse.bolts:bolts-tasks:1.4.0
+|              \--- com.facebook.fresco:fbcore:1.3.0
++--- com.google.code.gson:gson:2.5
++--- com.squareup.okhttp3:okhttp:3.8.0
+|    \--- com.squareup.okio:okio:1.13.0
++--- com.jakewharton:butterknife:7.0.1
++--- commons-io:commons-io:2.4
++--- org.apache.commons:commons-lang3:3.4
++--- com.crashlytics.sdk.android:crashlytics:2.5.5
+|    +--- com.crashlytics.sdk.android:answers:1.3.6
+|    |    \--- io.fabric.sdk.android:fabric:1.3.10
+|    +--- com.crashlytics.sdk.android:crashlytics-core:2.3.8
+|    |    +--- com.crashlytics.sdk.android:answers:1.3.6 (*)
+|    |    \--- io.fabric.sdk.android:fabric:1.3.10
+|    +--- io.fabric.sdk.android:fabric:1.3.10
+|    \--- com.crashlytics.sdk.android:beta:1.1.4
++--- jp.wasabeef:recyclerview-animators:1.3.0
++--- me.relex:photodraweeview:1.0.0
++--- com.github.rahatarmanahmed:circularprogressview:2.5.0
++--- com.github.gfx.android.orma:orma:2.6.0
+|    +--- com.github.gfx.android.orma:orma-migration:2.6.0
+|    |    +--- com.tunnelvisionlabs:antlr4-runtime:4.5
+|    |    \--- com.android.support:support-annotations:24.2.0 -> 25.3.0
+|    +--- com.github.gfx.android.orma:orma-annotations:2.6.0
+|    +--- io.reactivex:rxjava:1.1.9
+|    +--- com.android.support:support-compat:24.2.0 -> 25.3.0 (*)
+|    \--- com.android.support:support-annotations:24.2.0 -> 25.3.0
++--- com.joanzapata.iconify:android-iconify:2.2.2
+|    \--- com.android.support:support-v4:22.2.1 -> 25.0.0 (*)
++--- com.joanzapata.iconify:android-iconify-ionicons:2.2.2
+|    \--- com.joanzapata.iconify:android-iconify:2.2.2 (*)
++--- com.joanzapata.iconify:android-iconify-simplelineicons:2.2.2
+|    \--- com.joanzapata.iconify:android-iconify:2.2.2 (*)
++--- com.squareup.moshi:moshi:1.2.0
+|    \--- com.squareup.okio:okio:1.8.0 -> 1.13.0
++--- org.greenrobot:essentials:3.0.0-RC1
++--- com.github.chrisbanes:PhotoView:2.0.0
+|    \--- com.android.support:support-core-utils:25.3.0 (*)
++--- io.grpc:grpc-okhttp:1.3.0
+|    +--- io.grpc:grpc-core:[1.3.0] -> 1.3.0
+|    |    +--- com.google.guava:guava:19.0
+|    |    +--- com.google.errorprone:error_prone_annotations:2.0.19
+|    |    +--- com.google.code.findbugs:jsr305:3.0.0
+|    |    +--- io.grpc:grpc-context:1.3.0
+|    |    \--- com.google.instrumentation:instrumentation-api:0.3.0
+|    |         \--- com.google.code.findbugs:jsr305:3.0.0
+|    +--- com.squareup.okhttp:okhttp:2.5.0
+|    |    \--- com.squareup.okio:okio:1.6.0 -> 1.13.0
+|    \--- com.squareup.okio:okio:1.6.0 -> 1.13.0
++--- io.grpc:grpc-protobuf-lite:1.3.0
+|    +--- io.grpc:grpc-core:1.3.0 (*)
+|    +--- com.google.protobuf:protobuf-lite:3.0.1
+|    \--- com.google.guava:guava:19.0
++--- io.grpc:grpc-stub:1.3.0
+|    \--- io.grpc:grpc-core:1.3.0 (*)
++--- jp.co.cyberagent.android.gpuimage:gpuimage-library:1.4.1
++--- com.google.firebase:firebase-core:9.0.0
+|    \--- com.google.firebase:firebase-analytics:9.0.0
+|         +--- com.google.android.gms:play-services-basement:9.0.0
+|         |    \--- com.android.support:support-v4:23.0.0 -> 25.0.0 (*)
+|         +--- com.google.firebase:firebase-common:9.0.0
+|         |    +--- com.google.android.gms:play-services-basement:9.0.0 (*)
+|         |    \--- com.google.android.gms:play-services-tasks:9.0.0
+|         |         \--- com.google.android.gms:play-services-basement:9.0.0 (*)
+|         \--- com.google.firebase:firebase-analytics-impl:9.0.0
+|              +--- com.google.android.gms:play-services-base:9.0.0
+|              |    +--- com.google.android.gms:play-services-basement:9.0.0 (*)
+|              |    +--- com.google.firebase:firebase-common:9.0.0 (*)
+|              |    \--- com.google.android.gms:play-services-tasks:9.0.0 (*)
+|              +--- com.google.android.gms:play-services-basement:9.0.0 (*)
+|              +--- com.google.firebase:firebase-iid:9.0.0
+|              |    +--- com.google.android.gms:play-services-basement:9.0.0 (*)
+|              |    \--- com.google.firebase:firebase-common:9.0.0 (*)
+|              \--- com.google.firebase:firebase-common:9.0.0 (*)
+\--- com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2
+
+_devReleaseJackPlugin - ## Internal use, do not manually configure ##
+No dependencies
+
+_devReleaseUnitTestAnnotationProcessor - ## Internal use, do not manually configure ##
+No dependencies
+
+_devReleaseUnitTestApk - ## Internal use, do not manually configure ##
++--- junit:junit:4.12
+|    \--- org.hamcrest:hamcrest-core:1.3
+\--- com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2
+
+_devReleaseUnitTestCompile - ## Internal use, do not manually configure ##
++--- junit:junit:4.12
+|    \--- org.hamcrest:hamcrest-core:1.3
+\--- com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2
+
+_devReleaseUnitTestJackPlugin - ## Internal use, do not manually configure ##
+No dependencies
+
+_prodDebugAndroidTestAnnotationProcessor - ## Internal use, do not manually configure ##
+No dependencies
+
+_prodDebugAndroidTestApk - ## Internal use, do not manually configure ##
+\--- com.android.support:multidex-instrumentation:1.0.1
+     \--- com.android.support:multidex:1.0.1
+
+_prodDebugAndroidTestCompile - ## Internal use, do not manually configure ##
+\--- com.android.support:multidex-instrumentation:1.0.1
+     \--- com.android.support:multidex:1.0.1
+
+_prodDebugAndroidTestJackPlugin - ## Internal use, do not manually configure ##
+No dependencies
+
+_prodDebugAnnotationProcessor - ## Internal use, do not manually configure ##
+No dependencies
+
+_prodDebugApk - ## Internal use, do not manually configure ##
++--- com.android.support:multidex:1.0.1
++--- com.jakewharton.hugo:hugo-annotations:1.2.1
++--- io.realm:realm-android-library:3.4.0
+|    +--- io.realm:realm-annotations:3.4.0
+|    \--- com.getkeepsafe.relinker:relinker:1.2.2
++--- io.realm:realm-annotations:3.4.0
++--- com.android.support:appcompat-v7:25.0.0
+|    +--- com.android.support:support-v4:25.0.0
+|    |    +--- com.android.support:support-compat:25.0.0 -> 25.3.0
+|    |    |    \--- com.android.support:support-annotations:25.3.0
+|    |    +--- com.android.support:support-media-compat:25.0.0
+|    |    |    \--- com.android.support:support-compat:25.0.0 -> 25.3.0 (*)
+|    |    +--- com.android.support:support-core-utils:25.0.0 -> 25.3.0
+|    |    |    +--- com.android.support:support-annotations:25.3.0
+|    |    |    \--- com.android.support:support-compat:25.3.0 (*)
+|    |    +--- com.android.support:support-core-ui:25.0.0
+|    |    |    \--- com.android.support:support-compat:25.0.0 -> 25.3.0 (*)
+|    |    \--- com.android.support:support-fragment:25.0.0
+|    |         +--- com.android.support:support-compat:25.0.0 -> 25.3.0 (*)
+|    |         +--- com.android.support:support-media-compat:25.0.0 (*)
+|    |         +--- com.android.support:support-core-ui:25.0.0 (*)
+|    |         \--- com.android.support:support-core-utils:25.0.0 -> 25.3.0 (*)
+|    +--- com.android.support:support-vector-drawable:25.0.0
+|    |    \--- com.android.support:support-compat:25.0.0 -> 25.3.0 (*)
+|    \--- com.android.support:animated-vector-drawable:25.0.0
+|         \--- com.android.support:support-vector-drawable:25.0.0 (*)
++--- com.android.support:recyclerview-v7:25.0.0
+|    +--- com.android.support:support-annotations:25.0.0 -> 25.3.0
+|    +--- com.android.support:support-compat:25.0.0 -> 25.3.0 (*)
+|    \--- com.android.support:support-core-ui:25.0.0 (*)
++--- com.android.support:support-v4:25.0.0 (*)
++--- com.android.support:support-v13:25.0.0
+|    \--- com.android.support:support-v4:25.0.0 (*)
++--- com.android.support:design:25.0.0
+|    +--- com.android.support:support-v4:25.0.0 (*)
+|    +--- com.android.support:appcompat-v7:25.0.0 (*)
+|    +--- com.android.support:recyclerview-v7:25.0.0 (*)
+|    \--- com.android.support:transition:25.0.0
+|         \--- com.android.support:support-v4:25.0.0 (*)
++--- com.android.support:percent:25.0.0
+|    \--- com.android.support:support-compat:25.0.0 -> 25.3.0 (*)
++--- com.android.support.constraint:constraint-layout:1.0.1
+|    \--- com.android.support.constraint:constraint-layout-solver:1.0.1
++--- org.greenrobot:eventbus:3.0.0
++--- uk.co.chrisjenx:calligraphy:2.1.0
+|    \--- com.android.support:appcompat-v7:22.1.1 -> 25.0.0 (*)
++--- com.facebook.fresco:fresco:1.3.0
+|    +--- com.facebook.fresco:drawee:1.3.0
+|    |    \--- com.facebook.fresco:fbcore:1.3.0
+|    +--- com.facebook.fresco:fbcore:1.3.0
+|    \--- com.facebook.fresco:imagepipeline:1.3.0
+|         +--- com.parse.bolts:bolts-tasks:1.4.0
+|         +--- com.facebook.fresco:fbcore:1.3.0
+|         \--- com.facebook.fresco:imagepipeline-base:1.3.0
+|              +--- com.parse.bolts:bolts-tasks:1.4.0
+|              \--- com.facebook.fresco:fbcore:1.3.0
++--- com.google.code.gson:gson:2.5
++--- com.squareup.okhttp3:okhttp:3.8.0
+|    \--- com.squareup.okio:okio:1.13.0
++--- com.jakewharton:butterknife:7.0.1
++--- commons-io:commons-io:2.4
++--- org.apache.commons:commons-lang3:3.4
++--- com.crashlytics.sdk.android:crashlytics:2.5.5
+|    +--- com.crashlytics.sdk.android:answers:1.3.6
+|    |    \--- io.fabric.sdk.android:fabric:1.3.10
+|    +--- com.crashlytics.sdk.android:crashlytics-core:2.3.8
+|    |    +--- com.crashlytics.sdk.android:answers:1.3.6 (*)
+|    |    \--- io.fabric.sdk.android:fabric:1.3.10
+|    +--- io.fabric.sdk.android:fabric:1.3.10
+|    \--- com.crashlytics.sdk.android:beta:1.1.4
++--- jp.wasabeef:recyclerview-animators:1.3.0
++--- me.relex:photodraweeview:1.0.0
++--- com.github.rahatarmanahmed:circularprogressview:2.5.0
++--- com.github.gfx.android.orma:orma:2.6.0
+|    +--- com.github.gfx.android.orma:orma-migration:2.6.0
+|    |    +--- com.tunnelvisionlabs:antlr4-runtime:4.5
+|    |    \--- com.android.support:support-annotations:24.2.0 -> 25.3.0
+|    +--- com.github.gfx.android.orma:orma-annotations:2.6.0
+|    +--- io.reactivex:rxjava:1.1.9
+|    +--- com.android.support:support-compat:24.2.0 -> 25.3.0 (*)
+|    \--- com.android.support:support-annotations:24.2.0 -> 25.3.0
++--- com.joanzapata.iconify:android-iconify:2.2.2
+|    \--- com.android.support:support-v4:22.2.1 -> 25.0.0 (*)
++--- com.joanzapata.iconify:android-iconify-ionicons:2.2.2
+|    \--- com.joanzapata.iconify:android-iconify:2.2.2 (*)
++--- com.joanzapata.iconify:android-iconify-simplelineicons:2.2.2
+|    \--- com.joanzapata.iconify:android-iconify:2.2.2 (*)
++--- com.squareup.moshi:moshi:1.2.0
+|    \--- com.squareup.okio:okio:1.8.0 -> 1.13.0
++--- org.greenrobot:essentials:3.0.0-RC1
++--- com.github.chrisbanes:PhotoView:2.0.0
+|    \--- com.android.support:support-core-utils:25.3.0 (*)
++--- io.grpc:grpc-okhttp:1.3.0
+|    +--- io.grpc:grpc-core:[1.3.0] -> 1.3.0
+|    |    +--- com.google.guava:guava:19.0
+|    |    +--- com.google.errorprone:error_prone_annotations:2.0.19
+|    |    +--- com.google.code.findbugs:jsr305:3.0.0
+|    |    +--- io.grpc:grpc-context:1.3.0
+|    |    \--- com.google.instrumentation:instrumentation-api:0.3.0
+|    |         \--- com.google.code.findbugs:jsr305:3.0.0
+|    +--- com.squareup.okhttp:okhttp:2.5.0
+|    |    \--- com.squareup.okio:okio:1.6.0 -> 1.13.0
+|    \--- com.squareup.okio:okio:1.6.0 -> 1.13.0
++--- io.grpc:grpc-protobuf-lite:1.3.0
+|    +--- io.grpc:grpc-core:1.3.0 (*)
+|    +--- com.google.protobuf:protobuf-lite:3.0.1
+|    \--- com.google.guava:guava:19.0
++--- io.grpc:grpc-stub:1.3.0
+|    \--- io.grpc:grpc-core:1.3.0 (*)
++--- jp.co.cyberagent.android.gpuimage:gpuimage-library:1.4.1
++--- com.google.firebase:firebase-core:9.0.0
+|    \--- com.google.firebase:firebase-analytics:9.0.0
+|         +--- com.google.android.gms:play-services-basement:9.0.0
+|         |    \--- com.android.support:support-v4:23.0.0 -> 25.0.0 (*)
+|         +--- com.google.firebase:firebase-common:9.0.0
+|         |    +--- com.google.android.gms:play-services-basement:9.0.0 (*)
+|         |    \--- com.google.android.gms:play-services-tasks:9.0.0
+|         |         \--- com.google.android.gms:play-services-basement:9.0.0 (*)
+|         \--- com.google.firebase:firebase-analytics-impl:9.0.0
+|              +--- com.google.android.gms:play-services-base:9.0.0
+|              |    +--- com.google.android.gms:play-services-basement:9.0.0 (*)
+|              |    +--- com.google.firebase:firebase-common:9.0.0 (*)
+|              |    \--- com.google.android.gms:play-services-tasks:9.0.0 (*)
+|              +--- com.google.android.gms:play-services-basement:9.0.0 (*)
+|              +--- com.google.firebase:firebase-iid:9.0.0
+|              |    +--- com.google.android.gms:play-services-basement:9.0.0 (*)
+|              |    \--- com.google.firebase:firebase-common:9.0.0 (*)
+|              \--- com.google.firebase:firebase-common:9.0.0 (*)
++--- com.jakewharton.hugo:hugo-runtime:1.2.1
+|    +--- com.jakewharton.hugo:hugo-annotations:1.2.1
+|    \--- org.aspectj:aspectjrt:1.8.5
++--- org.aspectj:aspectjrt:1.8.5
+\--- com.squareup.leakcanary:leakcanary-android:1.4-beta2
+     \--- com.squareup.leakcanary:leakcanary-analyzer:1.4-beta2
+          +--- com.squareup.leakcanary:leakcanary-watcher:1.4-beta2
+          \--- com.squareup.haha:haha:2.0.2
+
+_prodDebugCompile - ## Internal use, do not manually configure ##
++--- com.android.support:multidex:1.0.1
++--- com.jakewharton.hugo:hugo-annotations:1.2.1
++--- io.realm:realm-android-library:3.4.0
+|    +--- io.realm:realm-annotations:3.4.0
+|    \--- com.getkeepsafe.relinker:relinker:1.2.2
++--- io.realm:realm-annotations:3.4.0
++--- com.android.support:appcompat-v7:25.0.0
+|    +--- com.android.support:support-v4:25.0.0
+|    |    +--- com.android.support:support-compat:25.0.0 -> 25.3.0
+|    |    |    \--- com.android.support:support-annotations:25.3.0
+|    |    +--- com.android.support:support-media-compat:25.0.0
+|    |    |    \--- com.android.support:support-compat:25.0.0 -> 25.3.0 (*)
+|    |    +--- com.android.support:support-core-utils:25.0.0 -> 25.3.0
+|    |    |    +--- com.android.support:support-annotations:25.3.0
+|    |    |    \--- com.android.support:support-compat:25.3.0 (*)
+|    |    +--- com.android.support:support-core-ui:25.0.0
+|    |    |    \--- com.android.support:support-compat:25.0.0 -> 25.3.0 (*)
+|    |    \--- com.android.support:support-fragment:25.0.0
+|    |         +--- com.android.support:support-compat:25.0.0 -> 25.3.0 (*)
+|    |         +--- com.android.support:support-media-compat:25.0.0 (*)
+|    |         +--- com.android.support:support-core-ui:25.0.0 (*)
+|    |         \--- com.android.support:support-core-utils:25.0.0 -> 25.3.0 (*)
+|    +--- com.android.support:support-vector-drawable:25.0.0
+|    |    \--- com.android.support:support-compat:25.0.0 -> 25.3.0 (*)
+|    \--- com.android.support:animated-vector-drawable:25.0.0
+|         \--- com.android.support:support-vector-drawable:25.0.0 (*)
++--- com.android.support:recyclerview-v7:25.0.0
+|    +--- com.android.support:support-annotations:25.0.0 -> 25.3.0
+|    +--- com.android.support:support-compat:25.0.0 -> 25.3.0 (*)
+|    \--- com.android.support:support-core-ui:25.0.0 (*)
++--- com.android.support:support-v4:25.0.0 (*)
++--- com.android.support:support-v13:25.0.0
+|    \--- com.android.support:support-v4:25.0.0 (*)
++--- com.android.support:design:25.0.0
+|    +--- com.android.support:support-v4:25.0.0 (*)
+|    +--- com.android.support:appcompat-v7:25.0.0 (*)
+|    +--- com.android.support:recyclerview-v7:25.0.0 (*)
+|    \--- com.android.support:transition:25.0.0
+|         \--- com.android.support:support-v4:25.0.0 (*)
++--- com.android.support:percent:25.0.0
+|    \--- com.android.support:support-compat:25.0.0 -> 25.3.0 (*)
++--- com.android.support.constraint:constraint-layout:1.0.1
+|    \--- com.android.support.constraint:constraint-layout-solver:1.0.1
++--- org.greenrobot:eventbus:3.0.0
++--- uk.co.chrisjenx:calligraphy:2.1.0
+|    \--- com.android.support:appcompat-v7:22.1.1 -> 25.0.0 (*)
++--- com.facebook.fresco:fresco:1.3.0
+|    +--- com.facebook.fresco:drawee:1.3.0
+|    |    \--- com.facebook.fresco:fbcore:1.3.0
+|    +--- com.facebook.fresco:fbcore:1.3.0
+|    \--- com.facebook.fresco:imagepipeline:1.3.0
+|         +--- com.parse.bolts:bolts-tasks:1.4.0
+|         +--- com.facebook.fresco:fbcore:1.3.0
+|         \--- com.facebook.fresco:imagepipeline-base:1.3.0
+|              +--- com.parse.bolts:bolts-tasks:1.4.0
+|              \--- com.facebook.fresco:fbcore:1.3.0
++--- com.google.code.gson:gson:2.5
++--- com.squareup.okhttp3:okhttp:3.8.0
+|    \--- com.squareup.okio:okio:1.13.0
++--- com.jakewharton:butterknife:7.0.1
++--- commons-io:commons-io:2.4
++--- org.apache.commons:commons-lang3:3.4
++--- com.crashlytics.sdk.android:crashlytics:2.5.5
+|    +--- com.crashlytics.sdk.android:answers:1.3.6
+|    |    \--- io.fabric.sdk.android:fabric:1.3.10
+|    +--- com.crashlytics.sdk.android:crashlytics-core:2.3.8
+|    |    +--- com.crashlytics.sdk.android:answers:1.3.6 (*)
+|    |    \--- io.fabric.sdk.android:fabric:1.3.10
+|    +--- io.fabric.sdk.android:fabric:1.3.10
+|    \--- com.crashlytics.sdk.android:beta:1.1.4
++--- jp.wasabeef:recyclerview-animators:1.3.0
++--- me.relex:photodraweeview:1.0.0
++--- com.github.rahatarmanahmed:circularprogressview:2.5.0
++--- com.github.gfx.android.orma:orma:2.6.0
+|    +--- com.github.gfx.android.orma:orma-migration:2.6.0
+|    |    +--- com.tunnelvisionlabs:antlr4-runtime:4.5
+|    |    \--- com.android.support:support-annotations:24.2.0 -> 25.3.0
+|    +--- com.github.gfx.android.orma:orma-annotations:2.6.0
+|    +--- io.reactivex:rxjava:1.1.9
+|    +--- com.android.support:support-compat:24.2.0 -> 25.3.0 (*)
+|    \--- com.android.support:support-annotations:24.2.0 -> 25.3.0
++--- com.joanzapata.iconify:android-iconify:2.2.2
+|    \--- com.android.support:support-v4:22.2.1 -> 25.0.0 (*)
++--- com.joanzapata.iconify:android-iconify-ionicons:2.2.2
+|    \--- com.joanzapata.iconify:android-iconify:2.2.2 (*)
++--- com.joanzapata.iconify:android-iconify-simplelineicons:2.2.2
+|    \--- com.joanzapata.iconify:android-iconify:2.2.2 (*)
++--- com.squareup.moshi:moshi:1.2.0
+|    \--- com.squareup.okio:okio:1.8.0 -> 1.13.0
++--- org.greenrobot:essentials:3.0.0-RC1
++--- com.github.chrisbanes:PhotoView:2.0.0
+|    \--- com.android.support:support-core-utils:25.3.0 (*)
++--- io.grpc:grpc-okhttp:1.3.0
+|    +--- io.grpc:grpc-core:[1.3.0] -> 1.3.0
+|    |    +--- com.google.guava:guava:19.0
+|    |    +--- com.google.errorprone:error_prone_annotations:2.0.19
+|    |    +--- com.google.code.findbugs:jsr305:3.0.0
+|    |    +--- io.grpc:grpc-context:1.3.0
+|    |    \--- com.google.instrumentation:instrumentation-api:0.3.0
+|    |         \--- com.google.code.findbugs:jsr305:3.0.0
+|    +--- com.squareup.okhttp:okhttp:2.5.0
+|    |    \--- com.squareup.okio:okio:1.6.0 -> 1.13.0
+|    \--- com.squareup.okio:okio:1.6.0 -> 1.13.0
++--- io.grpc:grpc-protobuf-lite:1.3.0
+|    +--- io.grpc:grpc-core:1.3.0 (*)
+|    +--- com.google.protobuf:protobuf-lite:3.0.1
+|    \--- com.google.guava:guava:19.0
++--- io.grpc:grpc-stub:1.3.0
+|    \--- io.grpc:grpc-core:1.3.0 (*)
++--- jp.co.cyberagent.android.gpuimage:gpuimage-library:1.4.1
++--- com.google.firebase:firebase-core:9.0.0
+|    \--- com.google.firebase:firebase-analytics:9.0.0
+|         +--- com.google.android.gms:play-services-basement:9.0.0
+|         |    \--- com.android.support:support-v4:23.0.0 -> 25.0.0 (*)
+|         +--- com.google.firebase:firebase-common:9.0.0
+|         |    +--- com.google.android.gms:play-services-basement:9.0.0 (*)
+|         |    \--- com.google.android.gms:play-services-tasks:9.0.0
+|         |         \--- com.google.android.gms:play-services-basement:9.0.0 (*)
+|         \--- com.google.firebase:firebase-analytics-impl:9.0.0
+|              +--- com.google.android.gms:play-services-base:9.0.0
+|              |    +--- com.google.android.gms:play-services-basement:9.0.0 (*)
+|              |    +--- com.google.firebase:firebase-common:9.0.0 (*)
+|              |    \--- com.google.android.gms:play-services-tasks:9.0.0 (*)
+|              +--- com.google.android.gms:play-services-basement:9.0.0 (*)
+|              +--- com.google.firebase:firebase-iid:9.0.0
+|              |    +--- com.google.android.gms:play-services-basement:9.0.0 (*)
+|              |    \--- com.google.firebase:firebase-common:9.0.0 (*)
+|              \--- com.google.firebase:firebase-common:9.0.0 (*)
++--- com.jakewharton.hugo:hugo-runtime:1.2.1
+|    +--- com.jakewharton.hugo:hugo-annotations:1.2.1
+|    \--- org.aspectj:aspectjrt:1.8.5
++--- org.aspectj:aspectjrt:1.8.5
+\--- com.squareup.leakcanary:leakcanary-android:1.4-beta2
+     \--- com.squareup.leakcanary:leakcanary-analyzer:1.4-beta2
+          +--- com.squareup.leakcanary:leakcanary-watcher:1.4-beta2
+          \--- com.squareup.haha:haha:2.0.2
+
+_prodDebugJackPlugin - ## Internal use, do not manually configure ##
+No dependencies
+
+_prodDebugUnitTestAnnotationProcessor - ## Internal use, do not manually configure ##
+No dependencies
+
+_prodDebugUnitTestApk - ## Internal use, do not manually configure ##
++--- junit:junit:4.12
+|    \--- org.hamcrest:hamcrest-core:1.3
+\--- com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2
+
+_prodDebugUnitTestCompile - ## Internal use, do not manually configure ##
++--- junit:junit:4.12
+|    \--- org.hamcrest:hamcrest-core:1.3
+\--- com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2
+
+_prodDebugUnitTestJackPlugin - ## Internal use, do not manually configure ##
+No dependencies
+
+_prodReleaseAnnotationProcessor - ## Internal use, do not manually configure ##
+No dependencies
+
+_prodReleaseApk - ## Internal use, do not manually configure ##
++--- com.android.support:multidex:1.0.1
++--- com.jakewharton.hugo:hugo-annotations:1.2.1
++--- io.realm:realm-android-library:3.4.0
+|    +--- io.realm:realm-annotations:3.4.0
+|    \--- com.getkeepsafe.relinker:relinker:1.2.2
++--- io.realm:realm-annotations:3.4.0
++--- com.android.support:appcompat-v7:25.0.0
+|    +--- com.android.support:support-v4:25.0.0
+|    |    +--- com.android.support:support-compat:25.0.0 -> 25.3.0
+|    |    |    \--- com.android.support:support-annotations:25.3.0
+|    |    +--- com.android.support:support-media-compat:25.0.0
+|    |    |    \--- com.android.support:support-compat:25.0.0 -> 25.3.0 (*)
+|    |    +--- com.android.support:support-core-utils:25.0.0 -> 25.3.0
+|    |    |    +--- com.android.support:support-annotations:25.3.0
+|    |    |    \--- com.android.support:support-compat:25.3.0 (*)
+|    |    +--- com.android.support:support-core-ui:25.0.0
+|    |    |    \--- com.android.support:support-compat:25.0.0 -> 25.3.0 (*)
+|    |    \--- com.android.support:support-fragment:25.0.0
+|    |         +--- com.android.support:support-compat:25.0.0 -> 25.3.0 (*)
+|    |         +--- com.android.support:support-media-compat:25.0.0 (*)
+|    |         +--- com.android.support:support-core-ui:25.0.0 (*)
+|    |         \--- com.android.support:support-core-utils:25.0.0 -> 25.3.0 (*)
+|    +--- com.android.support:support-vector-drawable:25.0.0
+|    |    \--- com.android.support:support-compat:25.0.0 -> 25.3.0 (*)
+|    \--- com.android.support:animated-vector-drawable:25.0.0
+|         \--- com.android.support:support-vector-drawable:25.0.0 (*)
++--- com.android.support:recyclerview-v7:25.0.0
+|    +--- com.android.support:support-annotations:25.0.0 -> 25.3.0
+|    +--- com.android.support:support-compat:25.0.0 -> 25.3.0 (*)
+|    \--- com.android.support:support-core-ui:25.0.0 (*)
++--- com.android.support:support-v4:25.0.0 (*)
++--- com.android.support:support-v13:25.0.0
+|    \--- com.android.support:support-v4:25.0.0 (*)
++--- com.android.support:design:25.0.0
+|    +--- com.android.support:support-v4:25.0.0 (*)
+|    +--- com.android.support:appcompat-v7:25.0.0 (*)
+|    +--- com.android.support:recyclerview-v7:25.0.0 (*)
+|    \--- com.android.support:transition:25.0.0
+|         \--- com.android.support:support-v4:25.0.0 (*)
++--- com.android.support:percent:25.0.0
+|    \--- com.android.support:support-compat:25.0.0 -> 25.3.0 (*)
++--- com.android.support.constraint:constraint-layout:1.0.1
+|    \--- com.android.support.constraint:constraint-layout-solver:1.0.1
++--- org.greenrobot:eventbus:3.0.0
++--- uk.co.chrisjenx:calligraphy:2.1.0
+|    \--- com.android.support:appcompat-v7:22.1.1 -> 25.0.0 (*)
++--- com.facebook.fresco:fresco:1.3.0
+|    +--- com.facebook.fresco:drawee:1.3.0
+|    |    \--- com.facebook.fresco:fbcore:1.3.0
+|    +--- com.facebook.fresco:fbcore:1.3.0
+|    \--- com.facebook.fresco:imagepipeline:1.3.0
+|         +--- com.parse.bolts:bolts-tasks:1.4.0
+|         +--- com.facebook.fresco:fbcore:1.3.0
+|         \--- com.facebook.fresco:imagepipeline-base:1.3.0
+|              +--- com.parse.bolts:bolts-tasks:1.4.0
+|              \--- com.facebook.fresco:fbcore:1.3.0
++--- com.google.code.gson:gson:2.5
++--- com.squareup.okhttp3:okhttp:3.8.0
+|    \--- com.squareup.okio:okio:1.13.0
++--- com.jakewharton:butterknife:7.0.1
++--- commons-io:commons-io:2.4
++--- org.apache.commons:commons-lang3:3.4
++--- com.crashlytics.sdk.android:crashlytics:2.5.5
+|    +--- com.crashlytics.sdk.android:answers:1.3.6
+|    |    \--- io.fabric.sdk.android:fabric:1.3.10
+|    +--- com.crashlytics.sdk.android:crashlytics-core:2.3.8
+|    |    +--- com.crashlytics.sdk.android:answers:1.3.6 (*)
+|    |    \--- io.fabric.sdk.android:fabric:1.3.10
+|    +--- io.fabric.sdk.android:fabric:1.3.10
+|    \--- com.crashlytics.sdk.android:beta:1.1.4
++--- jp.wasabeef:recyclerview-animators:1.3.0
++--- me.relex:photodraweeview:1.0.0
++--- com.github.rahatarmanahmed:circularprogressview:2.5.0
++--- com.github.gfx.android.orma:orma:2.6.0
+|    +--- com.github.gfx.android.orma:orma-migration:2.6.0
+|    |    +--- com.tunnelvisionlabs:antlr4-runtime:4.5
+|    |    \--- com.android.support:support-annotations:24.2.0 -> 25.3.0
+|    +--- com.github.gfx.android.orma:orma-annotations:2.6.0
+|    +--- io.reactivex:rxjava:1.1.9
+|    +--- com.android.support:support-compat:24.2.0 -> 25.3.0 (*)
+|    \--- com.android.support:support-annotations:24.2.0 -> 25.3.0
++--- com.joanzapata.iconify:android-iconify:2.2.2
+|    \--- com.android.support:support-v4:22.2.1 -> 25.0.0 (*)
++--- com.joanzapata.iconify:android-iconify-ionicons:2.2.2
+|    \--- com.joanzapata.iconify:android-iconify:2.2.2 (*)
++--- com.joanzapata.iconify:android-iconify-simplelineicons:2.2.2
+|    \--- com.joanzapata.iconify:android-iconify:2.2.2 (*)
++--- com.squareup.moshi:moshi:1.2.0
+|    \--- com.squareup.okio:okio:1.8.0 -> 1.13.0
++--- org.greenrobot:essentials:3.0.0-RC1
++--- com.github.chrisbanes:PhotoView:2.0.0
+|    \--- com.android.support:support-core-utils:25.3.0 (*)
++--- io.grpc:grpc-okhttp:1.3.0
+|    +--- io.grpc:grpc-core:[1.3.0] -> 1.3.0
+|    |    +--- com.google.guava:guava:19.0
+|    |    +--- com.google.errorprone:error_prone_annotations:2.0.19
+|    |    +--- com.google.code.findbugs:jsr305:3.0.0
+|    |    +--- io.grpc:grpc-context:1.3.0
+|    |    \--- com.google.instrumentation:instrumentation-api:0.3.0
+|    |         \--- com.google.code.findbugs:jsr305:3.0.0
+|    +--- com.squareup.okhttp:okhttp:2.5.0
+|    |    \--- com.squareup.okio:okio:1.6.0 -> 1.13.0
+|    \--- com.squareup.okio:okio:1.6.0 -> 1.13.0
++--- io.grpc:grpc-protobuf-lite:1.3.0
+|    +--- io.grpc:grpc-core:1.3.0 (*)
+|    +--- com.google.protobuf:protobuf-lite:3.0.1
+|    \--- com.google.guava:guava:19.0
++--- io.grpc:grpc-stub:1.3.0
+|    \--- io.grpc:grpc-core:1.3.0 (*)
++--- jp.co.cyberagent.android.gpuimage:gpuimage-library:1.4.1
++--- com.google.firebase:firebase-core:9.0.0
+|    \--- com.google.firebase:firebase-analytics:9.0.0
+|         +--- com.google.android.gms:play-services-basement:9.0.0
+|         |    \--- com.android.support:support-v4:23.0.0 -> 25.0.0 (*)
+|         +--- com.google.firebase:firebase-common:9.0.0
+|         |    +--- com.google.android.gms:play-services-basement:9.0.0 (*)
+|         |    \--- com.google.android.gms:play-services-tasks:9.0.0
+|         |         \--- com.google.android.gms:play-services-basement:9.0.0 (*)
+|         \--- com.google.firebase:firebase-analytics-impl:9.0.0
+|              +--- com.google.android.gms:play-services-base:9.0.0
+|              |    +--- com.google.android.gms:play-services-basement:9.0.0 (*)
+|              |    +--- com.google.firebase:firebase-common:9.0.0 (*)
+|              |    \--- com.google.android.gms:play-services-tasks:9.0.0 (*)
+|              +--- com.google.android.gms:play-services-basement:9.0.0 (*)
+|              +--- com.google.firebase:firebase-iid:9.0.0
+|              |    +--- com.google.android.gms:play-services-basement:9.0.0 (*)
+|              |    \--- com.google.firebase:firebase-common:9.0.0 (*)
+|              \--- com.google.firebase:firebase-common:9.0.0 (*)
+\--- com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2
+
+_prodReleaseCompile - ## Internal use, do not manually configure ##
++--- com.android.support:multidex:1.0.1
++--- com.jakewharton.hugo:hugo-annotations:1.2.1
++--- io.realm:realm-android-library:3.4.0
+|    +--- io.realm:realm-annotations:3.4.0
+|    \--- com.getkeepsafe.relinker:relinker:1.2.2
++--- io.realm:realm-annotations:3.4.0
++--- com.android.support:appcompat-v7:25.0.0
+|    +--- com.android.support:support-v4:25.0.0
+|    |    +--- com.android.support:support-compat:25.0.0 -> 25.3.0
+|    |    |    \--- com.android.support:support-annotations:25.3.0
+|    |    +--- com.android.support:support-media-compat:25.0.0
+|    |    |    \--- com.android.support:support-compat:25.0.0 -> 25.3.0 (*)
+|    |    +--- com.android.support:support-core-utils:25.0.0 -> 25.3.0
+|    |    |    +--- com.android.support:support-annotations:25.3.0
+|    |    |    \--- com.android.support:support-compat:25.3.0 (*)
+|    |    +--- com.android.support:support-core-ui:25.0.0
+|    |    |    \--- com.android.support:support-compat:25.0.0 -> 25.3.0 (*)
+|    |    \--- com.android.support:support-fragment:25.0.0
+|    |         +--- com.android.support:support-compat:25.0.0 -> 25.3.0 (*)
+|    |         +--- com.android.support:support-media-compat:25.0.0 (*)
+|    |         +--- com.android.support:support-core-ui:25.0.0 (*)
+|    |         \--- com.android.support:support-core-utils:25.0.0 -> 25.3.0 (*)
+|    +--- com.android.support:support-vector-drawable:25.0.0
+|    |    \--- com.android.support:support-compat:25.0.0 -> 25.3.0 (*)
+|    \--- com.android.support:animated-vector-drawable:25.0.0
+|         \--- com.android.support:support-vector-drawable:25.0.0 (*)
++--- com.android.support:recyclerview-v7:25.0.0
+|    +--- com.android.support:support-annotations:25.0.0 -> 25.3.0
+|    +--- com.android.support:support-compat:25.0.0 -> 25.3.0 (*)
+|    \--- com.android.support:support-core-ui:25.0.0 (*)
++--- com.android.support:support-v4:25.0.0 (*)
++--- com.android.support:support-v13:25.0.0
+|    \--- com.android.support:support-v4:25.0.0 (*)
++--- com.android.support:design:25.0.0
+|    +--- com.android.support:support-v4:25.0.0 (*)
+|    +--- com.android.support:appcompat-v7:25.0.0 (*)
+|    +--- com.android.support:recyclerview-v7:25.0.0 (*)
+|    \--- com.android.support:transition:25.0.0
+|         \--- com.android.support:support-v4:25.0.0 (*)
++--- com.android.support:percent:25.0.0
+|    \--- com.android.support:support-compat:25.0.0 -> 25.3.0 (*)
++--- com.android.support.constraint:constraint-layout:1.0.1
+|    \--- com.android.support.constraint:constraint-layout-solver:1.0.1
++--- org.greenrobot:eventbus:3.0.0
++--- uk.co.chrisjenx:calligraphy:2.1.0
+|    \--- com.android.support:appcompat-v7:22.1.1 -> 25.0.0 (*)
++--- com.facebook.fresco:fresco:1.3.0
+|    +--- com.facebook.fresco:drawee:1.3.0
+|    |    \--- com.facebook.fresco:fbcore:1.3.0
+|    +--- com.facebook.fresco:fbcore:1.3.0
+|    \--- com.facebook.fresco:imagepipeline:1.3.0
+|         +--- com.parse.bolts:bolts-tasks:1.4.0
+|         +--- com.facebook.fresco:fbcore:1.3.0
+|         \--- com.facebook.fresco:imagepipeline-base:1.3.0
+|              +--- com.parse.bolts:bolts-tasks:1.4.0
+|              \--- com.facebook.fresco:fbcore:1.3.0
++--- com.google.code.gson:gson:2.5
++--- com.squareup.okhttp3:okhttp:3.8.0
+|    \--- com.squareup.okio:okio:1.13.0
++--- com.jakewharton:butterknife:7.0.1
++--- commons-io:commons-io:2.4
++--- org.apache.commons:commons-lang3:3.4
++--- com.crashlytics.sdk.android:crashlytics:2.5.5
+|    +--- com.crashlytics.sdk.android:answers:1.3.6
+|    |    \--- io.fabric.sdk.android:fabric:1.3.10
+|    +--- com.crashlytics.sdk.android:crashlytics-core:2.3.8
+|    |    +--- com.crashlytics.sdk.android:answers:1.3.6 (*)
+|    |    \--- io.fabric.sdk.android:fabric:1.3.10
+|    +--- io.fabric.sdk.android:fabric:1.3.10
+|    \--- com.crashlytics.sdk.android:beta:1.1.4
++--- jp.wasabeef:recyclerview-animators:1.3.0
++--- me.relex:photodraweeview:1.0.0
++--- com.github.rahatarmanahmed:circularprogressview:2.5.0
++--- com.github.gfx.android.orma:orma:2.6.0
+|    +--- com.github.gfx.android.orma:orma-migration:2.6.0
+|    |    +--- com.tunnelvisionlabs:antlr4-runtime:4.5
+|    |    \--- com.android.support:support-annotations:24.2.0 -> 25.3.0
+|    +--- com.github.gfx.android.orma:orma-annotations:2.6.0
+|    +--- io.reactivex:rxjava:1.1.9
+|    +--- com.android.support:support-compat:24.2.0 -> 25.3.0 (*)
+|    \--- com.android.support:support-annotations:24.2.0 -> 25.3.0
++--- com.joanzapata.iconify:android-iconify:2.2.2
+|    \--- com.android.support:support-v4:22.2.1 -> 25.0.0 (*)
++--- com.joanzapata.iconify:android-iconify-ionicons:2.2.2
+|    \--- com.joanzapata.iconify:android-iconify:2.2.2 (*)
++--- com.joanzapata.iconify:android-iconify-simplelineicons:2.2.2
+|    \--- com.joanzapata.iconify:android-iconify:2.2.2 (*)
++--- com.squareup.moshi:moshi:1.2.0
+|    \--- com.squareup.okio:okio:1.8.0 -> 1.13.0
++--- org.greenrobot:essentials:3.0.0-RC1
++--- com.github.chrisbanes:PhotoView:2.0.0
+|    \--- com.android.support:support-core-utils:25.3.0 (*)
++--- io.grpc:grpc-okhttp:1.3.0
+|    +--- io.grpc:grpc-core:[1.3.0] -> 1.3.0
+|    |    +--- com.google.guava:guava:19.0
+|    |    +--- com.google.errorprone:error_prone_annotations:2.0.19
+|    |    +--- com.google.code.findbugs:jsr305:3.0.0
+|    |    +--- io.grpc:grpc-context:1.3.0
+|    |    \--- com.google.instrumentation:instrumentation-api:0.3.0
+|    |         \--- com.google.code.findbugs:jsr305:3.0.0
+|    +--- com.squareup.okhttp:okhttp:2.5.0
+|    |    \--- com.squareup.okio:okio:1.6.0 -> 1.13.0
+|    \--- com.squareup.okio:okio:1.6.0 -> 1.13.0
++--- io.grpc:grpc-protobuf-lite:1.3.0
+|    +--- io.grpc:grpc-core:1.3.0 (*)
+|    +--- com.google.protobuf:protobuf-lite:3.0.1
+|    \--- com.google.guava:guava:19.0
++--- io.grpc:grpc-stub:1.3.0
+|    \--- io.grpc:grpc-core:1.3.0 (*)
++--- jp.co.cyberagent.android.gpuimage:gpuimage-library:1.4.1
++--- com.google.firebase:firebase-core:9.0.0
+|    \--- com.google.firebase:firebase-analytics:9.0.0
+|         +--- com.google.android.gms:play-services-basement:9.0.0
+|         |    \--- com.android.support:support-v4:23.0.0 -> 25.0.0 (*)
+|         +--- com.google.firebase:firebase-common:9.0.0
+|         |    +--- com.google.android.gms:play-services-basement:9.0.0 (*)
+|         |    \--- com.google.android.gms:play-services-tasks:9.0.0
+|         |         \--- com.google.android.gms:play-services-basement:9.0.0 (*)
+|         \--- com.google.firebase:firebase-analytics-impl:9.0.0
+|              +--- com.google.android.gms:play-services-base:9.0.0
+|              |    +--- com.google.android.gms:play-services-basement:9.0.0 (*)
+|              |    +--- com.google.firebase:firebase-common:9.0.0 (*)
+|              |    \--- com.google.android.gms:play-services-tasks:9.0.0 (*)
+|              +--- com.google.android.gms:play-services-basement:9.0.0 (*)
+|              +--- com.google.firebase:firebase-iid:9.0.0
+|              |    +--- com.google.android.gms:play-services-basement:9.0.0 (*)
+|              |    \--- com.google.firebase:firebase-common:9.0.0 (*)
+|              \--- com.google.firebase:firebase-common:9.0.0 (*)
+\--- com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2
+
+_prodReleaseJackPlugin - ## Internal use, do not manually configure ##
+No dependencies
+
+_prodReleaseUnitTestAnnotationProcessor - ## Internal use, do not manually configure ##
+No dependencies
+
+_prodReleaseUnitTestApk - ## Internal use, do not manually configure ##
++--- junit:junit:4.12
+|    \--- org.hamcrest:hamcrest-core:1.3
+\--- com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2
+
+_prodReleaseUnitTestCompile - ## Internal use, do not manually configure ##
++--- junit:junit:4.12
+|    \--- org.hamcrest:hamcrest-core:1.3
+\--- com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2
+
+_prodReleaseUnitTestJackPlugin - ## Internal use, do not manually configure ##
+No dependencies
+
+androidJacocoAgent - The Jacoco agent to use to get coverage data.
+\--- org.jacoco:org.jacoco.agent:0.7.5.201505241946
+
+androidJacocoAnt - The Jacoco ant tasks to use to get execute Gradle tasks.
+\--- org.jacoco:org.jacoco.ant:0.7.5.201505241946
+     +--- org.jacoco:org.jacoco.core:0.7.5.201505241946
+     |    \--- org.ow2.asm:asm-debug-all:5.0.1
+     +--- org.jacoco:org.jacoco.report:0.7.5.201505241946
+     |    +--- org.jacoco:org.jacoco.core:0.7.5.201505241946 (*)
+     |    \--- org.ow2.asm:asm-debug-all:5.0.1
+     \--- org.jacoco:org.jacoco.agent:0.7.5.201505241946
+
+androidTestAnnotationProcessor - Classpath for the annotation processor for 'androidTest'.
+No dependencies
+
+androidTestApk - Classpath packaged with the compiled 'androidTest' classes.
+No dependencies
+
+androidTestApt
+\--- io.realm:realm-annotations-processor:3.4.0
+     +--- com.squareup:javawriter:2.5.0
+     \--- io.realm:realm-annotations:3.4.0
+
+androidTestCompile - Classpath for compiling the androidTest sources.
+No dependencies
+
+androidTestDevAnnotationProcessor - Classpath for the annotation processor for 'androidTestDev'.
+No dependencies
+
+androidTestDevApk - Classpath packaged with the compiled 'androidTestDev' classes.
+No dependencies
+
+androidTestDevCompile - Classpath for compiling the androidTestDev sources.
+No dependencies
+
+androidTestDevJackPlugin - Classpath for the 'androidTestDev' Jack plugins.
+No dependencies
+
+androidTestDevProvided - Classpath for only compiling the androidTestDev sources.
+No dependencies
+
+androidTestDevWearApp - Link to a wear app to embed for object 'androidTestDev'.
+No dependencies
+
+androidTestJackPlugin - Classpath for the 'androidTest' Jack plugins.
+No dependencies
+
+androidTestProdAnnotationProcessor - Classpath for the annotation processor for 'androidTestProd'.
+No dependencies
+
+androidTestProdApk - Classpath packaged with the compiled 'androidTestProd' classes.
+No dependencies
+
+androidTestProdCompile - Classpath for compiling the androidTestProd sources.
+No dependencies
+
+androidTestProdJackPlugin - Classpath for the 'androidTestProd' Jack plugins.
+No dependencies
+
+androidTestProdProvided - Classpath for only compiling the androidTestProd sources.
+No dependencies
+
+androidTestProdWearApp - Link to a wear app to embed for object 'androidTestProd'.
+No dependencies
+
+androidTestProvided - Classpath for only compiling the androidTest sources.
+No dependencies
+
+androidTestWearApp - Link to a wear app to embed for object 'androidTest'.
+No dependencies
+
+annotationProcessor - Classpath for the annotation processor for 'main'.
+No dependencies
+
+apk - Classpath packaged with the compiled 'main' classes.
+No dependencies
+
+apt
++--- io.realm:realm-annotations-processor:3.4.0
+|    +--- com.squareup:javawriter:2.5.0
+|    \--- io.realm:realm-annotations:3.4.0
++--- com.github.gfx.android.orma:orma-processor:2.6.0
+|    +--- com.github.gfx.android.orma:orma-annotations:2.6.0
+|    \--- com.squareup:javapoet:1.7.0
++--- com.jakewharton.hugo:hugo-annotations:1.2.1
++--- io.realm:realm-android-library:3.4.0
+|    +--- io.realm:realm-annotations:3.4.0
+|    \--- com.getkeepsafe.relinker:relinker:1.2.2
++--- io.realm:realm-annotations:3.4.0
++--- com.android.support:appcompat-v7:25.0.0
+|    +--- com.android.support:support-v4:25.0.0
+|    |    +--- com.android.support:support-compat:25.0.0 -> 25.3.0
+|    |    |    \--- com.android.support:support-annotations:25.3.0
+|    |    +--- com.android.support:support-media-compat:25.0.0
+|    |    |    \--- com.android.support:support-compat:25.0.0 -> 25.3.0 (*)
+|    |    +--- com.android.support:support-core-utils:25.0.0 -> 25.3.0
+|    |    |    +--- com.android.support:support-annotations:25.3.0
+|    |    |    \--- com.android.support:support-compat:25.3.0 (*)
+|    |    +--- com.android.support:support-core-ui:25.0.0
+|    |    |    \--- com.android.support:support-compat:25.0.0 -> 25.3.0 (*)
+|    |    \--- com.android.support:support-fragment:25.0.0
+|    |         +--- com.android.support:support-compat:25.0.0 -> 25.3.0 (*)
+|    |         +--- com.android.support:support-media-compat:25.0.0 (*)
+|    |         +--- com.android.support:support-core-ui:25.0.0 (*)
+|    |         \--- com.android.support:support-core-utils:25.0.0 -> 25.3.0 (*)
+|    +--- com.android.support:support-vector-drawable:25.0.0
+|    |    \--- com.android.support:support-compat:25.0.0 -> 25.3.0 (*)
+|    \--- com.android.support:animated-vector-drawable:25.0.0
+|         \--- com.android.support:support-vector-drawable:25.0.0 (*)
++--- com.android.support:recyclerview-v7:25.0.0
+|    +--- com.android.support:support-annotations:25.0.0 -> 25.3.0
+|    +--- com.android.support:support-compat:25.0.0 -> 25.3.0 (*)
+|    \--- com.android.support:support-core-ui:25.0.0 (*)
++--- com.android.support:support-v4:25.0.0 (*)
++--- com.android.support:support-v13:25.0.0
+|    \--- com.android.support:support-v4:25.0.0 (*)
++--- com.android.support:design:25.0.0
+|    +--- com.android.support:support-v4:25.0.0 (*)
+|    +--- com.android.support:appcompat-v7:25.0.0 (*)
+|    +--- com.android.support:recyclerview-v7:25.0.0 (*)
+|    \--- com.android.support:transition:25.0.0
+|         \--- com.android.support:support-v4:25.0.0 (*)
++--- com.android.support:percent:25.0.0
+|    \--- com.android.support:support-compat:25.0.0 -> 25.3.0 (*)
++--- com.android.support.constraint:constraint-layout:1.0.1
+|    \--- com.android.support.constraint:constraint-layout-solver:1.0.1
++--- org.greenrobot:eventbus:3.0.0
++--- uk.co.chrisjenx:calligraphy:2.1.0
+|    \--- com.android.support:appcompat-v7:22.1.1 -> 25.0.0 (*)
++--- com.facebook.fresco:fresco:1.3.0
+|    +--- com.facebook.fresco:drawee:1.3.0
+|    |    \--- com.facebook.fresco:fbcore:1.3.0
+|    +--- com.facebook.fresco:fbcore:1.3.0
+|    \--- com.facebook.fresco:imagepipeline:1.3.0
+|         +--- com.parse.bolts:bolts-tasks:1.4.0
+|         +--- com.facebook.fresco:fbcore:1.3.0
+|         \--- com.facebook.fresco:imagepipeline-base:1.3.0
+|              +--- com.parse.bolts:bolts-tasks:1.4.0
+|              \--- com.facebook.fresco:fbcore:1.3.0
++--- com.google.code.gson:gson:2.5
++--- com.squareup.okhttp3:okhttp:3.8.0
+|    \--- com.squareup.okio:okio:1.13.0
++--- com.jakewharton:butterknife:7.0.1
++--- commons-io:commons-io:2.4
++--- org.apache.commons:commons-lang3:3.4
++--- com.crashlytics.sdk.android:crashlytics:2.5.5
+|    +--- com.crashlytics.sdk.android:answers:1.3.6
+|    |    \--- io.fabric.sdk.android:fabric:1.3.10
+|    +--- com.crashlytics.sdk.android:crashlytics-core:2.3.8
+|    |    +--- com.crashlytics.sdk.android:answers:1.3.6 (*)
+|    |    \--- io.fabric.sdk.android:fabric:1.3.10
+|    +--- io.fabric.sdk.android:fabric:1.3.10
+|    \--- com.crashlytics.sdk.android:beta:1.1.4
++--- jp.wasabeef:recyclerview-animators:1.3.0
++--- me.relex:photodraweeview:1.0.0
++--- com.github.rahatarmanahmed:circularprogressview:2.5.0
++--- com.github.gfx.android.orma:orma:2.6.0
+|    +--- com.github.gfx.android.orma:orma-migration:2.6.0
+|    |    +--- com.tunnelvisionlabs:antlr4-runtime:4.5
+|    |    \--- com.android.support:support-annotations:24.2.0 -> 25.3.0
+|    +--- com.github.gfx.android.orma:orma-annotations:2.6.0
+|    +--- io.reactivex:rxjava:1.1.9
+|    +--- com.android.support:support-compat:24.2.0 -> 25.3.0 (*)
+|    \--- com.android.support:support-annotations:24.2.0 -> 25.3.0
++--- com.joanzapata.iconify:android-iconify:2.2.2
+|    \--- com.android.support:support-v4:22.2.1 -> 25.0.0 (*)
++--- com.joanzapata.iconify:android-iconify-ionicons:2.2.2
+|    \--- com.joanzapata.iconify:android-iconify:2.2.2 (*)
++--- com.joanzapata.iconify:android-iconify-simplelineicons:2.2.2
+|    \--- com.joanzapata.iconify:android-iconify:2.2.2 (*)
++--- com.squareup.moshi:moshi:1.2.0
+|    \--- com.squareup.okio:okio:1.8.0 -> 1.13.0
++--- org.greenrobot:essentials:3.0.0-RC1
++--- com.github.chrisbanes:PhotoView:2.0.0
+|    \--- com.android.support:support-core-utils:25.3.0 (*)
++--- io.grpc:grpc-okhttp:1.3.0
+|    +--- io.grpc:grpc-core:[1.3.0] -> 1.3.0
+|    |    +--- com.google.guava:guava:19.0
+|    |    +--- com.google.errorprone:error_prone_annotations:2.0.19
+|    |    +--- com.google.code.findbugs:jsr305:3.0.0
+|    |    +--- io.grpc:grpc-context:1.3.0
+|    |    \--- com.google.instrumentation:instrumentation-api:0.3.0
+|    |         \--- com.google.code.findbugs:jsr305:3.0.0
+|    +--- com.squareup.okhttp:okhttp:2.5.0
+|    |    \--- com.squareup.okio:okio:1.6.0 -> 1.13.0
+|    \--- com.squareup.okio:okio:1.6.0 -> 1.13.0
++--- io.grpc:grpc-protobuf-lite:1.3.0
+|    +--- io.grpc:grpc-core:1.3.0 (*)
+|    +--- com.google.protobuf:protobuf-lite:3.0.1
+|    \--- com.google.guava:guava:19.0
++--- io.grpc:grpc-stub:1.3.0
+|    \--- io.grpc:grpc-core:1.3.0 (*)
++--- jp.co.cyberagent.android.gpuimage:gpuimage-library:1.4.1
++--- com.android.support:multidex:1.0.1
+\--- com.google.firebase:firebase-core:9.0.0
+     \--- com.google.firebase:firebase-analytics:9.0.0
+          +--- com.google.android.gms:play-services-basement:9.0.0
+          |    \--- com.android.support:support-v4:23.0.0 -> 25.0.0 (*)
+          +--- com.google.firebase:firebase-common:9.0.0
+          |    +--- com.google.android.gms:play-services-basement:9.0.0 (*)
+          |    \--- com.google.android.gms:play-services-tasks:9.0.0
+          |         \--- com.google.android.gms:play-services-basement:9.0.0 (*)
+          \--- com.google.firebase:firebase-analytics-impl:9.0.0
+               +--- com.google.android.gms:play-services-base:9.0.0
+               |    +--- com.google.android.gms:play-services-basement:9.0.0 (*)
+               |    +--- com.google.firebase:firebase-common:9.0.0 (*)
+               |    \--- com.google.android.gms:play-services-tasks:9.0.0 (*)
+               +--- com.google.android.gms:play-services-basement:9.0.0 (*)
+               +--- com.google.firebase:firebase-iid:9.0.0
+               |    +--- com.google.android.gms:play-services-basement:9.0.0 (*)
+               |    \--- com.google.firebase:firebase-common:9.0.0 (*)
+               \--- com.google.firebase:firebase-common:9.0.0 (*)
+
+archives - Configuration for archive artifacts.
+No dependencies
+
+compile - Classpath for compiling the main sources.
++--- com.jakewharton.hugo:hugo-annotations:1.2.1
++--- io.realm:realm-android-library:3.4.0
+|    +--- io.realm:realm-annotations:3.4.0
+|    \--- com.getkeepsafe.relinker:relinker:1.2.2
++--- io.realm:realm-annotations:3.4.0
++--- com.android.support:appcompat-v7:25.0.0
+|    +--- com.android.support:support-v4:25.0.0
+|    |    +--- com.android.support:support-compat:25.0.0 -> 25.3.0
+|    |    |    \--- com.android.support:support-annotations:25.3.0
+|    |    +--- com.android.support:support-media-compat:25.0.0
+|    |    |    \--- com.android.support:support-compat:25.0.0 -> 25.3.0 (*)
+|    |    +--- com.android.support:support-core-utils:25.0.0 -> 25.3.0
+|    |    |    +--- com.android.support:support-annotations:25.3.0
+|    |    |    \--- com.android.support:support-compat:25.3.0 (*)
+|    |    +--- com.android.support:support-core-ui:25.0.0
+|    |    |    \--- com.android.support:support-compat:25.0.0 -> 25.3.0 (*)
+|    |    \--- com.android.support:support-fragment:25.0.0
+|    |         +--- com.android.support:support-compat:25.0.0 -> 25.3.0 (*)
+|    |         +--- com.android.support:support-media-compat:25.0.0 (*)
+|    |         +--- com.android.support:support-core-ui:25.0.0 (*)
+|    |         \--- com.android.support:support-core-utils:25.0.0 -> 25.3.0 (*)
+|    +--- com.android.support:support-vector-drawable:25.0.0
+|    |    \--- com.android.support:support-compat:25.0.0 -> 25.3.0 (*)
+|    \--- com.android.support:animated-vector-drawable:25.0.0
+|         \--- com.android.support:support-vector-drawable:25.0.0 (*)
++--- com.android.support:recyclerview-v7:25.0.0
+|    +--- com.android.support:support-annotations:25.0.0 -> 25.3.0
+|    +--- com.android.support:support-compat:25.0.0 -> 25.3.0 (*)
+|    \--- com.android.support:support-core-ui:25.0.0 (*)
++--- com.android.support:support-v4:25.0.0 (*)
++--- com.android.support:support-v13:25.0.0
+|    \--- com.android.support:support-v4:25.0.0 (*)
++--- com.android.support:design:25.0.0
+|    +--- com.android.support:support-v4:25.0.0 (*)
+|    +--- com.android.support:appcompat-v7:25.0.0 (*)
+|    +--- com.android.support:recyclerview-v7:25.0.0 (*)
+|    \--- com.android.support:transition:25.0.0
+|         \--- com.android.support:support-v4:25.0.0 (*)
++--- com.android.support:percent:25.0.0
+|    \--- com.android.support:support-compat:25.0.0 -> 25.3.0 (*)
++--- com.android.support.constraint:constraint-layout:1.0.1
+|    \--- com.android.support.constraint:constraint-layout-solver:1.0.1
++--- org.greenrobot:eventbus:3.0.0
++--- uk.co.chrisjenx:calligraphy:2.1.0
+|    \--- com.android.support:appcompat-v7:22.1.1 -> 25.0.0 (*)
++--- com.facebook.fresco:fresco:1.3.0
+|    +--- com.facebook.fresco:drawee:1.3.0
+|    |    \--- com.facebook.fresco:fbcore:1.3.0
+|    +--- com.facebook.fresco:fbcore:1.3.0
+|    \--- com.facebook.fresco:imagepipeline:1.3.0
+|         +--- com.parse.bolts:bolts-tasks:1.4.0
+|         +--- com.facebook.fresco:fbcore:1.3.0
+|         \--- com.facebook.fresco:imagepipeline-base:1.3.0
+|              +--- com.parse.bolts:bolts-tasks:1.4.0
+|              \--- com.facebook.fresco:fbcore:1.3.0
++--- com.google.code.gson:gson:2.5
++--- com.squareup.okhttp3:okhttp:3.8.0
+|    \--- com.squareup.okio:okio:1.13.0
++--- com.jakewharton:butterknife:7.0.1
++--- commons-io:commons-io:2.4
++--- org.apache.commons:commons-lang3:3.4
++--- com.crashlytics.sdk.android:crashlytics:2.5.5
+|    +--- com.crashlytics.sdk.android:answers:1.3.6
+|    |    \--- io.fabric.sdk.android:fabric:1.3.10
+|    +--- com.crashlytics.sdk.android:crashlytics-core:2.3.8
+|    |    +--- com.crashlytics.sdk.android:answers:1.3.6 (*)
+|    |    \--- io.fabric.sdk.android:fabric:1.3.10
+|    +--- io.fabric.sdk.android:fabric:1.3.10
+|    \--- com.crashlytics.sdk.android:beta:1.1.4
++--- jp.wasabeef:recyclerview-animators:1.3.0
++--- me.relex:photodraweeview:1.0.0
++--- com.github.rahatarmanahmed:circularprogressview:2.5.0
++--- com.github.gfx.android.orma:orma:2.6.0
+|    +--- com.github.gfx.android.orma:orma-migration:2.6.0
+|    |    +--- com.tunnelvisionlabs:antlr4-runtime:4.5
+|    |    \--- com.android.support:support-annotations:24.2.0 -> 25.3.0
+|    +--- com.github.gfx.android.orma:orma-annotations:2.6.0
+|    +--- io.reactivex:rxjava:1.1.9
+|    +--- com.android.support:support-compat:24.2.0 -> 25.3.0 (*)
+|    \--- com.android.support:support-annotations:24.2.0 -> 25.3.0
++--- com.joanzapata.iconify:android-iconify:2.2.2
+|    \--- com.android.support:support-v4:22.2.1 -> 25.0.0 (*)
++--- com.joanzapata.iconify:android-iconify-ionicons:2.2.2
+|    \--- com.joanzapata.iconify:android-iconify:2.2.2 (*)
++--- com.joanzapata.iconify:android-iconify-simplelineicons:2.2.2
+|    \--- com.joanzapata.iconify:android-iconify:2.2.2 (*)
++--- com.squareup.moshi:moshi:1.2.0
+|    \--- com.squareup.okio:okio:1.8.0 -> 1.13.0
++--- org.greenrobot:essentials:3.0.0-RC1
++--- com.github.chrisbanes:PhotoView:2.0.0
+|    \--- com.android.support:support-core-utils:25.3.0 (*)
++--- io.grpc:grpc-okhttp:1.3.0
+|    +--- io.grpc:grpc-core:[1.3.0] -> 1.3.0
+|    |    +--- com.google.guava:guava:19.0
+|    |    +--- com.google.errorprone:error_prone_annotations:2.0.19
+|    |    +--- com.google.code.findbugs:jsr305:3.0.0
+|    |    +--- io.grpc:grpc-context:1.3.0
+|    |    \--- com.google.instrumentation:instrumentation-api:0.3.0
+|    |         \--- com.google.code.findbugs:jsr305:3.0.0
+|    +--- com.squareup.okhttp:okhttp:2.5.0
+|    |    \--- com.squareup.okio:okio:1.6.0 -> 1.13.0
+|    \--- com.squareup.okio:okio:1.6.0 -> 1.13.0
++--- io.grpc:grpc-protobuf-lite:1.3.0
+|    +--- io.grpc:grpc-core:1.3.0 (*)
+|    +--- com.google.protobuf:protobuf-lite:3.0.1
+|    \--- com.google.guava:guava:19.0
++--- io.grpc:grpc-stub:1.3.0
+|    \--- io.grpc:grpc-core:1.3.0 (*)
++--- jp.co.cyberagent.android.gpuimage:gpuimage-library:1.4.1
++--- com.android.support:multidex:1.0.1
+\--- com.google.firebase:firebase-core:9.0.0
+     \--- com.google.firebase:firebase-analytics:9.0.0
+          +--- com.google.android.gms:play-services-basement:9.0.0
+          |    \--- com.android.support:support-v4:23.0.0 -> 25.0.0 (*)
+          +--- com.google.firebase:firebase-common:9.0.0
+          |    +--- com.google.android.gms:play-services-basement:9.0.0 (*)
+          |    \--- com.google.android.gms:play-services-tasks:9.0.0
+          |         \--- com.google.android.gms:play-services-basement:9.0.0 (*)
+          \--- com.google.firebase:firebase-analytics-impl:9.0.0
+               +--- com.google.android.gms:play-services-base:9.0.0
+               |    +--- com.google.android.gms:play-services-basement:9.0.0 (*)
+               |    +--- com.google.firebase:firebase-common:9.0.0 (*)
+               |    \--- com.google.android.gms:play-services-tasks:9.0.0 (*)
+               +--- com.google.android.gms:play-services-basement:9.0.0 (*)
+               +--- com.google.firebase:firebase-iid:9.0.0
+               |    +--- com.google.android.gms:play-services-basement:9.0.0 (*)
+               |    \--- com.google.firebase:firebase-common:9.0.0 (*)
+               \--- com.google.firebase:firebase-common:9.0.0 (*)
+
+debugAnnotationProcessor - Classpath for the annotation processor for 'debug'.
+No dependencies
+
+debugApk - Classpath packaged with the compiled 'debug' classes.
+No dependencies
+
+debugCompile - Classpath for compiling the debug sources.
++--- com.jakewharton.hugo:hugo-runtime:1.2.1
+|    +--- com.jakewharton.hugo:hugo-annotations:1.2.1
+|    \--- org.aspectj:aspectjrt:1.8.5
++--- org.aspectj:aspectjrt:1.8.5
+\--- com.squareup.leakcanary:leakcanary-android:1.4-beta2
+     \--- com.squareup.leakcanary:leakcanary-analyzer:1.4-beta2
+          +--- com.squareup.leakcanary:leakcanary-watcher:1.4-beta2
+          \--- com.squareup.haha:haha:2.0.2
+
+debugJackPlugin - Classpath for the 'debug' Jack plugins.
+No dependencies
+
+debugProvided - Classpath for only compiling the debug sources.
+No dependencies
+
+debugWearApp - Link to a wear app to embed for object 'debug'.
+No dependencies
+
+default - Configuration for default artifacts.
+No dependencies
+
+default-mapping - Configuration for default mapping artifacts.
+No dependencies
+
+default-metadata - Metadata for the produced APKs.
+No dependencies
+
+devAnnotationProcessor - Classpath for the annotation processor for 'dev'.
+No dependencies
+
+devApk - Classpath packaged with the compiled 'dev' classes.
+No dependencies
+
+devCompile - Classpath for compiling the dev sources.
+No dependencies
+
+devDebugAnnotationProcessor - Classpath for the annotation processor for 'devDebug'.
+No dependencies
+
+devDebugApk - Classpath packaged with the compiled 'devDebug' classes.
+No dependencies
+
+devDebugCompile - Classpath for compiling the devDebug sources.
+No dependencies
+
+devDebugJackPlugin - Classpath for the 'devDebug' Jack plugins.
+No dependencies
+
+devDebugProvided - Classpath for only compiling the devDebug sources.
+No dependencies
+
+devDebugWearApp - Link to a wear app to embed for object 'devDebug'.
+No dependencies
+
+devJackPlugin - Classpath for the 'dev' Jack plugins.
+No dependencies
+
+devProvided - Classpath for only compiling the dev sources.
+No dependencies
+
+devReleaseAnnotationProcessor - Classpath for the annotation processor for 'devRelease'.
+No dependencies
+
+devReleaseApk - Classpath packaged with the compiled 'devRelease' classes.
+No dependencies
+
+devReleaseCompile - Classpath for compiling the devRelease sources.
+No dependencies
+
+devReleaseJackPlugin - Classpath for the 'devRelease' Jack plugins.
+No dependencies
+
+devReleaseProvided - Classpath for only compiling the devRelease sources.
+No dependencies
+
+devReleaseWearApp - Link to a wear app to embed for object 'devRelease'.
+No dependencies
+
+devWearApp - Link to a wear app to embed for object 'dev'.
+No dependencies
+
+io.fabric - fabric and its transitive dependencies.
+No dependencies
+
+jackPlugin - Classpath for the 'main' Jack plugins.
+No dependencies
+
+prodAnnotationProcessor - Classpath for the annotation processor for 'prod'.
+No dependencies
+
+prodApk - Classpath packaged with the compiled 'prod' classes.
+No dependencies
+
+prodCompile - Classpath for compiling the prod sources.
+No dependencies
+
+prodDebugAnnotationProcessor - Classpath for the annotation processor for 'prodDebug'.
+No dependencies
+
+prodDebugApk - Classpath packaged with the compiled 'prodDebug' classes.
+No dependencies
+
+prodDebugCompile - Classpath for compiling the prodDebug sources.
+No dependencies
+
+prodDebugJackPlugin - Classpath for the 'prodDebug' Jack plugins.
+No dependencies
+
+prodDebugProvided - Classpath for only compiling the prodDebug sources.
+No dependencies
+
+prodDebugWearApp - Link to a wear app to embed for object 'prodDebug'.
+No dependencies
+
+prodJackPlugin - Classpath for the 'prod' Jack plugins.
+No dependencies
+
+prodProvided - Classpath for only compiling the prod sources.
+No dependencies
+
+prodReleaseAnnotationProcessor - Classpath for the annotation processor for 'prodRelease'.
+No dependencies
+
+prodReleaseApk - Classpath packaged with the compiled 'prodRelease' classes.
+No dependencies
+
+prodReleaseCompile - Classpath for compiling the prodRelease sources.
+No dependencies
+
+prodReleaseJackPlugin - Classpath for the 'prodRelease' Jack plugins.
+No dependencies
+
+prodReleaseProvided - Classpath for only compiling the prodRelease sources.
+No dependencies
+
+prodReleaseWearApp - Link to a wear app to embed for object 'prodRelease'.
+No dependencies
+
+prodWearApp - Link to a wear app to embed for object 'prod'.
+No dependencies
+
+provided - Classpath for only compiling the main sources.
+No dependencies
+
+releaseAnnotationProcessor - Classpath for the annotation processor for 'release'.
+No dependencies
+
+releaseApk - Classpath packaged with the compiled 'release' classes.
+No dependencies
+
+releaseCompile - Classpath for compiling the release sources.
+\--- com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2
+
+releaseJackPlugin - Classpath for the 'release' Jack plugins.
+No dependencies
+
+releaseProvided - Classpath for only compiling the release sources.
+No dependencies
+
+releaseWearApp - Link to a wear app to embed for object 'release'.
+No dependencies
+
+retrolambdaConfig
+\--- net.orfjackal.retrolambda:retrolambda:2.1.0
+
+testAnnotationProcessor - Classpath for the annotation processor for 'test'.
+No dependencies
+
+testApk - Classpath packaged with the compiled 'test' classes.
+No dependencies
+
+testApt
++--- junit:junit:4.12
+|    \--- org.hamcrest:hamcrest-core:1.3
+\--- com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2
+
+testCompile - Classpath for compiling the test sources.
++--- junit:junit:4.12
+|    \--- org.hamcrest:hamcrest-core:1.3
+\--- com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2
+
+testDebugAnnotationProcessor - Classpath for the annotation processor for 'testDebug'.
+No dependencies
+
+testDebugApk - Classpath packaged with the compiled 'testDebug' classes.
+No dependencies
+
+testDebugCompile - Classpath for compiling the testDebug sources.
+No dependencies
+
+testDebugJackPlugin - Classpath for the 'testDebug' Jack plugins.
+No dependencies
+
+testDebugProvided - Classpath for only compiling the testDebug sources.
+No dependencies
+
+testDebugWearApp - Link to a wear app to embed for object 'testDebug'.
+No dependencies
+
+testDevAnnotationProcessor - Classpath for the annotation processor for 'testDev'.
+No dependencies
+
+testDevApk - Classpath packaged with the compiled 'testDev' classes.
+No dependencies
+
+testDevCompile - Classpath for compiling the testDev sources.
+No dependencies
+
+testDevDebugAnnotationProcessor - Classpath for the annotation processor for 'testDevDebug'.
+No dependencies
+
+testDevDebugApk - Classpath packaged with the compiled 'testDevDebug' classes.
+No dependencies
+
+testDevDebugCompile - Classpath for compiling the testDevDebug sources.
+No dependencies
+
+testDevDebugJackPlugin - Classpath for the 'testDevDebug' Jack plugins.
+No dependencies
+
+testDevDebugProvided - Classpath for only compiling the testDevDebug sources.
+No dependencies
+
+testDevDebugWearApp - Link to a wear app to embed for object 'testDevDebug'.
+No dependencies
+
+testDevJackPlugin - Classpath for the 'testDev' Jack plugins.
+No dependencies
+
+testDevProvided - Classpath for only compiling the testDev sources.
+No dependencies
+
+testDevReleaseAnnotationProcessor - Classpath for the annotation processor for 'testDevRelease'.
+No dependencies
+
+testDevReleaseApk - Classpath packaged with the compiled 'testDevRelease' classes.
+No dependencies
+
+testDevReleaseCompile - Classpath for compiling the testDevRelease sources.
+No dependencies
+
+testDevReleaseJackPlugin - Classpath for the 'testDevRelease' Jack plugins.
+No dependencies
+
+testDevReleaseProvided - Classpath for only compiling the testDevRelease sources.
+No dependencies
+
+testDevReleaseWearApp - Link to a wear app to embed for object 'testDevRelease'.
+No dependencies
+
+testDevWearApp - Link to a wear app to embed for object 'testDev'.
+No dependencies
+
+testJackPlugin - Classpath for the 'test' Jack plugins.
+No dependencies
+
+testProdAnnotationProcessor - Classpath for the annotation processor for 'testProd'.
+No dependencies
+
+testProdApk - Classpath packaged with the compiled 'testProd' classes.
+No dependencies
+
+testProdCompile - Classpath for compiling the testProd sources.
+No dependencies
+
+testProdDebugAnnotationProcessor - Classpath for the annotation processor for 'testProdDebug'.
+No dependencies
+
+testProdDebugApk - Classpath packaged with the compiled 'testProdDebug' classes.
+No dependencies
+
+testProdDebugCompile - Classpath for compiling the testProdDebug sources.
+No dependencies
+
+testProdDebugJackPlugin - Classpath for the 'testProdDebug' Jack plugins.
+No dependencies
+
+testProdDebugProvided - Classpath for only compiling the testProdDebug sources.
+No dependencies
+
+testProdDebugWearApp - Link to a wear app to embed for object 'testProdDebug'.
+No dependencies
+
+testProdJackPlugin - Classpath for the 'testProd' Jack plugins.
+No dependencies
+
+testProdProvided - Classpath for only compiling the testProd sources.
+No dependencies
+
+testProdReleaseAnnotationProcessor - Classpath for the annotation processor for 'testProdRelease'.
+No dependencies
+
+testProdReleaseApk - Classpath packaged with the compiled 'testProdRelease' classes.
+No dependencies
+
+testProdReleaseCompile - Classpath for compiling the testProdRelease sources.
+No dependencies
+
+testProdReleaseJackPlugin - Classpath for the 'testProdRelease' Jack plugins.
+No dependencies
+
+testProdReleaseProvided - Classpath for only compiling the testProdRelease sources.
+No dependencies
+
+testProdReleaseWearApp - Link to a wear app to embed for object 'testProdRelease'.
+No dependencies
+
+testProdWearApp - Link to a wear app to embed for object 'testProd'.
+No dependencies
+
+testProvided - Classpath for only compiling the test sources.
+No dependencies
+
+testReleaseAnnotationProcessor - Classpath for the annotation processor for 'testRelease'.
+No dependencies
+
+testReleaseApk - Classpath packaged with the compiled 'testRelease' classes.
+No dependencies
+
+testReleaseCompile - Classpath for compiling the testRelease sources.
+No dependencies
+
+testReleaseJackPlugin - Classpath for the 'testRelease' Jack plugins.
+No dependencies
+
+testReleaseProvided - Classpath for only compiling the testRelease sources.
+No dependencies
+
+testReleaseWearApp - Link to a wear app to embed for object 'testRelease'.
+No dependencies
+
+testWearApp - Link to a wear app to embed for object 'test'.
+No dependencies
+
+wearApp - Link to a wear app to embed for object 'main'.
+No dependencies
+
+(*) - dependencies omitted (listed previously)
+
+BUILD SUCCESSFUL
+
+Total time: 10.601 secs

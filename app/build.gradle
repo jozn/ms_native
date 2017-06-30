@@ -4,6 +4,7 @@ apply plugin: 'io.fabric'
 apply plugin: 'com.neenbedankt.android-apt'
 apply plugin: 'com.jakewharton.hugo'
 apply plugin: 'me.tatarka.retrolambda'
+apply plugin: 'realm-android'
 
 repositories {
     maven { url 'https://maven.fabric.io/public' }
@@ -22,9 +23,6 @@ android {
 //        enabled = true
 //    }
 
-//    jackOptions {
-//        enabled true
-//    }
 
 
     dexOptions{
@@ -84,7 +82,7 @@ android {
         dev {
             // Enable pre-dexing to produce an APK that can be tested on
             // Android 5.0+ without the time-consuming DEX build processes.
-            minSdkVersion 21//21
+            minSdkVersion 16
         }
         prod {
             // The actual minSdkVersion for the production version.
@@ -118,7 +116,9 @@ android {
         pickFirst "META-INF/org/aspectj/internal/lang/annotation/ajcDeclareAnnotation/"
         pickFirst "org/aspectj/internal/lang/annotation/ajcDeclareAnnotation/"
 
-        exclude 'META-INF/services/javax.annotation.processing.Processor' // butterknife
+        pickFirst "com/google/protobuf/AbstractMessageLite/"
+
+//        exclude 'META-INF/services/javax.annotation.processing.Processor' // butterknife
     }
 
     preBuild.dependsOn androidXml2Java
@@ -167,33 +167,34 @@ dependencies {
     compile 'com.android.support:percent:25.0.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.1'
     /*
-    * compile 'com.android.support:appcompat-v7:25.3.0'
-    compile 'com.android.support:recyclerview-v7:25.3.0'
-    compile 'com.android.support:support-v4:25.3.0'
-    compile 'com.android.support:support-v13:25.3.0'
-    compile 'com.android.support:design:25.3.0'
-    compile 'com.android.support:percent:25.3.0'
-    compile 'com.android.support.constraint:constraint-layout:1.0.1'*/
+                    * compile 'com.android.support:appcompat-v7:25.3.0'
+                    compile 'com.android.support:recyclerview-v7:25.3.0'
+                    compile 'com.android.support:support-v4:25.3.0'
+                    compile 'com.android.support:support-v13:25.3.0'
+                    compile 'com.android.support:design:25.3.0'
+                    compile 'com.android.support:percent:25.3.0'
+                    compile 'com.android.support.constraint:constraint-layout:1.0.1'*/
     /*compile 'com.android.support:appcompat-v7:24.2.0'
-                compile 'com.android.support:recyclerview-v7:24.2.0'
-                compile 'com.android.support:support-v4:24.2.0'
-                compile 'com.android.support:support-v13:24.2.0'
-                compile 'com.android.support:design:24.2.0'
-                compile "com.android.support:percent:24.2.0"*/
+                                compile 'com.android.support:recyclerview-v7:24.2.0'
+                                compile 'com.android.support:support-v4:24.2.0'
+                                compile 'com.android.support:support-v13:24.2.0'
+                                compile 'com.android.support:design:24.2.0'
+                                compile "com.android.support:percent:24.2.0"*/
     compile 'org.greenrobot:eventbus:3.0.0'
     compile 'uk.co.chrisjenx:calligraphy:2.1.0'
     //    compile 'com.facebook.fresco:fresco:0.8.1'
-//    compile 'com.facebook.fresco:fresco:0.12.0'
+    //    compile 'com.facebook.fresco:fresco:0.12.0'
     compile 'com.facebook.fresco:fresco:1.3.0'
     compile 'com.google.code.gson:gson:2.5'
-    compile 'com.squareup.okhttp3:okhttp:3.8.0'//3.2.0
-//    compile 'com.squareup.okhttp3:okhttp-ws:3.2.0'
+    compile 'com.squareup.okhttp3:okhttp:3.8.0'
+    //3.2.0
+    //    compile 'com.squareup.okhttp3:okhttp-ws:3.2.0'
     //    compile 'com.facebook.stetho:stetho:1.3.0'
     //    compile 'com.facebook.stetho:stetho-okhttp3:1.3.0'
     compile 'com.jakewharton:butterknife:7.0.1'
     compile 'commons-io:commons-io:2.4'
     compile 'org.apache.commons:commons-lang3:3.4'
-//    compile 'com.github.orhanobut:hawk:1.23'
+    //    compile 'com.github.orhanobut:hawk:1.23'
     compile('com.crashlytics.sdk.android:crashlytics:2.5.5@aar') {
         transitive = true;
     }
@@ -223,26 +224,35 @@ dependencies {
     // (v1.0.0)
     compile 'com.squareup.moshi:moshi:1.2.0'
     compile 'org.greenrobot:essentials:3.0.0-RC1'
-//    compile 'jp.wasabeef:picasso-transformations:2.1.2'
+    //    compile 'jp.wasabeef:picasso-transformations:2.1.2'
     compile 'com.github.chrisbanes:PhotoView:2.0.0'
     //    compile 'com.flurgle:camerakit:0.9.15'
     //grpc
     /*compile 'io.grpc:grpc-okhttp:1.4.0'
-    compile 'io.grpc:grpc-protobuf-lite:1.4.0'
-    compile 'io.grpc:grpc-stub:1.4.0'
-    compile 'javax.annotation:javax.annotation-api:1.2'*/
+                    compile 'io.grpc:grpc-protobuf-lite:1.4.0'
+                    compile 'io.grpc:grpc-stub:1.4.0'
+                    compile 'javax.annotation:javax.annotation-api:1.2'*/
     // https://mvnrepository.com/artifact/com.google.protobuf/protobuf-java
     /*compile 'io.grpc:grpc-okhttp:1.3.0'
+                    compile 'io.grpc:grpc-protobuf-lite:1.3.0'
+                    compile 'io.grpc:grpc-stub:1.3.0'
+                    compile group: 'com.google.protobuf', name: 'protobuf-java', version: '3.3.0'
+                    compile 'javax.annotation:javax.annotation-api:1.2'*/
+    /*compile 'io.grpc:grpc-okhttp:1.3.0'
     compile 'io.grpc:grpc-protobuf-lite:1.3.0'
+//    compile 'io.grpc:grpc-protobuf:1.4.0'
+    compile 'io.grpc:grpc-stub:1.3.0'*/
+
+    compile 'io.grpc:grpc-okhttp:1.3.0'
+    compile ('io.grpc:grpc-protobuf-lite:1.3.0') {
+//        exclude 'com.google.protobuf:protobuf-lite'
+        exclude group: 'com.google.protobuf', module: 'protobuf-lite'
+    }
+//    compile 'io.grpc:grpc-protobuf:1.4.0'
     compile 'io.grpc:grpc-stub:1.3.0'
-    compile group: 'com.google.protobuf', name: 'protobuf-java', version: '3.3.0'
-    compile 'javax.annotation:javax.annotation-api:1.2'*/
 
-    compile 'io.grpc:grpc-okhttp:1.4.0' // CURRENT_GRPC_VERSION
-    compile 'io.grpc:grpc-protobuf-lite:1.4.0' // CURRENT_GRPC_VERSION
-    compile 'io.grpc:grpc-stub:1.4.0' // CURRENT_GRPC_VERSION
-    compile 'javax.annotation:javax.annotation-api:1.2'
-
+    // CURRENT_GRPC_VERSION
+//    compile 'javax.annotation:javax.annotation-api:1.2'
     //    compile 'me.zhanghai.android.materialprogressbar:library:1.3.0'
     //    compile 'com.facebook.react:react-native:0.21.1'
     //    compile 'com.facebook.react:react-native:0.18.+'
@@ -252,17 +262,25 @@ dependencies {
     //    compile 'com.yovenny.VideoCompress:videocompress:1.0.0'
     //    compile project(':videocompress')
     /*compile files('libs/protobuf-java-3.0.0-beta-3.jar')
-    compile files('libs/protobuf-java-3.0.0-alpha-3.jar')*/
-    compile files('libs/protobuf-java-3.3.1.jar')
-
-
-//    compile 'com.iceteck.silicompressorr:silicompressor:2.0'
-
+                    compile files('libs/protobuf-java-3.0.0-alpha-3.jar')*/
+    //    compile files('libs/protobuf-java-3.3.1.jar')
+    //    compile 'com.iceteck.silicompressorr:silicompressor:2.0'
     compile 'jp.co.cyberagent.android.gpuimage:gpuimage-library:1.4.1'
-
     compile 'com.android.support:multidex:1.0.1'
+    //    compile files('libs/protobuf-java-3.0.2.jar')
+    /*compile files('libs/protobuf-java-3.2.0.jar')
+    compile files('libs/grpc-okhttp-1.3.0.jar')
+    compile files('libs/grpc-protobuf-1.4.0.jar')*/
+
+    compile files('libs/protobuf-java-3.2.0.jar')
+
+    // https://mvnrepository.com/artifact/com.google.guava/guava
+//    compile group: 'com.google.guava', name: 'guava', version: '19.0'
 
 }
 
 // Add to the bottom of the file
 apply plugin: 'com.google.gms.google-services'
+
+
+///Me possible canditates for build fails in android <5 is : protobufs libs -- befor that everythings was fine

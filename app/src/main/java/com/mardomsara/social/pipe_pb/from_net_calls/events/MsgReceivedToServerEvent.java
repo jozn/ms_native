@@ -7,7 +7,7 @@ import com.mardomsara.social.models.tables.Message;
 /**
  * Created by Hamid on 10/14/2016.
  */
-
+@Deprecated
 public class MsgReceivedToServerEvent {
 	public int ToUserId = 0;
 	public int PeerUserId = 0;

@@ -3,8 +3,10 @@ package com.mardomsara.social.models.flusher;
 import com.mardomsara.social.app.API;
 import com.mardomsara.social.app.Constants;
 import com.mardomsara.social.app.DB;
+import com.mardomsara.social.app.Events;
 import com.mardomsara.social.base.Http.Http;
 import com.mardomsara.social.base.Http.Req;
+import com.mardomsara.social.enums.MessageEvent;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.JsonUtil;
@@ -44,6 +46,8 @@ public class MsgsCallToServer {
 			msg.saveWithRoom();
 
 			MsgReceivedToServerEvent.publishNew(msg);
+//			Events.publish(new Events.MessageMetaEvent(msg,MessageEvent.RECEIVED_TO_PEER));
+			sendRecivedEvent(msg);
 		};
 
 		Pipe.makeCall(Pipe.REQUESTS.PB_RequestMsgAddMany,
@@ -70,6 +74,7 @@ public class MsgsCallToServer {
 
 			for(Message msg: msgs){
 				MsgReceivedToServerEvent.publishNew(msg);
+				sendRecivedEvent(msg);
 			}
 		};
 
@@ -97,6 +102,7 @@ public class MsgsCallToServer {
 				}
 
 				MsgReceivedToServerEvent.publishNew(msg);
+				sendRecivedEvent(msg);
 			}
 
 
@@ -121,6 +127,7 @@ public class MsgsCallToServer {
 						}
 
 						MsgReceivedToServerEvent.publishNew(msg);
+						sendRecivedEvent(msg);
 					}else {
 
 					}
@@ -202,6 +209,10 @@ public class MsgsCallToServer {
 				});
 
 		msg.req = req;
+	}
+
+	private static void sendRecivedEvent(Message msg){
+		Events.publish(new Events.OnMessageMetaEvent(msg,MessageEvent.RECEIVED_TO_PEER));
 	}
 
 	void play(){

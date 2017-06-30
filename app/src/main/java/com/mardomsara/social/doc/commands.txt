@@ -1,0 +1,2 @@
+for dependency - real help in fixing dependecy problems:  ./gradlew app:dependencies
+
