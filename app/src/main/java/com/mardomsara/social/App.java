@@ -40,7 +40,7 @@ public class App {
    }
    public static void init(Context ctx){
       context = ctx;
-      LifeCycle.initFromActivity(ctx);
+//      LifeCycle.initFromActivity(ctx);
 
    }
 

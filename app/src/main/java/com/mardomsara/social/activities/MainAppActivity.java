@@ -44,12 +44,8 @@ import pl.tajchert.nammu.Nammu;
 /**
  * Created by Hamid on 1/31/2016.
  */
-public class MainAppActivity extends AppActivity {
+public class MainAppActivity extends AppBaseActivity {
 	public static MainAppActivity instance;
-	TextView st;
-
-	boolean isFirstInited = false;
-
 
 	@Override
 	public void onBackPressed() {
@@ -63,18 +59,6 @@ public class MainAppActivity extends AppActivity {
 		super.onCreate(savedInstanceState);
 		instance = this;
 
-		Iconify
-			.with(new SimpleLineIconsModule())
-			.with(new IoniconsModule());
-
-		XIconify
-			.with(new com.mardomsara.x.iconify.icons.SimpleLineIconsModule())
-			.with(new com.mardomsara.x.iconify.icons.IoniconsModule())
-			.with(new com.mardomsara.x.iconify.icons.MaterialModule());
-
-
-		Fabric.with(this, new Crashlytics());
-
 		setContentView(R.layout.activity_main_app);
 		ViewGroup global_window = (ViewGroup) findViewById(R.id.global_window);
 		AppUtil.global_window = global_window;
@@ -85,17 +69,19 @@ public class MainAppActivity extends AppActivity {
 		App.init(this);//(getApplicationContext())
 //        LeakCanary.install(this);
 		App.activity(this);
+		LifeCycle.initFromActivity(this);
+
 		App.mFragmentManager = getSupportFragmentManager();
 		//EventBus.getDefault().register(this);
 
 		//////////////////// Fresco ////////////////////////
-		Set<RequestListener> requestListeners = new HashSet<>();
+		/*Set<RequestListener> requestListeners = new HashSet<>();
 		requestListeners.add(new RequestLoggingListener());
 		ImagePipelineConfig config = ImagePipelineConfig.newBuilder(getApplicationContext())
 			// other setters
 			.setRequestListeners(requestListeners)
 			.build();
-		Fresco.initialize(getApplicationContext(), config);
+		Fresco.initialize(getApplicationContext(), config);*/
 		/////////////////// End of Fresco ////////////////////////
 
 //		startService(new Intent(this, PingService.class));
@@ -108,169 +94,18 @@ public class MainAppActivity extends AppActivity {
 		Nav.setUpFooterBar();
 		/////////////////////////
 
-		Crashlytics.log("Higgs-Boson detected! Bailing out...");
-		Crashlytics.getInstance().core.setUserEmail("aSa@gmail.com");
-		Crashlytics.getInstance().core.setUserIdentifier("158");
-		Crashlytics.getInstance().core.setUserName("AtashN");
-
 		LifeCycle.onAppActivityStarted();
 
 		EmojiconsPopup.setUpLayoutListnr(global_window);
-
 	}
-
-	@Override
-	protected void onStart() {
-		super.onStart();
-		logIt("onStart");
-
-		if (isFirstInited == false) {//just onCreaate
-			Nav.goToBranch("chat");// must be here will c
-			isFirstInited = true;// rash onCreate()
-		}
-
-		LifeCycle.onAfterAppActivityStarted();
-
-	}
-
-	@Override
-	protected void onResume() {
-		super.onResume();
-
-		logIt("onResume");
-	}
-
-	@Override
-	public void onTrimMemory(int level) {
-		super.onTrimMemory(level);
-		logIt("onTrimMemory");
-		Helper.showDebugMessage("onTrimMemory - leve:" + level);
-		//TODO call fresco in here and passs level
-	}
-
-	@Override
-	public void onLowMemory() {
-		super.onLowMemory();
-		logIt("onLowMemory");
-		Helper.showDebugMessage("onLowMemory");
-	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.menu_main, menu);
-		return true;
-	}
-
-	String classTag = "";
-
-	public void setClassTag(String classTag) {
-		this.classTag = classTag;
-	}
-
-	public static void setMargins(View v, int l) {//, int t, int r, int b) {
-		if (v.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-			ViewGroup.MarginLayoutParams p = (ViewGroup.MarginLayoutParams) v.getLayoutParams();
-			p.setMargins(l, 0, 0, 0);
-			v.requestLayout();
-		}
-	}
-
-	@Override
-	public void onSaveInstanceState(Bundle outState) {
-		super.onSaveInstanceState(outState);
-		logIt("onSaveInstanceState");
-	}
-
-	@Override
-	public void onPause() {
-		super.onPause();
-
-		logIt("onPause");
-	}
-
-	@Override
-	public void onStop() {
-		super.onStop();
-		logIt("onStop");
-	}
-
-	@Override
-	public void onConfigurationChanged(Configuration newConfig) {
-		super.onConfigurationChanged(newConfig);
-		logIt("onConfigurationChanged");
-	}
-
 
 	@Override
 	public void onDestroy() {
 		super.onDestroy();
-
-		logIt("onDestroy");
 		Nav.reset();
 	}
 
-	@Override
-	protected void onPostCreate(@Nullable Bundle savedInstanceState) {
-		super.onPostCreate(savedInstanceState);
-		logIt("onPostCreate");
-	}
-
-	@Override
-	protected void onPostResume() {
-		super.onPostResume();
-		logIt("onPostResume");
-	}
-
-	@Override
-	public void onSupportActionModeStarted(ActionMode mode) {
-		super.onSupportActionModeStarted(mode);
-		logIt("onSupportActionModeStarted");
-	}
-
-	@Override
-	public void onContentChanged() {
-		super.onContentChanged();
-		logIt("onContentChanged");
-	}
-
-	@Override
-	public void onAttachFragment(Fragment fragment) {
-		super.onAttachFragment(fragment);
-		logIt("onAttachFragment");
-	}
-
-	@Override
-	protected void onRestoreInstanceState(Bundle savedInstanceState) {
-		super.onRestoreInstanceState(savedInstanceState);
-		logIt("onRestoreInstanceState");
-	}
-
-	@Override
-	public void onRestoreInstanceState(Bundle savedInstanceState, PersistableBundle persistentState) {
-		super.onRestoreInstanceState(savedInstanceState, persistentState);
-		logIt("onRestoreInstanceState");
-	}
-
-	@Override
-	protected void onRestart() {
-		super.onRestart();
-		logIt("onRestart");
-	}
-
-	@Override
-	public void onAttachedToWindow() {
-		super.onAttachedToWindow();
-		logIt("onAttachedToWindow");
-	}
-
-	@Override
-	public void onSupportActionModeFinished(ActionMode mode) {
-		super.onSupportActionModeFinished(mode);
-		logIt("onSupportActionModeFinished");
-	}
-
-
+	//Fixme Nav.onActivityResult() must be called getDefulat
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
@@ -278,30 +113,5 @@ public class MainAppActivity extends AppActivity {
 		Nav.onActivityResult(requestCode, resultCode, data);
 	}
 
-	@Override
-	public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-//        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-		Nammu.onRequestPermissionsResult(requestCode, permissions, grantResults);
-	}
 
-	protected void logIt(String str) {
-		String cls = classTag.equals("") ? getClass().getSimpleName() : classTag;
-		Log.v("Activity: ", " : " + str);
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-
-		return super.onOptionsItemSelected(item);
-	}
-
-	@Override
-	public boolean onKeyDown(int keyCode, KeyEvent event) {
-		AppUtil.log("called onKeyDown: " + keyCode);
-		if (Config.IS_DEBUG && keyCode == KeyEvent.KEYCODE_VOLUME_DOWN) {
-			Nav.push(new Play_TestsPresenter());
-			return true;
-		}
-		return super.onKeyDown(keyCode, event);
-	}
 }
