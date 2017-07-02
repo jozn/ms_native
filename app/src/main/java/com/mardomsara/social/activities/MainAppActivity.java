@@ -72,20 +72,6 @@ public class MainAppActivity extends AppBaseActivity {
 		LifeCycle.initFromActivity(this);
 
 		App.mFragmentManager = getSupportFragmentManager();
-		//EventBus.getDefault().register(this);
-
-		//////////////////// Fresco ////////////////////////
-		/*Set<RequestListener> requestListeners = new HashSet<>();
-		requestListeners.add(new RequestLoggingListener());
-		ImagePipelineConfig config = ImagePipelineConfig.newBuilder(getApplicationContext())
-			// other setters
-			.setRequestListeners(requestListeners)
-			.build();
-		Fresco.initialize(getApplicationContext(), config);*/
-		/////////////////// End of Fresco ////////////////////////
-
-//		startService(new Intent(this, PingService.class));
-		logIt("onCreate");
 
 		///////// Nav ////////////
 		ViewGroup container = (ViewGroup) findViewById(R.id.frag1);

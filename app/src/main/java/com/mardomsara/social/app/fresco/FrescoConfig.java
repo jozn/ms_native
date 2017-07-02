@@ -32,7 +32,7 @@ public class FrescoConfig {
 	}
 
 
-	public static void get(Context context){
+	private static void play(Context context){
 //		ImagePipelineConfig config = ImagePipelineConfig.newBuilder(context);
 
 //		Fresco.

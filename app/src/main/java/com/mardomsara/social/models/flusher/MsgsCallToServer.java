@@ -114,10 +114,10 @@ public class MsgsCallToServer {
 			.setUploadProgress(msg)
 			.doAsync(
 				(result)->{
-					Helper.showDebugMessage("sendNewPhoto "+result.isOk());
+					//Helper.showDebugMessage("sendNewPhoto "+result.isOk());
 					msg.setNetWorkTransferring(false);
 					if (result.isOk()){
-						Helper.showDebugMessage("sendNewPhoto ok");
+						//Helper.showDebugMessage("sendNewPhoto ok");
 						msg.setMsgFile_Status((Constants.Msg_Media_Uploaded));
 						msg.setToPush(0);
 						msg.ServerReceivedTime = TimeUtil.getTimeSec();
@@ -190,10 +190,10 @@ public class MsgsCallToServer {
 			.setUploadProgress(msg)
 			.doAsync(
 				(result)->{
-					Helper.showDebugMessage("sendNewPhoto "+result.isOk());
+					//Helper.showDebugMessage("sendNewPhoto "+result.isOk());
 					msg.setNetWorkTransferring(false);
 					if (result.isOk()){
-						Helper.showDebugMessage("sendNewPhoto ok");
+						//Helper.showDebugMessage("sendNewPhoto ok");
 						msg.setMsgFile_Status((Constants.Msg_Media_Uploaded));
 						msg.setToPush(0);
 						msg.ServerReceivedTime = TimeUtil.getTimeSec();

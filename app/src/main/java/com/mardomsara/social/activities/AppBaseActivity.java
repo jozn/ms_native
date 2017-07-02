@@ -34,6 +34,7 @@ public abstract class AppBaseActivity extends AppCompatActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 //        App.context = getApplicationContext();
+		logIt("onCreate");
 		App.init(getApplicationContext());
 	}
 
