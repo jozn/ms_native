@@ -1,4 +1,4 @@
-package com.mardomsara.social.app.fresco;
+package com.mardomsara.social.app.memory;
 
 import com.facebook.common.memory.MemoryTrimType;
 import com.facebook.common.memory.MemoryTrimmable;

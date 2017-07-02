@@ -16,6 +16,7 @@ import com.mardomsara.social.App;
 import com.mardomsara.social.Nav;
 import com.mardomsara.social.app.Config;
 import com.mardomsara.social.app.LifeCycle;
+import com.mardomsara.social.app.memory.TrimMemory;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.play.Play_TestsPresenter;
@@ -148,8 +149,8 @@ public abstract class AppBaseActivity extends AppCompatActivity {
 	public void onTrimMemory(int level) {
 		super.onTrimMemory(level);
 		logIt("onTrimMemory");
-		Helper.showDebugMessage("onTrimMemory - leve:" + level);
-		//TODO call fresco in here and passs level
+		Helper.showDebugMessage("onTrimMemory - level:" + level);
+		TrimMemory.trimFromActivities(level);
 	}
 
 	@Override
@@ -157,6 +158,7 @@ public abstract class AppBaseActivity extends AppCompatActivity {
 		super.onLowMemory();
 		logIt("onLowMemory");
 		Helper.showDebugMessage("onLowMemory");
+		TrimMemory.trimLow();
 	}
 
 	@Override
