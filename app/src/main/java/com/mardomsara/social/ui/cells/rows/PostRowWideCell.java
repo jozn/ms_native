@@ -106,7 +106,8 @@ public class PostRowWideCell {
         x.date.setText(FormaterUtil.timeAgo(post.CreatedTime));
         Uri imageUri = Helper.PathToUserAvatarUri(post.Sender.AvatarUrl);
 
-		x.avatar.setImageDrawable(TextDrawable.builder().buildRound(post.Sender.UserName.substring(0,1), ColorGenerator.MATERIAL.getColor(imageUri)));
+//		x.avatar.setImageDrawable(TextDrawable.builder().buildRound(post.Sender.UserName.substring(0,1), ColorGenerator.MATERIAL.getColor(imageUri)));
+		x.avatar.setImageURIAndId(imageUri, post.Sender.UserId);
 //        x.avatar.setImageURI(imageUri);
 
         if (post.TypeId == 2 && post.PhotoView != null) {
@@ -115,10 +116,13 @@ public class PostRowWideCell {
 			ViewHelper.setImageSizesWithMaxPx(x.image,screenSize,screenSize,post.PhotoView.Width,post.PhotoView.Height);
 			x.image.setVisibility(View.VISIBLE);
 			String urlStr = Helper.postsGetBestPhotoResUrl(post.PhotoView,screenSizePx);
-			Picasso.with(AppUtil.getContext())
+			/*Picasso.with(AppUtil.getContext())
 				.load(urlStr)
 				.placeholder(R.drawable.image_background)
-				.into(x.image);
+				.into(x.image);*/
+
+			x.image.setImageURIAndColorRGB(Uri.parse(urlStr),post.PhotoView.Color);
+
 
 			PostRowUtils.setImage(x.image,post);
 

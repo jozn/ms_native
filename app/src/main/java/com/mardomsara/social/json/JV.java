@@ -74,6 +74,7 @@ public class JV {
 		public int ImageTypeId;
 		public int Width;
 		public int Height;
+		public String Color;
 		public float Ratio;
 		public String UrlFormat;
 		public List<Integer> Sizes;

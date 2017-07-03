@@ -24,9 +24,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"/>
-    <com.facebook.drawee.view.SimpleDraweeView
+    <!--<com.facebook.drawee.view.SimpleDraweeView
         android:layout_width="50dp"
         android:layout_height="50dp"
+        android:id="@id/avatar"
+        android:layout_gravity="right|center_vertical"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        style="@style/post_row.avatar"
+        fresco:roundAsCircle="false"
+        fresco:roundedCornerRadius="6dp"
+
+        />-->
+    <com.mardomsara.social.ui.views.x.MAvatarView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:id="@id/avatar"
         android:layout_gravity="right|center_vertical"
         android:layout_alignParentRight="true"
@@ -70,7 +82,13 @@
         android:orientation="vertical"
 
         >
-        <ImageView
+        <!--<ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/image"
+            />-->
+
+        <com.mardomsara.social.ui.views.x.MPostImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/image"

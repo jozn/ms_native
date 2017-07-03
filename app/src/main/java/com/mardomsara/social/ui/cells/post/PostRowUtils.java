@@ -7,6 +7,7 @@ import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.json.JV;
 import com.mardomsara.social.ui.views.FullScreenImage;
+import com.mardomsara.social.ui.views.x.MPostImageView;
 
 /**
  * Created by Hamid on 3/29/2017.
@@ -15,6 +16,19 @@ import com.mardomsara.social.ui.views.FullScreenImage;
 public class PostRowUtils {
 
 	public static void setImage(ImageView image, JV.PostView post){
+		image.setOnClickListener((v)->{
+
+			String urlStr = Helper.postsGetBestPhotoResUrl(post.PhotoView, AndroidUtil.getScreenWidth());
+
+			FullScreenImage window = new FullScreenImage();
+			window.text = post.Text;
+			window.imageUri = Uri.parse(urlStr) ;//msg.getMediaLocalSrc();
+			window.show();
+		});
+	}
+
+	//FIXME add FullScreenImage for Fresco
+	public static void setImage(MPostImageView image, JV.PostView post){
 		image.setOnClickListener((v)->{
 
 			String urlStr = Helper.postsGetBestPhotoResUrl(post.PhotoView, AndroidUtil.getScreenWidth());
