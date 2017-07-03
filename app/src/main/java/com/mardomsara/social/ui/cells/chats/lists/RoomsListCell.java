@@ -6,6 +6,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.facebook.drawee.generic.GenericDraweeHierarchy;
+import com.facebook.drawee.generic.GenericDraweeHierarchyBuilder;
+import com.facebook.drawee.generic.RoundingParams;
 import com.mardomsara.social.App;
 import com.mardomsara.social.Nav;
 import com.mardomsara.social.R;
@@ -27,6 +30,10 @@ import com.mardomsara.social.models.tables.Message;
 import com.mardomsara.social.models.tables.Room;
 import com.mardomsara.social.play.DividerItemDecoration;
 import com.mardomsara.social.ui.X;
+import com.mardomsara.social.ui.views.wigets.text_drawable.ColorGenerator;
+import com.mardomsara.social.ui.views.wigets.text_drawable.TextDrawable;
+import com.mardomsara.x.iconify.IconDrawable;
+import com.mardomsara.x.iconify.IconDrawable2;
 
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
@@ -170,6 +177,17 @@ public class RoomsListCell {
                 x.last_msg_txt.setText("");
             }
             Uri imageUri = Helper.PathToUserAvatarUri(room.getRoomAvatarUrl());
+//			x.avatar.setBackgroundColor(ColorGenerator.MATERIAL.getColor(imageUri));
+			GenericDraweeHierarchy hierarchy = new GenericDraweeHierarchyBuilder(x.avatar.getResources())
+				.setFadeDuration(300)
+				.setPlaceholderImage( new IconDrawable2(x.avatar.getContext(),"ion-ios-person-outline"))
+//				.setPlaceholderImage( TextDrawable.builder().buildRect("م", ColorGenerator.MATERIAL.getColor(imageUri)))
+//				.setPlaceholderImage( R.drawable.user_avatar)
+				.setRoundingParams(RoundingParams.fromCornersRadius(30f))
+//				.setBackground(background)
+//				.setOverlays(overlaysList)
+				.build();
+			x.avatar.setHierarchy(hierarchy);
             x.avatar.setImageURI(imageUri);
         }
     }

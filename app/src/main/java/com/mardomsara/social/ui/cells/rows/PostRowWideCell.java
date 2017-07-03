@@ -21,6 +21,8 @@ import com.mardomsara.social.ui.cells.post.PostRowUtils;
 import com.mardomsara.social.ui.presenter.pages.ProfilePage;
 import com.mardomsara.social.ui.views.FullScreenImage_Fresco;
 import com.mardomsara.social.ui.views.helpers.ViewHelper;
+import com.mardomsara.social.ui.views.wigets.text_drawable.ColorGenerator;
+import com.mardomsara.social.ui.views.wigets.text_drawable.TextDrawable;
 import com.squareup.picasso.Picasso;
 
 /**
@@ -103,7 +105,9 @@ public class PostRowWideCell {
         x.fullname.setText(post.Sender.FullName);
         x.date.setText(FormaterUtil.timeAgo(post.CreatedTime));
         Uri imageUri = Helper.PathToUserAvatarUri(post.Sender.AvatarUrl);
-        x.avatar.setImageURI(imageUri);
+
+		x.avatar.setImageDrawable(TextDrawable.builder().buildRound(post.Sender.UserName.substring(0,1), ColorGenerator.MATERIAL.getColor(imageUri)));
+//        x.avatar.setImageURI(imageUri);
 
         if (post.TypeId == 2 && post.PhotoView != null) {
 			int screenSizePx =AndroidUtil.getScreenWidth() +1;

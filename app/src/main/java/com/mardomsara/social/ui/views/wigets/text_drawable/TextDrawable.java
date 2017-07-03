@@ -6,6 +6,8 @@ import android.graphics.drawable.shapes.OvalShape;
 import android.graphics.drawable.shapes.RectShape;
 import android.graphics.drawable.shapes.RoundRectShape;
 
+import com.mardomsara.social.ui.views.FontCache;
+
 /**
  * @author amulya
  * @datetime 14 Oct 2014, 3:53 PM
@@ -15,6 +17,7 @@ public class TextDrawable extends ShapeDrawable {
 
     private final Paint textPaint;
     private final Paint borderPaint;
+    private final Paint backgroundPaint;
     private static final float SHADE_FACTOR = 0.9f;
     private final String text;
     private final int color;
@@ -48,6 +51,7 @@ public class TextDrawable extends ShapeDrawable {
         textPaint.setTypeface(builder.font);
         textPaint.setTextAlign(Paint.Align.CENTER);
         textPaint.setStrokeWidth(builder.borderThickness);
+		textPaint.setTypeface(FontCache.getIranLight());
 
         // border paint settings
         borderThickness = builder.borderThickness;
@@ -57,8 +61,8 @@ public class TextDrawable extends ShapeDrawable {
         borderPaint.setStrokeWidth(borderThickness);
 
         // drawable paint color
-        Paint paint = getPaint();
-        paint.setColor(color);
+        backgroundPaint = getPaint();
+		backgroundPaint.setColor(color);
 
     }
 
@@ -70,14 +74,16 @@ public class TextDrawable extends ShapeDrawable {
 
     @Override
     public void draw(Canvas canvas) {
-        super.draw(canvas);
+//        super.draw(canvas);
         Rect r = getBounds();
 
+		canvas.drawRoundRect(new RectF(r), 24f,24f, backgroundPaint);
 
         // draw border
         if (borderThickness > 0) {
             drawBorder(canvas);
         }
+
 
         int count = canvas.save();
         canvas.translate(r.left, r.top);
@@ -104,7 +110,8 @@ public class TextDrawable extends ShapeDrawable {
             canvas.drawRoundRect(rect, radius, radius, borderPaint);
         }
         else {
-            canvas.drawRect(rect, borderPaint);
+//            canvas.drawRect(rect, borderPaint);
+            canvas.drawRoundRect(rect, 24f,24f, borderPaint);
         }
     }
 
