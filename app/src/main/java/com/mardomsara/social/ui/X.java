@@ -38,6 +38,7 @@ import com.mardomsara.social.ui.views.wigets.LoadingView;
 import com.mardomsara.social.ui.views.wigets.SimpleAddText;
 import com.mardomsara.social.ui.views.wigets.SimpleTopNav;
 import com.mardomsara.social.ui.views.wigets.UserListGeneralFollowRowWhithBorderLinearLayout;
+import com.mardomsara.social.ui.views.x.MAvatarView;
 import com.mardomsara.social.ui.views.x.XEditTextView;
 import com.mardomsara.social.ui.views.x.XTextView;
 import com.mardomsara.social.ui.views.x.XTopNav;
@@ -343,7 +344,7 @@ public class X {
 
     public static class Chat_ListRow {
         public ChatListRowWhithBorderRelativeLayout root;
-        public SimpleDraweeView avatar;
+        public MAvatarView avatar;
         public XTextView name_txt;
         public XTextView date_txt;
         public CountView2 unseen_count_txt;
@@ -351,7 +352,7 @@ public class X {
 
         public Chat_ListRow(Context context,ViewGroup parent) {
             root = (ChatListRowWhithBorderRelativeLayout) LayoutInflater.from(context).inflate(R.layout.chat__list_row,parent ,false);
-            avatar = (SimpleDraweeView) root.findViewById( R.id.avatar);
+            avatar = (MAvatarView) root.findViewById( R.id.avatar);
             name_txt = (XTextView) root.findViewById( R.id.name_txt);
             date_txt = (XTextView) root.findViewById( R.id.date_txt);
             unseen_count_txt = (CountView2) root.findViewById( R.id.unseen_count_txt);

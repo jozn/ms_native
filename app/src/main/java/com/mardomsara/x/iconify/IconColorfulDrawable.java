@@ -28,7 +28,7 @@ import static android.util.TypedValue.COMPLEX_UNIT_DIP;
  * that is given to him. Note that in an ActionBar, if you don't
  * set the size explicitly it uses 0, so please use actionBarSize().
  */
-public class IconDrawable2 extends Drawable {
+public class IconColorfulDrawable extends Drawable {
 
     public static final int ANDROID_ACTIONBAR_ICON_SIZE_DP = 24;
 
@@ -42,8 +42,11 @@ public class IconDrawable2 extends Drawable {
 
     private int alpha = 255;
 
-	private int bColor;
+	private int backgroungColor;
 	private Paint bPaint;
+	private float borderRadios;
+	RectF rectF = new RectF();
+	int bgColorId = Integer.MAX_VALUE;
 
     /**
      * Create an IconDrawable.
@@ -51,7 +54,7 @@ public class IconDrawable2 extends Drawable {
      * @param iconKey The icon key you want this drawable to display.
      * @throws IllegalArgumentException if the key doesn't match any icon.
      */
-    public IconDrawable2(Context context, String iconKey) {
+    public IconColorfulDrawable(Context context, String iconKey) {
         Icon icon = XIconify.findIconForKey(iconKey);
         if (icon == null) {
             throw new IllegalArgumentException("No icon with that key \"" + iconKey + "\".");
@@ -64,7 +67,7 @@ public class IconDrawable2 extends Drawable {
      * @param context Your activity or application context.
      * @param icon    The icon you want this drawable to display.
      */
-    public IconDrawable2(Context context, Icon icon) {
+    public IconColorfulDrawable(Context context, Icon icon) {
         init(context, icon);
     }
 
@@ -85,17 +88,21 @@ public class IconDrawable2 extends Drawable {
         paint.setColor(Color.WHITE);
         paint.setAntiAlias(true);
 
-
-		bColor = ColorGenerator.MATERIAL.getColor(this);
+		if(bgColorId == Integer.MAX_VALUE){
+			backgroungColor = Color.parseColor("#CFD8DC");
+		}else {
+			backgroungColor = ColorGenerator.MATERIAL.getColor(1);
+		}
+		backgroungColor = Color.parseColor("#CFD8DC");
 		bPaint = new Paint();
-		bPaint.setColor(bColor);
+		bPaint.setColor(backgroungColor);
     }
 
     /**
      * Set the size of this icon to the standard Android ActionBar.
      * @return The current IconDrawable for chaining.
      */
-    public IconDrawable2 actionBarSize() {
+    public IconColorfulDrawable actionBarSize() {
         return sizeDp(ANDROID_ACTIONBAR_ICON_SIZE_DP);
     }
 
@@ -104,7 +111,7 @@ public class IconDrawable2 extends Drawable {
      * @param dimenRes The dimension resource.
      * @return The current IconDrawable for chaining.
      */
-    public IconDrawable2 sizeRes(int dimenRes) {
+    public IconColorfulDrawable sizeRes(int dimenRes) {
         return sizePx(context.getResources().getDimensionPixelSize(dimenRes));
     }
 
@@ -113,7 +120,7 @@ public class IconDrawable2 extends Drawable {
      * @param size The size in density-independent pixels (dp).
      * @return The current IconDrawable for chaining.
      */
-    public IconDrawable2 sizeDp(int size) {
+    public IconColorfulDrawable sizeDp(int size) {
         return sizePx(convertDpToPx(context, size));
     }
 
@@ -122,19 +129,31 @@ public class IconDrawable2 extends Drawable {
      * @param size The size in pixels (px).
      * @return The current IconDrawable for chaining.
      */
-    public IconDrawable2 sizePx(int size) {
+    public IconColorfulDrawable sizePx(int size) {
         this.size = size;
         setBounds(0, 0, size, size);
         invalidateSelf();
         return this;
     }
 
+	public IconColorfulDrawable backgroundColor(int color) {
+		bPaint.setColor(color);
+		invalidateSelf();
+		return this;
+	}
+
+	public IconColorfulDrawable borderRadios(float sizePx) {
+		borderRadios = sizePx;
+		invalidateSelf();
+		return this;
+	}
+
     /**
      * Set the color of the drawable.
      * @param color The color, usually from android.graphics.Color or 0xFF012345.
      * @return The current IconDrawable for chaining.
      */
-    public IconDrawable2 color(int color) {
+    public IconColorfulDrawable color(int color) {
         paint.setColor(color);
         invalidateSelf();
         return this;
@@ -145,7 +164,7 @@ public class IconDrawable2 extends Drawable {
      * @param colorRes The color resource, from your R file.
      * @return The current IconDrawable for chaining.
      */
-    public IconDrawable2 colorRes(int colorRes) {
+    public IconColorfulDrawable colorRes(int colorRes) {
         paint.setColor(context.getResources().getColor(colorRes));
         invalidateSelf();
         return this;
@@ -156,7 +175,7 @@ public class IconDrawable2 extends Drawable {
      * @param alpha The alpha, between 0 (transparent) and 255 (opaque).
      * @return The current IconDrawable for chaining.
      */
-    public IconDrawable2 alpha(int alpha) {
+    public IconColorfulDrawable alpha(int alpha) {
         setAlpha(alpha);
         invalidateSelf();
         return this;
@@ -176,7 +195,7 @@ public class IconDrawable2 extends Drawable {
     public void draw(Canvas canvas) {
         Rect bounds = getBounds();
 
-		canvas.drawRoundRect(new RectF(bounds), 24f,24f, bPaint);
+		canvas.drawRoundRect(new RectF(bounds), (float) borderRadios,(float) borderRadios, bPaint);
 
         int height = bounds.height();
         paint.setTextSize(height);
