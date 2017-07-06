@@ -2622,6 +2622,29 @@ public class X {
         }
     }
 
+    public static class PlayRealm {
+        public ScrollView root;
+        public LinearLayout container;
+        public TextView txt;
+
+        public PlayRealm(Context context,ViewGroup parent) {
+            root = (ScrollView) LayoutInflater.from(context).inflate(R.layout.play_realm,parent ,false);
+            container = (LinearLayout) root.findViewById( R.id.container);
+            txt = (TextView) root.findViewById( R.id.txt);
+        }
+        public PlayRealm() {
+            this(AppUtil.getContext(),null);
+        }
+
+        public PlayRealm(Context context) {
+            this(context ,null);
+        }
+
+        public PlayRealm(ViewGroup parent) {
+            this(AppUtil.getContext() ,parent);
+        }
+    }
+
     public static class PlayRecipies {
         public LinearLayout root;
         public Button _status_bar;

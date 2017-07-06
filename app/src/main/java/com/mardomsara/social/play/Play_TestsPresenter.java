@@ -8,6 +8,7 @@ import com.mardomsara.social.activities.MainAppActivity;
 import com.mardomsara.social.play.presenters.Play_DiaolgPresenter;
 import com.mardomsara.social.play.presenters.Play_FormsPresenter;
 import com.mardomsara.social.play.presenters.Play_Http2TestPresenter;
+import com.mardomsara.social.play.presenters.Play_Realm;
 import com.mardomsara.social.play.presenters.Play_RecipiesPresenter;
 import com.mardomsara.social.play.presenters.Play_WSCallPresenter;
 import com.mardomsara.social.play.presenters.Play_XIconPresneter;
@@ -66,6 +67,11 @@ public class Play_TestsPresenter extends BasePresenter {
 
 		layout.addView(newTitle("Colores ",()->{
 			Nav.push(new Play_XTextColorsViews());
+		}));
+
+
+		layout.addView(newTitle("Realm",()->{
+			Nav.push(new Play_Realm());
 		}));
 
 /*

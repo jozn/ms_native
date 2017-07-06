@@ -19,6 +19,7 @@
   *;
 }
 
+
 ######## For EventBus ###############
 -keepattributes *Annotation*
 -keepclassmembers class ** {

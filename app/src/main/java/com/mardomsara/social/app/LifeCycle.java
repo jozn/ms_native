@@ -66,6 +66,7 @@ public class LifeCycle {
 		Fabric.with(context, new Crashlytics());
 
 		FrescoConfig.init(context);
+		ConfigRealm.config(context);
 
 		Crashlytics.log("Higgs-Boson detected! Bailing out...");
 		Crashlytics.getInstance().core.setUserEmail("aSa@gmail.com");

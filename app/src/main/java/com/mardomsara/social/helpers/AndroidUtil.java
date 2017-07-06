@@ -24,6 +24,8 @@ import android.net.wifi.WifiManager;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Environment;
+import android.os.Handler;
+import android.os.Looper;
 import android.provider.ContactsContract;
 import android.provider.MediaStore;
 import android.support.annotation.ColorRes;
@@ -55,7 +57,13 @@ public class AndroidUtil {
 
     public static void runInUi(Runnable r)
     {
-        new AsyncTask<Void,Void,Void>(){
+		new Handler(Looper.getMainLooper()).post(new Runnable() {
+			@Override
+			public void run() {
+				r.run();
+			}
+		});
+        /*new AsyncTask<Void,Void,Void>(){
 
             @Override
             protected Void doInBackground(Void... params) {
@@ -67,7 +75,7 @@ public class AndroidUtil {
                 super.onPostExecute(aVoid);
                 r.run();
             }
-        }.executeOnExecutor(Singletons.getThreadPool());
+        }.executeOnExecutor(Singletons.getThreadPool());*/
     }
     public static void runInUiNoPanic(Runnable r) {
 		runInUi(()->{

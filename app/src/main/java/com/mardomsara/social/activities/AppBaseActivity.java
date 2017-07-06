@@ -17,8 +17,10 @@ import com.mardomsara.social.Nav;
 import com.mardomsara.social.app.Config;
 import com.mardomsara.social.app.LifeCycle;
 import com.mardomsara.social.app.memory.TrimMemory;
+import com.mardomsara.social.app.stetho.ConfigStetho;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.Helper;
+import com.mardomsara.social.models.realm.RealmPlay;
 import com.mardomsara.social.play.Play_TestsPresenter;
 
 import pl.tajchert.nammu.Nammu;
@@ -36,6 +38,9 @@ public abstract class AppBaseActivity extends AppCompatActivity {
 //        App.context = getApplicationContext();
 		logIt("onCreate");
 		App.init(getApplicationContext());
+		LifeCycle.initFromActivity(getApplicationContext());
+		//ConfigStetho.config(this);
+		RealmPlay.play();
 	}
 
 	@Override

@@ -21,6 +21,7 @@ public class TrimMemory {
 				MemoryTrimmerRegistry.getInsatnce().trimAll(MemoryTrimType.OnAppBackgrounded);
 				break;
 			case TRIM_MEMORY_UI_HIDDEN:
+				MemoryTrimmerRegistry.getInsatnce().trimAll(MemoryTrimType.OnAppBackgrounded);
 				break;
 			case TRIM_MEMORY_RUNNING_CRITICAL:
 				MemoryTrimmerRegistry.getInsatnce().trimAll(MemoryTrimType.OnCloseToDalvikHeapLimit);

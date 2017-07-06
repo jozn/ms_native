@@ -9,6 +9,7 @@ import com.facebook.imagepipeline.core.ImagePipelineConfig;
 import com.joanzapata.iconify.Iconify;
 import com.joanzapata.iconify.fonts.IoniconsModule;
 import com.joanzapata.iconify.fonts.SimpleLineIconsModule;
+import com.mardomsara.social.app.stetho.ConfigStetho;
 import com.mardomsara.x.iconify.XIconify;
 import com.squareup.leakcanary.RefWatcher;
 
@@ -30,6 +31,7 @@ public class AppAplication extends MultiDexApplication {
 
     @Override public void onCreate() {
         super.onCreate();
+		ConfigStetho.config(this);
 //		ImagePipelineConfig
 //		ComponentCallbacks2.TRIM_MEMORY_BACKGROUND
 /*        Iconify
