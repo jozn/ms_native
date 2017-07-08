@@ -1,16 +1,10 @@
-package com.mardomsara.social.models.realm;
-
-import android.os.Looper;
-import android.support.v13.app.FragmentStatePagerAdapter;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.PagerAdapter;
+package com.mardomsara.social.models.realm_play;
 
 import com.mardomsara.social.app.ConfigRealm;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.LangUtil;
 
-import io.realm.Realm;
 import io.realm.RealmResults;
 
 /**

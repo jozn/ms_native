@@ -1,4 +1,4 @@
-package com.mardomsara.social.models.realm;
+package com.mardomsara.social.models.realm_play;
 
 import io.realm.Realm;
 import io.realm.RealmObject;
@@ -13,7 +13,7 @@ public class Blog extends RealmObject {
 	public static void play() {
 		Realm realm = Realm.getDefaultInstance();
 
-
+//		BlogRealmProxy
 //		realm.where(Blog.class).lessThan("", 25).findAll().
 	}
 

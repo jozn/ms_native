@@ -1,4 +1,4 @@
-package com.mardomsara.social.models.realm;
+package com.mardomsara.social.models.realm_play;
 
 /**
  * Created by Hamid on 6/26/2017.

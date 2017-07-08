@@ -1,8 +1,7 @@
-package com.mardomsara.social.models.realm;
+package com.mardomsara.social.models.realm_play;
 
 import io.realm.Realm;
 import io.realm.RealmObject;
-import io.realm.annotations.PrimaryKey;
 
 public class Person extends RealmObject {
 

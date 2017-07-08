@@ -3,7 +3,7 @@ package com.mardomsara.social.play.presenters;
 import android.view.View;
 
 import com.mardomsara.social.app.ConfigRealm;
-import com.mardomsara.social.models.realm.Blog;
+import com.mardomsara.social.models.realm_play.Blog;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.X;
 
