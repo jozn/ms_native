@@ -36,7 +36,7 @@
         fresco:roundedCornerRadius="6dp"
 
         />-->
-    <com.mardomsara.social.ui.views.x.MAvatarView
+    <com.mardomsara.social.ui.views.x.VAvatarView
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:id="@id/avatar"
@@ -88,7 +88,7 @@
             android:id="@+id/image"
             />-->
 
-        <com.mardomsara.social.ui.views.x.MPostImageView
+        <com.mardomsara.social.ui.views.x.VPostImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/image"

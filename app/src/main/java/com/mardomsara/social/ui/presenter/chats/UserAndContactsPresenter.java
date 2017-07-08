@@ -227,8 +227,9 @@ public class UserAndContactsPresenter extends BasePresenter {
 				x.primary_name.setText(user.FirstName +" "+ user.LastName);
 				x.second_name.setText(""+user.PhoneDisplayName);
 				x.following_button.setUser(user.getTo_UserInfoJson());
-				Uri imageUri = Helper.PathToUserAvatarUri(user.AvatarUrl);
-				x.avatar.setImageURI(imageUri);
+//				Uri imageUri = Helper.PathToUserAvatarUri(user.AvatarUrl);
+//				x.avatar.setImageURI(imageUri);
+				x.avatar.setImageURIAndId(Helper.PathToUserAvatarUri(user.AvatarUrl), user.UserId);
 			}
         }
 

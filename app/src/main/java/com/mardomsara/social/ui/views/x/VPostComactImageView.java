@@ -15,39 +15,42 @@ import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.LangUtil;
 import com.mardomsara.social.ui.views.wigets.text_drawable.ColorGenerator;
-import com.mardomsara.x.iconify.IconColorfulDrawable;
 
 /**
  * Created by Hamid on 7/2/2017.
  */
 
-public class MPostImageView extends SimpleDraweeView {
+public class VPostComactImageView extends SimpleDraweeView {
 	GenericDraweeHierarchy hierarchy;
 	ColorDrawable colorDrawable;
+	float borderRaduis = (float) AndroidUtil.dpToPx(6);
 
-	public MPostImageView(Context context) {
+	public VPostComactImageView(Context context) {
 		super(context);
 		init(context);
 	}
 
-	public MPostImageView(Context context, AttributeSet attrs) {
+	public VPostComactImageView(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		init(context);
 	}
 
-	public MPostImageView(Context context, AttributeSet attrs, int defStyle) {
+	public VPostComactImageView(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
 		init(context);
 	}
 
 	void init(Context context) {
 
-		colorDrawable = new ColorDrawable(AndroidUtil.getColor(R.color.background_image));
+//		colorDrawable = new ColorDrawable(AndroidUtil.getColor(R.color.background_image));
+		colorDrawable = new ColorDrawable(ColorGenerator.MATERIAL.getColor(this));
 
 		hierarchy = new GenericDraweeHierarchyBuilder(getResources())
 			.setFadeDuration(300)
 			.setPlaceholderImage(colorDrawable)
-//			.setRoundingParams(RoundingParams.fromCornersRadius(calBorderRadius()))
+			.setRoundingParams(RoundingParams.fromCornersRadius(borderRaduis)
+				.setBorderColor(AndroidUtil.getColor(R.color.text_gray_4))
+				.setBorderWidth((float) AndroidUtil.dpToPx(1)))
 			.build();
 
 		setHierarchy(hierarchy);
@@ -55,7 +58,7 @@ public class MPostImageView extends SimpleDraweeView {
 
 	float calBorderRadius() {
 		int w = getWidth();
-		AppUtil.log("getWidth:" + w + getMeasuredWidth());
+//		AppUtil.log("getWidth:" + w + getMeasuredWidth());
 		if (w <= 0) {
 			return (float) AndroidUtil.dpToPx(6);
 		}
@@ -76,11 +79,13 @@ public class MPostImageView extends SimpleDraweeView {
 	}
 
 	public void setColorRGB(String color) {
-		if(LangUtil.stringEmpty(color)) return;
+		AppUtil.log("color: " + color);
+		if (LangUtil.stringEmpty(color)) return;
 		try {
 			colorDrawable.setColor(Color.parseColor(color));
-			invalidate();
-		}catch (Exception e){
+			hierarchy.setPlaceholderImage(colorDrawable);
+//			invalidate();
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}

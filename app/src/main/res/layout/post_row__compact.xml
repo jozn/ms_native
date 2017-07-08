@@ -26,7 +26,7 @@
         app:xFont="IranLight"
         />
 
-    <ImageView
+    <com.mardomsara.social.ui.views.x.VAvatarView
         android:id="@+id/avatar"
         android:layout_width="54dp"
         android:layout_height="54dp"
@@ -80,7 +80,7 @@
         android:layout_toLeftOf="@+id/avatar"
         android:layout_alignParentLeft="true"
         >
-        <ImageView
+        <com.mardomsara.social.ui.views.x.VPostComactImageView
             app:layout_widthPercent="100%"
             app:layout_aspectRatio="178%"
             app:layout_marginLeftPercent="0%"
@@ -90,6 +90,7 @@
             android:paddingLeft="0dp"
             android:minWidth="100dp"
             android:background="@drawable/radius_4dp_gray"
+
             />
     </android.support.percent.PercentFrameLayout>
 

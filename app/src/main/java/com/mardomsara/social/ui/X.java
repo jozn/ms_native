@@ -38,8 +38,9 @@ import com.mardomsara.social.ui.views.wigets.LoadingView;
 import com.mardomsara.social.ui.views.wigets.SimpleAddText;
 import com.mardomsara.social.ui.views.wigets.SimpleTopNav;
 import com.mardomsara.social.ui.views.wigets.UserListGeneralFollowRowWhithBorderLinearLayout;
-import com.mardomsara.social.ui.views.x.MAvatarView;
-import com.mardomsara.social.ui.views.x.MPostImageView;
+import com.mardomsara.social.ui.views.x.VAvatarView;
+import com.mardomsara.social.ui.views.x.VPostComactImageView;
+import com.mardomsara.social.ui.views.x.VPostImageView;
 import com.mardomsara.social.ui.views.x.XEditTextView;
 import com.mardomsara.social.ui.views.x.XTextView;
 import com.mardomsara.social.ui.views.x.XTopNav;
@@ -345,7 +346,7 @@ public class X {
 
     public static class Chat_ListRow {
         public ChatListRowWhithBorderRelativeLayout root;
-        public MAvatarView avatar;
+        public VAvatarView avatar;
         public XTextView name_txt;
         public XTextView date_txt;
         public CountView2 unseen_count_txt;
@@ -353,7 +354,7 @@ public class X {
 
         public Chat_ListRow(Context context,ViewGroup parent) {
             root = (ChatListRowWhithBorderRelativeLayout) LayoutInflater.from(context).inflate(R.layout.chat__list_row,parent ,false);
-            avatar = (MAvatarView) root.findViewById( R.id.avatar);
+            avatar = (VAvatarView) root.findViewById( R.id.avatar);
             name_txt = (XTextView) root.findViewById( R.id.name_txt);
             date_txt = (XTextView) root.findViewById( R.id.date_txt);
             unseen_count_txt = (CountView2) root.findViewById( R.id.unseen_count_txt);
@@ -534,14 +535,14 @@ public class X {
         public FollowingButtonView following_button;
         public XTextView second_name;
         public XTextView primary_name;
-        public SimpleDraweeView avatar;
+        public VAvatarView avatar;
 
         public ContactsFollowingsList_Row(Context context,ViewGroup parent) {
             root = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.contacts_followings_list__row,parent ,false);
             following_button = (FollowingButtonView) root.findViewById( R.id.following_button);
             second_name = (XTextView) root.findViewById( R.id.second_name);
             primary_name = (XTextView) root.findViewById( R.id.primary_name);
-            avatar = (SimpleDraweeView) root.findViewById( R.id.avatar);
+            avatar = (VAvatarView) root.findViewById( R.id.avatar);
         }
         public ContactsFollowingsList_Row() {
             this(AppUtil.getContext(),null);
@@ -2773,11 +2774,11 @@ public class X {
         public RelativeLayout root;
         public RelativeLayout post_row_holder;
         public XTextView date;
-        public ImageView avatar;
+        public VAvatarView avatar;
         public XTextView fullname;
         public XTextView text;
         public PercentFrameLayout image_holder;
-        public ImageView image;
+        public VPostComactImageView image;
         public LinearLayout counts_info;
         public XIcon comment_count;
         public XIcon likes_count;
@@ -2787,11 +2788,11 @@ public class X {
             root = (RelativeLayout) LayoutInflater.from(context).inflate(R.layout.post_row__compact,parent ,false);
             post_row_holder = (RelativeLayout) root.findViewById( R.id.post_row_holder);
             date = (XTextView) root.findViewById( R.id.date);
-            avatar = (ImageView) root.findViewById( R.id.avatar);
+            avatar = (VAvatarView) root.findViewById( R.id.avatar);
             fullname = (XTextView) root.findViewById( R.id.fullname);
             text = (XTextView) root.findViewById( R.id.text);
             image_holder = (PercentFrameLayout) root.findViewById( R.id.image_holder);
-            image = (ImageView) root.findViewById( R.id.image);
+            image = (VPostComactImageView) root.findViewById( R.id.image);
             counts_info = (LinearLayout) root.findViewById( R.id.counts_info);
             comment_count = (XIcon) root.findViewById( R.id.comment_count);
             likes_count = (XIcon) root.findViewById( R.id.likes_count);
@@ -2814,10 +2815,10 @@ public class X {
         public RelativeLayout root;
         public RelativeLayout post_row_holder;
         public XTextView date;
-        public MAvatarView avatar;
+        public VAvatarView avatar;
         public XTextView fullname;
         public XTextView text;
-        public MPostImageView image;
+        public VPostImageView image;
         public LinearLayout counts_info;
         public XIcon comment_count;
         public XIcon likes_count;
@@ -2827,10 +2828,10 @@ public class X {
             root = (RelativeLayout) LayoutInflater.from(context).inflate(R.layout.post_row__stream,parent ,false);
             post_row_holder = (RelativeLayout) root.findViewById( R.id.post_row_holder);
             date = (XTextView) root.findViewById( R.id.date);
-            avatar = (MAvatarView) root.findViewById( R.id.avatar);
+            avatar = (VAvatarView) root.findViewById( R.id.avatar);
             fullname = (XTextView) root.findViewById( R.id.fullname);
             text = (XTextView) root.findViewById( R.id.text);
-            image = (MPostImageView) root.findViewById( R.id.image);
+            image = (VPostImageView) root.findViewById( R.id.image);
             counts_info = (LinearLayout) root.findViewById( R.id.counts_info);
             comment_count = (XIcon) root.findViewById( R.id.comment_count);
             likes_count = (XIcon) root.findViewById( R.id.likes_count);
@@ -3357,6 +3358,27 @@ public class X {
         }
 
         public UserList_TypeFollowRow(ViewGroup parent) {
+            this(AppUtil.getContext() ,parent);
+        }
+    }
+
+    public static class ViewPostCompactImage {
+        public SimpleDraweeView root;
+        public SimpleDraweeView post_row_holder;
+
+        public ViewPostCompactImage(Context context,ViewGroup parent) {
+            root = (SimpleDraweeView) LayoutInflater.from(context).inflate(R.layout.view_post_compact_image,parent ,false);
+            post_row_holder = (SimpleDraweeView) root.findViewById( R.id.post_row_holder);
+        }
+        public ViewPostCompactImage() {
+            this(AppUtil.getContext(),null);
+        }
+
+        public ViewPostCompactImage(Context context) {
+            this(context ,null);
+        }
+
+        public ViewPostCompactImage(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
     }

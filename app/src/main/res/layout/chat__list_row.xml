@@ -27,7 +27,7 @@
         android:layout_centerVertical="true"
         />-->
 
-    <com.mardomsara.social.ui.views.x.MAvatarView
+    <com.mardomsara.social.ui.views.x.VAvatarView
         android:layout_marginLeft="0dp"
         android:id="@+id/avatar"
         android:layout_width="55dp"

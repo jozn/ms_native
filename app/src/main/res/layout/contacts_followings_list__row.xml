@@ -41,7 +41,7 @@
         app:xFont="IranMedium"
         />
 
-    <com.facebook.drawee.view.SimpleDraweeView
+    <com.mardomsara.social.ui.views.x.VAvatarView
         android:layout_marginLeft="4dp"
         android:id="@+id/avatar"
         android:layout_width="50dp"
@@ -50,6 +50,15 @@
         fresco:fadeDuration="200"
 
         />
+    <!--<com.facebook.drawee.view.SimpleDraweeView
+        android:layout_marginLeft="4dp"
+        android:id="@+id/avatar"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        fresco:roundedCornerRadius="5dp"
+        fresco:fadeDuration="200"
+
+        />-->
 
 
 </LinearLayout>

@@ -7,7 +7,7 @@ import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.json.JV;
 import com.mardomsara.social.ui.views.FullScreenImage;
-import com.mardomsara.social.ui.views.x.MPostImageView;
+import com.mardomsara.social.ui.views.x.VPostImageView;
 
 /**
  * Created by Hamid on 3/29/2017.
@@ -28,7 +28,7 @@ public class PostRowUtils {
 	}
 
 	//FIXME add FullScreenImage for Fresco
-	public static void setImage(MPostImageView image, JV.PostView post){
+	public static void setImage(VPostImageView image, JV.PostView post){
 		image.setOnClickListener((v)->{
 
 			String urlStr = Helper.postsGetBestPhotoResUrl(post.PhotoView, AndroidUtil.getScreenWidth());

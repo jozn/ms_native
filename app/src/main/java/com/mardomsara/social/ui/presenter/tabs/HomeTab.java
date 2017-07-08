@@ -11,11 +11,9 @@ import com.mardomsara.social.ui.cells.lists.PostsHomeCell;
  * Created by Hamid on 7/13/2016.
  */
 public class HomeTab extends BasePresenter {
-    ViewGroup viewRoot;
 
     @Override
     public View buildView() {
-//        viewRoot = new Cells.NavAndEmptyView().rootView;
 
 		PostsHomeCell listCell = new PostsHomeCell();
         listCell.setLoadingEndPoint(API.BASE_DOMAIN_URL_STR+"/v1/post/stream");
