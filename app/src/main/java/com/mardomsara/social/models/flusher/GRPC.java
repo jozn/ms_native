@@ -30,7 +30,7 @@ public class GRPC {
 	}
 
 	public static void play() {
-		getNewBlockingMsgRpc();
+//		getNewBlockingMsgRpc().uploadNewMsg();
 		/*ManagedChannel managedChannel = OkHttpChannelBuilder.forAddress("").keepAliveWithoutCalls(false).usePlaintext().build();
 		OkHttpChannelBuilder.forAddress("").usePlaintext().build();
 

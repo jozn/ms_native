@@ -490,11 +490,11 @@ public class X {
 
     public static class Common_OneThirdImage {
         public FrameLayout root;
-        public ImageView img;
+        public VPostImageView img;
 
         public Common_OneThirdImage(Context context,ViewGroup parent) {
             root = (FrameLayout) LayoutInflater.from(context).inflate(R.layout.common__one_third_image,parent ,false);
-            img = (ImageView) root.findViewById( R.id.img);
+            img = (VPostImageView) root.findViewById( R.id.img);
         }
         public Common_OneThirdImage() {
             this(AppUtil.getContext(),null);

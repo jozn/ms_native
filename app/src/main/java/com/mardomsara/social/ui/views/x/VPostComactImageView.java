@@ -79,7 +79,7 @@ public class VPostComactImageView extends SimpleDraweeView {
 	}
 
 	public void setColorRGB(String color) {
-		AppUtil.log("color: " + color);
+//		AppUtil.log("color: " + color);
 		if (LangUtil.stringEmpty(color)) return;
 		try {
 			colorDrawable.setColor(Color.parseColor(color));

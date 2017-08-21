@@ -65,9 +65,10 @@ public class PostsGridAdaptor extends AppHeaderFooterRecyclerViewAdapter<PostsGr
 
 
     public static class VH extends RecyclerView.ViewHolder {
-        ImageView imageView;
+//        ImageView imageView;
 		ViewGroup root;
 		JV.PostView post;
+		X.Common_OneThirdImage v;
 
         Uri imageUri2;
 
@@ -89,9 +90,10 @@ public class PostsGridAdaptor extends AppHeaderFooterRecyclerViewAdapter<PostsGr
 
         public VH(X.Common_OneThirdImage itemView) {
             super(itemView.root);
-            imageView = itemView.img;
+//            imageView = itemView.img;
 			root = itemView.root;
 
+			this.v = itemView;
             root.setOnClickListener(gotoPost);
 
         }
@@ -101,22 +103,23 @@ public class PostsGridAdaptor extends AppHeaderFooterRecyclerViewAdapter<PostsGr
             if (post.TypeId == 2) {
                 int screenSize = AndroidUtil.getScreenWidth()/ 3;
 //                ViewHelper.setImageSizesWithMaxPx(imageView,screenSize,screenSize,post.Width,post.Height);
-                imageView.setVisibility(View.VISIBLE);
+                v.img.setVisibility(View.VISIBLE);
 //                String urlStr = "http://localhost:5000/"+post.MediaUrl;
                 String urlStr = Helper.postsGetBestPhotoResUrl(post.PhotoView, screenSize);
 
-                Picasso.with(AppUtil.getContext())
+                /*Picasso.with(AppUtil.getContext())
                         .load(urlStr)
                         .resize(screenSize,screenSize)
                         .placeholder(R.drawable.image_background)
 //                        .fit()
                         .centerCrop()
-                        .into(imageView);
+                        .into(imageView);*/
 
+				v.img.setImageURIAndColorRGB(Uri.parse(urlStr),post.PhotoView.Color);
 
             } else {
-                imageView.setVisibility(View.GONE);
-                imageView.setOnClickListener(null);
+                v.img.setVisibility(View.GONE);
+                v.img.setOnClickListener(null);
             }
 
 //            itemView.invalidate();

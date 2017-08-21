@@ -12,7 +12,7 @@ public class TrimMemory {
 	public static void trimFromActivities(int level){
 		switch (level){
 			case TRIM_MEMORY_COMPLETE:
-				MemoryTrimmerRegistry.getInsatnce().trimAll(MemoryTrimType.OnSystemLowMemoryWhileAppInForeground);
+				MemoryTrimmerRegistry.getInsatnce().trimAll(MemoryTrimType.OnSystemLowMemoryWhileAppInBackground);
 				break;
 			case TRIM_MEMORY_MODERATE:
 //				MemoryTrimmerRegistry.getInsatnce().trimAll(MemoryTrimType.);

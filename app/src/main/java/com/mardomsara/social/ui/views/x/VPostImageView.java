@@ -42,7 +42,7 @@ public class VPostImageView extends SimpleDraweeView {
 
 	void init(Context context) {
 
-		colorDrawable = new ColorDrawable(AndroidUtil.getColor(R.color.background_image));
+		colorDrawable = new ColorDrawable(AndroidUtil.getColor(R.color.btn_send));
 
 		hierarchy = new GenericDraweeHierarchyBuilder(getResources())
 			.setFadeDuration(300)
@@ -76,11 +76,13 @@ public class VPostImageView extends SimpleDraweeView {
 	}
 
 	public void setColorRGB(String color) {
-		if(LangUtil.stringEmpty(color)) return;
+		AppUtil.log("color: " + color);
+		if (LangUtil.stringEmpty(color)) return;
 		try {
 			colorDrawable.setColor(Color.parseColor(color));
-			invalidate();
-		}catch (Exception e){
+			hierarchy.setPlaceholderImage(colorDrawable);
+//			invalidate();
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
