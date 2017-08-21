@@ -1,5 +1,5 @@
 package com.mardomsara.social.pipe;
 
-interface PipeCallBack<G>{
+interface ReachedToServerCallBack<G>{
 	void onResponse(G res );
 }

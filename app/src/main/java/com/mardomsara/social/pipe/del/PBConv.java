@@ -1,4 +1,4 @@
-package com.mardomsara.social.pipe;
+package com.mardomsara.social.pipe.del;
 
 import android.support.annotation.NonNull;
 
