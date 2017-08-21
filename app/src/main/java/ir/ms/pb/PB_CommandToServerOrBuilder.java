@@ -23,7 +23,12 @@ public interface PB_CommandToServerOrBuilder extends
       getCommandBytes();
 
   /**
-   * <code>bytes Data = 3;</code>
+   * <code>bool RespondReached = 3;</code>
+   */
+  boolean getRespondReached();
+
+  /**
+   * <code>bytes Data = 4;</code>
    */
   com.google.protobuf.ByteString getData();
 }

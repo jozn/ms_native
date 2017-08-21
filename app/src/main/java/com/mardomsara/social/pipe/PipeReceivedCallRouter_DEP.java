@@ -11,13 +11,13 @@ import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import ir.ms.pb.PB_CommandReceivedToServer;
+import ir.ms.pb.PB_CommandReachedToServer;
 import okio.ByteString;
 
 /**
  * Created by Hamid on 3/31/2016.
  */
-public class PipeReceivedCallRouter {
+public class PipeReceivedCallRouter_DEP {
 	private static ExecutorService singleReciverHandlerExecuter = Executors.newSingleThreadExecutor();
 
     static {
@@ -78,17 +78,19 @@ public class PipeReceivedCallRouter {
 				ir.ms.pb.PB_CommandToClient pbCommandToClient = ir.ms.pb.PB_CommandToClient.parseFrom(body.toByteArray());
 				Log.i("WS: " ,"onMessage: message Command :" + pbCommandToClient.getCommand() + " " + pbCommandToClient.getServerCallId() + " size: " + pbCommandToClient.getData().size());
 
-				if (pbCommandToClient.getCommand().equals(Constants.PB_CommandReceivedToServer)) {
-					Long clientCallId =  PB_CommandReceivedToServer.parseFrom(pbCommandToClient.getData()).getClientCallId();
+				if (pbCommandToClient.getCommand().equals(Constants.PB_CommandReachedToServer)) {
+					Long clientCallId =  PB_CommandReachedToServer.parseFrom(pbCommandToClient.getData()).getClientCallId();
 					CallRespondCallbacksRegistery.tryReachedServer(clientCallId);
 					return;
 				}
 
-				if (pbCommandToClient.getServerCallId() != 0) {//respond call
+				if (pbCommandToClient.getRespondReached() == true && pbCommandToClient.getServerCallId() != 0) {//respond call
 					PipeWS.getInstance().sendToServer_CallReceivedToAndroid(pbCommandToClient.getServerCallId());
 				}
 
-				if (pbCommandToClient.getCommand().equals("CallReceivedToServer")) {
+				PipeReceivedCallRouter_DEP.handlePushes(pbCommandToClient.getCommand(), pbCommandToClient.getData().toByteArray() );
+
+				/*if (pbCommandToClient.getCommand().equals("CallReceivedToServer")) {
 					CallRespondCallbacksRegistery.tryReachedServer(pbCommandToClient.getServerCallId());
 					return;
 				}else if(pbCommandToClient.getCommand().equals("CallResponse")){
@@ -96,7 +98,7 @@ public class PipeReceivedCallRouter {
 				}else {
 					PipeReceivedCallRouter.handlePushes(pbCommandToClient.getCommand(), pbCommandToClient.getData().toByteArray() );
 
-				}
+				}*/
 
 			}catch (Exception e){
 				e.printStackTrace();

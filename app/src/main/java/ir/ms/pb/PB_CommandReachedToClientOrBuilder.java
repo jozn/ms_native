@@ -3,8 +3,8 @@
 
 package ir.ms.pb;
 
-public interface PB_CommandReceivedToClientOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:PB_CommandReceivedToClient)
+public interface PB_CommandReachedToClientOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:PB_CommandReachedToClient)
     com.google.protobuf.MessageLiteOrBuilder {
 
   /**

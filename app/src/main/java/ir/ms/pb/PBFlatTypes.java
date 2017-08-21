@@ -538,24 +538,26 @@ public class PBFlatTypes {
 	public class PB_CommandToServer {
 	   public long ClientCallId;
 	   public String Command;
+	   public boolean RespondReached;
 	   public byte[] Data;
 	}
 
 	public class PB_CommandToClient {
 	   public long ServerCallId;
 	   public String Command;
+	   public boolean RespondReached;
 	   public byte[] Data;
 	}
 
-	public class PB_CommandReceivedToServer {
+	public class PB_CommandReachedToServer {
 	   public long ClientCallId;
 	}
 
-	public class PB_CommandReceivedToClient {
+	public class PB_CommandReachedToClient {
 	   public long ServerCallId;
 	}
 
-	public class PB_ResToClient {
+	public class PB_ResponseToClient {
 	   public long ClientCallId;
 	   public String PBClass;
 	   public byte[] Data;

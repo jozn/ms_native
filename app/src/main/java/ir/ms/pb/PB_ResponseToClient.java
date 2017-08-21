@@ -4,14 +4,14 @@
 package ir.ms.pb;
 
 /**
- * Protobuf type {@code PB_ResToClient}
+ * Protobuf type {@code PB_ResponseToClient}
  */
-public  final class PB_ResToClient extends
+public  final class PB_ResponseToClient extends
     com.google.protobuf.GeneratedMessageLite<
-        PB_ResToClient, PB_ResToClient.Builder> implements
-    // @@protoc_insertion_point(message_implements:PB_ResToClient)
-    PB_ResToClientOrBuilder {
-  private PB_ResToClient() {
+        PB_ResponseToClient, PB_ResponseToClient.Builder> implements
+    // @@protoc_insertion_point(message_implements:PB_ResponseToClient)
+    PB_ResponseToClientOrBuilder {
+  private PB_ResponseToClient() {
     pBClass_ = "";
     data_ = com.google.protobuf.ByteString.EMPTY;
   }
@@ -144,60 +144,60 @@ public  final class PB_ResToClient extends
     return size;
   }
 
-  public static ir.ms.pb.PB_ResToClient parseFrom(
+  public static ir.ms.pb.PB_ResponseToClient parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data);
   }
-  public static ir.ms.pb.PB_ResToClient parseFrom(
+  public static ir.ms.pb.PB_ResponseToClient parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
-  public static ir.ms.pb.PB_ResToClient parseFrom(byte[] data)
+  public static ir.ms.pb.PB_ResponseToClient parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data);
   }
-  public static ir.ms.pb.PB_ResToClient parseFrom(
+  public static ir.ms.pb.PB_ResponseToClient parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
-  public static ir.ms.pb.PB_ResToClient parseFrom(java.io.InputStream input)
+  public static ir.ms.pb.PB_ResponseToClient parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, input);
   }
-  public static ir.ms.pb.PB_ResToClient parseFrom(
+  public static ir.ms.pb.PB_ResponseToClient parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, input, extensionRegistry);
   }
-  public static ir.ms.pb.PB_ResToClient parseDelimitedFrom(java.io.InputStream input)
+  public static ir.ms.pb.PB_ResponseToClient parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input);
   }
-  public static ir.ms.pb.PB_ResToClient parseDelimitedFrom(
+  public static ir.ms.pb.PB_ResponseToClient parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
   }
-  public static ir.ms.pb.PB_ResToClient parseFrom(
+  public static ir.ms.pb.PB_ResponseToClient parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, input);
   }
-  public static ir.ms.pb.PB_ResToClient parseFrom(
+  public static ir.ms.pb.PB_ResponseToClient parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -208,19 +208,19 @@ public  final class PB_ResToClient extends
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(ir.ms.pb.PB_ResToClient prototype) {
+  public static Builder newBuilder(ir.ms.pb.PB_ResponseToClient prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
 
   /**
-   * Protobuf type {@code PB_ResToClient}
+   * Protobuf type {@code PB_ResponseToClient}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageLite.Builder<
-        ir.ms.pb.PB_ResToClient, Builder> implements
-      // @@protoc_insertion_point(builder_implements:PB_ResToClient)
-      ir.ms.pb.PB_ResToClientOrBuilder {
-    // Construct using ir.ms.pb.PB_ResToClient.newBuilder()
+        ir.ms.pb.PB_ResponseToClient, Builder> implements
+      // @@protoc_insertion_point(builder_implements:PB_ResponseToClient)
+      ir.ms.pb.PB_ResponseToClientOrBuilder {
+    // Construct using ir.ms.pb.PB_ResponseToClient.newBuilder()
     private Builder() {
       super(DEFAULT_INSTANCE);
     }
@@ -312,14 +312,14 @@ public  final class PB_ResToClient extends
       return this;
     }
 
-    // @@protoc_insertion_point(builder_scope:PB_ResToClient)
+    // @@protoc_insertion_point(builder_scope:PB_ResponseToClient)
   }
   protected final Object dynamicMethod(
       com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
       Object arg0, Object arg1) {
     switch (method) {
       case NEW_MUTABLE_INSTANCE: {
-        return new ir.ms.pb.PB_ResToClient();
+        return new ir.ms.pb.PB_ResponseToClient();
       }
       case IS_INITIALIZED: {
         return DEFAULT_INSTANCE;
@@ -332,7 +332,7 @@ public  final class PB_ResToClient extends
       }
       case VISIT: {
         Visitor visitor = (Visitor) arg0;
-        ir.ms.pb.PB_ResToClient other = (ir.ms.pb.PB_ResToClient) arg1;
+        ir.ms.pb.PB_ResponseToClient other = (ir.ms.pb.PB_ResponseToClient) arg1;
         clientCallId_ = visitor.visitLong(clientCallId_ != 0L, clientCallId_,
             other.clientCallId_ != 0L, other.clientCallId_);
         pBClass_ = visitor.visitString(!pBClass_.isEmpty(), pBClass_,
@@ -394,7 +394,7 @@ public  final class PB_ResToClient extends
         return DEFAULT_INSTANCE;
       }
       case GET_PARSER: {
-        if (PARSER == null) {    synchronized (ir.ms.pb.PB_ResToClient.class) {
+        if (PARSER == null) {    synchronized (ir.ms.pb.PB_ResponseToClient.class) {
             if (PARSER == null) {
               PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
             }
@@ -407,20 +407,20 @@ public  final class PB_ResToClient extends
   }
 
 
-  // @@protoc_insertion_point(class_scope:PB_ResToClient)
-  private static final ir.ms.pb.PB_ResToClient DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:PB_ResponseToClient)
+  private static final ir.ms.pb.PB_ResponseToClient DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new PB_ResToClient();
+    DEFAULT_INSTANCE = new PB_ResponseToClient();
     DEFAULT_INSTANCE.makeImmutable();
   }
 
-  public static ir.ms.pb.PB_ResToClient getDefaultInstance() {
+  public static ir.ms.pb.PB_ResponseToClient getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static volatile com.google.protobuf.Parser<PB_ResToClient> PARSER;
+  private static volatile com.google.protobuf.Parser<PB_ResponseToClient> PARSER;
 
-  public static com.google.protobuf.Parser<PB_ResToClient> parser() {
+  public static com.google.protobuf.Parser<PB_ResponseToClient> parser() {
     return DEFAULT_INSTANCE.getParserForType();
   }
 }

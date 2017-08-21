@@ -4,42 +4,42 @@
 package ir.ms.pb;
 
 /**
- * Protobuf type {@code PB_CommandReceivedToClient}
+ * Protobuf type {@code PB_CommandReachedToServer}
  */
-public  final class PB_CommandReceivedToClient extends
+public  final class PB_CommandReachedToServer extends
     com.google.protobuf.GeneratedMessageLite<
-        PB_CommandReceivedToClient, PB_CommandReceivedToClient.Builder> implements
-    // @@protoc_insertion_point(message_implements:PB_CommandReceivedToClient)
-    PB_CommandReceivedToClientOrBuilder {
-  private PB_CommandReceivedToClient() {
+        PB_CommandReachedToServer, PB_CommandReachedToServer.Builder> implements
+    // @@protoc_insertion_point(message_implements:PB_CommandReachedToServer)
+    PB_CommandReachedToServerOrBuilder {
+  private PB_CommandReachedToServer() {
   }
-  public static final int SERVERCALLID_FIELD_NUMBER = 1;
-  private long serverCallId_;
+  public static final int CLIENTCALLID_FIELD_NUMBER = 1;
+  private long clientCallId_;
   /**
-   * <code>int64 ServerCallId = 1;</code>
+   * <code>int64 ClientCallId = 1;</code>
    */
-  public long getServerCallId() {
-    return serverCallId_;
+  public long getClientCallId() {
+    return clientCallId_;
   }
   /**
-   * <code>int64 ServerCallId = 1;</code>
+   * <code>int64 ClientCallId = 1;</code>
    */
-  private void setServerCallId(long value) {
+  private void setClientCallId(long value) {
     
-    serverCallId_ = value;
+    clientCallId_ = value;
   }
   /**
-   * <code>int64 ServerCallId = 1;</code>
+   * <code>int64 ClientCallId = 1;</code>
    */
-  private void clearServerCallId() {
+  private void clearClientCallId() {
     
-    serverCallId_ = 0L;
+    clientCallId_ = 0L;
   }
 
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (serverCallId_ != 0L) {
-      output.writeInt64(1, serverCallId_);
+    if (clientCallId_ != 0L) {
+      output.writeInt64(1, clientCallId_);
     }
   }
 
@@ -48,68 +48,68 @@ public  final class PB_CommandReceivedToClient extends
     if (size != -1) return size;
 
     size = 0;
-    if (serverCallId_ != 0L) {
+    if (clientCallId_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(1, serverCallId_);
+        .computeInt64Size(1, clientCallId_);
     }
     memoizedSerializedSize = size;
     return size;
   }
 
-  public static ir.ms.pb.PB_CommandReceivedToClient parseFrom(
+  public static ir.ms.pb.PB_CommandReachedToServer parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data);
   }
-  public static ir.ms.pb.PB_CommandReceivedToClient parseFrom(
+  public static ir.ms.pb.PB_CommandReachedToServer parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
-  public static ir.ms.pb.PB_CommandReceivedToClient parseFrom(byte[] data)
+  public static ir.ms.pb.PB_CommandReachedToServer parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data);
   }
-  public static ir.ms.pb.PB_CommandReceivedToClient parseFrom(
+  public static ir.ms.pb.PB_CommandReachedToServer parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
-  public static ir.ms.pb.PB_CommandReceivedToClient parseFrom(java.io.InputStream input)
+  public static ir.ms.pb.PB_CommandReachedToServer parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, input);
   }
-  public static ir.ms.pb.PB_CommandReceivedToClient parseFrom(
+  public static ir.ms.pb.PB_CommandReachedToServer parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, input, extensionRegistry);
   }
-  public static ir.ms.pb.PB_CommandReceivedToClient parseDelimitedFrom(java.io.InputStream input)
+  public static ir.ms.pb.PB_CommandReachedToServer parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input);
   }
-  public static ir.ms.pb.PB_CommandReceivedToClient parseDelimitedFrom(
+  public static ir.ms.pb.PB_CommandReachedToServer parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
   }
-  public static ir.ms.pb.PB_CommandReceivedToClient parseFrom(
+  public static ir.ms.pb.PB_CommandReachedToServer parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, input);
   }
-  public static ir.ms.pb.PB_CommandReceivedToClient parseFrom(
+  public static ir.ms.pb.PB_CommandReachedToServer parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -120,55 +120,55 @@ public  final class PB_CommandReceivedToClient extends
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(ir.ms.pb.PB_CommandReceivedToClient prototype) {
+  public static Builder newBuilder(ir.ms.pb.PB_CommandReachedToServer prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
 
   /**
-   * Protobuf type {@code PB_CommandReceivedToClient}
+   * Protobuf type {@code PB_CommandReachedToServer}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageLite.Builder<
-        ir.ms.pb.PB_CommandReceivedToClient, Builder> implements
-      // @@protoc_insertion_point(builder_implements:PB_CommandReceivedToClient)
-      ir.ms.pb.PB_CommandReceivedToClientOrBuilder {
-    // Construct using ir.ms.pb.PB_CommandReceivedToClient.newBuilder()
+        ir.ms.pb.PB_CommandReachedToServer, Builder> implements
+      // @@protoc_insertion_point(builder_implements:PB_CommandReachedToServer)
+      ir.ms.pb.PB_CommandReachedToServerOrBuilder {
+    // Construct using ir.ms.pb.PB_CommandReachedToServer.newBuilder()
     private Builder() {
       super(DEFAULT_INSTANCE);
     }
 
 
     /**
-     * <code>int64 ServerCallId = 1;</code>
+     * <code>int64 ClientCallId = 1;</code>
      */
-    public long getServerCallId() {
-      return instance.getServerCallId();
+    public long getClientCallId() {
+      return instance.getClientCallId();
     }
     /**
-     * <code>int64 ServerCallId = 1;</code>
+     * <code>int64 ClientCallId = 1;</code>
      */
-    public Builder setServerCallId(long value) {
+    public Builder setClientCallId(long value) {
       copyOnWrite();
-      instance.setServerCallId(value);
+      instance.setClientCallId(value);
       return this;
     }
     /**
-     * <code>int64 ServerCallId = 1;</code>
+     * <code>int64 ClientCallId = 1;</code>
      */
-    public Builder clearServerCallId() {
+    public Builder clearClientCallId() {
       copyOnWrite();
-      instance.clearServerCallId();
+      instance.clearClientCallId();
       return this;
     }
 
-    // @@protoc_insertion_point(builder_scope:PB_CommandReceivedToClient)
+    // @@protoc_insertion_point(builder_scope:PB_CommandReachedToServer)
   }
   protected final Object dynamicMethod(
       com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
       Object arg0, Object arg1) {
     switch (method) {
       case NEW_MUTABLE_INSTANCE: {
-        return new ir.ms.pb.PB_CommandReceivedToClient();
+        return new ir.ms.pb.PB_CommandReachedToServer();
       }
       case IS_INITIALIZED: {
         return DEFAULT_INSTANCE;
@@ -181,9 +181,9 @@ public  final class PB_CommandReceivedToClient extends
       }
       case VISIT: {
         Visitor visitor = (Visitor) arg0;
-        ir.ms.pb.PB_CommandReceivedToClient other = (ir.ms.pb.PB_CommandReceivedToClient) arg1;
-        serverCallId_ = visitor.visitLong(serverCallId_ != 0L, serverCallId_,
-            other.serverCallId_ != 0L, other.serverCallId_);
+        ir.ms.pb.PB_CommandReachedToServer other = (ir.ms.pb.PB_CommandReachedToServer) arg1;
+        clientCallId_ = visitor.visitLong(clientCallId_ != 0L, clientCallId_,
+            other.clientCallId_ != 0L, other.clientCallId_);
         if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
             .INSTANCE) {
         }
@@ -210,7 +210,7 @@ public  final class PB_CommandReceivedToClient extends
               }
               case 8: {
 
-                serverCallId_ = input.readInt64();
+                clientCallId_ = input.readInt64();
                 break;
               }
             }
@@ -228,7 +228,7 @@ public  final class PB_CommandReceivedToClient extends
         return DEFAULT_INSTANCE;
       }
       case GET_PARSER: {
-        if (PARSER == null) {    synchronized (ir.ms.pb.PB_CommandReceivedToClient.class) {
+        if (PARSER == null) {    synchronized (ir.ms.pb.PB_CommandReachedToServer.class) {
             if (PARSER == null) {
               PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
             }
@@ -241,20 +241,20 @@ public  final class PB_CommandReceivedToClient extends
   }
 
 
-  // @@protoc_insertion_point(class_scope:PB_CommandReceivedToClient)
-  private static final ir.ms.pb.PB_CommandReceivedToClient DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:PB_CommandReachedToServer)
+  private static final ir.ms.pb.PB_CommandReachedToServer DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new PB_CommandReceivedToClient();
+    DEFAULT_INSTANCE = new PB_CommandReachedToServer();
     DEFAULT_INSTANCE.makeImmutable();
   }
 
-  public static ir.ms.pb.PB_CommandReceivedToClient getDefaultInstance() {
+  public static ir.ms.pb.PB_CommandReachedToServer getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static volatile com.google.protobuf.Parser<PB_CommandReceivedToClient> PARSER;
+  private static volatile com.google.protobuf.Parser<PB_CommandReachedToServer> PARSER;
 
-  public static com.google.protobuf.Parser<PB_CommandReceivedToClient> parser() {
+  public static com.google.protobuf.Parser<PB_CommandReachedToServer> parser() {
     return DEFAULT_INSTANCE.getParserForType();
   }
 }

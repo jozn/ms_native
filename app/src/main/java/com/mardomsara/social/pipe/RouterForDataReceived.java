@@ -1,0 +1,81 @@
+package com.mardomsara.social.pipe;
+
+import android.util.Log;
+
+import com.mardomsara.social.app.Constants;
+import com.mardomsara.social.helpers.AppUtil;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+import ir.ms.pb.PB_CommandReachedToServer;
+import okio.ByteString;
+
+/**
+ * Created by Hamid on 8/21/2017.
+ */
+
+final class RouterForDataReceived {
+	private static ExecutorService singleReciverHandlerExecuter = Executors.newSingleThreadExecutor();
+
+	static {
+		buildMapper();
+	}
+	private static Map<String,PipeNetEventHandler> mapper;
+
+	private static void handlePushes(String command, byte[] data){
+
+		try {
+			PipeNetEventHandler handler =  mapper.get(command);
+			if(handler != null){
+				handler.handle(data);
+			}else if(command.equals("TimeMs")) {
+//				TimeMs(data);
+			}else {
+				AppUtil.error(" ws NetEventRouter for "+ command +" has not been registered. ");
+			}
+		}catch (Exception e){
+			e.printStackTrace();
+		}
+	}
+
+	private static void register(String command, PipeNetEventHandler handler){
+		mapper.put(command,handler);
+	}
+
+	private static void buildMapper() {
+		mapper = new HashMap<>();
+
+		register("PB_CommandReachedToServer", RouterLayerOneHandler.handle_PB_CommandReachedToServer);
+		register("PB_ResponseToClient", RouterLayerOneHandler.handle_PB_ResponseToClient);
+		register("PB_PushDirectLogViewsMany", RouterLayerOneHandler.handle_PB_PushDirectLogViewsMany);
+	}
+
+	static void handleNetWSMessage(ByteString body) {
+		if(body == null) return;
+
+		Runnable r = ()->{
+			try {
+				ir.ms.pb.PB_CommandToClient pbCommandToClient = ir.ms.pb.PB_CommandToClient.parseFrom(body.toByteArray());
+				Log.i("WS: " ,"onMessage: message Command :" + pbCommandToClient.getCommand() + " " + pbCommandToClient.getServerCallId() + " size: " + pbCommandToClient.getData().size());
+
+				if (pbCommandToClient.getCommand().equals(Constants.PB_CommandReachedToServer)) {
+					Long clientCallId =  PB_CommandReachedToServer.parseFrom(pbCommandToClient.getData()).getClientCallId();
+					CallRespondCallbacksRegistery.tryReachedServer(clientCallId);
+					return;
+				}
+
+				if (pbCommandToClient.getRespondReached() == true && pbCommandToClient.getServerCallId() != 0) {//respond call
+					PipeWS.getInstance().sendToServer_CallReceivedToAndroid(pbCommandToClient.getServerCallId());
+				}
+
+				handlePushes(pbCommandToClient.getCommand(), pbCommandToClient.getData().toByteArray() );
+			}catch (Exception e){
+				e.printStackTrace();
+			}
+		};
+		singleReciverHandlerExecuter.execute(r);
+	}
+}

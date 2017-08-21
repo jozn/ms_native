@@ -11,7 +11,7 @@ import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import ir.ms.pb.PB_CommandReceivedToServer;
+import ir.ms.pb.PB_CommandReachedToServer;
 import okio.ByteString;
 
 /**
@@ -78,8 +78,8 @@ public class PipeReceivedCallRouter {
 				ir.ms.pb.PB_CommandToClient pbCommandToClient = ir.ms.pb.PB_CommandToClient.parseFrom(body.toByteArray());
 				Log.i("WS: " ,"onMessage: message Command :" + pbCommandToClient.getCommand() + " " + pbCommandToClient.getServerCallId() + " size: " + pbCommandToClient.getData().size());
 
-				if (pbCommandToClient.getCommand().equals(Constants.PB_CommandReceivedToServer)) {
-					Long clientCallId =  PB_CommandReceivedToServer.parseFrom(pbCommandToClient.getData()).getClientCallId();
+				if (pbCommandToClient.getCommand().equals(Constants.PB_CommandReachedToServer)) {
+					Long clientCallId =  PB_CommandReachedToServer.parseFrom(pbCommandToClient.getData()).getClientCallId();
 					CallRespondCallbacksRegistery.tryReachedServer(clientCallId);
 					return;
 				}

@@ -17,7 +17,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
 
-import ir.ms.pb.PB_CommandReceivedToClient;
+import ir.ms.pb.PB_CommandReachedToClient;
 import ir.ms.pb.PB_CommandToServer;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -218,9 +218,9 @@ class PipeWS {
 
 
 	void sendToServer_CallReceivedToAndroid(long ServerCallId){
-		PB_CommandReceivedToClient pb = PB_CommandReceivedToClient.newBuilder().setServerCallId(ServerCallId).build();
+		PB_CommandReachedToClient pb = PB_CommandReachedToClient.newBuilder().setServerCallId(ServerCallId).build();
 		Runnable r = ()->{};
-		Pipe.makeCall(Constants.PB_CommandReceivedToClient , pb, r,r);
+		Pipe.makeCall(Constants.PB_CommandReachedToClient, pb, r,r);
 		/*Call_DEP call = new Call_DEP("CallReceivedToClient");
 		call.ClientCallId = 0;//tell server don't respond
 		call.ServerCallId = ServerCallId;

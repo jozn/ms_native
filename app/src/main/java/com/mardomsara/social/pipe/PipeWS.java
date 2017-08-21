@@ -17,7 +17,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
 
-import ir.ms.pb.PB_CommandReceivedToClient;
+import ir.ms.pb.PB_CommandReachedToClient;
 import ir.ms.pb.PB_CommandToServer;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -28,14 +28,6 @@ import okhttp3.WebSocketListener;
 import okio.Buffer;
 import okio.ByteString;
 
-
-//import okhttp3.ws.WebSocket;
-//import okhttp3.ws.WebSocketCall;
-//import okhttp3.ws.WebSocketListener;
-
-/**
- * Created by Hamid on 9/11/2016.
- */
 class PipeWS {
     private static String wsUrl = "ws://192.168.0.10:5000/ws_pb_call?user_id="+ Session.getUserId();
     private static String LOGTAG = "WS";
@@ -218,9 +210,9 @@ class PipeWS {
 
 
 	void sendToServer_CallReceivedToAndroid(long ServerCallId){
-		PB_CommandReceivedToClient pb = PB_CommandReceivedToClient.newBuilder().setServerCallId(ServerCallId).build();
+		PB_CommandReachedToClient pb = PB_CommandReachedToClient.newBuilder().setServerCallId(ServerCallId).build();
 		Runnable r = ()->{};
-		Pipe.makeCall(Constants.PB_CommandReceivedToClient , pb, r,r);
+		Pipe.makeCall(Constants.PB_CommandReachedToClient, pb, r,r);
 		/*Call_DEP call = new Call_DEP("CallReceivedToClient");
 		call.ClientCallId = 0;//tell server don't respond
 		call.ServerCallId = ServerCallId;
@@ -252,7 +244,7 @@ class PipeWS {
 		try {
 			String body =  message.toString();
 			AndroidUtil.runInBackgroundNoPanic(()->{
-				PipeReceivedCallRouter.handleNetWSMessage(message);
+				RouterForDataReceived.handleNetWSMessage(message);
 			});
 		}catch (Exception e){
 			e.printStackTrace();
@@ -320,16 +312,6 @@ class PipeWS {
 			ws.onFailure(t,response);
 		}
 
-        /*@Override
-
-
-        @Override
-        public void onPong(Buffer payload) {
-            ws.onPong(payload);
-        }
-
-        }*/
-
     }
 
     enum STATUS {
@@ -339,31 +321,3 @@ class PipeWS {
     }
 
 }
-
-/*
-void handleNetWSMessage(String body){
-		logIt("onMessage: message :" + body);
-		Call_DEP call = AppUtil.fromJson(body, Call_DEP.class);
-		Log.i("ws", ""+call);
-
-		if(call == null) return;
-
-		Runnable r = ()->{
-			try {
-				if (call.ServerCallId != 0) {//respond call
-					sendToServer_CallReceivedToAndroid(call.ServerCallId);
-				}
-				if (call.Name.equals("CallReceivedToServer")) {
-					CallRespondCallbacksRegistery_DEP.trySucceeded(call.ClientCallId);
-					return;
-				}
-
-				WSCallRouter_DEP.handlePushes(call.Name, call);
-			}catch (Exception e){
-				e.printStackTrace();
-			}
-		};
-		singleReciverHandlerExecuter.execute(r);
-	}
-
-*/

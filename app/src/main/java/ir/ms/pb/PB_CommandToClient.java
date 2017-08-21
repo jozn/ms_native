@@ -84,16 +84,39 @@ public  final class PB_CommandToClient extends
     command_ = value.toStringUtf8();
   }
 
-  public static final int DATA_FIELD_NUMBER = 3;
+  public static final int RESPONDREACHED_FIELD_NUMBER = 3;
+  private boolean respondReached_;
+  /**
+   * <code>bool RespondReached = 3;</code>
+   */
+  public boolean getRespondReached() {
+    return respondReached_;
+  }
+  /**
+   * <code>bool RespondReached = 3;</code>
+   */
+  private void setRespondReached(boolean value) {
+    
+    respondReached_ = value;
+  }
+  /**
+   * <code>bool RespondReached = 3;</code>
+   */
+  private void clearRespondReached() {
+    
+    respondReached_ = false;
+  }
+
+  public static final int DATA_FIELD_NUMBER = 4;
   private com.google.protobuf.ByteString data_;
   /**
-   * <code>bytes Data = 3;</code>
+   * <code>bytes Data = 4;</code>
    */
   public com.google.protobuf.ByteString getData() {
     return data_;
   }
   /**
-   * <code>bytes Data = 3;</code>
+   * <code>bytes Data = 4;</code>
    */
   private void setData(com.google.protobuf.ByteString value) {
     if (value == null) {
@@ -103,7 +126,7 @@ public  final class PB_CommandToClient extends
     data_ = value;
   }
   /**
-   * <code>bytes Data = 3;</code>
+   * <code>bytes Data = 4;</code>
    */
   private void clearData() {
     
@@ -118,8 +141,11 @@ public  final class PB_CommandToClient extends
     if (!command_.isEmpty()) {
       output.writeString(2, getCommand());
     }
+    if (respondReached_ != false) {
+      output.writeBool(3, respondReached_);
+    }
     if (!data_.isEmpty()) {
-      output.writeBytes(3, data_);
+      output.writeBytes(4, data_);
     }
   }
 
@@ -136,9 +162,13 @@ public  final class PB_CommandToClient extends
       size += com.google.protobuf.CodedOutputStream
         .computeStringSize(2, getCommand());
     }
+    if (respondReached_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(3, respondReached_);
+    }
     if (!data_.isEmpty()) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBytesSize(3, data_);
+        .computeBytesSize(4, data_);
     }
     memoizedSerializedSize = size;
     return size;
@@ -290,13 +320,36 @@ public  final class PB_CommandToClient extends
     }
 
     /**
-     * <code>bytes Data = 3;</code>
+     * <code>bool RespondReached = 3;</code>
+     */
+    public boolean getRespondReached() {
+      return instance.getRespondReached();
+    }
+    /**
+     * <code>bool RespondReached = 3;</code>
+     */
+    public Builder setRespondReached(boolean value) {
+      copyOnWrite();
+      instance.setRespondReached(value);
+      return this;
+    }
+    /**
+     * <code>bool RespondReached = 3;</code>
+     */
+    public Builder clearRespondReached() {
+      copyOnWrite();
+      instance.clearRespondReached();
+      return this;
+    }
+
+    /**
+     * <code>bytes Data = 4;</code>
      */
     public com.google.protobuf.ByteString getData() {
       return instance.getData();
     }
     /**
-     * <code>bytes Data = 3;</code>
+     * <code>bytes Data = 4;</code>
      */
     public Builder setData(com.google.protobuf.ByteString value) {
       copyOnWrite();
@@ -304,7 +357,7 @@ public  final class PB_CommandToClient extends
       return this;
     }
     /**
-     * <code>bytes Data = 3;</code>
+     * <code>bytes Data = 4;</code>
      */
     public Builder clearData() {
       copyOnWrite();
@@ -337,6 +390,8 @@ public  final class PB_CommandToClient extends
             other.serverCallId_ != 0L, other.serverCallId_);
         command_ = visitor.visitString(!command_.isEmpty(), command_,
             !other.command_.isEmpty(), other.command_);
+        respondReached_ = visitor.visitBoolean(respondReached_ != false, respondReached_,
+            other.respondReached_ != false, other.respondReached_);
         data_ = visitor.visitByteString(data_ != com.google.protobuf.ByteString.EMPTY, data_,
             other.data_ != com.google.protobuf.ByteString.EMPTY, other.data_);
         if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
@@ -374,7 +429,12 @@ public  final class PB_CommandToClient extends
                 command_ = s;
                 break;
               }
-              case 26: {
+              case 24: {
+
+                respondReached_ = input.readBool();
+                break;
+              }
+              case 34: {
 
                 data_ = input.readBytes();
                 break;
