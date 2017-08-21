@@ -9,88 +9,96 @@ package ir.ms.pb;
 public enum RoomMessageLogEnum
     implements com.google.protobuf.Internal.EnumLite {
   /**
-   * <code>USER_JOINED = 0;</code>
+   * <code>UNKNOWN_ROOM_MESSAGE_LOG = 0;</code>
    */
-  USER_JOINED(0),
+  UNKNOWN_ROOM_MESSAGE_LOG(0),
   /**
-   * <code>USER_DELETED = 1;</code>
+   * <code>USER_JOINED = 1;</code>
    */
-  USER_DELETED(1),
+  USER_JOINED(1),
   /**
-   * <code>ROOM_CREATED = 2;</code>
+   * <code>USER_DELETED = 2;</code>
    */
-  ROOM_CREATED(2),
+  USER_DELETED(2),
   /**
-   * <code>MEMBER_ADDED = 3;</code>
+   * <code>ROOM_CREATED = 3;</code>
    */
-  MEMBER_ADDED(3),
+  ROOM_CREATED(3),
   /**
-   * <code>MEMBER_KICKED = 4;</code>
+   * <code>MEMBER_ADDED = 4;</code>
    */
-  MEMBER_KICKED(4),
+  MEMBER_ADDED(4),
   /**
-   * <code>MEMBER_LEFT = 5;</code>
+   * <code>MEMBER_KICKED = 5;</code>
    */
-  MEMBER_LEFT(5),
+  MEMBER_KICKED(5),
   /**
-   * <code>ROOM_CONVERTED_TO_PUBLIC = 6;</code>
+   * <code>MEMBER_LEFT = 6;</code>
    */
-  ROOM_CONVERTED_TO_PUBLIC(6),
+  MEMBER_LEFT(6),
   /**
-   * <code>ROOM_CONVERTED_TO_PRIVATE = 7;</code>
+   * <code>ROOM_CONVERTED_TO_PUBLIC = 7;</code>
    */
-  ROOM_CONVERTED_TO_PRIVATE(7),
+  ROOM_CONVERTED_TO_PUBLIC(7),
   /**
-   * <code>MEMBER_JOINED_BY_INVITE_LINK = 8;</code>
+   * <code>ROOM_CONVERTED_TO_PRIVATE = 8;</code>
    */
-  MEMBER_JOINED_BY_INVITE_LINK(8),
+  ROOM_CONVERTED_TO_PRIVATE(8),
   /**
-   * <code>ROOM_DELETED = 9;</code>
+   * <code>MEMBER_JOINED_BY_INVITE_LINK = 9;</code>
    */
-  ROOM_DELETED(9),
+  MEMBER_JOINED_BY_INVITE_LINK(9),
+  /**
+   * <code>ROOM_DELETED = 10;</code>
+   */
+  ROOM_DELETED(10),
   UNRECOGNIZED(-1),
   ;
 
   /**
-   * <code>USER_JOINED = 0;</code>
+   * <code>UNKNOWN_ROOM_MESSAGE_LOG = 0;</code>
    */
-  public static final int USER_JOINED_VALUE = 0;
+  public static final int UNKNOWN_ROOM_MESSAGE_LOG_VALUE = 0;
   /**
-   * <code>USER_DELETED = 1;</code>
+   * <code>USER_JOINED = 1;</code>
    */
-  public static final int USER_DELETED_VALUE = 1;
+  public static final int USER_JOINED_VALUE = 1;
   /**
-   * <code>ROOM_CREATED = 2;</code>
+   * <code>USER_DELETED = 2;</code>
    */
-  public static final int ROOM_CREATED_VALUE = 2;
+  public static final int USER_DELETED_VALUE = 2;
   /**
-   * <code>MEMBER_ADDED = 3;</code>
+   * <code>ROOM_CREATED = 3;</code>
    */
-  public static final int MEMBER_ADDED_VALUE = 3;
+  public static final int ROOM_CREATED_VALUE = 3;
   /**
-   * <code>MEMBER_KICKED = 4;</code>
+   * <code>MEMBER_ADDED = 4;</code>
    */
-  public static final int MEMBER_KICKED_VALUE = 4;
+  public static final int MEMBER_ADDED_VALUE = 4;
   /**
-   * <code>MEMBER_LEFT = 5;</code>
+   * <code>MEMBER_KICKED = 5;</code>
    */
-  public static final int MEMBER_LEFT_VALUE = 5;
+  public static final int MEMBER_KICKED_VALUE = 5;
   /**
-   * <code>ROOM_CONVERTED_TO_PUBLIC = 6;</code>
+   * <code>MEMBER_LEFT = 6;</code>
    */
-  public static final int ROOM_CONVERTED_TO_PUBLIC_VALUE = 6;
+  public static final int MEMBER_LEFT_VALUE = 6;
   /**
-   * <code>ROOM_CONVERTED_TO_PRIVATE = 7;</code>
+   * <code>ROOM_CONVERTED_TO_PUBLIC = 7;</code>
    */
-  public static final int ROOM_CONVERTED_TO_PRIVATE_VALUE = 7;
+  public static final int ROOM_CONVERTED_TO_PUBLIC_VALUE = 7;
   /**
-   * <code>MEMBER_JOINED_BY_INVITE_LINK = 8;</code>
+   * <code>ROOM_CONVERTED_TO_PRIVATE = 8;</code>
    */
-  public static final int MEMBER_JOINED_BY_INVITE_LINK_VALUE = 8;
+  public static final int ROOM_CONVERTED_TO_PRIVATE_VALUE = 8;
   /**
-   * <code>ROOM_DELETED = 9;</code>
+   * <code>MEMBER_JOINED_BY_INVITE_LINK = 9;</code>
    */
-  public static final int ROOM_DELETED_VALUE = 9;
+  public static final int MEMBER_JOINED_BY_INVITE_LINK_VALUE = 9;
+  /**
+   * <code>ROOM_DELETED = 10;</code>
+   */
+  public static final int ROOM_DELETED_VALUE = 10;
 
 
   public final int getNumber() {
@@ -107,16 +115,17 @@ public enum RoomMessageLogEnum
 
   public static RoomMessageLogEnum forNumber(int value) {
     switch (value) {
-      case 0: return USER_JOINED;
-      case 1: return USER_DELETED;
-      case 2: return ROOM_CREATED;
-      case 3: return MEMBER_ADDED;
-      case 4: return MEMBER_KICKED;
-      case 5: return MEMBER_LEFT;
-      case 6: return ROOM_CONVERTED_TO_PUBLIC;
-      case 7: return ROOM_CONVERTED_TO_PRIVATE;
-      case 8: return MEMBER_JOINED_BY_INVITE_LINK;
-      case 9: return ROOM_DELETED;
+      case 0: return UNKNOWN_ROOM_MESSAGE_LOG;
+      case 1: return USER_JOINED;
+      case 2: return USER_DELETED;
+      case 3: return ROOM_CREATED;
+      case 4: return MEMBER_ADDED;
+      case 5: return MEMBER_KICKED;
+      case 6: return MEMBER_LEFT;
+      case 7: return ROOM_CONVERTED_TO_PUBLIC;
+      case 8: return ROOM_CONVERTED_TO_PRIVATE;
+      case 9: return MEMBER_JOINED_BY_INVITE_LINK;
+      case 10: return ROOM_DELETED;
       default: return null;
     }
   }

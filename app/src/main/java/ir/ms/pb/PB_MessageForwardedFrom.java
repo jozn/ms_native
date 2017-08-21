@@ -126,7 +126,7 @@ public  final class PB_MessageForwardedFrom extends
     if (roomId_ != 0L) {
       output.writeInt64(1, roomId_);
     }
-    if (roomTypeEnum_ != ir.ms.pb.RoomTypeEnum.DIRECT.getNumber()) {
+    if (roomTypeEnum_ != ir.ms.pb.RoomTypeEnum.UNKNOWN_ROOM_TYPE.getNumber()) {
       output.writeEnum(2, roomTypeEnum_);
     }
     if (messageId_ != 0L) {
@@ -146,7 +146,7 @@ public  final class PB_MessageForwardedFrom extends
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(1, roomId_);
     }
-    if (roomTypeEnum_ != ir.ms.pb.RoomTypeEnum.DIRECT.getNumber()) {
+    if (roomTypeEnum_ != ir.ms.pb.RoomTypeEnum.UNKNOWN_ROOM_TYPE.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(2, roomTypeEnum_);
     }

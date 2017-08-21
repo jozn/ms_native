@@ -9,24 +9,32 @@ package ir.ms.pb;
 public enum RoomMultiPrivacyEnum
     implements com.google.protobuf.Internal.EnumLite {
   /**
-   * <code>PRIVATE_ROOM = 0;</code>
+   * <code>UNKONWN_ROOM_PRIVACY = 0;</code>
    */
-  PRIVATE_ROOM(0),
+  UNKONWN_ROOM_PRIVACY(0),
   /**
-   * <code>PUBLIC_ROOM = 1;</code>
+   * <code>PRIVATE_ROOM = 1;</code>
    */
-  PUBLIC_ROOM(1),
+  PRIVATE_ROOM(1),
+  /**
+   * <code>PUBLIC_ROOM = 2;</code>
+   */
+  PUBLIC_ROOM(2),
   UNRECOGNIZED(-1),
   ;
 
   /**
-   * <code>PRIVATE_ROOM = 0;</code>
+   * <code>UNKONWN_ROOM_PRIVACY = 0;</code>
    */
-  public static final int PRIVATE_ROOM_VALUE = 0;
+  public static final int UNKONWN_ROOM_PRIVACY_VALUE = 0;
   /**
-   * <code>PUBLIC_ROOM = 1;</code>
+   * <code>PRIVATE_ROOM = 1;</code>
    */
-  public static final int PUBLIC_ROOM_VALUE = 1;
+  public static final int PRIVATE_ROOM_VALUE = 1;
+  /**
+   * <code>PUBLIC_ROOM = 2;</code>
+   */
+  public static final int PUBLIC_ROOM_VALUE = 2;
 
 
   public final int getNumber() {
@@ -43,8 +51,9 @@ public enum RoomMultiPrivacyEnum
 
   public static RoomMultiPrivacyEnum forNumber(int value) {
     switch (value) {
-      case 0: return PRIVATE_ROOM;
-      case 1: return PUBLIC_ROOM;
+      case 0: return UNKONWN_ROOM_PRIVACY;
+      case 1: return PRIVATE_ROOM;
+      case 2: return PUBLIC_ROOM;
       default: return null;
     }
   }

@@ -48,9 +48,9 @@ public interface PB_MessageViewOrBuilder extends
       getTextBytes();
 
   /**
-   * <code>int64 CreatedMs = 13;</code>
+   * <code>int32 Time = 13;</code>
    */
-  long getCreatedMs();
+  int getTime();
 
   /**
    * <code>int32 PeerReceivedTime = 15;</code>

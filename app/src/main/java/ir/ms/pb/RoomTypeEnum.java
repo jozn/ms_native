@@ -9,48 +9,56 @@ package ir.ms.pb;
 public enum RoomTypeEnum
     implements com.google.protobuf.Internal.EnumLite {
   /**
-   * <code>DIRECT = 0;</code>
+   * <code>UNKNOWN_ROOM_TYPE = 0;</code>
    */
-  DIRECT(0),
+  UNKNOWN_ROOM_TYPE(0),
   /**
-   * <code>GROUP = 1;</code>
+   * <code>DIRECT = 1;</code>
    */
-  GROUP(1),
+  DIRECT(1),
   /**
-   * <code>CHANNEL = 2;</code>
+   * <code>GROUP = 2;</code>
    */
-  CHANNEL(2),
+  GROUP(2),
+  /**
+   * <code>CHANNEL = 3;</code>
+   */
+  CHANNEL(3),
   /**
    * <pre>
    *    BULK = 3;
    * </pre>
    *
-   * <code>BROADCAST = 3;</code>
+   * <code>BROADCAST = 4;</code>
    */
-  BROADCAST(3),
+  BROADCAST(4),
   UNRECOGNIZED(-1),
   ;
 
   /**
-   * <code>DIRECT = 0;</code>
+   * <code>UNKNOWN_ROOM_TYPE = 0;</code>
    */
-  public static final int DIRECT_VALUE = 0;
+  public static final int UNKNOWN_ROOM_TYPE_VALUE = 0;
   /**
-   * <code>GROUP = 1;</code>
+   * <code>DIRECT = 1;</code>
    */
-  public static final int GROUP_VALUE = 1;
+  public static final int DIRECT_VALUE = 1;
   /**
-   * <code>CHANNEL = 2;</code>
+   * <code>GROUP = 2;</code>
    */
-  public static final int CHANNEL_VALUE = 2;
+  public static final int GROUP_VALUE = 2;
+  /**
+   * <code>CHANNEL = 3;</code>
+   */
+  public static final int CHANNEL_VALUE = 3;
   /**
    * <pre>
    *    BULK = 3;
    * </pre>
    *
-   * <code>BROADCAST = 3;</code>
+   * <code>BROADCAST = 4;</code>
    */
-  public static final int BROADCAST_VALUE = 3;
+  public static final int BROADCAST_VALUE = 4;
 
 
   public final int getNumber() {
@@ -67,10 +75,11 @@ public enum RoomTypeEnum
 
   public static RoomTypeEnum forNumber(int value) {
     switch (value) {
-      case 0: return DIRECT;
-      case 1: return GROUP;
-      case 2: return CHANNEL;
-      case 3: return BROADCAST;
+      case 0: return UNKNOWN_ROOM_TYPE;
+      case 1: return DIRECT;
+      case 2: return GROUP;
+      case 3: return CHANNEL;
+      case 4: return BROADCAST;
       default: return null;
     }
   }

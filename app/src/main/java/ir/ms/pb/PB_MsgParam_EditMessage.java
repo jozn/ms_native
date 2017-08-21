@@ -154,7 +154,7 @@ public  final class PB_MsgParam_EditMessage extends
     if (chatId_ != 0L) {
       output.writeInt64(1, chatId_);
     }
-    if (roomType_ != ir.ms.pb.RoomTypeEnum.DIRECT.getNumber()) {
+    if (roomType_ != ir.ms.pb.RoomTypeEnum.UNKNOWN_ROOM_TYPE.getNumber()) {
       output.writeEnum(2, roomType_);
     }
     if (messageId_ != 0L) {
@@ -174,7 +174,7 @@ public  final class PB_MsgParam_EditMessage extends
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(1, chatId_);
     }
-    if (roomType_ != ir.ms.pb.RoomTypeEnum.DIRECT.getNumber()) {
+    if (roomType_ != ir.ms.pb.RoomTypeEnum.UNKNOWN_ROOM_TYPE.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(2, roomType_);
     }

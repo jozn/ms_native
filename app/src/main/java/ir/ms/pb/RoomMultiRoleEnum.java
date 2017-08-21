@@ -9,40 +9,48 @@ package ir.ms.pb;
 public enum RoomMultiRoleEnum
     implements com.google.protobuf.Internal.EnumLite {
   /**
-   * <code>MEMBER = 0;</code>
+   * <code>UNKNOWN_ROOM_ROLE = 0;</code>
    */
-  MEMBER(0),
+  UNKNOWN_ROOM_ROLE(0),
   /**
-   * <code>MODERATOR = 1;</code>
+   * <code>MEMBER = 1;</code>
    */
-  MODERATOR(1),
+  MEMBER(1),
   /**
-   * <code>ADMIN = 2;</code>
+   * <code>MODERATOR = 2;</code>
    */
-  ADMIN(2),
+  MODERATOR(2),
   /**
-   * <code>OWNER = 3;</code>
+   * <code>ADMIN = 3;</code>
    */
-  OWNER(3),
+  ADMIN(3),
+  /**
+   * <code>OWNER = 4;</code>
+   */
+  OWNER(4),
   UNRECOGNIZED(-1),
   ;
 
   /**
-   * <code>MEMBER = 0;</code>
+   * <code>UNKNOWN_ROOM_ROLE = 0;</code>
    */
-  public static final int MEMBER_VALUE = 0;
+  public static final int UNKNOWN_ROOM_ROLE_VALUE = 0;
   /**
-   * <code>MODERATOR = 1;</code>
+   * <code>MEMBER = 1;</code>
    */
-  public static final int MODERATOR_VALUE = 1;
+  public static final int MEMBER_VALUE = 1;
   /**
-   * <code>ADMIN = 2;</code>
+   * <code>MODERATOR = 2;</code>
    */
-  public static final int ADMIN_VALUE = 2;
+  public static final int MODERATOR_VALUE = 2;
   /**
-   * <code>OWNER = 3;</code>
+   * <code>ADMIN = 3;</code>
    */
-  public static final int OWNER_VALUE = 3;
+  public static final int ADMIN_VALUE = 3;
+  /**
+   * <code>OWNER = 4;</code>
+   */
+  public static final int OWNER_VALUE = 4;
 
 
   public final int getNumber() {
@@ -59,10 +67,11 @@ public enum RoomMultiRoleEnum
 
   public static RoomMultiRoleEnum forNumber(int value) {
     switch (value) {
-      case 0: return MEMBER;
-      case 1: return MODERATOR;
-      case 2: return ADMIN;
-      case 3: return OWNER;
+      case 0: return UNKNOWN_ROOM_ROLE;
+      case 1: return MEMBER;
+      case 2: return MODERATOR;
+      case 3: return ADMIN;
+      case 4: return OWNER;
       default: return null;
     }
   }

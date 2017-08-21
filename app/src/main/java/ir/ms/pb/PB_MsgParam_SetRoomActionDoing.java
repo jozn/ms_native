@@ -134,7 +134,7 @@ public  final class PB_MsgParam_SetRoomActionDoing extends
     if (!directRoomKey_.isEmpty()) {
       output.writeString(102, getDirectRoomKey());
     }
-    if (actionType_ != ir.ms.pb.RoomActionDoingEnum.CANCEL.getNumber()) {
+    if (actionType_ != ir.ms.pb.RoomActionDoingEnum.UNKNOWN_ROOM_ACTION_DOING.getNumber()) {
       output.writeEnum(1020, actionType_);
     }
   }
@@ -152,7 +152,7 @@ public  final class PB_MsgParam_SetRoomActionDoing extends
       size += com.google.protobuf.CodedOutputStream
         .computeStringSize(102, getDirectRoomKey());
     }
-    if (actionType_ != ir.ms.pb.RoomActionDoingEnum.CANCEL.getNumber()) {
+    if (actionType_ != ir.ms.pb.RoomActionDoingEnum.UNKNOWN_ROOM_ACTION_DOING.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(1020, actionType_);
     }

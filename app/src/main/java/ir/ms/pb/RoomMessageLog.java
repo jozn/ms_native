@@ -136,7 +136,7 @@ public  final class RoomMessageLog extends
 
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (typ_ != ir.ms.pb.RoomMessageLogEnum.USER_JOINED.getNumber()) {
+    if (typ_ != ir.ms.pb.RoomMessageLogEnum.UNKNOWN_ROOM_MESSAGE_LOG.getNumber()) {
       output.writeEnum(1, typ_);
     }
     if (targetUserId_ != 0L) {
@@ -152,7 +152,7 @@ public  final class RoomMessageLog extends
     if (size != -1) return size;
 
     size = 0;
-    if (typ_ != ir.ms.pb.RoomMessageLogEnum.USER_JOINED.getNumber()) {
+    if (typ_ != ir.ms.pb.RoomMessageLogEnum.UNKNOWN_ROOM_MESSAGE_LOG.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(1, typ_);
     }

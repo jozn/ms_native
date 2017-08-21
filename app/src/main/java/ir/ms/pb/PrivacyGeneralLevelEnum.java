@@ -9,56 +9,64 @@ package ir.ms.pb;
 public enum PrivacyGeneralLevelEnum
     implements com.google.protobuf.Internal.EnumLite {
   /**
-   * <code>ALLOW_ALL = 0;</code>
+   * <code>UNKNOWN_PRICACY_GENRAL = 0;</code>
    */
-  ALLOW_ALL(0),
+  UNKNOWN_PRICACY_GENRAL(0),
   /**
-   * <code>DENY_ALL = 1;</code>
+   * <code>ALLOW_ALL = 1;</code>
    */
-  DENY_ALL(1),
+  ALLOW_ALL(1),
   /**
-   * <code>ALLOW_CONTACTS = 2;</code>
+   * <code>DENY_ALL = 2;</code>
    */
-  ALLOW_CONTACTS(2),
+  DENY_ALL(2),
   /**
-   * <code>ALLOW_Followers = 3;</code>
+   * <code>ALLOW_CONTACTS = 3;</code>
    */
-  ALLOW_Followers(3),
+  ALLOW_CONTACTS(3),
   /**
-   * <code>ALLOW_Followings = 4;</code>
+   * <code>ALLOW_Followers = 4;</code>
    */
-  ALLOW_Followings(4),
+  ALLOW_Followers(4),
   /**
-   * <code>ALLOW_All_Followings = 5;</code>
+   * <code>ALLOW_Followings = 5;</code>
    */
-  ALLOW_All_Followings(5),
+  ALLOW_Followings(5),
+  /**
+   * <code>ALLOW_All_Followings = 6;</code>
+   */
+  ALLOW_All_Followings(6),
   UNRECOGNIZED(-1),
   ;
 
   /**
-   * <code>ALLOW_ALL = 0;</code>
+   * <code>UNKNOWN_PRICACY_GENRAL = 0;</code>
    */
-  public static final int ALLOW_ALL_VALUE = 0;
+  public static final int UNKNOWN_PRICACY_GENRAL_VALUE = 0;
   /**
-   * <code>DENY_ALL = 1;</code>
+   * <code>ALLOW_ALL = 1;</code>
    */
-  public static final int DENY_ALL_VALUE = 1;
+  public static final int ALLOW_ALL_VALUE = 1;
   /**
-   * <code>ALLOW_CONTACTS = 2;</code>
+   * <code>DENY_ALL = 2;</code>
    */
-  public static final int ALLOW_CONTACTS_VALUE = 2;
+  public static final int DENY_ALL_VALUE = 2;
   /**
-   * <code>ALLOW_Followers = 3;</code>
+   * <code>ALLOW_CONTACTS = 3;</code>
    */
-  public static final int ALLOW_Followers_VALUE = 3;
+  public static final int ALLOW_CONTACTS_VALUE = 3;
   /**
-   * <code>ALLOW_Followings = 4;</code>
+   * <code>ALLOW_Followers = 4;</code>
    */
-  public static final int ALLOW_Followings_VALUE = 4;
+  public static final int ALLOW_Followers_VALUE = 4;
   /**
-   * <code>ALLOW_All_Followings = 5;</code>
+   * <code>ALLOW_Followings = 5;</code>
    */
-  public static final int ALLOW_All_Followings_VALUE = 5;
+  public static final int ALLOW_Followings_VALUE = 5;
+  /**
+   * <code>ALLOW_All_Followings = 6;</code>
+   */
+  public static final int ALLOW_All_Followings_VALUE = 6;
 
 
   public final int getNumber() {
@@ -75,12 +83,13 @@ public enum PrivacyGeneralLevelEnum
 
   public static PrivacyGeneralLevelEnum forNumber(int value) {
     switch (value) {
-      case 0: return ALLOW_ALL;
-      case 1: return DENY_ALL;
-      case 2: return ALLOW_CONTACTS;
-      case 3: return ALLOW_Followers;
-      case 4: return ALLOW_Followings;
-      case 5: return ALLOW_All_Followings;
+      case 0: return UNKNOWN_PRICACY_GENRAL;
+      case 1: return ALLOW_ALL;
+      case 2: return DENY_ALL;
+      case 3: return ALLOW_CONTACTS;
+      case 4: return ALLOW_Followers;
+      case 5: return ALLOW_Followings;
+      case 6: return ALLOW_All_Followings;
       default: return null;
     }
   }

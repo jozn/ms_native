@@ -9,9 +9,9 @@ package ir.ms.pb;
 public enum DirectMessageSourceEnum
     implements com.google.protobuf.Internal.EnumLite {
   /**
-   * <code>EMPTY_SOURCE = 0;</code>
+   * <code>UNKNOWN_DIRECT_SOURCE = 0;</code>
    */
-  EMPTY_SOURCE(0),
+  UNKNOWN_DIRECT_SOURCE(0),
   /**
    * <code>COMPOSE_SOURCE = 1;</code>
    */
@@ -32,9 +32,9 @@ public enum DirectMessageSourceEnum
   ;
 
   /**
-   * <code>EMPTY_SOURCE = 0;</code>
+   * <code>UNKNOWN_DIRECT_SOURCE = 0;</code>
    */
-  public static final int EMPTY_SOURCE_VALUE = 0;
+  public static final int UNKNOWN_DIRECT_SOURCE_VALUE = 0;
   /**
    * <code>COMPOSE_SOURCE = 1;</code>
    */
@@ -67,7 +67,7 @@ public enum DirectMessageSourceEnum
 
   public static DirectMessageSourceEnum forNumber(int value) {
     switch (value) {
-      case 0: return EMPTY_SOURCE;
+      case 0: return UNKNOWN_DIRECT_SOURCE;
       case 1: return COMPOSE_SOURCE;
       case 2: return FORWARD_SOURCE;
       case 3: return BROADCAST_SOURCE;

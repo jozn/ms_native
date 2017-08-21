@@ -69,7 +69,7 @@ public interface PB_MessageFileViewOrBuilder extends
 
   /**
    * <pre>
-   *    ???? ThumbData = 19;
+   *???? ThumbData = 19;
    * </pre>
    *
    * <code>string ThumbData64 = 21;</code>
@@ -77,7 +77,7 @@ public interface PB_MessageFileViewOrBuilder extends
   java.lang.String getThumbData64();
   /**
    * <pre>
-   *    ???? ThumbData = 19;
+   *???? ThumbData = 19;
    * </pre>
    *
    * <code>string ThumbData64 = 21;</code>

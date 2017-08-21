@@ -19,7 +19,7 @@ import static io.grpc.stub.ServerCalls.asyncUnimplementedStreamingCall;
  */
 @javax.annotation.Generated(
     value = "by gRPC proto compiler (version 1.4.0)",
-    comments = "Source: pb_rpc_msgs.proto")
+    comments = "Source: pb_del.proto")
 public final class RpcMsgsGrpc {
 
   private RpcMsgsGrpc() {}

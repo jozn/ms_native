@@ -9,48 +9,56 @@ package ir.ms.pb;
 public enum RoomMessageDeliviryStatusEnum
     implements com.google.protobuf.Internal.EnumLite {
   /**
-   * <code>FAILED = 0;</code>
+   * <code>UNKNOWN_MESSAGE_DELIVIRY = 0;</code>
    */
-  FAILED(0),
+  UNKNOWN_MESSAGE_DELIVIRY(0),
   /**
-   * <code>SENDING = 1;</code>
+   * <code>FAILED = 1;</code>
    */
-  SENDING(1),
+  FAILED(1),
   /**
-   * <code>SENT = 2;</code>
+   * <code>SENDING = 2;</code>
    */
-  SENT(2),
+  SENDING(2),
   /**
-   * <code>DELIVERED = 3;</code>
+   * <code>SENT = 3;</code>
    */
-  DELIVERED(3),
+  SENT(3),
   /**
-   * <code>SEEN2 = 4;</code>
+   * <code>DELIVERED = 4;</code>
    */
-  SEEN2(4),
+  DELIVERED(4),
+  /**
+   * <code>SEEN2 = 5;</code>
+   */
+  SEEN2(5),
   UNRECOGNIZED(-1),
   ;
 
   /**
-   * <code>FAILED = 0;</code>
+   * <code>UNKNOWN_MESSAGE_DELIVIRY = 0;</code>
    */
-  public static final int FAILED_VALUE = 0;
+  public static final int UNKNOWN_MESSAGE_DELIVIRY_VALUE = 0;
   /**
-   * <code>SENDING = 1;</code>
+   * <code>FAILED = 1;</code>
    */
-  public static final int SENDING_VALUE = 1;
+  public static final int FAILED_VALUE = 1;
   /**
-   * <code>SENT = 2;</code>
+   * <code>SENDING = 2;</code>
    */
-  public static final int SENT_VALUE = 2;
+  public static final int SENDING_VALUE = 2;
   /**
-   * <code>DELIVERED = 3;</code>
+   * <code>SENT = 3;</code>
    */
-  public static final int DELIVERED_VALUE = 3;
+  public static final int SENT_VALUE = 3;
   /**
-   * <code>SEEN2 = 4;</code>
+   * <code>DELIVERED = 4;</code>
    */
-  public static final int SEEN2_VALUE = 4;
+  public static final int DELIVERED_VALUE = 4;
+  /**
+   * <code>SEEN2 = 5;</code>
+   */
+  public static final int SEEN2_VALUE = 5;
 
 
   public final int getNumber() {
@@ -67,11 +75,12 @@ public enum RoomMessageDeliviryStatusEnum
 
   public static RoomMessageDeliviryStatusEnum forNumber(int value) {
     switch (value) {
-      case 0: return FAILED;
-      case 1: return SENDING;
-      case 2: return SENT;
-      case 3: return DELIVERED;
-      case 4: return SEEN2;
+      case 0: return UNKNOWN_MESSAGE_DELIVIRY;
+      case 1: return FAILED;
+      case 2: return SENDING;
+      case 3: return SENT;
+      case 4: return DELIVERED;
+      case 5: return SEEN2;
       default: return null;
     }
   }

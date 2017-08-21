@@ -1,179 +1,6 @@
-package ir.ms.pb
+package ir.ms.pb;
 
 public class PBFlatTypes {
-
-	public class GeoLocation {
-	   public double Lat;
-	   public double Lon;
-	}
-
-	public class RoomMessageLog {
-	   public RoomMessageLogEnum typ;
-	   public long TargetUserId;
-	   public long ByUserId;
-	}
-
-	public class RoomMessageForwardFrom {
-	   public long RoomId;
-	   public long MessageId;
-	   public int RoomTypeEnum;
-	}
-
-	public class RoomDraft {
-	   public String Message;
-	   public long ReplyTo;
-	}
-
-	public class ChatRoom {
-	}
-
-	public class Pagination {
-	   public int Offset;
-	   public int Limit;
-	}
-
-	public class PB_RoomInlineView {
-	   public long RoomId;
-	   public RoomTypeEnum RoomTypeEnum;
-	}
-
-	public class PB_MessageForwardedFrom {
-	   public long RoomId;
-	   public RoomTypeEnum RoomTypeEnum;
-	   public long MessageId;
-	   public int MessageSeq;
-	}
-
-	public class PB_MessageView {
-	   public long MessageId;
-	   public String RoomKey;
-	   public int UserId;
-	   public long MessageFileId;
-	   public int MessageTypeEnum;
-	   public String Text;
-	   public long CreatedMs;
-	   public int PeerReceivedTime;
-	   public int PeerSeenTime;
-	   public int DeliviryStatusEnum;
-	   public int PeerUserId;
-	}
-
-	public class PB_GroupView {
-	   public long GroupId;
-	   public String GroupName;
-	   public int MembersCount;
-	   public int GroupPrivacyEnum;
-	   public int CreatorUserId;
-	   public int CreatedTime;
-	   public long UpdatedMs;
-	   public int CurrentSeq;
-	}
-
-	public class PB_GroupMemberView {
-	   public long Id;
-	   public long GroupId;
-	   public int UserId;
-	   public int ByUserId;
-	   public int GroupRoleEnum;
-	   public int CreatedTime;
-	}
-
-	public class PB_MessageFileView {
-	   public long MessageFileId;
-	   public String Name;
-	   public int Size;
-	   public int FileTypeEnum;
-	   public String MimeType;
-	   public int Width;
-	   public int Height;
-	   public int Duration;
-	   public String Extension;
-	   public String ThumbData64;
-	   public String ServerSrc;
-	   public String ServerPath;
-	   public String ServerThumbPath;
-	   public String BucketId;
-	   public int ServerId;
-	   public int CanDel;
-	   public int CreatedTime;
-	}
-
-	public class PB_ReqLastChangesForTheRoom {
-	   public long RoomId;
-	   public long LastLogId;
-	   public int LastHaveSeq;
-	}
-
-	public class PB_ResponseLastChangesForTheRoom {
-	   public PB_MessageView Messages;
-	}
-
-	public class PB_RequestSetLastSeenMessages {
-	   public long RoomId;
-	   public long FromMessageId;
-	   public int ToMessageId;
-	   public long AtTimeMs;
-	}
-
-	public class PB_ResponseSetLastSeenMessages {
-	   public PB_MessageView Messages;
-	}
-
-	public class PB_MessagesCollections {
-	   public long DirectMessagesIds;
-	   public long GroupMessagesIds;
-	   public long BroadCatMessagesIds;
-	}
-
-	public class PB_DirectLogView {
-	   public PB_DirectLog Row;
-	   public PB_MessageView NewMessage;
-	}
-
-	public class PB_DirectLog {
-	   public long Id;
-	   public int ToUserId;
-	   public long MessageId;
-	   public long ChatId;
-	   public int PeerUserId;
-	   public int EventType;
-	   public int RoomLogTypeId;
-	   public int FromSeq;
-	   public int ToSeq;
-	   public byte[] ExtraPB;
-	   public String ExtraJson;
-	   public long AtTimeMs;
-	}
-
-	public class PB_PushDirectLogsMany {
-	   public PB_DirectLogView Rows;
-	}
-
-	public class PB_CommandToServer {
-	   public long ClientCallId;
-	   public String Command;
-	   public byte[] Data;
-	}
-
-	public class PB_CommandToClient {
-	   public long ServerCallId;
-	   public String Command;
-	   public byte[] Data;
-	}
-
-	public class PB_CommandReceivedToServer {
-	   public long ClientCallId;
-	}
-
-	public class PB_CommandReceivedToClient {
-	   public long ServerCallId;
-	}
-
-	public class PB_ResToClient {
-	   public long ClientCallId;
-	   public String PBClass;
-	   public byte[] Data;
-	}
 
 	public class PB_UserWithMe {
 	   public int UserId;
@@ -278,6 +105,220 @@ public class PBFlatTypes {
 
 	public class PB_ResultMsgEvents {
 	   public PB_Result Result;
+	}
+
+	public class PB_MsgsSeenFromClient {
+	   public String MessageKey;
+	   public String RoomKey;
+	   public long UserId;
+	   public long AtTime;
+	}
+
+	public class PB_MsgSeen {
+	   public String MessageKey;
+	   public String RoomKey;
+	   public long UserId;
+	   public long AtTime;
+	}
+
+	public class PB_RequestMsgsSeen {
+	   public PB_Request Request;
+	   public PB_MsgSeen Seen;
+	}
+
+	public class PB_ResponseMsgsSeen {
+	   public PB_Response Response;
+	}
+
+	public class PB_ReqRpcAddMsg {
+	   public PB_Request Request;
+	   public PB_Message Message;
+	}
+
+	public class PB_ResRpcAddMsg {
+	   public PB_Response Response;
+	   public String ServerSrc;
+	}
+
+	public class GeoLocation {
+	   public double Lat;
+	   public double Lon;
+	}
+
+	public class RoomMessageLog {
+	   public RoomMessageLogEnum typ;
+	   public long TargetUserId;
+	   public long ByUserId;
+	}
+
+	public class RoomMessageForwardFrom {
+	   public long RoomId;
+	   public long MessageId;
+	   public int RoomTypeEnum;
+	}
+
+	public class RoomDraft {
+	   public String Message;
+	   public long ReplyTo;
+	}
+
+	public class ChatRoom {
+	}
+
+	public class Pagination {
+	   public int Offset;
+	   public int Limit;
+	}
+
+	public class PB_RoomInlineView {
+	   public long RoomId;
+	   public RoomTypeEnum RoomTypeEnum;
+	}
+
+	public class PB_MessageForwardedFrom {
+	   public long RoomId;
+	   public RoomTypeEnum RoomTypeEnum;
+	   public long MessageId;
+	   public int MessageSeq;
+	}
+
+	public class PB_MessageView {
+	   public long MessageId;
+	   public String RoomKey;
+	   public int UserId;
+	   public long MessageFileId;
+	   public int MessageTypeEnum;
+	   public String Text;
+	   public int Time;
+	   public int PeerReceivedTime;
+	   public int PeerSeenTime;
+	   public int DeliviryStatusEnum;
+	   public int PeerUserId;
+	}
+
+	public class PB_ChatView {
+	   public long ChatId;
+	   public String ChatKey;
+	   public int RoomTypeEnumId;
+	   public int UserId;
+	   public int LastSeqSeen;
+	   public int LastSeqDelete;
+	   public int PeerUserId;
+	   public long GroupId;
+	   public int CreatedTime;
+	   public int CurrentSeq;
+	   public long UpdatedMs;
+	}
+
+	public class PB_MessageFileView {
+	   public long MessageFileId;
+	   public String Name;
+	   public int Size;
+	   public int FileTypeEnum;
+	   public String MimeType;
+	   public int Width;
+	   public int Height;
+	   public int Duration;
+	   public String Extension;
+	   public String ThumbData64;
+	   public String ServerSrc;
+	   public String ServerPath;
+	   public String ServerThumbPath;
+	   public String BucketId;
+	   public int ServerId;
+	   public int CanDel;
+	   public int CreatedTime;
+	}
+
+	public class PB_GroupView {
+	   public long GroupId;
+	   public String GroupName;
+	   public int MembersCount;
+	   public int GroupPrivacyEnum;
+	   public int CreatorUserId;
+	   public int CreatedTime;
+	   public long UpdatedMs;
+	   public int CurrentSeq;
+	}
+
+	public class PB_GroupMemberView {
+	   public long Id;
+	   public long GroupId;
+	   public int UserId;
+	   public int ByUserId;
+	   public int GroupRoleEnum;
+	   public int CreatedTime;
+	}
+
+	public class PB_MessageFileView__DEp {
+	   public long MessageFileId;
+	   public String Name;
+	   public int Size;
+	   public int FileTypeEnum;
+	   public String MimeType;
+	   public int Width;
+	   public int Height;
+	   public int Duration;
+	   public String Extension;
+	   public String ThumbData64;
+	   public String ServerSrc;
+	   public String ServerPath;
+	   public String ServerThumbPath;
+	   public String BucketId;
+	   public int ServerId;
+	   public int CanDel;
+	   public int CreatedTime;
+	}
+
+	public class PB_ReqLastChangesForTheRoom {
+	   public long RoomId;
+	   public long LastLogId;
+	   public int LastHaveSeq;
+	}
+
+	public class PB_ResponseLastChangesForTheRoom {
+	   public PB_MessageView Messages;
+	}
+
+	public class PB_RequestSetLastSeenMessages {
+	   public long RoomId;
+	   public long FromMessageId;
+	   public int ToMessageId;
+	   public long AtTimeMs;
+	}
+
+	public class PB_ResponseSetLastSeenMessages {
+	   public PB_MessageView Messages;
+	}
+
+	public class PB_MessagesCollections {
+	   public long DirectMessagesIds;
+	   public long GroupMessagesIds;
+	   public long BroadCatMessagesIds;
+	}
+
+	public class PB_DirectLogView {
+	   public PB_DirectLog Row;
+	   public PB_MessageView NewMessage;
+	}
+
+	public class PB_DirectLog {
+	   public long Id;
+	   public int ToUserId;
+	   public long MessageId;
+	   public long ChatId;
+	   public int PeerUserId;
+	   public int EventType;
+	   public int RoomLogTypeId;
+	   public int FromSeq;
+	   public int ToSeq;
+	   public byte[] ExtraPB;
+	   public String ExtraJson;
+	   public long AtTimeMs;
+	}
+
+	public class PB_PushDirectLogViewsMany {
+	   public PB_DirectLogView Rows;
 	}
 
 	public class PB_UserParam_CheckUserName2 {
@@ -467,6 +508,59 @@ public class PBFlatTypes {
 	public class UserView {
 	}
 
+	public class PB_Chat {
+	   public long ChatId;
+	   public String ChatKey;
+	   public int RoomTypeEnumId;
+	   public int UserId;
+	   public int LastSeqSeen;
+	   public int LastSeqDelete;
+	   public int PeerUserId;
+	   public long GroupId;
+	   public int CreatedTime;
+	   public int CurrentSeq;
+	   public long UpdatedMs;
+	}
+
+	public class PB_DirectMessage {
+	   public long MessageId;
+	   public String RoomKey;
+	   public int UserId;
+	   public long MessageFileId;
+	   public int MessageTypeEnum;
+	   public String Text;
+	   public int Time;
+	   public int PeerReceivedTime;
+	   public int PeerSeenTime;
+	   public int DeliviryStatusEnum;
+	}
+
+	public class PB_CommandToServer {
+	   public long ClientCallId;
+	   public String Command;
+	   public byte[] Data;
+	}
+
+	public class PB_CommandToClient {
+	   public long ServerCallId;
+	   public String Command;
+	   public byte[] Data;
+	}
+
+	public class PB_CommandReceivedToServer {
+	   public long ClientCallId;
+	}
+
+	public class PB_CommandReceivedToClient {
+	   public long ServerCallId;
+	}
+
+	public class PB_ResToClient {
+	   public long ClientCallId;
+	   public String PBClass;
+	   public byte[] Data;
+	}
+
 	public class PB_UpdateNewMessage {
 	   public PB_MessageView Message;
 	}
@@ -527,6 +621,7 @@ public class PBFlatTypes {
 }
 /*
 
+RPC_INTERFACES.RpcMsgs RpcMsgs_Handeler = null;
 RPC_INTERFACES.RPC_MessageReq RPC_MessageReq_Handeler = null;
 RPC_INTERFACES.RPC_MessageReqOffline RPC_MessageReqOffline_Handeler = null;
 RPC_INTERFACES.RPC_Auth RPC_Auth_Handeler = null;

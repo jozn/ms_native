@@ -9,40 +9,48 @@ package ir.ms.pb;
 public enum MessageMetaUpdatesTypesEnum
     implements com.google.protobuf.Internal.EnumLite {
   /**
-   * <code>DELIVIERD_SERVER = 0;</code>
+   * <code>UNKNOWN_MESSAGE_META_UPDATE = 0;</code>
    */
-  DELIVIERD_SERVER(0),
+  UNKNOWN_MESSAGE_META_UPDATE(0),
+  /**
+   * <code>DELIVIERD_SERVER = 1;</code>
+   */
+  DELIVIERD_SERVER(1),
   /**
    * <code>DELIVIERD_PEER = 2;</code>
    */
   DELIVIERD_PEER(2),
   /**
-   * <code>SEEN = 4;</code>
+   * <code>SEEN_MESSAGE = 3;</code>
    */
-  SEEN(4),
+  SEEN_MESSAGE(3),
   /**
-   * <code>DELETE_SERVER = 3;</code>
+   * <code>DELETE_SERVER = 4;</code>
    */
-  DELETE_SERVER(3),
+  DELETE_SERVER(4),
   UNRECOGNIZED(-1),
   ;
 
   /**
-   * <code>DELIVIERD_SERVER = 0;</code>
+   * <code>UNKNOWN_MESSAGE_META_UPDATE = 0;</code>
    */
-  public static final int DELIVIERD_SERVER_VALUE = 0;
+  public static final int UNKNOWN_MESSAGE_META_UPDATE_VALUE = 0;
+  /**
+   * <code>DELIVIERD_SERVER = 1;</code>
+   */
+  public static final int DELIVIERD_SERVER_VALUE = 1;
   /**
    * <code>DELIVIERD_PEER = 2;</code>
    */
   public static final int DELIVIERD_PEER_VALUE = 2;
   /**
-   * <code>SEEN = 4;</code>
+   * <code>SEEN_MESSAGE = 3;</code>
    */
-  public static final int SEEN_VALUE = 4;
+  public static final int SEEN_MESSAGE_VALUE = 3;
   /**
-   * <code>DELETE_SERVER = 3;</code>
+   * <code>DELETE_SERVER = 4;</code>
    */
-  public static final int DELETE_SERVER_VALUE = 3;
+  public static final int DELETE_SERVER_VALUE = 4;
 
 
   public final int getNumber() {
@@ -59,10 +67,11 @@ public enum MessageMetaUpdatesTypesEnum
 
   public static MessageMetaUpdatesTypesEnum forNumber(int value) {
     switch (value) {
-      case 0: return DELIVIERD_SERVER;
+      case 0: return UNKNOWN_MESSAGE_META_UPDATE;
+      case 1: return DELIVIERD_SERVER;
       case 2: return DELIVIERD_PEER;
-      case 4: return SEEN;
-      case 3: return DELETE_SERVER;
+      case 3: return SEEN_MESSAGE;
+      case 4: return DELETE_SERVER;
       default: return null;
     }
   }

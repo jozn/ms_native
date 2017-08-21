@@ -199,27 +199,27 @@ public  final class PB_MessageView extends
     text_ = value.toStringUtf8();
   }
 
-  public static final int CREATEDMS_FIELD_NUMBER = 13;
-  private long createdMs_;
+  public static final int TIME_FIELD_NUMBER = 13;
+  private int time_;
   /**
-   * <code>int64 CreatedMs = 13;</code>
+   * <code>int32 Time = 13;</code>
    */
-  public long getCreatedMs() {
-    return createdMs_;
+  public int getTime() {
+    return time_;
   }
   /**
-   * <code>int64 CreatedMs = 13;</code>
+   * <code>int32 Time = 13;</code>
    */
-  private void setCreatedMs(long value) {
+  private void setTime(int value) {
     
-    createdMs_ = value;
+    time_ = value;
   }
   /**
-   * <code>int64 CreatedMs = 13;</code>
+   * <code>int32 Time = 13;</code>
    */
-  private void clearCreatedMs() {
+  private void clearTime() {
     
-    createdMs_ = 0L;
+    time_ = 0;
   }
 
   public static final int PEERRECEIVEDTIME_FIELD_NUMBER = 15;
@@ -334,8 +334,8 @@ public  final class PB_MessageView extends
     if (!text_.isEmpty()) {
       output.writeString(11, getText());
     }
-    if (createdMs_ != 0L) {
-      output.writeInt64(13, createdMs_);
+    if (time_ != 0) {
+      output.writeInt32(13, time_);
     }
     if (peerReceivedTime_ != 0) {
       output.writeInt32(15, peerReceivedTime_);
@@ -380,9 +380,9 @@ public  final class PB_MessageView extends
       size += com.google.protobuf.CodedOutputStream
         .computeStringSize(11, getText());
     }
-    if (createdMs_ != 0L) {
+    if (time_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(13, createdMs_);
+        .computeInt32Size(13, time_);
     }
     if (peerReceivedTime_ != 0) {
       size += com.google.protobuf.CodedOutputStream
@@ -659,25 +659,25 @@ public  final class PB_MessageView extends
     }
 
     /**
-     * <code>int64 CreatedMs = 13;</code>
+     * <code>int32 Time = 13;</code>
      */
-    public long getCreatedMs() {
-      return instance.getCreatedMs();
+    public int getTime() {
+      return instance.getTime();
     }
     /**
-     * <code>int64 CreatedMs = 13;</code>
+     * <code>int32 Time = 13;</code>
      */
-    public Builder setCreatedMs(long value) {
+    public Builder setTime(int value) {
       copyOnWrite();
-      instance.setCreatedMs(value);
+      instance.setTime(value);
       return this;
     }
     /**
-     * <code>int64 CreatedMs = 13;</code>
+     * <code>int32 Time = 13;</code>
      */
-    public Builder clearCreatedMs() {
+    public Builder clearTime() {
       copyOnWrite();
-      instance.clearCreatedMs();
+      instance.clearTime();
       return this;
     }
 
@@ -806,8 +806,8 @@ public  final class PB_MessageView extends
             other.messageTypeEnum_ != 0, other.messageTypeEnum_);
         text_ = visitor.visitString(!text_.isEmpty(), text_,
             !other.text_.isEmpty(), other.text_);
-        createdMs_ = visitor.visitLong(createdMs_ != 0L, createdMs_,
-            other.createdMs_ != 0L, other.createdMs_);
+        time_ = visitor.visitInt(time_ != 0, time_,
+            other.time_ != 0, other.time_);
         peerReceivedTime_ = visitor.visitInt(peerReceivedTime_ != 0, peerReceivedTime_,
             other.peerReceivedTime_ != 0, other.peerReceivedTime_);
         peerSeenTime_ = visitor.visitInt(peerSeenTime_ != 0, peerSeenTime_,
@@ -874,7 +874,7 @@ public  final class PB_MessageView extends
               }
               case 104: {
 
-                createdMs_ = input.readInt64();
+                time_ = input.readInt32();
                 break;
               }
               case 120: {
