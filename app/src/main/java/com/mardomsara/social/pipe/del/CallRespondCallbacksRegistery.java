@@ -1,6 +1,5 @@
-package com.mardomsara.social.pipe;
+package com.mardomsara.social.pipe.del;
 
-import com.google.protobuf.InvalidProtocolBufferException;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.TimeUtil;
 
@@ -9,8 +8,6 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.Executors;
-
-import ir.ms.pb.PB_Message;
 
 /**
  * Created by Hamid on 5/12/2016.

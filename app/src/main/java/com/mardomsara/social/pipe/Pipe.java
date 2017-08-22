@@ -1,90 +1,47 @@
 package com.mardomsara.social.pipe;
 
+import android.support.annotation.Nullable;
+
 import com.google.protobuf.AbstractMessageLite;
 import com.google.protobuf.ByteString;
-import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.TimeUtil;
+
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 
 import ir.ms.pb.PB_CommandToServer;
 
+/**
+ * Created by Hamid on 8/22/2017.
+ */
+
 public class Pipe {
+	static Map<Long, CommandFrame> CommandFrameMap = Collections.synchronizedMap(new HashMap<>());
 
-	public static void cancelCall(long callid){
-		AndroidUtil.runInBackgroundNoPanic(()->{
-			//WS_DEP.getInstance().cancelCall(call);
-		});
-	}
-
-	public static <T> void makeCall(String command, AbstractMessageLite data, ReachedToServerCallBack<T> callBack, Runnable errorBack){
-		if(data == null) return;
+	public static void send(String rpcName, AbstractMessageLite dataMessage , @Nullable SuccessCallback successCallback , @Nullable ErrorCallback errorCallback ) {
+		if(dataMessage == null) return;
 		long callId = TimeUtil.getTimeNano();
 		PB_CommandToServer pb_commandToServer = PB_CommandToServer.newBuilder()
-			.setCommandBytes(ByteString.copyFromUtf8(command))
+			.setCommandBytes(ByteString.copyFromUtf8(rpcName))
 			.setClientCallId(callId)
-			.setData(com.google.protobuf.ByteString.copyFrom(data.toByteArray()))
+			.setData(com.google.protobuf.ByteString.copyFrom(dataMessage.toByteArray()))
 			.build();
 
 
 		if(PipeWS.getInstance().isOpen()){
-			CallRespondCallback callRespondCallback = new CallRespondCallback(callBack,errorBack,callId);
-			CallRespondCallbacksRegistery.register(callRespondCallback);
+			CommandFrame callRespondCallback = new CommandFrame(successCallback,errorCallback,callId);
+			callRespondCallback.setDelayer();
+			CommandFrameMap.put(callId,callRespondCallback);
+
 			PipeWS.getInstance().sendCall(pb_commandToServer);
-//			WS.getInstance().sendCall(call);
 		}else {
-			if(errorBack != null){
-				errorBack.run();
+			if(errorCallback != null){
+				errorCallback.onError(null);
 			}
 		}
+	};
 
-
-	}
-
-	public static <T> void makeCall(String command, AbstractMessageLite data, ReachedToServerCallBack<T> callBack, Runnable errorBack , Class cls){
-		if(data == null) return;
-		long callId = TimeUtil.getTimeNano();
-		PB_CommandToServer pb_commandToServer = PB_CommandToServer.newBuilder()
-			.setCommand(command)
-			.setClientCallId(callId)
-			.setData(com.google.protobuf.ByteString.copyFrom(data.toByteArray()))
-			.build();
-
-
-		if(PipeWS.getInstance().isOpen()){
-			CallRespondCallback callRespondCallback = new CallRespondCallback(callBack,errorBack,callId);
-			callRespondCallback.responseClass = cls.getName();
-			CallRespondCallbacksRegistery.register(callRespondCallback);
-			PipeWS.getInstance().sendCall(pb_commandToServer);
-//			WS.getInstance().sendCall(call);
-		}else {
-			if(errorBack != null){
-				errorBack.run();
-			}
-		}
-
-
-	}
-
-	public static <T> void makeCall(String command, AbstractMessageLite data, Runnable succBack , Runnable errorBack){
-		if(data == null) return;
-		long callId = TimeUtil.getTimeNano();
-		PB_CommandToServer pb_commandToServer = PB_CommandToServer.newBuilder()
-			.setCommandBytes(ByteString.copyFromUtf8(command))
-			.setClientCallId(callId)
-			.setData(com.google.protobuf.ByteString.copyFrom(data.toByteArray()))
-			.build();
-
-		if(PipeWS.getInstance().isOpen()){
-			CallRespondCallback callRespondCallback = new CallRespondCallback(succBack,errorBack,callId);
-			CallRespondCallbacksRegistery.register(callRespondCallback);
-			PipeWS.getInstance().sendCall(pb_commandToServer);
-//			WS.getInstance().sendCall(call);
-		}else {
-			if(errorBack != null){
-				errorBack.run();
-			}
-		}
-
-
-	}
+	public void sendOffline(){};
 
 }

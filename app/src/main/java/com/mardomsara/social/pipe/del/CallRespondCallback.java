@@ -1,4 +1,4 @@
-package com.mardomsara.social.pipe;
+package com.mardomsara.social.pipe.del;
 
 import com.mardomsara.social.helpers.TimeUtil;
 

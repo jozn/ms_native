@@ -3,14 +3,29 @@ package com.mardomsara.social.pipe;
 import com.mardomsara.social.app.DB;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.models.tables.Message;
+//import com.mardomsara.social.pipe.del.Pipe;
 
 import java.util.List;
+
+import ir.ms.pb.PB_MsgParam_AddNewTextMessage;
+import ir.ms.pb.PB_MsgResponse_AddNewTextMessage;
 
 /**
  * Created by Hamid on 5/24/2017.
  */
 
 public class PlayNewPipe {
+	interface PB_MsgResponse_AddNewTextMessage_Caller {
+		void onRes(PB_MsgResponse_AddNewTextMessage res);
+	}
+
+	interface Errorback {
+		void onRes(PB_MsgResponse_AddNewTextMessage res);
+	}
+
+	void Addmsg(PB_MsgParam_AddNewTextMessage parm, PB_MsgResponse_AddNewTextMessage_Caller res, Errorback err, Runnable reached ){
+		Pipe.send("rpc",parm,null,null);
+	}
 
 	public static void run1(){
 		PipeWS.getInstance();
