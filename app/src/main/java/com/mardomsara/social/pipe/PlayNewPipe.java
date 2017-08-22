@@ -1,5 +1,7 @@
 package com.mardomsara.social.pipe;
 
+import android.util.Log;
+
 import com.mardomsara.social.app.DB;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.models.tables.Message;
@@ -25,6 +27,21 @@ public class PlayNewPipe {
 
 	void Addmsg(PB_MsgParam_AddNewTextMessage parm, PB_MsgResponse_AddNewTextMessage_Caller res, Errorback err, Runnable reached ){
 		Pipe.send("rpc",parm,null,null);
+		/*SuccessCallback callback = null;
+		if(res != null){
+			SuccessCallback callback = new SuccessCallback() {
+				@Override
+				public void handle(byte[] data) {
+					try {
+						PB_MsgResponse_AddNewTextMessage d =PB_MsgResponse_AddNewTextMessage.parseFrom(data);
+						res.onRes(d);
+					}catch (com.google.protobuf.InvalidProtocolBufferException e){
+						Log.d("RPC", "parsing protcol buffer is faild: PB_MsgResponse_AddNewTextMessage");
+					}
+				}
+			};
+		}*/
+
 	}
 
 	public static void run1(){
