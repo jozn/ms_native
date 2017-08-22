@@ -3,7 +3,7 @@
 
 package ir.ms.pb;
 
-public interface UserViewOrBuilder extends
+public interface UserViewOrBuilder
+    extends
     // @@protoc_insertion_point(interface_extends:UserView)
-    com.google.protobuf.MessageLiteOrBuilder {
-}
+    com.google.protobuf.MessageLiteOrBuilder {}

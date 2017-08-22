@@ -5,9 +5,8 @@ package ir.ms.pb;
 
 public final class PbChatViews {
   private PbChatViews() {}
-  public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistryLite registry) {
-  }
+
+  public static void registerAllExtensions(com.google.protobuf.ExtensionRegistryLite registry) {}
 
   static {
   }

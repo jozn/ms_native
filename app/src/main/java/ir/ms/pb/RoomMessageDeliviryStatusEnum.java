@@ -3,71 +3,41 @@
 
 package ir.ms.pb;
 
-/**
- * Protobuf enum {@code RoomMessageDeliviryStatusEnum}
- */
-public enum RoomMessageDeliviryStatusEnum
-    implements com.google.protobuf.Internal.EnumLite {
-  /**
-   * <code>UNKNOWN_MESSAGE_DELIVIRY = 0;</code>
-   */
+/** Protobuf enum {@code RoomMessageDeliviryStatusEnum} */
+public enum RoomMessageDeliviryStatusEnum implements com.google.protobuf.Internal.EnumLite {
+  /** <code>UNKNOWN_MESSAGE_DELIVIRY = 0;</code> */
   UNKNOWN_MESSAGE_DELIVIRY(0),
-  /**
-   * <code>FAILED = 1;</code>
-   */
+  /** <code>FAILED = 1;</code> */
   FAILED(1),
-  /**
-   * <code>SENDING = 2;</code>
-   */
+  /** <code>SENDING = 2;</code> */
   SENDING(2),
-  /**
-   * <code>SENT = 3;</code>
-   */
+  /** <code>SENT = 3;</code> */
   SENT(3),
-  /**
-   * <code>DELIVERED = 4;</code>
-   */
+  /** <code>DELIVERED = 4;</code> */
   DELIVERED(4),
-  /**
-   * <code>SEEN2 = 5;</code>
-   */
+  /** <code>SEEN2 = 5;</code> */
   SEEN2(5),
   UNRECOGNIZED(-1),
   ;
 
-  /**
-   * <code>UNKNOWN_MESSAGE_DELIVIRY = 0;</code>
-   */
+  /** <code>UNKNOWN_MESSAGE_DELIVIRY = 0;</code> */
   public static final int UNKNOWN_MESSAGE_DELIVIRY_VALUE = 0;
-  /**
-   * <code>FAILED = 1;</code>
-   */
+  /** <code>FAILED = 1;</code> */
   public static final int FAILED_VALUE = 1;
-  /**
-   * <code>SENDING = 2;</code>
-   */
+  /** <code>SENDING = 2;</code> */
   public static final int SENDING_VALUE = 2;
-  /**
-   * <code>SENT = 3;</code>
-   */
+  /** <code>SENT = 3;</code> */
   public static final int SENT_VALUE = 3;
-  /**
-   * <code>DELIVERED = 4;</code>
-   */
+  /** <code>DELIVERED = 4;</code> */
   public static final int DELIVERED_VALUE = 4;
-  /**
-   * <code>SEEN2 = 5;</code>
-   */
+  /** <code>SEEN2 = 5;</code> */
   public static final int SEEN2_VALUE = 5;
-
 
   public final int getNumber() {
     return value;
   }
 
-  /**
-   * @deprecated Use {@link #forNumber(int)} instead.
-   */
+  /** @deprecated Use {@link #forNumber(int)} instead. */
   @java.lang.Deprecated
   public static RoomMessageDeliviryStatusEnum valueOf(int value) {
     return forNumber(value);
@@ -75,13 +45,20 @@ public enum RoomMessageDeliviryStatusEnum
 
   public static RoomMessageDeliviryStatusEnum forNumber(int value) {
     switch (value) {
-      case 0: return UNKNOWN_MESSAGE_DELIVIRY;
-      case 1: return FAILED;
-      case 2: return SENDING;
-      case 3: return SENT;
-      case 4: return DELIVERED;
-      case 5: return SEEN2;
-      default: return null;
+      case 0:
+        return UNKNOWN_MESSAGE_DELIVIRY;
+      case 1:
+        return FAILED;
+      case 2:
+        return SENDING;
+      case 3:
+        return SENT;
+      case 4:
+        return DELIVERED;
+      case 5:
+        return SEEN2;
+      default:
+        return null;
     }
   }
 
@@ -89,13 +66,14 @@ public enum RoomMessageDeliviryStatusEnum
       internalGetValueMap() {
     return internalValueMap;
   }
-  private static final com.google.protobuf.Internal.EnumLiteMap<
-      RoomMessageDeliviryStatusEnum> internalValueMap =
-        new com.google.protobuf.Internal.EnumLiteMap<RoomMessageDeliviryStatusEnum>() {
-          public RoomMessageDeliviryStatusEnum findValueByNumber(int number) {
-            return RoomMessageDeliviryStatusEnum.forNumber(number);
-          }
-        };
+
+  private static final com.google.protobuf.Internal.EnumLiteMap<RoomMessageDeliviryStatusEnum>
+      internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<RoomMessageDeliviryStatusEnum>() {
+            public RoomMessageDeliviryStatusEnum findValueByNumber(int number) {
+              return RoomMessageDeliviryStatusEnum.forNumber(number);
+            }
+          };
 
   private final int value;
 
@@ -105,4 +83,3 @@ public enum RoomMessageDeliviryStatusEnum
 
   // @@protoc_insertion_point(enum_scope:RoomMessageDeliviryStatusEnum)
 }
-

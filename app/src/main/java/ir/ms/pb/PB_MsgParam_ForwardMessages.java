@@ -4,25 +4,31 @@
 package ir.ms.pb;
 
 /**
+ *
+ *
  * <pre>
- *&#47;//////////////////////////////////
+ * &#47;//////////////////////////////////
  * </pre>
  *
  * Protobuf type {@code PB_MsgParam_ForwardMessages}
  */
-public  final class PB_MsgParam_ForwardMessages extends
-    com.google.protobuf.GeneratedMessageLite<
-        PB_MsgParam_ForwardMessages, PB_MsgParam_ForwardMessages.Builder> implements
+public final class PB_MsgParam_ForwardMessages
+    extends com.google.protobuf.GeneratedMessageLite<
+        PB_MsgParam_ForwardMessages, PB_MsgParam_ForwardMessages.Builder>
+    implements
     // @@protoc_insertion_point(message_implements:PB_MsgParam_ForwardMessages)
     PB_MsgParam_ForwardMessagesOrBuilder {
   private PB_MsgParam_ForwardMessages() {
     toDirectChatIds_ = emptyLongList();
     toGroupChatIds_ = emptyLongList();
   }
+
   private int bitField0_;
   public static final int MESSAGESCOLLECTIONS_FIELD_NUMBER = 1;
   private ir.ms.pb.PB_MessagesCollections messagesCollections_;
   /**
+   *
+   *
    * <pre>
    *    /&#42;repeated int64 DirectMessagesIds = 1;
    *    repeated int64 GroupMessagesIds = 2;*&#47;
@@ -34,6 +40,8 @@ public  final class PB_MsgParam_ForwardMessages extends
     return messagesCollections_ != null;
   }
   /**
+   *
+   *
    * <pre>
    *    /&#42;repeated int64 DirectMessagesIds = 1;
    *    repeated int64 GroupMessagesIds = 2;*&#47;
@@ -42,9 +50,13 @@ public  final class PB_MsgParam_ForwardMessages extends
    * <code>.PB_MessagesCollections MessagesCollections = 1;</code>
    */
   public ir.ms.pb.PB_MessagesCollections getMessagesCollections() {
-    return messagesCollections_ == null ? ir.ms.pb.PB_MessagesCollections.getDefaultInstance() : messagesCollections_;
+    return messagesCollections_ == null
+        ? ir.ms.pb.PB_MessagesCollections.getDefaultInstance()
+        : messagesCollections_;
   }
   /**
+   *
+   *
    * <pre>
    *    /&#42;repeated int64 DirectMessagesIds = 1;
    *    repeated int64 GroupMessagesIds = 2;*&#47;
@@ -57,9 +69,10 @@ public  final class PB_MsgParam_ForwardMessages extends
       throw new NullPointerException();
     }
     messagesCollections_ = value;
-    
-    }
+  }
   /**
+   *
+   *
    * <pre>
    *    /&#42;repeated int64 DirectMessagesIds = 1;
    *    repeated int64 GroupMessagesIds = 2;*&#47;
@@ -67,12 +80,12 @@ public  final class PB_MsgParam_ForwardMessages extends
    *
    * <code>.PB_MessagesCollections MessagesCollections = 1;</code>
    */
-  private void setMessagesCollections(
-      ir.ms.pb.PB_MessagesCollections.Builder builderForValue) {
+  private void setMessagesCollections(ir.ms.pb.PB_MessagesCollections.Builder builderForValue) {
     messagesCollections_ = builderForValue.build();
-    
   }
   /**
+   *
+   *
    * <pre>
    *    /&#42;repeated int64 DirectMessagesIds = 1;
    *    repeated int64 GroupMessagesIds = 2;*&#47;
@@ -81,16 +94,19 @@ public  final class PB_MsgParam_ForwardMessages extends
    * <code>.PB_MessagesCollections MessagesCollections = 1;</code>
    */
   private void mergeMessagesCollections(ir.ms.pb.PB_MessagesCollections value) {
-    if (messagesCollections_ != null &&
-        messagesCollections_ != ir.ms.pb.PB_MessagesCollections.getDefaultInstance()) {
+    if (messagesCollections_ != null
+        && messagesCollections_ != ir.ms.pb.PB_MessagesCollections.getDefaultInstance()) {
       messagesCollections_ =
-        ir.ms.pb.PB_MessagesCollections.newBuilder(messagesCollections_).mergeFrom(value).buildPartial();
+          ir.ms.pb.PB_MessagesCollections.newBuilder(messagesCollections_)
+              .mergeFrom(value)
+              .buildPartial();
     } else {
       messagesCollections_ = value;
     }
-    
   }
   /**
+   *
+   *
    * <pre>
    *    /&#42;repeated int64 DirectMessagesIds = 1;
    *    repeated int64 GroupMessagesIds = 2;*&#47;
@@ -98,128 +114,91 @@ public  final class PB_MsgParam_ForwardMessages extends
    *
    * <code>.PB_MessagesCollections MessagesCollections = 1;</code>
    */
-  private void clearMessagesCollections() {  messagesCollections_ = null;
-    
+  private void clearMessagesCollections() {
+    messagesCollections_ = null;
   }
 
   public static final int TODIRECTCHATIDS_FIELD_NUMBER = 3;
   private com.google.protobuf.Internal.LongList toDirectChatIds_;
-  /**
-   * <code>repeated int64 ToDirectChatIds = 3;</code>
-   */
-  public java.util.List<java.lang.Long>
-      getToDirectChatIdsList() {
+  /** <code>repeated int64 ToDirectChatIds = 3;</code> */
+  public java.util.List<java.lang.Long> getToDirectChatIdsList() {
     return toDirectChatIds_;
   }
-  /**
-   * <code>repeated int64 ToDirectChatIds = 3;</code>
-   */
+  /** <code>repeated int64 ToDirectChatIds = 3;</code> */
   public int getToDirectChatIdsCount() {
     return toDirectChatIds_.size();
   }
-  /**
-   * <code>repeated int64 ToDirectChatIds = 3;</code>
-   */
+  /** <code>repeated int64 ToDirectChatIds = 3;</code> */
   public long getToDirectChatIds(int index) {
     return toDirectChatIds_.getLong(index);
   }
+
   private void ensureToDirectChatIdsIsMutable() {
     if (!toDirectChatIds_.isModifiable()) {
-      toDirectChatIds_ =
-          com.google.protobuf.GeneratedMessageLite.mutableCopy(toDirectChatIds_);
-     }
+      toDirectChatIds_ = com.google.protobuf.GeneratedMessageLite.mutableCopy(toDirectChatIds_);
+    }
   }
-  /**
-   * <code>repeated int64 ToDirectChatIds = 3;</code>
-   */
-  private void setToDirectChatIds(
-      int index, long value) {
+  /** <code>repeated int64 ToDirectChatIds = 3;</code> */
+  private void setToDirectChatIds(int index, long value) {
     ensureToDirectChatIdsIsMutable();
     toDirectChatIds_.setLong(index, value);
   }
-  /**
-   * <code>repeated int64 ToDirectChatIds = 3;</code>
-   */
+  /** <code>repeated int64 ToDirectChatIds = 3;</code> */
   private void addToDirectChatIds(long value) {
     ensureToDirectChatIdsIsMutable();
     toDirectChatIds_.addLong(value);
   }
-  /**
-   * <code>repeated int64 ToDirectChatIds = 3;</code>
-   */
-  private void addAllToDirectChatIds(
-      java.lang.Iterable<? extends java.lang.Long> values) {
+  /** <code>repeated int64 ToDirectChatIds = 3;</code> */
+  private void addAllToDirectChatIds(java.lang.Iterable<? extends java.lang.Long> values) {
     ensureToDirectChatIdsIsMutable();
-    com.google.protobuf.AbstractMessageLite.addAll(
-        values, toDirectChatIds_);
+    com.google.protobuf.AbstractMessageLite.addAll(values, toDirectChatIds_);
   }
-  /**
-   * <code>repeated int64 ToDirectChatIds = 3;</code>
-   */
+  /** <code>repeated int64 ToDirectChatIds = 3;</code> */
   private void clearToDirectChatIds() {
     toDirectChatIds_ = emptyLongList();
   }
 
   public static final int TOGROUPCHATIDS_FIELD_NUMBER = 4;
   private com.google.protobuf.Internal.LongList toGroupChatIds_;
-  /**
-   * <code>repeated int64 ToGroupChatIds = 4;</code>
-   */
-  public java.util.List<java.lang.Long>
-      getToGroupChatIdsList() {
+  /** <code>repeated int64 ToGroupChatIds = 4;</code> */
+  public java.util.List<java.lang.Long> getToGroupChatIdsList() {
     return toGroupChatIds_;
   }
-  /**
-   * <code>repeated int64 ToGroupChatIds = 4;</code>
-   */
+  /** <code>repeated int64 ToGroupChatIds = 4;</code> */
   public int getToGroupChatIdsCount() {
     return toGroupChatIds_.size();
   }
-  /**
-   * <code>repeated int64 ToGroupChatIds = 4;</code>
-   */
+  /** <code>repeated int64 ToGroupChatIds = 4;</code> */
   public long getToGroupChatIds(int index) {
     return toGroupChatIds_.getLong(index);
   }
+
   private void ensureToGroupChatIdsIsMutable() {
     if (!toGroupChatIds_.isModifiable()) {
-      toGroupChatIds_ =
-          com.google.protobuf.GeneratedMessageLite.mutableCopy(toGroupChatIds_);
-     }
+      toGroupChatIds_ = com.google.protobuf.GeneratedMessageLite.mutableCopy(toGroupChatIds_);
+    }
   }
-  /**
-   * <code>repeated int64 ToGroupChatIds = 4;</code>
-   */
-  private void setToGroupChatIds(
-      int index, long value) {
+  /** <code>repeated int64 ToGroupChatIds = 4;</code> */
+  private void setToGroupChatIds(int index, long value) {
     ensureToGroupChatIdsIsMutable();
     toGroupChatIds_.setLong(index, value);
   }
-  /**
-   * <code>repeated int64 ToGroupChatIds = 4;</code>
-   */
+  /** <code>repeated int64 ToGroupChatIds = 4;</code> */
   private void addToGroupChatIds(long value) {
     ensureToGroupChatIdsIsMutable();
     toGroupChatIds_.addLong(value);
   }
-  /**
-   * <code>repeated int64 ToGroupChatIds = 4;</code>
-   */
-  private void addAllToGroupChatIds(
-      java.lang.Iterable<? extends java.lang.Long> values) {
+  /** <code>repeated int64 ToGroupChatIds = 4;</code> */
+  private void addAllToGroupChatIds(java.lang.Iterable<? extends java.lang.Long> values) {
     ensureToGroupChatIdsIsMutable();
-    com.google.protobuf.AbstractMessageLite.addAll(
-        values, toGroupChatIds_);
+    com.google.protobuf.AbstractMessageLite.addAll(values, toGroupChatIds_);
   }
-  /**
-   * <code>repeated int64 ToGroupChatIds = 4;</code>
-   */
+  /** <code>repeated int64 ToGroupChatIds = 4;</code> */
   private void clearToGroupChatIds() {
     toGroupChatIds_ = emptyLongList();
   }
 
-  public void writeTo(com.google.protobuf.CodedOutputStream output)
-                      throws java.io.IOException {
+  public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
     getSerializedSize();
     if (messagesCollections_ != null) {
       output.writeMessage(1, getMessagesCollections());
@@ -238,14 +217,14 @@ public  final class PB_MsgParam_ForwardMessages extends
 
     size = 0;
     if (messagesCollections_ != null) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(1, getMessagesCollections());
+      size += com.google.protobuf.CodedOutputStream.computeMessageSize(1, getMessagesCollections());
     }
     {
       int dataSize = 0;
       for (int i = 0; i < toDirectChatIds_.size(); i++) {
-        dataSize += com.google.protobuf.CodedOutputStream
-          .computeInt64SizeNoTag(toDirectChatIds_.getLong(i));
+        dataSize +=
+            com.google.protobuf.CodedOutputStream.computeInt64SizeNoTag(
+                toDirectChatIds_.getLong(i));
       }
       size += dataSize;
       size += 1 * getToDirectChatIdsList().size();
@@ -253,8 +232,8 @@ public  final class PB_MsgParam_ForwardMessages extends
     {
       int dataSize = 0;
       for (int i = 0; i < toGroupChatIds_.size(); i++) {
-        dataSize += com.google.protobuf.CodedOutputStream
-          .computeInt64SizeNoTag(toGroupChatIds_.getLong(i));
+        dataSize +=
+            com.google.protobuf.CodedOutputStream.computeInt64SizeNoTag(toGroupChatIds_.getLong(i));
       }
       size += dataSize;
       size += 1 * getToGroupChatIdsList().size();
@@ -263,12 +242,11 @@ public  final class PB_MsgParam_ForwardMessages extends
     return size;
   }
 
-  public static ir.ms.pb.PB_MsgParam_ForwardMessages parseFrom(
-      com.google.protobuf.ByteString data)
+  public static ir.ms.pb.PB_MsgParam_ForwardMessages parseFrom(com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(
-        DEFAULT_INSTANCE, data);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, data);
   }
+
   public static ir.ms.pb.PB_MsgParam_ForwardMessages parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -276,46 +254,47 @@ public  final class PB_MsgParam_ForwardMessages extends
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
+
   public static ir.ms.pb.PB_MsgParam_ForwardMessages parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(
-        DEFAULT_INSTANCE, data);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, data);
   }
+
   public static ir.ms.pb.PB_MsgParam_ForwardMessages parseFrom(
-      byte[] data,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
+
   public static ir.ms.pb.PB_MsgParam_ForwardMessages parseFrom(java.io.InputStream input)
       throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(
-        DEFAULT_INSTANCE, input);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, input);
   }
+
   public static ir.ms.pb.PB_MsgParam_ForwardMessages parseFrom(
-      java.io.InputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, input, extensionRegistry);
   }
+
   public static ir.ms.pb.PB_MsgParam_ForwardMessages parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input);
   }
+
   public static ir.ms.pb.PB_MsgParam_ForwardMessages parseDelimitedFrom(
-      java.io.InputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
   }
+
   public static ir.ms.pb.PB_MsgParam_ForwardMessages parseFrom(
-      com.google.protobuf.CodedInputStream input)
-      throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(
-        DEFAULT_INSTANCE, input);
+      com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, input);
   }
+
   public static ir.ms.pb.PB_MsgParam_ForwardMessages parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -327,20 +306,24 @@ public  final class PB_MsgParam_ForwardMessages extends
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
+
   public static Builder newBuilder(ir.ms.pb.PB_MsgParam_ForwardMessages prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
 
   /**
+   *
+   *
    * <pre>
-   *&#47;//////////////////////////////////
+   * &#47;//////////////////////////////////
    * </pre>
    *
    * Protobuf type {@code PB_MsgParam_ForwardMessages}
    */
-  public static final class Builder extends
-      com.google.protobuf.GeneratedMessageLite.Builder<
-        ir.ms.pb.PB_MsgParam_ForwardMessages, Builder> implements
+  public static final class Builder
+      extends com.google.protobuf.GeneratedMessageLite.Builder<
+          ir.ms.pb.PB_MsgParam_ForwardMessages, Builder>
+      implements
       // @@protoc_insertion_point(builder_implements:PB_MsgParam_ForwardMessages)
       ir.ms.pb.PB_MsgParam_ForwardMessagesOrBuilder {
     // Construct using ir.ms.pb.PB_MsgParam_ForwardMessages.newBuilder()
@@ -348,8 +331,9 @@ public  final class PB_MsgParam_ForwardMessages extends
       super(DEFAULT_INSTANCE);
     }
 
-
     /**
+     *
+     *
      * <pre>
      *    /&#42;repeated int64 DirectMessagesIds = 1;
      *    repeated int64 GroupMessagesIds = 2;*&#47;
@@ -361,6 +345,8 @@ public  final class PB_MsgParam_ForwardMessages extends
       return instance.hasMessagesCollections();
     }
     /**
+     *
+     *
      * <pre>
      *    /&#42;repeated int64 DirectMessagesIds = 1;
      *    repeated int64 GroupMessagesIds = 2;*&#47;
@@ -372,6 +358,8 @@ public  final class PB_MsgParam_ForwardMessages extends
       return instance.getMessagesCollections();
     }
     /**
+     *
+     *
      * <pre>
      *    /&#42;repeated int64 DirectMessagesIds = 1;
      *    repeated int64 GroupMessagesIds = 2;*&#47;
@@ -383,8 +371,10 @@ public  final class PB_MsgParam_ForwardMessages extends
       copyOnWrite();
       instance.setMessagesCollections(value);
       return this;
-      }
+    }
     /**
+     *
+     *
      * <pre>
      *    /&#42;repeated int64 DirectMessagesIds = 1;
      *    repeated int64 GroupMessagesIds = 2;*&#47;
@@ -392,13 +382,14 @@ public  final class PB_MsgParam_ForwardMessages extends
      *
      * <code>.PB_MessagesCollections MessagesCollections = 1;</code>
      */
-    public Builder setMessagesCollections(
-        ir.ms.pb.PB_MessagesCollections.Builder builderForValue) {
+    public Builder setMessagesCollections(ir.ms.pb.PB_MessagesCollections.Builder builderForValue) {
       copyOnWrite();
       instance.setMessagesCollections(builderForValue);
       return this;
     }
     /**
+     *
+     *
      * <pre>
      *    /&#42;repeated int64 DirectMessagesIds = 1;
      *    repeated int64 GroupMessagesIds = 2;*&#47;
@@ -412,6 +403,8 @@ public  final class PB_MsgParam_ForwardMessages extends
       return this;
     }
     /**
+     *
+     *
      * <pre>
      *    /&#42;repeated int64 DirectMessagesIds = 1;
      *    repeated int64 GroupMessagesIds = 2;*&#47;
@@ -419,115 +412,80 @@ public  final class PB_MsgParam_ForwardMessages extends
      *
      * <code>.PB_MessagesCollections MessagesCollections = 1;</code>
      */
-    public Builder clearMessagesCollections() {  copyOnWrite();
+    public Builder clearMessagesCollections() {
+      copyOnWrite();
       instance.clearMessagesCollections();
       return this;
     }
 
-    /**
-     * <code>repeated int64 ToDirectChatIds = 3;</code>
-     */
-    public java.util.List<java.lang.Long>
-        getToDirectChatIdsList() {
-      return java.util.Collections.unmodifiableList(
-          instance.getToDirectChatIdsList());
+    /** <code>repeated int64 ToDirectChatIds = 3;</code> */
+    public java.util.List<java.lang.Long> getToDirectChatIdsList() {
+      return java.util.Collections.unmodifiableList(instance.getToDirectChatIdsList());
     }
-    /**
-     * <code>repeated int64 ToDirectChatIds = 3;</code>
-     */
+    /** <code>repeated int64 ToDirectChatIds = 3;</code> */
     public int getToDirectChatIdsCount() {
       return instance.getToDirectChatIdsCount();
     }
-    /**
-     * <code>repeated int64 ToDirectChatIds = 3;</code>
-     */
+    /** <code>repeated int64 ToDirectChatIds = 3;</code> */
     public long getToDirectChatIds(int index) {
       return instance.getToDirectChatIds(index);
     }
-    /**
-     * <code>repeated int64 ToDirectChatIds = 3;</code>
-     */
-    public Builder setToDirectChatIds(
-        int index, long value) {
+    /** <code>repeated int64 ToDirectChatIds = 3;</code> */
+    public Builder setToDirectChatIds(int index, long value) {
       copyOnWrite();
       instance.setToDirectChatIds(index, value);
       return this;
     }
-    /**
-     * <code>repeated int64 ToDirectChatIds = 3;</code>
-     */
+    /** <code>repeated int64 ToDirectChatIds = 3;</code> */
     public Builder addToDirectChatIds(long value) {
       copyOnWrite();
       instance.addToDirectChatIds(value);
       return this;
     }
-    /**
-     * <code>repeated int64 ToDirectChatIds = 3;</code>
-     */
-    public Builder addAllToDirectChatIds(
-        java.lang.Iterable<? extends java.lang.Long> values) {
+    /** <code>repeated int64 ToDirectChatIds = 3;</code> */
+    public Builder addAllToDirectChatIds(java.lang.Iterable<? extends java.lang.Long> values) {
       copyOnWrite();
       instance.addAllToDirectChatIds(values);
       return this;
     }
-    /**
-     * <code>repeated int64 ToDirectChatIds = 3;</code>
-     */
+    /** <code>repeated int64 ToDirectChatIds = 3;</code> */
     public Builder clearToDirectChatIds() {
       copyOnWrite();
       instance.clearToDirectChatIds();
       return this;
     }
 
-    /**
-     * <code>repeated int64 ToGroupChatIds = 4;</code>
-     */
-    public java.util.List<java.lang.Long>
-        getToGroupChatIdsList() {
-      return java.util.Collections.unmodifiableList(
-          instance.getToGroupChatIdsList());
+    /** <code>repeated int64 ToGroupChatIds = 4;</code> */
+    public java.util.List<java.lang.Long> getToGroupChatIdsList() {
+      return java.util.Collections.unmodifiableList(instance.getToGroupChatIdsList());
     }
-    /**
-     * <code>repeated int64 ToGroupChatIds = 4;</code>
-     */
+    /** <code>repeated int64 ToGroupChatIds = 4;</code> */
     public int getToGroupChatIdsCount() {
       return instance.getToGroupChatIdsCount();
     }
-    /**
-     * <code>repeated int64 ToGroupChatIds = 4;</code>
-     */
+    /** <code>repeated int64 ToGroupChatIds = 4;</code> */
     public long getToGroupChatIds(int index) {
       return instance.getToGroupChatIds(index);
     }
-    /**
-     * <code>repeated int64 ToGroupChatIds = 4;</code>
-     */
-    public Builder setToGroupChatIds(
-        int index, long value) {
+    /** <code>repeated int64 ToGroupChatIds = 4;</code> */
+    public Builder setToGroupChatIds(int index, long value) {
       copyOnWrite();
       instance.setToGroupChatIds(index, value);
       return this;
     }
-    /**
-     * <code>repeated int64 ToGroupChatIds = 4;</code>
-     */
+    /** <code>repeated int64 ToGroupChatIds = 4;</code> */
     public Builder addToGroupChatIds(long value) {
       copyOnWrite();
       instance.addToGroupChatIds(value);
       return this;
     }
-    /**
-     * <code>repeated int64 ToGroupChatIds = 4;</code>
-     */
-    public Builder addAllToGroupChatIds(
-        java.lang.Iterable<? extends java.lang.Long> values) {
+    /** <code>repeated int64 ToGroupChatIds = 4;</code> */
+    public Builder addAllToGroupChatIds(java.lang.Iterable<? extends java.lang.Long> values) {
       copyOnWrite();
       instance.addAllToGroupChatIds(values);
       return this;
     }
-    /**
-     * <code>repeated int64 ToGroupChatIds = 4;</code>
-     */
+    /** <code>repeated int64 ToGroupChatIds = 4;</code> */
     public Builder clearToGroupChatIds() {
       copyOnWrite();
       instance.clearToGroupChatIds();
@@ -536,140 +494,156 @@ public  final class PB_MsgParam_ForwardMessages extends
 
     // @@protoc_insertion_point(builder_scope:PB_MsgParam_ForwardMessages)
   }
-  protected final Object dynamicMethod(
-      com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
-      Object arg0, Object arg1) {
-    switch (method) {
-      case NEW_MUTABLE_INSTANCE: {
-        return new ir.ms.pb.PB_MsgParam_ForwardMessages();
-      }
-      case IS_INITIALIZED: {
-        return DEFAULT_INSTANCE;
-      }
-      case MAKE_IMMUTABLE: {
-        toDirectChatIds_.makeImmutable();
-        toGroupChatIds_.makeImmutable();
-        return null;
-      }
-      case NEW_BUILDER: {
-        return new Builder();
-      }
-      case VISIT: {
-        Visitor visitor = (Visitor) arg0;
-        ir.ms.pb.PB_MsgParam_ForwardMessages other = (ir.ms.pb.PB_MsgParam_ForwardMessages) arg1;
-        messagesCollections_ = visitor.visitMessage(messagesCollections_, other.messagesCollections_);
-        toDirectChatIds_= visitor.visitLongList(toDirectChatIds_, other.toDirectChatIds_);
-        toGroupChatIds_= visitor.visitLongList(toGroupChatIds_, other.toGroupChatIds_);
-        if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
-            .INSTANCE) {
-          bitField0_ |= other.bitField0_;
-        }
-        return this;
-      }
-      case MERGE_FROM_STREAM: {
-        com.google.protobuf.CodedInputStream input =
-            (com.google.protobuf.CodedInputStream) arg0;
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry =
-            (com.google.protobuf.ExtensionRegistryLite) arg1;
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              default: {
-                if (!input.skipField(tag)) {
-                  done = true;
-                }
-                break;
-              }
-              case 10: {
-                ir.ms.pb.PB_MessagesCollections.Builder subBuilder = null;
-                if (messagesCollections_ != null) {
-                  subBuilder = messagesCollections_.toBuilder();
-                }
-                messagesCollections_ = input.readMessage(ir.ms.pb.PB_MessagesCollections.parser(), extensionRegistry);
-                if (subBuilder != null) {
-                  subBuilder.mergeFrom(messagesCollections_);
-                  messagesCollections_ = subBuilder.buildPartial();
-                }
 
-                break;
+  protected final Object dynamicMethod(
+      com.google.protobuf.GeneratedMessageLite.MethodToInvoke method, Object arg0, Object arg1) {
+    switch (method) {
+      case NEW_MUTABLE_INSTANCE:
+        {
+          return new ir.ms.pb.PB_MsgParam_ForwardMessages();
+        }
+      case IS_INITIALIZED:
+        {
+          return DEFAULT_INSTANCE;
+        }
+      case MAKE_IMMUTABLE:
+        {
+          toDirectChatIds_.makeImmutable();
+          toGroupChatIds_.makeImmutable();
+          return null;
+        }
+      case NEW_BUILDER:
+        {
+          return new Builder();
+        }
+      case VISIT:
+        {
+          Visitor visitor = (Visitor) arg0;
+          ir.ms.pb.PB_MsgParam_ForwardMessages other = (ir.ms.pb.PB_MsgParam_ForwardMessages) arg1;
+          messagesCollections_ =
+              visitor.visitMessage(messagesCollections_, other.messagesCollections_);
+          toDirectChatIds_ = visitor.visitLongList(toDirectChatIds_, other.toDirectChatIds_);
+          toGroupChatIds_ = visitor.visitLongList(toGroupChatIds_, other.toGroupChatIds_);
+          if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor.INSTANCE) {
+            bitField0_ |= other.bitField0_;
+          }
+          return this;
+        }
+      case MERGE_FROM_STREAM:
+        {
+          com.google.protobuf.CodedInputStream input = (com.google.protobuf.CodedInputStream) arg0;
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry =
+              (com.google.protobuf.ExtensionRegistryLite) arg1;
+          try {
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                default:
+                  {
+                    if (!input.skipField(tag)) {
+                      done = true;
+                    }
+                    break;
+                  }
+                case 10:
+                  {
+                    ir.ms.pb.PB_MessagesCollections.Builder subBuilder = null;
+                    if (messagesCollections_ != null) {
+                      subBuilder = messagesCollections_.toBuilder();
+                    }
+                    messagesCollections_ =
+                        input.readMessage(
+                            ir.ms.pb.PB_MessagesCollections.parser(), extensionRegistry);
+                    if (subBuilder != null) {
+                      subBuilder.mergeFrom(messagesCollections_);
+                      messagesCollections_ = subBuilder.buildPartial();
+                    }
+
+                    break;
+                  }
+                case 24:
+                  {
+                    if (!toDirectChatIds_.isModifiable()) {
+                      toDirectChatIds_ =
+                          com.google.protobuf.GeneratedMessageLite.mutableCopy(toDirectChatIds_);
+                    }
+                    toDirectChatIds_.addLong(input.readInt64());
+                    break;
+                  }
+                case 26:
+                  {
+                    int length = input.readRawVarint32();
+                    int limit = input.pushLimit(length);
+                    if (!toDirectChatIds_.isModifiable() && input.getBytesUntilLimit() > 0) {
+                      toDirectChatIds_ =
+                          com.google.protobuf.GeneratedMessageLite.mutableCopy(toDirectChatIds_);
+                    }
+                    while (input.getBytesUntilLimit() > 0) {
+                      toDirectChatIds_.addLong(input.readInt64());
+                    }
+                    input.popLimit(limit);
+                    break;
+                  }
+                case 32:
+                  {
+                    if (!toGroupChatIds_.isModifiable()) {
+                      toGroupChatIds_ =
+                          com.google.protobuf.GeneratedMessageLite.mutableCopy(toGroupChatIds_);
+                    }
+                    toGroupChatIds_.addLong(input.readInt64());
+                    break;
+                  }
+                case 34:
+                  {
+                    int length = input.readRawVarint32();
+                    int limit = input.pushLimit(length);
+                    if (!toGroupChatIds_.isModifiable() && input.getBytesUntilLimit() > 0) {
+                      toGroupChatIds_ =
+                          com.google.protobuf.GeneratedMessageLite.mutableCopy(toGroupChatIds_);
+                    }
+                    while (input.getBytesUntilLimit() > 0) {
+                      toGroupChatIds_.addLong(input.readInt64());
+                    }
+                    input.popLimit(limit);
+                    break;
+                  }
               }
-              case 24: {
-                if (!toDirectChatIds_.isModifiable()) {
-                  toDirectChatIds_ =
-                      com.google.protobuf.GeneratedMessageLite.mutableCopy(toDirectChatIds_);
-                }
-                toDirectChatIds_.addLong(input.readInt64());
-                break;
-              }
-              case 26: {
-                int length = input.readRawVarint32();
-                int limit = input.pushLimit(length);
-                if (!toDirectChatIds_.isModifiable() && input.getBytesUntilLimit() > 0) {
-                  toDirectChatIds_ =
-                      com.google.protobuf.GeneratedMessageLite.mutableCopy(toDirectChatIds_);
-                }
-                while (input.getBytesUntilLimit() > 0) {
-                  toDirectChatIds_.addLong(input.readInt64());
-                }
-                input.popLimit(limit);
-                break;
-              }
-              case 32: {
-                if (!toGroupChatIds_.isModifiable()) {
-                  toGroupChatIds_ =
-                      com.google.protobuf.GeneratedMessageLite.mutableCopy(toGroupChatIds_);
-                }
-                toGroupChatIds_.addLong(input.readInt64());
-                break;
-              }
-              case 34: {
-                int length = input.readRawVarint32();
-                int limit = input.pushLimit(length);
-                if (!toGroupChatIds_.isModifiable() && input.getBytesUntilLimit() > 0) {
-                  toGroupChatIds_ =
-                      com.google.protobuf.GeneratedMessageLite.mutableCopy(toGroupChatIds_);
-                }
-                while (input.getBytesUntilLimit() > 0) {
-                  toGroupChatIds_.addLong(input.readInt64());
-                }
-                input.popLimit(limit);
-                break;
+            }
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw new RuntimeException(e.setUnfinishedMessage(this));
+          } catch (java.io.IOException e) {
+            throw new RuntimeException(
+                new com.google.protobuf.InvalidProtocolBufferException(e.getMessage())
+                    .setUnfinishedMessage(this));
+          } finally {
+          }
+        }
+      case GET_DEFAULT_INSTANCE:
+        {
+          return DEFAULT_INSTANCE;
+        }
+      case GET_PARSER:
+        {
+          if (PARSER == null) {
+            synchronized (ir.ms.pb.PB_MsgParam_ForwardMessages.class) {
+              if (PARSER == null) {
+                PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
               }
             }
           }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw new RuntimeException(e.setUnfinishedMessage(this));
-        } catch (java.io.IOException e) {
-          throw new RuntimeException(
-              new com.google.protobuf.InvalidProtocolBufferException(
-                  e.getMessage()).setUnfinishedMessage(this));
-        } finally {
+          return PARSER;
         }
-      }
-      case GET_DEFAULT_INSTANCE: {
-        return DEFAULT_INSTANCE;
-      }
-      case GET_PARSER: {
-        if (PARSER == null) {    synchronized (ir.ms.pb.PB_MsgParam_ForwardMessages.class) {
-            if (PARSER == null) {
-              PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
-            }
-          }
-        }
-        return PARSER;
-      }
     }
     throw new UnsupportedOperationException();
   }
 
-
   // @@protoc_insertion_point(class_scope:PB_MsgParam_ForwardMessages)
   private static final ir.ms.pb.PB_MsgParam_ForwardMessages DEFAULT_INSTANCE;
+
   static {
     DEFAULT_INSTANCE = new PB_MsgParam_ForwardMessages();
     DEFAULT_INSTANCE.makeImmutable();
@@ -685,4 +659,3 @@ public  final class PB_MsgParam_ForwardMessages extends
     return DEFAULT_INSTANCE.getParserForType();
   }
 }
-

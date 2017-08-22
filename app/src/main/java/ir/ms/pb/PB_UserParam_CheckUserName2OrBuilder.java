@@ -3,7 +3,7 @@
 
 package ir.ms.pb;
 
-public interface PB_UserParam_CheckUserName2OrBuilder extends
+public interface PB_UserParam_CheckUserName2OrBuilder
+    extends
     // @@protoc_insertion_point(interface_extends:PB_UserParam_CheckUserName2)
-    com.google.protobuf.MessageLiteOrBuilder {
-}
+    com.google.protobuf.MessageLiteOrBuilder {}

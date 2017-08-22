@@ -3,31 +3,21 @@
 
 package ir.ms.pb;
 
-public interface PB_MsgParam_SetRoomActionDoingOrBuilder extends
+public interface PB_MsgParam_SetRoomActionDoingOrBuilder
+    extends
     // @@protoc_insertion_point(interface_extends:PB_MsgParam_SetRoomActionDoing)
     com.google.protobuf.MessageLiteOrBuilder {
 
-  /**
-   * <code>int64 GroupId = 12;</code>
-   */
+  /** <code>int64 GroupId = 12;</code> */
   long getGroupId();
 
-  /**
-   * <code>string DirectRoomKey = 102;</code>
-   */
+  /** <code>string DirectRoomKey = 102;</code> */
   java.lang.String getDirectRoomKey();
-  /**
-   * <code>string DirectRoomKey = 102;</code>
-   */
-  com.google.protobuf.ByteString
-      getDirectRoomKeyBytes();
+  /** <code>string DirectRoomKey = 102;</code> */
+  com.google.protobuf.ByteString getDirectRoomKeyBytes();
 
-  /**
-   * <code>.RoomActionDoingEnum ActionType = 1020;</code>
-   */
+  /** <code>.RoomActionDoingEnum ActionType = 1020;</code> */
   int getActionTypeValue();
-  /**
-   * <code>.RoomActionDoingEnum ActionType = 1020;</code>
-   */
+  /** <code>.RoomActionDoingEnum ActionType = 1020;</code> */
   ir.ms.pb.RoomActionDoingEnum getActionType();
 }

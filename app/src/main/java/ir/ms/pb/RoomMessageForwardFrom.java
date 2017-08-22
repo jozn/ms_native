@@ -3,87 +3,67 @@
 
 package ir.ms.pb;
 
-/**
- * Protobuf type {@code RoomMessageForwardFrom}
- */
-public  final class RoomMessageForwardFrom extends
-    com.google.protobuf.GeneratedMessageLite<
-        RoomMessageForwardFrom, RoomMessageForwardFrom.Builder> implements
+/** Protobuf type {@code RoomMessageForwardFrom} */
+public final class RoomMessageForwardFrom
+    extends com.google.protobuf.GeneratedMessageLite<
+        RoomMessageForwardFrom, RoomMessageForwardFrom.Builder>
+    implements
     // @@protoc_insertion_point(message_implements:RoomMessageForwardFrom)
     RoomMessageForwardFromOrBuilder {
-  private RoomMessageForwardFrom() {
-  }
+  private RoomMessageForwardFrom() {}
+
   public static final int ROOMID_FIELD_NUMBER = 1;
   private long roomId_;
-  /**
-   * <code>uint64 RoomId = 1;</code>
-   */
+  /** <code>uint64 RoomId = 1;</code> */
   public long getRoomId() {
     return roomId_;
   }
-  /**
-   * <code>uint64 RoomId = 1;</code>
-   */
+  /** <code>uint64 RoomId = 1;</code> */
   private void setRoomId(long value) {
-    
+
     roomId_ = value;
   }
-  /**
-   * <code>uint64 RoomId = 1;</code>
-   */
+  /** <code>uint64 RoomId = 1;</code> */
   private void clearRoomId() {
-    
+
     roomId_ = 0L;
   }
 
   public static final int MESSAGEID_FIELD_NUMBER = 2;
   private long messageId_;
-  /**
-   * <code>uint64 MessageId = 2;</code>
-   */
+  /** <code>uint64 MessageId = 2;</code> */
   public long getMessageId() {
     return messageId_;
   }
-  /**
-   * <code>uint64 MessageId = 2;</code>
-   */
+  /** <code>uint64 MessageId = 2;</code> */
   private void setMessageId(long value) {
-    
+
     messageId_ = value;
   }
-  /**
-   * <code>uint64 MessageId = 2;</code>
-   */
+  /** <code>uint64 MessageId = 2;</code> */
   private void clearMessageId() {
-    
+
     messageId_ = 0L;
   }
 
   public static final int ROOMTYPEENUM_FIELD_NUMBER = 3;
   private int roomTypeEnum_;
-  /**
-   * <code>uint32 RoomTypeEnum = 3;</code>
-   */
+  /** <code>uint32 RoomTypeEnum = 3;</code> */
   public int getRoomTypeEnum() {
     return roomTypeEnum_;
   }
-  /**
-   * <code>uint32 RoomTypeEnum = 3;</code>
-   */
+  /** <code>uint32 RoomTypeEnum = 3;</code> */
   private void setRoomTypeEnum(int value) {
-    
+
     roomTypeEnum_ = value;
   }
-  /**
-   * <code>uint32 RoomTypeEnum = 3;</code>
-   */
+  /** <code>uint32 RoomTypeEnum = 3;</code> */
   private void clearRoomTypeEnum() {
-    
+
     roomTypeEnum_ = 0;
   }
 
-  public void writeTo(com.google.protobuf.CodedOutputStream output)
-                      throws java.io.IOException {
+  public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
     if (roomId_ != 0L) {
       output.writeUInt64(1, roomId_);
     }
@@ -101,27 +81,23 @@ public  final class RoomMessageForwardFrom extends
 
     size = 0;
     if (roomId_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeUInt64Size(1, roomId_);
+      size += com.google.protobuf.CodedOutputStream.computeUInt64Size(1, roomId_);
     }
     if (messageId_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeUInt64Size(2, messageId_);
+      size += com.google.protobuf.CodedOutputStream.computeUInt64Size(2, messageId_);
     }
     if (roomTypeEnum_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeUInt32Size(3, roomTypeEnum_);
+      size += com.google.protobuf.CodedOutputStream.computeUInt32Size(3, roomTypeEnum_);
     }
     memoizedSerializedSize = size;
     return size;
   }
 
-  public static ir.ms.pb.RoomMessageForwardFrom parseFrom(
-      com.google.protobuf.ByteString data)
+  public static ir.ms.pb.RoomMessageForwardFrom parseFrom(com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(
-        DEFAULT_INSTANCE, data);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, data);
   }
+
   public static ir.ms.pb.RoomMessageForwardFrom parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -129,46 +105,47 @@ public  final class RoomMessageForwardFrom extends
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
+
   public static ir.ms.pb.RoomMessageForwardFrom parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(
-        DEFAULT_INSTANCE, data);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, data);
   }
+
   public static ir.ms.pb.RoomMessageForwardFrom parseFrom(
-      byte[] data,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
+
   public static ir.ms.pb.RoomMessageForwardFrom parseFrom(java.io.InputStream input)
       throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(
-        DEFAULT_INSTANCE, input);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, input);
   }
+
   public static ir.ms.pb.RoomMessageForwardFrom parseFrom(
-      java.io.InputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, input, extensionRegistry);
   }
+
   public static ir.ms.pb.RoomMessageForwardFrom parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input);
   }
+
   public static ir.ms.pb.RoomMessageForwardFrom parseDelimitedFrom(
-      java.io.InputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
   }
+
   public static ir.ms.pb.RoomMessageForwardFrom parseFrom(
-      com.google.protobuf.CodedInputStream input)
-      throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(
-        DEFAULT_INSTANCE, input);
+      com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, input);
   }
+
   public static ir.ms.pb.RoomMessageForwardFrom parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -180,16 +157,16 @@ public  final class RoomMessageForwardFrom extends
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
+
   public static Builder newBuilder(ir.ms.pb.RoomMessageForwardFrom prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
 
-  /**
-   * Protobuf type {@code RoomMessageForwardFrom}
-   */
-  public static final class Builder extends
-      com.google.protobuf.GeneratedMessageLite.Builder<
-        ir.ms.pb.RoomMessageForwardFrom, Builder> implements
+  /** Protobuf type {@code RoomMessageForwardFrom} */
+  public static final class Builder
+      extends com.google.protobuf.GeneratedMessageLite.Builder<
+          ir.ms.pb.RoomMessageForwardFrom, Builder>
+      implements
       // @@protoc_insertion_point(builder_implements:RoomMessageForwardFrom)
       ir.ms.pb.RoomMessageForwardFromOrBuilder {
     // Construct using ir.ms.pb.RoomMessageForwardFrom.newBuilder()
@@ -197,70 +174,51 @@ public  final class RoomMessageForwardFrom extends
       super(DEFAULT_INSTANCE);
     }
 
-
-    /**
-     * <code>uint64 RoomId = 1;</code>
-     */
+    /** <code>uint64 RoomId = 1;</code> */
     public long getRoomId() {
       return instance.getRoomId();
     }
-    /**
-     * <code>uint64 RoomId = 1;</code>
-     */
+    /** <code>uint64 RoomId = 1;</code> */
     public Builder setRoomId(long value) {
       copyOnWrite();
       instance.setRoomId(value);
       return this;
     }
-    /**
-     * <code>uint64 RoomId = 1;</code>
-     */
+    /** <code>uint64 RoomId = 1;</code> */
     public Builder clearRoomId() {
       copyOnWrite();
       instance.clearRoomId();
       return this;
     }
 
-    /**
-     * <code>uint64 MessageId = 2;</code>
-     */
+    /** <code>uint64 MessageId = 2;</code> */
     public long getMessageId() {
       return instance.getMessageId();
     }
-    /**
-     * <code>uint64 MessageId = 2;</code>
-     */
+    /** <code>uint64 MessageId = 2;</code> */
     public Builder setMessageId(long value) {
       copyOnWrite();
       instance.setMessageId(value);
       return this;
     }
-    /**
-     * <code>uint64 MessageId = 2;</code>
-     */
+    /** <code>uint64 MessageId = 2;</code> */
     public Builder clearMessageId() {
       copyOnWrite();
       instance.clearMessageId();
       return this;
     }
 
-    /**
-     * <code>uint32 RoomTypeEnum = 3;</code>
-     */
+    /** <code>uint32 RoomTypeEnum = 3;</code> */
     public int getRoomTypeEnum() {
       return instance.getRoomTypeEnum();
     }
-    /**
-     * <code>uint32 RoomTypeEnum = 3;</code>
-     */
+    /** <code>uint32 RoomTypeEnum = 3;</code> */
     public Builder setRoomTypeEnum(int value) {
       copyOnWrite();
       instance.setRoomTypeEnum(value);
       return this;
     }
-    /**
-     * <code>uint32 RoomTypeEnum = 3;</code>
-     */
+    /** <code>uint32 RoomTypeEnum = 3;</code> */
     public Builder clearRoomTypeEnum() {
       copyOnWrite();
       instance.clearRoomTypeEnum();
@@ -269,100 +227,108 @@ public  final class RoomMessageForwardFrom extends
 
     // @@protoc_insertion_point(builder_scope:RoomMessageForwardFrom)
   }
+
   protected final Object dynamicMethod(
-      com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
-      Object arg0, Object arg1) {
+      com.google.protobuf.GeneratedMessageLite.MethodToInvoke method, Object arg0, Object arg1) {
     switch (method) {
-      case NEW_MUTABLE_INSTANCE: {
-        return new ir.ms.pb.RoomMessageForwardFrom();
-      }
-      case IS_INITIALIZED: {
-        return DEFAULT_INSTANCE;
-      }
-      case MAKE_IMMUTABLE: {
-        return null;
-      }
-      case NEW_BUILDER: {
-        return new Builder();
-      }
-      case VISIT: {
-        Visitor visitor = (Visitor) arg0;
-        ir.ms.pb.RoomMessageForwardFrom other = (ir.ms.pb.RoomMessageForwardFrom) arg1;
-        roomId_ = visitor.visitLong(roomId_ != 0L, roomId_,
-            other.roomId_ != 0L, other.roomId_);
-        messageId_ = visitor.visitLong(messageId_ != 0L, messageId_,
-            other.messageId_ != 0L, other.messageId_);
-        roomTypeEnum_ = visitor.visitInt(roomTypeEnum_ != 0, roomTypeEnum_,
-            other.roomTypeEnum_ != 0, other.roomTypeEnum_);
-        if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
-            .INSTANCE) {
+      case NEW_MUTABLE_INSTANCE:
+        {
+          return new ir.ms.pb.RoomMessageForwardFrom();
         }
-        return this;
-      }
-      case MERGE_FROM_STREAM: {
-        com.google.protobuf.CodedInputStream input =
-            (com.google.protobuf.CodedInputStream) arg0;
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry =
-            (com.google.protobuf.ExtensionRegistryLite) arg1;
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              default: {
-                if (!input.skipField(tag)) {
+      case IS_INITIALIZED:
+        {
+          return DEFAULT_INSTANCE;
+        }
+      case MAKE_IMMUTABLE:
+        {
+          return null;
+        }
+      case NEW_BUILDER:
+        {
+          return new Builder();
+        }
+      case VISIT:
+        {
+          Visitor visitor = (Visitor) arg0;
+          ir.ms.pb.RoomMessageForwardFrom other = (ir.ms.pb.RoomMessageForwardFrom) arg1;
+          roomId_ = visitor.visitLong(roomId_ != 0L, roomId_, other.roomId_ != 0L, other.roomId_);
+          messageId_ =
+              visitor.visitLong(
+                  messageId_ != 0L, messageId_, other.messageId_ != 0L, other.messageId_);
+          roomTypeEnum_ =
+              visitor.visitInt(
+                  roomTypeEnum_ != 0, roomTypeEnum_, other.roomTypeEnum_ != 0, other.roomTypeEnum_);
+          if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor.INSTANCE) {}
+          return this;
+        }
+      case MERGE_FROM_STREAM:
+        {
+          com.google.protobuf.CodedInputStream input = (com.google.protobuf.CodedInputStream) arg0;
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry =
+              (com.google.protobuf.ExtensionRegistryLite) arg1;
+          try {
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
                   done = true;
-                }
-                break;
+                  break;
+                default:
+                  {
+                    if (!input.skipField(tag)) {
+                      done = true;
+                    }
+                    break;
+                  }
+                case 8:
+                  {
+                    roomId_ = input.readUInt64();
+                    break;
+                  }
+                case 16:
+                  {
+                    messageId_ = input.readUInt64();
+                    break;
+                  }
+                case 24:
+                  {
+                    roomTypeEnum_ = input.readUInt32();
+                    break;
+                  }
               }
-              case 8: {
-
-                roomId_ = input.readUInt64();
-                break;
-              }
-              case 16: {
-
-                messageId_ = input.readUInt64();
-                break;
-              }
-              case 24: {
-
-                roomTypeEnum_ = input.readUInt32();
-                break;
+            }
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw new RuntimeException(e.setUnfinishedMessage(this));
+          } catch (java.io.IOException e) {
+            throw new RuntimeException(
+                new com.google.protobuf.InvalidProtocolBufferException(e.getMessage())
+                    .setUnfinishedMessage(this));
+          } finally {
+          }
+        }
+      case GET_DEFAULT_INSTANCE:
+        {
+          return DEFAULT_INSTANCE;
+        }
+      case GET_PARSER:
+        {
+          if (PARSER == null) {
+            synchronized (ir.ms.pb.RoomMessageForwardFrom.class) {
+              if (PARSER == null) {
+                PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
               }
             }
           }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw new RuntimeException(e.setUnfinishedMessage(this));
-        } catch (java.io.IOException e) {
-          throw new RuntimeException(
-              new com.google.protobuf.InvalidProtocolBufferException(
-                  e.getMessage()).setUnfinishedMessage(this));
-        } finally {
+          return PARSER;
         }
-      }
-      case GET_DEFAULT_INSTANCE: {
-        return DEFAULT_INSTANCE;
-      }
-      case GET_PARSER: {
-        if (PARSER == null) {    synchronized (ir.ms.pb.RoomMessageForwardFrom.class) {
-            if (PARSER == null) {
-              PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
-            }
-          }
-        }
-        return PARSER;
-      }
     }
     throw new UnsupportedOperationException();
   }
 
-
   // @@protoc_insertion_point(class_scope:RoomMessageForwardFrom)
   private static final ir.ms.pb.RoomMessageForwardFrom DEFAULT_INSTANCE;
+
   static {
     DEFAULT_INSTANCE = new RoomMessageForwardFrom();
     DEFAULT_INSTANCE.makeImmutable();
@@ -378,4 +344,3 @@ public  final class RoomMessageForwardFrom extends
     return DEFAULT_INSTANCE.getParserForType();
   }
 }
-

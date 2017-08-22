@@ -3,17 +3,14 @@
 
 package ir.ms.pb;
 
-public interface PB_UserParam_ChangeAvatarOrBuilder extends
+public interface PB_UserParam_ChangeAvatarOrBuilder
+    extends
     // @@protoc_insertion_point(interface_extends:PB_UserParam_ChangeAvatar)
     com.google.protobuf.MessageLiteOrBuilder {
 
-  /**
-   * <code>bool None = 1;</code>
-   */
+  /** <code>bool None = 1;</code> */
   boolean getNone();
 
-  /**
-   * <code>bytes ImageData2 = 2;</code>
-   */
+  /** <code>bytes ImageData2 = 2;</code> */
   com.google.protobuf.ByteString getImageData2();
 }

@@ -3,55 +3,33 @@
 
 package ir.ms.pb;
 
-/**
- * Protobuf enum {@code DeviceEnum}
- */
-public enum DeviceEnum
-    implements com.google.protobuf.Internal.EnumLite {
-  /**
-   * <code>UNKNOWN_DEVICE = 0;</code>
-   */
+/** Protobuf enum {@code DeviceEnum} */
+public enum DeviceEnum implements com.google.protobuf.Internal.EnumLite {
+  /** <code>UNKNOWN_DEVICE = 0;</code> */
   UNKNOWN_DEVICE(0),
-  /**
-   * <code>PC = 1;</code>
-   */
+  /** <code>PC = 1;</code> */
   PC(1),
-  /**
-   * <code>TABLET = 2;</code>
-   */
+  /** <code>TABLET = 2;</code> */
   TABLET(2),
-  /**
-   * <code>MOBILE = 3;</code>
-   */
+  /** <code>MOBILE = 3;</code> */
   MOBILE(3),
   UNRECOGNIZED(-1),
   ;
 
-  /**
-   * <code>UNKNOWN_DEVICE = 0;</code>
-   */
+  /** <code>UNKNOWN_DEVICE = 0;</code> */
   public static final int UNKNOWN_DEVICE_VALUE = 0;
-  /**
-   * <code>PC = 1;</code>
-   */
+  /** <code>PC = 1;</code> */
   public static final int PC_VALUE = 1;
-  /**
-   * <code>TABLET = 2;</code>
-   */
+  /** <code>TABLET = 2;</code> */
   public static final int TABLET_VALUE = 2;
-  /**
-   * <code>MOBILE = 3;</code>
-   */
+  /** <code>MOBILE = 3;</code> */
   public static final int MOBILE_VALUE = 3;
-
 
   public final int getNumber() {
     return value;
   }
 
-  /**
-   * @deprecated Use {@link #forNumber(int)} instead.
-   */
+  /** @deprecated Use {@link #forNumber(int)} instead. */
   @java.lang.Deprecated
   public static DeviceEnum valueOf(int value) {
     return forNumber(value);
@@ -59,25 +37,29 @@ public enum DeviceEnum
 
   public static DeviceEnum forNumber(int value) {
     switch (value) {
-      case 0: return UNKNOWN_DEVICE;
-      case 1: return PC;
-      case 2: return TABLET;
-      case 3: return MOBILE;
-      default: return null;
+      case 0:
+        return UNKNOWN_DEVICE;
+      case 1:
+        return PC;
+      case 2:
+        return TABLET;
+      case 3:
+        return MOBILE;
+      default:
+        return null;
     }
   }
 
-  public static com.google.protobuf.Internal.EnumLiteMap<DeviceEnum>
-      internalGetValueMap() {
+  public static com.google.protobuf.Internal.EnumLiteMap<DeviceEnum> internalGetValueMap() {
     return internalValueMap;
   }
-  private static final com.google.protobuf.Internal.EnumLiteMap<
-      DeviceEnum> internalValueMap =
-        new com.google.protobuf.Internal.EnumLiteMap<DeviceEnum>() {
-          public DeviceEnum findValueByNumber(int number) {
-            return DeviceEnum.forNumber(number);
-          }
-        };
+
+  private static final com.google.protobuf.Internal.EnumLiteMap<DeviceEnum> internalValueMap =
+      new com.google.protobuf.Internal.EnumLiteMap<DeviceEnum>() {
+        public DeviceEnum findValueByNumber(int number) {
+          return DeviceEnum.forNumber(number);
+        }
+      };
 
   private final int value;
 
@@ -87,4 +69,3 @@ public enum DeviceEnum
 
   // @@protoc_insertion_point(enum_scope:DeviceEnum)
 }
-

@@ -3,7 +3,7 @@
 
 package ir.ms.pb;
 
-public interface PB_UserOfflineResponse_ChangeAvatarOrBuilder extends
+public interface PB_UserOfflineResponse_ChangeAvatarOrBuilder
+    extends
     // @@protoc_insertion_point(interface_extends:PB_UserOfflineResponse_ChangeAvatar)
-    com.google.protobuf.MessageLiteOrBuilder {
-}
+    com.google.protobuf.MessageLiteOrBuilder {}

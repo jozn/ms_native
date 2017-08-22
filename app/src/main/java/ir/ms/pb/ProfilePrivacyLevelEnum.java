@@ -3,31 +3,21 @@
 
 package ir.ms.pb;
 
-/**
- * Protobuf enum {@code ProfilePrivacyLevelEnum}
- */
-public enum ProfilePrivacyLevelEnum
-    implements com.google.protobuf.Internal.EnumLite {
-  /**
-   * <code>NONE = 0;</code>
-   */
+/** Protobuf enum {@code ProfilePrivacyLevelEnum} */
+public enum ProfilePrivacyLevelEnum implements com.google.protobuf.Internal.EnumLite {
+  /** <code>NONE = 0;</code> */
   NONE(0),
   UNRECOGNIZED(-1),
   ;
 
-  /**
-   * <code>NONE = 0;</code>
-   */
+  /** <code>NONE = 0;</code> */
   public static final int NONE_VALUE = 0;
-
 
   public final int getNumber() {
     return value;
   }
 
-  /**
-   * @deprecated Use {@link #forNumber(int)} instead.
-   */
+  /** @deprecated Use {@link #forNumber(int)} instead. */
   @java.lang.Deprecated
   public static ProfilePrivacyLevelEnum valueOf(int value) {
     return forNumber(value);
@@ -35,8 +25,10 @@ public enum ProfilePrivacyLevelEnum
 
   public static ProfilePrivacyLevelEnum forNumber(int value) {
     switch (value) {
-      case 0: return NONE;
-      default: return null;
+      case 0:
+        return NONE;
+      default:
+        return null;
     }
   }
 
@@ -44,13 +36,14 @@ public enum ProfilePrivacyLevelEnum
       internalGetValueMap() {
     return internalValueMap;
   }
-  private static final com.google.protobuf.Internal.EnumLiteMap<
-      ProfilePrivacyLevelEnum> internalValueMap =
-        new com.google.protobuf.Internal.EnumLiteMap<ProfilePrivacyLevelEnum>() {
-          public ProfilePrivacyLevelEnum findValueByNumber(int number) {
-            return ProfilePrivacyLevelEnum.forNumber(number);
-          }
-        };
+
+  private static final com.google.protobuf.Internal.EnumLiteMap<ProfilePrivacyLevelEnum>
+      internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<ProfilePrivacyLevelEnum>() {
+            public ProfilePrivacyLevelEnum findValueByNumber(int number) {
+              return ProfilePrivacyLevelEnum.forNumber(number);
+            }
+          };
 
   private final int value;
 
@@ -60,4 +53,3 @@ public enum ProfilePrivacyLevelEnum
 
   // @@protoc_insertion_point(enum_scope:ProfilePrivacyLevelEnum)
 }
-

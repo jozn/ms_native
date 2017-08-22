@@ -3,71 +3,47 @@
 
 package ir.ms.pb;
 
-public interface PB_MessageFileView__DEpOrBuilder extends
+public interface PB_MessageFileView__DEpOrBuilder
+    extends
     // @@protoc_insertion_point(interface_extends:PB_MessageFileView__DEp)
     com.google.protobuf.MessageLiteOrBuilder {
 
-  /**
-   * <code>int64 MessageFileId = 1;</code>
-   */
+  /** <code>int64 MessageFileId = 1;</code> */
   long getMessageFileId();
 
-  /**
-   * <code>string Name = 3;</code>
-   */
+  /** <code>string Name = 3;</code> */
   java.lang.String getName();
-  /**
-   * <code>string Name = 3;</code>
-   */
-  com.google.protobuf.ByteString
-      getNameBytes();
+  /** <code>string Name = 3;</code> */
+  com.google.protobuf.ByteString getNameBytes();
 
-  /**
-   * <code>int32 Size = 5;</code>
-   */
+  /** <code>int32 Size = 5;</code> */
   int getSize();
 
-  /**
-   * <code>int32 FileTypeEnum = 7;</code>
-   */
+  /** <code>int32 FileTypeEnum = 7;</code> */
   int getFileTypeEnum();
 
-  /**
-   * <code>string MimeType = 9;</code>
-   */
+  /** <code>string MimeType = 9;</code> */
   java.lang.String getMimeType();
-  /**
-   * <code>string MimeType = 9;</code>
-   */
-  com.google.protobuf.ByteString
-      getMimeTypeBytes();
+  /** <code>string MimeType = 9;</code> */
+  com.google.protobuf.ByteString getMimeTypeBytes();
 
-  /**
-   * <code>int32 Width = 11;</code>
-   */
+  /** <code>int32 Width = 11;</code> */
   int getWidth();
 
-  /**
-   * <code>int32 Height = 13;</code>
-   */
+  /** <code>int32 Height = 13;</code> */
   int getHeight();
 
-  /**
-   * <code>int32 Duration = 15;</code>
-   */
+  /** <code>int32 Duration = 15;</code> */
   int getDuration();
 
-  /**
-   * <code>string Extension = 17;</code>
-   */
+  /** <code>string Extension = 17;</code> */
   java.lang.String getExtension();
-  /**
-   * <code>string Extension = 17;</code>
-   */
-  com.google.protobuf.ByteString
-      getExtensionBytes();
+  /** <code>string Extension = 17;</code> */
+  com.google.protobuf.ByteString getExtensionBytes();
 
   /**
+   *
+   *
    * <pre>
    *    ???? ThumbData = 19;
    * </pre>
@@ -76,67 +52,42 @@ public interface PB_MessageFileView__DEpOrBuilder extends
    */
   java.lang.String getThumbData64();
   /**
+   *
+   *
    * <pre>
    *    ???? ThumbData = 19;
    * </pre>
    *
    * <code>string ThumbData64 = 21;</code>
    */
-  com.google.protobuf.ByteString
-      getThumbData64Bytes();
+  com.google.protobuf.ByteString getThumbData64Bytes();
 
-  /**
-   * <code>string ServerSrc = 23;</code>
-   */
+  /** <code>string ServerSrc = 23;</code> */
   java.lang.String getServerSrc();
-  /**
-   * <code>string ServerSrc = 23;</code>
-   */
-  com.google.protobuf.ByteString
-      getServerSrcBytes();
+  /** <code>string ServerSrc = 23;</code> */
+  com.google.protobuf.ByteString getServerSrcBytes();
 
-  /**
-   * <code>string ServerPath = 25;</code>
-   */
+  /** <code>string ServerPath = 25;</code> */
   java.lang.String getServerPath();
-  /**
-   * <code>string ServerPath = 25;</code>
-   */
-  com.google.protobuf.ByteString
-      getServerPathBytes();
+  /** <code>string ServerPath = 25;</code> */
+  com.google.protobuf.ByteString getServerPathBytes();
 
-  /**
-   * <code>string ServerThumbPath = 27;</code>
-   */
+  /** <code>string ServerThumbPath = 27;</code> */
   java.lang.String getServerThumbPath();
-  /**
-   * <code>string ServerThumbPath = 27;</code>
-   */
-  com.google.protobuf.ByteString
-      getServerThumbPathBytes();
+  /** <code>string ServerThumbPath = 27;</code> */
+  com.google.protobuf.ByteString getServerThumbPathBytes();
 
-  /**
-   * <code>string BucketId = 29;</code>
-   */
+  /** <code>string BucketId = 29;</code> */
   java.lang.String getBucketId();
-  /**
-   * <code>string BucketId = 29;</code>
-   */
-  com.google.protobuf.ByteString
-      getBucketIdBytes();
+  /** <code>string BucketId = 29;</code> */
+  com.google.protobuf.ByteString getBucketIdBytes();
 
-  /**
-   * <code>int32 ServerId = 31;</code>
-   */
+  /** <code>int32 ServerId = 31;</code> */
   int getServerId();
 
-  /**
-   * <code>int32 CanDel = 33;</code>
-   */
+  /** <code>int32 CanDel = 33;</code> */
   int getCanDel();
 
-  /**
-   * <code>int32 CreatedTime = 35;</code>
-   */
+  /** <code>int32 CreatedTime = 35;</code> */
   int getCreatedTime();
 }

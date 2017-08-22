@@ -3,79 +3,45 @@
 
 package ir.ms.pb;
 
-/**
- * Protobuf enum {@code PlatformEnum}
- */
-public enum PlatformEnum
-    implements com.google.protobuf.Internal.EnumLite {
-  /**
-   * <code>UNKNOWN_PLATFORM = 0;</code>
-   */
+/** Protobuf enum {@code PlatformEnum} */
+public enum PlatformEnum implements com.google.protobuf.Internal.EnumLite {
+  /** <code>UNKNOWN_PLATFORM = 0;</code> */
   UNKNOWN_PLATFORM(0),
-  /**
-   * <code>ANDROID = 1;</code>
-   */
+  /** <code>ANDROID = 1;</code> */
   ANDROID(1),
-  /**
-   * <code>IOS = 2;</code>
-   */
+  /** <code>IOS = 2;</code> */
   IOS(2),
-  /**
-   * <code>MAC_OS = 3;</code>
-   */
+  /** <code>MAC_OS = 3;</code> */
   MAC_OS(3),
-  /**
-   * <code>WINDOWS = 4;</code>
-   */
+  /** <code>WINDOWS = 4;</code> */
   WINDOWS(4),
-  /**
-   * <code>LINUX = 5;</code>
-   */
+  /** <code>LINUX = 5;</code> */
   LINUX(5),
-  /**
-   * <code>BLACK_BERRY = 6;</code>
-   */
+  /** <code>BLACK_BERRY = 6;</code> */
   BLACK_BERRY(6),
   UNRECOGNIZED(-1),
   ;
 
-  /**
-   * <code>UNKNOWN_PLATFORM = 0;</code>
-   */
+  /** <code>UNKNOWN_PLATFORM = 0;</code> */
   public static final int UNKNOWN_PLATFORM_VALUE = 0;
-  /**
-   * <code>ANDROID = 1;</code>
-   */
+  /** <code>ANDROID = 1;</code> */
   public static final int ANDROID_VALUE = 1;
-  /**
-   * <code>IOS = 2;</code>
-   */
+  /** <code>IOS = 2;</code> */
   public static final int IOS_VALUE = 2;
-  /**
-   * <code>MAC_OS = 3;</code>
-   */
+  /** <code>MAC_OS = 3;</code> */
   public static final int MAC_OS_VALUE = 3;
-  /**
-   * <code>WINDOWS = 4;</code>
-   */
+  /** <code>WINDOWS = 4;</code> */
   public static final int WINDOWS_VALUE = 4;
-  /**
-   * <code>LINUX = 5;</code>
-   */
+  /** <code>LINUX = 5;</code> */
   public static final int LINUX_VALUE = 5;
-  /**
-   * <code>BLACK_BERRY = 6;</code>
-   */
+  /** <code>BLACK_BERRY = 6;</code> */
   public static final int BLACK_BERRY_VALUE = 6;
-
 
   public final int getNumber() {
     return value;
   }
 
-  /**
-   * @deprecated Use {@link #forNumber(int)} instead.
-   */
+  /** @deprecated Use {@link #forNumber(int)} instead. */
   @java.lang.Deprecated
   public static PlatformEnum valueOf(int value) {
     return forNumber(value);
@@ -83,28 +49,35 @@ public enum PlatformEnum
 
   public static PlatformEnum forNumber(int value) {
     switch (value) {
-      case 0: return UNKNOWN_PLATFORM;
-      case 1: return ANDROID;
-      case 2: return IOS;
-      case 3: return MAC_OS;
-      case 4: return WINDOWS;
-      case 5: return LINUX;
-      case 6: return BLACK_BERRY;
-      default: return null;
+      case 0:
+        return UNKNOWN_PLATFORM;
+      case 1:
+        return ANDROID;
+      case 2:
+        return IOS;
+      case 3:
+        return MAC_OS;
+      case 4:
+        return WINDOWS;
+      case 5:
+        return LINUX;
+      case 6:
+        return BLACK_BERRY;
+      default:
+        return null;
     }
   }
 
-  public static com.google.protobuf.Internal.EnumLiteMap<PlatformEnum>
-      internalGetValueMap() {
+  public static com.google.protobuf.Internal.EnumLiteMap<PlatformEnum> internalGetValueMap() {
     return internalValueMap;
   }
-  private static final com.google.protobuf.Internal.EnumLiteMap<
-      PlatformEnum> internalValueMap =
-        new com.google.protobuf.Internal.EnumLiteMap<PlatformEnum>() {
-          public PlatformEnum findValueByNumber(int number) {
-            return PlatformEnum.forNumber(number);
-          }
-        };
+
+  private static final com.google.protobuf.Internal.EnumLiteMap<PlatformEnum> internalValueMap =
+      new com.google.protobuf.Internal.EnumLiteMap<PlatformEnum>() {
+        public PlatformEnum findValueByNumber(int number) {
+          return PlatformEnum.forNumber(number);
+        }
+      };
 
   private final int value;
 
@@ -114,4 +87,3 @@ public enum PlatformEnum
 
   // @@protoc_insertion_point(enum_scope:PlatformEnum)
 }
-

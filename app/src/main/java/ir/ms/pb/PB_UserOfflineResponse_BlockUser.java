@@ -3,111 +3,85 @@
 
 package ir.ms.pb;
 
-/**
- * Protobuf type {@code PB_UserOfflineResponse_BlockUser}
- */
-public  final class PB_UserOfflineResponse_BlockUser extends
-    com.google.protobuf.GeneratedMessageLite<
-        PB_UserOfflineResponse_BlockUser, PB_UserOfflineResponse_BlockUser.Builder> implements
+/** Protobuf type {@code PB_UserOfflineResponse_BlockUser} */
+public final class PB_UserOfflineResponse_BlockUser
+    extends com.google.protobuf.GeneratedMessageLite<
+        PB_UserOfflineResponse_BlockUser, PB_UserOfflineResponse_BlockUser.Builder>
+    implements
     // @@protoc_insertion_point(message_implements:PB_UserOfflineResponse_BlockUser)
     PB_UserOfflineResponse_BlockUserOrBuilder {
   private PB_UserOfflineResponse_BlockUser() {
     targetUserName_ = "";
   }
+
   public static final int BYUSERID_FIELD_NUMBER = 1;
   private int byUserId_;
-  /**
-   * <code>int32 ByUserId = 1;</code>
-   */
+  /** <code>int32 ByUserId = 1;</code> */
   public int getByUserId() {
     return byUserId_;
   }
-  /**
-   * <code>int32 ByUserId = 1;</code>
-   */
+  /** <code>int32 ByUserId = 1;</code> */
   private void setByUserId(int value) {
-    
+
     byUserId_ = value;
   }
-  /**
-   * <code>int32 ByUserId = 1;</code>
-   */
+  /** <code>int32 ByUserId = 1;</code> */
   private void clearByUserId() {
-    
+
     byUserId_ = 0;
   }
 
   public static final int TARGETUSERID_FIELD_NUMBER = 2;
   private int targetUserId_;
-  /**
-   * <code>int32 TargetUserId = 2;</code>
-   */
+  /** <code>int32 TargetUserId = 2;</code> */
   public int getTargetUserId() {
     return targetUserId_;
   }
-  /**
-   * <code>int32 TargetUserId = 2;</code>
-   */
+  /** <code>int32 TargetUserId = 2;</code> */
   private void setTargetUserId(int value) {
-    
+
     targetUserId_ = value;
   }
-  /**
-   * <code>int32 TargetUserId = 2;</code>
-   */
+  /** <code>int32 TargetUserId = 2;</code> */
   private void clearTargetUserId() {
-    
+
     targetUserId_ = 0;
   }
 
   public static final int TARGETUSERNAME_FIELD_NUMBER = 3;
   private java.lang.String targetUserName_;
-  /**
-   * <code>string TargetUserName = 3;</code>
-   */
+  /** <code>string TargetUserName = 3;</code> */
   public java.lang.String getTargetUserName() {
     return targetUserName_;
   }
-  /**
-   * <code>string TargetUserName = 3;</code>
-   */
-  public com.google.protobuf.ByteString
-      getTargetUserNameBytes() {
+  /** <code>string TargetUserName = 3;</code> */
+  public com.google.protobuf.ByteString getTargetUserNameBytes() {
     return com.google.protobuf.ByteString.copyFromUtf8(targetUserName_);
   }
-  /**
-   * <code>string TargetUserName = 3;</code>
-   */
-  private void setTargetUserName(
-      java.lang.String value) {
+  /** <code>string TargetUserName = 3;</code> */
+  private void setTargetUserName(java.lang.String value) {
     if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      throw new NullPointerException();
+    }
+
     targetUserName_ = value;
   }
-  /**
-   * <code>string TargetUserName = 3;</code>
-   */
+  /** <code>string TargetUserName = 3;</code> */
   private void clearTargetUserName() {
-    
+
     targetUserName_ = getDefaultInstance().getTargetUserName();
   }
-  /**
-   * <code>string TargetUserName = 3;</code>
-   */
-  private void setTargetUserNameBytes(
-      com.google.protobuf.ByteString value) {
+  /** <code>string TargetUserName = 3;</code> */
+  private void setTargetUserNameBytes(com.google.protobuf.ByteString value) {
     if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-    
+      throw new NullPointerException();
+    }
+    checkByteStringIsUtf8(value);
+
     targetUserName_ = value.toStringUtf8();
   }
 
-  public void writeTo(com.google.protobuf.CodedOutputStream output)
-                      throws java.io.IOException {
+  public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
     if (byUserId_ != 0) {
       output.writeInt32(1, byUserId_);
     }
@@ -125,16 +99,13 @@ public  final class PB_UserOfflineResponse_BlockUser extends
 
     size = 0;
     if (byUserId_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(1, byUserId_);
+      size += com.google.protobuf.CodedOutputStream.computeInt32Size(1, byUserId_);
     }
     if (targetUserId_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(2, targetUserId_);
+      size += com.google.protobuf.CodedOutputStream.computeInt32Size(2, targetUserId_);
     }
     if (!targetUserName_.isEmpty()) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeStringSize(3, getTargetUserName());
+      size += com.google.protobuf.CodedOutputStream.computeStringSize(3, getTargetUserName());
     }
     memoizedSerializedSize = size;
     return size;
@@ -143,9 +114,9 @@ public  final class PB_UserOfflineResponse_BlockUser extends
   public static ir.ms.pb.PB_UserOfflineResponse_BlockUser parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(
-        DEFAULT_INSTANCE, data);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, data);
   }
+
   public static ir.ms.pb.PB_UserOfflineResponse_BlockUser parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -153,46 +124,47 @@ public  final class PB_UserOfflineResponse_BlockUser extends
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
+
   public static ir.ms.pb.PB_UserOfflineResponse_BlockUser parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(
-        DEFAULT_INSTANCE, data);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, data);
   }
+
   public static ir.ms.pb.PB_UserOfflineResponse_BlockUser parseFrom(
-      byte[] data,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
+
   public static ir.ms.pb.PB_UserOfflineResponse_BlockUser parseFrom(java.io.InputStream input)
       throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(
-        DEFAULT_INSTANCE, input);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, input);
   }
+
   public static ir.ms.pb.PB_UserOfflineResponse_BlockUser parseFrom(
-      java.io.InputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, input, extensionRegistry);
   }
-  public static ir.ms.pb.PB_UserOfflineResponse_BlockUser parseDelimitedFrom(java.io.InputStream input)
-      throws java.io.IOException {
+
+  public static ir.ms.pb.PB_UserOfflineResponse_BlockUser parseDelimitedFrom(
+      java.io.InputStream input) throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input);
   }
+
   public static ir.ms.pb.PB_UserOfflineResponse_BlockUser parseDelimitedFrom(
-      java.io.InputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
   }
+
   public static ir.ms.pb.PB_UserOfflineResponse_BlockUser parseFrom(
-      com.google.protobuf.CodedInputStream input)
-      throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(
-        DEFAULT_INSTANCE, input);
+      com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, input);
   }
+
   public static ir.ms.pb.PB_UserOfflineResponse_BlockUser parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -204,16 +176,16 @@ public  final class PB_UserOfflineResponse_BlockUser extends
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
+
   public static Builder newBuilder(ir.ms.pb.PB_UserOfflineResponse_BlockUser prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
 
-  /**
-   * Protobuf type {@code PB_UserOfflineResponse_BlockUser}
-   */
-  public static final class Builder extends
-      com.google.protobuf.GeneratedMessageLite.Builder<
-        ir.ms.pb.PB_UserOfflineResponse_BlockUser, Builder> implements
+  /** Protobuf type {@code PB_UserOfflineResponse_BlockUser} */
+  public static final class Builder
+      extends com.google.protobuf.GeneratedMessageLite.Builder<
+          ir.ms.pb.PB_UserOfflineResponse_BlockUser, Builder>
+      implements
       // @@protoc_insertion_point(builder_implements:PB_UserOfflineResponse_BlockUser)
       ir.ms.pb.PB_UserOfflineResponse_BlockUserOrBuilder {
     // Construct using ir.ms.pb.PB_UserOfflineResponse_BlockUser.newBuilder()
@@ -221,88 +193,62 @@ public  final class PB_UserOfflineResponse_BlockUser extends
       super(DEFAULT_INSTANCE);
     }
 
-
-    /**
-     * <code>int32 ByUserId = 1;</code>
-     */
+    /** <code>int32 ByUserId = 1;</code> */
     public int getByUserId() {
       return instance.getByUserId();
     }
-    /**
-     * <code>int32 ByUserId = 1;</code>
-     */
+    /** <code>int32 ByUserId = 1;</code> */
     public Builder setByUserId(int value) {
       copyOnWrite();
       instance.setByUserId(value);
       return this;
     }
-    /**
-     * <code>int32 ByUserId = 1;</code>
-     */
+    /** <code>int32 ByUserId = 1;</code> */
     public Builder clearByUserId() {
       copyOnWrite();
       instance.clearByUserId();
       return this;
     }
 
-    /**
-     * <code>int32 TargetUserId = 2;</code>
-     */
+    /** <code>int32 TargetUserId = 2;</code> */
     public int getTargetUserId() {
       return instance.getTargetUserId();
     }
-    /**
-     * <code>int32 TargetUserId = 2;</code>
-     */
+    /** <code>int32 TargetUserId = 2;</code> */
     public Builder setTargetUserId(int value) {
       copyOnWrite();
       instance.setTargetUserId(value);
       return this;
     }
-    /**
-     * <code>int32 TargetUserId = 2;</code>
-     */
+    /** <code>int32 TargetUserId = 2;</code> */
     public Builder clearTargetUserId() {
       copyOnWrite();
       instance.clearTargetUserId();
       return this;
     }
 
-    /**
-     * <code>string TargetUserName = 3;</code>
-     */
+    /** <code>string TargetUserName = 3;</code> */
     public java.lang.String getTargetUserName() {
       return instance.getTargetUserName();
     }
-    /**
-     * <code>string TargetUserName = 3;</code>
-     */
-    public com.google.protobuf.ByteString
-        getTargetUserNameBytes() {
+    /** <code>string TargetUserName = 3;</code> */
+    public com.google.protobuf.ByteString getTargetUserNameBytes() {
       return instance.getTargetUserNameBytes();
     }
-    /**
-     * <code>string TargetUserName = 3;</code>
-     */
-    public Builder setTargetUserName(
-        java.lang.String value) {
+    /** <code>string TargetUserName = 3;</code> */
+    public Builder setTargetUserName(java.lang.String value) {
       copyOnWrite();
       instance.setTargetUserName(value);
       return this;
     }
-    /**
-     * <code>string TargetUserName = 3;</code>
-     */
+    /** <code>string TargetUserName = 3;</code> */
     public Builder clearTargetUserName() {
       copyOnWrite();
       instance.clearTargetUserName();
       return this;
     }
-    /**
-     * <code>string TargetUserName = 3;</code>
-     */
-    public Builder setTargetUserNameBytes(
-        com.google.protobuf.ByteString value) {
+    /** <code>string TargetUserName = 3;</code> */
+    public Builder setTargetUserNameBytes(com.google.protobuf.ByteString value) {
       copyOnWrite();
       instance.setTargetUserNameBytes(value);
       return this;
@@ -310,101 +256,115 @@ public  final class PB_UserOfflineResponse_BlockUser extends
 
     // @@protoc_insertion_point(builder_scope:PB_UserOfflineResponse_BlockUser)
   }
+
   protected final Object dynamicMethod(
-      com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
-      Object arg0, Object arg1) {
+      com.google.protobuf.GeneratedMessageLite.MethodToInvoke method, Object arg0, Object arg1) {
     switch (method) {
-      case NEW_MUTABLE_INSTANCE: {
-        return new ir.ms.pb.PB_UserOfflineResponse_BlockUser();
-      }
-      case IS_INITIALIZED: {
-        return DEFAULT_INSTANCE;
-      }
-      case MAKE_IMMUTABLE: {
-        return null;
-      }
-      case NEW_BUILDER: {
-        return new Builder();
-      }
-      case VISIT: {
-        Visitor visitor = (Visitor) arg0;
-        ir.ms.pb.PB_UserOfflineResponse_BlockUser other = (ir.ms.pb.PB_UserOfflineResponse_BlockUser) arg1;
-        byUserId_ = visitor.visitInt(byUserId_ != 0, byUserId_,
-            other.byUserId_ != 0, other.byUserId_);
-        targetUserId_ = visitor.visitInt(targetUserId_ != 0, targetUserId_,
-            other.targetUserId_ != 0, other.targetUserId_);
-        targetUserName_ = visitor.visitString(!targetUserName_.isEmpty(), targetUserName_,
-            !other.targetUserName_.isEmpty(), other.targetUserName_);
-        if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
-            .INSTANCE) {
+      case NEW_MUTABLE_INSTANCE:
+        {
+          return new ir.ms.pb.PB_UserOfflineResponse_BlockUser();
         }
-        return this;
-      }
-      case MERGE_FROM_STREAM: {
-        com.google.protobuf.CodedInputStream input =
-            (com.google.protobuf.CodedInputStream) arg0;
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry =
-            (com.google.protobuf.ExtensionRegistryLite) arg1;
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              default: {
-                if (!input.skipField(tag)) {
+      case IS_INITIALIZED:
+        {
+          return DEFAULT_INSTANCE;
+        }
+      case MAKE_IMMUTABLE:
+        {
+          return null;
+        }
+      case NEW_BUILDER:
+        {
+          return new Builder();
+        }
+      case VISIT:
+        {
+          Visitor visitor = (Visitor) arg0;
+          ir.ms.pb.PB_UserOfflineResponse_BlockUser other =
+              (ir.ms.pb.PB_UserOfflineResponse_BlockUser) arg1;
+          byUserId_ =
+              visitor.visitInt(byUserId_ != 0, byUserId_, other.byUserId_ != 0, other.byUserId_);
+          targetUserId_ =
+              visitor.visitInt(
+                  targetUserId_ != 0, targetUserId_, other.targetUserId_ != 0, other.targetUserId_);
+          targetUserName_ =
+              visitor.visitString(
+                  !targetUserName_.isEmpty(),
+                  targetUserName_,
+                  !other.targetUserName_.isEmpty(),
+                  other.targetUserName_);
+          if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor.INSTANCE) {}
+          return this;
+        }
+      case MERGE_FROM_STREAM:
+        {
+          com.google.protobuf.CodedInputStream input = (com.google.protobuf.CodedInputStream) arg0;
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry =
+              (com.google.protobuf.ExtensionRegistryLite) arg1;
+          try {
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
                   done = true;
-                }
-                break;
-              }
-              case 8: {
+                  break;
+                default:
+                  {
+                    if (!input.skipField(tag)) {
+                      done = true;
+                    }
+                    break;
+                  }
+                case 8:
+                  {
+                    byUserId_ = input.readInt32();
+                    break;
+                  }
+                case 16:
+                  {
+                    targetUserId_ = input.readInt32();
+                    break;
+                  }
+                case 26:
+                  {
+                    String s = input.readStringRequireUtf8();
 
-                byUserId_ = input.readInt32();
-                break;
+                    targetUserName_ = s;
+                    break;
+                  }
               }
-              case 16: {
-
-                targetUserId_ = input.readInt32();
-                break;
-              }
-              case 26: {
-                String s = input.readStringRequireUtf8();
-
-                targetUserName_ = s;
-                break;
+            }
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw new RuntimeException(e.setUnfinishedMessage(this));
+          } catch (java.io.IOException e) {
+            throw new RuntimeException(
+                new com.google.protobuf.InvalidProtocolBufferException(e.getMessage())
+                    .setUnfinishedMessage(this));
+          } finally {
+          }
+        }
+      case GET_DEFAULT_INSTANCE:
+        {
+          return DEFAULT_INSTANCE;
+        }
+      case GET_PARSER:
+        {
+          if (PARSER == null) {
+            synchronized (ir.ms.pb.PB_UserOfflineResponse_BlockUser.class) {
+              if (PARSER == null) {
+                PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
               }
             }
           }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw new RuntimeException(e.setUnfinishedMessage(this));
-        } catch (java.io.IOException e) {
-          throw new RuntimeException(
-              new com.google.protobuf.InvalidProtocolBufferException(
-                  e.getMessage()).setUnfinishedMessage(this));
-        } finally {
+          return PARSER;
         }
-      }
-      case GET_DEFAULT_INSTANCE: {
-        return DEFAULT_INSTANCE;
-      }
-      case GET_PARSER: {
-        if (PARSER == null) {    synchronized (ir.ms.pb.PB_UserOfflineResponse_BlockUser.class) {
-            if (PARSER == null) {
-              PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
-            }
-          }
-        }
-        return PARSER;
-      }
     }
     throw new UnsupportedOperationException();
   }
 
-
   // @@protoc_insertion_point(class_scope:PB_UserOfflineResponse_BlockUser)
   private static final ir.ms.pb.PB_UserOfflineResponse_BlockUser DEFAULT_INSTANCE;
+
   static {
     DEFAULT_INSTANCE = new PB_UserOfflineResponse_BlockUser();
     DEFAULT_INSTANCE.makeImmutable();
@@ -420,4 +380,3 @@ public  final class PB_UserOfflineResponse_BlockUser extends
     return DEFAULT_INSTANCE.getParserForType();
   }
 }
-

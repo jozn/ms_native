@@ -3,19 +3,17 @@
 
 package ir.ms.pb;
 
-/**
- * Protobuf type {@code PB_MsgResponse_SetChatMessagesRangeAsSeen}
- */
-public  final class PB_MsgResponse_SetChatMessagesRangeAsSeen extends
-    com.google.protobuf.GeneratedMessageLite<
-        PB_MsgResponse_SetChatMessagesRangeAsSeen, PB_MsgResponse_SetChatMessagesRangeAsSeen.Builder> implements
+/** Protobuf type {@code PB_MsgResponse_SetChatMessagesRangeAsSeen} */
+public final class PB_MsgResponse_SetChatMessagesRangeAsSeen
+    extends com.google.protobuf.GeneratedMessageLite<
+        PB_MsgResponse_SetChatMessagesRangeAsSeen,
+        PB_MsgResponse_SetChatMessagesRangeAsSeen.Builder>
+    implements
     // @@protoc_insertion_point(message_implements:PB_MsgResponse_SetChatMessagesRangeAsSeen)
     PB_MsgResponse_SetChatMessagesRangeAsSeenOrBuilder {
-  private PB_MsgResponse_SetChatMessagesRangeAsSeen() {
-  }
-  public void writeTo(com.google.protobuf.CodedOutputStream output)
-                      throws java.io.IOException {
-  }
+  private PB_MsgResponse_SetChatMessagesRangeAsSeen() {}
+
+  public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {}
 
   public int getSerializedSize() {
     int size = memoizedSerializedSize;
@@ -29,9 +27,9 @@ public  final class PB_MsgResponse_SetChatMessagesRangeAsSeen extends
   public static ir.ms.pb.PB_MsgResponse_SetChatMessagesRangeAsSeen parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(
-        DEFAULT_INSTANCE, data);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, data);
   }
+
   public static ir.ms.pb.PB_MsgResponse_SetChatMessagesRangeAsSeen parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -39,46 +37,47 @@ public  final class PB_MsgResponse_SetChatMessagesRangeAsSeen extends
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
+
   public static ir.ms.pb.PB_MsgResponse_SetChatMessagesRangeAsSeen parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(
-        DEFAULT_INSTANCE, data);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, data);
   }
+
   public static ir.ms.pb.PB_MsgResponse_SetChatMessagesRangeAsSeen parseFrom(
-      byte[] data,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
-  public static ir.ms.pb.PB_MsgResponse_SetChatMessagesRangeAsSeen parseFrom(java.io.InputStream input)
-      throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(
-        DEFAULT_INSTANCE, input);
-  }
+
   public static ir.ms.pb.PB_MsgResponse_SetChatMessagesRangeAsSeen parseFrom(
-      java.io.InputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      java.io.InputStream input) throws java.io.IOException {
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, input);
+  }
+
+  public static ir.ms.pb.PB_MsgResponse_SetChatMessagesRangeAsSeen parseFrom(
+      java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, input, extensionRegistry);
   }
-  public static ir.ms.pb.PB_MsgResponse_SetChatMessagesRangeAsSeen parseDelimitedFrom(java.io.InputStream input)
-      throws java.io.IOException {
+
+  public static ir.ms.pb.PB_MsgResponse_SetChatMessagesRangeAsSeen parseDelimitedFrom(
+      java.io.InputStream input) throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input);
   }
+
   public static ir.ms.pb.PB_MsgResponse_SetChatMessagesRangeAsSeen parseDelimitedFrom(
-      java.io.InputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
   }
+
   public static ir.ms.pb.PB_MsgResponse_SetChatMessagesRangeAsSeen parseFrom(
-      com.google.protobuf.CodedInputStream input)
-      throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(
-        DEFAULT_INSTANCE, input);
+      com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, input);
   }
+
   public static ir.ms.pb.PB_MsgResponse_SetChatMessagesRangeAsSeen parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -90,16 +89,16 @@ public  final class PB_MsgResponse_SetChatMessagesRangeAsSeen extends
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
+
   public static Builder newBuilder(ir.ms.pb.PB_MsgResponse_SetChatMessagesRangeAsSeen prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
 
-  /**
-   * Protobuf type {@code PB_MsgResponse_SetChatMessagesRangeAsSeen}
-   */
-  public static final class Builder extends
-      com.google.protobuf.GeneratedMessageLite.Builder<
-        ir.ms.pb.PB_MsgResponse_SetChatMessagesRangeAsSeen, Builder> implements
+  /** Protobuf type {@code PB_MsgResponse_SetChatMessagesRangeAsSeen} */
+  public static final class Builder
+      extends com.google.protobuf.GeneratedMessageLite.Builder<
+          ir.ms.pb.PB_MsgResponse_SetChatMessagesRangeAsSeen, Builder>
+      implements
       // @@protoc_insertion_point(builder_implements:PB_MsgResponse_SetChatMessagesRangeAsSeen)
       ir.ms.pb.PB_MsgResponse_SetChatMessagesRangeAsSeenOrBuilder {
     // Construct using ir.ms.pb.PB_MsgResponse_SetChatMessagesRangeAsSeen.newBuilder()
@@ -107,82 +106,89 @@ public  final class PB_MsgResponse_SetChatMessagesRangeAsSeen extends
       super(DEFAULT_INSTANCE);
     }
 
-
     // @@protoc_insertion_point(builder_scope:PB_MsgResponse_SetChatMessagesRangeAsSeen)
   }
+
   protected final Object dynamicMethod(
-      com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
-      Object arg0, Object arg1) {
+      com.google.protobuf.GeneratedMessageLite.MethodToInvoke method, Object arg0, Object arg1) {
     switch (method) {
-      case NEW_MUTABLE_INSTANCE: {
-        return new ir.ms.pb.PB_MsgResponse_SetChatMessagesRangeAsSeen();
-      }
-      case IS_INITIALIZED: {
-        return DEFAULT_INSTANCE;
-      }
-      case MAKE_IMMUTABLE: {
-        return null;
-      }
-      case NEW_BUILDER: {
-        return new Builder();
-      }
-      case VISIT: {
-        Visitor visitor = (Visitor) arg0;
-        ir.ms.pb.PB_MsgResponse_SetChatMessagesRangeAsSeen other = (ir.ms.pb.PB_MsgResponse_SetChatMessagesRangeAsSeen) arg1;
-        if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
-            .INSTANCE) {
+      case NEW_MUTABLE_INSTANCE:
+        {
+          return new ir.ms.pb.PB_MsgResponse_SetChatMessagesRangeAsSeen();
         }
-        return this;
-      }
-      case MERGE_FROM_STREAM: {
-        com.google.protobuf.CodedInputStream input =
-            (com.google.protobuf.CodedInputStream) arg0;
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry =
-            (com.google.protobuf.ExtensionRegistryLite) arg1;
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              default: {
-                if (!input.skipField(tag)) {
+      case IS_INITIALIZED:
+        {
+          return DEFAULT_INSTANCE;
+        }
+      case MAKE_IMMUTABLE:
+        {
+          return null;
+        }
+      case NEW_BUILDER:
+        {
+          return new Builder();
+        }
+      case VISIT:
+        {
+          Visitor visitor = (Visitor) arg0;
+          ir.ms.pb.PB_MsgResponse_SetChatMessagesRangeAsSeen other =
+              (ir.ms.pb.PB_MsgResponse_SetChatMessagesRangeAsSeen) arg1;
+          if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor.INSTANCE) {}
+          return this;
+        }
+      case MERGE_FROM_STREAM:
+        {
+          com.google.protobuf.CodedInputStream input = (com.google.protobuf.CodedInputStream) arg0;
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry =
+              (com.google.protobuf.ExtensionRegistryLite) arg1;
+          try {
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
                   done = true;
-                }
-                break;
+                  break;
+                default:
+                  {
+                    if (!input.skipField(tag)) {
+                      done = true;
+                    }
+                    break;
+                  }
+              }
+            }
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw new RuntimeException(e.setUnfinishedMessage(this));
+          } catch (java.io.IOException e) {
+            throw new RuntimeException(
+                new com.google.protobuf.InvalidProtocolBufferException(e.getMessage())
+                    .setUnfinishedMessage(this));
+          } finally {
+          }
+        }
+      case GET_DEFAULT_INSTANCE:
+        {
+          return DEFAULT_INSTANCE;
+        }
+      case GET_PARSER:
+        {
+          if (PARSER == null) {
+            synchronized (ir.ms.pb.PB_MsgResponse_SetChatMessagesRangeAsSeen.class) {
+              if (PARSER == null) {
+                PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
               }
             }
           }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw new RuntimeException(e.setUnfinishedMessage(this));
-        } catch (java.io.IOException e) {
-          throw new RuntimeException(
-              new com.google.protobuf.InvalidProtocolBufferException(
-                  e.getMessage()).setUnfinishedMessage(this));
-        } finally {
+          return PARSER;
         }
-      }
-      case GET_DEFAULT_INSTANCE: {
-        return DEFAULT_INSTANCE;
-      }
-      case GET_PARSER: {
-        if (PARSER == null) {    synchronized (ir.ms.pb.PB_MsgResponse_SetChatMessagesRangeAsSeen.class) {
-            if (PARSER == null) {
-              PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
-            }
-          }
-        }
-        return PARSER;
-      }
     }
     throw new UnsupportedOperationException();
   }
 
-
   // @@protoc_insertion_point(class_scope:PB_MsgResponse_SetChatMessagesRangeAsSeen)
   private static final ir.ms.pb.PB_MsgResponse_SetChatMessagesRangeAsSeen DEFAULT_INSTANCE;
+
   static {
     DEFAULT_INSTANCE = new PB_MsgResponse_SetChatMessagesRangeAsSeen();
     DEFAULT_INSTANCE.makeImmutable();
@@ -192,10 +198,10 @@ public  final class PB_MsgResponse_SetChatMessagesRangeAsSeen extends
     return DEFAULT_INSTANCE;
   }
 
-  private static volatile com.google.protobuf.Parser<PB_MsgResponse_SetChatMessagesRangeAsSeen> PARSER;
+  private static volatile com.google.protobuf.Parser<PB_MsgResponse_SetChatMessagesRangeAsSeen>
+      PARSER;
 
   public static com.google.protobuf.Parser<PB_MsgResponse_SetChatMessagesRangeAsSeen> parser() {
     return DEFAULT_INSTANCE.getParserForType();
   }
 }
-

@@ -3,72 +3,46 @@
 
 package ir.ms.pb;
 
-public interface PB_DirectLogOrBuilder extends
+public interface PB_DirectLogOrBuilder
+    extends
     // @@protoc_insertion_point(interface_extends:PB_DirectLog)
     com.google.protobuf.MessageLiteOrBuilder {
 
-  /**
-   * <code>int64 Id = 1;</code>
-   */
+  /** <code>int64 Id = 1;</code> */
   long getId();
 
-  /**
-   * <code>int32 ToUserId = 3;</code>
-   */
+  /** <code>int32 ToUserId = 3;</code> */
   int getToUserId();
 
-  /**
-   * <code>int64 MessageId = 5;</code>
-   */
+  /** <code>int64 MessageId = 5;</code> */
   long getMessageId();
 
-  /**
-   * <code>int64 ChatId = 7;</code>
-   */
+  /** <code>int64 ChatId = 7;</code> */
   long getChatId();
 
-  /**
-   * <code>int32 PeerUserId = 9;</code>
-   */
+  /** <code>int32 PeerUserId = 9;</code> */
   int getPeerUserId();
 
-  /**
-   * <code>int32 EventType = 11;</code>
-   */
+  /** <code>int32 EventType = 11;</code> */
   int getEventType();
 
-  /**
-   * <code>int32 RoomLogTypeId = 13;</code>
-   */
+  /** <code>int32 RoomLogTypeId = 13;</code> */
   int getRoomLogTypeId();
 
-  /**
-   * <code>int32 FromSeq = 15;</code>
-   */
+  /** <code>int32 FromSeq = 15;</code> */
   int getFromSeq();
 
-  /**
-   * <code>int32 ToSeq = 17;</code>
-   */
+  /** <code>int32 ToSeq = 17;</code> */
   int getToSeq();
 
-  /**
-   * <code>bytes ExtraPB = 19;</code>
-   */
+  /** <code>bytes ExtraPB = 19;</code> */
   com.google.protobuf.ByteString getExtraPB();
 
-  /**
-   * <code>string ExtraJson = 21;</code>
-   */
+  /** <code>string ExtraJson = 21;</code> */
   java.lang.String getExtraJson();
-  /**
-   * <code>string ExtraJson = 21;</code>
-   */
-  com.google.protobuf.ByteString
-      getExtraJsonBytes();
+  /** <code>string ExtraJson = 21;</code> */
+  com.google.protobuf.ByteString getExtraJsonBytes();
 
-  /**
-   * <code>int64 AtTimeMs = 23;</code>
-   */
+  /** <code>int64 AtTimeMs = 23;</code> */
   long getAtTimeMs();
 }

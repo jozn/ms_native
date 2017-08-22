@@ -3,7 +3,7 @@
 
 package ir.ms.pb;
 
-public interface PB_MsgResponse_BroadcastNewMessageOrBuilder extends
+public interface PB_MsgResponse_BroadcastNewMessageOrBuilder
+    extends
     // @@protoc_insertion_point(interface_extends:PB_MsgResponse_BroadcastNewMessage)
-    com.google.protobuf.MessageLiteOrBuilder {
-}
+    com.google.protobuf.MessageLiteOrBuilder {}

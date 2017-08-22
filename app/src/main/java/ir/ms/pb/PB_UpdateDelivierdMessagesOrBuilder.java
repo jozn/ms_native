@@ -3,25 +3,18 @@
 
 package ir.ms.pb;
 
-public interface PB_UpdateDelivierdMessagesOrBuilder extends
+public interface PB_UpdateDelivierdMessagesOrBuilder
+    extends
     // @@protoc_insertion_point(interface_extends:PB_UpdateDelivierdMessages)
     com.google.protobuf.MessageLiteOrBuilder {
 
-  /**
-   * <code>repeated int64 MessageIds = 1;</code>
-   */
+  /** <code>repeated int64 MessageIds = 1;</code> */
   java.util.List<java.lang.Long> getMessageIdsList();
-  /**
-   * <code>repeated int64 MessageIds = 1;</code>
-   */
+  /** <code>repeated int64 MessageIds = 1;</code> */
   int getMessageIdsCount();
-  /**
-   * <code>repeated int64 MessageIds = 1;</code>
-   */
+  /** <code>repeated int64 MessageIds = 1;</code> */
   long getMessageIds(int index);
 
-  /**
-   * <code>int64 AtTime = 2;</code>
-   */
+  /** <code>int64 AtTime = 2;</code> */
   long getAtTime();
 }

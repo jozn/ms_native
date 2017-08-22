@@ -3,68 +3,55 @@
 
 package ir.ms.pb;
 
-/**
- * Protobuf type {@code PB_UserParam_ChangeAvatar}
- */
-public  final class PB_UserParam_ChangeAvatar extends
-    com.google.protobuf.GeneratedMessageLite<
-        PB_UserParam_ChangeAvatar, PB_UserParam_ChangeAvatar.Builder> implements
+/** Protobuf type {@code PB_UserParam_ChangeAvatar} */
+public final class PB_UserParam_ChangeAvatar
+    extends com.google.protobuf.GeneratedMessageLite<
+        PB_UserParam_ChangeAvatar, PB_UserParam_ChangeAvatar.Builder>
+    implements
     // @@protoc_insertion_point(message_implements:PB_UserParam_ChangeAvatar)
     PB_UserParam_ChangeAvatarOrBuilder {
   private PB_UserParam_ChangeAvatar() {
     imageData2_ = com.google.protobuf.ByteString.EMPTY;
   }
+
   public static final int NONE_FIELD_NUMBER = 1;
   private boolean none_;
-  /**
-   * <code>bool None = 1;</code>
-   */
+  /** <code>bool None = 1;</code> */
   public boolean getNone() {
     return none_;
   }
-  /**
-   * <code>bool None = 1;</code>
-   */
+  /** <code>bool None = 1;</code> */
   private void setNone(boolean value) {
-    
+
     none_ = value;
   }
-  /**
-   * <code>bool None = 1;</code>
-   */
+  /** <code>bool None = 1;</code> */
   private void clearNone() {
-    
+
     none_ = false;
   }
 
   public static final int IMAGEDATA2_FIELD_NUMBER = 2;
   private com.google.protobuf.ByteString imageData2_;
-  /**
-   * <code>bytes ImageData2 = 2;</code>
-   */
+  /** <code>bytes ImageData2 = 2;</code> */
   public com.google.protobuf.ByteString getImageData2() {
     return imageData2_;
   }
-  /**
-   * <code>bytes ImageData2 = 2;</code>
-   */
+  /** <code>bytes ImageData2 = 2;</code> */
   private void setImageData2(com.google.protobuf.ByteString value) {
     if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      throw new NullPointerException();
+    }
+
     imageData2_ = value;
   }
-  /**
-   * <code>bytes ImageData2 = 2;</code>
-   */
+  /** <code>bytes ImageData2 = 2;</code> */
   private void clearImageData2() {
-    
+
     imageData2_ = getDefaultInstance().getImageData2();
   }
 
-  public void writeTo(com.google.protobuf.CodedOutputStream output)
-                      throws java.io.IOException {
+  public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
     if (none_ != false) {
       output.writeBool(1, none_);
     }
@@ -79,23 +66,20 @@ public  final class PB_UserParam_ChangeAvatar extends
 
     size = 0;
     if (none_ != false) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(1, none_);
+      size += com.google.protobuf.CodedOutputStream.computeBoolSize(1, none_);
     }
     if (!imageData2_.isEmpty()) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeBytesSize(2, imageData2_);
+      size += com.google.protobuf.CodedOutputStream.computeBytesSize(2, imageData2_);
     }
     memoizedSerializedSize = size;
     return size;
   }
 
-  public static ir.ms.pb.PB_UserParam_ChangeAvatar parseFrom(
-      com.google.protobuf.ByteString data)
+  public static ir.ms.pb.PB_UserParam_ChangeAvatar parseFrom(com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(
-        DEFAULT_INSTANCE, data);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, data);
   }
+
   public static ir.ms.pb.PB_UserParam_ChangeAvatar parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -103,46 +87,47 @@ public  final class PB_UserParam_ChangeAvatar extends
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
+
   public static ir.ms.pb.PB_UserParam_ChangeAvatar parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(
-        DEFAULT_INSTANCE, data);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, data);
   }
+
   public static ir.ms.pb.PB_UserParam_ChangeAvatar parseFrom(
-      byte[] data,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
+
   public static ir.ms.pb.PB_UserParam_ChangeAvatar parseFrom(java.io.InputStream input)
       throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(
-        DEFAULT_INSTANCE, input);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, input);
   }
+
   public static ir.ms.pb.PB_UserParam_ChangeAvatar parseFrom(
-      java.io.InputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, input, extensionRegistry);
   }
+
   public static ir.ms.pb.PB_UserParam_ChangeAvatar parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input);
   }
+
   public static ir.ms.pb.PB_UserParam_ChangeAvatar parseDelimitedFrom(
-      java.io.InputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
   }
+
   public static ir.ms.pb.PB_UserParam_ChangeAvatar parseFrom(
-      com.google.protobuf.CodedInputStream input)
-      throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(
-        DEFAULT_INSTANCE, input);
+      com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, input);
   }
+
   public static ir.ms.pb.PB_UserParam_ChangeAvatar parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -154,16 +139,16 @@ public  final class PB_UserParam_ChangeAvatar extends
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
+
   public static Builder newBuilder(ir.ms.pb.PB_UserParam_ChangeAvatar prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
 
-  /**
-   * Protobuf type {@code PB_UserParam_ChangeAvatar}
-   */
-  public static final class Builder extends
-      com.google.protobuf.GeneratedMessageLite.Builder<
-        ir.ms.pb.PB_UserParam_ChangeAvatar, Builder> implements
+  /** Protobuf type {@code PB_UserParam_ChangeAvatar} */
+  public static final class Builder
+      extends com.google.protobuf.GeneratedMessageLite.Builder<
+          ir.ms.pb.PB_UserParam_ChangeAvatar, Builder>
+      implements
       // @@protoc_insertion_point(builder_implements:PB_UserParam_ChangeAvatar)
       ir.ms.pb.PB_UserParam_ChangeAvatarOrBuilder {
     // Construct using ir.ms.pb.PB_UserParam_ChangeAvatar.newBuilder()
@@ -171,47 +156,34 @@ public  final class PB_UserParam_ChangeAvatar extends
       super(DEFAULT_INSTANCE);
     }
 
-
-    /**
-     * <code>bool None = 1;</code>
-     */
+    /** <code>bool None = 1;</code> */
     public boolean getNone() {
       return instance.getNone();
     }
-    /**
-     * <code>bool None = 1;</code>
-     */
+    /** <code>bool None = 1;</code> */
     public Builder setNone(boolean value) {
       copyOnWrite();
       instance.setNone(value);
       return this;
     }
-    /**
-     * <code>bool None = 1;</code>
-     */
+    /** <code>bool None = 1;</code> */
     public Builder clearNone() {
       copyOnWrite();
       instance.clearNone();
       return this;
     }
 
-    /**
-     * <code>bytes ImageData2 = 2;</code>
-     */
+    /** <code>bytes ImageData2 = 2;</code> */
     public com.google.protobuf.ByteString getImageData2() {
       return instance.getImageData2();
     }
-    /**
-     * <code>bytes ImageData2 = 2;</code>
-     */
+    /** <code>bytes ImageData2 = 2;</code> */
     public Builder setImageData2(com.google.protobuf.ByteString value) {
       copyOnWrite();
       instance.setImageData2(value);
       return this;
     }
-    /**
-     * <code>bytes ImageData2 = 2;</code>
-     */
+    /** <code>bytes ImageData2 = 2;</code> */
     public Builder clearImageData2() {
       copyOnWrite();
       instance.clearImageData2();
@@ -220,93 +192,103 @@ public  final class PB_UserParam_ChangeAvatar extends
 
     // @@protoc_insertion_point(builder_scope:PB_UserParam_ChangeAvatar)
   }
+
   protected final Object dynamicMethod(
-      com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
-      Object arg0, Object arg1) {
+      com.google.protobuf.GeneratedMessageLite.MethodToInvoke method, Object arg0, Object arg1) {
     switch (method) {
-      case NEW_MUTABLE_INSTANCE: {
-        return new ir.ms.pb.PB_UserParam_ChangeAvatar();
-      }
-      case IS_INITIALIZED: {
-        return DEFAULT_INSTANCE;
-      }
-      case MAKE_IMMUTABLE: {
-        return null;
-      }
-      case NEW_BUILDER: {
-        return new Builder();
-      }
-      case VISIT: {
-        Visitor visitor = (Visitor) arg0;
-        ir.ms.pb.PB_UserParam_ChangeAvatar other = (ir.ms.pb.PB_UserParam_ChangeAvatar) arg1;
-        none_ = visitor.visitBoolean(none_ != false, none_,
-            other.none_ != false, other.none_);
-        imageData2_ = visitor.visitByteString(imageData2_ != com.google.protobuf.ByteString.EMPTY, imageData2_,
-            other.imageData2_ != com.google.protobuf.ByteString.EMPTY, other.imageData2_);
-        if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
-            .INSTANCE) {
+      case NEW_MUTABLE_INSTANCE:
+        {
+          return new ir.ms.pb.PB_UserParam_ChangeAvatar();
         }
-        return this;
-      }
-      case MERGE_FROM_STREAM: {
-        com.google.protobuf.CodedInputStream input =
-            (com.google.protobuf.CodedInputStream) arg0;
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry =
-            (com.google.protobuf.ExtensionRegistryLite) arg1;
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              default: {
-                if (!input.skipField(tag)) {
+      case IS_INITIALIZED:
+        {
+          return DEFAULT_INSTANCE;
+        }
+      case MAKE_IMMUTABLE:
+        {
+          return null;
+        }
+      case NEW_BUILDER:
+        {
+          return new Builder();
+        }
+      case VISIT:
+        {
+          Visitor visitor = (Visitor) arg0;
+          ir.ms.pb.PB_UserParam_ChangeAvatar other = (ir.ms.pb.PB_UserParam_ChangeAvatar) arg1;
+          none_ = visitor.visitBoolean(none_ != false, none_, other.none_ != false, other.none_);
+          imageData2_ =
+              visitor.visitByteString(
+                  imageData2_ != com.google.protobuf.ByteString.EMPTY,
+                  imageData2_,
+                  other.imageData2_ != com.google.protobuf.ByteString.EMPTY,
+                  other.imageData2_);
+          if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor.INSTANCE) {}
+          return this;
+        }
+      case MERGE_FROM_STREAM:
+        {
+          com.google.protobuf.CodedInputStream input = (com.google.protobuf.CodedInputStream) arg0;
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry =
+              (com.google.protobuf.ExtensionRegistryLite) arg1;
+          try {
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
                   done = true;
-                }
-                break;
+                  break;
+                default:
+                  {
+                    if (!input.skipField(tag)) {
+                      done = true;
+                    }
+                    break;
+                  }
+                case 8:
+                  {
+                    none_ = input.readBool();
+                    break;
+                  }
+                case 18:
+                  {
+                    imageData2_ = input.readBytes();
+                    break;
+                  }
               }
-              case 8: {
-
-                none_ = input.readBool();
-                break;
-              }
-              case 18: {
-
-                imageData2_ = input.readBytes();
-                break;
+            }
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw new RuntimeException(e.setUnfinishedMessage(this));
+          } catch (java.io.IOException e) {
+            throw new RuntimeException(
+                new com.google.protobuf.InvalidProtocolBufferException(e.getMessage())
+                    .setUnfinishedMessage(this));
+          } finally {
+          }
+        }
+      case GET_DEFAULT_INSTANCE:
+        {
+          return DEFAULT_INSTANCE;
+        }
+      case GET_PARSER:
+        {
+          if (PARSER == null) {
+            synchronized (ir.ms.pb.PB_UserParam_ChangeAvatar.class) {
+              if (PARSER == null) {
+                PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
               }
             }
           }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw new RuntimeException(e.setUnfinishedMessage(this));
-        } catch (java.io.IOException e) {
-          throw new RuntimeException(
-              new com.google.protobuf.InvalidProtocolBufferException(
-                  e.getMessage()).setUnfinishedMessage(this));
-        } finally {
+          return PARSER;
         }
-      }
-      case GET_DEFAULT_INSTANCE: {
-        return DEFAULT_INSTANCE;
-      }
-      case GET_PARSER: {
-        if (PARSER == null) {    synchronized (ir.ms.pb.PB_UserParam_ChangeAvatar.class) {
-            if (PARSER == null) {
-              PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
-            }
-          }
-        }
-        return PARSER;
-      }
     }
     throw new UnsupportedOperationException();
   }
 
-
   // @@protoc_insertion_point(class_scope:PB_UserParam_ChangeAvatar)
   private static final ir.ms.pb.PB_UserParam_ChangeAvatar DEFAULT_INSTANCE;
+
   static {
     DEFAULT_INSTANCE = new PB_UserParam_ChangeAvatar();
     DEFAULT_INSTANCE.makeImmutable();
@@ -322,4 +304,3 @@ public  final class PB_UserParam_ChangeAvatar extends
     return DEFAULT_INSTANCE.getParserForType();
   }
 }
-

@@ -3,17 +3,13 @@
 
 package ir.ms.pb;
 
-public interface PB_UserParam_UpdateUserNameOrBuilder extends
+public interface PB_UserParam_UpdateUserNameOrBuilder
+    extends
     // @@protoc_insertion_point(interface_extends:PB_UserParam_UpdateUserName)
     com.google.protobuf.MessageLiteOrBuilder {
 
-  /**
-   * <code>string NewUserName = 1;</code>
-   */
+  /** <code>string NewUserName = 1;</code> */
   java.lang.String getNewUserName();
-  /**
-   * <code>string NewUserName = 1;</code>
-   */
-  com.google.protobuf.ByteString
-      getNewUserNameBytes();
+  /** <code>string NewUserName = 1;</code> */
+  com.google.protobuf.ByteString getNewUserNameBytes();
 }

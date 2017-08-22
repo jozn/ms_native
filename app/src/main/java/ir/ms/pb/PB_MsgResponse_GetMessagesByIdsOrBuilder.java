@@ -3,21 +3,15 @@
 
 package ir.ms.pb;
 
-public interface PB_MsgResponse_GetMessagesByIdsOrBuilder extends
+public interface PB_MsgResponse_GetMessagesByIdsOrBuilder
+    extends
     // @@protoc_insertion_point(interface_extends:PB_MsgResponse_GetMessagesByIds)
     com.google.protobuf.MessageLiteOrBuilder {
 
-  /**
-   * <code>repeated .PB_MessageView MessagesViews = 1;</code>
-   */
-  java.util.List<ir.ms.pb.PB_MessageView> 
-      getMessagesViewsList();
-  /**
-   * <code>repeated .PB_MessageView MessagesViews = 1;</code>
-   */
+  /** <code>repeated .PB_MessageView MessagesViews = 1;</code> */
+  java.util.List<ir.ms.pb.PB_MessageView> getMessagesViewsList();
+  /** <code>repeated .PB_MessageView MessagesViews = 1;</code> */
   ir.ms.pb.PB_MessageView getMessagesViews(int index);
-  /**
-   * <code>repeated .PB_MessageView MessagesViews = 1;</code>
-   */
+  /** <code>repeated .PB_MessageView MessagesViews = 1;</code> */
   int getMessagesViewsCount();
 }

@@ -3,81 +3,65 @@
 
 package ir.ms.pb;
 
-public interface PB_MsgFileOrBuilder extends
+public interface PB_MsgFileOrBuilder
+    extends
     // @@protoc_insertion_point(interface_extends:PB_MsgFile)
     com.google.protobuf.MessageLiteOrBuilder {
 
   /**
+   *
+   *
    * <pre>
-   *general
+   * general
    * </pre>
    *
    * <code>string Name = 1;</code>
    */
   java.lang.String getName();
   /**
+   *
+   *
    * <pre>
-   *general
+   * general
    * </pre>
    *
    * <code>string Name = 1;</code>
    */
-  com.google.protobuf.ByteString
-      getNameBytes();
+  com.google.protobuf.ByteString getNameBytes();
 
-  /**
-   * <code>int64 Size = 2;</code>
-   */
+  /** <code>int64 Size = 2;</code> */
   long getSize();
 
-  /**
-   * <code>int32 FileType = 3;</code>
-   */
+  /** <code>int32 FileType = 3;</code> */
   int getFileType();
 
-  /**
-   * <code>string MimeType = 4;</code>
-   */
+  /** <code>string MimeType = 4;</code> */
   java.lang.String getMimeType();
-  /**
-   * <code>string MimeType = 4;</code>
-   */
-  com.google.protobuf.ByteString
-      getMimeTypeBytes();
+  /** <code>string MimeType = 4;</code> */
+  com.google.protobuf.ByteString getMimeTypeBytes();
 
-  /**
-   * <code>int32 Width = 5;</code>
-   */
+  /** <code>int32 Width = 5;</code> */
   int getWidth();
 
-  /**
-   * <code>int32 Height = 6;</code>
-   */
+  /** <code>int32 Height = 6;</code> */
   int getHeight();
 
-  /**
-   * <code>int32 Duration = 7;</code>
-   */
+  /** <code>int32 Duration = 7;</code> */
   int getDuration();
 
-  /**
-   * <code>string Extension = 8;</code>
-   */
+  /** <code>string Extension = 8;</code> */
   java.lang.String getExtension();
-  /**
-   * <code>string Extension = 8;</code>
-   */
-  com.google.protobuf.ByteString
-      getExtensionBytes();
+  /** <code>string Extension = 8;</code> */
+  com.google.protobuf.ByteString getExtensionBytes();
 
-  /**
-   * <code>bytes ThumbData = 11;</code>
-   */
+  /** <code>bytes ThumbData = 11;</code> */
   com.google.protobuf.ByteString getThumbData();
 
   /**
+   *
+   *
    * <pre>
-   *just set in the client to server - data must be fetched sepratily for pushed msgs via ServerSrc
+   * just set in the client to server - data must be fetched sepratily for pushed msgs via ServerSrc
    * </pre>
    *
    * <code>bytes Data = 10;</code>
@@ -85,20 +69,23 @@ public interface PB_MsgFileOrBuilder extends
   com.google.protobuf.ByteString getData();
 
   /**
+   *
+   *
    * <pre>
-   *just set for push data
+   * just set for push data
    * </pre>
    *
    * <code>string ServerSrc = 101;</code>
    */
   java.lang.String getServerSrc();
   /**
+   *
+   *
    * <pre>
-   *just set for push data
+   * just set for push data
    * </pre>
    *
    * <code>string ServerSrc = 101;</code>
    */
-  com.google.protobuf.ByteString
-      getServerSrcBytes();
+  com.google.protobuf.ByteString getServerSrcBytes();
 }

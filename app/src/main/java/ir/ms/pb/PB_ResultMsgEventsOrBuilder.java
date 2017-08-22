@@ -3,16 +3,13 @@
 
 package ir.ms.pb;
 
-public interface PB_ResultMsgEventsOrBuilder extends
+public interface PB_ResultMsgEventsOrBuilder
+    extends
     // @@protoc_insertion_point(interface_extends:PB_ResultMsgEvents)
     com.google.protobuf.MessageLiteOrBuilder {
 
-  /**
-   * <code>.PB_Result Result = 1;</code>
-   */
+  /** <code>.PB_Result Result = 1;</code> */
   boolean hasResult();
-  /**
-   * <code>.PB_Result Result = 1;</code>
-   */
+  /** <code>.PB_Result Result = 1;</code> */
   ir.ms.pb.PB_Result getResult();
 }

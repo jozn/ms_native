@@ -3,17 +3,14 @@
 
 package ir.ms.pb;
 
-public interface PB_UpdateUserBlockedOrBuilder extends
+public interface PB_UpdateUserBlockedOrBuilder
+    extends
     // @@protoc_insertion_point(interface_extends:PB_UpdateUserBlocked)
     com.google.protobuf.MessageLiteOrBuilder {
 
-  /**
-   * <code>int32 UserId = 1;</code>
-   */
+  /** <code>int32 UserId = 1;</code> */
   int getUserId();
 
-  /**
-   * <code>bool Blocked = 2;</code>
-   */
+  /** <code>bool Blocked = 2;</code> */
   boolean getBlocked();
 }

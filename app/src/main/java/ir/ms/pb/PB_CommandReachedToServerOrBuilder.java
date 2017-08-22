@@ -3,12 +3,11 @@
 
 package ir.ms.pb;
 
-public interface PB_CommandReachedToServerOrBuilder extends
+public interface PB_CommandReachedToServerOrBuilder
+    extends
     // @@protoc_insertion_point(interface_extends:PB_CommandReachedToServer)
     com.google.protobuf.MessageLiteOrBuilder {
 
-  /**
-   * <code>int64 ClientCallId = 1;</code>
-   */
+  /** <code>int64 ClientCallId = 1;</code> */
   long getClientCallId();
 }

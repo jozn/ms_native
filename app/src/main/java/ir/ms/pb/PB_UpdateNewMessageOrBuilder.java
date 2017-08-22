@@ -3,16 +3,13 @@
 
 package ir.ms.pb;
 
-public interface PB_UpdateNewMessageOrBuilder extends
+public interface PB_UpdateNewMessageOrBuilder
+    extends
     // @@protoc_insertion_point(interface_extends:PB_UpdateNewMessage)
     com.google.protobuf.MessageLiteOrBuilder {
 
-  /**
-   * <code>.PB_MessageView Message = 1;</code>
-   */
+  /** <code>.PB_MessageView Message = 1;</code> */
   boolean hasMessage();
-  /**
-   * <code>.PB_MessageView Message = 1;</code>
-   */
+  /** <code>.PB_MessageView Message = 1;</code> */
   ir.ms.pb.PB_MessageView getMessage();
 }

@@ -3,36 +3,24 @@
 
 package ir.ms.pb;
 
-public interface PB_MsgParam_BroadcastNewMessageOrBuilder extends
+public interface PB_MsgParam_BroadcastNewMessageOrBuilder
+    extends
     // @@protoc_insertion_point(interface_extends:PB_MsgParam_BroadcastNewMessage)
     com.google.protobuf.MessageLiteOrBuilder {
 
-  /**
-   * <code>string Text = 1;</code>
-   */
+  /** <code>string Text = 1;</code> */
   java.lang.String getText();
-  /**
-   * <code>string Text = 1;</code>
-   */
-  com.google.protobuf.ByteString
-      getTextBytes();
+  /** <code>string Text = 1;</code> */
+  com.google.protobuf.ByteString getTextBytes();
 
-  /**
-   * <code>int32 PeerId = 5;</code>
-   */
+  /** <code>int32 PeerId = 5;</code> */
   int getPeerId();
 
-  /**
-   * <code>int32 Time = 6;</code>
-   */
+  /** <code>int32 Time = 6;</code> */
   int getTime();
 
-  /**
-   * <code>.PB_MessageForwardedFrom Forward = 14;</code>
-   */
+  /** <code>.PB_MessageForwardedFrom Forward = 14;</code> */
   boolean hasForward();
-  /**
-   * <code>.PB_MessageForwardedFrom Forward = 14;</code>
-   */
+  /** <code>.PB_MessageForwardedFrom Forward = 14;</code> */
   ir.ms.pb.PB_MessageForwardedFrom getForward();
 }

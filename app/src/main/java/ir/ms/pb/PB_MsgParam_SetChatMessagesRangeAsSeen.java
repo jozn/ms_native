@@ -4,47 +4,46 @@
 package ir.ms.pb;
 
 /**
+ *
+ *
  * <pre>
- *&#47;//////
+ * &#47;//////
  * </pre>
  *
  * Protobuf type {@code PB_MsgParam_SetChatMessagesRangeAsSeen}
  */
-public  final class PB_MsgParam_SetChatMessagesRangeAsSeen extends
-    com.google.protobuf.GeneratedMessageLite<
-        PB_MsgParam_SetChatMessagesRangeAsSeen, PB_MsgParam_SetChatMessagesRangeAsSeen.Builder> implements
+public final class PB_MsgParam_SetChatMessagesRangeAsSeen
+    extends com.google.protobuf.GeneratedMessageLite<
+        PB_MsgParam_SetChatMessagesRangeAsSeen, PB_MsgParam_SetChatMessagesRangeAsSeen.Builder>
+    implements
     // @@protoc_insertion_point(message_implements:PB_MsgParam_SetChatMessagesRangeAsSeen)
     PB_MsgParam_SetChatMessagesRangeAsSeenOrBuilder {
-  private PB_MsgParam_SetChatMessagesRangeAsSeen() {
-  }
+  private PB_MsgParam_SetChatMessagesRangeAsSeen() {}
+
   public static final int CHATID_FIELD_NUMBER = 1;
   private long chatId_;
-  /**
-   * <code>int64 ChatId = 1;</code>
-   */
+  /** <code>int64 ChatId = 1;</code> */
   public long getChatId() {
     return chatId_;
   }
-  /**
-   * <code>int64 ChatId = 1;</code>
-   */
+  /** <code>int64 ChatId = 1;</code> */
   private void setChatId(long value) {
-    
+
     chatId_ = value;
   }
-  /**
-   * <code>int64 ChatId = 1;</code>
-   */
+  /** <code>int64 ChatId = 1;</code> */
   private void clearChatId() {
-    
+
     chatId_ = 0L;
   }
 
   public static final int FROMSEQ_FIELD_NUMBER = 2;
   private int fromSeq_;
   /**
+   *
+   *
    * <pre>
-   *must persent 
+   * must persent
    * </pre>
    *
    * <code>sint32 FromSeq = 2;</code>
@@ -53,31 +52,37 @@ public  final class PB_MsgParam_SetChatMessagesRangeAsSeen extends
     return fromSeq_;
   }
   /**
+   *
+   *
    * <pre>
-   *must persent 
+   * must persent
    * </pre>
    *
    * <code>sint32 FromSeq = 2;</code>
    */
   private void setFromSeq(int value) {
-    
+
     fromSeq_ = value;
   }
   /**
+   *
+   *
    * <pre>
-   *must persent 
+   * must persent
    * </pre>
    *
    * <code>sint32 FromSeq = 2;</code>
    */
   private void clearFromSeq() {
-    
+
     fromSeq_ = 0;
   }
 
   public static final int ENDSEQ_FIELD_NUMBER = 3;
   private int endSeq_;
   /**
+   *
+   *
    * <pre>
    * must persent
    * </pre>
@@ -88,6 +93,8 @@ public  final class PB_MsgParam_SetChatMessagesRangeAsSeen extends
     return endSeq_;
   }
   /**
+   *
+   *
    * <pre>
    * must persent
    * </pre>
@@ -95,10 +102,12 @@ public  final class PB_MsgParam_SetChatMessagesRangeAsSeen extends
    * <code>sint32 EndSeq = 3;</code>
    */
   private void setEndSeq(int value) {
-    
+
     endSeq_ = value;
   }
   /**
+   *
+   *
    * <pre>
    * must persent
    * </pre>
@@ -106,35 +115,28 @@ public  final class PB_MsgParam_SetChatMessagesRangeAsSeen extends
    * <code>sint32 EndSeq = 3;</code>
    */
   private void clearEndSeq() {
-    
+
     endSeq_ = 0;
   }
 
   public static final int SEENTIMEMS_FIELD_NUMBER = 4;
   private long seenTimeMs_;
-  /**
-   * <code>int64 SeenTimeMs = 4;</code>
-   */
+  /** <code>int64 SeenTimeMs = 4;</code> */
   public long getSeenTimeMs() {
     return seenTimeMs_;
   }
-  /**
-   * <code>int64 SeenTimeMs = 4;</code>
-   */
+  /** <code>int64 SeenTimeMs = 4;</code> */
   private void setSeenTimeMs(long value) {
-    
+
     seenTimeMs_ = value;
   }
-  /**
-   * <code>int64 SeenTimeMs = 4;</code>
-   */
+  /** <code>int64 SeenTimeMs = 4;</code> */
   private void clearSeenTimeMs() {
-    
+
     seenTimeMs_ = 0L;
   }
 
-  public void writeTo(com.google.protobuf.CodedOutputStream output)
-                      throws java.io.IOException {
+  public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
     if (chatId_ != 0L) {
       output.writeInt64(1, chatId_);
     }
@@ -155,20 +157,16 @@ public  final class PB_MsgParam_SetChatMessagesRangeAsSeen extends
 
     size = 0;
     if (chatId_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(1, chatId_);
+      size += com.google.protobuf.CodedOutputStream.computeInt64Size(1, chatId_);
     }
     if (fromSeq_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeSInt32Size(2, fromSeq_);
+      size += com.google.protobuf.CodedOutputStream.computeSInt32Size(2, fromSeq_);
     }
     if (endSeq_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeSInt32Size(3, endSeq_);
+      size += com.google.protobuf.CodedOutputStream.computeSInt32Size(3, endSeq_);
     }
     if (seenTimeMs_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(4, seenTimeMs_);
+      size += com.google.protobuf.CodedOutputStream.computeInt64Size(4, seenTimeMs_);
     }
     memoizedSerializedSize = size;
     return size;
@@ -177,9 +175,9 @@ public  final class PB_MsgParam_SetChatMessagesRangeAsSeen extends
   public static ir.ms.pb.PB_MsgParam_SetChatMessagesRangeAsSeen parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(
-        DEFAULT_INSTANCE, data);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, data);
   }
+
   public static ir.ms.pb.PB_MsgParam_SetChatMessagesRangeAsSeen parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -187,46 +185,47 @@ public  final class PB_MsgParam_SetChatMessagesRangeAsSeen extends
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
+
   public static ir.ms.pb.PB_MsgParam_SetChatMessagesRangeAsSeen parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(
-        DEFAULT_INSTANCE, data);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, data);
   }
+
   public static ir.ms.pb.PB_MsgParam_SetChatMessagesRangeAsSeen parseFrom(
-      byte[] data,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
+
   public static ir.ms.pb.PB_MsgParam_SetChatMessagesRangeAsSeen parseFrom(java.io.InputStream input)
       throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(
-        DEFAULT_INSTANCE, input);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, input);
   }
+
   public static ir.ms.pb.PB_MsgParam_SetChatMessagesRangeAsSeen parseFrom(
-      java.io.InputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, input, extensionRegistry);
   }
-  public static ir.ms.pb.PB_MsgParam_SetChatMessagesRangeAsSeen parseDelimitedFrom(java.io.InputStream input)
-      throws java.io.IOException {
+
+  public static ir.ms.pb.PB_MsgParam_SetChatMessagesRangeAsSeen parseDelimitedFrom(
+      java.io.InputStream input) throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input);
   }
+
   public static ir.ms.pb.PB_MsgParam_SetChatMessagesRangeAsSeen parseDelimitedFrom(
-      java.io.InputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
   }
+
   public static ir.ms.pb.PB_MsgParam_SetChatMessagesRangeAsSeen parseFrom(
-      com.google.protobuf.CodedInputStream input)
-      throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(
-        DEFAULT_INSTANCE, input);
+      com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, input);
   }
+
   public static ir.ms.pb.PB_MsgParam_SetChatMessagesRangeAsSeen parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -238,20 +237,24 @@ public  final class PB_MsgParam_SetChatMessagesRangeAsSeen extends
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
+
   public static Builder newBuilder(ir.ms.pb.PB_MsgParam_SetChatMessagesRangeAsSeen prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
 
   /**
+   *
+   *
    * <pre>
-   *&#47;//////
+   * &#47;//////
    * </pre>
    *
    * Protobuf type {@code PB_MsgParam_SetChatMessagesRangeAsSeen}
    */
-  public static final class Builder extends
-      com.google.protobuf.GeneratedMessageLite.Builder<
-        ir.ms.pb.PB_MsgParam_SetChatMessagesRangeAsSeen, Builder> implements
+  public static final class Builder
+      extends com.google.protobuf.GeneratedMessageLite.Builder<
+          ir.ms.pb.PB_MsgParam_SetChatMessagesRangeAsSeen, Builder>
+      implements
       // @@protoc_insertion_point(builder_implements:PB_MsgParam_SetChatMessagesRangeAsSeen)
       ir.ms.pb.PB_MsgParam_SetChatMessagesRangeAsSeenOrBuilder {
     // Construct using ir.ms.pb.PB_MsgParam_SetChatMessagesRangeAsSeen.newBuilder()
@@ -259,24 +262,17 @@ public  final class PB_MsgParam_SetChatMessagesRangeAsSeen extends
       super(DEFAULT_INSTANCE);
     }
 
-
-    /**
-     * <code>int64 ChatId = 1;</code>
-     */
+    /** <code>int64 ChatId = 1;</code> */
     public long getChatId() {
       return instance.getChatId();
     }
-    /**
-     * <code>int64 ChatId = 1;</code>
-     */
+    /** <code>int64 ChatId = 1;</code> */
     public Builder setChatId(long value) {
       copyOnWrite();
       instance.setChatId(value);
       return this;
     }
-    /**
-     * <code>int64 ChatId = 1;</code>
-     */
+    /** <code>int64 ChatId = 1;</code> */
     public Builder clearChatId() {
       copyOnWrite();
       instance.clearChatId();
@@ -284,8 +280,10 @@ public  final class PB_MsgParam_SetChatMessagesRangeAsSeen extends
     }
 
     /**
+     *
+     *
      * <pre>
-     *must persent 
+     * must persent
      * </pre>
      *
      * <code>sint32 FromSeq = 2;</code>
@@ -294,8 +292,10 @@ public  final class PB_MsgParam_SetChatMessagesRangeAsSeen extends
       return instance.getFromSeq();
     }
     /**
+     *
+     *
      * <pre>
-     *must persent 
+     * must persent
      * </pre>
      *
      * <code>sint32 FromSeq = 2;</code>
@@ -306,8 +306,10 @@ public  final class PB_MsgParam_SetChatMessagesRangeAsSeen extends
       return this;
     }
     /**
+     *
+     *
      * <pre>
-     *must persent 
+     * must persent
      * </pre>
      *
      * <code>sint32 FromSeq = 2;</code>
@@ -319,6 +321,8 @@ public  final class PB_MsgParam_SetChatMessagesRangeAsSeen extends
     }
 
     /**
+     *
+     *
      * <pre>
      * must persent
      * </pre>
@@ -329,6 +333,8 @@ public  final class PB_MsgParam_SetChatMessagesRangeAsSeen extends
       return instance.getEndSeq();
     }
     /**
+     *
+     *
      * <pre>
      * must persent
      * </pre>
@@ -341,6 +347,8 @@ public  final class PB_MsgParam_SetChatMessagesRangeAsSeen extends
       return this;
     }
     /**
+     *
+     *
      * <pre>
      * must persent
      * </pre>
@@ -353,23 +361,17 @@ public  final class PB_MsgParam_SetChatMessagesRangeAsSeen extends
       return this;
     }
 
-    /**
-     * <code>int64 SeenTimeMs = 4;</code>
-     */
+    /** <code>int64 SeenTimeMs = 4;</code> */
     public long getSeenTimeMs() {
       return instance.getSeenTimeMs();
     }
-    /**
-     * <code>int64 SeenTimeMs = 4;</code>
-     */
+    /** <code>int64 SeenTimeMs = 4;</code> */
     public Builder setSeenTimeMs(long value) {
       copyOnWrite();
       instance.setSeenTimeMs(value);
       return this;
     }
-    /**
-     * <code>int64 SeenTimeMs = 4;</code>
-     */
+    /** <code>int64 SeenTimeMs = 4;</code> */
     public Builder clearSeenTimeMs() {
       copyOnWrite();
       instance.clearSeenTimeMs();
@@ -378,107 +380,113 @@ public  final class PB_MsgParam_SetChatMessagesRangeAsSeen extends
 
     // @@protoc_insertion_point(builder_scope:PB_MsgParam_SetChatMessagesRangeAsSeen)
   }
+
   protected final Object dynamicMethod(
-      com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
-      Object arg0, Object arg1) {
+      com.google.protobuf.GeneratedMessageLite.MethodToInvoke method, Object arg0, Object arg1) {
     switch (method) {
-      case NEW_MUTABLE_INSTANCE: {
-        return new ir.ms.pb.PB_MsgParam_SetChatMessagesRangeAsSeen();
-      }
-      case IS_INITIALIZED: {
-        return DEFAULT_INSTANCE;
-      }
-      case MAKE_IMMUTABLE: {
-        return null;
-      }
-      case NEW_BUILDER: {
-        return new Builder();
-      }
-      case VISIT: {
-        Visitor visitor = (Visitor) arg0;
-        ir.ms.pb.PB_MsgParam_SetChatMessagesRangeAsSeen other = (ir.ms.pb.PB_MsgParam_SetChatMessagesRangeAsSeen) arg1;
-        chatId_ = visitor.visitLong(chatId_ != 0L, chatId_,
-            other.chatId_ != 0L, other.chatId_);
-        fromSeq_ = visitor.visitInt(fromSeq_ != 0, fromSeq_,
-            other.fromSeq_ != 0, other.fromSeq_);
-        endSeq_ = visitor.visitInt(endSeq_ != 0, endSeq_,
-            other.endSeq_ != 0, other.endSeq_);
-        seenTimeMs_ = visitor.visitLong(seenTimeMs_ != 0L, seenTimeMs_,
-            other.seenTimeMs_ != 0L, other.seenTimeMs_);
-        if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
-            .INSTANCE) {
+      case NEW_MUTABLE_INSTANCE:
+        {
+          return new ir.ms.pb.PB_MsgParam_SetChatMessagesRangeAsSeen();
         }
-        return this;
-      }
-      case MERGE_FROM_STREAM: {
-        com.google.protobuf.CodedInputStream input =
-            (com.google.protobuf.CodedInputStream) arg0;
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry =
-            (com.google.protobuf.ExtensionRegistryLite) arg1;
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              default: {
-                if (!input.skipField(tag)) {
+      case IS_INITIALIZED:
+        {
+          return DEFAULT_INSTANCE;
+        }
+      case MAKE_IMMUTABLE:
+        {
+          return null;
+        }
+      case NEW_BUILDER:
+        {
+          return new Builder();
+        }
+      case VISIT:
+        {
+          Visitor visitor = (Visitor) arg0;
+          ir.ms.pb.PB_MsgParam_SetChatMessagesRangeAsSeen other =
+              (ir.ms.pb.PB_MsgParam_SetChatMessagesRangeAsSeen) arg1;
+          chatId_ = visitor.visitLong(chatId_ != 0L, chatId_, other.chatId_ != 0L, other.chatId_);
+          fromSeq_ = visitor.visitInt(fromSeq_ != 0, fromSeq_, other.fromSeq_ != 0, other.fromSeq_);
+          endSeq_ = visitor.visitInt(endSeq_ != 0, endSeq_, other.endSeq_ != 0, other.endSeq_);
+          seenTimeMs_ =
+              visitor.visitLong(
+                  seenTimeMs_ != 0L, seenTimeMs_, other.seenTimeMs_ != 0L, other.seenTimeMs_);
+          if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor.INSTANCE) {}
+          return this;
+        }
+      case MERGE_FROM_STREAM:
+        {
+          com.google.protobuf.CodedInputStream input = (com.google.protobuf.CodedInputStream) arg0;
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry =
+              (com.google.protobuf.ExtensionRegistryLite) arg1;
+          try {
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
                   done = true;
-                }
-                break;
+                  break;
+                default:
+                  {
+                    if (!input.skipField(tag)) {
+                      done = true;
+                    }
+                    break;
+                  }
+                case 8:
+                  {
+                    chatId_ = input.readInt64();
+                    break;
+                  }
+                case 16:
+                  {
+                    fromSeq_ = input.readSInt32();
+                    break;
+                  }
+                case 24:
+                  {
+                    endSeq_ = input.readSInt32();
+                    break;
+                  }
+                case 32:
+                  {
+                    seenTimeMs_ = input.readInt64();
+                    break;
+                  }
               }
-              case 8: {
-
-                chatId_ = input.readInt64();
-                break;
-              }
-              case 16: {
-
-                fromSeq_ = input.readSInt32();
-                break;
-              }
-              case 24: {
-
-                endSeq_ = input.readSInt32();
-                break;
-              }
-              case 32: {
-
-                seenTimeMs_ = input.readInt64();
-                break;
+            }
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw new RuntimeException(e.setUnfinishedMessage(this));
+          } catch (java.io.IOException e) {
+            throw new RuntimeException(
+                new com.google.protobuf.InvalidProtocolBufferException(e.getMessage())
+                    .setUnfinishedMessage(this));
+          } finally {
+          }
+        }
+      case GET_DEFAULT_INSTANCE:
+        {
+          return DEFAULT_INSTANCE;
+        }
+      case GET_PARSER:
+        {
+          if (PARSER == null) {
+            synchronized (ir.ms.pb.PB_MsgParam_SetChatMessagesRangeAsSeen.class) {
+              if (PARSER == null) {
+                PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
               }
             }
           }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw new RuntimeException(e.setUnfinishedMessage(this));
-        } catch (java.io.IOException e) {
-          throw new RuntimeException(
-              new com.google.protobuf.InvalidProtocolBufferException(
-                  e.getMessage()).setUnfinishedMessage(this));
-        } finally {
+          return PARSER;
         }
-      }
-      case GET_DEFAULT_INSTANCE: {
-        return DEFAULT_INSTANCE;
-      }
-      case GET_PARSER: {
-        if (PARSER == null) {    synchronized (ir.ms.pb.PB_MsgParam_SetChatMessagesRangeAsSeen.class) {
-            if (PARSER == null) {
-              PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
-            }
-          }
-        }
-        return PARSER;
-      }
     }
     throw new UnsupportedOperationException();
   }
 
-
   // @@protoc_insertion_point(class_scope:PB_MsgParam_SetChatMessagesRangeAsSeen)
   private static final ir.ms.pb.PB_MsgParam_SetChatMessagesRangeAsSeen DEFAULT_INSTANCE;
+
   static {
     DEFAULT_INSTANCE = new PB_MsgParam_SetChatMessagesRangeAsSeen();
     DEFAULT_INSTANCE.makeImmutable();
@@ -494,4 +502,3 @@ public  final class PB_MsgParam_SetChatMessagesRangeAsSeen extends
     return DEFAULT_INSTANCE.getParserForType();
   }
 }
-

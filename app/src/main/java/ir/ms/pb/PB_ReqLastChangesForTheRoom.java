@@ -4,90 +4,74 @@
 package ir.ms.pb;
 
 /**
+ *
+ *
  * <pre>
- *&#47;/
+ * &#47;/
  * </pre>
  *
  * Protobuf type {@code PB_ReqLastChangesForTheRoom}
  */
-public  final class PB_ReqLastChangesForTheRoom extends
-    com.google.protobuf.GeneratedMessageLite<
-        PB_ReqLastChangesForTheRoom, PB_ReqLastChangesForTheRoom.Builder> implements
+public final class PB_ReqLastChangesForTheRoom
+    extends com.google.protobuf.GeneratedMessageLite<
+        PB_ReqLastChangesForTheRoom, PB_ReqLastChangesForTheRoom.Builder>
+    implements
     // @@protoc_insertion_point(message_implements:PB_ReqLastChangesForTheRoom)
     PB_ReqLastChangesForTheRoomOrBuilder {
-  private PB_ReqLastChangesForTheRoom() {
-  }
+  private PB_ReqLastChangesForTheRoom() {}
+
   public static final int ROOMID_FIELD_NUMBER = 1;
   private long roomId_;
-  /**
-   * <code>int64 RoomId = 1;</code>
-   */
+  /** <code>int64 RoomId = 1;</code> */
   public long getRoomId() {
     return roomId_;
   }
-  /**
-   * <code>int64 RoomId = 1;</code>
-   */
+  /** <code>int64 RoomId = 1;</code> */
   private void setRoomId(long value) {
-    
+
     roomId_ = value;
   }
-  /**
-   * <code>int64 RoomId = 1;</code>
-   */
+  /** <code>int64 RoomId = 1;</code> */
   private void clearRoomId() {
-    
+
     roomId_ = 0L;
   }
 
   public static final int LASTLOGID_FIELD_NUMBER = 2;
   private long lastLogId_;
-  /**
-   * <code>int64 LastLogId = 2;</code>
-   */
+  /** <code>int64 LastLogId = 2;</code> */
   public long getLastLogId() {
     return lastLogId_;
   }
-  /**
-   * <code>int64 LastLogId = 2;</code>
-   */
+  /** <code>int64 LastLogId = 2;</code> */
   private void setLastLogId(long value) {
-    
+
     lastLogId_ = value;
   }
-  /**
-   * <code>int64 LastLogId = 2;</code>
-   */
+  /** <code>int64 LastLogId = 2;</code> */
   private void clearLastLogId() {
-    
+
     lastLogId_ = 0L;
   }
 
   public static final int LASTHAVESEQ_FIELD_NUMBER = 3;
   private int lastHaveSeq_;
-  /**
-   * <code>int32 LastHaveSeq = 3;</code>
-   */
+  /** <code>int32 LastHaveSeq = 3;</code> */
   public int getLastHaveSeq() {
     return lastHaveSeq_;
   }
-  /**
-   * <code>int32 LastHaveSeq = 3;</code>
-   */
+  /** <code>int32 LastHaveSeq = 3;</code> */
   private void setLastHaveSeq(int value) {
-    
+
     lastHaveSeq_ = value;
   }
-  /**
-   * <code>int32 LastHaveSeq = 3;</code>
-   */
+  /** <code>int32 LastHaveSeq = 3;</code> */
   private void clearLastHaveSeq() {
-    
+
     lastHaveSeq_ = 0;
   }
 
-  public void writeTo(com.google.protobuf.CodedOutputStream output)
-                      throws java.io.IOException {
+  public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
     if (roomId_ != 0L) {
       output.writeInt64(1, roomId_);
     }
@@ -105,27 +89,23 @@ public  final class PB_ReqLastChangesForTheRoom extends
 
     size = 0;
     if (roomId_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(1, roomId_);
+      size += com.google.protobuf.CodedOutputStream.computeInt64Size(1, roomId_);
     }
     if (lastLogId_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(2, lastLogId_);
+      size += com.google.protobuf.CodedOutputStream.computeInt64Size(2, lastLogId_);
     }
     if (lastHaveSeq_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(3, lastHaveSeq_);
+      size += com.google.protobuf.CodedOutputStream.computeInt32Size(3, lastHaveSeq_);
     }
     memoizedSerializedSize = size;
     return size;
   }
 
-  public static ir.ms.pb.PB_ReqLastChangesForTheRoom parseFrom(
-      com.google.protobuf.ByteString data)
+  public static ir.ms.pb.PB_ReqLastChangesForTheRoom parseFrom(com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(
-        DEFAULT_INSTANCE, data);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, data);
   }
+
   public static ir.ms.pb.PB_ReqLastChangesForTheRoom parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -133,46 +113,47 @@ public  final class PB_ReqLastChangesForTheRoom extends
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
+
   public static ir.ms.pb.PB_ReqLastChangesForTheRoom parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(
-        DEFAULT_INSTANCE, data);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, data);
   }
+
   public static ir.ms.pb.PB_ReqLastChangesForTheRoom parseFrom(
-      byte[] data,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
+
   public static ir.ms.pb.PB_ReqLastChangesForTheRoom parseFrom(java.io.InputStream input)
       throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(
-        DEFAULT_INSTANCE, input);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, input);
   }
+
   public static ir.ms.pb.PB_ReqLastChangesForTheRoom parseFrom(
-      java.io.InputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, input, extensionRegistry);
   }
+
   public static ir.ms.pb.PB_ReqLastChangesForTheRoom parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input);
   }
+
   public static ir.ms.pb.PB_ReqLastChangesForTheRoom parseDelimitedFrom(
-      java.io.InputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
   }
+
   public static ir.ms.pb.PB_ReqLastChangesForTheRoom parseFrom(
-      com.google.protobuf.CodedInputStream input)
-      throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(
-        DEFAULT_INSTANCE, input);
+      com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, input);
   }
+
   public static ir.ms.pb.PB_ReqLastChangesForTheRoom parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -184,20 +165,24 @@ public  final class PB_ReqLastChangesForTheRoom extends
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
+
   public static Builder newBuilder(ir.ms.pb.PB_ReqLastChangesForTheRoom prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
 
   /**
+   *
+   *
    * <pre>
-   *&#47;/
+   * &#47;/
    * </pre>
    *
    * Protobuf type {@code PB_ReqLastChangesForTheRoom}
    */
-  public static final class Builder extends
-      com.google.protobuf.GeneratedMessageLite.Builder<
-        ir.ms.pb.PB_ReqLastChangesForTheRoom, Builder> implements
+  public static final class Builder
+      extends com.google.protobuf.GeneratedMessageLite.Builder<
+          ir.ms.pb.PB_ReqLastChangesForTheRoom, Builder>
+      implements
       // @@protoc_insertion_point(builder_implements:PB_ReqLastChangesForTheRoom)
       ir.ms.pb.PB_ReqLastChangesForTheRoomOrBuilder {
     // Construct using ir.ms.pb.PB_ReqLastChangesForTheRoom.newBuilder()
@@ -205,70 +190,51 @@ public  final class PB_ReqLastChangesForTheRoom extends
       super(DEFAULT_INSTANCE);
     }
 
-
-    /**
-     * <code>int64 RoomId = 1;</code>
-     */
+    /** <code>int64 RoomId = 1;</code> */
     public long getRoomId() {
       return instance.getRoomId();
     }
-    /**
-     * <code>int64 RoomId = 1;</code>
-     */
+    /** <code>int64 RoomId = 1;</code> */
     public Builder setRoomId(long value) {
       copyOnWrite();
       instance.setRoomId(value);
       return this;
     }
-    /**
-     * <code>int64 RoomId = 1;</code>
-     */
+    /** <code>int64 RoomId = 1;</code> */
     public Builder clearRoomId() {
       copyOnWrite();
       instance.clearRoomId();
       return this;
     }
 
-    /**
-     * <code>int64 LastLogId = 2;</code>
-     */
+    /** <code>int64 LastLogId = 2;</code> */
     public long getLastLogId() {
       return instance.getLastLogId();
     }
-    /**
-     * <code>int64 LastLogId = 2;</code>
-     */
+    /** <code>int64 LastLogId = 2;</code> */
     public Builder setLastLogId(long value) {
       copyOnWrite();
       instance.setLastLogId(value);
       return this;
     }
-    /**
-     * <code>int64 LastLogId = 2;</code>
-     */
+    /** <code>int64 LastLogId = 2;</code> */
     public Builder clearLastLogId() {
       copyOnWrite();
       instance.clearLastLogId();
       return this;
     }
 
-    /**
-     * <code>int32 LastHaveSeq = 3;</code>
-     */
+    /** <code>int32 LastHaveSeq = 3;</code> */
     public int getLastHaveSeq() {
       return instance.getLastHaveSeq();
     }
-    /**
-     * <code>int32 LastHaveSeq = 3;</code>
-     */
+    /** <code>int32 LastHaveSeq = 3;</code> */
     public Builder setLastHaveSeq(int value) {
       copyOnWrite();
       instance.setLastHaveSeq(value);
       return this;
     }
-    /**
-     * <code>int32 LastHaveSeq = 3;</code>
-     */
+    /** <code>int32 LastHaveSeq = 3;</code> */
     public Builder clearLastHaveSeq() {
       copyOnWrite();
       instance.clearLastHaveSeq();
@@ -277,100 +243,108 @@ public  final class PB_ReqLastChangesForTheRoom extends
 
     // @@protoc_insertion_point(builder_scope:PB_ReqLastChangesForTheRoom)
   }
+
   protected final Object dynamicMethod(
-      com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
-      Object arg0, Object arg1) {
+      com.google.protobuf.GeneratedMessageLite.MethodToInvoke method, Object arg0, Object arg1) {
     switch (method) {
-      case NEW_MUTABLE_INSTANCE: {
-        return new ir.ms.pb.PB_ReqLastChangesForTheRoom();
-      }
-      case IS_INITIALIZED: {
-        return DEFAULT_INSTANCE;
-      }
-      case MAKE_IMMUTABLE: {
-        return null;
-      }
-      case NEW_BUILDER: {
-        return new Builder();
-      }
-      case VISIT: {
-        Visitor visitor = (Visitor) arg0;
-        ir.ms.pb.PB_ReqLastChangesForTheRoom other = (ir.ms.pb.PB_ReqLastChangesForTheRoom) arg1;
-        roomId_ = visitor.visitLong(roomId_ != 0L, roomId_,
-            other.roomId_ != 0L, other.roomId_);
-        lastLogId_ = visitor.visitLong(lastLogId_ != 0L, lastLogId_,
-            other.lastLogId_ != 0L, other.lastLogId_);
-        lastHaveSeq_ = visitor.visitInt(lastHaveSeq_ != 0, lastHaveSeq_,
-            other.lastHaveSeq_ != 0, other.lastHaveSeq_);
-        if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
-            .INSTANCE) {
+      case NEW_MUTABLE_INSTANCE:
+        {
+          return new ir.ms.pb.PB_ReqLastChangesForTheRoom();
         }
-        return this;
-      }
-      case MERGE_FROM_STREAM: {
-        com.google.protobuf.CodedInputStream input =
-            (com.google.protobuf.CodedInputStream) arg0;
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry =
-            (com.google.protobuf.ExtensionRegistryLite) arg1;
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              default: {
-                if (!input.skipField(tag)) {
+      case IS_INITIALIZED:
+        {
+          return DEFAULT_INSTANCE;
+        }
+      case MAKE_IMMUTABLE:
+        {
+          return null;
+        }
+      case NEW_BUILDER:
+        {
+          return new Builder();
+        }
+      case VISIT:
+        {
+          Visitor visitor = (Visitor) arg0;
+          ir.ms.pb.PB_ReqLastChangesForTheRoom other = (ir.ms.pb.PB_ReqLastChangesForTheRoom) arg1;
+          roomId_ = visitor.visitLong(roomId_ != 0L, roomId_, other.roomId_ != 0L, other.roomId_);
+          lastLogId_ =
+              visitor.visitLong(
+                  lastLogId_ != 0L, lastLogId_, other.lastLogId_ != 0L, other.lastLogId_);
+          lastHaveSeq_ =
+              visitor.visitInt(
+                  lastHaveSeq_ != 0, lastHaveSeq_, other.lastHaveSeq_ != 0, other.lastHaveSeq_);
+          if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor.INSTANCE) {}
+          return this;
+        }
+      case MERGE_FROM_STREAM:
+        {
+          com.google.protobuf.CodedInputStream input = (com.google.protobuf.CodedInputStream) arg0;
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry =
+              (com.google.protobuf.ExtensionRegistryLite) arg1;
+          try {
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
                   done = true;
-                }
-                break;
+                  break;
+                default:
+                  {
+                    if (!input.skipField(tag)) {
+                      done = true;
+                    }
+                    break;
+                  }
+                case 8:
+                  {
+                    roomId_ = input.readInt64();
+                    break;
+                  }
+                case 16:
+                  {
+                    lastLogId_ = input.readInt64();
+                    break;
+                  }
+                case 24:
+                  {
+                    lastHaveSeq_ = input.readInt32();
+                    break;
+                  }
               }
-              case 8: {
-
-                roomId_ = input.readInt64();
-                break;
-              }
-              case 16: {
-
-                lastLogId_ = input.readInt64();
-                break;
-              }
-              case 24: {
-
-                lastHaveSeq_ = input.readInt32();
-                break;
+            }
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw new RuntimeException(e.setUnfinishedMessage(this));
+          } catch (java.io.IOException e) {
+            throw new RuntimeException(
+                new com.google.protobuf.InvalidProtocolBufferException(e.getMessage())
+                    .setUnfinishedMessage(this));
+          } finally {
+          }
+        }
+      case GET_DEFAULT_INSTANCE:
+        {
+          return DEFAULT_INSTANCE;
+        }
+      case GET_PARSER:
+        {
+          if (PARSER == null) {
+            synchronized (ir.ms.pb.PB_ReqLastChangesForTheRoom.class) {
+              if (PARSER == null) {
+                PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
               }
             }
           }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw new RuntimeException(e.setUnfinishedMessage(this));
-        } catch (java.io.IOException e) {
-          throw new RuntimeException(
-              new com.google.protobuf.InvalidProtocolBufferException(
-                  e.getMessage()).setUnfinishedMessage(this));
-        } finally {
+          return PARSER;
         }
-      }
-      case GET_DEFAULT_INSTANCE: {
-        return DEFAULT_INSTANCE;
-      }
-      case GET_PARSER: {
-        if (PARSER == null) {    synchronized (ir.ms.pb.PB_ReqLastChangesForTheRoom.class) {
-            if (PARSER == null) {
-              PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
-            }
-          }
-        }
-        return PARSER;
-      }
     }
     throw new UnsupportedOperationException();
   }
 
-
   // @@protoc_insertion_point(class_scope:PB_ReqLastChangesForTheRoom)
   private static final ir.ms.pb.PB_ReqLastChangesForTheRoom DEFAULT_INSTANCE;
+
   static {
     DEFAULT_INSTANCE = new PB_ReqLastChangesForTheRoom();
     DEFAULT_INSTANCE.makeImmutable();
@@ -386,4 +360,3 @@ public  final class PB_ReqLastChangesForTheRoom extends
     return DEFAULT_INSTANCE.getParserForType();
   }
 }
-

@@ -3,7 +3,7 @@
 
 package ir.ms.pb;
 
-public interface PB_MsgResponse_SetRoomActionDoingOrBuilder extends
+public interface PB_MsgResponse_SetRoomActionDoingOrBuilder
+    extends
     // @@protoc_insertion_point(interface_extends:PB_MsgResponse_SetRoomActionDoing)
-    com.google.protobuf.MessageLiteOrBuilder {
-}
+    com.google.protobuf.MessageLiteOrBuilder {}

@@ -3,79 +3,45 @@
 
 package ir.ms.pb;
 
-/**
- * Protobuf enum {@code PrivacyGeneralLevelEnum}
- */
-public enum PrivacyGeneralLevelEnum
-    implements com.google.protobuf.Internal.EnumLite {
-  /**
-   * <code>UNKNOWN_PRICACY_GENRAL = 0;</code>
-   */
+/** Protobuf enum {@code PrivacyGeneralLevelEnum} */
+public enum PrivacyGeneralLevelEnum implements com.google.protobuf.Internal.EnumLite {
+  /** <code>UNKNOWN_PRICACY_GENRAL = 0;</code> */
   UNKNOWN_PRICACY_GENRAL(0),
-  /**
-   * <code>ALLOW_ALL = 1;</code>
-   */
+  /** <code>ALLOW_ALL = 1;</code> */
   ALLOW_ALL(1),
-  /**
-   * <code>DENY_ALL = 2;</code>
-   */
+  /** <code>DENY_ALL = 2;</code> */
   DENY_ALL(2),
-  /**
-   * <code>ALLOW_CONTACTS = 3;</code>
-   */
+  /** <code>ALLOW_CONTACTS = 3;</code> */
   ALLOW_CONTACTS(3),
-  /**
-   * <code>ALLOW_Followers = 4;</code>
-   */
+  /** <code>ALLOW_Followers = 4;</code> */
   ALLOW_Followers(4),
-  /**
-   * <code>ALLOW_Followings = 5;</code>
-   */
+  /** <code>ALLOW_Followings = 5;</code> */
   ALLOW_Followings(5),
-  /**
-   * <code>ALLOW_All_Followings = 6;</code>
-   */
+  /** <code>ALLOW_All_Followings = 6;</code> */
   ALLOW_All_Followings(6),
   UNRECOGNIZED(-1),
   ;
 
-  /**
-   * <code>UNKNOWN_PRICACY_GENRAL = 0;</code>
-   */
+  /** <code>UNKNOWN_PRICACY_GENRAL = 0;</code> */
   public static final int UNKNOWN_PRICACY_GENRAL_VALUE = 0;
-  /**
-   * <code>ALLOW_ALL = 1;</code>
-   */
+  /** <code>ALLOW_ALL = 1;</code> */
   public static final int ALLOW_ALL_VALUE = 1;
-  /**
-   * <code>DENY_ALL = 2;</code>
-   */
+  /** <code>DENY_ALL = 2;</code> */
   public static final int DENY_ALL_VALUE = 2;
-  /**
-   * <code>ALLOW_CONTACTS = 3;</code>
-   */
+  /** <code>ALLOW_CONTACTS = 3;</code> */
   public static final int ALLOW_CONTACTS_VALUE = 3;
-  /**
-   * <code>ALLOW_Followers = 4;</code>
-   */
+  /** <code>ALLOW_Followers = 4;</code> */
   public static final int ALLOW_Followers_VALUE = 4;
-  /**
-   * <code>ALLOW_Followings = 5;</code>
-   */
+  /** <code>ALLOW_Followings = 5;</code> */
   public static final int ALLOW_Followings_VALUE = 5;
-  /**
-   * <code>ALLOW_All_Followings = 6;</code>
-   */
+  /** <code>ALLOW_All_Followings = 6;</code> */
   public static final int ALLOW_All_Followings_VALUE = 6;
-
 
   public final int getNumber() {
     return value;
   }
 
-  /**
-   * @deprecated Use {@link #forNumber(int)} instead.
-   */
+  /** @deprecated Use {@link #forNumber(int)} instead. */
   @java.lang.Deprecated
   public static PrivacyGeneralLevelEnum valueOf(int value) {
     return forNumber(value);
@@ -83,14 +49,22 @@ public enum PrivacyGeneralLevelEnum
 
   public static PrivacyGeneralLevelEnum forNumber(int value) {
     switch (value) {
-      case 0: return UNKNOWN_PRICACY_GENRAL;
-      case 1: return ALLOW_ALL;
-      case 2: return DENY_ALL;
-      case 3: return ALLOW_CONTACTS;
-      case 4: return ALLOW_Followers;
-      case 5: return ALLOW_Followings;
-      case 6: return ALLOW_All_Followings;
-      default: return null;
+      case 0:
+        return UNKNOWN_PRICACY_GENRAL;
+      case 1:
+        return ALLOW_ALL;
+      case 2:
+        return DENY_ALL;
+      case 3:
+        return ALLOW_CONTACTS;
+      case 4:
+        return ALLOW_Followers;
+      case 5:
+        return ALLOW_Followings;
+      case 6:
+        return ALLOW_All_Followings;
+      default:
+        return null;
     }
   }
 
@@ -98,13 +72,14 @@ public enum PrivacyGeneralLevelEnum
       internalGetValueMap() {
     return internalValueMap;
   }
-  private static final com.google.protobuf.Internal.EnumLiteMap<
-      PrivacyGeneralLevelEnum> internalValueMap =
-        new com.google.protobuf.Internal.EnumLiteMap<PrivacyGeneralLevelEnum>() {
-          public PrivacyGeneralLevelEnum findValueByNumber(int number) {
-            return PrivacyGeneralLevelEnum.forNumber(number);
-          }
-        };
+
+  private static final com.google.protobuf.Internal.EnumLiteMap<PrivacyGeneralLevelEnum>
+      internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<PrivacyGeneralLevelEnum>() {
+            public PrivacyGeneralLevelEnum findValueByNumber(int number) {
+              return PrivacyGeneralLevelEnum.forNumber(number);
+            }
+          };
 
   private final int value;
 
@@ -114,4 +89,3 @@ public enum PrivacyGeneralLevelEnum
 
   // @@protoc_insertion_point(enum_scope:PrivacyGeneralLevelEnum)
 }
-

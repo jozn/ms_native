@@ -3,151 +3,81 @@
 
 package ir.ms.pb;
 
-/**
- * Protobuf enum {@code RoomActionDoingEnum}
- */
-public enum RoomActionDoingEnum
-    implements com.google.protobuf.Internal.EnumLite {
-  /**
-   * <code>UNKNOWN_ROOM_ACTION_DOING = 0;</code>
-   */
+/** Protobuf enum {@code RoomActionDoingEnum} */
+public enum RoomActionDoingEnum implements com.google.protobuf.Internal.EnumLite {
+  /** <code>UNKNOWN_ROOM_ACTION_DOING = 0;</code> */
   UNKNOWN_ROOM_ACTION_DOING(0),
-  /**
-   * <code>CANCEL = 1;</code>
-   */
+  /** <code>CANCEL = 1;</code> */
   CANCEL(1),
-  /**
-   * <code>TYPING = 2;</code>
-   */
+  /** <code>TYPING = 2;</code> */
   TYPING(2),
-  /**
-   * <code>SENDING_IMAGE = 3;</code>
-   */
+  /** <code>SENDING_IMAGE = 3;</code> */
   SENDING_IMAGE(3),
-  /**
-   * <code>CAPTURING_IMAGE = 4;</code>
-   */
+  /** <code>CAPTURING_IMAGE = 4;</code> */
   CAPTURING_IMAGE(4),
-  /**
-   * <code>SENDING_VIDEO = 5;</code>
-   */
+  /** <code>SENDING_VIDEO = 5;</code> */
   SENDING_VIDEO(5),
-  /**
-   * <code>CAPTURING_VIDEO = 6;</code>
-   */
+  /** <code>CAPTURING_VIDEO = 6;</code> */
   CAPTURING_VIDEO(6),
-  /**
-   * <code>SENDING_AUDIO = 7;</code>
-   */
+  /** <code>SENDING_AUDIO = 7;</code> */
   SENDING_AUDIO(7),
-  /**
-   * <code>RECORDING_VOICE = 8;</code>
-   */
+  /** <code>RECORDING_VOICE = 8;</code> */
   RECORDING_VOICE(8),
-  /**
-   * <code>SENDING_VOICE = 9;</code>
-   */
+  /** <code>SENDING_VOICE = 9;</code> */
   SENDING_VOICE(9),
-  /**
-   * <code>SENDING_DOCUMENT = 11;</code>
-   */
+  /** <code>SENDING_DOCUMENT = 11;</code> */
   SENDING_DOCUMENT(11),
-  /**
-   * <code>SENDING_GIF = 12;</code>
-   */
+  /** <code>SENDING_GIF = 12;</code> */
   SENDING_GIF(12),
-  /**
-   * <code>SENDING_FILE = 13;</code>
-   */
+  /** <code>SENDING_FILE = 13;</code> */
   SENDING_FILE(13),
-  /**
-   * <code>SENDING_LOCATION = 14;</code>
-   */
+  /** <code>SENDING_LOCATION = 14;</code> */
   SENDING_LOCATION(14),
-  /**
-   * <code>CHOOSING_CONTACT = 15;</code>
-   */
+  /** <code>CHOOSING_CONTACT = 15;</code> */
   CHOOSING_CONTACT(15),
-  /**
-   * <code>PAINTING = 16;</code>
-   */
+  /** <code>PAINTING = 16;</code> */
   PAINTING(16),
   UNRECOGNIZED(-1),
   ;
 
-  /**
-   * <code>UNKNOWN_ROOM_ACTION_DOING = 0;</code>
-   */
+  /** <code>UNKNOWN_ROOM_ACTION_DOING = 0;</code> */
   public static final int UNKNOWN_ROOM_ACTION_DOING_VALUE = 0;
-  /**
-   * <code>CANCEL = 1;</code>
-   */
+  /** <code>CANCEL = 1;</code> */
   public static final int CANCEL_VALUE = 1;
-  /**
-   * <code>TYPING = 2;</code>
-   */
+  /** <code>TYPING = 2;</code> */
   public static final int TYPING_VALUE = 2;
-  /**
-   * <code>SENDING_IMAGE = 3;</code>
-   */
+  /** <code>SENDING_IMAGE = 3;</code> */
   public static final int SENDING_IMAGE_VALUE = 3;
-  /**
-   * <code>CAPTURING_IMAGE = 4;</code>
-   */
+  /** <code>CAPTURING_IMAGE = 4;</code> */
   public static final int CAPTURING_IMAGE_VALUE = 4;
-  /**
-   * <code>SENDING_VIDEO = 5;</code>
-   */
+  /** <code>SENDING_VIDEO = 5;</code> */
   public static final int SENDING_VIDEO_VALUE = 5;
-  /**
-   * <code>CAPTURING_VIDEO = 6;</code>
-   */
+  /** <code>CAPTURING_VIDEO = 6;</code> */
   public static final int CAPTURING_VIDEO_VALUE = 6;
-  /**
-   * <code>SENDING_AUDIO = 7;</code>
-   */
+  /** <code>SENDING_AUDIO = 7;</code> */
   public static final int SENDING_AUDIO_VALUE = 7;
-  /**
-   * <code>RECORDING_VOICE = 8;</code>
-   */
+  /** <code>RECORDING_VOICE = 8;</code> */
   public static final int RECORDING_VOICE_VALUE = 8;
-  /**
-   * <code>SENDING_VOICE = 9;</code>
-   */
+  /** <code>SENDING_VOICE = 9;</code> */
   public static final int SENDING_VOICE_VALUE = 9;
-  /**
-   * <code>SENDING_DOCUMENT = 11;</code>
-   */
+  /** <code>SENDING_DOCUMENT = 11;</code> */
   public static final int SENDING_DOCUMENT_VALUE = 11;
-  /**
-   * <code>SENDING_GIF = 12;</code>
-   */
+  /** <code>SENDING_GIF = 12;</code> */
   public static final int SENDING_GIF_VALUE = 12;
-  /**
-   * <code>SENDING_FILE = 13;</code>
-   */
+  /** <code>SENDING_FILE = 13;</code> */
   public static final int SENDING_FILE_VALUE = 13;
-  /**
-   * <code>SENDING_LOCATION = 14;</code>
-   */
+  /** <code>SENDING_LOCATION = 14;</code> */
   public static final int SENDING_LOCATION_VALUE = 14;
-  /**
-   * <code>CHOOSING_CONTACT = 15;</code>
-   */
+  /** <code>CHOOSING_CONTACT = 15;</code> */
   public static final int CHOOSING_CONTACT_VALUE = 15;
-  /**
-   * <code>PAINTING = 16;</code>
-   */
+  /** <code>PAINTING = 16;</code> */
   public static final int PAINTING_VALUE = 16;
-
 
   public final int getNumber() {
     return value;
   }
 
-  /**
-   * @deprecated Use {@link #forNumber(int)} instead.
-   */
+  /** @deprecated Use {@link #forNumber(int)} instead. */
   @java.lang.Deprecated
   public static RoomActionDoingEnum valueOf(int value) {
     return forNumber(value);
@@ -155,23 +85,40 @@ public enum RoomActionDoingEnum
 
   public static RoomActionDoingEnum forNumber(int value) {
     switch (value) {
-      case 0: return UNKNOWN_ROOM_ACTION_DOING;
-      case 1: return CANCEL;
-      case 2: return TYPING;
-      case 3: return SENDING_IMAGE;
-      case 4: return CAPTURING_IMAGE;
-      case 5: return SENDING_VIDEO;
-      case 6: return CAPTURING_VIDEO;
-      case 7: return SENDING_AUDIO;
-      case 8: return RECORDING_VOICE;
-      case 9: return SENDING_VOICE;
-      case 11: return SENDING_DOCUMENT;
-      case 12: return SENDING_GIF;
-      case 13: return SENDING_FILE;
-      case 14: return SENDING_LOCATION;
-      case 15: return CHOOSING_CONTACT;
-      case 16: return PAINTING;
-      default: return null;
+      case 0:
+        return UNKNOWN_ROOM_ACTION_DOING;
+      case 1:
+        return CANCEL;
+      case 2:
+        return TYPING;
+      case 3:
+        return SENDING_IMAGE;
+      case 4:
+        return CAPTURING_IMAGE;
+      case 5:
+        return SENDING_VIDEO;
+      case 6:
+        return CAPTURING_VIDEO;
+      case 7:
+        return SENDING_AUDIO;
+      case 8:
+        return RECORDING_VOICE;
+      case 9:
+        return SENDING_VOICE;
+      case 11:
+        return SENDING_DOCUMENT;
+      case 12:
+        return SENDING_GIF;
+      case 13:
+        return SENDING_FILE;
+      case 14:
+        return SENDING_LOCATION;
+      case 15:
+        return CHOOSING_CONTACT;
+      case 16:
+        return PAINTING;
+      default:
+        return null;
     }
   }
 
@@ -179,13 +126,14 @@ public enum RoomActionDoingEnum
       internalGetValueMap() {
     return internalValueMap;
   }
-  private static final com.google.protobuf.Internal.EnumLiteMap<
-      RoomActionDoingEnum> internalValueMap =
-        new com.google.protobuf.Internal.EnumLiteMap<RoomActionDoingEnum>() {
-          public RoomActionDoingEnum findValueByNumber(int number) {
-            return RoomActionDoingEnum.forNumber(number);
-          }
-        };
+
+  private static final com.google.protobuf.Internal.EnumLiteMap<RoomActionDoingEnum>
+      internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<RoomActionDoingEnum>() {
+            public RoomActionDoingEnum findValueByNumber(int number) {
+              return RoomActionDoingEnum.forNumber(number);
+            }
+          };
 
   private final int value;
 
@@ -195,4 +143,3 @@ public enum RoomActionDoingEnum
 
   // @@protoc_insertion_point(enum_scope:RoomActionDoingEnum)
 }
-

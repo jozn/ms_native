@@ -3,17 +3,14 @@
 
 package ir.ms.pb;
 
-public interface PaginationOrBuilder extends
+public interface PaginationOrBuilder
+    extends
     // @@protoc_insertion_point(interface_extends:Pagination)
     com.google.protobuf.MessageLiteOrBuilder {
 
-  /**
-   * <code>uint32 Offset = 1;</code>
-   */
+  /** <code>uint32 Offset = 1;</code> */
   int getOffset();
 
-  /**
-   * <code>uint32 Limit = 2;</code>
-   */
+  /** <code>uint32 Limit = 2;</code> */
   int getLimit();
 }

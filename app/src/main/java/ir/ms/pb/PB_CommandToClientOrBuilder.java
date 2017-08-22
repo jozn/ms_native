@@ -3,32 +3,22 @@
 
 package ir.ms.pb;
 
-public interface PB_CommandToClientOrBuilder extends
+public interface PB_CommandToClientOrBuilder
+    extends
     // @@protoc_insertion_point(interface_extends:PB_CommandToClient)
     com.google.protobuf.MessageLiteOrBuilder {
 
-  /**
-   * <code>int64 ServerCallId = 1;</code>
-   */
+  /** <code>int64 ServerCallId = 1;</code> */
   long getServerCallId();
 
-  /**
-   * <code>string Command = 2;</code>
-   */
+  /** <code>string Command = 2;</code> */
   java.lang.String getCommand();
-  /**
-   * <code>string Command = 2;</code>
-   */
-  com.google.protobuf.ByteString
-      getCommandBytes();
+  /** <code>string Command = 2;</code> */
+  com.google.protobuf.ByteString getCommandBytes();
 
-  /**
-   * <code>bool RespondReached = 3;</code>
-   */
+  /** <code>bool RespondReached = 3;</code> */
   boolean getRespondReached();
 
-  /**
-   * <code>bytes Data = 4;</code>
-   */
+  /** <code>bytes Data = 4;</code> */
   com.google.protobuf.ByteString getData();
 }

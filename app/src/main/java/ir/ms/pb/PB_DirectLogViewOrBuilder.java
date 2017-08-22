@@ -3,25 +3,18 @@
 
 package ir.ms.pb;
 
-public interface PB_DirectLogViewOrBuilder extends
+public interface PB_DirectLogViewOrBuilder
+    extends
     // @@protoc_insertion_point(interface_extends:PB_DirectLogView)
     com.google.protobuf.MessageLiteOrBuilder {
 
-  /**
-   * <code>.PB_DirectLog Row = 1;</code>
-   */
+  /** <code>.PB_DirectLog Row = 1;</code> */
   boolean hasRow();
-  /**
-   * <code>.PB_DirectLog Row = 1;</code>
-   */
+  /** <code>.PB_DirectLog Row = 1;</code> */
   ir.ms.pb.PB_DirectLog getRow();
 
-  /**
-   * <code>.PB_MessageView NewMessage = 2;</code>
-   */
+  /** <code>.PB_MessageView NewMessage = 2;</code> */
   boolean hasNewMessage();
-  /**
-   * <code>.PB_MessageView NewMessage = 2;</code>
-   */
+  /** <code>.PB_MessageView NewMessage = 2;</code> */
   ir.ms.pb.PB_MessageView getNewMessage();
 }

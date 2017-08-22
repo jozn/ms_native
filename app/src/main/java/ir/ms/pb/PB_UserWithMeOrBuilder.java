@@ -3,102 +3,58 @@
 
 package ir.ms.pb;
 
-public interface PB_UserWithMeOrBuilder extends
+public interface PB_UserWithMeOrBuilder
+    extends
     // @@protoc_insertion_point(interface_extends:PB_UserWithMe)
     com.google.protobuf.MessageLiteOrBuilder {
 
-  /**
-   * <code>int32 UserId = 1;</code>
-   */
+  /** <code>int32 UserId = 1;</code> */
   int getUserId();
 
-  /**
-   * <code>string UserName = 2;</code>
-   */
+  /** <code>string UserName = 2;</code> */
   java.lang.String getUserName();
-  /**
-   * <code>string UserName = 2;</code>
-   */
-  com.google.protobuf.ByteString
-      getUserNameBytes();
+  /** <code>string UserName = 2;</code> */
+  com.google.protobuf.ByteString getUserNameBytes();
 
-  /**
-   * <code>string FirstName = 3;</code>
-   */
+  /** <code>string FirstName = 3;</code> */
   java.lang.String getFirstName();
-  /**
-   * <code>string FirstName = 3;</code>
-   */
-  com.google.protobuf.ByteString
-      getFirstNameBytes();
+  /** <code>string FirstName = 3;</code> */
+  com.google.protobuf.ByteString getFirstNameBytes();
 
-  /**
-   * <code>string LastName = 4;</code>
-   */
+  /** <code>string LastName = 4;</code> */
   java.lang.String getLastName();
-  /**
-   * <code>string LastName = 4;</code>
-   */
-  com.google.protobuf.ByteString
-      getLastNameBytes();
+  /** <code>string LastName = 4;</code> */
+  com.google.protobuf.ByteString getLastNameBytes();
 
-  /**
-   * <code>string About = 5;</code>
-   */
+  /** <code>string About = 5;</code> */
   java.lang.String getAbout();
-  /**
-   * <code>string About = 5;</code>
-   */
-  com.google.protobuf.ByteString
-      getAboutBytes();
+  /** <code>string About = 5;</code> */
+  com.google.protobuf.ByteString getAboutBytes();
 
-  /**
-   * <code>string FullName = 6;</code>
-   */
+  /** <code>string FullName = 6;</code> */
   java.lang.String getFullName();
-  /**
-   * <code>string FullName = 6;</code>
-   */
-  com.google.protobuf.ByteString
-      getFullNameBytes();
+  /** <code>string FullName = 6;</code> */
+  com.google.protobuf.ByteString getFullNameBytes();
 
-  /**
-   * <code>string AvatarUrl = 7;</code>
-   */
+  /** <code>string AvatarUrl = 7;</code> */
   java.lang.String getAvatarUrl();
-  /**
-   * <code>string AvatarUrl = 7;</code>
-   */
-  com.google.protobuf.ByteString
-      getAvatarUrlBytes();
+  /** <code>string AvatarUrl = 7;</code> */
+  com.google.protobuf.ByteString getAvatarUrlBytes();
 
-  /**
-   * <code>int32 PrivacyProfile = 8;</code>
-   */
+  /** <code>int32 PrivacyProfile = 8;</code> */
   int getPrivacyProfile();
 
-  /**
-   * <code>string Phone = 9;</code>
-   */
+  /** <code>string Phone = 9;</code> */
   java.lang.String getPhone();
-  /**
-   * <code>string Phone = 9;</code>
-   */
-  com.google.protobuf.ByteString
-      getPhoneBytes();
+  /** <code>string Phone = 9;</code> */
+  com.google.protobuf.ByteString getPhoneBytes();
 
-  /**
-   * <code>int32 UpdatedTime = 10;</code>
-   */
+  /** <code>int32 UpdatedTime = 10;</code> */
   int getUpdatedTime();
 
-  /**
-   * <code>int32 AppVersion = 11;</code>
-   */
+  /** <code>int32 AppVersion = 11;</code> */
   int getAppVersion();
 
-  /**
-   * <code>int32 FollowingType = 14;</code>
-   */
+  /** <code>int32 FollowingType = 14;</code> */
   int getFollowingType();
 }

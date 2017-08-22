@@ -3,22 +3,16 @@
 
 package ir.ms.pb;
 
-public interface PB_UserOfflineResponse_UpdateAboutOrBuilder extends
+public interface PB_UserOfflineResponse_UpdateAboutOrBuilder
+    extends
     // @@protoc_insertion_point(interface_extends:PB_UserOfflineResponse_UpdateAbout)
     com.google.protobuf.MessageLiteOrBuilder {
 
-  /**
-   * <code>int32 UserId = 1;</code>
-   */
+  /** <code>int32 UserId = 1;</code> */
   int getUserId();
 
-  /**
-   * <code>string NewAbout = 2;</code>
-   */
+  /** <code>string NewAbout = 2;</code> */
   java.lang.String getNewAbout();
-  /**
-   * <code>string NewAbout = 2;</code>
-   */
-  com.google.protobuf.ByteString
-      getNewAboutBytes();
+  /** <code>string NewAbout = 2;</code> */
+  com.google.protobuf.ByteString getNewAboutBytes();
 }

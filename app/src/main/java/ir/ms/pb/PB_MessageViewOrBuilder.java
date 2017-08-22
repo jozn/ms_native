@@ -3,72 +3,45 @@
 
 package ir.ms.pb;
 
-public interface PB_MessageViewOrBuilder extends
+public interface PB_MessageViewOrBuilder
+    extends
     // @@protoc_insertion_point(interface_extends:PB_MessageView)
     com.google.protobuf.MessageLiteOrBuilder {
 
-  /**
-   * <code>int64 MessageId = 1;</code>
-   */
+  /** <code>int64 MessageId = 1;</code> */
   long getMessageId();
 
-  /**
-   * <code>string RoomKey = 3;</code>
-   */
+  /** <code>string RoomKey = 3;</code> */
   java.lang.String getRoomKey();
-  /**
-   * <code>string RoomKey = 3;</code>
-   */
-  com.google.protobuf.ByteString
-      getRoomKeyBytes();
+  /** <code>string RoomKey = 3;</code> */
+  com.google.protobuf.ByteString getRoomKeyBytes();
 
-  /**
-   * <code>int32 UserId = 5;</code>
-   */
+  /** <code>int32 UserId = 5;</code> */
   int getUserId();
 
-  /**
-   * <code>int64 MessageFileId = 7;</code>
-   */
+  /** <code>int64 MessageFileId = 7;</code> */
   long getMessageFileId();
 
-  /**
-   * <code>int32 MessageTypeEnum = 9;</code>
-   */
+  /** <code>int32 MessageTypeEnum = 9;</code> */
   int getMessageTypeEnum();
 
-  /**
-   * <code>string Text = 11;</code>
-   */
+  /** <code>string Text = 11;</code> */
   java.lang.String getText();
-  /**
-   * <code>string Text = 11;</code>
-   */
-  com.google.protobuf.ByteString
-      getTextBytes();
+  /** <code>string Text = 11;</code> */
+  com.google.protobuf.ByteString getTextBytes();
 
-  /**
-   * <code>int32 Time = 13;</code>
-   */
+  /** <code>int32 Time = 13;</code> */
   int getTime();
 
-  /**
-   * <code>int32 PeerReceivedTime = 15;</code>
-   */
+  /** <code>int32 PeerReceivedTime = 15;</code> */
   int getPeerReceivedTime();
 
-  /**
-   * <code>int32 PeerSeenTime = 17;</code>
-   */
+  /** <code>int32 PeerSeenTime = 17;</code> */
   int getPeerSeenTime();
 
-  /**
-   * <code>int32 DeliviryStatusEnum = 19;</code>
-   */
+  /** <code>int32 DeliviryStatusEnum = 19;</code> */
   int getDeliviryStatusEnum();
 
-  /**
-   * <code>int32 PeerUserId = 50;</code>
-   */
+  /** <code>int32 PeerUserId = 50;</code> */
   int getPeerUserId();
 }

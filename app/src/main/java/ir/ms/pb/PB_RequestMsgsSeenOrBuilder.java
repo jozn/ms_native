@@ -3,30 +3,20 @@
 
 package ir.ms.pb;
 
-public interface PB_RequestMsgsSeenOrBuilder extends
+public interface PB_RequestMsgsSeenOrBuilder
+    extends
     // @@protoc_insertion_point(interface_extends:PB_RequestMsgsSeen)
     com.google.protobuf.MessageLiteOrBuilder {
 
-  /**
-   * <code>.PB_Request Request = 1;</code>
-   */
+  /** <code>.PB_Request Request = 1;</code> */
   boolean hasRequest();
-  /**
-   * <code>.PB_Request Request = 1;</code>
-   */
+  /** <code>.PB_Request Request = 1;</code> */
   ir.ms.pb.PB_Request getRequest();
 
-  /**
-   * <code>repeated .PB_MsgSeen Seen = 2;</code>
-   */
-  java.util.List<ir.ms.pb.PB_MsgSeen> 
-      getSeenList();
-  /**
-   * <code>repeated .PB_MsgSeen Seen = 2;</code>
-   */
+  /** <code>repeated .PB_MsgSeen Seen = 2;</code> */
+  java.util.List<ir.ms.pb.PB_MsgSeen> getSeenList();
+  /** <code>repeated .PB_MsgSeen Seen = 2;</code> */
   ir.ms.pb.PB_MsgSeen getSeen(int index);
-  /**
-   * <code>repeated .PB_MsgSeen Seen = 2;</code>
-   */
+  /** <code>repeated .PB_MsgSeen Seen = 2;</code> */
   int getSeenCount();
 }

@@ -3,22 +3,16 @@
 
 package ir.ms.pb;
 
-public interface PB_UserOfflineResponse_UpdateUserNameOrBuilder extends
+public interface PB_UserOfflineResponse_UpdateUserNameOrBuilder
+    extends
     // @@protoc_insertion_point(interface_extends:PB_UserOfflineResponse_UpdateUserName)
     com.google.protobuf.MessageLiteOrBuilder {
 
-  /**
-   * <code>int32 UserId = 1;</code>
-   */
+  /** <code>int32 UserId = 1;</code> */
   int getUserId();
 
-  /**
-   * <code>string NewUserName = 2;</code>
-   */
+  /** <code>string NewUserName = 2;</code> */
   java.lang.String getNewUserName();
-  /**
-   * <code>string NewUserName = 2;</code>
-   */
-  com.google.protobuf.ByteString
-      getNewUserNameBytes();
+  /** <code>string NewUserName = 2;</code> */
+  com.google.protobuf.ByteString getNewUserNameBytes();
 }

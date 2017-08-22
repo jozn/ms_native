@@ -3,47 +3,29 @@
 
 package ir.ms.pb;
 
-/**
- * Protobuf enum {@code RoomMultiPrivacyEnum}
- */
-public enum RoomMultiPrivacyEnum
-    implements com.google.protobuf.Internal.EnumLite {
-  /**
-   * <code>UNKONWN_ROOM_PRIVACY = 0;</code>
-   */
+/** Protobuf enum {@code RoomMultiPrivacyEnum} */
+public enum RoomMultiPrivacyEnum implements com.google.protobuf.Internal.EnumLite {
+  /** <code>UNKONWN_ROOM_PRIVACY = 0;</code> */
   UNKONWN_ROOM_PRIVACY(0),
-  /**
-   * <code>PRIVATE_ROOM = 1;</code>
-   */
+  /** <code>PRIVATE_ROOM = 1;</code> */
   PRIVATE_ROOM(1),
-  /**
-   * <code>PUBLIC_ROOM = 2;</code>
-   */
+  /** <code>PUBLIC_ROOM = 2;</code> */
   PUBLIC_ROOM(2),
   UNRECOGNIZED(-1),
   ;
 
-  /**
-   * <code>UNKONWN_ROOM_PRIVACY = 0;</code>
-   */
+  /** <code>UNKONWN_ROOM_PRIVACY = 0;</code> */
   public static final int UNKONWN_ROOM_PRIVACY_VALUE = 0;
-  /**
-   * <code>PRIVATE_ROOM = 1;</code>
-   */
+  /** <code>PRIVATE_ROOM = 1;</code> */
   public static final int PRIVATE_ROOM_VALUE = 1;
-  /**
-   * <code>PUBLIC_ROOM = 2;</code>
-   */
+  /** <code>PUBLIC_ROOM = 2;</code> */
   public static final int PUBLIC_ROOM_VALUE = 2;
-
 
   public final int getNumber() {
     return value;
   }
 
-  /**
-   * @deprecated Use {@link #forNumber(int)} instead.
-   */
+  /** @deprecated Use {@link #forNumber(int)} instead. */
   @java.lang.Deprecated
   public static RoomMultiPrivacyEnum valueOf(int value) {
     return forNumber(value);
@@ -51,10 +33,14 @@ public enum RoomMultiPrivacyEnum
 
   public static RoomMultiPrivacyEnum forNumber(int value) {
     switch (value) {
-      case 0: return UNKONWN_ROOM_PRIVACY;
-      case 1: return PRIVATE_ROOM;
-      case 2: return PUBLIC_ROOM;
-      default: return null;
+      case 0:
+        return UNKONWN_ROOM_PRIVACY;
+      case 1:
+        return PRIVATE_ROOM;
+      case 2:
+        return PUBLIC_ROOM;
+      default:
+        return null;
     }
   }
 
@@ -62,13 +48,14 @@ public enum RoomMultiPrivacyEnum
       internalGetValueMap() {
     return internalValueMap;
   }
-  private static final com.google.protobuf.Internal.EnumLiteMap<
-      RoomMultiPrivacyEnum> internalValueMap =
-        new com.google.protobuf.Internal.EnumLiteMap<RoomMultiPrivacyEnum>() {
-          public RoomMultiPrivacyEnum findValueByNumber(int number) {
-            return RoomMultiPrivacyEnum.forNumber(number);
-          }
-        };
+
+  private static final com.google.protobuf.Internal.EnumLiteMap<RoomMultiPrivacyEnum>
+      internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<RoomMultiPrivacyEnum>() {
+            public RoomMultiPrivacyEnum findValueByNumber(int number) {
+              return RoomMultiPrivacyEnum.forNumber(number);
+            }
+          };
 
   private final int value;
 
@@ -78,4 +65,3 @@ public enum RoomMultiPrivacyEnum
 
   // @@protoc_insertion_point(enum_scope:RoomMultiPrivacyEnum)
 }
-

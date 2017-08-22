@@ -3,156 +3,117 @@
 
 package ir.ms.pb;
 
-/**
- * Protobuf type {@code PB_GroupMemberView}
- */
-public  final class PB_GroupMemberView extends
-    com.google.protobuf.GeneratedMessageLite<
-        PB_GroupMemberView, PB_GroupMemberView.Builder> implements
+/** Protobuf type {@code PB_GroupMemberView} */
+public final class PB_GroupMemberView
+    extends com.google.protobuf.GeneratedMessageLite<PB_GroupMemberView, PB_GroupMemberView.Builder>
+    implements
     // @@protoc_insertion_point(message_implements:PB_GroupMemberView)
     PB_GroupMemberViewOrBuilder {
-  private PB_GroupMemberView() {
-  }
+  private PB_GroupMemberView() {}
+
   public static final int ID_FIELD_NUMBER = 1;
   private long id_;
-  /**
-   * <code>int64 Id = 1;</code>
-   */
+  /** <code>int64 Id = 1;</code> */
   public long getId() {
     return id_;
   }
-  /**
-   * <code>int64 Id = 1;</code>
-   */
+  /** <code>int64 Id = 1;</code> */
   private void setId(long value) {
-    
+
     id_ = value;
   }
-  /**
-   * <code>int64 Id = 1;</code>
-   */
+  /** <code>int64 Id = 1;</code> */
   private void clearId() {
-    
+
     id_ = 0L;
   }
 
   public static final int GROUPID_FIELD_NUMBER = 2;
   private long groupId_;
-  /**
-   * <code>int64 GroupId = 2;</code>
-   */
+  /** <code>int64 GroupId = 2;</code> */
   public long getGroupId() {
     return groupId_;
   }
-  /**
-   * <code>int64 GroupId = 2;</code>
-   */
+  /** <code>int64 GroupId = 2;</code> */
   private void setGroupId(long value) {
-    
+
     groupId_ = value;
   }
-  /**
-   * <code>int64 GroupId = 2;</code>
-   */
+  /** <code>int64 GroupId = 2;</code> */
   private void clearGroupId() {
-    
+
     groupId_ = 0L;
   }
 
   public static final int USERID_FIELD_NUMBER = 3;
   private int userId_;
-  /**
-   * <code>int32 UserId = 3;</code>
-   */
+  /** <code>int32 UserId = 3;</code> */
   public int getUserId() {
     return userId_;
   }
-  /**
-   * <code>int32 UserId = 3;</code>
-   */
+  /** <code>int32 UserId = 3;</code> */
   private void setUserId(int value) {
-    
+
     userId_ = value;
   }
-  /**
-   * <code>int32 UserId = 3;</code>
-   */
+  /** <code>int32 UserId = 3;</code> */
   private void clearUserId() {
-    
+
     userId_ = 0;
   }
 
   public static final int BYUSERID_FIELD_NUMBER = 4;
   private int byUserId_;
-  /**
-   * <code>int32 ByUserId = 4;</code>
-   */
+  /** <code>int32 ByUserId = 4;</code> */
   public int getByUserId() {
     return byUserId_;
   }
-  /**
-   * <code>int32 ByUserId = 4;</code>
-   */
+  /** <code>int32 ByUserId = 4;</code> */
   private void setByUserId(int value) {
-    
+
     byUserId_ = value;
   }
-  /**
-   * <code>int32 ByUserId = 4;</code>
-   */
+  /** <code>int32 ByUserId = 4;</code> */
   private void clearByUserId() {
-    
+
     byUserId_ = 0;
   }
 
   public static final int GROUPROLEENUM_FIELD_NUMBER = 5;
   private int groupRoleEnum_;
-  /**
-   * <code>int32 GroupRoleEnum = 5;</code>
-   */
+  /** <code>int32 GroupRoleEnum = 5;</code> */
   public int getGroupRoleEnum() {
     return groupRoleEnum_;
   }
-  /**
-   * <code>int32 GroupRoleEnum = 5;</code>
-   */
+  /** <code>int32 GroupRoleEnum = 5;</code> */
   private void setGroupRoleEnum(int value) {
-    
+
     groupRoleEnum_ = value;
   }
-  /**
-   * <code>int32 GroupRoleEnum = 5;</code>
-   */
+  /** <code>int32 GroupRoleEnum = 5;</code> */
   private void clearGroupRoleEnum() {
-    
+
     groupRoleEnum_ = 0;
   }
 
   public static final int CREATEDTIME_FIELD_NUMBER = 6;
   private int createdTime_;
-  /**
-   * <code>int32 CreatedTime = 6;</code>
-   */
+  /** <code>int32 CreatedTime = 6;</code> */
   public int getCreatedTime() {
     return createdTime_;
   }
-  /**
-   * <code>int32 CreatedTime = 6;</code>
-   */
+  /** <code>int32 CreatedTime = 6;</code> */
   private void setCreatedTime(int value) {
-    
+
     createdTime_ = value;
   }
-  /**
-   * <code>int32 CreatedTime = 6;</code>
-   */
+  /** <code>int32 CreatedTime = 6;</code> */
   private void clearCreatedTime() {
-    
+
     createdTime_ = 0;
   }
 
-  public void writeTo(com.google.protobuf.CodedOutputStream output)
-                      throws java.io.IOException {
+  public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
     if (id_ != 0L) {
       output.writeInt64(1, id_);
     }
@@ -179,39 +140,32 @@ public  final class PB_GroupMemberView extends
 
     size = 0;
     if (id_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(1, id_);
+      size += com.google.protobuf.CodedOutputStream.computeInt64Size(1, id_);
     }
     if (groupId_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(2, groupId_);
+      size += com.google.protobuf.CodedOutputStream.computeInt64Size(2, groupId_);
     }
     if (userId_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(3, userId_);
+      size += com.google.protobuf.CodedOutputStream.computeInt32Size(3, userId_);
     }
     if (byUserId_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(4, byUserId_);
+      size += com.google.protobuf.CodedOutputStream.computeInt32Size(4, byUserId_);
     }
     if (groupRoleEnum_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(5, groupRoleEnum_);
+      size += com.google.protobuf.CodedOutputStream.computeInt32Size(5, groupRoleEnum_);
     }
     if (createdTime_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(6, createdTime_);
+      size += com.google.protobuf.CodedOutputStream.computeInt32Size(6, createdTime_);
     }
     memoizedSerializedSize = size;
     return size;
   }
 
-  public static ir.ms.pb.PB_GroupMemberView parseFrom(
-      com.google.protobuf.ByteString data)
+  public static ir.ms.pb.PB_GroupMemberView parseFrom(com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(
-        DEFAULT_INSTANCE, data);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, data);
   }
+
   public static ir.ms.pb.PB_GroupMemberView parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -219,46 +173,47 @@ public  final class PB_GroupMemberView extends
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
+
   public static ir.ms.pb.PB_GroupMemberView parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(
-        DEFAULT_INSTANCE, data);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, data);
   }
+
   public static ir.ms.pb.PB_GroupMemberView parseFrom(
-      byte[] data,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
+
   public static ir.ms.pb.PB_GroupMemberView parseFrom(java.io.InputStream input)
       throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(
-        DEFAULT_INSTANCE, input);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, input);
   }
+
   public static ir.ms.pb.PB_GroupMemberView parseFrom(
-      java.io.InputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, input, extensionRegistry);
   }
+
   public static ir.ms.pb.PB_GroupMemberView parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input);
   }
+
   public static ir.ms.pb.PB_GroupMemberView parseDelimitedFrom(
-      java.io.InputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
   }
-  public static ir.ms.pb.PB_GroupMemberView parseFrom(
-      com.google.protobuf.CodedInputStream input)
+
+  public static ir.ms.pb.PB_GroupMemberView parseFrom(com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(
-        DEFAULT_INSTANCE, input);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, input);
   }
+
   public static ir.ms.pb.PB_GroupMemberView parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -270,16 +225,15 @@ public  final class PB_GroupMemberView extends
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
+
   public static Builder newBuilder(ir.ms.pb.PB_GroupMemberView prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
 
-  /**
-   * Protobuf type {@code PB_GroupMemberView}
-   */
-  public static final class Builder extends
-      com.google.protobuf.GeneratedMessageLite.Builder<
-        ir.ms.pb.PB_GroupMemberView, Builder> implements
+  /** Protobuf type {@code PB_GroupMemberView} */
+  public static final class Builder
+      extends com.google.protobuf.GeneratedMessageLite.Builder<ir.ms.pb.PB_GroupMemberView, Builder>
+      implements
       // @@protoc_insertion_point(builder_implements:PB_GroupMemberView)
       ir.ms.pb.PB_GroupMemberViewOrBuilder {
     // Construct using ir.ms.pb.PB_GroupMemberView.newBuilder()
@@ -287,139 +241,102 @@ public  final class PB_GroupMemberView extends
       super(DEFAULT_INSTANCE);
     }
 
-
-    /**
-     * <code>int64 Id = 1;</code>
-     */
+    /** <code>int64 Id = 1;</code> */
     public long getId() {
       return instance.getId();
     }
-    /**
-     * <code>int64 Id = 1;</code>
-     */
+    /** <code>int64 Id = 1;</code> */
     public Builder setId(long value) {
       copyOnWrite();
       instance.setId(value);
       return this;
     }
-    /**
-     * <code>int64 Id = 1;</code>
-     */
+    /** <code>int64 Id = 1;</code> */
     public Builder clearId() {
       copyOnWrite();
       instance.clearId();
       return this;
     }
 
-    /**
-     * <code>int64 GroupId = 2;</code>
-     */
+    /** <code>int64 GroupId = 2;</code> */
     public long getGroupId() {
       return instance.getGroupId();
     }
-    /**
-     * <code>int64 GroupId = 2;</code>
-     */
+    /** <code>int64 GroupId = 2;</code> */
     public Builder setGroupId(long value) {
       copyOnWrite();
       instance.setGroupId(value);
       return this;
     }
-    /**
-     * <code>int64 GroupId = 2;</code>
-     */
+    /** <code>int64 GroupId = 2;</code> */
     public Builder clearGroupId() {
       copyOnWrite();
       instance.clearGroupId();
       return this;
     }
 
-    /**
-     * <code>int32 UserId = 3;</code>
-     */
+    /** <code>int32 UserId = 3;</code> */
     public int getUserId() {
       return instance.getUserId();
     }
-    /**
-     * <code>int32 UserId = 3;</code>
-     */
+    /** <code>int32 UserId = 3;</code> */
     public Builder setUserId(int value) {
       copyOnWrite();
       instance.setUserId(value);
       return this;
     }
-    /**
-     * <code>int32 UserId = 3;</code>
-     */
+    /** <code>int32 UserId = 3;</code> */
     public Builder clearUserId() {
       copyOnWrite();
       instance.clearUserId();
       return this;
     }
 
-    /**
-     * <code>int32 ByUserId = 4;</code>
-     */
+    /** <code>int32 ByUserId = 4;</code> */
     public int getByUserId() {
       return instance.getByUserId();
     }
-    /**
-     * <code>int32 ByUserId = 4;</code>
-     */
+    /** <code>int32 ByUserId = 4;</code> */
     public Builder setByUserId(int value) {
       copyOnWrite();
       instance.setByUserId(value);
       return this;
     }
-    /**
-     * <code>int32 ByUserId = 4;</code>
-     */
+    /** <code>int32 ByUserId = 4;</code> */
     public Builder clearByUserId() {
       copyOnWrite();
       instance.clearByUserId();
       return this;
     }
 
-    /**
-     * <code>int32 GroupRoleEnum = 5;</code>
-     */
+    /** <code>int32 GroupRoleEnum = 5;</code> */
     public int getGroupRoleEnum() {
       return instance.getGroupRoleEnum();
     }
-    /**
-     * <code>int32 GroupRoleEnum = 5;</code>
-     */
+    /** <code>int32 GroupRoleEnum = 5;</code> */
     public Builder setGroupRoleEnum(int value) {
       copyOnWrite();
       instance.setGroupRoleEnum(value);
       return this;
     }
-    /**
-     * <code>int32 GroupRoleEnum = 5;</code>
-     */
+    /** <code>int32 GroupRoleEnum = 5;</code> */
     public Builder clearGroupRoleEnum() {
       copyOnWrite();
       instance.clearGroupRoleEnum();
       return this;
     }
 
-    /**
-     * <code>int32 CreatedTime = 6;</code>
-     */
+    /** <code>int32 CreatedTime = 6;</code> */
     public int getCreatedTime() {
       return instance.getCreatedTime();
     }
-    /**
-     * <code>int32 CreatedTime = 6;</code>
-     */
+    /** <code>int32 CreatedTime = 6;</code> */
     public Builder setCreatedTime(int value) {
       copyOnWrite();
       instance.setCreatedTime(value);
       return this;
     }
-    /**
-     * <code>int32 CreatedTime = 6;</code>
-     */
+    /** <code>int32 CreatedTime = 6;</code> */
     public Builder clearCreatedTime() {
       copyOnWrite();
       instance.clearCreatedTime();
@@ -428,121 +345,131 @@ public  final class PB_GroupMemberView extends
 
     // @@protoc_insertion_point(builder_scope:PB_GroupMemberView)
   }
+
   protected final Object dynamicMethod(
-      com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
-      Object arg0, Object arg1) {
+      com.google.protobuf.GeneratedMessageLite.MethodToInvoke method, Object arg0, Object arg1) {
     switch (method) {
-      case NEW_MUTABLE_INSTANCE: {
-        return new ir.ms.pb.PB_GroupMemberView();
-      }
-      case IS_INITIALIZED: {
-        return DEFAULT_INSTANCE;
-      }
-      case MAKE_IMMUTABLE: {
-        return null;
-      }
-      case NEW_BUILDER: {
-        return new Builder();
-      }
-      case VISIT: {
-        Visitor visitor = (Visitor) arg0;
-        ir.ms.pb.PB_GroupMemberView other = (ir.ms.pb.PB_GroupMemberView) arg1;
-        id_ = visitor.visitLong(id_ != 0L, id_,
-            other.id_ != 0L, other.id_);
-        groupId_ = visitor.visitLong(groupId_ != 0L, groupId_,
-            other.groupId_ != 0L, other.groupId_);
-        userId_ = visitor.visitInt(userId_ != 0, userId_,
-            other.userId_ != 0, other.userId_);
-        byUserId_ = visitor.visitInt(byUserId_ != 0, byUserId_,
-            other.byUserId_ != 0, other.byUserId_);
-        groupRoleEnum_ = visitor.visitInt(groupRoleEnum_ != 0, groupRoleEnum_,
-            other.groupRoleEnum_ != 0, other.groupRoleEnum_);
-        createdTime_ = visitor.visitInt(createdTime_ != 0, createdTime_,
-            other.createdTime_ != 0, other.createdTime_);
-        if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
-            .INSTANCE) {
+      case NEW_MUTABLE_INSTANCE:
+        {
+          return new ir.ms.pb.PB_GroupMemberView();
         }
-        return this;
-      }
-      case MERGE_FROM_STREAM: {
-        com.google.protobuf.CodedInputStream input =
-            (com.google.protobuf.CodedInputStream) arg0;
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry =
-            (com.google.protobuf.ExtensionRegistryLite) arg1;
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              default: {
-                if (!input.skipField(tag)) {
+      case IS_INITIALIZED:
+        {
+          return DEFAULT_INSTANCE;
+        }
+      case MAKE_IMMUTABLE:
+        {
+          return null;
+        }
+      case NEW_BUILDER:
+        {
+          return new Builder();
+        }
+      case VISIT:
+        {
+          Visitor visitor = (Visitor) arg0;
+          ir.ms.pb.PB_GroupMemberView other = (ir.ms.pb.PB_GroupMemberView) arg1;
+          id_ = visitor.visitLong(id_ != 0L, id_, other.id_ != 0L, other.id_);
+          groupId_ =
+              visitor.visitLong(groupId_ != 0L, groupId_, other.groupId_ != 0L, other.groupId_);
+          userId_ = visitor.visitInt(userId_ != 0, userId_, other.userId_ != 0, other.userId_);
+          byUserId_ =
+              visitor.visitInt(byUserId_ != 0, byUserId_, other.byUserId_ != 0, other.byUserId_);
+          groupRoleEnum_ =
+              visitor.visitInt(
+                  groupRoleEnum_ != 0,
+                  groupRoleEnum_,
+                  other.groupRoleEnum_ != 0,
+                  other.groupRoleEnum_);
+          createdTime_ =
+              visitor.visitInt(
+                  createdTime_ != 0, createdTime_, other.createdTime_ != 0, other.createdTime_);
+          if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor.INSTANCE) {}
+          return this;
+        }
+      case MERGE_FROM_STREAM:
+        {
+          com.google.protobuf.CodedInputStream input = (com.google.protobuf.CodedInputStream) arg0;
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry =
+              (com.google.protobuf.ExtensionRegistryLite) arg1;
+          try {
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
                   done = true;
-                }
-                break;
+                  break;
+                default:
+                  {
+                    if (!input.skipField(tag)) {
+                      done = true;
+                    }
+                    break;
+                  }
+                case 8:
+                  {
+                    id_ = input.readInt64();
+                    break;
+                  }
+                case 16:
+                  {
+                    groupId_ = input.readInt64();
+                    break;
+                  }
+                case 24:
+                  {
+                    userId_ = input.readInt32();
+                    break;
+                  }
+                case 32:
+                  {
+                    byUserId_ = input.readInt32();
+                    break;
+                  }
+                case 40:
+                  {
+                    groupRoleEnum_ = input.readInt32();
+                    break;
+                  }
+                case 48:
+                  {
+                    createdTime_ = input.readInt32();
+                    break;
+                  }
               }
-              case 8: {
-
-                id_ = input.readInt64();
-                break;
-              }
-              case 16: {
-
-                groupId_ = input.readInt64();
-                break;
-              }
-              case 24: {
-
-                userId_ = input.readInt32();
-                break;
-              }
-              case 32: {
-
-                byUserId_ = input.readInt32();
-                break;
-              }
-              case 40: {
-
-                groupRoleEnum_ = input.readInt32();
-                break;
-              }
-              case 48: {
-
-                createdTime_ = input.readInt32();
-                break;
+            }
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw new RuntimeException(e.setUnfinishedMessage(this));
+          } catch (java.io.IOException e) {
+            throw new RuntimeException(
+                new com.google.protobuf.InvalidProtocolBufferException(e.getMessage())
+                    .setUnfinishedMessage(this));
+          } finally {
+          }
+        }
+      case GET_DEFAULT_INSTANCE:
+        {
+          return DEFAULT_INSTANCE;
+        }
+      case GET_PARSER:
+        {
+          if (PARSER == null) {
+            synchronized (ir.ms.pb.PB_GroupMemberView.class) {
+              if (PARSER == null) {
+                PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
               }
             }
           }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw new RuntimeException(e.setUnfinishedMessage(this));
-        } catch (java.io.IOException e) {
-          throw new RuntimeException(
-              new com.google.protobuf.InvalidProtocolBufferException(
-                  e.getMessage()).setUnfinishedMessage(this));
-        } finally {
+          return PARSER;
         }
-      }
-      case GET_DEFAULT_INSTANCE: {
-        return DEFAULT_INSTANCE;
-      }
-      case GET_PARSER: {
-        if (PARSER == null) {    synchronized (ir.ms.pb.PB_GroupMemberView.class) {
-            if (PARSER == null) {
-              PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
-            }
-          }
-        }
-        return PARSER;
-      }
     }
     throw new UnsupportedOperationException();
   }
 
-
   // @@protoc_insertion_point(class_scope:PB_GroupMemberView)
   private static final ir.ms.pb.PB_GroupMemberView DEFAULT_INSTANCE;
+
   static {
     DEFAULT_INSTANCE = new PB_GroupMemberView();
     DEFAULT_INSTANCE.makeImmutable();
@@ -558,4 +485,3 @@ public  final class PB_GroupMemberView extends
     return DEFAULT_INSTANCE.getParserForType();
   }
 }
-

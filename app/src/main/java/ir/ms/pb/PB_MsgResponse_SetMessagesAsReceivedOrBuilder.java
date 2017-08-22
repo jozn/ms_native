@@ -3,7 +3,7 @@
 
 package ir.ms.pb;
 
-public interface PB_MsgResponse_SetMessagesAsReceivedOrBuilder extends
+public interface PB_MsgResponse_SetMessagesAsReceivedOrBuilder
+    extends
     // @@protoc_insertion_point(interface_extends:PB_MsgResponse_SetMessagesAsReceived)
-    com.google.protobuf.MessageLiteOrBuilder {
-}
+    com.google.protobuf.MessageLiteOrBuilder {}

@@ -4,22 +4,27 @@
 package ir.ms.pb;
 
 /**
+ *
+ *
  * <pre>
- *&#47;//////////////////////////////////
+ * &#47;//////////////////////////////////
  * </pre>
  *
  * Protobuf type {@code PB_MsgParam_SetMessagesAsReceived}
  */
-public  final class PB_MsgParam_SetMessagesAsReceived extends
-    com.google.protobuf.GeneratedMessageLite<
-        PB_MsgParam_SetMessagesAsReceived, PB_MsgParam_SetMessagesAsReceived.Builder> implements
+public final class PB_MsgParam_SetMessagesAsReceived
+    extends com.google.protobuf.GeneratedMessageLite<
+        PB_MsgParam_SetMessagesAsReceived, PB_MsgParam_SetMessagesAsReceived.Builder>
+    implements
     // @@protoc_insertion_point(message_implements:PB_MsgParam_SetMessagesAsReceived)
     PB_MsgParam_SetMessagesAsReceivedOrBuilder {
-  private PB_MsgParam_SetMessagesAsReceived() {
-  }
+  private PB_MsgParam_SetMessagesAsReceived() {}
+
   public static final int MESSAGESCOLLECTIONS_FIELD_NUMBER = 1;
   private ir.ms.pb.PB_MessagesCollections messagesCollections_;
   /**
+   *
+   *
    * <pre>
    *    /&#42;int64 ChatId = 1;
    *    RoomTypeEnum RoomType = 2;
@@ -34,6 +39,8 @@ public  final class PB_MsgParam_SetMessagesAsReceived extends
     return messagesCollections_ != null;
   }
   /**
+   *
+   *
    * <pre>
    *    /&#42;int64 ChatId = 1;
    *    RoomTypeEnum RoomType = 2;
@@ -45,9 +52,13 @@ public  final class PB_MsgParam_SetMessagesAsReceived extends
    * <code>.PB_MessagesCollections MessagesCollections = 1;</code>
    */
   public ir.ms.pb.PB_MessagesCollections getMessagesCollections() {
-    return messagesCollections_ == null ? ir.ms.pb.PB_MessagesCollections.getDefaultInstance() : messagesCollections_;
+    return messagesCollections_ == null
+        ? ir.ms.pb.PB_MessagesCollections.getDefaultInstance()
+        : messagesCollections_;
   }
   /**
+   *
+   *
    * <pre>
    *    /&#42;int64 ChatId = 1;
    *    RoomTypeEnum RoomType = 2;
@@ -63,9 +74,10 @@ public  final class PB_MsgParam_SetMessagesAsReceived extends
       throw new NullPointerException();
     }
     messagesCollections_ = value;
-    
-    }
+  }
   /**
+   *
+   *
    * <pre>
    *    /&#42;int64 ChatId = 1;
    *    RoomTypeEnum RoomType = 2;
@@ -76,12 +88,12 @@ public  final class PB_MsgParam_SetMessagesAsReceived extends
    *
    * <code>.PB_MessagesCollections MessagesCollections = 1;</code>
    */
-  private void setMessagesCollections(
-      ir.ms.pb.PB_MessagesCollections.Builder builderForValue) {
+  private void setMessagesCollections(ir.ms.pb.PB_MessagesCollections.Builder builderForValue) {
     messagesCollections_ = builderForValue.build();
-    
   }
   /**
+   *
+   *
    * <pre>
    *    /&#42;int64 ChatId = 1;
    *    RoomTypeEnum RoomType = 2;
@@ -93,16 +105,19 @@ public  final class PB_MsgParam_SetMessagesAsReceived extends
    * <code>.PB_MessagesCollections MessagesCollections = 1;</code>
    */
   private void mergeMessagesCollections(ir.ms.pb.PB_MessagesCollections value) {
-    if (messagesCollections_ != null &&
-        messagesCollections_ != ir.ms.pb.PB_MessagesCollections.getDefaultInstance()) {
+    if (messagesCollections_ != null
+        && messagesCollections_ != ir.ms.pb.PB_MessagesCollections.getDefaultInstance()) {
       messagesCollections_ =
-        ir.ms.pb.PB_MessagesCollections.newBuilder(messagesCollections_).mergeFrom(value).buildPartial();
+          ir.ms.pb.PB_MessagesCollections.newBuilder(messagesCollections_)
+              .mergeFrom(value)
+              .buildPartial();
     } else {
       messagesCollections_ = value;
     }
-    
   }
   /**
+   *
+   *
    * <pre>
    *    /&#42;int64 ChatId = 1;
    *    RoomTypeEnum RoomType = 2;
@@ -113,12 +128,11 @@ public  final class PB_MsgParam_SetMessagesAsReceived extends
    *
    * <code>.PB_MessagesCollections MessagesCollections = 1;</code>
    */
-  private void clearMessagesCollections() {  messagesCollections_ = null;
-    
+  private void clearMessagesCollections() {
+    messagesCollections_ = null;
   }
 
-  public void writeTo(com.google.protobuf.CodedOutputStream output)
-                      throws java.io.IOException {
+  public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
     if (messagesCollections_ != null) {
       output.writeMessage(1, getMessagesCollections());
     }
@@ -130,8 +144,7 @@ public  final class PB_MsgParam_SetMessagesAsReceived extends
 
     size = 0;
     if (messagesCollections_ != null) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(1, getMessagesCollections());
+      size += com.google.protobuf.CodedOutputStream.computeMessageSize(1, getMessagesCollections());
     }
     memoizedSerializedSize = size;
     return size;
@@ -140,9 +153,9 @@ public  final class PB_MsgParam_SetMessagesAsReceived extends
   public static ir.ms.pb.PB_MsgParam_SetMessagesAsReceived parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(
-        DEFAULT_INSTANCE, data);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, data);
   }
+
   public static ir.ms.pb.PB_MsgParam_SetMessagesAsReceived parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -150,46 +163,47 @@ public  final class PB_MsgParam_SetMessagesAsReceived extends
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
+
   public static ir.ms.pb.PB_MsgParam_SetMessagesAsReceived parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(
-        DEFAULT_INSTANCE, data);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, data);
   }
+
   public static ir.ms.pb.PB_MsgParam_SetMessagesAsReceived parseFrom(
-      byte[] data,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
+
   public static ir.ms.pb.PB_MsgParam_SetMessagesAsReceived parseFrom(java.io.InputStream input)
       throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(
-        DEFAULT_INSTANCE, input);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, input);
   }
+
   public static ir.ms.pb.PB_MsgParam_SetMessagesAsReceived parseFrom(
-      java.io.InputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, input, extensionRegistry);
   }
-  public static ir.ms.pb.PB_MsgParam_SetMessagesAsReceived parseDelimitedFrom(java.io.InputStream input)
-      throws java.io.IOException {
+
+  public static ir.ms.pb.PB_MsgParam_SetMessagesAsReceived parseDelimitedFrom(
+      java.io.InputStream input) throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input);
   }
+
   public static ir.ms.pb.PB_MsgParam_SetMessagesAsReceived parseDelimitedFrom(
-      java.io.InputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
   }
+
   public static ir.ms.pb.PB_MsgParam_SetMessagesAsReceived parseFrom(
-      com.google.protobuf.CodedInputStream input)
-      throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(
-        DEFAULT_INSTANCE, input);
+      com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, input);
   }
+
   public static ir.ms.pb.PB_MsgParam_SetMessagesAsReceived parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -201,20 +215,24 @@ public  final class PB_MsgParam_SetMessagesAsReceived extends
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
+
   public static Builder newBuilder(ir.ms.pb.PB_MsgParam_SetMessagesAsReceived prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
 
   /**
+   *
+   *
    * <pre>
-   *&#47;//////////////////////////////////
+   * &#47;//////////////////////////////////
    * </pre>
    *
    * Protobuf type {@code PB_MsgParam_SetMessagesAsReceived}
    */
-  public static final class Builder extends
-      com.google.protobuf.GeneratedMessageLite.Builder<
-        ir.ms.pb.PB_MsgParam_SetMessagesAsReceived, Builder> implements
+  public static final class Builder
+      extends com.google.protobuf.GeneratedMessageLite.Builder<
+          ir.ms.pb.PB_MsgParam_SetMessagesAsReceived, Builder>
+      implements
       // @@protoc_insertion_point(builder_implements:PB_MsgParam_SetMessagesAsReceived)
       ir.ms.pb.PB_MsgParam_SetMessagesAsReceivedOrBuilder {
     // Construct using ir.ms.pb.PB_MsgParam_SetMessagesAsReceived.newBuilder()
@@ -222,8 +240,9 @@ public  final class PB_MsgParam_SetMessagesAsReceived extends
       super(DEFAULT_INSTANCE);
     }
 
-
     /**
+     *
+     *
      * <pre>
      *    /&#42;int64 ChatId = 1;
      *    RoomTypeEnum RoomType = 2;
@@ -238,6 +257,8 @@ public  final class PB_MsgParam_SetMessagesAsReceived extends
       return instance.hasMessagesCollections();
     }
     /**
+     *
+     *
      * <pre>
      *    /&#42;int64 ChatId = 1;
      *    RoomTypeEnum RoomType = 2;
@@ -252,6 +273,8 @@ public  final class PB_MsgParam_SetMessagesAsReceived extends
       return instance.getMessagesCollections();
     }
     /**
+     *
+     *
      * <pre>
      *    /&#42;int64 ChatId = 1;
      *    RoomTypeEnum RoomType = 2;
@@ -266,8 +289,10 @@ public  final class PB_MsgParam_SetMessagesAsReceived extends
       copyOnWrite();
       instance.setMessagesCollections(value);
       return this;
-      }
+    }
     /**
+     *
+     *
      * <pre>
      *    /&#42;int64 ChatId = 1;
      *    RoomTypeEnum RoomType = 2;
@@ -278,13 +303,14 @@ public  final class PB_MsgParam_SetMessagesAsReceived extends
      *
      * <code>.PB_MessagesCollections MessagesCollections = 1;</code>
      */
-    public Builder setMessagesCollections(
-        ir.ms.pb.PB_MessagesCollections.Builder builderForValue) {
+    public Builder setMessagesCollections(ir.ms.pb.PB_MessagesCollections.Builder builderForValue) {
       copyOnWrite();
       instance.setMessagesCollections(builderForValue);
       return this;
     }
     /**
+     *
+     *
      * <pre>
      *    /&#42;int64 ChatId = 1;
      *    RoomTypeEnum RoomType = 2;
@@ -301,6 +327,8 @@ public  final class PB_MsgParam_SetMessagesAsReceived extends
       return this;
     }
     /**
+     *
+     *
      * <pre>
      *    /&#42;int64 ChatId = 1;
      *    RoomTypeEnum RoomType = 2;
@@ -311,100 +339,113 @@ public  final class PB_MsgParam_SetMessagesAsReceived extends
      *
      * <code>.PB_MessagesCollections MessagesCollections = 1;</code>
      */
-    public Builder clearMessagesCollections() {  copyOnWrite();
+    public Builder clearMessagesCollections() {
+      copyOnWrite();
       instance.clearMessagesCollections();
       return this;
     }
 
     // @@protoc_insertion_point(builder_scope:PB_MsgParam_SetMessagesAsReceived)
   }
-  protected final Object dynamicMethod(
-      com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
-      Object arg0, Object arg1) {
-    switch (method) {
-      case NEW_MUTABLE_INSTANCE: {
-        return new ir.ms.pb.PB_MsgParam_SetMessagesAsReceived();
-      }
-      case IS_INITIALIZED: {
-        return DEFAULT_INSTANCE;
-      }
-      case MAKE_IMMUTABLE: {
-        return null;
-      }
-      case NEW_BUILDER: {
-        return new Builder();
-      }
-      case VISIT: {
-        Visitor visitor = (Visitor) arg0;
-        ir.ms.pb.PB_MsgParam_SetMessagesAsReceived other = (ir.ms.pb.PB_MsgParam_SetMessagesAsReceived) arg1;
-        messagesCollections_ = visitor.visitMessage(messagesCollections_, other.messagesCollections_);
-        if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
-            .INSTANCE) {
-        }
-        return this;
-      }
-      case MERGE_FROM_STREAM: {
-        com.google.protobuf.CodedInputStream input =
-            (com.google.protobuf.CodedInputStream) arg0;
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry =
-            (com.google.protobuf.ExtensionRegistryLite) arg1;
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              default: {
-                if (!input.skipField(tag)) {
-                  done = true;
-                }
-                break;
-              }
-              case 10: {
-                ir.ms.pb.PB_MessagesCollections.Builder subBuilder = null;
-                if (messagesCollections_ != null) {
-                  subBuilder = messagesCollections_.toBuilder();
-                }
-                messagesCollections_ = input.readMessage(ir.ms.pb.PB_MessagesCollections.parser(), extensionRegistry);
-                if (subBuilder != null) {
-                  subBuilder.mergeFrom(messagesCollections_);
-                  messagesCollections_ = subBuilder.buildPartial();
-                }
 
-                break;
+  protected final Object dynamicMethod(
+      com.google.protobuf.GeneratedMessageLite.MethodToInvoke method, Object arg0, Object arg1) {
+    switch (method) {
+      case NEW_MUTABLE_INSTANCE:
+        {
+          return new ir.ms.pb.PB_MsgParam_SetMessagesAsReceived();
+        }
+      case IS_INITIALIZED:
+        {
+          return DEFAULT_INSTANCE;
+        }
+      case MAKE_IMMUTABLE:
+        {
+          return null;
+        }
+      case NEW_BUILDER:
+        {
+          return new Builder();
+        }
+      case VISIT:
+        {
+          Visitor visitor = (Visitor) arg0;
+          ir.ms.pb.PB_MsgParam_SetMessagesAsReceived other =
+              (ir.ms.pb.PB_MsgParam_SetMessagesAsReceived) arg1;
+          messagesCollections_ =
+              visitor.visitMessage(messagesCollections_, other.messagesCollections_);
+          if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor.INSTANCE) {}
+          return this;
+        }
+      case MERGE_FROM_STREAM:
+        {
+          com.google.protobuf.CodedInputStream input = (com.google.protobuf.CodedInputStream) arg0;
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry =
+              (com.google.protobuf.ExtensionRegistryLite) arg1;
+          try {
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                default:
+                  {
+                    if (!input.skipField(tag)) {
+                      done = true;
+                    }
+                    break;
+                  }
+                case 10:
+                  {
+                    ir.ms.pb.PB_MessagesCollections.Builder subBuilder = null;
+                    if (messagesCollections_ != null) {
+                      subBuilder = messagesCollections_.toBuilder();
+                    }
+                    messagesCollections_ =
+                        input.readMessage(
+                            ir.ms.pb.PB_MessagesCollections.parser(), extensionRegistry);
+                    if (subBuilder != null) {
+                      subBuilder.mergeFrom(messagesCollections_);
+                      messagesCollections_ = subBuilder.buildPartial();
+                    }
+
+                    break;
+                  }
+              }
+            }
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw new RuntimeException(e.setUnfinishedMessage(this));
+          } catch (java.io.IOException e) {
+            throw new RuntimeException(
+                new com.google.protobuf.InvalidProtocolBufferException(e.getMessage())
+                    .setUnfinishedMessage(this));
+          } finally {
+          }
+        }
+      case GET_DEFAULT_INSTANCE:
+        {
+          return DEFAULT_INSTANCE;
+        }
+      case GET_PARSER:
+        {
+          if (PARSER == null) {
+            synchronized (ir.ms.pb.PB_MsgParam_SetMessagesAsReceived.class) {
+              if (PARSER == null) {
+                PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
               }
             }
           }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw new RuntimeException(e.setUnfinishedMessage(this));
-        } catch (java.io.IOException e) {
-          throw new RuntimeException(
-              new com.google.protobuf.InvalidProtocolBufferException(
-                  e.getMessage()).setUnfinishedMessage(this));
-        } finally {
+          return PARSER;
         }
-      }
-      case GET_DEFAULT_INSTANCE: {
-        return DEFAULT_INSTANCE;
-      }
-      case GET_PARSER: {
-        if (PARSER == null) {    synchronized (ir.ms.pb.PB_MsgParam_SetMessagesAsReceived.class) {
-            if (PARSER == null) {
-              PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
-            }
-          }
-        }
-        return PARSER;
-      }
     }
     throw new UnsupportedOperationException();
   }
 
-
   // @@protoc_insertion_point(class_scope:PB_MsgParam_SetMessagesAsReceived)
   private static final ir.ms.pb.PB_MsgParam_SetMessagesAsReceived DEFAULT_INSTANCE;
+
   static {
     DEFAULT_INSTANCE = new PB_MsgParam_SetMessagesAsReceived();
     DEFAULT_INSTANCE.makeImmutable();
@@ -420,4 +461,3 @@ public  final class PB_MsgParam_SetMessagesAsReceived extends
     return DEFAULT_INSTANCE.getParserForType();
   }
 }
-

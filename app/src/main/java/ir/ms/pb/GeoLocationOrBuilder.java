@@ -3,17 +3,14 @@
 
 package ir.ms.pb;
 
-public interface GeoLocationOrBuilder extends
+public interface GeoLocationOrBuilder
+    extends
     // @@protoc_insertion_point(interface_extends:GeoLocation)
     com.google.protobuf.MessageLiteOrBuilder {
 
-  /**
-   * <code>double Lat = 1;</code>
-   */
+  /** <code>double Lat = 1;</code> */
   double getLat();
 
-  /**
-   * <code>double Lon = 2;</code>
-   */
+  /** <code>double Lon = 2;</code> */
   double getLon();
 }

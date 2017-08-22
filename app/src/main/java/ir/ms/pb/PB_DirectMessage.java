@@ -3,296 +3,220 @@
 
 package ir.ms.pb;
 
-/**
- * Protobuf type {@code PB_DirectMessage}
- */
-public  final class PB_DirectMessage extends
-    com.google.protobuf.GeneratedMessageLite<
-        PB_DirectMessage, PB_DirectMessage.Builder> implements
+/** Protobuf type {@code PB_DirectMessage} */
+public final class PB_DirectMessage
+    extends com.google.protobuf.GeneratedMessageLite<PB_DirectMessage, PB_DirectMessage.Builder>
+    implements
     // @@protoc_insertion_point(message_implements:PB_DirectMessage)
     PB_DirectMessageOrBuilder {
   private PB_DirectMessage() {
     roomKey_ = "";
     text_ = "";
   }
+
   public static final int MESSAGEID_FIELD_NUMBER = 1;
   private long messageId_;
-  /**
-   * <code>int64 MessageId = 1;</code>
-   */
+  /** <code>int64 MessageId = 1;</code> */
   public long getMessageId() {
     return messageId_;
   }
-  /**
-   * <code>int64 MessageId = 1;</code>
-   */
+  /** <code>int64 MessageId = 1;</code> */
   private void setMessageId(long value) {
-    
+
     messageId_ = value;
   }
-  /**
-   * <code>int64 MessageId = 1;</code>
-   */
+  /** <code>int64 MessageId = 1;</code> */
   private void clearMessageId() {
-    
+
     messageId_ = 0L;
   }
 
   public static final int ROOMKEY_FIELD_NUMBER = 3;
   private java.lang.String roomKey_;
-  /**
-   * <code>string RoomKey = 3;</code>
-   */
+  /** <code>string RoomKey = 3;</code> */
   public java.lang.String getRoomKey() {
     return roomKey_;
   }
-  /**
-   * <code>string RoomKey = 3;</code>
-   */
-  public com.google.protobuf.ByteString
-      getRoomKeyBytes() {
+  /** <code>string RoomKey = 3;</code> */
+  public com.google.protobuf.ByteString getRoomKeyBytes() {
     return com.google.protobuf.ByteString.copyFromUtf8(roomKey_);
   }
-  /**
-   * <code>string RoomKey = 3;</code>
-   */
-  private void setRoomKey(
-      java.lang.String value) {
+  /** <code>string RoomKey = 3;</code> */
+  private void setRoomKey(java.lang.String value) {
     if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      throw new NullPointerException();
+    }
+
     roomKey_ = value;
   }
-  /**
-   * <code>string RoomKey = 3;</code>
-   */
+  /** <code>string RoomKey = 3;</code> */
   private void clearRoomKey() {
-    
+
     roomKey_ = getDefaultInstance().getRoomKey();
   }
-  /**
-   * <code>string RoomKey = 3;</code>
-   */
-  private void setRoomKeyBytes(
-      com.google.protobuf.ByteString value) {
+  /** <code>string RoomKey = 3;</code> */
+  private void setRoomKeyBytes(com.google.protobuf.ByteString value) {
     if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-    
+      throw new NullPointerException();
+    }
+    checkByteStringIsUtf8(value);
+
     roomKey_ = value.toStringUtf8();
   }
 
   public static final int USERID_FIELD_NUMBER = 5;
   private int userId_;
-  /**
-   * <code>int32 UserId = 5;</code>
-   */
+  /** <code>int32 UserId = 5;</code> */
   public int getUserId() {
     return userId_;
   }
-  /**
-   * <code>int32 UserId = 5;</code>
-   */
+  /** <code>int32 UserId = 5;</code> */
   private void setUserId(int value) {
-    
+
     userId_ = value;
   }
-  /**
-   * <code>int32 UserId = 5;</code>
-   */
+  /** <code>int32 UserId = 5;</code> */
   private void clearUserId() {
-    
+
     userId_ = 0;
   }
 
   public static final int MESSAGEFILEID_FIELD_NUMBER = 7;
   private long messageFileId_;
-  /**
-   * <code>int64 MessageFileId = 7;</code>
-   */
+  /** <code>int64 MessageFileId = 7;</code> */
   public long getMessageFileId() {
     return messageFileId_;
   }
-  /**
-   * <code>int64 MessageFileId = 7;</code>
-   */
+  /** <code>int64 MessageFileId = 7;</code> */
   private void setMessageFileId(long value) {
-    
+
     messageFileId_ = value;
   }
-  /**
-   * <code>int64 MessageFileId = 7;</code>
-   */
+  /** <code>int64 MessageFileId = 7;</code> */
   private void clearMessageFileId() {
-    
+
     messageFileId_ = 0L;
   }
 
   public static final int MESSAGETYPEENUM_FIELD_NUMBER = 9;
   private int messageTypeEnum_;
-  /**
-   * <code>int32 MessageTypeEnum = 9;</code>
-   */
+  /** <code>int32 MessageTypeEnum = 9;</code> */
   public int getMessageTypeEnum() {
     return messageTypeEnum_;
   }
-  /**
-   * <code>int32 MessageTypeEnum = 9;</code>
-   */
+  /** <code>int32 MessageTypeEnum = 9;</code> */
   private void setMessageTypeEnum(int value) {
-    
+
     messageTypeEnum_ = value;
   }
-  /**
-   * <code>int32 MessageTypeEnum = 9;</code>
-   */
+  /** <code>int32 MessageTypeEnum = 9;</code> */
   private void clearMessageTypeEnum() {
-    
+
     messageTypeEnum_ = 0;
   }
 
   public static final int TEXT_FIELD_NUMBER = 11;
   private java.lang.String text_;
-  /**
-   * <code>string Text = 11;</code>
-   */
+  /** <code>string Text = 11;</code> */
   public java.lang.String getText() {
     return text_;
   }
-  /**
-   * <code>string Text = 11;</code>
-   */
-  public com.google.protobuf.ByteString
-      getTextBytes() {
+  /** <code>string Text = 11;</code> */
+  public com.google.protobuf.ByteString getTextBytes() {
     return com.google.protobuf.ByteString.copyFromUtf8(text_);
   }
-  /**
-   * <code>string Text = 11;</code>
-   */
-  private void setText(
-      java.lang.String value) {
+  /** <code>string Text = 11;</code> */
+  private void setText(java.lang.String value) {
     if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      throw new NullPointerException();
+    }
+
     text_ = value;
   }
-  /**
-   * <code>string Text = 11;</code>
-   */
+  /** <code>string Text = 11;</code> */
   private void clearText() {
-    
+
     text_ = getDefaultInstance().getText();
   }
-  /**
-   * <code>string Text = 11;</code>
-   */
-  private void setTextBytes(
-      com.google.protobuf.ByteString value) {
+  /** <code>string Text = 11;</code> */
+  private void setTextBytes(com.google.protobuf.ByteString value) {
     if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-    
+      throw new NullPointerException();
+    }
+    checkByteStringIsUtf8(value);
+
     text_ = value.toStringUtf8();
   }
 
   public static final int TIME_FIELD_NUMBER = 13;
   private int time_;
-  /**
-   * <code>int32 Time = 13;</code>
-   */
+  /** <code>int32 Time = 13;</code> */
   public int getTime() {
     return time_;
   }
-  /**
-   * <code>int32 Time = 13;</code>
-   */
+  /** <code>int32 Time = 13;</code> */
   private void setTime(int value) {
-    
+
     time_ = value;
   }
-  /**
-   * <code>int32 Time = 13;</code>
-   */
+  /** <code>int32 Time = 13;</code> */
   private void clearTime() {
-    
+
     time_ = 0;
   }
 
   public static final int PEERRECEIVEDTIME_FIELD_NUMBER = 15;
   private int peerReceivedTime_;
-  /**
-   * <code>int32 PeerReceivedTime = 15;</code>
-   */
+  /** <code>int32 PeerReceivedTime = 15;</code> */
   public int getPeerReceivedTime() {
     return peerReceivedTime_;
   }
-  /**
-   * <code>int32 PeerReceivedTime = 15;</code>
-   */
+  /** <code>int32 PeerReceivedTime = 15;</code> */
   private void setPeerReceivedTime(int value) {
-    
+
     peerReceivedTime_ = value;
   }
-  /**
-   * <code>int32 PeerReceivedTime = 15;</code>
-   */
+  /** <code>int32 PeerReceivedTime = 15;</code> */
   private void clearPeerReceivedTime() {
-    
+
     peerReceivedTime_ = 0;
   }
 
   public static final int PEERSEENTIME_FIELD_NUMBER = 17;
   private int peerSeenTime_;
-  /**
-   * <code>int32 PeerSeenTime = 17;</code>
-   */
+  /** <code>int32 PeerSeenTime = 17;</code> */
   public int getPeerSeenTime() {
     return peerSeenTime_;
   }
-  /**
-   * <code>int32 PeerSeenTime = 17;</code>
-   */
+  /** <code>int32 PeerSeenTime = 17;</code> */
   private void setPeerSeenTime(int value) {
-    
+
     peerSeenTime_ = value;
   }
-  /**
-   * <code>int32 PeerSeenTime = 17;</code>
-   */
+  /** <code>int32 PeerSeenTime = 17;</code> */
   private void clearPeerSeenTime() {
-    
+
     peerSeenTime_ = 0;
   }
 
   public static final int DELIVIRYSTATUSENUM_FIELD_NUMBER = 19;
   private int deliviryStatusEnum_;
-  /**
-   * <code>int32 DeliviryStatusEnum = 19;</code>
-   */
+  /** <code>int32 DeliviryStatusEnum = 19;</code> */
   public int getDeliviryStatusEnum() {
     return deliviryStatusEnum_;
   }
-  /**
-   * <code>int32 DeliviryStatusEnum = 19;</code>
-   */
+  /** <code>int32 DeliviryStatusEnum = 19;</code> */
   private void setDeliviryStatusEnum(int value) {
-    
+
     deliviryStatusEnum_ = value;
   }
-  /**
-   * <code>int32 DeliviryStatusEnum = 19;</code>
-   */
+  /** <code>int32 DeliviryStatusEnum = 19;</code> */
   private void clearDeliviryStatusEnum() {
-    
+
     deliviryStatusEnum_ = 0;
   }
 
-  public void writeTo(com.google.protobuf.CodedOutputStream output)
-                      throws java.io.IOException {
+  public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
     if (messageId_ != 0L) {
       output.writeInt64(1, messageId_);
     }
@@ -331,55 +255,44 @@ public  final class PB_DirectMessage extends
 
     size = 0;
     if (messageId_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(1, messageId_);
+      size += com.google.protobuf.CodedOutputStream.computeInt64Size(1, messageId_);
     }
     if (!roomKey_.isEmpty()) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeStringSize(3, getRoomKey());
+      size += com.google.protobuf.CodedOutputStream.computeStringSize(3, getRoomKey());
     }
     if (userId_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(5, userId_);
+      size += com.google.protobuf.CodedOutputStream.computeInt32Size(5, userId_);
     }
     if (messageFileId_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(7, messageFileId_);
+      size += com.google.protobuf.CodedOutputStream.computeInt64Size(7, messageFileId_);
     }
     if (messageTypeEnum_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(9, messageTypeEnum_);
+      size += com.google.protobuf.CodedOutputStream.computeInt32Size(9, messageTypeEnum_);
     }
     if (!text_.isEmpty()) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeStringSize(11, getText());
+      size += com.google.protobuf.CodedOutputStream.computeStringSize(11, getText());
     }
     if (time_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(13, time_);
+      size += com.google.protobuf.CodedOutputStream.computeInt32Size(13, time_);
     }
     if (peerReceivedTime_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(15, peerReceivedTime_);
+      size += com.google.protobuf.CodedOutputStream.computeInt32Size(15, peerReceivedTime_);
     }
     if (peerSeenTime_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(17, peerSeenTime_);
+      size += com.google.protobuf.CodedOutputStream.computeInt32Size(17, peerSeenTime_);
     }
     if (deliviryStatusEnum_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(19, deliviryStatusEnum_);
+      size += com.google.protobuf.CodedOutputStream.computeInt32Size(19, deliviryStatusEnum_);
     }
     memoizedSerializedSize = size;
     return size;
   }
 
-  public static ir.ms.pb.PB_DirectMessage parseFrom(
-      com.google.protobuf.ByteString data)
+  public static ir.ms.pb.PB_DirectMessage parseFrom(com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(
-        DEFAULT_INSTANCE, data);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, data);
   }
+
   public static ir.ms.pb.PB_DirectMessage parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -387,46 +300,47 @@ public  final class PB_DirectMessage extends
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
+
   public static ir.ms.pb.PB_DirectMessage parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(
-        DEFAULT_INSTANCE, data);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, data);
   }
+
   public static ir.ms.pb.PB_DirectMessage parseFrom(
-      byte[] data,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
+
   public static ir.ms.pb.PB_DirectMessage parseFrom(java.io.InputStream input)
       throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(
-        DEFAULT_INSTANCE, input);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, input);
   }
+
   public static ir.ms.pb.PB_DirectMessage parseFrom(
-      java.io.InputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, input, extensionRegistry);
   }
+
   public static ir.ms.pb.PB_DirectMessage parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input);
   }
+
   public static ir.ms.pb.PB_DirectMessage parseDelimitedFrom(
-      java.io.InputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
   }
-  public static ir.ms.pb.PB_DirectMessage parseFrom(
-      com.google.protobuf.CodedInputStream input)
+
+  public static ir.ms.pb.PB_DirectMessage parseFrom(com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(
-        DEFAULT_INSTANCE, input);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, input);
   }
+
   public static ir.ms.pb.PB_DirectMessage parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -438,16 +352,15 @@ public  final class PB_DirectMessage extends
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
+
   public static Builder newBuilder(ir.ms.pb.PB_DirectMessage prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
 
-  /**
-   * Protobuf type {@code PB_DirectMessage}
-   */
-  public static final class Builder extends
-      com.google.protobuf.GeneratedMessageLite.Builder<
-        ir.ms.pb.PB_DirectMessage, Builder> implements
+  /** Protobuf type {@code PB_DirectMessage} */
+  public static final class Builder
+      extends com.google.protobuf.GeneratedMessageLite.Builder<ir.ms.pb.PB_DirectMessage, Builder>
+      implements
       // @@protoc_insertion_point(builder_implements:PB_DirectMessage)
       ir.ms.pb.PB_DirectMessageOrBuilder {
     // Construct using ir.ms.pb.PB_DirectMessage.newBuilder()
@@ -455,265 +368,190 @@ public  final class PB_DirectMessage extends
       super(DEFAULT_INSTANCE);
     }
 
-
-    /**
-     * <code>int64 MessageId = 1;</code>
-     */
+    /** <code>int64 MessageId = 1;</code> */
     public long getMessageId() {
       return instance.getMessageId();
     }
-    /**
-     * <code>int64 MessageId = 1;</code>
-     */
+    /** <code>int64 MessageId = 1;</code> */
     public Builder setMessageId(long value) {
       copyOnWrite();
       instance.setMessageId(value);
       return this;
     }
-    /**
-     * <code>int64 MessageId = 1;</code>
-     */
+    /** <code>int64 MessageId = 1;</code> */
     public Builder clearMessageId() {
       copyOnWrite();
       instance.clearMessageId();
       return this;
     }
 
-    /**
-     * <code>string RoomKey = 3;</code>
-     */
+    /** <code>string RoomKey = 3;</code> */
     public java.lang.String getRoomKey() {
       return instance.getRoomKey();
     }
-    /**
-     * <code>string RoomKey = 3;</code>
-     */
-    public com.google.protobuf.ByteString
-        getRoomKeyBytes() {
+    /** <code>string RoomKey = 3;</code> */
+    public com.google.protobuf.ByteString getRoomKeyBytes() {
       return instance.getRoomKeyBytes();
     }
-    /**
-     * <code>string RoomKey = 3;</code>
-     */
-    public Builder setRoomKey(
-        java.lang.String value) {
+    /** <code>string RoomKey = 3;</code> */
+    public Builder setRoomKey(java.lang.String value) {
       copyOnWrite();
       instance.setRoomKey(value);
       return this;
     }
-    /**
-     * <code>string RoomKey = 3;</code>
-     */
+    /** <code>string RoomKey = 3;</code> */
     public Builder clearRoomKey() {
       copyOnWrite();
       instance.clearRoomKey();
       return this;
     }
-    /**
-     * <code>string RoomKey = 3;</code>
-     */
-    public Builder setRoomKeyBytes(
-        com.google.protobuf.ByteString value) {
+    /** <code>string RoomKey = 3;</code> */
+    public Builder setRoomKeyBytes(com.google.protobuf.ByteString value) {
       copyOnWrite();
       instance.setRoomKeyBytes(value);
       return this;
     }
 
-    /**
-     * <code>int32 UserId = 5;</code>
-     */
+    /** <code>int32 UserId = 5;</code> */
     public int getUserId() {
       return instance.getUserId();
     }
-    /**
-     * <code>int32 UserId = 5;</code>
-     */
+    /** <code>int32 UserId = 5;</code> */
     public Builder setUserId(int value) {
       copyOnWrite();
       instance.setUserId(value);
       return this;
     }
-    /**
-     * <code>int32 UserId = 5;</code>
-     */
+    /** <code>int32 UserId = 5;</code> */
     public Builder clearUserId() {
       copyOnWrite();
       instance.clearUserId();
       return this;
     }
 
-    /**
-     * <code>int64 MessageFileId = 7;</code>
-     */
+    /** <code>int64 MessageFileId = 7;</code> */
     public long getMessageFileId() {
       return instance.getMessageFileId();
     }
-    /**
-     * <code>int64 MessageFileId = 7;</code>
-     */
+    /** <code>int64 MessageFileId = 7;</code> */
     public Builder setMessageFileId(long value) {
       copyOnWrite();
       instance.setMessageFileId(value);
       return this;
     }
-    /**
-     * <code>int64 MessageFileId = 7;</code>
-     */
+    /** <code>int64 MessageFileId = 7;</code> */
     public Builder clearMessageFileId() {
       copyOnWrite();
       instance.clearMessageFileId();
       return this;
     }
 
-    /**
-     * <code>int32 MessageTypeEnum = 9;</code>
-     */
+    /** <code>int32 MessageTypeEnum = 9;</code> */
     public int getMessageTypeEnum() {
       return instance.getMessageTypeEnum();
     }
-    /**
-     * <code>int32 MessageTypeEnum = 9;</code>
-     */
+    /** <code>int32 MessageTypeEnum = 9;</code> */
     public Builder setMessageTypeEnum(int value) {
       copyOnWrite();
       instance.setMessageTypeEnum(value);
       return this;
     }
-    /**
-     * <code>int32 MessageTypeEnum = 9;</code>
-     */
+    /** <code>int32 MessageTypeEnum = 9;</code> */
     public Builder clearMessageTypeEnum() {
       copyOnWrite();
       instance.clearMessageTypeEnum();
       return this;
     }
 
-    /**
-     * <code>string Text = 11;</code>
-     */
+    /** <code>string Text = 11;</code> */
     public java.lang.String getText() {
       return instance.getText();
     }
-    /**
-     * <code>string Text = 11;</code>
-     */
-    public com.google.protobuf.ByteString
-        getTextBytes() {
+    /** <code>string Text = 11;</code> */
+    public com.google.protobuf.ByteString getTextBytes() {
       return instance.getTextBytes();
     }
-    /**
-     * <code>string Text = 11;</code>
-     */
-    public Builder setText(
-        java.lang.String value) {
+    /** <code>string Text = 11;</code> */
+    public Builder setText(java.lang.String value) {
       copyOnWrite();
       instance.setText(value);
       return this;
     }
-    /**
-     * <code>string Text = 11;</code>
-     */
+    /** <code>string Text = 11;</code> */
     public Builder clearText() {
       copyOnWrite();
       instance.clearText();
       return this;
     }
-    /**
-     * <code>string Text = 11;</code>
-     */
-    public Builder setTextBytes(
-        com.google.protobuf.ByteString value) {
+    /** <code>string Text = 11;</code> */
+    public Builder setTextBytes(com.google.protobuf.ByteString value) {
       copyOnWrite();
       instance.setTextBytes(value);
       return this;
     }
 
-    /**
-     * <code>int32 Time = 13;</code>
-     */
+    /** <code>int32 Time = 13;</code> */
     public int getTime() {
       return instance.getTime();
     }
-    /**
-     * <code>int32 Time = 13;</code>
-     */
+    /** <code>int32 Time = 13;</code> */
     public Builder setTime(int value) {
       copyOnWrite();
       instance.setTime(value);
       return this;
     }
-    /**
-     * <code>int32 Time = 13;</code>
-     */
+    /** <code>int32 Time = 13;</code> */
     public Builder clearTime() {
       copyOnWrite();
       instance.clearTime();
       return this;
     }
 
-    /**
-     * <code>int32 PeerReceivedTime = 15;</code>
-     */
+    /** <code>int32 PeerReceivedTime = 15;</code> */
     public int getPeerReceivedTime() {
       return instance.getPeerReceivedTime();
     }
-    /**
-     * <code>int32 PeerReceivedTime = 15;</code>
-     */
+    /** <code>int32 PeerReceivedTime = 15;</code> */
     public Builder setPeerReceivedTime(int value) {
       copyOnWrite();
       instance.setPeerReceivedTime(value);
       return this;
     }
-    /**
-     * <code>int32 PeerReceivedTime = 15;</code>
-     */
+    /** <code>int32 PeerReceivedTime = 15;</code> */
     public Builder clearPeerReceivedTime() {
       copyOnWrite();
       instance.clearPeerReceivedTime();
       return this;
     }
 
-    /**
-     * <code>int32 PeerSeenTime = 17;</code>
-     */
+    /** <code>int32 PeerSeenTime = 17;</code> */
     public int getPeerSeenTime() {
       return instance.getPeerSeenTime();
     }
-    /**
-     * <code>int32 PeerSeenTime = 17;</code>
-     */
+    /** <code>int32 PeerSeenTime = 17;</code> */
     public Builder setPeerSeenTime(int value) {
       copyOnWrite();
       instance.setPeerSeenTime(value);
       return this;
     }
-    /**
-     * <code>int32 PeerSeenTime = 17;</code>
-     */
+    /** <code>int32 PeerSeenTime = 17;</code> */
     public Builder clearPeerSeenTime() {
       copyOnWrite();
       instance.clearPeerSeenTime();
       return this;
     }
 
-    /**
-     * <code>int32 DeliviryStatusEnum = 19;</code>
-     */
+    /** <code>int32 DeliviryStatusEnum = 19;</code> */
     public int getDeliviryStatusEnum() {
       return instance.getDeliviryStatusEnum();
     }
-    /**
-     * <code>int32 DeliviryStatusEnum = 19;</code>
-     */
+    /** <code>int32 DeliviryStatusEnum = 19;</code> */
     public Builder setDeliviryStatusEnum(int value) {
       copyOnWrite();
       instance.setDeliviryStatusEnum(value);
       return this;
     }
-    /**
-     * <code>int32 DeliviryStatusEnum = 19;</code>
-     */
+    /** <code>int32 DeliviryStatusEnum = 19;</code> */
     public Builder clearDeliviryStatusEnum() {
       copyOnWrite();
       instance.clearDeliviryStatusEnum();
@@ -722,151 +560,176 @@ public  final class PB_DirectMessage extends
 
     // @@protoc_insertion_point(builder_scope:PB_DirectMessage)
   }
+
   protected final Object dynamicMethod(
-      com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
-      Object arg0, Object arg1) {
+      com.google.protobuf.GeneratedMessageLite.MethodToInvoke method, Object arg0, Object arg1) {
     switch (method) {
-      case NEW_MUTABLE_INSTANCE: {
-        return new ir.ms.pb.PB_DirectMessage();
-      }
-      case IS_INITIALIZED: {
-        return DEFAULT_INSTANCE;
-      }
-      case MAKE_IMMUTABLE: {
-        return null;
-      }
-      case NEW_BUILDER: {
-        return new Builder();
-      }
-      case VISIT: {
-        Visitor visitor = (Visitor) arg0;
-        ir.ms.pb.PB_DirectMessage other = (ir.ms.pb.PB_DirectMessage) arg1;
-        messageId_ = visitor.visitLong(messageId_ != 0L, messageId_,
-            other.messageId_ != 0L, other.messageId_);
-        roomKey_ = visitor.visitString(!roomKey_.isEmpty(), roomKey_,
-            !other.roomKey_.isEmpty(), other.roomKey_);
-        userId_ = visitor.visitInt(userId_ != 0, userId_,
-            other.userId_ != 0, other.userId_);
-        messageFileId_ = visitor.visitLong(messageFileId_ != 0L, messageFileId_,
-            other.messageFileId_ != 0L, other.messageFileId_);
-        messageTypeEnum_ = visitor.visitInt(messageTypeEnum_ != 0, messageTypeEnum_,
-            other.messageTypeEnum_ != 0, other.messageTypeEnum_);
-        text_ = visitor.visitString(!text_.isEmpty(), text_,
-            !other.text_.isEmpty(), other.text_);
-        time_ = visitor.visitInt(time_ != 0, time_,
-            other.time_ != 0, other.time_);
-        peerReceivedTime_ = visitor.visitInt(peerReceivedTime_ != 0, peerReceivedTime_,
-            other.peerReceivedTime_ != 0, other.peerReceivedTime_);
-        peerSeenTime_ = visitor.visitInt(peerSeenTime_ != 0, peerSeenTime_,
-            other.peerSeenTime_ != 0, other.peerSeenTime_);
-        deliviryStatusEnum_ = visitor.visitInt(deliviryStatusEnum_ != 0, deliviryStatusEnum_,
-            other.deliviryStatusEnum_ != 0, other.deliviryStatusEnum_);
-        if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
-            .INSTANCE) {
+      case NEW_MUTABLE_INSTANCE:
+        {
+          return new ir.ms.pb.PB_DirectMessage();
         }
-        return this;
-      }
-      case MERGE_FROM_STREAM: {
-        com.google.protobuf.CodedInputStream input =
-            (com.google.protobuf.CodedInputStream) arg0;
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry =
-            (com.google.protobuf.ExtensionRegistryLite) arg1;
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              default: {
-                if (!input.skipField(tag)) {
+      case IS_INITIALIZED:
+        {
+          return DEFAULT_INSTANCE;
+        }
+      case MAKE_IMMUTABLE:
+        {
+          return null;
+        }
+      case NEW_BUILDER:
+        {
+          return new Builder();
+        }
+      case VISIT:
+        {
+          Visitor visitor = (Visitor) arg0;
+          ir.ms.pb.PB_DirectMessage other = (ir.ms.pb.PB_DirectMessage) arg1;
+          messageId_ =
+              visitor.visitLong(
+                  messageId_ != 0L, messageId_, other.messageId_ != 0L, other.messageId_);
+          roomKey_ =
+              visitor.visitString(
+                  !roomKey_.isEmpty(), roomKey_, !other.roomKey_.isEmpty(), other.roomKey_);
+          userId_ = visitor.visitInt(userId_ != 0, userId_, other.userId_ != 0, other.userId_);
+          messageFileId_ =
+              visitor.visitLong(
+                  messageFileId_ != 0L,
+                  messageFileId_,
+                  other.messageFileId_ != 0L,
+                  other.messageFileId_);
+          messageTypeEnum_ =
+              visitor.visitInt(
+                  messageTypeEnum_ != 0,
+                  messageTypeEnum_,
+                  other.messageTypeEnum_ != 0,
+                  other.messageTypeEnum_);
+          text_ = visitor.visitString(!text_.isEmpty(), text_, !other.text_.isEmpty(), other.text_);
+          time_ = visitor.visitInt(time_ != 0, time_, other.time_ != 0, other.time_);
+          peerReceivedTime_ =
+              visitor.visitInt(
+                  peerReceivedTime_ != 0,
+                  peerReceivedTime_,
+                  other.peerReceivedTime_ != 0,
+                  other.peerReceivedTime_);
+          peerSeenTime_ =
+              visitor.visitInt(
+                  peerSeenTime_ != 0, peerSeenTime_, other.peerSeenTime_ != 0, other.peerSeenTime_);
+          deliviryStatusEnum_ =
+              visitor.visitInt(
+                  deliviryStatusEnum_ != 0,
+                  deliviryStatusEnum_,
+                  other.deliviryStatusEnum_ != 0,
+                  other.deliviryStatusEnum_);
+          if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor.INSTANCE) {}
+          return this;
+        }
+      case MERGE_FROM_STREAM:
+        {
+          com.google.protobuf.CodedInputStream input = (com.google.protobuf.CodedInputStream) arg0;
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry =
+              (com.google.protobuf.ExtensionRegistryLite) arg1;
+          try {
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
                   done = true;
-                }
-                break;
-              }
-              case 8: {
+                  break;
+                default:
+                  {
+                    if (!input.skipField(tag)) {
+                      done = true;
+                    }
+                    break;
+                  }
+                case 8:
+                  {
+                    messageId_ = input.readInt64();
+                    break;
+                  }
+                case 26:
+                  {
+                    String s = input.readStringRequireUtf8();
 
-                messageId_ = input.readInt64();
-                break;
-              }
-              case 26: {
-                String s = input.readStringRequireUtf8();
+                    roomKey_ = s;
+                    break;
+                  }
+                case 40:
+                  {
+                    userId_ = input.readInt32();
+                    break;
+                  }
+                case 56:
+                  {
+                    messageFileId_ = input.readInt64();
+                    break;
+                  }
+                case 72:
+                  {
+                    messageTypeEnum_ = input.readInt32();
+                    break;
+                  }
+                case 90:
+                  {
+                    String s = input.readStringRequireUtf8();
 
-                roomKey_ = s;
-                break;
+                    text_ = s;
+                    break;
+                  }
+                case 104:
+                  {
+                    time_ = input.readInt32();
+                    break;
+                  }
+                case 120:
+                  {
+                    peerReceivedTime_ = input.readInt32();
+                    break;
+                  }
+                case 136:
+                  {
+                    peerSeenTime_ = input.readInt32();
+                    break;
+                  }
+                case 152:
+                  {
+                    deliviryStatusEnum_ = input.readInt32();
+                    break;
+                  }
               }
-              case 40: {
-
-                userId_ = input.readInt32();
-                break;
-              }
-              case 56: {
-
-                messageFileId_ = input.readInt64();
-                break;
-              }
-              case 72: {
-
-                messageTypeEnum_ = input.readInt32();
-                break;
-              }
-              case 90: {
-                String s = input.readStringRequireUtf8();
-
-                text_ = s;
-                break;
-              }
-              case 104: {
-
-                time_ = input.readInt32();
-                break;
-              }
-              case 120: {
-
-                peerReceivedTime_ = input.readInt32();
-                break;
-              }
-              case 136: {
-
-                peerSeenTime_ = input.readInt32();
-                break;
-              }
-              case 152: {
-
-                deliviryStatusEnum_ = input.readInt32();
-                break;
+            }
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw new RuntimeException(e.setUnfinishedMessage(this));
+          } catch (java.io.IOException e) {
+            throw new RuntimeException(
+                new com.google.protobuf.InvalidProtocolBufferException(e.getMessage())
+                    .setUnfinishedMessage(this));
+          } finally {
+          }
+        }
+      case GET_DEFAULT_INSTANCE:
+        {
+          return DEFAULT_INSTANCE;
+        }
+      case GET_PARSER:
+        {
+          if (PARSER == null) {
+            synchronized (ir.ms.pb.PB_DirectMessage.class) {
+              if (PARSER == null) {
+                PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
               }
             }
           }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw new RuntimeException(e.setUnfinishedMessage(this));
-        } catch (java.io.IOException e) {
-          throw new RuntimeException(
-              new com.google.protobuf.InvalidProtocolBufferException(
-                  e.getMessage()).setUnfinishedMessage(this));
-        } finally {
+          return PARSER;
         }
-      }
-      case GET_DEFAULT_INSTANCE: {
-        return DEFAULT_INSTANCE;
-      }
-      case GET_PARSER: {
-        if (PARSER == null) {    synchronized (ir.ms.pb.PB_DirectMessage.class) {
-            if (PARSER == null) {
-              PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
-            }
-          }
-        }
-        return PARSER;
-      }
     }
     throw new UnsupportedOperationException();
   }
 
-
   // @@protoc_insertion_point(class_scope:PB_DirectMessage)
   private static final ir.ms.pb.PB_DirectMessage DEFAULT_INSTANCE;
+
   static {
     DEFAULT_INSTANCE = new PB_DirectMessage();
     DEFAULT_INSTANCE.makeImmutable();
@@ -882,4 +745,3 @@ public  final class PB_DirectMessage extends
     return DEFAULT_INSTANCE.getParserForType();
   }
 }
-

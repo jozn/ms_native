@@ -3,74 +3,43 @@
 
 package ir.ms.pb;
 
-/**
- * Protobuf enum {@code RoomMessageTypeEnum}
- */
-public enum RoomMessageTypeEnum
-    implements com.google.protobuf.Internal.EnumLite {
-  /**
-   * <code>UNKNOWN_MESSAGE_TYPE = 0;</code>
-   */
+/** Protobuf enum {@code RoomMessageTypeEnum} */
+public enum RoomMessageTypeEnum implements com.google.protobuf.Internal.EnumLite {
+  /** <code>UNKNOWN_MESSAGE_TYPE = 0;</code> */
   UNKNOWN_MESSAGE_TYPE(0),
-  /**
-   * <code>TEXT = 1;</code>
-   */
+  /** <code>TEXT = 1;</code> */
   TEXT(1),
-  /**
-   * <code>IMAGE = 2;</code>
-   */
+  /** <code>IMAGE = 2;</code> */
   IMAGE(2),
-  /**
-   * <code>IMAGE_TEXT = 3;</code>
-   */
+  /** <code>IMAGE_TEXT = 3;</code> */
   IMAGE_TEXT(3),
-  /**
-   * <code>VIDEO = 4;</code>
-   */
+  /** <code>VIDEO = 4;</code> */
   VIDEO(4),
-  /**
-   * <code>VIDEO_TEXT = 5;</code>
-   */
+  /** <code>VIDEO_TEXT = 5;</code> */
   VIDEO_TEXT(5),
-  /**
-   * <code>AUDIO = 6;</code>
-   */
+  /** <code>AUDIO = 6;</code> */
   AUDIO(6),
-  /**
-   * <code>AUDIO_TEXT = 7;</code>
-   */
+  /** <code>AUDIO_TEXT = 7;</code> */
   AUDIO_TEXT(7),
-  /**
-   * <code>VOICE = 8;</code>
-   */
+  /** <code>VOICE = 8;</code> */
   VOICE(8),
-  /**
-   * <code>GIF = 9;</code>
-   */
+  /** <code>GIF = 9;</code> */
   GIF(9),
-  /**
-   * <code>GIF_TEXT = 10;</code>
-   */
+  /** <code>GIF_TEXT = 10;</code> */
   GIF_TEXT(10),
-  /**
-   * <code>FILE = 11;</code>
-   */
+  /** <code>FILE = 11;</code> */
   FILE(11),
-  /**
-   * <code>FILE_TEXT = 12;</code>
-   */
+  /** <code>FILE_TEXT = 12;</code> */
   FILE_TEXT(12),
-  /**
-   * <code>LOCATION = 13;</code>
-   */
+  /** <code>LOCATION = 13;</code> */
   LOCATION(13),
-  /**
-   * <code>CONTACT = 14;</code>
-   */
+  /** <code>CONTACT = 14;</code> */
   CONTACT(14),
   /**
+   *
+   *
    * <pre>
-   *from 100 to 200 all are log types
+   * from 100 to 200 all are log types
    * </pre>
    *
    * <code>LOG = 100;</code>
@@ -79,83 +48,52 @@ public enum RoomMessageTypeEnum
   UNRECOGNIZED(-1),
   ;
 
-  /**
-   * <code>UNKNOWN_MESSAGE_TYPE = 0;</code>
-   */
+  /** <code>UNKNOWN_MESSAGE_TYPE = 0;</code> */
   public static final int UNKNOWN_MESSAGE_TYPE_VALUE = 0;
-  /**
-   * <code>TEXT = 1;</code>
-   */
+  /** <code>TEXT = 1;</code> */
   public static final int TEXT_VALUE = 1;
-  /**
-   * <code>IMAGE = 2;</code>
-   */
+  /** <code>IMAGE = 2;</code> */
   public static final int IMAGE_VALUE = 2;
-  /**
-   * <code>IMAGE_TEXT = 3;</code>
-   */
+  /** <code>IMAGE_TEXT = 3;</code> */
   public static final int IMAGE_TEXT_VALUE = 3;
-  /**
-   * <code>VIDEO = 4;</code>
-   */
+  /** <code>VIDEO = 4;</code> */
   public static final int VIDEO_VALUE = 4;
-  /**
-   * <code>VIDEO_TEXT = 5;</code>
-   */
+  /** <code>VIDEO_TEXT = 5;</code> */
   public static final int VIDEO_TEXT_VALUE = 5;
-  /**
-   * <code>AUDIO = 6;</code>
-   */
+  /** <code>AUDIO = 6;</code> */
   public static final int AUDIO_VALUE = 6;
-  /**
-   * <code>AUDIO_TEXT = 7;</code>
-   */
+  /** <code>AUDIO_TEXT = 7;</code> */
   public static final int AUDIO_TEXT_VALUE = 7;
-  /**
-   * <code>VOICE = 8;</code>
-   */
+  /** <code>VOICE = 8;</code> */
   public static final int VOICE_VALUE = 8;
-  /**
-   * <code>GIF = 9;</code>
-   */
+  /** <code>GIF = 9;</code> */
   public static final int GIF_VALUE = 9;
-  /**
-   * <code>GIF_TEXT = 10;</code>
-   */
+  /** <code>GIF_TEXT = 10;</code> */
   public static final int GIF_TEXT_VALUE = 10;
-  /**
-   * <code>FILE = 11;</code>
-   */
+  /** <code>FILE = 11;</code> */
   public static final int FILE_VALUE = 11;
-  /**
-   * <code>FILE_TEXT = 12;</code>
-   */
+  /** <code>FILE_TEXT = 12;</code> */
   public static final int FILE_TEXT_VALUE = 12;
-  /**
-   * <code>LOCATION = 13;</code>
-   */
+  /** <code>LOCATION = 13;</code> */
   public static final int LOCATION_VALUE = 13;
-  /**
-   * <code>CONTACT = 14;</code>
-   */
+  /** <code>CONTACT = 14;</code> */
   public static final int CONTACT_VALUE = 14;
   /**
+   *
+   *
    * <pre>
-   *from 100 to 200 all are log types
+   * from 100 to 200 all are log types
    * </pre>
    *
    * <code>LOG = 100;</code>
    */
   public static final int LOG_VALUE = 100;
 
-
   public final int getNumber() {
     return value;
   }
 
-  /**
-   * @deprecated Use {@link #forNumber(int)} instead.
-   */
+  /** @deprecated Use {@link #forNumber(int)} instead. */
   @java.lang.Deprecated
   public static RoomMessageTypeEnum valueOf(int value) {
     return forNumber(value);
@@ -163,23 +101,40 @@ public enum RoomMessageTypeEnum
 
   public static RoomMessageTypeEnum forNumber(int value) {
     switch (value) {
-      case 0: return UNKNOWN_MESSAGE_TYPE;
-      case 1: return TEXT;
-      case 2: return IMAGE;
-      case 3: return IMAGE_TEXT;
-      case 4: return VIDEO;
-      case 5: return VIDEO_TEXT;
-      case 6: return AUDIO;
-      case 7: return AUDIO_TEXT;
-      case 8: return VOICE;
-      case 9: return GIF;
-      case 10: return GIF_TEXT;
-      case 11: return FILE;
-      case 12: return FILE_TEXT;
-      case 13: return LOCATION;
-      case 14: return CONTACT;
-      case 100: return LOG;
-      default: return null;
+      case 0:
+        return UNKNOWN_MESSAGE_TYPE;
+      case 1:
+        return TEXT;
+      case 2:
+        return IMAGE;
+      case 3:
+        return IMAGE_TEXT;
+      case 4:
+        return VIDEO;
+      case 5:
+        return VIDEO_TEXT;
+      case 6:
+        return AUDIO;
+      case 7:
+        return AUDIO_TEXT;
+      case 8:
+        return VOICE;
+      case 9:
+        return GIF;
+      case 10:
+        return GIF_TEXT;
+      case 11:
+        return FILE;
+      case 12:
+        return FILE_TEXT;
+      case 13:
+        return LOCATION;
+      case 14:
+        return CONTACT;
+      case 100:
+        return LOG;
+      default:
+        return null;
     }
   }
 
@@ -187,13 +142,14 @@ public enum RoomMessageTypeEnum
       internalGetValueMap() {
     return internalValueMap;
   }
-  private static final com.google.protobuf.Internal.EnumLiteMap<
-      RoomMessageTypeEnum> internalValueMap =
-        new com.google.protobuf.Internal.EnumLiteMap<RoomMessageTypeEnum>() {
-          public RoomMessageTypeEnum findValueByNumber(int number) {
-            return RoomMessageTypeEnum.forNumber(number);
-          }
-        };
+
+  private static final com.google.protobuf.Internal.EnumLiteMap<RoomMessageTypeEnum>
+      internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<RoomMessageTypeEnum>() {
+            public RoomMessageTypeEnum findValueByNumber(int number) {
+              return RoomMessageTypeEnum.forNumber(number);
+            }
+          };
 
   private final int value;
 
@@ -203,4 +159,3 @@ public enum RoomMessageTypeEnum
 
   // @@protoc_insertion_point(enum_scope:RoomMessageTypeEnum)
 }
-

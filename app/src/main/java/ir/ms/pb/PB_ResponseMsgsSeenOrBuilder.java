@@ -3,16 +3,13 @@
 
 package ir.ms.pb;
 
-public interface PB_ResponseMsgsSeenOrBuilder extends
+public interface PB_ResponseMsgsSeenOrBuilder
+    extends
     // @@protoc_insertion_point(interface_extends:PB_ResponseMsgsSeen)
     com.google.protobuf.MessageLiteOrBuilder {
 
-  /**
-   * <code>.PB_Response Response = 1;</code>
-   */
+  /** <code>.PB_Response Response = 1;</code> */
   boolean hasResponse();
-  /**
-   * <code>.PB_Response Response = 1;</code>
-   */
+  /** <code>.PB_Response Response = 1;</code> */
   ir.ms.pb.PB_Response getResponse();
 }

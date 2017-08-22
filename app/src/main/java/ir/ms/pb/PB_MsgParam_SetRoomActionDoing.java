@@ -4,130 +4,104 @@
 package ir.ms.pb;
 
 /**
+ *
+ *
  * <pre>
  * SetRoomActionDoing
  * </pre>
  *
  * Protobuf type {@code PB_MsgParam_SetRoomActionDoing}
  */
-public  final class PB_MsgParam_SetRoomActionDoing extends
-    com.google.protobuf.GeneratedMessageLite<
-        PB_MsgParam_SetRoomActionDoing, PB_MsgParam_SetRoomActionDoing.Builder> implements
+public final class PB_MsgParam_SetRoomActionDoing
+    extends com.google.protobuf.GeneratedMessageLite<
+        PB_MsgParam_SetRoomActionDoing, PB_MsgParam_SetRoomActionDoing.Builder>
+    implements
     // @@protoc_insertion_point(message_implements:PB_MsgParam_SetRoomActionDoing)
     PB_MsgParam_SetRoomActionDoingOrBuilder {
   private PB_MsgParam_SetRoomActionDoing() {
     directRoomKey_ = "";
   }
+
   public static final int GROUPID_FIELD_NUMBER = 12;
   private long groupId_;
-  /**
-   * <code>int64 GroupId = 12;</code>
-   */
+  /** <code>int64 GroupId = 12;</code> */
   public long getGroupId() {
     return groupId_;
   }
-  /**
-   * <code>int64 GroupId = 12;</code>
-   */
+  /** <code>int64 GroupId = 12;</code> */
   private void setGroupId(long value) {
-    
+
     groupId_ = value;
   }
-  /**
-   * <code>int64 GroupId = 12;</code>
-   */
+  /** <code>int64 GroupId = 12;</code> */
   private void clearGroupId() {
-    
+
     groupId_ = 0L;
   }
 
   public static final int DIRECTROOMKEY_FIELD_NUMBER = 102;
   private java.lang.String directRoomKey_;
-  /**
-   * <code>string DirectRoomKey = 102;</code>
-   */
+  /** <code>string DirectRoomKey = 102;</code> */
   public java.lang.String getDirectRoomKey() {
     return directRoomKey_;
   }
-  /**
-   * <code>string DirectRoomKey = 102;</code>
-   */
-  public com.google.protobuf.ByteString
-      getDirectRoomKeyBytes() {
+  /** <code>string DirectRoomKey = 102;</code> */
+  public com.google.protobuf.ByteString getDirectRoomKeyBytes() {
     return com.google.protobuf.ByteString.copyFromUtf8(directRoomKey_);
   }
-  /**
-   * <code>string DirectRoomKey = 102;</code>
-   */
-  private void setDirectRoomKey(
-      java.lang.String value) {
+  /** <code>string DirectRoomKey = 102;</code> */
+  private void setDirectRoomKey(java.lang.String value) {
     if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      throw new NullPointerException();
+    }
+
     directRoomKey_ = value;
   }
-  /**
-   * <code>string DirectRoomKey = 102;</code>
-   */
+  /** <code>string DirectRoomKey = 102;</code> */
   private void clearDirectRoomKey() {
-    
+
     directRoomKey_ = getDefaultInstance().getDirectRoomKey();
   }
-  /**
-   * <code>string DirectRoomKey = 102;</code>
-   */
-  private void setDirectRoomKeyBytes(
-      com.google.protobuf.ByteString value) {
+  /** <code>string DirectRoomKey = 102;</code> */
+  private void setDirectRoomKeyBytes(com.google.protobuf.ByteString value) {
     if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-    
+      throw new NullPointerException();
+    }
+    checkByteStringIsUtf8(value);
+
     directRoomKey_ = value.toStringUtf8();
   }
 
   public static final int ACTIONTYPE_FIELD_NUMBER = 1020;
   private int actionType_;
-  /**
-   * <code>.RoomActionDoingEnum ActionType = 1020;</code>
-   */
+  /** <code>.RoomActionDoingEnum ActionType = 1020;</code> */
   public int getActionTypeValue() {
     return actionType_;
   }
-  /**
-   * <code>.RoomActionDoingEnum ActionType = 1020;</code>
-   */
+  /** <code>.RoomActionDoingEnum ActionType = 1020;</code> */
   public ir.ms.pb.RoomActionDoingEnum getActionType() {
     ir.ms.pb.RoomActionDoingEnum result = ir.ms.pb.RoomActionDoingEnum.forNumber(actionType_);
     return result == null ? ir.ms.pb.RoomActionDoingEnum.UNRECOGNIZED : result;
   }
-  /**
-   * <code>.RoomActionDoingEnum ActionType = 1020;</code>
-   */
+  /** <code>.RoomActionDoingEnum ActionType = 1020;</code> */
   private void setActionTypeValue(int value) {
-      actionType_ = value;
+    actionType_ = value;
   }
-  /**
-   * <code>.RoomActionDoingEnum ActionType = 1020;</code>
-   */
+  /** <code>.RoomActionDoingEnum ActionType = 1020;</code> */
   private void setActionType(ir.ms.pb.RoomActionDoingEnum value) {
     if (value == null) {
       throw new NullPointerException();
     }
-    
+
     actionType_ = value.getNumber();
   }
-  /**
-   * <code>.RoomActionDoingEnum ActionType = 1020;</code>
-   */
+  /** <code>.RoomActionDoingEnum ActionType = 1020;</code> */
   private void clearActionType() {
-    
+
     actionType_ = 0;
   }
 
-  public void writeTo(com.google.protobuf.CodedOutputStream output)
-                      throws java.io.IOException {
+  public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
     if (groupId_ != 0L) {
       output.writeInt64(12, groupId_);
     }
@@ -145,16 +119,13 @@ public  final class PB_MsgParam_SetRoomActionDoing extends
 
     size = 0;
     if (groupId_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(12, groupId_);
+      size += com.google.protobuf.CodedOutputStream.computeInt64Size(12, groupId_);
     }
     if (!directRoomKey_.isEmpty()) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeStringSize(102, getDirectRoomKey());
+      size += com.google.protobuf.CodedOutputStream.computeStringSize(102, getDirectRoomKey());
     }
     if (actionType_ != ir.ms.pb.RoomActionDoingEnum.UNKNOWN_ROOM_ACTION_DOING.getNumber()) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeEnumSize(1020, actionType_);
+      size += com.google.protobuf.CodedOutputStream.computeEnumSize(1020, actionType_);
     }
     memoizedSerializedSize = size;
     return size;
@@ -163,9 +134,9 @@ public  final class PB_MsgParam_SetRoomActionDoing extends
   public static ir.ms.pb.PB_MsgParam_SetRoomActionDoing parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(
-        DEFAULT_INSTANCE, data);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, data);
   }
+
   public static ir.ms.pb.PB_MsgParam_SetRoomActionDoing parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -173,46 +144,47 @@ public  final class PB_MsgParam_SetRoomActionDoing extends
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
+
   public static ir.ms.pb.PB_MsgParam_SetRoomActionDoing parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(
-        DEFAULT_INSTANCE, data);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, data);
   }
+
   public static ir.ms.pb.PB_MsgParam_SetRoomActionDoing parseFrom(
-      byte[] data,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
+
   public static ir.ms.pb.PB_MsgParam_SetRoomActionDoing parseFrom(java.io.InputStream input)
       throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(
-        DEFAULT_INSTANCE, input);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, input);
   }
+
   public static ir.ms.pb.PB_MsgParam_SetRoomActionDoing parseFrom(
-      java.io.InputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, input, extensionRegistry);
   }
-  public static ir.ms.pb.PB_MsgParam_SetRoomActionDoing parseDelimitedFrom(java.io.InputStream input)
-      throws java.io.IOException {
+
+  public static ir.ms.pb.PB_MsgParam_SetRoomActionDoing parseDelimitedFrom(
+      java.io.InputStream input) throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input);
   }
+
   public static ir.ms.pb.PB_MsgParam_SetRoomActionDoing parseDelimitedFrom(
-      java.io.InputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
   }
+
   public static ir.ms.pb.PB_MsgParam_SetRoomActionDoing parseFrom(
-      com.google.protobuf.CodedInputStream input)
-      throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(
-        DEFAULT_INSTANCE, input);
+      com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, input);
   }
+
   public static ir.ms.pb.PB_MsgParam_SetRoomActionDoing parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -224,20 +196,24 @@ public  final class PB_MsgParam_SetRoomActionDoing extends
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
+
   public static Builder newBuilder(ir.ms.pb.PB_MsgParam_SetRoomActionDoing prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
 
   /**
+   *
+   *
    * <pre>
    * SetRoomActionDoing
    * </pre>
    *
    * Protobuf type {@code PB_MsgParam_SetRoomActionDoing}
    */
-  public static final class Builder extends
-      com.google.protobuf.GeneratedMessageLite.Builder<
-        ir.ms.pb.PB_MsgParam_SetRoomActionDoing, Builder> implements
+  public static final class Builder
+      extends com.google.protobuf.GeneratedMessageLite.Builder<
+          ir.ms.pb.PB_MsgParam_SetRoomActionDoing, Builder>
+      implements
       // @@protoc_insertion_point(builder_implements:PB_MsgParam_SetRoomActionDoing)
       ir.ms.pb.PB_MsgParam_SetRoomActionDoingOrBuilder {
     // Construct using ir.ms.pb.PB_MsgParam_SetRoomActionDoing.newBuilder()
@@ -245,101 +221,71 @@ public  final class PB_MsgParam_SetRoomActionDoing extends
       super(DEFAULT_INSTANCE);
     }
 
-
-    /**
-     * <code>int64 GroupId = 12;</code>
-     */
+    /** <code>int64 GroupId = 12;</code> */
     public long getGroupId() {
       return instance.getGroupId();
     }
-    /**
-     * <code>int64 GroupId = 12;</code>
-     */
+    /** <code>int64 GroupId = 12;</code> */
     public Builder setGroupId(long value) {
       copyOnWrite();
       instance.setGroupId(value);
       return this;
     }
-    /**
-     * <code>int64 GroupId = 12;</code>
-     */
+    /** <code>int64 GroupId = 12;</code> */
     public Builder clearGroupId() {
       copyOnWrite();
       instance.clearGroupId();
       return this;
     }
 
-    /**
-     * <code>string DirectRoomKey = 102;</code>
-     */
+    /** <code>string DirectRoomKey = 102;</code> */
     public java.lang.String getDirectRoomKey() {
       return instance.getDirectRoomKey();
     }
-    /**
-     * <code>string DirectRoomKey = 102;</code>
-     */
-    public com.google.protobuf.ByteString
-        getDirectRoomKeyBytes() {
+    /** <code>string DirectRoomKey = 102;</code> */
+    public com.google.protobuf.ByteString getDirectRoomKeyBytes() {
       return instance.getDirectRoomKeyBytes();
     }
-    /**
-     * <code>string DirectRoomKey = 102;</code>
-     */
-    public Builder setDirectRoomKey(
-        java.lang.String value) {
+    /** <code>string DirectRoomKey = 102;</code> */
+    public Builder setDirectRoomKey(java.lang.String value) {
       copyOnWrite();
       instance.setDirectRoomKey(value);
       return this;
     }
-    /**
-     * <code>string DirectRoomKey = 102;</code>
-     */
+    /** <code>string DirectRoomKey = 102;</code> */
     public Builder clearDirectRoomKey() {
       copyOnWrite();
       instance.clearDirectRoomKey();
       return this;
     }
-    /**
-     * <code>string DirectRoomKey = 102;</code>
-     */
-    public Builder setDirectRoomKeyBytes(
-        com.google.protobuf.ByteString value) {
+    /** <code>string DirectRoomKey = 102;</code> */
+    public Builder setDirectRoomKeyBytes(com.google.protobuf.ByteString value) {
       copyOnWrite();
       instance.setDirectRoomKeyBytes(value);
       return this;
     }
 
-    /**
-     * <code>.RoomActionDoingEnum ActionType = 1020;</code>
-     */
+    /** <code>.RoomActionDoingEnum ActionType = 1020;</code> */
     public int getActionTypeValue() {
       return instance.getActionTypeValue();
     }
-    /**
-     * <code>.RoomActionDoingEnum ActionType = 1020;</code>
-     */
+    /** <code>.RoomActionDoingEnum ActionType = 1020;</code> */
     public Builder setActionTypeValue(int value) {
       copyOnWrite();
       instance.setActionTypeValue(value);
       return this;
     }
-    /**
-     * <code>.RoomActionDoingEnum ActionType = 1020;</code>
-     */
+    /** <code>.RoomActionDoingEnum ActionType = 1020;</code> */
     public ir.ms.pb.RoomActionDoingEnum getActionType() {
       return instance.getActionType();
     }
-    /**
-     * <code>.RoomActionDoingEnum ActionType = 1020;</code>
-     */
+    /** <code>.RoomActionDoingEnum ActionType = 1020;</code> */
     public Builder setActionType(ir.ms.pb.RoomActionDoingEnum value) {
       copyOnWrite();
       instance.setActionType(value);
       return this;
     }
-    /**
-     * <code>.RoomActionDoingEnum ActionType = 1020;</code>
-     */
+    /** <code>.RoomActionDoingEnum ActionType = 1020;</code> */
     public Builder clearActionType() {
       copyOnWrite();
       instance.clearActionType();
@@ -348,101 +294,117 @@ public  final class PB_MsgParam_SetRoomActionDoing extends
 
     // @@protoc_insertion_point(builder_scope:PB_MsgParam_SetRoomActionDoing)
   }
+
   protected final Object dynamicMethod(
-      com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
-      Object arg0, Object arg1) {
+      com.google.protobuf.GeneratedMessageLite.MethodToInvoke method, Object arg0, Object arg1) {
     switch (method) {
-      case NEW_MUTABLE_INSTANCE: {
-        return new ir.ms.pb.PB_MsgParam_SetRoomActionDoing();
-      }
-      case IS_INITIALIZED: {
-        return DEFAULT_INSTANCE;
-      }
-      case MAKE_IMMUTABLE: {
-        return null;
-      }
-      case NEW_BUILDER: {
-        return new Builder();
-      }
-      case VISIT: {
-        Visitor visitor = (Visitor) arg0;
-        ir.ms.pb.PB_MsgParam_SetRoomActionDoing other = (ir.ms.pb.PB_MsgParam_SetRoomActionDoing) arg1;
-        groupId_ = visitor.visitLong(groupId_ != 0L, groupId_,
-            other.groupId_ != 0L, other.groupId_);
-        directRoomKey_ = visitor.visitString(!directRoomKey_.isEmpty(), directRoomKey_,
-            !other.directRoomKey_.isEmpty(), other.directRoomKey_);
-        actionType_ = visitor.visitInt(actionType_ != 0, actionType_,    other.actionType_ != 0, other.actionType_);
-        if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
-            .INSTANCE) {
+      case NEW_MUTABLE_INSTANCE:
+        {
+          return new ir.ms.pb.PB_MsgParam_SetRoomActionDoing();
         }
-        return this;
-      }
-      case MERGE_FROM_STREAM: {
-        com.google.protobuf.CodedInputStream input =
-            (com.google.protobuf.CodedInputStream) arg0;
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry =
-            (com.google.protobuf.ExtensionRegistryLite) arg1;
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              default: {
-                if (!input.skipField(tag)) {
+      case IS_INITIALIZED:
+        {
+          return DEFAULT_INSTANCE;
+        }
+      case MAKE_IMMUTABLE:
+        {
+          return null;
+        }
+      case NEW_BUILDER:
+        {
+          return new Builder();
+        }
+      case VISIT:
+        {
+          Visitor visitor = (Visitor) arg0;
+          ir.ms.pb.PB_MsgParam_SetRoomActionDoing other =
+              (ir.ms.pb.PB_MsgParam_SetRoomActionDoing) arg1;
+          groupId_ =
+              visitor.visitLong(groupId_ != 0L, groupId_, other.groupId_ != 0L, other.groupId_);
+          directRoomKey_ =
+              visitor.visitString(
+                  !directRoomKey_.isEmpty(),
+                  directRoomKey_,
+                  !other.directRoomKey_.isEmpty(),
+                  other.directRoomKey_);
+          actionType_ =
+              visitor.visitInt(
+                  actionType_ != 0, actionType_, other.actionType_ != 0, other.actionType_);
+          if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor.INSTANCE) {}
+          return this;
+        }
+      case MERGE_FROM_STREAM:
+        {
+          com.google.protobuf.CodedInputStream input = (com.google.protobuf.CodedInputStream) arg0;
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry =
+              (com.google.protobuf.ExtensionRegistryLite) arg1;
+          try {
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
                   done = true;
-                }
-                break;
-              }
-              case 96: {
+                  break;
+                default:
+                  {
+                    if (!input.skipField(tag)) {
+                      done = true;
+                    }
+                    break;
+                  }
+                case 96:
+                  {
+                    groupId_ = input.readInt64();
+                    break;
+                  }
+                case 818:
+                  {
+                    String s = input.readStringRequireUtf8();
 
-                groupId_ = input.readInt64();
-                break;
-              }
-              case 818: {
-                String s = input.readStringRequireUtf8();
+                    directRoomKey_ = s;
+                    break;
+                  }
+                case 8160:
+                  {
+                    int rawValue = input.readEnum();
 
-                directRoomKey_ = s;
-                break;
+                    actionType_ = rawValue;
+                    break;
+                  }
               }
-              case 8160: {
-                int rawValue = input.readEnum();
-
-                actionType_ = rawValue;
-                break;
+            }
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw new RuntimeException(e.setUnfinishedMessage(this));
+          } catch (java.io.IOException e) {
+            throw new RuntimeException(
+                new com.google.protobuf.InvalidProtocolBufferException(e.getMessage())
+                    .setUnfinishedMessage(this));
+          } finally {
+          }
+        }
+      case GET_DEFAULT_INSTANCE:
+        {
+          return DEFAULT_INSTANCE;
+        }
+      case GET_PARSER:
+        {
+          if (PARSER == null) {
+            synchronized (ir.ms.pb.PB_MsgParam_SetRoomActionDoing.class) {
+              if (PARSER == null) {
+                PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
               }
             }
           }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw new RuntimeException(e.setUnfinishedMessage(this));
-        } catch (java.io.IOException e) {
-          throw new RuntimeException(
-              new com.google.protobuf.InvalidProtocolBufferException(
-                  e.getMessage()).setUnfinishedMessage(this));
-        } finally {
+          return PARSER;
         }
-      }
-      case GET_DEFAULT_INSTANCE: {
-        return DEFAULT_INSTANCE;
-      }
-      case GET_PARSER: {
-        if (PARSER == null) {    synchronized (ir.ms.pb.PB_MsgParam_SetRoomActionDoing.class) {
-            if (PARSER == null) {
-              PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
-            }
-          }
-        }
-        return PARSER;
-      }
     }
     throw new UnsupportedOperationException();
   }
 
-
   // @@protoc_insertion_point(class_scope:PB_MsgParam_SetRoomActionDoing)
   private static final ir.ms.pb.PB_MsgParam_SetRoomActionDoing DEFAULT_INSTANCE;
+
   static {
     DEFAULT_INSTANCE = new PB_MsgParam_SetRoomActionDoing();
     DEFAULT_INSTANCE.makeImmutable();
@@ -458,4 +420,3 @@ public  final class PB_MsgParam_SetRoomActionDoing extends
     return DEFAULT_INSTANCE.getParserForType();
   }
 }
-

@@ -3,11 +3,14 @@
 
 package ir.ms.pb;
 
-public interface PB_UpdateRoomActionDoingOrBuilder extends
+public interface PB_UpdateRoomActionDoingOrBuilder
+    extends
     // @@protoc_insertion_point(interface_extends:PB_UpdateRoomActionDoing)
     com.google.protobuf.MessageLiteOrBuilder {
 
   /**
+   *
+   *
    * <pre>
    *    int64 ChatId = 1;
    * </pre>
@@ -16,21 +19,18 @@ public interface PB_UpdateRoomActionDoingOrBuilder extends
    */
   java.lang.String getRoomKey();
   /**
+   *
+   *
    * <pre>
    *    int64 ChatId = 1;
    * </pre>
    *
    * <code>string RoomKey = 2;</code>
    */
-  com.google.protobuf.ByteString
-      getRoomKeyBytes();
+  com.google.protobuf.ByteString getRoomKeyBytes();
 
-  /**
-   * <code>.RoomActionDoingEnum ActionType = 3;</code>
-   */
+  /** <code>.RoomActionDoingEnum ActionType = 3;</code> */
   int getActionTypeValue();
-  /**
-   * <code>.RoomActionDoingEnum ActionType = 3;</code>
-   */
+  /** <code>.RoomActionDoingEnum ActionType = 3;</code> */
   ir.ms.pb.RoomActionDoingEnum getActionType();
 }

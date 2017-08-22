@@ -3,22 +3,16 @@
 
 package ir.ms.pb;
 
-public interface PB_UserParam_BlockUserOrBuilder extends
+public interface PB_UserParam_BlockUserOrBuilder
+    extends
     // @@protoc_insertion_point(interface_extends:PB_UserParam_BlockUser)
     com.google.protobuf.MessageLiteOrBuilder {
 
-  /**
-   * <code>int32 UserId = 1;</code>
-   */
+  /** <code>int32 UserId = 1;</code> */
   int getUserId();
 
-  /**
-   * <code>string UserName = 2;</code>
-   */
+  /** <code>string UserName = 2;</code> */
   java.lang.String getUserName();
-  /**
-   * <code>string UserName = 2;</code>
-   */
-  com.google.protobuf.ByteString
-      getUserNameBytes();
+  /** <code>string UserName = 2;</code> */
+  com.google.protobuf.ByteString getUserNameBytes();
 }

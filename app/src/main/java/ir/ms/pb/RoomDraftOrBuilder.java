@@ -3,22 +3,16 @@
 
 package ir.ms.pb;
 
-public interface RoomDraftOrBuilder extends
+public interface RoomDraftOrBuilder
+    extends
     // @@protoc_insertion_point(interface_extends:RoomDraft)
     com.google.protobuf.MessageLiteOrBuilder {
 
-  /**
-   * <code>string Message = 1;</code>
-   */
+  /** <code>string Message = 1;</code> */
   java.lang.String getMessage();
-  /**
-   * <code>string Message = 1;</code>
-   */
-  com.google.protobuf.ByteString
-      getMessageBytes();
+  /** <code>string Message = 1;</code> */
+  com.google.protobuf.ByteString getMessageBytes();
 
-  /**
-   * <code>uint64 ReplyTo = 2;</code>
-   */
+  /** <code>uint64 ReplyTo = 2;</code> */
   long getReplyTo();
 }

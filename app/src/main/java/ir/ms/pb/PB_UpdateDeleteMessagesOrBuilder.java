@@ -3,20 +3,15 @@
 
 package ir.ms.pb;
 
-public interface PB_UpdateDeleteMessagesOrBuilder extends
+public interface PB_UpdateDeleteMessagesOrBuilder
+    extends
     // @@protoc_insertion_point(interface_extends:PB_UpdateDeleteMessages)
     com.google.protobuf.MessageLiteOrBuilder {
 
-  /**
-   * <code>repeated int64 MessageIds = 1;</code>
-   */
+  /** <code>repeated int64 MessageIds = 1;</code> */
   java.util.List<java.lang.Long> getMessageIdsList();
-  /**
-   * <code>repeated int64 MessageIds = 1;</code>
-   */
+  /** <code>repeated int64 MessageIds = 1;</code> */
   int getMessageIdsCount();
-  /**
-   * <code>repeated int64 MessageIds = 1;</code>
-   */
+  /** <code>repeated int64 MessageIds = 1;</code> */
   long getMessageIds(int index);
 }

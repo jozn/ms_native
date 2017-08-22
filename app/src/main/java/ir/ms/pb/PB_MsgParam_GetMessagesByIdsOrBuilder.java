@@ -3,11 +3,14 @@
 
 package ir.ms.pb;
 
-public interface PB_MsgParam_GetMessagesByIdsOrBuilder extends
+public interface PB_MsgParam_GetMessagesByIdsOrBuilder
+    extends
     // @@protoc_insertion_point(interface_extends:PB_MsgParam_GetMessagesByIds)
     com.google.protobuf.MessageLiteOrBuilder {
 
   /**
+   *
+   *
    * <pre>
    *    repeated int64 MessageId = 1;
    * </pre>
@@ -16,6 +19,8 @@ public interface PB_MsgParam_GetMessagesByIdsOrBuilder extends
    */
   boolean hasMessagesCollections();
   /**
+   *
+   *
    * <pre>
    *    repeated int64 MessageId = 1;
    * </pre>
