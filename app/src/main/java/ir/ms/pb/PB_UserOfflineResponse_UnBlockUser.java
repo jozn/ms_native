@@ -206,7 +206,6 @@ public final class PB_UserOfflineResponse_UnBlockUser
       return instance.getUsersCount();
     }
     /** <code>repeated .UserView Users = 1;</code> */
-
     public ir.ms.pb.UserView getUsers(int index) {
       return instance.getUsers(index);
     }

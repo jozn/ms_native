@@ -415,7 +415,6 @@ public final class PB_RequestMsgAddMany
      *
      * <code>repeated .PB_Message Messages = 2;</code>
      */
-
     public ir.ms.pb.PB_Message getMessages(int index) {
       return instance.getMessages(index);
     }

@@ -16,12 +16,14 @@ import java.util.List;
 
 public class FlushStoredDataToServer {
 	public static void flushAllMessages() {
-		List<Message> msgs = DB.db.selectFromMessage().ToPushEq(1).toList();
-		flushTextMessages(msgs);
-		flushMediaMsgs(msgs);
-		flushVideoMessages(msgs);
+		if (false){
+			List<Message> msgs = DB.db.selectFromMessage().ToPushEq(1).toList();
+			flushTextMessages(msgs);
+			flushMediaMsgs(msgs);
+			flushVideoMessages(msgs);
 
-		flushSeenMessages();
+			flushSeenMessages();
+		}
 	}
 
 	public static void flushTextMessages(List<Message> msgs){

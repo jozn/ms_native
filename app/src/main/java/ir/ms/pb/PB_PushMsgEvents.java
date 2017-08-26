@@ -277,7 +277,6 @@ public final class PB_PushMsgEvents
       return instance.getEventsCount();
     }
     /** <code>repeated .PB_MsgEvent Events = 2;</code> */
-
     public ir.ms.pb.PB_MsgEvent getEvents(int index) {
       return instance.getEvents(index);
     }

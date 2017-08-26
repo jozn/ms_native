@@ -7,13 +7,14 @@ import com.mardomsara.social.helpers.TimeUtil;
 
 class CommandFrame {
 	private ErrorCallback error;
-	private SuccessCallback reachedServer;
+
+	private SuccessCallback successCallback;
 	private long timeoutAtMs = TimeUtil.getTimeMs() + 5000;//5second timeout
 	private long clientCallId = TimeUtil.getTimeNano();
 	Status status = Status.NOTHING;
 
 	CommandFrame(SuccessCallback success, ErrorCallback error, long clientCallId) {
-		this.reachedServer = success;
+		this.successCallback = success;
 		this.error = error;
 		this.clientCallId = clientCallId;
 
@@ -29,7 +30,7 @@ class CommandFrame {
 			}
 			status= Status.ERROR;
 			Pipe.CommandFrameMap.remove(clientCallId);
-		},5000);
+		},timeoutAtMs);
 	}
 
 	//////////////////////////////////////////
@@ -40,6 +41,15 @@ class CommandFrame {
 		}
 		return handler;
 	}
+
+	public SuccessCallback getSuccessCallback() {
+		return successCallback;
+	}
+
+	public void setStatus(Status status) {
+		this.status = status;
+	}
+
 
 	enum Status {
 		NOTHING,

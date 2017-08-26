@@ -19,11 +19,14 @@ public class RPC {
             new SuccessCallback() {
               @Override
               public void handle(byte[] data) {
+                Log.i(
+                    "RPC ws",
+                    "handling rpc respnse for: UploadNewMsg with respose class PB_ResRpcAddMsg");
                 try {
                   PB_ResRpcAddMsg d = PB_ResRpcAddMsg.parseFrom(data);
                   resultHandler.onResult(d);
                 } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                  Log.d("RPC", "parsing protocol buffer is faild: PB_ResRpcAddMsg");
+                  Log.d("RPC ws", "parsing protocol buffer is faild: PB_ResRpcAddMsg");
                 }
               }
             };
@@ -49,13 +52,17 @@ public class RPC {
             new SuccessCallback() {
               @Override
               public void handle(byte[] data) {
+                Log.i(
+                    "RPC ws",
+                    "handling rpc respnse for: GetLastChnagesForRoom with respose class PB_ResponseLastChangesForTheRoom");
                 try {
                   PB_ResponseLastChangesForTheRoom d =
                       PB_ResponseLastChangesForTheRoom.parseFrom(data);
                   resultHandler.onResult(d);
                 } catch (com.google.protobuf.InvalidProtocolBufferException e) {
                   Log.d(
-                      "RPC", "parsing protocol buffer is faild: PB_ResponseLastChangesForTheRoom");
+                      "RPC ws",
+                      "parsing protocol buffer is faild: PB_ResponseLastChangesForTheRoom");
                 }
               }
             };
@@ -81,11 +88,15 @@ public class RPC {
             new SuccessCallback() {
               @Override
               public void handle(byte[] data) {
+                Log.i(
+                    "RPC ws",
+                    "handling rpc respnse for: SetLastSeen with respose class PB_ResponseSetLastSeenMessages");
                 try {
                   PB_ResponseSetLastSeenMessages d = PB_ResponseSetLastSeenMessages.parseFrom(data);
                   resultHandler.onResult(d);
                 } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                  Log.d("RPC", "parsing protocol buffer is faild: PB_ResponseSetLastSeenMessages");
+                  Log.d(
+                      "RPC ws", "parsing protocol buffer is faild: PB_ResponseSetLastSeenMessages");
                 }
               }
             };
@@ -135,11 +146,15 @@ public class RPC {
             new SuccessCallback() {
               @Override
               public void handle(byte[] data) {
+                Log.i(
+                    "RPC ws",
+                    "handling rpc respnse for: CheckPhone with respose class PB_UserResponse_CheckUserName2");
                 try {
                   PB_UserResponse_CheckUserName2 d = PB_UserResponse_CheckUserName2.parseFrom(data);
                   resultHandler.onResult(d);
                 } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                  Log.d("RPC", "parsing protocol buffer is faild: PB_UserResponse_CheckUserName2");
+                  Log.d(
+                      "RPC ws", "parsing protocol buffer is faild: PB_UserResponse_CheckUserName2");
                 }
               }
             };
@@ -158,11 +173,15 @@ public class RPC {
             new SuccessCallback() {
               @Override
               public void handle(byte[] data) {
+                Log.i(
+                    "RPC ws",
+                    "handling rpc respnse for: SendCode with respose class PB_UserResponse_CheckUserName2");
                 try {
                   PB_UserResponse_CheckUserName2 d = PB_UserResponse_CheckUserName2.parseFrom(data);
                   resultHandler.onResult(d);
                 } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                  Log.d("RPC", "parsing protocol buffer is faild: PB_UserResponse_CheckUserName2");
+                  Log.d(
+                      "RPC ws", "parsing protocol buffer is faild: PB_UserResponse_CheckUserName2");
                 }
               }
             };
@@ -181,11 +200,15 @@ public class RPC {
             new SuccessCallback() {
               @Override
               public void handle(byte[] data) {
+                Log.i(
+                    "RPC ws",
+                    "handling rpc respnse for: SendCodeToSms with respose class PB_UserResponse_CheckUserName2");
                 try {
                   PB_UserResponse_CheckUserName2 d = PB_UserResponse_CheckUserName2.parseFrom(data);
                   resultHandler.onResult(d);
                 } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                  Log.d("RPC", "parsing protocol buffer is faild: PB_UserResponse_CheckUserName2");
+                  Log.d(
+                      "RPC ws", "parsing protocol buffer is faild: PB_UserResponse_CheckUserName2");
                 }
               }
             };
@@ -204,11 +227,15 @@ public class RPC {
             new SuccessCallback() {
               @Override
               public void handle(byte[] data) {
+                Log.i(
+                    "RPC ws",
+                    "handling rpc respnse for: SendCodeToTelgram with respose class PB_UserResponse_CheckUserName2");
                 try {
                   PB_UserResponse_CheckUserName2 d = PB_UserResponse_CheckUserName2.parseFrom(data);
                   resultHandler.onResult(d);
                 } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                  Log.d("RPC", "parsing protocol buffer is faild: PB_UserResponse_CheckUserName2");
+                  Log.d(
+                      "RPC ws", "parsing protocol buffer is faild: PB_UserResponse_CheckUserName2");
                 }
               }
             };
@@ -227,11 +254,15 @@ public class RPC {
             new SuccessCallback() {
               @Override
               public void handle(byte[] data) {
+                Log.i(
+                    "RPC ws",
+                    "handling rpc respnse for: SingUp with respose class PB_UserResponse_CheckUserName2");
                 try {
                   PB_UserResponse_CheckUserName2 d = PB_UserResponse_CheckUserName2.parseFrom(data);
                   resultHandler.onResult(d);
                 } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                  Log.d("RPC", "parsing protocol buffer is faild: PB_UserResponse_CheckUserName2");
+                  Log.d(
+                      "RPC ws", "parsing protocol buffer is faild: PB_UserResponse_CheckUserName2");
                 }
               }
             };
@@ -250,11 +281,15 @@ public class RPC {
             new SuccessCallback() {
               @Override
               public void handle(byte[] data) {
+                Log.i(
+                    "RPC ws",
+                    "handling rpc respnse for: SingIn with respose class PB_UserResponse_CheckUserName2");
                 try {
                   PB_UserResponse_CheckUserName2 d = PB_UserResponse_CheckUserName2.parseFrom(data);
                   resultHandler.onResult(d);
                 } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                  Log.d("RPC", "parsing protocol buffer is faild: PB_UserResponse_CheckUserName2");
+                  Log.d(
+                      "RPC ws", "parsing protocol buffer is faild: PB_UserResponse_CheckUserName2");
                 }
               }
             };
@@ -273,11 +308,15 @@ public class RPC {
             new SuccessCallback() {
               @Override
               public void handle(byte[] data) {
+                Log.i(
+                    "RPC ws",
+                    "handling rpc respnse for: LogOut with respose class PB_UserResponse_CheckUserName2");
                 try {
                   PB_UserResponse_CheckUserName2 d = PB_UserResponse_CheckUserName2.parseFrom(data);
                   resultHandler.onResult(d);
                 } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                  Log.d("RPC", "parsing protocol buffer is faild: PB_UserResponse_CheckUserName2");
+                  Log.d(
+                      "RPC ws", "parsing protocol buffer is faild: PB_UserResponse_CheckUserName2");
                 }
               }
             };
@@ -347,13 +386,18 @@ public class RPC {
             new SuccessCallback() {
               @Override
               public void handle(byte[] data) {
+                Log.i(
+                    "RPC ws",
+                    "handling rpc respnse for: AddNewTextMessage with respose class PB_MsgResponse_AddNewTextMessage");
                 try {
                   PB_MsgResponse_AddNewTextMessage d =
                       PB_MsgResponse_AddNewTextMessage.parseFrom(data);
+
                   resultHandler.onResult(d);
                 } catch (com.google.protobuf.InvalidProtocolBufferException e) {
                   Log.d(
-                      "RPC", "parsing protocol buffer is faild: PB_MsgResponse_AddNewTextMessage");
+                      "RPC ws",
+                      "parsing protocol buffer is faild: PB_MsgResponse_AddNewTextMessage");
                 }
               }
             };
@@ -372,13 +416,17 @@ public class RPC {
             new SuccessCallback() {
               @Override
               public void handle(byte[] data) {
+                Log.i(
+                    "RPC ws",
+                    "handling rpc respnse for: SetRoomActionDoing with respose class PB_MsgResponse_SetRoomActionDoing");
                 try {
                   PB_MsgResponse_SetRoomActionDoing d =
                       PB_MsgResponse_SetRoomActionDoing.parseFrom(data);
                   resultHandler.onResult(d);
                 } catch (com.google.protobuf.InvalidProtocolBufferException e) {
                   Log.d(
-                      "RPC", "parsing protocol buffer is faild: PB_MsgResponse_SetRoomActionDoing");
+                      "RPC ws",
+                      "parsing protocol buffer is faild: PB_MsgResponse_SetRoomActionDoing");
                 }
               }
             };
@@ -397,12 +445,17 @@ public class RPC {
             new SuccessCallback() {
               @Override
               public void handle(byte[] data) {
+                Log.i(
+                    "RPC ws",
+                    "handling rpc respnse for: GetMessagesByIds with respose class PB_MsgResponse_GetMessagesByIds");
                 try {
                   PB_MsgResponse_GetMessagesByIds d =
                       PB_MsgResponse_GetMessagesByIds.parseFrom(data);
                   resultHandler.onResult(d);
                 } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                  Log.d("RPC", "parsing protocol buffer is faild: PB_MsgResponse_GetMessagesByIds");
+                  Log.d(
+                      "RPC ws",
+                      "parsing protocol buffer is faild: PB_MsgResponse_GetMessagesByIds");
                 }
               }
             };
@@ -421,13 +474,17 @@ public class RPC {
             new SuccessCallback() {
               @Override
               public void handle(byte[] data) {
+                Log.i(
+                    "RPC ws",
+                    "handling rpc respnse for: GetMessagesHistory with respose class PB_MsgResponse_GetMessagesHistory");
                 try {
                   PB_MsgResponse_GetMessagesHistory d =
                       PB_MsgResponse_GetMessagesHistory.parseFrom(data);
                   resultHandler.onResult(d);
                 } catch (com.google.protobuf.InvalidProtocolBufferException e) {
                   Log.d(
-                      "RPC", "parsing protocol buffer is faild: PB_MsgResponse_GetMessagesHistory");
+                      "RPC ws",
+                      "parsing protocol buffer is faild: PB_MsgResponse_GetMessagesHistory");
                 }
               }
             };
@@ -446,13 +503,16 @@ public class RPC {
             new SuccessCallback() {
               @Override
               public void handle(byte[] data) {
+                Log.i(
+                    "RPC ws",
+                    "handling rpc respnse for: SetMessagesRangeAsSeen with respose class PB_MsgResponse_SetChatMessagesRangeAsSeen");
                 try {
                   PB_MsgResponse_SetChatMessagesRangeAsSeen d =
                       PB_MsgResponse_SetChatMessagesRangeAsSeen.parseFrom(data);
                   resultHandler.onResult(d);
                 } catch (com.google.protobuf.InvalidProtocolBufferException e) {
                   Log.d(
-                      "RPC",
+                      "RPC ws",
                       "parsing protocol buffer is faild: PB_MsgResponse_SetChatMessagesRangeAsSeen");
                 }
               }
@@ -472,13 +532,17 @@ public class RPC {
             new SuccessCallback() {
               @Override
               public void handle(byte[] data) {
+                Log.i(
+                    "RPC ws",
+                    "handling rpc respnse for: DeleteChatHistory with respose class PB_MsgResponse_DeleteChatHistory");
                 try {
                   PB_MsgResponse_DeleteChatHistory d =
                       PB_MsgResponse_DeleteChatHistory.parseFrom(data);
                   resultHandler.onResult(d);
                 } catch (com.google.protobuf.InvalidProtocolBufferException e) {
                   Log.d(
-                      "RPC", "parsing protocol buffer is faild: PB_MsgResponse_DeleteChatHistory");
+                      "RPC ws",
+                      "parsing protocol buffer is faild: PB_MsgResponse_DeleteChatHistory");
                 }
               }
             };
@@ -497,13 +561,16 @@ public class RPC {
             new SuccessCallback() {
               @Override
               public void handle(byte[] data) {
+                Log.i(
+                    "RPC ws",
+                    "handling rpc respnse for: DeleteMessagesByIds with respose class PB_MsgResponse_DeleteMessagesByIds");
                 try {
                   PB_MsgResponse_DeleteMessagesByIds d =
                       PB_MsgResponse_DeleteMessagesByIds.parseFrom(data);
                   resultHandler.onResult(d);
                 } catch (com.google.protobuf.InvalidProtocolBufferException e) {
                   Log.d(
-                      "RPC",
+                      "RPC ws",
                       "parsing protocol buffer is faild: PB_MsgResponse_DeleteMessagesByIds");
                 }
               }
@@ -523,13 +590,16 @@ public class RPC {
             new SuccessCallback() {
               @Override
               public void handle(byte[] data) {
+                Log.i(
+                    "RPC ws",
+                    "handling rpc respnse for: SetMessagesAsReceived with respose class PB_MsgResponse_SetMessagesAsReceived");
                 try {
                   PB_MsgResponse_SetMessagesAsReceived d =
                       PB_MsgResponse_SetMessagesAsReceived.parseFrom(data);
                   resultHandler.onResult(d);
                 } catch (com.google.protobuf.InvalidProtocolBufferException e) {
                   Log.d(
-                      "RPC",
+                      "RPC ws",
                       "parsing protocol buffer is faild: PB_MsgResponse_SetMessagesAsReceived");
                 }
               }
@@ -549,11 +619,15 @@ public class RPC {
             new SuccessCallback() {
               @Override
               public void handle(byte[] data) {
+                Log.i(
+                    "RPC ws",
+                    "handling rpc respnse for: ForwardMessages with respose class PB_MsgResponse_ForwardMessages");
                 try {
                   PB_MsgResponse_ForwardMessages d = PB_MsgResponse_ForwardMessages.parseFrom(data);
                   resultHandler.onResult(d);
                 } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                  Log.d("RPC", "parsing protocol buffer is faild: PB_MsgResponse_ForwardMessages");
+                  Log.d(
+                      "RPC ws", "parsing protocol buffer is faild: PB_MsgResponse_ForwardMessages");
                 }
               }
             };
@@ -572,11 +646,14 @@ public class RPC {
             new SuccessCallback() {
               @Override
               public void handle(byte[] data) {
+                Log.i(
+                    "RPC ws",
+                    "handling rpc respnse for: EditMessage with respose class PB_MsgResponse_EditMessage");
                 try {
                   PB_MsgResponse_EditMessage d = PB_MsgResponse_EditMessage.parseFrom(data);
                   resultHandler.onResult(d);
                 } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                  Log.d("RPC", "parsing protocol buffer is faild: PB_MsgResponse_EditMessage");
+                  Log.d("RPC ws", "parsing protocol buffer is faild: PB_MsgResponse_EditMessage");
                 }
               }
             };
@@ -595,13 +672,16 @@ public class RPC {
             new SuccessCallback() {
               @Override
               public void handle(byte[] data) {
+                Log.i(
+                    "RPC ws",
+                    "handling rpc respnse for: BroadcastNewMessage with respose class PB_MsgResponse_BroadcastNewMessage");
                 try {
                   PB_MsgResponse_BroadcastNewMessage d =
                       PB_MsgResponse_BroadcastNewMessage.parseFrom(data);
                   resultHandler.onResult(d);
                 } catch (com.google.protobuf.InvalidProtocolBufferException e) {
                   Log.d(
-                      "RPC",
+                      "RPC ws",
                       "parsing protocol buffer is faild: PB_MsgResponse_BroadcastNewMessage");
                 }
               }
@@ -619,12 +699,19 @@ public class RPC {
             new SuccessCallback() {
               @Override
               public void handle(byte[] data) {
+                Log.i(
+                    "RPC ws",
+                    "handling rpc respnse for: Echo with respose class PB_MsgResponse_PB_MsgParam_Echo");
                 try {
                   PB_MsgResponse_PB_MsgParam_Echo d =
                       PB_MsgResponse_PB_MsgParam_Echo.parseFrom(data);
+					Log.i(
+						"RPC ws", " RRRR resp cho " + d.getText() + d.getSerializedSize());
                   resultHandler.onResult(d);
                 } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                  Log.d("RPC", "parsing protocol buffer is faild: PB_MsgResponse_PB_MsgParam_Echo");
+                  Log.d(
+                      "RPC ws",
+                      "parsing protocol buffer is faild: PB_MsgResponse_PB_MsgParam_Echo");
                 }
               }
             };
@@ -670,13 +757,17 @@ public class RPC {
             new SuccessCallback() {
               @Override
               public void handle(byte[] data) {
+                Log.i(
+                    "RPC ws",
+                    "handling rpc respnse for: BlockUser with respose class PB_UserOfflineResponse_BlockUser");
                 try {
                   PB_UserOfflineResponse_BlockUser d =
                       PB_UserOfflineResponse_BlockUser.parseFrom(data);
                   resultHandler.onResult(d);
                 } catch (com.google.protobuf.InvalidProtocolBufferException e) {
                   Log.d(
-                      "RPC", "parsing protocol buffer is faild: PB_UserOfflineResponse_BlockUser");
+                      "RPC ws",
+                      "parsing protocol buffer is faild: PB_UserOfflineResponse_BlockUser");
                 }
               }
             };
@@ -695,13 +786,16 @@ public class RPC {
             new SuccessCallback() {
               @Override
               public void handle(byte[] data) {
+                Log.i(
+                    "RPC ws",
+                    "handling rpc respnse for: UnBlockUser with respose class PB_UserOfflineResponse_UnBlockUser");
                 try {
                   PB_UserOfflineResponse_UnBlockUser d =
                       PB_UserOfflineResponse_UnBlockUser.parseFrom(data);
                   resultHandler.onResult(d);
                 } catch (com.google.protobuf.InvalidProtocolBufferException e) {
                   Log.d(
-                      "RPC",
+                      "RPC ws",
                       "parsing protocol buffer is faild: PB_UserOfflineResponse_UnBlockUser");
                 }
               }
@@ -721,13 +815,16 @@ public class RPC {
             new SuccessCallback() {
               @Override
               public void handle(byte[] data) {
+                Log.i(
+                    "RPC ws",
+                    "handling rpc respnse for: UpdateAbout with respose class PB_UserOfflineResponse_UpdateAbout");
                 try {
                   PB_UserOfflineResponse_UpdateAbout d =
                       PB_UserOfflineResponse_UpdateAbout.parseFrom(data);
                   resultHandler.onResult(d);
                 } catch (com.google.protobuf.InvalidProtocolBufferException e) {
                   Log.d(
-                      "RPC",
+                      "RPC ws",
                       "parsing protocol buffer is faild: PB_UserOfflineResponse_UpdateAbout");
                 }
               }
@@ -747,13 +844,16 @@ public class RPC {
             new SuccessCallback() {
               @Override
               public void handle(byte[] data) {
+                Log.i(
+                    "RPC ws",
+                    "handling rpc respnse for: UpdateUserName with respose class PB_UserOfflineResponse_UpdateUserName");
                 try {
                   PB_UserOfflineResponse_UpdateUserName d =
                       PB_UserOfflineResponse_UpdateUserName.parseFrom(data);
                   resultHandler.onResult(d);
                 } catch (com.google.protobuf.InvalidProtocolBufferException e) {
                   Log.d(
-                      "RPC",
+                      "RPC ws",
                       "parsing protocol buffer is faild: PB_UserOfflineResponse_UpdateUserName");
                 }
               }
@@ -773,13 +873,16 @@ public class RPC {
             new SuccessCallback() {
               @Override
               public void handle(byte[] data) {
+                Log.i(
+                    "RPC ws",
+                    "handling rpc respnse for: ChangePrivacy with respose class PB_UserResponseOffline_ChangePrivacy");
                 try {
                   PB_UserResponseOffline_ChangePrivacy d =
                       PB_UserResponseOffline_ChangePrivacy.parseFrom(data);
                   resultHandler.onResult(d);
                 } catch (com.google.protobuf.InvalidProtocolBufferException e) {
                   Log.d(
-                      "RPC",
+                      "RPC ws",
                       "parsing protocol buffer is faild: PB_UserResponseOffline_ChangePrivacy");
                 }
               }
@@ -799,13 +902,16 @@ public class RPC {
             new SuccessCallback() {
               @Override
               public void handle(byte[] data) {
+                Log.i(
+                    "RPC ws",
+                    "handling rpc respnse for: ChangeAvatar with respose class PB_UserOfflineResponse_ChangeAvatar");
                 try {
                   PB_UserOfflineResponse_ChangeAvatar d =
                       PB_UserOfflineResponse_ChangeAvatar.parseFrom(data);
                   resultHandler.onResult(d);
                 } catch (com.google.protobuf.InvalidProtocolBufferException e) {
                   Log.d(
-                      "RPC",
+                      "RPC ws",
                       "parsing protocol buffer is faild: PB_UserOfflineResponse_ChangeAvatar");
                 }
               }
@@ -836,11 +942,15 @@ public class RPC {
             new SuccessCallback() {
               @Override
               public void handle(byte[] data) {
+                Log.i(
+                    "RPC ws",
+                    "handling rpc respnse for: CheckUserName with respose class PB_UserResponse_CheckUserName");
                 try {
                   PB_UserResponse_CheckUserName d = PB_UserResponse_CheckUserName.parseFrom(data);
                   resultHandler.onResult(d);
                 } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                  Log.d("RPC", "parsing protocol buffer is faild: PB_UserResponse_CheckUserName");
+                  Log.d(
+                      "RPC ws", "parsing protocol buffer is faild: PB_UserResponse_CheckUserName");
                 }
               }
             };
@@ -859,11 +969,14 @@ public class RPC {
             new SuccessCallback() {
               @Override
               public void handle(byte[] data) {
+                Log.i(
+                    "RPC ws",
+                    "handling rpc respnse for: GetBlockedList with respose class PB_UserResponse_BlockedList");
                 try {
                   PB_UserResponse_BlockedList d = PB_UserResponse_BlockedList.parseFrom(data);
                   resultHandler.onResult(d);
                 } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                  Log.d("RPC", "parsing protocol buffer is faild: PB_UserResponse_BlockedList");
+                  Log.d("RPC ws", "parsing protocol buffer is faild: PB_UserResponse_BlockedList");
                 }
               }
             };

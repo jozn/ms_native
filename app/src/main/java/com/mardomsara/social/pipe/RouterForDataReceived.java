@@ -2,16 +2,13 @@ package com.mardomsara.social.pipe;
 
 import android.util.Log;
 
-import com.mardomsara.social.app.Constants;
 import com.mardomsara.social.helpers.AppUtil;
-import com.mardomsara.social.pipe.del.CallRespondCallbacksRegistery;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import ir.ms.pb.PB_CommandReachedToServer;
 import okio.ByteString;
 
 /**
@@ -62,11 +59,11 @@ final class RouterForDataReceived {
 				ir.ms.pb.PB_CommandToClient pbCommandToClient = ir.ms.pb.PB_CommandToClient.parseFrom(body.toByteArray());
 				Log.i("WS: " ,"onMessage: message Command :" + pbCommandToClient.getCommand() + " " + pbCommandToClient.getServerCallId() + " size: " + pbCommandToClient.getData().size());
 
-				if (pbCommandToClient.getCommand().equals(Constants.PB_CommandReachedToServer)) {
+				/*if (pbCommandToClient.getCommand().equals(Constants.PB_CommandReachedToServer)) {
 					Long clientCallId =  PB_CommandReachedToServer.parseFrom(pbCommandToClient.getData()).getClientCallId();
 					CallRespondCallbacksRegistery.tryReachedServer(clientCallId);
 					return;
-				}
+				}*/
 
 				if (pbCommandToClient.getRespondReached() == true && pbCommandToClient.getServerCallId() != 0) {//respond call
 					PipeWS.getInstance().sendToServer_CallReceivedToAndroid(pbCommandToClient.getServerCallId());

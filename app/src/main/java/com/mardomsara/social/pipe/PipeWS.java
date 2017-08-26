@@ -7,7 +7,7 @@ import com.mardomsara.social.app.Constants;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.models.Session;
 import com.mardomsara.social.models.flusher.FlushStoredDataToServer;
-import com.mardomsara.social.pipe.del.Pipe;
+//import com.mardomsara.social.pipe.del.Pipe;
 
 import org.greenrobot.essentials.io.FileUtils;
 
@@ -213,7 +213,7 @@ class PipeWS {
 	void sendToServer_CallReceivedToAndroid(long ServerCallId){
 		PB_CommandReachedToClient pb = PB_CommandReachedToClient.newBuilder().setServerCallId(ServerCallId).build();
 		Runnable r = ()->{};
-		Pipe.makeCall(Constants.PB_CommandReachedToClient, pb, r,r);
+		Pipe.send(Constants.PB_CommandReachedToClient, pb, null,null);
 		/*Call_DEP call = new Call_DEP("CallReceivedToClient");
 		call.ClientCallId = 0;//tell server don't respond
 		call.ServerCallId = ServerCallId;

@@ -75,7 +75,7 @@ android {
         //for react-native 64 problem
         //https://corbt.com/posts/2015/09/18/mixing-32-and-64bit-dependencies-in-android.html
         ndk {
-            abiFilters "armeabi-v7a"//, "x86"
+            abiFilters "armeabi-v7a" ,"x86"//, "x86"
         }
         packagingOptions {
 //            exclude "lib/arm64-v8a/librealm-jni.so"

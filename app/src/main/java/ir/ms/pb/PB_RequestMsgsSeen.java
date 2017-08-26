@@ -277,7 +277,6 @@ public final class PB_RequestMsgsSeen
       return instance.getSeenCount();
     }
     /** <code>repeated .PB_MsgSeen Seen = 2;</code> */
-
     public ir.ms.pb.PB_MsgSeen getSeen(int index) {
       return instance.getSeen(index);
     }

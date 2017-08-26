@@ -28,7 +28,6 @@ public class Pipe {
 			.setData(com.google.protobuf.ByteString.copyFrom(dataMessage.toByteArray()))
 			.build();
 
-
 		if(PipeWS.getInstance().isOpen()){
 			CommandFrame callRespondCallback = new CommandFrame(successCallback,errorCallback,callId);
 			callRespondCallback.setDelayer();
@@ -37,11 +36,21 @@ public class Pipe {
 			PipeWS.getInstance().sendCall(pb_commandToServer);
 		}else {
 			if(errorCallback != null){
-				errorCallback.onError(null);
+				errorCallback.onError(new ErrorReason(ErrorReason.Reason.NO_CONNECTIONS));
 			}
 		}
 	};
 
 	public void sendOffline(){};
+
+	@Deprecated
+	static void tryReachedServer(Long clientCallId) {
+		CommandFrame cf = CommandFrameMap.get(clientCallId);
+		if (cf!=null){
+			if(cf.getSuccessCallback() != null){
+				//
+			}
+		}
+	}
 
 }
