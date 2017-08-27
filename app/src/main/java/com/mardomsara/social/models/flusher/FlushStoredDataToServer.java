@@ -3,8 +3,8 @@ package com.mardomsara.social.models.flusher;
 import com.mardomsara.social.app.Constants;
 import com.mardomsara.social.app.DB;
 import com.mardomsara.social.helpers.AndroidUtil;
-import com.mardomsara.social.models.Message;
-import com.mardomsara.social.models.MsgSeen;
+import com.mardomsara.social.models.tables.Message;
+import com.mardomsara.social.models.tables.MsgSeen;
 
 import java.io.File;
 import java.util.ArrayList;

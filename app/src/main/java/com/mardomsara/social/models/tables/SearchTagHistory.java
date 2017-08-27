@@ -1,4 +1,4 @@
-package com.mardomsara.social.models;
+package com.mardomsara.social.models.tables;
 
 import com.github.gfx.android.orma.annotation.Column;
 import com.github.gfx.android.orma.annotation.OnConflict;

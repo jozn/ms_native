@@ -2,7 +2,7 @@ package com.mardomsara.social.app;
 
 import com.mardomsara.social.enums.MessageEvent;
 import com.mardomsara.social.helpers.TimeUtil;
-import com.mardomsara.social.models.Message;
+import com.mardomsara.social.models.tables.Message;
 
 import java.util.List;
 

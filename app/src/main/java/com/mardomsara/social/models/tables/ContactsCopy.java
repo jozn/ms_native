@@ -1,4 +1,4 @@
-package com.mardomsara.social.models;
+package com.mardomsara.social.models.tables;
 
 import com.github.gfx.android.orma.annotation.Column;
 import com.github.gfx.android.orma.annotation.PrimaryKey;
@@ -9,6 +9,7 @@ import com.mardomsara.social.base.FNV;
 /**
  * Created by Hamid on 9/4/2016.
  */
+@Deprecated
 @Table
 public class ContactsCopy {
 

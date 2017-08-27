@@ -5,10 +5,10 @@ import android.support.annotation.NonNull;
 import com.google.protobuf.ByteString;
 import com.mardomsara.social.app.Constants;
 import com.mardomsara.social.helpers.TimeUtil;
-import com.mardomsara.social.models.Message;
-import com.mardomsara.social.models.MsgFile;
-import com.mardomsara.social.models.MsgSeen;
-import com.mardomsara.social.models.User;
+import com.mardomsara.social.models.tables.Message;
+import com.mardomsara.social.models.tables.MsgFile;
+import com.mardomsara.social.models.tables.MsgSeen;
+import com.mardomsara.social.models.tables.User;
 
 import org.apache.commons.io.FileUtils;
 

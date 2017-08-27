@@ -3,7 +3,7 @@ package com.mardomsara.social.models.memory_store;
 import com.mardomsara.social.app.Events;
 import com.mardomsara.social.lib.ms.ArrayListHashSetKey;
 import com.mardomsara.social.models.RoomModel;
-import com.mardomsara.social.models.Room;
+import com.mardomsara.social.models.tables.Room;
 
 import java.util.List;
 

@@ -3,7 +3,7 @@ package com.mardomsara.social.base;
 import android.util.Log;
 
 import com.mardomsara.social.helpers.AppUtil;
-import com.mardomsara.social.models.Session;
+import com.mardomsara.social.models.tables.Session;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;

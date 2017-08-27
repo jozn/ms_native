@@ -4,8 +4,8 @@ import android.database.Cursor;
 import android.support.annotation.Nullable;
 
 import com.mardomsara.social.app.DB;
-import com.mardomsara.social.models.Message;
-import com.mardomsara.social.models.Room;
+import com.mardomsara.social.models.tables.Message;
+import com.mardomsara.social.models.tables.Room;
 
 import org.greenrobot.essentials.StringUtils;
 

@@ -4,7 +4,7 @@ import com.mardomsara.social.App;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.models.events.NotifyAddedEvent;
-import com.mardomsara.social.models.Notify;
+import com.mardomsara.social.models.tables.Notify;
 import com.mardomsara.social.pipe_pb.NetEventHandler_DEP;
 import com.mardomsara.social.pipe_pb.from_net_calls.json.MsgAddOneJson;
 

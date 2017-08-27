@@ -8,9 +8,9 @@ import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.JsonUtil;
 import com.mardomsara.social.json.HttpJsonList;
-import com.mardomsara.social.models.android.DevicePhoneContacts;
-import com.mardomsara.social.models.android.PhoneContact;
-import com.mardomsara.social.models.ContactsCopy;
+import com.mardomsara.social.models_realm.android.DevicePhoneContacts;
+import com.mardomsara.social.models_realm.android.PhoneContact;
+import com.mardomsara.social.models.tables.ContactsCopy;
 
 import java.util.ArrayList;
 import java.util.List;

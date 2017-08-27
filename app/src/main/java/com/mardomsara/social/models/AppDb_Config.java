@@ -2,6 +2,15 @@ package com.mardomsara.social.models;
 
 import com.github.gfx.android.orma.annotation.Database;
 import com.mardomsara.social.base.old.Command;
+import com.mardomsara.social.models.tables.ContactsCopy;
+import com.mardomsara.social.models.tables.Message;
+import com.mardomsara.social.models.tables.MsgFile;
+import com.mardomsara.social.models.tables.MsgSeen;
+import com.mardomsara.social.models.tables.Notify;
+import com.mardomsara.social.models.tables.Room;
+import com.mardomsara.social.models.tables.SearchTagHistory;
+import com.mardomsara.social.models.tables.SearchUserHistory;
+import com.mardomsara.social.models.tables.User;
 
 /**
  * Created by Hamid on 9/1/2016.

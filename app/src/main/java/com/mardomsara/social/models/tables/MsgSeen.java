@@ -1,4 +1,4 @@
-package com.mardomsara.social.models;
+package com.mardomsara.social.models.tables;
 
 import android.support.annotation.NonNull;
 
@@ -7,7 +7,6 @@ import com.github.gfx.android.orma.annotation.PrimaryKey;
 import com.github.gfx.android.orma.annotation.Table;
 import com.mardomsara.social.app.DB;
 import com.mardomsara.social.helpers.TimeUtil;
-import com.mardomsara.social.models.Session;
 
 @Table
 public class MsgSeen {

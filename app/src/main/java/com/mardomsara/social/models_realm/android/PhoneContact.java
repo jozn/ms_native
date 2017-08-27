@@ -1,7 +1,8 @@
-package com.mardomsara.social.models.android;
+package com.mardomsara.social.models_realm.android;
 
 import com.mardomsara.social.base.FNV;
-import com.mardomsara.social.models.ContactsCopy;
+import com.mardomsara.social.models.tables.ContactsCopy;
+import com.mardomsara.social.models_realm.realm.RealmContactsCopy;
 
 public class PhoneContact {
 	//fields
@@ -21,7 +22,7 @@ public class PhoneContact {
 		Hash = FNV.fnv1a_32(toStringForHash().getBytes()).toString();
 	}
 
-	public void toContactsCopy(ContactsCopy copy) {
+	private void toContactsCopy(ContactsCopy copy) {
 //            ContactsCopy copy = new ContactsCopy();
 		copy.PhoneNumber = this.PhoneNumber;
 		copy.PhoneContactRowId = this.PhoneContactRowId;
@@ -31,9 +32,25 @@ public class PhoneContact {
 		copy.Hash = this.Hash;
 	}
 
+	@Deprecated
 	public ContactsCopy toNewContactsCopy() {
 		ContactsCopy copy= new ContactsCopy();
 		toContactsCopy(copy);
+		return copy;
+	}
+
+	private void toRealmContactsCopy(RealmContactsCopy copy) {
+//            ContactsCopy copy = new ContactsCopy();
+		copy.PhoneNumber = this.PhoneNumber;
+		copy.PhoneContactRowId = this.PhoneContactRowId;
+		copy.PhoneFamilyName = this.PhoneFamilyName;
+		copy.PhoneNormalizedNumber = this.PhoneNormalizedNumber != null ? this.PhoneNormalizedNumber : "";
+		copy.PhoneDisplayName = this.PhoneDisplayName;
+		copy.Hash = this.Hash;
+	}
+	public RealmContactsCopy toNewRealmContactsCopy() {
+		RealmContactsCopy copy= new RealmContactsCopy();
+		toRealmContactsCopy(copy);
 		return copy;
 	}
 }

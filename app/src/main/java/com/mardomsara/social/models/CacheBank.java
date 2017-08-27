@@ -5,6 +5,10 @@ import android.support.annotation.NonNull;
 import android.util.LruCache;
 
 import com.mardomsara.social.app.DB;
+import com.mardomsara.social.models.tables.Message;
+import com.mardomsara.social.models.tables.MsgFile;
+import com.mardomsara.social.models.tables.Room;
+import com.mardomsara.social.models.tables.User;
 
 import java.util.ArrayList;
 import java.util.Collections;

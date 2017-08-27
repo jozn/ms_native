@@ -9,6 +9,7 @@ import com.mardomsara.social.json.HttpJson;
 import com.mardomsara.social.json.HttpJsonList;
 import com.mardomsara.social.json.social.rows.NotifysAddRemoveJson;
 import com.mardomsara.social.models.events.NotifyChanged;
+import com.mardomsara.social.models.tables.Notify;
 
 import java.util.List;
 

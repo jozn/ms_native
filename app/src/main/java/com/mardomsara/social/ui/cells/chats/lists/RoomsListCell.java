@@ -23,8 +23,8 @@ import com.mardomsara.social.lib.ms.ArrayListHashSetKey;
 import com.mardomsara.social.models.RoomModel;
 import com.mardomsara.social.models.memory_store.MemoryStore_LastMsgs;
 import com.mardomsara.social.models.memory_store.MemoryStore_Rooms;
-import com.mardomsara.social.models.Message;
-import com.mardomsara.social.models.Room;
+import com.mardomsara.social.models.tables.Message;
+import com.mardomsara.social.models.tables.Room;
 import com.mardomsara.social.play.DividerItemDecoration;
 import com.mardomsara.social.ui.X;
 

@@ -5,7 +5,7 @@ import android.util.Log;
 import com.mardomsara.social.app.AppFiles;
 import com.mardomsara.social.app.Constants;
 import com.mardomsara.social.helpers.AndroidUtil;
-import com.mardomsara.social.models.Session;
+import com.mardomsara.social.models.tables.Session;
 import com.mardomsara.social.models.flusher.FlushStoredDataToServer;
 //import com.mardomsara.social.pipe.del.Pipe;
 

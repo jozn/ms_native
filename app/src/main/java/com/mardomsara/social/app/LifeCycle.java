@@ -13,7 +13,7 @@ import com.mardomsara.social.app.fresco.FrescoConfig;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.models.NotifyModel;
-import com.mardomsara.social.models.Session;
+import com.mardomsara.social.models.tables.Session;
 import com.mardomsara.social.models.stores.Store;
 import com.mardomsara.social.models.syncer.ContactsCopySyncer;
 import com.mardomsara.social.models.syncer.UserSyncer;

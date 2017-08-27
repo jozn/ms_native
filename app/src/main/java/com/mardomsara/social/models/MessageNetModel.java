@@ -9,6 +9,9 @@ import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.FileUtil;
 import com.mardomsara.social.helpers.FormaterUtil;
 import com.mardomsara.social.helpers.Helper;
+import com.mardomsara.social.models.tables.Message;
+import com.mardomsara.social.models.tables.MsgFile;
+import com.mardomsara.social.models.tables.User;
 import com.mardomsara.social.pipe_pb.PBConv;
 
 import java.util.ArrayList;

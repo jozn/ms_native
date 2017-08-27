@@ -3,7 +3,7 @@ package com.mardomsara.social.base.Http;
 import android.support.annotation.NonNull;
 
 import com.mardomsara.social.app.API;
-import com.mardomsara.social.models.Session;
+import com.mardomsara.social.models.tables.Session;
 
 import java.io.File;
 import java.util.HashMap;

@@ -1,4 +1,4 @@
-package com.mardomsara.social.models.android;
+package com.mardomsara.social.models_realm.android;
 
 import android.Manifest;
 import android.content.Context;

@@ -9,7 +9,7 @@ import com.mardomsara.social.base.Http.Result;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.json.HttpJson;
 import com.mardomsara.social.json.JV;
-import com.mardomsara.social.models.Session;
+import com.mardomsara.social.models.tables.Session;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.X;
 import com.mardomsara.social.ui.adaptors.PostGeneralListCell;

@@ -10,7 +10,7 @@ import com.mardomsara.social.helpers.FormaterUtil;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.json.JV;
 import com.mardomsara.social.models.Comment;
-import com.mardomsara.social.models.Session;
+import com.mardomsara.social.models.tables.Session;
 import com.mardomsara.social.ui.X;
 import com.mardomsara.social.ui.cells.lists.CommentsListCell;
 import com.mardomsara.social.ui.presenter.pages.ProfilePage;

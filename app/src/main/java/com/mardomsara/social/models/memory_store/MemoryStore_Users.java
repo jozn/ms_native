@@ -1,8 +1,8 @@
 package com.mardomsara.social.models.memory_store;
 
 import com.mardomsara.social.app.DB;
-import com.mardomsara.social.models.Room;
-import com.mardomsara.social.models.User;
+import com.mardomsara.social.models.tables.Room;
+import com.mardomsara.social.models.tables.User;
 
 import java.util.ArrayList;
 import java.util.HashMap;

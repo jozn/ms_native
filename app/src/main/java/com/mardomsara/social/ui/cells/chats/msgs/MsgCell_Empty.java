@@ -4,7 +4,7 @@ import android.view.View;
 
 import com.mardomsara.social.R;
 import com.mardomsara.social.helpers.AppUtil;
-import com.mardomsara.social.models.Message;
+import com.mardomsara.social.models.tables.Message;
 
 /**
  * Created by Hamid on 6/13/2016.
