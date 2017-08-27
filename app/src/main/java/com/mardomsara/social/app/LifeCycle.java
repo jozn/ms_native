@@ -5,10 +5,6 @@ import android.content.Intent;
 
 import com.crashlytics.android.Crashlytics;
 import com.facebook.common.logging.FLog;
-import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.imagepipeline.core.ImagePipelineConfig;
-import com.facebook.imagepipeline.listener.RequestListener;
-import com.facebook.imagepipeline.listener.RequestLoggingListener;
 import com.joanzapata.iconify.Iconify;
 import com.joanzapata.iconify.fonts.IoniconsModule;
 import com.joanzapata.iconify.fonts.SimpleLineIconsModule;
@@ -27,9 +23,6 @@ import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.x.iconify.XIconify;
 import com.squareup.picasso.LruCache;
 import com.squareup.picasso.Picasso;
-
-import java.util.HashSet;
-import java.util.Set;
 
 import io.fabric.sdk.android.Fabric;
 import pl.tajchert.nammu.Nammu;

@@ -9,7 +9,7 @@ import com.mardomsara.social.R;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
 import com.mardomsara.social.lib.ms.ArrayListHashSetKey;
-import com.mardomsara.social.models.tables.Message;
+import com.mardomsara.social.models.Message;
 import com.mardomsara.social.ui.cells.chats.msgs.MsgCell_AbstractViewHolder;
 import com.mardomsara.social.ui.cells.chats.msgs.MsgCell_Empty;
 import com.mardomsara.social.ui.cells.chats.msgs.MsgCell_NotSupported;

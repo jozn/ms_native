@@ -1,20 +1,13 @@
 package com.mardomsara.social.ui.cells.chats.msgs;
 
-import android.net.Uri;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.mardomsara.social.R;
-import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
-import com.mardomsara.social.helpers.JsonUtil;
-import com.mardomsara.social.models.extra.MsgExtraPhotoThumbnail;
-import com.mardomsara.social.models.tables.Message;
-import com.mardomsara.social.ui.views.helpers.ViewHelper;
-
-import java.io.File;
+import com.mardomsara.social.models.Message;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;

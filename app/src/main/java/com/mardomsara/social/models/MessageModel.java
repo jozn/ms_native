@@ -19,9 +19,6 @@ import com.mardomsara.social.helpers.LangUtil;
 import com.mardomsara.social.helpers.TimeUtil;
 import com.mardomsara.social.helpers.VideoMetasHelper;
 import com.mardomsara.social.models.memory_store.MemoryStore_LastMsgs;
-import com.mardomsara.social.models.tables.Message;
-import com.mardomsara.social.models.tables.MsgFile;
-import com.mardomsara.social.models.tables.Room;
 import com.mardomsara.social.models.flusher.MsgsCallToServer;
 
 import java.io.File;

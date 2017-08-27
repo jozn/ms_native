@@ -4,7 +4,7 @@ import android.util.Log;
 import android.view.ViewGroup;
 
 import com.mardomsara.emojicon.EmojiMaper;
-import com.mardomsara.social.models.tables.Message;
+import com.mardomsara.social.models.Message;
 import com.mardomsara.social.ui.X;
 
 /**

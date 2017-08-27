@@ -1,4 +1,4 @@
-package com.mardomsara.social.models.tables.futuer;
+package com.mardomsara.social.models.futuer;
 
 
 //@TableModelSpec(className = "GroupMembersTable",tableName = "group_members")

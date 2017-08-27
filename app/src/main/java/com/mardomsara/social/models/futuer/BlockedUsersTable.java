@@ -1,4 +1,4 @@
-package com.mardomsara.social.models.tables.futuer;
+package com.mardomsara.social.models.futuer;
 
 //@TableModelSpec(className = "BlockedUsersTable",tableName = "blocked_users")
 public class BlockedUsersTable {

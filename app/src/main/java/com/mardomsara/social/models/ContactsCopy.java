@@ -1,4 +1,4 @@
-package com.mardomsara.social.models.tables;
+package com.mardomsara.social.models;
 
 import com.github.gfx.android.orma.annotation.Column;
 import com.github.gfx.android.orma.annotation.PrimaryKey;

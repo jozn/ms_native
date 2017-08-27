@@ -1,4 +1,4 @@
-package com.mardomsara.social.models.tables;
+package com.mardomsara.social.models;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -15,9 +15,6 @@ import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.TimeUtil;
-import com.mardomsara.social.models.CacheBank;
-import com.mardomsara.social.models.MessageModel;
-import com.mardomsara.social.models.RoomModel;
 import com.mardomsara.social.models.interfaces.MessageProgressListener;
 import com.mardomsara.social.models.memory_store.MemoryStore_LastMsgs;
 import com.mardomsara.social.models.memory_store.MemoryStore_Rooms;

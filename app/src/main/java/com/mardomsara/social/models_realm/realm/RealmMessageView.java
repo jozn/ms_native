@@ -1,4 +1,4 @@
-package com.mardomsara.social.models.realm;
+package com.mardomsara.social.models_realm.realm;
 
 import io.realm.Realm;
 import io.realm.RealmObject;

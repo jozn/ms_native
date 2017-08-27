@@ -11,10 +11,6 @@ import com.mardomsara.social.helpers.LangUtil;
 import com.mardomsara.social.helpers.TimeUtil;
 import com.mardomsara.social.models.memory_store.MemoryStore_LastMsgs;
 import com.mardomsara.social.models.memory_store.MemoryStore_Rooms;
-import com.mardomsara.social.models.tables.Message;
-import com.mardomsara.social.models.tables.MsgSeen;
-import com.mardomsara.social.models.tables.Room;
-import com.mardomsara.social.models.tables.User;
 import com.mardomsara.social.models.flusher.MsgsCallToServer;
 
 import java.util.ArrayList;

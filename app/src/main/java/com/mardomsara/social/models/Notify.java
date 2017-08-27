@@ -1,4 +1,4 @@
-package com.mardomsara.social.models.tables;
+package com.mardomsara.social.models;
 
 import android.support.annotation.Nullable;
 

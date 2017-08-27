@@ -15,6 +15,8 @@ import ir.ms.pb.RPC;
  * Created by Hamid on 10/1/2016.
  */
 public class Play_WSCallPresenter extends BasePresenter {
+
+	Cells.Title_BigClickAble info = null;
     @Override
     public View buildView() {
         Cells.Scroller cell =new Cells.Scroller();
@@ -29,6 +31,10 @@ public class Play_WSCallPresenter extends BasePresenter {
 			callEcho();
 		}));
 
+		layout.addView(newTitle2("TEXT IN HERER",()->{
+
+		} ));
+
         return rootView;
     }
 
@@ -37,6 +43,8 @@ public class Play_WSCallPresenter extends BasePresenter {
 		RPC.RPC_Msg.Echo(paramEcho,
 			(res)->{
 			Helper.showDebugMessage("echo resu:" + res.getText() + res.toString());
+				info.setText(res.getText());
+
 				throw new RuntimeException("YYYYYYYYYYYYYYYY");
 		}, (err) -> {
 				Helper.showDebugMessage("echo err:" + err);
@@ -54,6 +62,17 @@ public class Play_WSCallPresenter extends BasePresenter {
 
 	View newTitle(String title, Runnable runnable){
 		ViewGroup view = new Cells.Title_BigClickAble(null,title).rootView;
+		view.setOnClickListener((v)->{
+			runnable.run();
+		});
+		int p = AndroidUtil.dpToPx(10);
+		view.setPadding(0,p,p,p);
+		return view;
+	}
+
+	View newTitle2(String title, Runnable runnable){
+		info = new Cells.Title_BigClickAble(null,title);
+		ViewGroup view = info.rootView;
 		view.setOnClickListener((v)->{
 			runnable.run();
 		});

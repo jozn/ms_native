@@ -8,8 +8,6 @@ import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.json.JV;
 import com.mardomsara.social.json.social.rows.UserInfoJson;
 import com.mardomsara.social.models.memory_store.MemoryStore_Users;
-import com.mardomsara.social.models.tables.ContactsCopy;
-import com.mardomsara.social.models.tables.User;
 
 import java.util.List;
 import java.util.Map;

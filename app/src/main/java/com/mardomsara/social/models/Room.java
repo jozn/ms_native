@@ -1,4 +1,4 @@
-package com.mardomsara.social.models.tables;
+package com.mardomsara.social.models;
 
 import android.support.annotation.NonNull;
 
@@ -9,9 +9,6 @@ import com.github.gfx.android.orma.annotation.Table;
 import com.mardomsara.social.BuildConfig;
 import com.mardomsara.social.app.DB;
 import com.mardomsara.social.helpers.LangUtil;
-import com.mardomsara.social.models.CacheBank;
-import com.mardomsara.social.models.Session;
-import com.mardomsara.social.models.UserModel;
 import com.mardomsara.social.models.memory_store.MemoryStore_Rooms;
 import com.mardomsara.social.models.memory_store.MemoryStore_Users;
 

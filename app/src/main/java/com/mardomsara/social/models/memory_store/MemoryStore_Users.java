@@ -1,13 +1,8 @@
 package com.mardomsara.social.models.memory_store;
 
-import android.database.Cursor;
-
 import com.mardomsara.social.app.DB;
-import com.mardomsara.social.models.tables.Message;
-import com.mardomsara.social.models.tables.Room;
-import com.mardomsara.social.models.tables.User;
-
-import org.greenrobot.essentials.StringUtils;
+import com.mardomsara.social.models.Room;
+import com.mardomsara.social.models.User;
 
 import java.util.ArrayList;
 import java.util.HashMap;

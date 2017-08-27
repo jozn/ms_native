@@ -7,7 +7,6 @@ import android.view.Gravity;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.joanzapata.iconify.widget.IconTextView;
 import com.mardomsara.social.R;
 import com.mardomsara.social.base.Http.Http;
 import com.mardomsara.social.base.Http.Result;

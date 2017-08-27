@@ -12,11 +12,10 @@ import com.mardomsara.social.R;
 import com.mardomsara.social.app.Router;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.json.JV;
-import com.mardomsara.social.json.social.rows.UserInfoJson;
 import com.mardomsara.social.models.RoomModel;
 import com.mardomsara.social.models.UserModel;
-import com.mardomsara.social.models.tables.Room;
-import com.mardomsara.social.models.tables.User;
+import com.mardomsara.social.models.Room;
+import com.mardomsara.social.models.User;
 
 /**
  * Created by Hamid on 11/10/2016.

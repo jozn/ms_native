@@ -6,9 +6,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.facebook.drawee.generic.GenericDraweeHierarchy;
-import com.facebook.drawee.generic.GenericDraweeHierarchyBuilder;
-import com.facebook.drawee.generic.RoundingParams;
 import com.mardomsara.social.App;
 import com.mardomsara.social.Nav;
 import com.mardomsara.social.R;
@@ -26,11 +23,10 @@ import com.mardomsara.social.lib.ms.ArrayListHashSetKey;
 import com.mardomsara.social.models.RoomModel;
 import com.mardomsara.social.models.memory_store.MemoryStore_LastMsgs;
 import com.mardomsara.social.models.memory_store.MemoryStore_Rooms;
-import com.mardomsara.social.models.tables.Message;
-import com.mardomsara.social.models.tables.Room;
+import com.mardomsara.social.models.Message;
+import com.mardomsara.social.models.Room;
 import com.mardomsara.social.play.DividerItemDecoration;
 import com.mardomsara.social.ui.X;
-import com.mardomsara.x.iconify.IconColorfulDrawable;
 
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;

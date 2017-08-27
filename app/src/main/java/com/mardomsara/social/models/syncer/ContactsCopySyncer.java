@@ -10,7 +10,7 @@ import com.mardomsara.social.helpers.JsonUtil;
 import com.mardomsara.social.json.HttpJsonList;
 import com.mardomsara.social.models.android.DevicePhoneContacts;
 import com.mardomsara.social.models.android.PhoneContact;
-import com.mardomsara.social.models.tables.ContactsCopy;
+import com.mardomsara.social.models.ContactsCopy;
 
 import java.util.ArrayList;
 import java.util.List;

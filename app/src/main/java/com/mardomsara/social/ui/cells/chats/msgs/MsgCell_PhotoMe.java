@@ -4,7 +4,7 @@ import android.support.annotation.NonNull;
 import android.view.ViewGroup;
 
 import com.mardomsara.social.helpers.AppUtil;
-import com.mardomsara.social.models.tables.Message;
+import com.mardomsara.social.models.Message;
 import com.mardomsara.social.ui.X;
 import com.mardomsara.social.ui.views.helpers.ViewHelper;
 

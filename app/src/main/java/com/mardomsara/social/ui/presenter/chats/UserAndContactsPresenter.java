@@ -1,6 +1,5 @@
 package com.mardomsara.social.ui.presenter.chats;
 
-import android.net.Uri;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -16,8 +15,8 @@ import com.mardomsara.social.models.ContactsCopyModel;
 import com.mardomsara.social.models.UserModel;
 import com.mardomsara.social.models.syncer.ContactsCopySyncer;
 import com.mardomsara.social.models.syncer.UserSyncer;
-import com.mardomsara.social.models.tables.ContactsCopy;
-import com.mardomsara.social.models.tables.User;
+import com.mardomsara.social.models.ContactsCopy;
+import com.mardomsara.social.models.User;
 import com.mardomsara.social.play.DividerItemDecoration;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.X;

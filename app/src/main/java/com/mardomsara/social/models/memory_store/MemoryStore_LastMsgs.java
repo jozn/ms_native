@@ -4,16 +4,12 @@ import android.database.Cursor;
 import android.support.annotation.Nullable;
 
 import com.mardomsara.social.app.DB;
-import com.mardomsara.social.models.MessageModel;
-import com.mardomsara.social.models.RoomModel;
-import com.mardomsara.social.models.tables.Message;
-import com.mardomsara.social.models.tables.Room;
+import com.mardomsara.social.models.Message;
+import com.mardomsara.social.models.Room;
 
 import org.greenrobot.essentials.StringUtils;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;

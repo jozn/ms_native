@@ -10,8 +10,8 @@ import com.mardomsara.social.json.social.rows.UserSyncJson;
 import com.mardomsara.social.models.ContactsCopyModel;
 import com.mardomsara.social.models.stores.Store;
 import com.mardomsara.social.models.stores.StoreConstants;
-import com.mardomsara.social.models.tables.ContactsCopy;
-import com.mardomsara.social.models.tables.User;
+import com.mardomsara.social.models.ContactsCopy;
+import com.mardomsara.social.models.User;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,7 +1,7 @@
 package com.mardomsara.social.models.android;
 
 import com.mardomsara.social.base.FNV;
-import com.mardomsara.social.models.tables.ContactsCopy;
+import com.mardomsara.social.models.ContactsCopy;
 
 public class PhoneContact {
 	//fields

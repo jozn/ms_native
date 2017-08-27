@@ -5,14 +5,10 @@ import com.mardomsara.social.app.Constants;
 import com.mardomsara.social.app.DB;
 import com.mardomsara.social.app.Events;
 import com.mardomsara.social.base.HttpOld;
-import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.FileUtil;
 import com.mardomsara.social.helpers.FormaterUtil;
 import com.mardomsara.social.helpers.Helper;
-import com.mardomsara.social.models.tables.Message;
-import com.mardomsara.social.models.tables.MsgFile;
-import com.mardomsara.social.models.tables.User;
 import com.mardomsara.social.pipe_pb.PBConv;
 
 import java.util.ArrayList;

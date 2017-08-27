@@ -27,7 +27,7 @@ import com.mardomsara.social.lib.Spanny;
 import com.mardomsara.social.models.NotifyModel;
 import com.mardomsara.social.models.events.NotifyAddedEvent;
 import com.mardomsara.social.models.events.NotifyChanged;
-import com.mardomsara.social.models.tables.Notify;
+import com.mardomsara.social.models.Notify;
 import com.mardomsara.social.ui.X;
 import com.mardomsara.social.ui.views.helpers.ViewHelper;
 import com.squareup.picasso.Picasso;

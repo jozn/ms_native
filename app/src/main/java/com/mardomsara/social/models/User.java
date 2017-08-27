@@ -1,14 +1,10 @@
-package com.mardomsara.social.models.tables;
+package com.mardomsara.social.models;
 
 import com.github.gfx.android.orma.annotation.Column;
 import com.github.gfx.android.orma.annotation.PrimaryKey;
 import com.github.gfx.android.orma.annotation.Table;
 import com.mardomsara.social.app.DB;
-import com.mardomsara.social.helpers.AppUtil;
-import com.mardomsara.social.helpers.JsonUtil;
 import com.mardomsara.social.json.social.rows.UserInfoJson;
-import com.mardomsara.social.models.CacheBank;
-import com.mardomsara.social.models.UserModel;
 import com.mardomsara.social.models.memory_store.MemoryStore_Users;
 
 /**

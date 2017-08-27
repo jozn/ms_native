@@ -1,10 +1,8 @@
 package com.mardomsara.social.pipe;
 
-import android.util.Log;
-
 import com.mardomsara.social.app.DB;
 import com.mardomsara.social.helpers.AndroidUtil;
-import com.mardomsara.social.models.tables.Message;
+import com.mardomsara.social.models.Message;
 //import com.mardomsara.social.pipe.del.Pipe;
 
 import java.util.List;

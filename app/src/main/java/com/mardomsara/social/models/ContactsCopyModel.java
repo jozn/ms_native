@@ -3,8 +3,6 @@ package com.mardomsara.social.models;
 import android.support.annotation.NonNull;
 
 import com.mardomsara.social.app.DB;
-import com.mardomsara.social.models.tables.ContactsCopy;
-import com.mardomsara.social.models.tables.User;
 
 import java.util.ArrayList;
 import java.util.HashMap;

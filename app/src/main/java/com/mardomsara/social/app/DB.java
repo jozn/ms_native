@@ -7,7 +7,9 @@ import com.github.gfx.android.orma.Schema;
 import com.github.gfx.android.orma.annotation.Column;
 import com.github.gfx.android.orma.annotation.PrimaryKey;
 import com.mardomsara.social.helpers.AppUtil;
-import com.mardomsara.social.models.tables.AppDB;
+import com.mardomsara.social.models.AppDB;
+//import com.mardomsara.social.models._migrate.tables.AppDB;
+//import com.mardomsara.social.models.tables.AppDB;
 
 import java.lang.reflect.Field;
 

@@ -1,4 +1,4 @@
-package com.mardomsara.social.models.tables.futuer;
+package com.mardomsara.social.models.futuer;
 
 //@TableModelSpec(className = "CustomRoomSettingsTable",tableName = "custom_room_settings")
 public class CustomRoomSettingsTable {

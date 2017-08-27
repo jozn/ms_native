@@ -2,7 +2,7 @@ package com.mardomsara.social.pipe_pb;
 
 import com.mardomsara.social.app.DB;
 import com.mardomsara.social.helpers.AndroidUtil;
-import com.mardomsara.social.models.tables.Message;
+import com.mardomsara.social.models.Message;
 
 import java.util.List;
 

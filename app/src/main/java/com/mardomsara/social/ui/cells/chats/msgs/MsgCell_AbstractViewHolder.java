@@ -3,9 +3,9 @@ package com.mardomsara.social.ui.cells.chats.msgs;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-import com.mardomsara.social.models.tables.Message;
+import com.mardomsara.social.models.Message;
 
-//import com.mardomsara.social.models.tables.Message;
+//import Message;
 
 /**
  * Created by Hamid on 6/13/2016.
