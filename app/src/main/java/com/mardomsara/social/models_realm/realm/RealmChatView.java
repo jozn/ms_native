@@ -2,6 +2,7 @@ package com.mardomsara.social.models_realm.realm;
 
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
+import ir.ms.pb.RoomTypeEnum;
 
 /**
  * Created by Hamid on 8/21/2017.

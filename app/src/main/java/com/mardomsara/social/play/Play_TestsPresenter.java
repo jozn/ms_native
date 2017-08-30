@@ -22,6 +22,8 @@ import com.mardomsara.social.ui.presenter.HelloPresenter;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import ir.ms.pb.PB_MsgFile;
+
 /**
  * Created by Hamid on 10/1/2016.
  */

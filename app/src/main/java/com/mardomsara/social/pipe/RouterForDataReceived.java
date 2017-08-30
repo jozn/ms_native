@@ -21,20 +21,23 @@ final class RouterForDataReceived {
 	static {
 		buildMapper();
 	}
-	private static Map<String,PipeNetEventHandler> mapper;
+	private static Map<String,PipeNetEventHandler> mapper = null;
 
 	private static void handlePushes(String command, byte[] data){
-
+		buildMapper();
 		try {
 			PipeNetEventHandler handler =  mapper.get(command);
 			if(handler != null){
+				AppUtil.log(" ws NetEventRouter handled "+ command +" , size of map: " + mapper.size());
 				handler.handle(data);
+
 			}else if(command.equals("TimeMs")) {
 //				TimeMs(data);
 			}else {
-				AppUtil.error(" ws NetEventRouter for "+ command +" has not been registered. ");
+				AppUtil.error(" ws NetEventRouter for "+ command +" has not been registered. mapper size: " + mapper.size());
 			}
 		}catch (Exception e){
+			AppUtil.error(" ws NetEventRouter crached for "+ command +" . mapper size: " + mapper.size());
 			e.printStackTrace();
 		}
 	}
@@ -44,11 +47,13 @@ final class RouterForDataReceived {
 	}
 
 	private static void buildMapper() {
+		if(mapper != null && mapper.size() >0) return;
 		mapper = new HashMap<>();
 
 		register("PB_CommandReachedToServer", RouterLayerOneHandler.handle_PB_CommandReachedToServer);
 		register("PB_ResponseToClient", RouterLayerOneHandler.handle_PB_ResponseToClient);
 		register("PB_PushDirectLogViewsMany", RouterLayerOneHandler.handle_PB_PushDirectLogViewsMany);
+		register("PB_PushHolderView", RouterLayerOneHandler.handle_PB_PushDirectLogViewsMany);
 	}
 
 	static void handleNetWSMessage(ByteString body) {
@@ -70,7 +75,7 @@ final class RouterForDataReceived {
 				}
 
 				handlePushes(pbCommandToClient.getCommand(), pbCommandToClient.getData().toByteArray() );
-			}catch (Exception e){
+			}catch (com.google.protobuf.InvalidProtocolBufferException e){
 				e.printStackTrace();
 			}
 		};

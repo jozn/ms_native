@@ -5,4 +5,5 @@ package com.mardomsara.social.models_realm.realm;
  */
 
 public class RealmNotificationView {
+
 }

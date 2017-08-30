@@ -3,24 +3,16 @@
 
 package ir.ms.pb;
 
-/**
- *
- *
- * <pre>
- * &#47;//////////////////////////////////////////
- * </pre>
- *
- * Protobuf enum {@code UpdateLogEnum}
- */
+/** Protobuf enum {@code UpdateLogEnum} */
 public enum UpdateLogEnum implements com.google.protobuf.Internal.EnumLite {
   /** <code>UNKNOWN_UPDATE_LOG = 0;</code> */
   UNKNOWN_UPDATE_LOG(0),
-  /** <code>UPDATE_NEWMESSAGE = 1;</code> */
-  UPDATE_NEWMESSAGE(1),
+  /** <code>UPDATE_NEW_MESSAGE = 1;</code> */
+  UPDATE_NEW_MESSAGE(1),
   /** <code>UPDATE_MESSAGE_ID = 2;</code> */
   UPDATE_MESSAGE_ID(2),
-  /** <code>UPDATE_SEENMESSAGES = 3;</code> */
-  UPDATE_SEENMESSAGES(3),
+  /** <code>UPDATE_SEE_NMESSAGES = 3;</code> */
+  UPDATE_SEE_NMESSAGES(3),
   /** <code>UPDATE_DELIVIERD_MESSAGES = 4;</code> */
   UPDATE_DELIVIERD_MESSAGES(4),
   /** <code>UPDATE_DELETED_FROM_SERVERM_ESSAGES = 5;</code> */
@@ -31,8 +23,8 @@ public enum UpdateLogEnum implements com.google.protobuf.Internal.EnumLite {
   UPDATE_ROOM_ACTIONDOING(10),
   /** <code>UPDATE_USER_BLOCKED = 11;</code> */
   UPDATE_USER_BLOCKED(11),
-  /** <code>UPDATE_NOTIF_YSETTINGS = 12;</code> */
-  UPDATE_NOTIF_YSETTINGS(12),
+  /** <code>UPDATE_NOTIFY_SETTINGS = 12;</code> */
+  UPDATE_NOTIFY_SETTINGS(12),
   /** <code>UPDATE_SERVICE_NOTIFICATION = 15;</code> */
   UPDATE_SERVICE_NOTIFICATION(15),
   UNRECOGNIZED(-1),
@@ -40,12 +32,12 @@ public enum UpdateLogEnum implements com.google.protobuf.Internal.EnumLite {
 
   /** <code>UNKNOWN_UPDATE_LOG = 0;</code> */
   public static final int UNKNOWN_UPDATE_LOG_VALUE = 0;
-  /** <code>UPDATE_NEWMESSAGE = 1;</code> */
-  public static final int UPDATE_NEWMESSAGE_VALUE = 1;
+  /** <code>UPDATE_NEW_MESSAGE = 1;</code> */
+  public static final int UPDATE_NEW_MESSAGE_VALUE = 1;
   /** <code>UPDATE_MESSAGE_ID = 2;</code> */
   public static final int UPDATE_MESSAGE_ID_VALUE = 2;
-  /** <code>UPDATE_SEENMESSAGES = 3;</code> */
-  public static final int UPDATE_SEENMESSAGES_VALUE = 3;
+  /** <code>UPDATE_SEE_NMESSAGES = 3;</code> */
+  public static final int UPDATE_SEE_NMESSAGES_VALUE = 3;
   /** <code>UPDATE_DELIVIERD_MESSAGES = 4;</code> */
   public static final int UPDATE_DELIVIERD_MESSAGES_VALUE = 4;
   /** <code>UPDATE_DELETED_FROM_SERVERM_ESSAGES = 5;</code> */
@@ -56,8 +48,8 @@ public enum UpdateLogEnum implements com.google.protobuf.Internal.EnumLite {
   public static final int UPDATE_ROOM_ACTIONDOING_VALUE = 10;
   /** <code>UPDATE_USER_BLOCKED = 11;</code> */
   public static final int UPDATE_USER_BLOCKED_VALUE = 11;
-  /** <code>UPDATE_NOTIF_YSETTINGS = 12;</code> */
-  public static final int UPDATE_NOTIF_YSETTINGS_VALUE = 12;
+  /** <code>UPDATE_NOTIFY_SETTINGS = 12;</code> */
+  public static final int UPDATE_NOTIFY_SETTINGS_VALUE = 12;
   /** <code>UPDATE_SERVICE_NOTIFICATION = 15;</code> */
   public static final int UPDATE_SERVICE_NOTIFICATION_VALUE = 15;
 
@@ -76,11 +68,11 @@ public enum UpdateLogEnum implements com.google.protobuf.Internal.EnumLite {
       case 0:
         return UNKNOWN_UPDATE_LOG;
       case 1:
-        return UPDATE_NEWMESSAGE;
+        return UPDATE_NEW_MESSAGE;
       case 2:
         return UPDATE_MESSAGE_ID;
       case 3:
-        return UPDATE_SEENMESSAGES;
+        return UPDATE_SEE_NMESSAGES;
       case 4:
         return UPDATE_DELIVIERD_MESSAGES;
       case 5:
@@ -92,7 +84,7 @@ public enum UpdateLogEnum implements com.google.protobuf.Internal.EnumLite {
       case 11:
         return UPDATE_USER_BLOCKED;
       case 12:
-        return UPDATE_NOTIF_YSETTINGS;
+        return UPDATE_NOTIFY_SETTINGS;
       case 15:
         return UPDATE_SERVICE_NOTIFICATION;
       default:

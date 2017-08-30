@@ -7,56 +7,59 @@ package ir.ms.pb;
  *
  *
  * <pre>
- * dep
+ * &#47;/////////////////////////////////////////////
  * </pre>
  *
- * Protobuf type {@code PB_UpdateNewMessage}
+ * Protobuf type {@code PB_UpdateMessageMeta}
  */
-public final class PB_UpdateNewMessage
+public final class PB_UpdateMessageMeta
     extends com.google.protobuf.GeneratedMessageLite<
-        PB_UpdateNewMessage, PB_UpdateNewMessage.Builder>
+        PB_UpdateMessageMeta, PB_UpdateMessageMeta.Builder>
     implements
-    // @@protoc_insertion_point(message_implements:PB_UpdateNewMessage)
-    PB_UpdateNewMessageOrBuilder {
-  private PB_UpdateNewMessage() {}
+    // @@protoc_insertion_point(message_implements:PB_UpdateMessageMeta)
+    PB_UpdateMessageMetaOrBuilder {
+  private PB_UpdateMessageMeta() {}
 
-  public static final int MESSAGE_FIELD_NUMBER = 1;
-  private ir.ms.pb.PB_MessageView message_;
-  /** <code>.PB_MessageView Message = 1;</code> */
-  public boolean hasMessage() {
-    return message_ != null;
+  public static final int MESSAGEID_FIELD_NUMBER = 1;
+  private long messageId_;
+  /** <code>int64 MessageId = 1;</code> */
+  public long getMessageId() {
+    return messageId_;
   }
-  /** <code>.PB_MessageView Message = 1;</code> */
-  public ir.ms.pb.PB_MessageView getMessage() {
-    return message_ == null ? ir.ms.pb.PB_MessageView.getDefaultInstance() : message_;
+  /** <code>int64 MessageId = 1;</code> */
+  private void setMessageId(long value) {
+
+    messageId_ = value;
   }
-  /** <code>.PB_MessageView Message = 1;</code> */
-  private void setMessage(ir.ms.pb.PB_MessageView value) {
-    if (value == null) {
-      throw new NullPointerException();
-    }
-    message_ = value;
+  /** <code>int64 MessageId = 1;</code> */
+  private void clearMessageId() {
+
+    messageId_ = 0L;
   }
-  /** <code>.PB_MessageView Message = 1;</code> */
-  private void setMessage(ir.ms.pb.PB_MessageView.Builder builderForValue) {
-    message_ = builderForValue.build();
+
+  public static final int ATTIME_FIELD_NUMBER = 2;
+  private long atTime_;
+  /** <code>int64 AtTime = 2;</code> */
+  public long getAtTime() {
+    return atTime_;
   }
-  /** <code>.PB_MessageView Message = 1;</code> */
-  private void mergeMessage(ir.ms.pb.PB_MessageView value) {
-    if (message_ != null && message_ != ir.ms.pb.PB_MessageView.getDefaultInstance()) {
-      message_ = ir.ms.pb.PB_MessageView.newBuilder(message_).mergeFrom(value).buildPartial();
-    } else {
-      message_ = value;
-    }
+  /** <code>int64 AtTime = 2;</code> */
+  private void setAtTime(long value) {
+
+    atTime_ = value;
   }
-  /** <code>.PB_MessageView Message = 1;</code> */
-  private void clearMessage() {
-    message_ = null;
+  /** <code>int64 AtTime = 2;</code> */
+  private void clearAtTime() {
+
+    atTime_ = 0L;
   }
 
   public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
-    if (message_ != null) {
-      output.writeMessage(1, getMessage());
+    if (messageId_ != 0L) {
+      output.writeInt64(1, messageId_);
+    }
+    if (atTime_ != 0L) {
+      output.writeInt64(2, atTime_);
     }
   }
 
@@ -65,19 +68,22 @@ public final class PB_UpdateNewMessage
     if (size != -1) return size;
 
     size = 0;
-    if (message_ != null) {
-      size += com.google.protobuf.CodedOutputStream.computeMessageSize(1, getMessage());
+    if (messageId_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream.computeInt64Size(1, messageId_);
+    }
+    if (atTime_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream.computeInt64Size(2, atTime_);
     }
     memoizedSerializedSize = size;
     return size;
   }
 
-  public static ir.ms.pb.PB_UpdateNewMessage parseFrom(com.google.protobuf.ByteString data)
+  public static ir.ms.pb.PB_UpdateMessageMeta parseFrom(com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, data);
   }
 
-  public static ir.ms.pb.PB_UpdateNewMessage parseFrom(
+  public static ir.ms.pb.PB_UpdateMessageMeta parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -85,47 +91,47 @@ public final class PB_UpdateNewMessage
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
 
-  public static ir.ms.pb.PB_UpdateNewMessage parseFrom(byte[] data)
+  public static ir.ms.pb.PB_UpdateMessageMeta parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, data);
   }
 
-  public static ir.ms.pb.PB_UpdateNewMessage parseFrom(
+  public static ir.ms.pb.PB_UpdateMessageMeta parseFrom(
       byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
 
-  public static ir.ms.pb.PB_UpdateNewMessage parseFrom(java.io.InputStream input)
+  public static ir.ms.pb.PB_UpdateMessageMeta parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, input);
   }
 
-  public static ir.ms.pb.PB_UpdateNewMessage parseFrom(
+  public static ir.ms.pb.PB_UpdateMessageMeta parseFrom(
       java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, input, extensionRegistry);
   }
 
-  public static ir.ms.pb.PB_UpdateNewMessage parseDelimitedFrom(java.io.InputStream input)
+  public static ir.ms.pb.PB_UpdateMessageMeta parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input);
   }
 
-  public static ir.ms.pb.PB_UpdateNewMessage parseDelimitedFrom(
+  public static ir.ms.pb.PB_UpdateMessageMeta parseDelimitedFrom(
       java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
   }
 
-  public static ir.ms.pb.PB_UpdateNewMessage parseFrom(com.google.protobuf.CodedInputStream input)
+  public static ir.ms.pb.PB_UpdateMessageMeta parseFrom(com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, input);
   }
 
-  public static ir.ms.pb.PB_UpdateNewMessage parseFrom(
+  public static ir.ms.pb.PB_UpdateMessageMeta parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -137,7 +143,7 @@ public final class PB_UpdateNewMessage
     return DEFAULT_INSTANCE.toBuilder();
   }
 
-  public static Builder newBuilder(ir.ms.pb.PB_UpdateNewMessage prototype) {
+  public static Builder newBuilder(ir.ms.pb.PB_UpdateMessageMeta prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
 
@@ -145,56 +151,57 @@ public final class PB_UpdateNewMessage
    *
    *
    * <pre>
-   * dep
+   * &#47;/////////////////////////////////////////////
    * </pre>
    *
-   * Protobuf type {@code PB_UpdateNewMessage}
+   * Protobuf type {@code PB_UpdateMessageMeta}
    */
   public static final class Builder
       extends com.google.protobuf.GeneratedMessageLite.Builder<
-          ir.ms.pb.PB_UpdateNewMessage, Builder>
+          ir.ms.pb.PB_UpdateMessageMeta, Builder>
       implements
-      // @@protoc_insertion_point(builder_implements:PB_UpdateNewMessage)
-      ir.ms.pb.PB_UpdateNewMessageOrBuilder {
-    // Construct using ir.ms.pb.PB_UpdateNewMessage.newBuilder()
+      // @@protoc_insertion_point(builder_implements:PB_UpdateMessageMeta)
+      ir.ms.pb.PB_UpdateMessageMetaOrBuilder {
+    // Construct using ir.ms.pb.PB_UpdateMessageMeta.newBuilder()
     private Builder() {
       super(DEFAULT_INSTANCE);
     }
 
-    /** <code>.PB_MessageView Message = 1;</code> */
-    public boolean hasMessage() {
-      return instance.hasMessage();
+    /** <code>int64 MessageId = 1;</code> */
+    public long getMessageId() {
+      return instance.getMessageId();
     }
-    /** <code>.PB_MessageView Message = 1;</code> */
-    public ir.ms.pb.PB_MessageView getMessage() {
-      return instance.getMessage();
-    }
-    /** <code>.PB_MessageView Message = 1;</code> */
-    public Builder setMessage(ir.ms.pb.PB_MessageView value) {
+    /** <code>int64 MessageId = 1;</code> */
+    public Builder setMessageId(long value) {
       copyOnWrite();
-      instance.setMessage(value);
+      instance.setMessageId(value);
       return this;
     }
-    /** <code>.PB_MessageView Message = 1;</code> */
-    public Builder setMessage(ir.ms.pb.PB_MessageView.Builder builderForValue) {
+    /** <code>int64 MessageId = 1;</code> */
+    public Builder clearMessageId() {
       copyOnWrite();
-      instance.setMessage(builderForValue);
-      return this;
-    }
-    /** <code>.PB_MessageView Message = 1;</code> */
-    public Builder mergeMessage(ir.ms.pb.PB_MessageView value) {
-      copyOnWrite();
-      instance.mergeMessage(value);
-      return this;
-    }
-    /** <code>.PB_MessageView Message = 1;</code> */
-    public Builder clearMessage() {
-      copyOnWrite();
-      instance.clearMessage();
+      instance.clearMessageId();
       return this;
     }
 
-    // @@protoc_insertion_point(builder_scope:PB_UpdateNewMessage)
+    /** <code>int64 AtTime = 2;</code> */
+    public long getAtTime() {
+      return instance.getAtTime();
+    }
+    /** <code>int64 AtTime = 2;</code> */
+    public Builder setAtTime(long value) {
+      copyOnWrite();
+      instance.setAtTime(value);
+      return this;
+    }
+    /** <code>int64 AtTime = 2;</code> */
+    public Builder clearAtTime() {
+      copyOnWrite();
+      instance.clearAtTime();
+      return this;
+    }
+
+    // @@protoc_insertion_point(builder_scope:PB_UpdateMessageMeta)
   }
 
   protected final Object dynamicMethod(
@@ -202,7 +209,7 @@ public final class PB_UpdateNewMessage
     switch (method) {
       case NEW_MUTABLE_INSTANCE:
         {
-          return new ir.ms.pb.PB_UpdateNewMessage();
+          return new ir.ms.pb.PB_UpdateMessageMeta();
         }
       case IS_INITIALIZED:
         {
@@ -219,8 +226,11 @@ public final class PB_UpdateNewMessage
       case VISIT:
         {
           Visitor visitor = (Visitor) arg0;
-          ir.ms.pb.PB_UpdateNewMessage other = (ir.ms.pb.PB_UpdateNewMessage) arg1;
-          message_ = visitor.visitMessage(message_, other.message_);
+          ir.ms.pb.PB_UpdateMessageMeta other = (ir.ms.pb.PB_UpdateMessageMeta) arg1;
+          messageId_ =
+              visitor.visitLong(
+                  messageId_ != 0L, messageId_, other.messageId_ != 0L, other.messageId_);
+          atTime_ = visitor.visitLong(atTime_ != 0L, atTime_, other.atTime_ != 0L, other.atTime_);
           if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor.INSTANCE) {}
           return this;
         }
@@ -244,19 +254,14 @@ public final class PB_UpdateNewMessage
                     }
                     break;
                   }
-                case 10:
+                case 8:
                   {
-                    ir.ms.pb.PB_MessageView.Builder subBuilder = null;
-                    if (message_ != null) {
-                      subBuilder = message_.toBuilder();
-                    }
-                    message_ =
-                        input.readMessage(ir.ms.pb.PB_MessageView.parser(), extensionRegistry);
-                    if (subBuilder != null) {
-                      subBuilder.mergeFrom(message_);
-                      message_ = subBuilder.buildPartial();
-                    }
-
+                    messageId_ = input.readInt64();
+                    break;
+                  }
+                case 16:
+                  {
+                    atTime_ = input.readInt64();
                     break;
                   }
               }
@@ -277,7 +282,7 @@ public final class PB_UpdateNewMessage
       case GET_PARSER:
         {
           if (PARSER == null) {
-            synchronized (ir.ms.pb.PB_UpdateNewMessage.class) {
+            synchronized (ir.ms.pb.PB_UpdateMessageMeta.class) {
               if (PARSER == null) {
                 PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
               }
@@ -289,21 +294,21 @@ public final class PB_UpdateNewMessage
     throw new UnsupportedOperationException();
   }
 
-  // @@protoc_insertion_point(class_scope:PB_UpdateNewMessage)
-  private static final ir.ms.pb.PB_UpdateNewMessage DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:PB_UpdateMessageMeta)
+  private static final ir.ms.pb.PB_UpdateMessageMeta DEFAULT_INSTANCE;
 
   static {
-    DEFAULT_INSTANCE = new PB_UpdateNewMessage();
+    DEFAULT_INSTANCE = new PB_UpdateMessageMeta();
     DEFAULT_INSTANCE.makeImmutable();
   }
 
-  public static ir.ms.pb.PB_UpdateNewMessage getDefaultInstance() {
+  public static ir.ms.pb.PB_UpdateMessageMeta getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static volatile com.google.protobuf.Parser<PB_UpdateNewMessage> PARSER;
+  private static volatile com.google.protobuf.Parser<PB_UpdateMessageMeta> PARSER;
 
-  public static com.google.protobuf.Parser<PB_UpdateNewMessage> parser() {
+  public static com.google.protobuf.Parser<PB_UpdateMessageMeta> parser() {
     return DEFAULT_INSTANCE.getParserForType();
   }
 }

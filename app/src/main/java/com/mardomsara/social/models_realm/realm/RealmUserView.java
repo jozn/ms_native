@@ -17,8 +17,12 @@ public class RealmUserView extends RealmObject {
 	public String FullName;
 	public String AvatarUrl;
 	public int PrivacyProfile;
-	public String Phone;
+	public int IsDeleted;
+	public int FollowersCount;
+	public int FollowingCount;
+	public int PostsCount;
 	public int UpdatedTime;
 	public int AppVersion;
+	public int LastActivityTime;
 	public int FollowingType;
 }

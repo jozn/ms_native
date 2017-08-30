@@ -6,14 +6,6 @@ public class RPC_INTERFACES {
     void UploadNewMsg(PB_ResRpcAddMsg pbOut);
   }
 
-  public interface RPC_MessageReq {
-    void GetLastChnagesForRoom(PB_ResponseLastChangesForTheRoom pbOut);
-  }
-
-  public interface RPC_MessageReqOffline {
-    void SetLastSeen(PB_ResponseSetLastSeenMessages pbOut);
-  }
-
   public interface RPC_Auth {
     void CheckPhone(PB_UserResponse_CheckUserName2 pbOut);
 
@@ -28,6 +20,34 @@ public class RPC_INTERFACES {
     void SingIn(PB_UserResponse_CheckUserName2 pbOut);
 
     void LogOut(PB_UserResponse_CheckUserName2 pbOut);
+  }
+
+  public interface RPC_UserOffline {
+    void BlockUser(PB_UserOfflineResponse_BlockUser pbOut);
+
+    void UnBlockUser(PB_UserOfflineResponse_UnBlockUser pbOut);
+
+    void UpdateAbout(PB_UserOfflineResponse_UpdateAbout pbOut);
+
+    void UpdateUserName(PB_UserOfflineResponse_UpdateUserName pbOut);
+
+    void ChangePrivacy(PB_UserResponseOffline_ChangePrivacy pbOut);
+
+    void ChangeAvatar(PB_UserOfflineResponse_ChangeAvatar pbOut);
+  }
+
+  public interface RPC_User {
+    void CheckUserName(PB_UserResponse_CheckUserName pbOut);
+
+    void GetBlockedList(PB_UserResponse_BlockedList pbOut);
+  }
+
+  public interface RPC_MessageReq {
+    void GetLastChnagesForRoom(PB_ResponseLastChangesForTheRoom pbOut);
+  }
+
+  public interface RPC_MessageReqOffline {
+    void SetLastSeen(PB_ResponseSetLastSeenMessages pbOut);
   }
 
   public interface RPC_Msg {
@@ -55,35 +75,15 @@ public class RPC_INTERFACES {
 
     void Echo(PB_MsgResponse_PB_MsgParam_Echo pbOut);
   }
-
-  public interface RPC_UserOffline {
-    void BlockUser(PB_UserOfflineResponse_BlockUser pbOut);
-
-    void UnBlockUser(PB_UserOfflineResponse_UnBlockUser pbOut);
-
-    void UpdateAbout(PB_UserOfflineResponse_UpdateAbout pbOut);
-
-    void UpdateUserName(PB_UserOfflineResponse_UpdateUserName pbOut);
-
-    void ChangePrivacy(PB_UserResponseOffline_ChangePrivacy pbOut);
-
-    void ChangeAvatar(PB_UserOfflineResponse_ChangeAvatar pbOut);
-  }
-
-  public interface RPC_User {
-    void CheckUserName(PB_UserResponse_CheckUserName pbOut);
-
-    void GetBlockedList(PB_UserResponse_BlockedList pbOut);
-  }
 }
 /*
 
 RPC_INTERFACES.RpcMsgs RpcMsgs_Handeler = null;
-RPC_INTERFACES.RPC_MessageReq RPC_MessageReq_Handeler = null;
-RPC_INTERFACES.RPC_MessageReqOffline RPC_MessageReqOffline_Handeler = null;
 RPC_INTERFACES.RPC_Auth RPC_Auth_Handeler = null;
-RPC_INTERFACES.RPC_Msg RPC_Msg_Handeler = null;
 RPC_INTERFACES.RPC_UserOffline RPC_UserOffline_Handeler = null;
 RPC_INTERFACES.RPC_User RPC_User_Handeler = null;
+RPC_INTERFACES.RPC_MessageReq RPC_MessageReq_Handeler = null;
+RPC_INTERFACES.RPC_MessageReqOffline RPC_MessageReqOffline_Handeler = null;
+RPC_INTERFACES.RPC_Msg RPC_Msg_Handeler = null;
 
 */

@@ -3,15 +3,19 @@ package com.mardomsara.social.pipe;
 import android.os.Handler;
 import android.os.Looper;
 
+import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.TimeUtil;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 class CommandFrame {
 	private ErrorCallback error;
 
 	private SuccessCallback successCallback;
-	private long timeoutAtMs = TimeUtil.getTimeMs() + 5000;//5second timeout
+	private long timeoutMs = 5000;//5second timeout
 	private long clientCallId = TimeUtil.getTimeNano();
-	Status status = Status.NOTHING;
+	private Status status = Status.NOTHING;
 
 	CommandFrame(SuccessCallback success, ErrorCallback error, long clientCallId) {
 		this.successCallback = success;
@@ -22,7 +26,25 @@ class CommandFrame {
 	}
 
 	void setDelayer(){
+		new Timer().schedule(new TimerTask() {
+			@Override
+			public void run() {
+				Helper.showDebugMessage("getHandler().postDelayed(()->{}");
+				if(status == Status.NOTHING){
+					if(error != null){
+						error.onError(null);
+					}
+				}
+				status= Status.ERROR;
+				Pipe.CommandFrameMap.remove(clientCallId);
+			}
+		}, timeoutMs);
+	}
+
+
+	void setDelayer2(){
 		getHandler().postDelayed(()->{
+			Helper.showDebugMessage("getHandler().postDelayed(()->{}");
 			if(status == Status.NOTHING){
 				if(error != null){
 					error.onError(null);
@@ -30,9 +52,8 @@ class CommandFrame {
 			}
 			status= Status.ERROR;
 			Pipe.CommandFrameMap.remove(clientCallId);
-		},timeoutAtMs);
+		}, timeoutMs);
 	}
-
 	//////////////////////////////////////////
 	static Handler handler;
 	static Handler getHandler(){
