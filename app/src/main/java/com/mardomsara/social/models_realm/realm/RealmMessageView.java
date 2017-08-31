@@ -24,4 +24,9 @@ public class RealmMessageView extends RealmObject {
 	public long ChatId;
 //	public ir.ms.pb.RoomTypeEnum RoomTypeEnum;
 	public boolean IsByMe;
+	// END OF FLAT TYPES
+
+	public RealmMessageFileView fileView;
+
+	//add repley to, forward from, system log, contact, postView, TagView, UserView, GroupView, profileView
 }

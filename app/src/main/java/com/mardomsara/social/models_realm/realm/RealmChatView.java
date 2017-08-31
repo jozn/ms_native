@@ -21,5 +21,12 @@ public class RealmChatView extends RealmObject {
 	public int CreatedTime;
 	public int CurrentSeq;
 	public long UpdatedMs;
+	// end of flat types//
 
+	public long sharedMediaCount = 0;
+	public RealmMessageView firstUnreadMessage;
+	public RealmMessageView lastMessage;
+	public RealmUserView user;
+
+	// add: setting, notifaction , group, draft
 }
