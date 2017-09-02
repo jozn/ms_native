@@ -8,6 +8,8 @@ import com.mardomsara.social.helpers.LangUtil;
 import com.mardomsara.social.models.RoomModel;
 import com.mardomsara.social.models.tables.Message;
 import com.mardomsara.social.models.tables.Room;
+import com.mardomsara.social.models_realm.realm.RealmChatView;
+import com.mardomsara.social.models_realm.realm.RealmMessageView;
 import com.mardomsara.social.ui.cells.chat_realm.RoomsListCell;
 
 import java.util.ArrayList;
@@ -15,10 +17,10 @@ import java.util.List;
 
 final class InboxRoomHelper {
 
-        public static String getLastMsgFormatedText(Message lastMsg){
+        public static String getLastMsgFormatedText(RealmMessageView lastMsg){
 			String txt = "";
             int limit = 40;
-            switch (lastMsg.MessageTypeId){
+            switch (lastMsg.MessageTypeEnumId){
                 case Constants.MESSAGE_TEXT:
                     txt = LangUtil.limitText(lastMsg.Text, limit);
                     break;
@@ -44,17 +46,20 @@ final class InboxRoomHelper {
             return txt;
         }
 
-        public static void moreRoomOptin(Room room, RoomsListCell.RoomsListAdaptor adaptor) {
+        public static void moreRoomOptin(RealmChatView room, InboxChatsListAdaptor adaptor) {
             if(room == null || adaptor == null) return;
             List<DialogHelper.MenuItem> items = new ArrayList<>();
             items.add(new DialogHelper.MenuItem("پاک کردن پیام ها",(v)->{
-                AndroidUtil.runInBackgroundNoPanic(()-> RoomModel.clearRoomMsgs(room));
+				//TODO
+//                AndroidUtil.runInBackgroundNoPanic(()-> RoomModel.clearRoomMsgs(room));
                 adaptor.notifyDataSetChanged();
             }));
 
+			//TODO
             items.add(new DialogHelper.MenuItem("حذف گفتگو",(v)->{
-                AndroidUtil.runInBackgroundNoPanic(()-> RoomModel.deleteRoom(room.RoomKey) );
-                adaptor.roomsList.remove(room);
+//                AndroidUtil.runInBackgroundNoPanic(()-> RoomModel.deleteRoom(room.RoomKey) );
+
+//                adaptor.roomsList.remove(room);
                 adaptor.notifyDataSetChanged();
             }));
 

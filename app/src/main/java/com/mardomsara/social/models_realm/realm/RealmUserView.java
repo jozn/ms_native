@@ -1,5 +1,8 @@
 package com.mardomsara.social.models_realm.realm;
 
+import com.mardomsara.social.app.MSRealm;
+
+import io.realm.Realm;
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
@@ -25,4 +28,12 @@ public class RealmUserView extends RealmObject {
 	public int AppVersion;
 	public int LastActivityTime;
 	public int FollowingType;
+
+	public static RealmUserView getUserByUserId(int UserId){
+		Realm realm = MSRealm.getChatRealm();
+		RealmUserView r = realm.where(RealmUserView.class).equalTo(RealmUserViewFields.USER_ID, UserId).findFirst();
+		realm.close();
+
+		return r;
+	}
 }

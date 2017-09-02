@@ -22,24 +22,30 @@ public interface PB_ChatViewOrBuilder
   /** <code>int32 UserId = 7;</code> */
   int getUserId();
 
-  /** <code>int32 LastSeqSeen = 9;</code> */
-  int getLastSeqSeen();
-
-  /** <code>int32 LastSeqDelete = 11;</code> */
-  int getLastSeqDelete();
-
-  /** <code>int32 PeerUserId = 13;</code> */
+  /** <code>int32 PeerUserId = 9;</code> */
   int getPeerUserId();
 
-  /** <code>int64 GroupId = 15;</code> */
+  /** <code>int64 GroupId = 11;</code> */
   long getGroupId();
 
-  /** <code>int32 CreatedTime = 17;</code> */
+  /** <code>int32 CreatedTime = 13;</code> */
   int getCreatedTime();
 
-  /** <code>int32 CurrentSeq = 19;</code> */
-  int getCurrentSeq();
-
-  /** <code>int64 UpdatedMs = 21;</code> */
+  /** <code>int64 UpdatedMs = 15;</code> */
   long getUpdatedMs();
+
+  /** <code>int64 DirectLastMessageId = 17;</code> */
+  long getDirectLastMessageId();
+
+  /** <code>int64 LastSeenMessageId = 19;</code> */
+  long getLastSeenMessageId();
+
+  /** <code>int32 LastSeqSeen = 21;</code> */
+  int getLastSeqSeen();
+
+  /** <code>int32 LastSeqDelete = 23;</code> */
+  int getLastSeqDelete();
+
+  /** <code>int32 CurrentSeq = 25;</code> */
+  int getCurrentSeq();
 }

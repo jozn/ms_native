@@ -97,123 +97,157 @@ public final class PB_ChatView
     userId_ = 0;
   }
 
-  public static final int LASTSEQSEEN_FIELD_NUMBER = 9;
-  private int lastSeqSeen_;
-  /** <code>int32 LastSeqSeen = 9;</code> */
-  public int getLastSeqSeen() {
-    return lastSeqSeen_;
-  }
-  /** <code>int32 LastSeqSeen = 9;</code> */
-  private void setLastSeqSeen(int value) {
-
-    lastSeqSeen_ = value;
-  }
-  /** <code>int32 LastSeqSeen = 9;</code> */
-  private void clearLastSeqSeen() {
-
-    lastSeqSeen_ = 0;
-  }
-
-  public static final int LASTSEQDELETE_FIELD_NUMBER = 11;
-  private int lastSeqDelete_;
-  /** <code>int32 LastSeqDelete = 11;</code> */
-  public int getLastSeqDelete() {
-    return lastSeqDelete_;
-  }
-  /** <code>int32 LastSeqDelete = 11;</code> */
-  private void setLastSeqDelete(int value) {
-
-    lastSeqDelete_ = value;
-  }
-  /** <code>int32 LastSeqDelete = 11;</code> */
-  private void clearLastSeqDelete() {
-
-    lastSeqDelete_ = 0;
-  }
-
-  public static final int PEERUSERID_FIELD_NUMBER = 13;
+  public static final int PEERUSERID_FIELD_NUMBER = 9;
   private int peerUserId_;
-  /** <code>int32 PeerUserId = 13;</code> */
+  /** <code>int32 PeerUserId = 9;</code> */
   public int getPeerUserId() {
     return peerUserId_;
   }
-  /** <code>int32 PeerUserId = 13;</code> */
+  /** <code>int32 PeerUserId = 9;</code> */
   private void setPeerUserId(int value) {
 
     peerUserId_ = value;
   }
-  /** <code>int32 PeerUserId = 13;</code> */
+  /** <code>int32 PeerUserId = 9;</code> */
   private void clearPeerUserId() {
 
     peerUserId_ = 0;
   }
 
-  public static final int GROUPID_FIELD_NUMBER = 15;
+  public static final int GROUPID_FIELD_NUMBER = 11;
   private long groupId_;
-  /** <code>int64 GroupId = 15;</code> */
+  /** <code>int64 GroupId = 11;</code> */
   public long getGroupId() {
     return groupId_;
   }
-  /** <code>int64 GroupId = 15;</code> */
+  /** <code>int64 GroupId = 11;</code> */
   private void setGroupId(long value) {
 
     groupId_ = value;
   }
-  /** <code>int64 GroupId = 15;</code> */
+  /** <code>int64 GroupId = 11;</code> */
   private void clearGroupId() {
 
     groupId_ = 0L;
   }
 
-  public static final int CREATEDTIME_FIELD_NUMBER = 17;
+  public static final int CREATEDTIME_FIELD_NUMBER = 13;
   private int createdTime_;
-  /** <code>int32 CreatedTime = 17;</code> */
+  /** <code>int32 CreatedTime = 13;</code> */
   public int getCreatedTime() {
     return createdTime_;
   }
-  /** <code>int32 CreatedTime = 17;</code> */
+  /** <code>int32 CreatedTime = 13;</code> */
   private void setCreatedTime(int value) {
 
     createdTime_ = value;
   }
-  /** <code>int32 CreatedTime = 17;</code> */
+  /** <code>int32 CreatedTime = 13;</code> */
   private void clearCreatedTime() {
 
     createdTime_ = 0;
   }
 
-  public static final int CURRENTSEQ_FIELD_NUMBER = 19;
-  private int currentSeq_;
-  /** <code>int32 CurrentSeq = 19;</code> */
-  public int getCurrentSeq() {
-    return currentSeq_;
-  }
-  /** <code>int32 CurrentSeq = 19;</code> */
-  private void setCurrentSeq(int value) {
-
-    currentSeq_ = value;
-  }
-  /** <code>int32 CurrentSeq = 19;</code> */
-  private void clearCurrentSeq() {
-
-    currentSeq_ = 0;
-  }
-
-  public static final int UPDATEDMS_FIELD_NUMBER = 21;
+  public static final int UPDATEDMS_FIELD_NUMBER = 15;
   private long updatedMs_;
-  /** <code>int64 UpdatedMs = 21;</code> */
+  /** <code>int64 UpdatedMs = 15;</code> */
   public long getUpdatedMs() {
     return updatedMs_;
   }
-  /** <code>int64 UpdatedMs = 21;</code> */
+  /** <code>int64 UpdatedMs = 15;</code> */
   private void setUpdatedMs(long value) {
 
     updatedMs_ = value;
   }
-  /** <code>int64 UpdatedMs = 21;</code> */
+  /** <code>int64 UpdatedMs = 15;</code> */
   private void clearUpdatedMs() {
 
     updatedMs_ = 0L;
+  }
+
+  public static final int DIRECTLASTMESSAGEID_FIELD_NUMBER = 17;
+  private long directLastMessageId_;
+  /** <code>int64 DirectLastMessageId = 17;</code> */
+  public long getDirectLastMessageId() {
+    return directLastMessageId_;
+  }
+  /** <code>int64 DirectLastMessageId = 17;</code> */
+  private void setDirectLastMessageId(long value) {
+
+    directLastMessageId_ = value;
+  }
+  /** <code>int64 DirectLastMessageId = 17;</code> */
+  private void clearDirectLastMessageId() {
+
+    directLastMessageId_ = 0L;
+  }
+
+  public static final int LASTSEENMESSAGEID_FIELD_NUMBER = 19;
+  private long lastSeenMessageId_;
+  /** <code>int64 LastSeenMessageId = 19;</code> */
+  public long getLastSeenMessageId() {
+    return lastSeenMessageId_;
+  }
+  /** <code>int64 LastSeenMessageId = 19;</code> */
+  private void setLastSeenMessageId(long value) {
+
+    lastSeenMessageId_ = value;
+  }
+  /** <code>int64 LastSeenMessageId = 19;</code> */
+  private void clearLastSeenMessageId() {
+
+    lastSeenMessageId_ = 0L;
+  }
+
+  public static final int LASTSEQSEEN_FIELD_NUMBER = 21;
+  private int lastSeqSeen_;
+  /** <code>int32 LastSeqSeen = 21;</code> */
+  public int getLastSeqSeen() {
+    return lastSeqSeen_;
+  }
+  /** <code>int32 LastSeqSeen = 21;</code> */
+  private void setLastSeqSeen(int value) {
+
+    lastSeqSeen_ = value;
+  }
+  /** <code>int32 LastSeqSeen = 21;</code> */
+  private void clearLastSeqSeen() {
+
+    lastSeqSeen_ = 0;
+  }
+
+  public static final int LASTSEQDELETE_FIELD_NUMBER = 23;
+  private int lastSeqDelete_;
+  /** <code>int32 LastSeqDelete = 23;</code> */
+  public int getLastSeqDelete() {
+    return lastSeqDelete_;
+  }
+  /** <code>int32 LastSeqDelete = 23;</code> */
+  private void setLastSeqDelete(int value) {
+
+    lastSeqDelete_ = value;
+  }
+  /** <code>int32 LastSeqDelete = 23;</code> */
+  private void clearLastSeqDelete() {
+
+    lastSeqDelete_ = 0;
+  }
+
+  public static final int CURRENTSEQ_FIELD_NUMBER = 25;
+  private int currentSeq_;
+  /** <code>int32 CurrentSeq = 25;</code> */
+  public int getCurrentSeq() {
+    return currentSeq_;
+  }
+  /** <code>int32 CurrentSeq = 25;</code> */
+  private void setCurrentSeq(int value) {
+
+    currentSeq_ = value;
+  }
+  /** <code>int32 CurrentSeq = 25;</code> */
+  private void clearCurrentSeq() {
+
+    currentSeq_ = 0;
   }
 
   public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
@@ -229,26 +263,32 @@ public final class PB_ChatView
     if (userId_ != 0) {
       output.writeInt32(7, userId_);
     }
-    if (lastSeqSeen_ != 0) {
-      output.writeInt32(9, lastSeqSeen_);
-    }
-    if (lastSeqDelete_ != 0) {
-      output.writeInt32(11, lastSeqDelete_);
-    }
     if (peerUserId_ != 0) {
-      output.writeInt32(13, peerUserId_);
+      output.writeInt32(9, peerUserId_);
     }
     if (groupId_ != 0L) {
-      output.writeInt64(15, groupId_);
+      output.writeInt64(11, groupId_);
     }
     if (createdTime_ != 0) {
-      output.writeInt32(17, createdTime_);
-    }
-    if (currentSeq_ != 0) {
-      output.writeInt32(19, currentSeq_);
+      output.writeInt32(13, createdTime_);
     }
     if (updatedMs_ != 0L) {
-      output.writeInt64(21, updatedMs_);
+      output.writeInt64(15, updatedMs_);
+    }
+    if (directLastMessageId_ != 0L) {
+      output.writeInt64(17, directLastMessageId_);
+    }
+    if (lastSeenMessageId_ != 0L) {
+      output.writeInt64(19, lastSeenMessageId_);
+    }
+    if (lastSeqSeen_ != 0) {
+      output.writeInt32(21, lastSeqSeen_);
+    }
+    if (lastSeqDelete_ != 0) {
+      output.writeInt32(23, lastSeqDelete_);
+    }
+    if (currentSeq_ != 0) {
+      output.writeInt32(25, currentSeq_);
     }
   }
 
@@ -269,26 +309,32 @@ public final class PB_ChatView
     if (userId_ != 0) {
       size += com.google.protobuf.CodedOutputStream.computeInt32Size(7, userId_);
     }
-    if (lastSeqSeen_ != 0) {
-      size += com.google.protobuf.CodedOutputStream.computeInt32Size(9, lastSeqSeen_);
-    }
-    if (lastSeqDelete_ != 0) {
-      size += com.google.protobuf.CodedOutputStream.computeInt32Size(11, lastSeqDelete_);
-    }
     if (peerUserId_ != 0) {
-      size += com.google.protobuf.CodedOutputStream.computeInt32Size(13, peerUserId_);
+      size += com.google.protobuf.CodedOutputStream.computeInt32Size(9, peerUserId_);
     }
     if (groupId_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream.computeInt64Size(15, groupId_);
+      size += com.google.protobuf.CodedOutputStream.computeInt64Size(11, groupId_);
     }
     if (createdTime_ != 0) {
-      size += com.google.protobuf.CodedOutputStream.computeInt32Size(17, createdTime_);
-    }
-    if (currentSeq_ != 0) {
-      size += com.google.protobuf.CodedOutputStream.computeInt32Size(19, currentSeq_);
+      size += com.google.protobuf.CodedOutputStream.computeInt32Size(13, createdTime_);
     }
     if (updatedMs_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream.computeInt64Size(21, updatedMs_);
+      size += com.google.protobuf.CodedOutputStream.computeInt64Size(15, updatedMs_);
+    }
+    if (directLastMessageId_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream.computeInt64Size(17, directLastMessageId_);
+    }
+    if (lastSeenMessageId_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream.computeInt64Size(19, lastSeenMessageId_);
+    }
+    if (lastSeqSeen_ != 0) {
+      size += com.google.protobuf.CodedOutputStream.computeInt32Size(21, lastSeqSeen_);
+    }
+    if (lastSeqDelete_ != 0) {
+      size += com.google.protobuf.CodedOutputStream.computeInt32Size(23, lastSeqDelete_);
+    }
+    if (currentSeq_ != 0) {
+      size += com.google.protobuf.CodedOutputStream.computeInt32Size(25, currentSeq_);
     }
     memoizedSerializedSize = size;
     return size;
@@ -452,122 +498,156 @@ public final class PB_ChatView
       return this;
     }
 
-    /** <code>int32 LastSeqSeen = 9;</code> */
-    public int getLastSeqSeen() {
-      return instance.getLastSeqSeen();
-    }
-    /** <code>int32 LastSeqSeen = 9;</code> */
-    public Builder setLastSeqSeen(int value) {
-      copyOnWrite();
-      instance.setLastSeqSeen(value);
-      return this;
-    }
-    /** <code>int32 LastSeqSeen = 9;</code> */
-    public Builder clearLastSeqSeen() {
-      copyOnWrite();
-      instance.clearLastSeqSeen();
-      return this;
-    }
-
-    /** <code>int32 LastSeqDelete = 11;</code> */
-    public int getLastSeqDelete() {
-      return instance.getLastSeqDelete();
-    }
-    /** <code>int32 LastSeqDelete = 11;</code> */
-    public Builder setLastSeqDelete(int value) {
-      copyOnWrite();
-      instance.setLastSeqDelete(value);
-      return this;
-    }
-    /** <code>int32 LastSeqDelete = 11;</code> */
-    public Builder clearLastSeqDelete() {
-      copyOnWrite();
-      instance.clearLastSeqDelete();
-      return this;
-    }
-
-    /** <code>int32 PeerUserId = 13;</code> */
+    /** <code>int32 PeerUserId = 9;</code> */
     public int getPeerUserId() {
       return instance.getPeerUserId();
     }
-    /** <code>int32 PeerUserId = 13;</code> */
+    /** <code>int32 PeerUserId = 9;</code> */
     public Builder setPeerUserId(int value) {
       copyOnWrite();
       instance.setPeerUserId(value);
       return this;
     }
-    /** <code>int32 PeerUserId = 13;</code> */
+    /** <code>int32 PeerUserId = 9;</code> */
     public Builder clearPeerUserId() {
       copyOnWrite();
       instance.clearPeerUserId();
       return this;
     }
 
-    /** <code>int64 GroupId = 15;</code> */
+    /** <code>int64 GroupId = 11;</code> */
     public long getGroupId() {
       return instance.getGroupId();
     }
-    /** <code>int64 GroupId = 15;</code> */
+    /** <code>int64 GroupId = 11;</code> */
     public Builder setGroupId(long value) {
       copyOnWrite();
       instance.setGroupId(value);
       return this;
     }
-    /** <code>int64 GroupId = 15;</code> */
+    /** <code>int64 GroupId = 11;</code> */
     public Builder clearGroupId() {
       copyOnWrite();
       instance.clearGroupId();
       return this;
     }
 
-    /** <code>int32 CreatedTime = 17;</code> */
+    /** <code>int32 CreatedTime = 13;</code> */
     public int getCreatedTime() {
       return instance.getCreatedTime();
     }
-    /** <code>int32 CreatedTime = 17;</code> */
+    /** <code>int32 CreatedTime = 13;</code> */
     public Builder setCreatedTime(int value) {
       copyOnWrite();
       instance.setCreatedTime(value);
       return this;
     }
-    /** <code>int32 CreatedTime = 17;</code> */
+    /** <code>int32 CreatedTime = 13;</code> */
     public Builder clearCreatedTime() {
       copyOnWrite();
       instance.clearCreatedTime();
       return this;
     }
 
-    /** <code>int32 CurrentSeq = 19;</code> */
-    public int getCurrentSeq() {
-      return instance.getCurrentSeq();
-    }
-    /** <code>int32 CurrentSeq = 19;</code> */
-    public Builder setCurrentSeq(int value) {
-      copyOnWrite();
-      instance.setCurrentSeq(value);
-      return this;
-    }
-    /** <code>int32 CurrentSeq = 19;</code> */
-    public Builder clearCurrentSeq() {
-      copyOnWrite();
-      instance.clearCurrentSeq();
-      return this;
-    }
-
-    /** <code>int64 UpdatedMs = 21;</code> */
+    /** <code>int64 UpdatedMs = 15;</code> */
     public long getUpdatedMs() {
       return instance.getUpdatedMs();
     }
-    /** <code>int64 UpdatedMs = 21;</code> */
+    /** <code>int64 UpdatedMs = 15;</code> */
     public Builder setUpdatedMs(long value) {
       copyOnWrite();
       instance.setUpdatedMs(value);
       return this;
     }
-    /** <code>int64 UpdatedMs = 21;</code> */
+    /** <code>int64 UpdatedMs = 15;</code> */
     public Builder clearUpdatedMs() {
       copyOnWrite();
       instance.clearUpdatedMs();
+      return this;
+    }
+
+    /** <code>int64 DirectLastMessageId = 17;</code> */
+    public long getDirectLastMessageId() {
+      return instance.getDirectLastMessageId();
+    }
+    /** <code>int64 DirectLastMessageId = 17;</code> */
+    public Builder setDirectLastMessageId(long value) {
+      copyOnWrite();
+      instance.setDirectLastMessageId(value);
+      return this;
+    }
+    /** <code>int64 DirectLastMessageId = 17;</code> */
+    public Builder clearDirectLastMessageId() {
+      copyOnWrite();
+      instance.clearDirectLastMessageId();
+      return this;
+    }
+
+    /** <code>int64 LastSeenMessageId = 19;</code> */
+    public long getLastSeenMessageId() {
+      return instance.getLastSeenMessageId();
+    }
+    /** <code>int64 LastSeenMessageId = 19;</code> */
+    public Builder setLastSeenMessageId(long value) {
+      copyOnWrite();
+      instance.setLastSeenMessageId(value);
+      return this;
+    }
+    /** <code>int64 LastSeenMessageId = 19;</code> */
+    public Builder clearLastSeenMessageId() {
+      copyOnWrite();
+      instance.clearLastSeenMessageId();
+      return this;
+    }
+
+    /** <code>int32 LastSeqSeen = 21;</code> */
+    public int getLastSeqSeen() {
+      return instance.getLastSeqSeen();
+    }
+    /** <code>int32 LastSeqSeen = 21;</code> */
+    public Builder setLastSeqSeen(int value) {
+      copyOnWrite();
+      instance.setLastSeqSeen(value);
+      return this;
+    }
+    /** <code>int32 LastSeqSeen = 21;</code> */
+    public Builder clearLastSeqSeen() {
+      copyOnWrite();
+      instance.clearLastSeqSeen();
+      return this;
+    }
+
+    /** <code>int32 LastSeqDelete = 23;</code> */
+    public int getLastSeqDelete() {
+      return instance.getLastSeqDelete();
+    }
+    /** <code>int32 LastSeqDelete = 23;</code> */
+    public Builder setLastSeqDelete(int value) {
+      copyOnWrite();
+      instance.setLastSeqDelete(value);
+      return this;
+    }
+    /** <code>int32 LastSeqDelete = 23;</code> */
+    public Builder clearLastSeqDelete() {
+      copyOnWrite();
+      instance.clearLastSeqDelete();
+      return this;
+    }
+
+    /** <code>int32 CurrentSeq = 25;</code> */
+    public int getCurrentSeq() {
+      return instance.getCurrentSeq();
+    }
+    /** <code>int32 CurrentSeq = 25;</code> */
+    public Builder setCurrentSeq(int value) {
+      copyOnWrite();
+      instance.setCurrentSeq(value);
+      return this;
+    }
+    /** <code>int32 CurrentSeq = 25;</code> */
+    public Builder clearCurrentSeq() {
+      copyOnWrite();
+      instance.clearCurrentSeq();
       return this;
     }
 
@@ -608,6 +688,29 @@ public final class PB_ChatView
                   other.roomTypeEnumId_ != 0,
                   other.roomTypeEnumId_);
           userId_ = visitor.visitInt(userId_ != 0, userId_, other.userId_ != 0, other.userId_);
+          peerUserId_ =
+              visitor.visitInt(
+                  peerUserId_ != 0, peerUserId_, other.peerUserId_ != 0, other.peerUserId_);
+          groupId_ =
+              visitor.visitLong(groupId_ != 0L, groupId_, other.groupId_ != 0L, other.groupId_);
+          createdTime_ =
+              visitor.visitInt(
+                  createdTime_ != 0, createdTime_, other.createdTime_ != 0, other.createdTime_);
+          updatedMs_ =
+              visitor.visitLong(
+                  updatedMs_ != 0L, updatedMs_, other.updatedMs_ != 0L, other.updatedMs_);
+          directLastMessageId_ =
+              visitor.visitLong(
+                  directLastMessageId_ != 0L,
+                  directLastMessageId_,
+                  other.directLastMessageId_ != 0L,
+                  other.directLastMessageId_);
+          lastSeenMessageId_ =
+              visitor.visitLong(
+                  lastSeenMessageId_ != 0L,
+                  lastSeenMessageId_,
+                  other.lastSeenMessageId_ != 0L,
+                  other.lastSeenMessageId_);
           lastSeqSeen_ =
               visitor.visitInt(
                   lastSeqSeen_ != 0, lastSeqSeen_, other.lastSeqSeen_ != 0, other.lastSeqSeen_);
@@ -617,20 +720,9 @@ public final class PB_ChatView
                   lastSeqDelete_,
                   other.lastSeqDelete_ != 0,
                   other.lastSeqDelete_);
-          peerUserId_ =
-              visitor.visitInt(
-                  peerUserId_ != 0, peerUserId_, other.peerUserId_ != 0, other.peerUserId_);
-          groupId_ =
-              visitor.visitLong(groupId_ != 0L, groupId_, other.groupId_ != 0L, other.groupId_);
-          createdTime_ =
-              visitor.visitInt(
-                  createdTime_ != 0, createdTime_, other.createdTime_ != 0, other.createdTime_);
           currentSeq_ =
               visitor.visitInt(
                   currentSeq_ != 0, currentSeq_, other.currentSeq_ != 0, other.currentSeq_);
-          updatedMs_ =
-              visitor.visitLong(
-                  updatedMs_ != 0L, updatedMs_, other.updatedMs_ != 0L, other.updatedMs_);
           if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor.INSTANCE) {}
           return this;
         }
@@ -678,37 +770,47 @@ public final class PB_ChatView
                   }
                 case 72:
                   {
-                    lastSeqSeen_ = input.readInt32();
+                    peerUserId_ = input.readInt32();
                     break;
                   }
                 case 88:
                   {
-                    lastSeqDelete_ = input.readInt32();
+                    groupId_ = input.readInt64();
                     break;
                   }
                 case 104:
                   {
-                    peerUserId_ = input.readInt32();
+                    createdTime_ = input.readInt32();
                     break;
                   }
                 case 120:
                   {
-                    groupId_ = input.readInt64();
+                    updatedMs_ = input.readInt64();
                     break;
                   }
                 case 136:
                   {
-                    createdTime_ = input.readInt32();
+                    directLastMessageId_ = input.readInt64();
                     break;
                   }
                 case 152:
                   {
-                    currentSeq_ = input.readInt32();
+                    lastSeenMessageId_ = input.readInt64();
                     break;
                   }
                 case 168:
                   {
-                    updatedMs_ = input.readInt64();
+                    lastSeqSeen_ = input.readInt32();
+                    break;
+                  }
+                case 184:
+                  {
+                    lastSeqDelete_ = input.readInt32();
+                    break;
+                  }
+                case 200:
+                  {
+                    currentSeq_ = input.readInt32();
                     break;
                   }
               }

@@ -6,6 +6,7 @@ import com.mardomsara.social.json.JV;
 import com.mardomsara.social.models.RoomModel;
 import com.mardomsara.social.models.tables.Session;
 import com.mardomsara.social.models.tables.Room;
+import com.mardomsara.social.models_realm.realm.RealmChatView;
 import com.mardomsara.social.ui.presenter.HelloPresenter;
 import com.mardomsara.social.ui.presenter.chats.ChatRoomPresenter;
 import com.mardomsara.social.ui.presenter.chats.GalleryChooserPresenter;
@@ -56,6 +57,12 @@ public class Router {
         p.room = room;
         return p;
     }
+
+	public static PresenterPage getRoomEntry(RealmChatView room) {
+		ChatRoomPresenter p = new ChatRoomPresenter();
+		//p.room = room;
+		return p;
+	}
 
     public static PresenterPage getHelloWolrdPage() {
         return new HelloPresenter();

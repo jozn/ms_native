@@ -23,7 +23,7 @@ public class Pipe {
 
 	public static void cancelCall(long callid){
 		AndroidUtil.runInBackgroundNoPanic(()->{
-			//WS_DEP.getInstance().cancelCall(call);
+			//WS_DEP.getChatRealm().cancelCall(call);
 		});
 	}
 
@@ -41,7 +41,7 @@ public class Pipe {
 			CallRespondCallback callRespondCallback = new CallRespondCallback(callBack,errorBack,callId);
 			CallRespondCallbacksRegistery.register(callRespondCallback);
 			PipeWS.getInstance().sendCall(pb_commandToServer);
-//			WS.getInstance().sendCall(call);
+//			WS.getChatRealm().sendCall(call);
 		}else {
 			if(errorBack != null){
 				errorBack.run();
@@ -66,7 +66,7 @@ public class Pipe {
 			callRespondCallback.responseClass = cls.getName();
 			CallRespondCallbacksRegistery.register(callRespondCallback);
 			PipeWS.getInstance().sendCall(pb_commandToServer);
-//			WS.getInstance().sendCall(call);
+//			WS.getChatRealm().sendCall(call);
 		}else {
 			if(errorBack != null){
 				errorBack.run();
@@ -89,7 +89,7 @@ public class Pipe {
 			CallRespondCallback callRespondCallback = new CallRespondCallback(succBack,errorBack,callId);
 			CallRespondCallbacksRegistery.register(callRespondCallback);
 			PipeWS.getInstance().sendCall(pb_commandToServer);
-//			WS.getInstance().sendCall(call);
+//			WS.getChatRealm().sendCall(call);
 		}else {
 			if(errorBack != null){
 				errorBack.run();

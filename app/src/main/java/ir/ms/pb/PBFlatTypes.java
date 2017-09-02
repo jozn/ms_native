@@ -1515,13 +1515,15 @@ public class PBFlatTypes {
     public String ChatKey;
     public int RoomTypeEnumId;
     public int UserId;
-    public int LastSeqSeen;
-    public int LastSeqDelete;
     public int PeerUserId;
     public long GroupId;
     public int CreatedTime;
-    public int CurrentSeq;
     public long UpdatedMs;
+    public long DirectLastMessageId;
+    public long LastSeenMessageId;
+    public int LastSeqSeen;
+    public int LastSeqDelete;
+    public int CurrentSeq;
   }
   /*
   folding
@@ -1530,13 +1532,15 @@ public class PBFlatTypes {
      t.setChatKey();
      t.setRoomTypeEnumId();
      t.setUserId();
-     t.setLastSeqSeen();
-     t.setLastSeqDelete();
      t.setPeerUserId();
      t.setGroupId();
      t.setCreatedTime();
-     t.setCurrentSeq();
      t.setUpdatedMs();
+     t.setDirectLastMessageId();
+     t.setLastSeenMessageId();
+     t.setLastSeqSeen();
+     t.setLastSeqDelete();
+     t.setCurrentSeq();
   */
 
   /*
@@ -1545,13 +1549,15 @@ public class PBFlatTypes {
   t.ChatKey = ;
   t.RoomTypeEnumId = ;
   t.UserId = ;
-  t.LastSeqSeen = ;
-  t.LastSeqDelete = ;
   t.PeerUserId = ;
   t.GroupId = ;
   t.CreatedTime = ;
-  t.CurrentSeq = ;
   t.UpdatedMs = ;
+  t.DirectLastMessageId = ;
+  t.LastSeenMessageId = ;
+  t.LastSeqSeen = ;
+  t.LastSeqDelete = ;
+  t.CurrentSeq = ;
   */
 
   /*
@@ -1560,13 +1566,15 @@ public class PBFlatTypes {
   t.ChatKey = m.getChatKey() ;
   t.RoomTypeEnumId = m.getRoomTypeEnumId() ;
   t.UserId = m.getUserId() ;
-  t.LastSeqSeen = m.getLastSeqSeen() ;
-  t.LastSeqDelete = m.getLastSeqDelete() ;
   t.PeerUserId = m.getPeerUserId() ;
   t.GroupId = m.getGroupId() ;
   t.CreatedTime = m.getCreatedTime() ;
-  t.CurrentSeq = m.getCurrentSeq() ;
   t.UpdatedMs = m.getUpdatedMs() ;
+  t.DirectLastMessageId = m.getDirectLastMessageId() ;
+  t.LastSeenMessageId = m.getLastSeenMessageId() ;
+  t.LastSeqSeen = m.getLastSeqSeen() ;
+  t.LastSeqDelete = m.getLastSeqDelete() ;
+  t.CurrentSeq = m.getCurrentSeq() ;
   */
 
   public class PB_MessageView {

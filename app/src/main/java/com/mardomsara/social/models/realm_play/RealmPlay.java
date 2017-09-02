@@ -1,6 +1,6 @@
 package com.mardomsara.social.models.realm_play;
 
-import com.mardomsara.social.app.ConfigRealm;
+import com.mardomsara.social.app.MSRealm;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.LangUtil;
@@ -26,7 +26,7 @@ public class RealmPlay {
 				}
 
 				AndroidUtil.runInUiNoPanic(()->{
-					ConfigRealm.getInstance().executeTransactionAsync((t)->{
+					MSRealm.getChatRealm().executeTransactionAsync((t)->{
 
 						Blog blog = t.createObject(Blog.class, "id_"+LangUtil.getRandom(1000000));;
 						blog.setName("as");
@@ -39,7 +39,7 @@ public class RealmPlay {
 					});
 
 					if(LangUtil.getRandom(6)%5 ==0){
-						RealmResults<Blog> results = ConfigRealm.getInstance()
+						RealmResults<Blog> results = MSRealm.getChatRealm()
 							.where(Blog.class)
 							.findAll();
 						Helper.showDebugMessage("realm res : " +results.size());

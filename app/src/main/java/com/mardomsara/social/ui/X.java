@@ -1234,6 +1234,29 @@ public class X {
         }
     }
 
+    public static class InboxChatList {
+        public LinearLayout root;
+        public FrameLayout layout1;
+        public RecyclerView recycler_view;
+
+        public InboxChatList(Context context,ViewGroup parent) {
+            root = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.inbox_chat_list,parent ,false);
+            layout1 = (FrameLayout) root.findViewById( R.id.layout1);
+            recycler_view = (RecyclerView) root.findViewById( R.id.recycler_view);
+        }
+        public InboxChatList() {
+            this(AppUtil.getContext(),null);
+        }
+
+        public InboxChatList(Context context) {
+            this(context ,null);
+        }
+
+        public InboxChatList(ViewGroup parent) {
+            this(AppUtil.getContext() ,parent);
+        }
+    }
+
     public static class InputTextAddSimpleText {
         public LinearLayout root;
         public LinearLayout bottom_container;
