@@ -8,13 +8,21 @@ import io.realm.RealmConfiguration;
  */
 
 public class MSRealm {
-	static RealmConfiguration realmChatConfiguration = new RealmConfiguration.Builder()
-		.deleteRealmIfMigrationNeeded()
-		.name("app_chats.realm")
-		.build();
+
+	static RealmConfiguration realmChatConfiguration;
+
+	private static RealmConfiguration getConfig() {
+		if (realmChatConfiguration == null) {
+			realmChatConfiguration = new RealmConfiguration.Builder()
+				.deleteRealmIfMigrationNeeded()
+				.name("app_chats.realm")
+				.build();
+		}
+		return realmChatConfiguration;
+	}
 
 	public static Realm getChatRealm() {
-		return Realm.getInstance(realmChatConfiguration);
+		return Realm.getInstance(getConfig());
 	}
 
 	public static Realm getInstance2() {

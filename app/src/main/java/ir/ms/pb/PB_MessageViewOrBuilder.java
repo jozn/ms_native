@@ -52,4 +52,9 @@ public interface PB_MessageViewOrBuilder
 
   /** <code>bool IsByMe = 33;</code> */
   boolean getIsByMe();
+
+  /** <code>.PB_MessageFileView File = 100;</code> */
+  boolean hasFile();
+  /** <code>.PB_MessageFileView File = 100;</code> */
+  ir.ms.pb.PB_MessageFileView getFile();
 }

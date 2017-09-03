@@ -250,6 +250,40 @@ public final class PB_ChatView
     currentSeq_ = 0;
   }
 
+  public static final int USER_FIELD_NUMBER = 100;
+  private ir.ms.pb.PB_UserView user_;
+  /** <code>.PB_UserView User = 100;</code> */
+  public boolean hasUser() {
+    return user_ != null;
+  }
+  /** <code>.PB_UserView User = 100;</code> */
+  public ir.ms.pb.PB_UserView getUser() {
+    return user_ == null ? ir.ms.pb.PB_UserView.getDefaultInstance() : user_;
+  }
+  /** <code>.PB_UserView User = 100;</code> */
+  private void setUser(ir.ms.pb.PB_UserView value) {
+    if (value == null) {
+      throw new NullPointerException();
+    }
+    user_ = value;
+  }
+  /** <code>.PB_UserView User = 100;</code> */
+  private void setUser(ir.ms.pb.PB_UserView.Builder builderForValue) {
+    user_ = builderForValue.build();
+  }
+  /** <code>.PB_UserView User = 100;</code> */
+  private void mergeUser(ir.ms.pb.PB_UserView value) {
+    if (user_ != null && user_ != ir.ms.pb.PB_UserView.getDefaultInstance()) {
+      user_ = ir.ms.pb.PB_UserView.newBuilder(user_).mergeFrom(value).buildPartial();
+    } else {
+      user_ = value;
+    }
+  }
+  /** <code>.PB_UserView User = 100;</code> */
+  private void clearUser() {
+    user_ = null;
+  }
+
   public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
     if (chatId_ != 0L) {
       output.writeInt64(1, chatId_);
@@ -289,6 +323,9 @@ public final class PB_ChatView
     }
     if (currentSeq_ != 0) {
       output.writeInt32(25, currentSeq_);
+    }
+    if (user_ != null) {
+      output.writeMessage(100, getUser());
     }
   }
 
@@ -335,6 +372,9 @@ public final class PB_ChatView
     }
     if (currentSeq_ != 0) {
       size += com.google.protobuf.CodedOutputStream.computeInt32Size(25, currentSeq_);
+    }
+    if (user_ != null) {
+      size += com.google.protobuf.CodedOutputStream.computeMessageSize(100, getUser());
     }
     memoizedSerializedSize = size;
     return size;
@@ -651,6 +691,39 @@ public final class PB_ChatView
       return this;
     }
 
+    /** <code>.PB_UserView User = 100;</code> */
+    public boolean hasUser() {
+      return instance.hasUser();
+    }
+    /** <code>.PB_UserView User = 100;</code> */
+    public ir.ms.pb.PB_UserView getUser() {
+      return instance.getUser();
+    }
+    /** <code>.PB_UserView User = 100;</code> */
+    public Builder setUser(ir.ms.pb.PB_UserView value) {
+      copyOnWrite();
+      instance.setUser(value);
+      return this;
+    }
+    /** <code>.PB_UserView User = 100;</code> */
+    public Builder setUser(ir.ms.pb.PB_UserView.Builder builderForValue) {
+      copyOnWrite();
+      instance.setUser(builderForValue);
+      return this;
+    }
+    /** <code>.PB_UserView User = 100;</code> */
+    public Builder mergeUser(ir.ms.pb.PB_UserView value) {
+      copyOnWrite();
+      instance.mergeUser(value);
+      return this;
+    }
+    /** <code>.PB_UserView User = 100;</code> */
+    public Builder clearUser() {
+      copyOnWrite();
+      instance.clearUser();
+      return this;
+    }
+
     // @@protoc_insertion_point(builder_scope:PB_ChatView)
   }
 
@@ -723,6 +796,7 @@ public final class PB_ChatView
           currentSeq_ =
               visitor.visitInt(
                   currentSeq_ != 0, currentSeq_, other.currentSeq_ != 0, other.currentSeq_);
+          user_ = visitor.visitMessage(user_, other.user_);
           if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor.INSTANCE) {}
           return this;
         }
@@ -811,6 +885,20 @@ public final class PB_ChatView
                 case 200:
                   {
                     currentSeq_ = input.readInt32();
+                    break;
+                  }
+                case 802:
+                  {
+                    ir.ms.pb.PB_UserView.Builder subBuilder = null;
+                    if (user_ != null) {
+                      subBuilder = user_.toBuilder();
+                    }
+                    user_ = input.readMessage(ir.ms.pb.PB_UserView.parser(), extensionRegistry);
+                    if (subBuilder != null) {
+                      subBuilder.mergeFrom(user_);
+                      user_ = subBuilder.buildPartial();
+                    }
+
                     break;
                   }
               }

@@ -48,4 +48,9 @@ public interface PB_ChatViewOrBuilder
 
   /** <code>int32 CurrentSeq = 25;</code> */
   int getCurrentSeq();
+
+  /** <code>.PB_UserView User = 100;</code> */
+  boolean hasUser();
+  /** <code>.PB_UserView User = 100;</code> */
+  ir.ms.pb.PB_UserView getUser();
 }

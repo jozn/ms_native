@@ -5,6 +5,76 @@ import com.mardomsara.social.pipe.*;
 
 public class RPC {
 
+  public static class RPC_MessageReq {
+
+    public static interface GetLastChnagesForRoom_ResultHandler {
+      void onResult(PB_ResponseLastChangesForTheRoom res);
+    }
+
+    public static void GetLastChnagesForRoom(
+        PB_ReqLastChangesForTheRoom param,
+        GetLastChnagesForRoom_ResultHandler resultHandler,
+        ErrorCallback errorCallback) {
+      SuccessCallback callback = null;
+      if (resultHandler != null) {
+        callback =
+            new SuccessCallback() {
+              @Override
+              public void handle(byte[] data) {
+                Log.i(
+                    "RPC ws",
+                    "handling rpc respnse for: GetLastChnagesForRoom with respose class PB_ResponseLastChangesForTheRoom");
+                try {
+                  PB_ResponseLastChangesForTheRoom d =
+                      PB_ResponseLastChangesForTheRoom.parseFrom(data);
+                  resultHandler.onResult(d);
+                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                  Log.d(
+                      "RPC ws",
+                      "parsing protocol buffer is faild: PB_ResponseLastChangesForTheRoom");
+                }
+              }
+            };
+      }
+
+      Pipe.send("RPC_MessageReq.GetLastChnagesForRoom", param, callback, errorCallback);
+    }
+  }
+
+  public static class RPC_MessageReqOffline {
+
+    public static interface SetLastSeen_ResultHandler {
+      void onResult(PB_ResponseSetLastSeenMessages res);
+    }
+
+    public static void SetLastSeen(
+        PB_RequestSetLastSeenMessages param,
+        SetLastSeen_ResultHandler resultHandler,
+        ErrorCallback errorCallback) {
+      SuccessCallback callback = null;
+      if (resultHandler != null) {
+        callback =
+            new SuccessCallback() {
+              @Override
+              public void handle(byte[] data) {
+                Log.i(
+                    "RPC ws",
+                    "handling rpc respnse for: SetLastSeen with respose class PB_ResponseSetLastSeenMessages");
+                try {
+                  PB_ResponseSetLastSeenMessages d = PB_ResponseSetLastSeenMessages.parseFrom(data);
+                  resultHandler.onResult(d);
+                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                  Log.d(
+                      "RPC ws", "parsing protocol buffer is faild: PB_ResponseSetLastSeenMessages");
+                }
+              }
+            };
+      }
+
+      Pipe.send("RPC_MessageReqOffline.SetLastSeen", param, callback, errorCallback);
+    }
+  }
+
   public static class RpcMsgs {
 
     public static interface UploadNewMsg_ResultHandler {
@@ -253,341 +323,6 @@ public class RPC {
       }
 
       Pipe.send("RPC_Auth.LogOut", param, callback, errorCallback);
-    }
-  }
-
-  public static class RPC_UserOffline {
-
-    public static interface BlockUser_ResultHandler {
-      void onResult(PB_UserOfflineResponse_BlockUser res);
-    }
-
-    public static interface UnBlockUser_ResultHandler {
-      void onResult(PB_UserOfflineResponse_UnBlockUser res);
-    }
-
-    public static interface UpdateAbout_ResultHandler {
-      void onResult(PB_UserOfflineResponse_UpdateAbout res);
-    }
-
-    public static interface UpdateUserName_ResultHandler {
-      void onResult(PB_UserOfflineResponse_UpdateUserName res);
-    }
-
-    public static interface ChangePrivacy_ResultHandler {
-      void onResult(PB_UserResponseOffline_ChangePrivacy res);
-    }
-
-    public static interface ChangeAvatar_ResultHandler {
-      void onResult(PB_UserOfflineResponse_ChangeAvatar res);
-    }
-
-    public static void BlockUser(
-        PB_UserParam_BlockUser param,
-        BlockUser_ResultHandler resultHandler,
-        ErrorCallback errorCallback) {
-      SuccessCallback callback = null;
-      if (resultHandler != null) {
-        callback =
-            new SuccessCallback() {
-              @Override
-              public void handle(byte[] data) {
-                Log.i(
-                    "RPC ws",
-                    "handling rpc respnse for: BlockUser with respose class PB_UserOfflineResponse_BlockUser");
-                try {
-                  PB_UserOfflineResponse_BlockUser d =
-                      PB_UserOfflineResponse_BlockUser.parseFrom(data);
-                  resultHandler.onResult(d);
-                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                  Log.d(
-                      "RPC ws",
-                      "parsing protocol buffer is faild: PB_UserOfflineResponse_BlockUser");
-                }
-              }
-            };
-      }
-
-      Pipe.send("RPC_UserOffline.BlockUser", param, callback, errorCallback);
-    }
-
-    public static void UnBlockUser(
-        PB_UserParam_UnBlockUser param,
-        UnBlockUser_ResultHandler resultHandler,
-        ErrorCallback errorCallback) {
-      SuccessCallback callback = null;
-      if (resultHandler != null) {
-        callback =
-            new SuccessCallback() {
-              @Override
-              public void handle(byte[] data) {
-                Log.i(
-                    "RPC ws",
-                    "handling rpc respnse for: UnBlockUser with respose class PB_UserOfflineResponse_UnBlockUser");
-                try {
-                  PB_UserOfflineResponse_UnBlockUser d =
-                      PB_UserOfflineResponse_UnBlockUser.parseFrom(data);
-                  resultHandler.onResult(d);
-                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                  Log.d(
-                      "RPC ws",
-                      "parsing protocol buffer is faild: PB_UserOfflineResponse_UnBlockUser");
-                }
-              }
-            };
-      }
-
-      Pipe.send("RPC_UserOffline.UnBlockUser", param, callback, errorCallback);
-    }
-
-    public static void UpdateAbout(
-        PB_UserParam_UpdateAbout param,
-        UpdateAbout_ResultHandler resultHandler,
-        ErrorCallback errorCallback) {
-      SuccessCallback callback = null;
-      if (resultHandler != null) {
-        callback =
-            new SuccessCallback() {
-              @Override
-              public void handle(byte[] data) {
-                Log.i(
-                    "RPC ws",
-                    "handling rpc respnse for: UpdateAbout with respose class PB_UserOfflineResponse_UpdateAbout");
-                try {
-                  PB_UserOfflineResponse_UpdateAbout d =
-                      PB_UserOfflineResponse_UpdateAbout.parseFrom(data);
-                  resultHandler.onResult(d);
-                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                  Log.d(
-                      "RPC ws",
-                      "parsing protocol buffer is faild: PB_UserOfflineResponse_UpdateAbout");
-                }
-              }
-            };
-      }
-
-      Pipe.send("RPC_UserOffline.UpdateAbout", param, callback, errorCallback);
-    }
-
-    public static void UpdateUserName(
-        PB_UserParam_UpdateUserName param,
-        UpdateUserName_ResultHandler resultHandler,
-        ErrorCallback errorCallback) {
-      SuccessCallback callback = null;
-      if (resultHandler != null) {
-        callback =
-            new SuccessCallback() {
-              @Override
-              public void handle(byte[] data) {
-                Log.i(
-                    "RPC ws",
-                    "handling rpc respnse for: UpdateUserName with respose class PB_UserOfflineResponse_UpdateUserName");
-                try {
-                  PB_UserOfflineResponse_UpdateUserName d =
-                      PB_UserOfflineResponse_UpdateUserName.parseFrom(data);
-                  resultHandler.onResult(d);
-                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                  Log.d(
-                      "RPC ws",
-                      "parsing protocol buffer is faild: PB_UserOfflineResponse_UpdateUserName");
-                }
-              }
-            };
-      }
-
-      Pipe.send("RPC_UserOffline.UpdateUserName", param, callback, errorCallback);
-    }
-
-    public static void ChangePrivacy(
-        PB_UserParam_ChangePrivacy param,
-        ChangePrivacy_ResultHandler resultHandler,
-        ErrorCallback errorCallback) {
-      SuccessCallback callback = null;
-      if (resultHandler != null) {
-        callback =
-            new SuccessCallback() {
-              @Override
-              public void handle(byte[] data) {
-                Log.i(
-                    "RPC ws",
-                    "handling rpc respnse for: ChangePrivacy with respose class PB_UserResponseOffline_ChangePrivacy");
-                try {
-                  PB_UserResponseOffline_ChangePrivacy d =
-                      PB_UserResponseOffline_ChangePrivacy.parseFrom(data);
-                  resultHandler.onResult(d);
-                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                  Log.d(
-                      "RPC ws",
-                      "parsing protocol buffer is faild: PB_UserResponseOffline_ChangePrivacy");
-                }
-              }
-            };
-      }
-
-      Pipe.send("RPC_UserOffline.ChangePrivacy", param, callback, errorCallback);
-    }
-
-    public static void ChangeAvatar(
-        PB_UserParam_ChangeAvatar param,
-        ChangeAvatar_ResultHandler resultHandler,
-        ErrorCallback errorCallback) {
-      SuccessCallback callback = null;
-      if (resultHandler != null) {
-        callback =
-            new SuccessCallback() {
-              @Override
-              public void handle(byte[] data) {
-                Log.i(
-                    "RPC ws",
-                    "handling rpc respnse for: ChangeAvatar with respose class PB_UserOfflineResponse_ChangeAvatar");
-                try {
-                  PB_UserOfflineResponse_ChangeAvatar d =
-                      PB_UserOfflineResponse_ChangeAvatar.parseFrom(data);
-                  resultHandler.onResult(d);
-                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                  Log.d(
-                      "RPC ws",
-                      "parsing protocol buffer is faild: PB_UserOfflineResponse_ChangeAvatar");
-                }
-              }
-            };
-      }
-
-      Pipe.send("RPC_UserOffline.ChangeAvatar", param, callback, errorCallback);
-    }
-  }
-
-  public static class RPC_User {
-
-    public static interface CheckUserName_ResultHandler {
-      void onResult(PB_UserResponse_CheckUserName res);
-    }
-
-    public static interface GetBlockedList_ResultHandler {
-      void onResult(PB_UserResponse_BlockedList res);
-    }
-
-    public static void CheckUserName(
-        PB_UserParam_CheckUserName param,
-        CheckUserName_ResultHandler resultHandler,
-        ErrorCallback errorCallback) {
-      SuccessCallback callback = null;
-      if (resultHandler != null) {
-        callback =
-            new SuccessCallback() {
-              @Override
-              public void handle(byte[] data) {
-                Log.i(
-                    "RPC ws",
-                    "handling rpc respnse for: CheckUserName with respose class PB_UserResponse_CheckUserName");
-                try {
-                  PB_UserResponse_CheckUserName d = PB_UserResponse_CheckUserName.parseFrom(data);
-                  resultHandler.onResult(d);
-                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                  Log.d(
-                      "RPC ws", "parsing protocol buffer is faild: PB_UserResponse_CheckUserName");
-                }
-              }
-            };
-      }
-
-      Pipe.send("RPC_User.CheckUserName", param, callback, errorCallback);
-    }
-
-    public static void GetBlockedList(
-        PB_UserParam_BlockedList param,
-        GetBlockedList_ResultHandler resultHandler,
-        ErrorCallback errorCallback) {
-      SuccessCallback callback = null;
-      if (resultHandler != null) {
-        callback =
-            new SuccessCallback() {
-              @Override
-              public void handle(byte[] data) {
-                Log.i(
-                    "RPC ws",
-                    "handling rpc respnse for: GetBlockedList with respose class PB_UserResponse_BlockedList");
-                try {
-                  PB_UserResponse_BlockedList d = PB_UserResponse_BlockedList.parseFrom(data);
-                  resultHandler.onResult(d);
-                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                  Log.d("RPC ws", "parsing protocol buffer is faild: PB_UserResponse_BlockedList");
-                }
-              }
-            };
-      }
-
-      Pipe.send("RPC_User.GetBlockedList", param, callback, errorCallback);
-    }
-  }
-
-  public static class RPC_MessageReq {
-
-    public static interface GetLastChnagesForRoom_ResultHandler {
-      void onResult(PB_ResponseLastChangesForTheRoom res);
-    }
-
-    public static void GetLastChnagesForRoom(
-        PB_ReqLastChangesForTheRoom param,
-        GetLastChnagesForRoom_ResultHandler resultHandler,
-        ErrorCallback errorCallback) {
-      SuccessCallback callback = null;
-      if (resultHandler != null) {
-        callback =
-            new SuccessCallback() {
-              @Override
-              public void handle(byte[] data) {
-                Log.i(
-                    "RPC ws",
-                    "handling rpc respnse for: GetLastChnagesForRoom with respose class PB_ResponseLastChangesForTheRoom");
-                try {
-                  PB_ResponseLastChangesForTheRoom d =
-                      PB_ResponseLastChangesForTheRoom.parseFrom(data);
-                  resultHandler.onResult(d);
-                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                  Log.d(
-                      "RPC ws",
-                      "parsing protocol buffer is faild: PB_ResponseLastChangesForTheRoom");
-                }
-              }
-            };
-      }
-
-      Pipe.send("RPC_MessageReq.GetLastChnagesForRoom", param, callback, errorCallback);
-    }
-  }
-
-  public static class RPC_MessageReqOffline {
-
-    public static interface SetLastSeen_ResultHandler {
-      void onResult(PB_ResponseSetLastSeenMessages res);
-    }
-
-    public static void SetLastSeen(
-        PB_RequestSetLastSeenMessages param,
-        SetLastSeen_ResultHandler resultHandler,
-        ErrorCallback errorCallback) {
-      SuccessCallback callback = null;
-      if (resultHandler != null) {
-        callback =
-            new SuccessCallback() {
-              @Override
-              public void handle(byte[] data) {
-                Log.i(
-                    "RPC ws",
-                    "handling rpc respnse for: SetLastSeen with respose class PB_ResponseSetLastSeenMessages");
-                try {
-                  PB_ResponseSetLastSeenMessages d = PB_ResponseSetLastSeenMessages.parseFrom(data);
-                  resultHandler.onResult(d);
-                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                  Log.d(
-                      "RPC ws", "parsing protocol buffer is faild: PB_ResponseSetLastSeenMessages");
-                }
-              }
-            };
-      }
-
-      Pipe.send("RPC_MessageReqOffline.SetLastSeen", param, callback, errorCallback);
     }
   }
 
@@ -982,15 +717,280 @@ public class RPC {
       Pipe.send("RPC_Msg.Echo", param, callback, errorCallback);
     }
   }
+
+  public static class RPC_UserOffline {
+
+    public static interface BlockUser_ResultHandler {
+      void onResult(PB_UserOfflineResponse_BlockUser res);
+    }
+
+    public static interface UnBlockUser_ResultHandler {
+      void onResult(PB_UserOfflineResponse_UnBlockUser res);
+    }
+
+    public static interface UpdateAbout_ResultHandler {
+      void onResult(PB_UserOfflineResponse_UpdateAbout res);
+    }
+
+    public static interface UpdateUserName_ResultHandler {
+      void onResult(PB_UserOfflineResponse_UpdateUserName res);
+    }
+
+    public static interface ChangePrivacy_ResultHandler {
+      void onResult(PB_UserResponseOffline_ChangePrivacy res);
+    }
+
+    public static interface ChangeAvatar_ResultHandler {
+      void onResult(PB_UserOfflineResponse_ChangeAvatar res);
+    }
+
+    public static void BlockUser(
+        PB_UserParam_BlockUser param,
+        BlockUser_ResultHandler resultHandler,
+        ErrorCallback errorCallback) {
+      SuccessCallback callback = null;
+      if (resultHandler != null) {
+        callback =
+            new SuccessCallback() {
+              @Override
+              public void handle(byte[] data) {
+                Log.i(
+                    "RPC ws",
+                    "handling rpc respnse for: BlockUser with respose class PB_UserOfflineResponse_BlockUser");
+                try {
+                  PB_UserOfflineResponse_BlockUser d =
+                      PB_UserOfflineResponse_BlockUser.parseFrom(data);
+                  resultHandler.onResult(d);
+                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                  Log.d(
+                      "RPC ws",
+                      "parsing protocol buffer is faild: PB_UserOfflineResponse_BlockUser");
+                }
+              }
+            };
+      }
+
+      Pipe.send("RPC_UserOffline.BlockUser", param, callback, errorCallback);
+    }
+
+    public static void UnBlockUser(
+        PB_UserParam_UnBlockUser param,
+        UnBlockUser_ResultHandler resultHandler,
+        ErrorCallback errorCallback) {
+      SuccessCallback callback = null;
+      if (resultHandler != null) {
+        callback =
+            new SuccessCallback() {
+              @Override
+              public void handle(byte[] data) {
+                Log.i(
+                    "RPC ws",
+                    "handling rpc respnse for: UnBlockUser with respose class PB_UserOfflineResponse_UnBlockUser");
+                try {
+                  PB_UserOfflineResponse_UnBlockUser d =
+                      PB_UserOfflineResponse_UnBlockUser.parseFrom(data);
+                  resultHandler.onResult(d);
+                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                  Log.d(
+                      "RPC ws",
+                      "parsing protocol buffer is faild: PB_UserOfflineResponse_UnBlockUser");
+                }
+              }
+            };
+      }
+
+      Pipe.send("RPC_UserOffline.UnBlockUser", param, callback, errorCallback);
+    }
+
+    public static void UpdateAbout(
+        PB_UserParam_UpdateAbout param,
+        UpdateAbout_ResultHandler resultHandler,
+        ErrorCallback errorCallback) {
+      SuccessCallback callback = null;
+      if (resultHandler != null) {
+        callback =
+            new SuccessCallback() {
+              @Override
+              public void handle(byte[] data) {
+                Log.i(
+                    "RPC ws",
+                    "handling rpc respnse for: UpdateAbout with respose class PB_UserOfflineResponse_UpdateAbout");
+                try {
+                  PB_UserOfflineResponse_UpdateAbout d =
+                      PB_UserOfflineResponse_UpdateAbout.parseFrom(data);
+                  resultHandler.onResult(d);
+                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                  Log.d(
+                      "RPC ws",
+                      "parsing protocol buffer is faild: PB_UserOfflineResponse_UpdateAbout");
+                }
+              }
+            };
+      }
+
+      Pipe.send("RPC_UserOffline.UpdateAbout", param, callback, errorCallback);
+    }
+
+    public static void UpdateUserName(
+        PB_UserParam_UpdateUserName param,
+        UpdateUserName_ResultHandler resultHandler,
+        ErrorCallback errorCallback) {
+      SuccessCallback callback = null;
+      if (resultHandler != null) {
+        callback =
+            new SuccessCallback() {
+              @Override
+              public void handle(byte[] data) {
+                Log.i(
+                    "RPC ws",
+                    "handling rpc respnse for: UpdateUserName with respose class PB_UserOfflineResponse_UpdateUserName");
+                try {
+                  PB_UserOfflineResponse_UpdateUserName d =
+                      PB_UserOfflineResponse_UpdateUserName.parseFrom(data);
+                  resultHandler.onResult(d);
+                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                  Log.d(
+                      "RPC ws",
+                      "parsing protocol buffer is faild: PB_UserOfflineResponse_UpdateUserName");
+                }
+              }
+            };
+      }
+
+      Pipe.send("RPC_UserOffline.UpdateUserName", param, callback, errorCallback);
+    }
+
+    public static void ChangePrivacy(
+        PB_UserParam_ChangePrivacy param,
+        ChangePrivacy_ResultHandler resultHandler,
+        ErrorCallback errorCallback) {
+      SuccessCallback callback = null;
+      if (resultHandler != null) {
+        callback =
+            new SuccessCallback() {
+              @Override
+              public void handle(byte[] data) {
+                Log.i(
+                    "RPC ws",
+                    "handling rpc respnse for: ChangePrivacy with respose class PB_UserResponseOffline_ChangePrivacy");
+                try {
+                  PB_UserResponseOffline_ChangePrivacy d =
+                      PB_UserResponseOffline_ChangePrivacy.parseFrom(data);
+                  resultHandler.onResult(d);
+                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                  Log.d(
+                      "RPC ws",
+                      "parsing protocol buffer is faild: PB_UserResponseOffline_ChangePrivacy");
+                }
+              }
+            };
+      }
+
+      Pipe.send("RPC_UserOffline.ChangePrivacy", param, callback, errorCallback);
+    }
+
+    public static void ChangeAvatar(
+        PB_UserParam_ChangeAvatar param,
+        ChangeAvatar_ResultHandler resultHandler,
+        ErrorCallback errorCallback) {
+      SuccessCallback callback = null;
+      if (resultHandler != null) {
+        callback =
+            new SuccessCallback() {
+              @Override
+              public void handle(byte[] data) {
+                Log.i(
+                    "RPC ws",
+                    "handling rpc respnse for: ChangeAvatar with respose class PB_UserOfflineResponse_ChangeAvatar");
+                try {
+                  PB_UserOfflineResponse_ChangeAvatar d =
+                      PB_UserOfflineResponse_ChangeAvatar.parseFrom(data);
+                  resultHandler.onResult(d);
+                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                  Log.d(
+                      "RPC ws",
+                      "parsing protocol buffer is faild: PB_UserOfflineResponse_ChangeAvatar");
+                }
+              }
+            };
+      }
+
+      Pipe.send("RPC_UserOffline.ChangeAvatar", param, callback, errorCallback);
+    }
+  }
+
+  public static class RPC_User {
+
+    public static interface CheckUserName_ResultHandler {
+      void onResult(PB_UserResponse_CheckUserName res);
+    }
+
+    public static interface GetBlockedList_ResultHandler {
+      void onResult(PB_UserResponse_BlockedList res);
+    }
+
+    public static void CheckUserName(
+        PB_UserParam_CheckUserName param,
+        CheckUserName_ResultHandler resultHandler,
+        ErrorCallback errorCallback) {
+      SuccessCallback callback = null;
+      if (resultHandler != null) {
+        callback =
+            new SuccessCallback() {
+              @Override
+              public void handle(byte[] data) {
+                Log.i(
+                    "RPC ws",
+                    "handling rpc respnse for: CheckUserName with respose class PB_UserResponse_CheckUserName");
+                try {
+                  PB_UserResponse_CheckUserName d = PB_UserResponse_CheckUserName.parseFrom(data);
+                  resultHandler.onResult(d);
+                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                  Log.d(
+                      "RPC ws", "parsing protocol buffer is faild: PB_UserResponse_CheckUserName");
+                }
+              }
+            };
+      }
+
+      Pipe.send("RPC_User.CheckUserName", param, callback, errorCallback);
+    }
+
+    public static void GetBlockedList(
+        PB_UserParam_BlockedList param,
+        GetBlockedList_ResultHandler resultHandler,
+        ErrorCallback errorCallback) {
+      SuccessCallback callback = null;
+      if (resultHandler != null) {
+        callback =
+            new SuccessCallback() {
+              @Override
+              public void handle(byte[] data) {
+                Log.i(
+                    "RPC ws",
+                    "handling rpc respnse for: GetBlockedList with respose class PB_UserResponse_BlockedList");
+                try {
+                  PB_UserResponse_BlockedList d = PB_UserResponse_BlockedList.parseFrom(data);
+                  resultHandler.onResult(d);
+                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                  Log.d("RPC ws", "parsing protocol buffer is faild: PB_UserResponse_BlockedList");
+                }
+              }
+            };
+      }
+
+      Pipe.send("RPC_User.GetBlockedList", param, callback, errorCallback);
+    }
+  }
 }
 /*
 
-RPC_INTERFACES.RpcMsgs RpcMsgs_Handeler = null;
-RPC_INTERFACES.RPC_Auth RPC_Auth_Handeler = null;
-RPC_INTERFACES.RPC_UserOffline RPC_UserOffline_Handeler = null;
-RPC_INTERFACES.RPC_User RPC_User_Handeler = null;
 RPC_INTERFACES.RPC_MessageReq RPC_MessageReq_Handeler = null;
 RPC_INTERFACES.RPC_MessageReqOffline RPC_MessageReqOffline_Handeler = null;
+RPC_INTERFACES.RpcMsgs RpcMsgs_Handeler = null;
+RPC_INTERFACES.RPC_Auth RPC_Auth_Handeler = null;
 RPC_INTERFACES.RPC_Msg RPC_Msg_Handeler = null;
+RPC_INTERFACES.RPC_UserOffline RPC_UserOffline_Handeler = null;
+RPC_INTERFACES.RPC_User RPC_User_Handeler = null;
 
 */

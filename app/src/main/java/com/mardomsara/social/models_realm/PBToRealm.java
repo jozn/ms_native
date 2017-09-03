@@ -26,6 +26,7 @@ public class PBToRealm {
 		t.PeerSeenTime = m.getPeerSeenTime();
 		t.DeliviryStatusEnumId = m.getDeliviryStatusEnumId();
 
+
 		return t;
 	}
 
@@ -47,6 +48,10 @@ public class PBToRealm {
 		t.LastSeqSeen = m.getLastSeqSeen();
 		t.LastSeqDelete = m.getLastSeqDelete();
 		t.CurrentSeq = m.getCurrentSeq();
+
+		if(m.getUser() != null){
+			t.user = from_userView(m.getUser());
+		}
 
 		return t;
 	}

@@ -10,11 +10,6 @@ import io.realm.RealmConfiguration;
  */
 
 public class ConfigRealm {
-	static RealmConfiguration realmConfiguration = new RealmConfiguration.Builder()
-		.deleteRealmIfMigrationNeeded()
-		.name("app_chats.realm")
-		.build();
-
 	public static void config(Context context) {
 		Realm.init(context);
 		/*new RealmConfiguration.Builder()
@@ -22,14 +17,6 @@ public class ConfigRealm {
 			.build();
 		Realm.getDefaultConfiguration()
 			.shouldDeleteRealmIfMigrationNeeded();*/
-	}
-
-	public static Realm getInstance() {
-		RealmConfiguration realmConfiguration = new RealmConfiguration.Builder()
-			.deleteRealmIfMigrationNeeded()
-			.name("app_chats.realm")
-			.build();
-		return Realm.getInstance(realmConfiguration);
 	}
 
 
