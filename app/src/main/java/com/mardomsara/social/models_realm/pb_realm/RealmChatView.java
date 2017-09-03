@@ -49,56 +49,74 @@ public class RealmChatView extends RealmObject {
 	/*
 	folding
 
-	PBFlatTypes.PB_ChatView t = new PBFlatTypes.PB_ChatView();
-    t.ChatKey = pb.getChatKey();
-    t.ChatId = pb.getChatId();
-    t.RoomTypeEnumId = pb.getRoomTypeEnumId();
-    t.UserId = pb.getUserId();
-    t.PeerUserId = pb.getPeerUserId();
-    t.GroupId = pb.getGroupId();
-    t.CreatedTime = pb.getCreatedTime();
-    t.UpdatedMs = pb.getUpdatedMs();
-    t.DirectLastMessageId = pb.getDirectLastMessageId();
-    t.LastSeenMessageId = pb.getLastSeenMessageId();
-    t.LastSeqSeen = pb.getLastSeqSeen();
-    t.LastSeqDelete = pb.getLastSeqDelete();
-    t.CurrentSeq = pb.getCurrentSeq();
-    t.User = pb.getUser();
-	*/
+	//sett
+	RealmChatView r = new RealmChatView();
+	
+	r.ChatKey = ;//0
+	r.ChatId = ;//1
+	r.RoomTypeEnumId = ;//2
+	r.UserId = ;//3
+	r.PeerUserId = ;//4
+	r.GroupId = ;//5
+	r.CreatedTime = ;//6
+	r.UpdatedMs = ;//7
+	r.DirectLastMessageId = ;//8
+	r.LastSeenMessageId = ;//9
+	r.LastSeqSeen = ;//10
+	r.LastSeqDelete = ;//11
+	r.CurrentSeq = ;//12
+	r.User = ;//13
 
-	/*
-	PBFlatTypes.PB_ChatView t = new PBFlatTypes.PB_ChatView();
-	t.ChatKey = ;
-	t.ChatId = ;
-	t.RoomTypeEnumId = ;
-	t.UserId = ;
-	t.PeerUserId = ;
-	t.GroupId = ;
-	t.CreatedTime = ;
-	t.UpdatedMs = ;
-	t.DirectLastMessageId = ;
-	t.LastSeenMessageId = ;
-	t.LastSeqSeen = ;
-	t.LastSeqDelete = ;
-	t.CurrentSeq = ;
-	t.User = ;
-	*/
+	//sett - no tag number 
+	RealmChatView r = new RealmChatView();
+	
+	r.ChatKey = ;
+	r.ChatId = ;
+	r.RoomTypeEnumId = ;
+	r.UserId = ;
+	r.PeerUserId = ;
+	r.GroupId = ;
+	r.CreatedTime = ;
+	r.UpdatedMs = ;
+	r.DirectLastMessageId = ;
+	r.LastSeenMessageId = ;
+	r.LastSeqSeen = ;
+	r.LastSeqDelete = ;
+	r.CurrentSeq = ;
+	r.User = ;
 
-	/*
-	PB_ChatView t = new PB_ChatView();
-	t.ChatKey = m.getChatKey() ;
-	t.ChatId = m.getChatId() ;
-	t.RoomTypeEnumId = m.getRoomTypeEnumId() ;
-	t.UserId = m.getUserId() ;
-	t.PeerUserId = m.getPeerUserId() ;
-	t.GroupId = m.getGroupId() ;
-	t.CreatedTime = m.getCreatedTime() ;
-	t.UpdatedMs = m.getUpdatedMs() ;
-	t.DirectLastMessageId = m.getDirectLastMessageId() ;
-	t.LastSeenMessageId = m.getLastSeenMessageId() ;
-	t.LastSeqSeen = m.getLastSeqSeen() ;
-	t.LastSeqDelete = m.getLastSeqDelete() ;
-	t.CurrentSeq = m.getCurrentSeq() ;
-	t.User = m.getUser() ;
+	//get
+	
+	m. = r.ChatKey ;//0
+	m. = r.ChatId ;//1
+	m. = r.RoomTypeEnumId ;//2
+	m. = r.UserId ;//3
+	m. = r.PeerUserId ;//4
+	m. = r.GroupId ;//5
+	m. = r.CreatedTime ;//6
+	m. = r.UpdatedMs ;//7
+	m. = r.DirectLastMessageId ;//8
+	m. = r.LastSeenMessageId ;//9
+	m. = r.LastSeqSeen ;//10
+	m. = r.LastSeqDelete ;//11
+	m. = r.CurrentSeq ;//12
+	m. = r.User ;//13
+
+	//get - no tag number
+	
+	m. = r.ChatKey ;
+	m. = r.ChatId ;
+	m. = r.RoomTypeEnumId ;
+	m. = r.UserId ;
+	m. = r.PeerUserId ;
+	m. = r.GroupId ;
+	m. = r.CreatedTime ;
+	m. = r.UpdatedMs ;
+	m. = r.DirectLastMessageId ;
+	m. = r.LastSeenMessageId ;
+	m. = r.LastSeqSeen ;
+	m. = r.LastSeqDelete ;
+	m. = r.CurrentSeq ;
+	m. = r.User ;
 	
 */

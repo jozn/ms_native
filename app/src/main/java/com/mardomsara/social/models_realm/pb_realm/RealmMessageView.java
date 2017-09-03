@@ -49,56 +49,74 @@ public class RealmMessageView extends RealmObject {
 	/*
 	folding
 
-	PBFlatTypes.PB_MessageView t = new PBFlatTypes.PB_MessageView();
-    t.MessageId = pb.getMessageId();
-    t.RoomKey = pb.getRoomKey();
-    t.UserId = pb.getUserId();
-    t.MessageFileId = pb.getMessageFileId();
-    t.MessageTypeEnumId = pb.getMessageTypeEnumId();
-    t.Text = pb.getText();
-    t.Time = pb.getTime();
-    t.PeerReceivedTime = pb.getPeerReceivedTime();
-    t.PeerSeenTime = pb.getPeerSeenTime();
-    t.DeliviryStatusEnumId = pb.getDeliviryStatusEnumId();
-    t.ChatId = pb.getChatId();
-    t.RoomTypeEnum = pb.getRoomTypeEnum();
-    t.IsByMe = pb.getIsByMe();
-    t.File = pb.getFile();
-	*/
+	//sett
+	RealmMessageView r = new RealmMessageView();
+	
+	r.MessageId = ;//0
+	r.RoomKey = ;//1
+	r.UserId = ;//2
+	r.MessageFileId = ;//3
+	r.MessageTypeEnumId = ;//4
+	r.Text = ;//5
+	r.Time = ;//6
+	r.PeerReceivedTime = ;//7
+	r.PeerSeenTime = ;//8
+	r.DeliviryStatusEnumId = ;//9
+	r.ChatId = ;//10
+	r.RoomTypeEnum = ;//11
+	r.IsByMe = ;//12
+	r.File = ;//13
 
-	/*
-	PBFlatTypes.PB_MessageView t = new PBFlatTypes.PB_MessageView();
-	t.MessageId = ;
-	t.RoomKey = ;
-	t.UserId = ;
-	t.MessageFileId = ;
-	t.MessageTypeEnumId = ;
-	t.Text = ;
-	t.Time = ;
-	t.PeerReceivedTime = ;
-	t.PeerSeenTime = ;
-	t.DeliviryStatusEnumId = ;
-	t.ChatId = ;
-	t.RoomTypeEnum = ;
-	t.IsByMe = ;
-	t.File = ;
-	*/
+	//sett - no tag number 
+	RealmMessageView r = new RealmMessageView();
+	
+	r.MessageId = ;
+	r.RoomKey = ;
+	r.UserId = ;
+	r.MessageFileId = ;
+	r.MessageTypeEnumId = ;
+	r.Text = ;
+	r.Time = ;
+	r.PeerReceivedTime = ;
+	r.PeerSeenTime = ;
+	r.DeliviryStatusEnumId = ;
+	r.ChatId = ;
+	r.RoomTypeEnum = ;
+	r.IsByMe = ;
+	r.File = ;
 
-	/*
-	PB_MessageView t = new PB_MessageView();
-	t.MessageId = m.getMessageId() ;
-	t.RoomKey = m.getRoomKey() ;
-	t.UserId = m.getUserId() ;
-	t.MessageFileId = m.getMessageFileId() ;
-	t.MessageTypeEnumId = m.getMessageTypeEnumId() ;
-	t.Text = m.getText() ;
-	t.Time = m.getTime() ;
-	t.PeerReceivedTime = m.getPeerReceivedTime() ;
-	t.PeerSeenTime = m.getPeerSeenTime() ;
-	t.DeliviryStatusEnumId = m.getDeliviryStatusEnumId() ;
-	t.ChatId = m.getChatId() ;
-	t.RoomTypeEnum = m.getRoomTypeEnum() ;
-	t.IsByMe = m.getIsByMe() ;
-	t.File = m.getFile() ;
+	//get
+	
+	m. = r.MessageId ;//0
+	m. = r.RoomKey ;//1
+	m. = r.UserId ;//2
+	m. = r.MessageFileId ;//3
+	m. = r.MessageTypeEnumId ;//4
+	m. = r.Text ;//5
+	m. = r.Time ;//6
+	m. = r.PeerReceivedTime ;//7
+	m. = r.PeerSeenTime ;//8
+	m. = r.DeliviryStatusEnumId ;//9
+	m. = r.ChatId ;//10
+	m. = r.RoomTypeEnum ;//11
+	m. = r.IsByMe ;//12
+	m. = r.File ;//13
+
+	//get - no tag number
+	
+	m. = r.MessageId ;
+	m. = r.RoomKey ;
+	m. = r.UserId ;
+	m. = r.MessageFileId ;
+	m. = r.MessageTypeEnumId ;
+	m. = r.Text ;
+	m. = r.Time ;
+	m. = r.PeerReceivedTime ;
+	m. = r.PeerSeenTime ;
+	m. = r.DeliviryStatusEnumId ;
+	m. = r.ChatId ;
+	m. = r.RoomTypeEnum ;
+	m. = r.IsByMe ;
+	m. = r.File ;
 	
 */

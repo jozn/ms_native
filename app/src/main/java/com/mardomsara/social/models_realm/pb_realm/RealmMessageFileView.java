@@ -55,65 +55,86 @@ public class RealmMessageFileView extends RealmObject {
 	/*
 	folding
 
-	PBFlatTypes.PB_MessageFileView t = new PBFlatTypes.PB_MessageFileView();
-    t.MessageFileId = pb.getMessageFileId();
-    t.Name = pb.getName();
-    t.Size = pb.getSize();
-    t.FileTypeEnum = pb.getFileTypeEnum();
-    t.MimeType = pb.getMimeType();
-    t.Width = pb.getWidth();
-    t.Height = pb.getHeight();
-    t.Duration = pb.getDuration();
-    t.Extension = pb.getExtension();
-    t.ThumbData64 = pb.getThumbData64();
-    t.ServerSrc = pb.getServerSrc();
-    t.ServerPath = pb.getServerPath();
-    t.ServerThumbPath = pb.getServerThumbPath();
-    t.BucketId = pb.getBucketId();
-    t.ServerId = pb.getServerId();
-    t.CanDel = pb.getCanDel();
-    t.CreatedTime = pb.getCreatedTime();
-	*/
+	//sett
+	RealmMessageFileView r = new RealmMessageFileView();
+	
+	r.MessageFileId = ;//0
+	r.Name = ;//1
+	r.Size = ;//2
+	r.FileTypeEnum = ;//3
+	r.MimeType = ;//4
+	r.Width = ;//5
+	r.Height = ;//6
+	r.Duration = ;//7
+	r.Extension = ;//8
+	r.ThumbData64 = ;//9
+	r.ServerSrc = ;//10
+	r.ServerPath = ;//11
+	r.ServerThumbPath = ;//12
+	r.BucketId = ;//13
+	r.ServerId = ;//14
+	r.CanDel = ;//15
+	r.CreatedTime = ;//16
 
-	/*
-	PBFlatTypes.PB_MessageFileView t = new PBFlatTypes.PB_MessageFileView();
-	t.MessageFileId = ;
-	t.Name = ;
-	t.Size = ;
-	t.FileTypeEnum = ;
-	t.MimeType = ;
-	t.Width = ;
-	t.Height = ;
-	t.Duration = ;
-	t.Extension = ;
-	t.ThumbData64 = ;
-	t.ServerSrc = ;
-	t.ServerPath = ;
-	t.ServerThumbPath = ;
-	t.BucketId = ;
-	t.ServerId = ;
-	t.CanDel = ;
-	t.CreatedTime = ;
-	*/
+	//sett - no tag number 
+	RealmMessageFileView r = new RealmMessageFileView();
+	
+	r.MessageFileId = ;
+	r.Name = ;
+	r.Size = ;
+	r.FileTypeEnum = ;
+	r.MimeType = ;
+	r.Width = ;
+	r.Height = ;
+	r.Duration = ;
+	r.Extension = ;
+	r.ThumbData64 = ;
+	r.ServerSrc = ;
+	r.ServerPath = ;
+	r.ServerThumbPath = ;
+	r.BucketId = ;
+	r.ServerId = ;
+	r.CanDel = ;
+	r.CreatedTime = ;
 
-	/*
-	PB_MessageFileView t = new PB_MessageFileView();
-	t.MessageFileId = m.getMessageFileId() ;
-	t.Name = m.getName() ;
-	t.Size = m.getSize() ;
-	t.FileTypeEnum = m.getFileTypeEnum() ;
-	t.MimeType = m.getMimeType() ;
-	t.Width = m.getWidth() ;
-	t.Height = m.getHeight() ;
-	t.Duration = m.getDuration() ;
-	t.Extension = m.getExtension() ;
-	t.ThumbData64 = m.getThumbData64() ;
-	t.ServerSrc = m.getServerSrc() ;
-	t.ServerPath = m.getServerPath() ;
-	t.ServerThumbPath = m.getServerThumbPath() ;
-	t.BucketId = m.getBucketId() ;
-	t.ServerId = m.getServerId() ;
-	t.CanDel = m.getCanDel() ;
-	t.CreatedTime = m.getCreatedTime() ;
+	//get
+	
+	m. = r.MessageFileId ;//0
+	m. = r.Name ;//1
+	m. = r.Size ;//2
+	m. = r.FileTypeEnum ;//3
+	m. = r.MimeType ;//4
+	m. = r.Width ;//5
+	m. = r.Height ;//6
+	m. = r.Duration ;//7
+	m. = r.Extension ;//8
+	m. = r.ThumbData64 ;//9
+	m. = r.ServerSrc ;//10
+	m. = r.ServerPath ;//11
+	m. = r.ServerThumbPath ;//12
+	m. = r.BucketId ;//13
+	m. = r.ServerId ;//14
+	m. = r.CanDel ;//15
+	m. = r.CreatedTime ;//16
+
+	//get - no tag number
+	
+	m. = r.MessageFileId ;
+	m. = r.Name ;
+	m. = r.Size ;
+	m. = r.FileTypeEnum ;
+	m. = r.MimeType ;
+	m. = r.Width ;
+	m. = r.Height ;
+	m. = r.Duration ;
+	m. = r.Extension ;
+	m. = r.ThumbData64 ;
+	m. = r.ServerSrc ;
+	m. = r.ServerPath ;
+	m. = r.ServerThumbPath ;
+	m. = r.BucketId ;
+	m. = r.ServerId ;
+	m. = r.CanDel ;
+	m. = r.CreatedTime ;
 	
 */

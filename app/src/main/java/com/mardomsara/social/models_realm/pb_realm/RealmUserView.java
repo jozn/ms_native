@@ -53,62 +53,82 @@ public class RealmUserView extends RealmObject {
 	/*
 	folding
 
-	PBFlatTypes.PB_UserView t = new PBFlatTypes.PB_UserView();
-    t.UserId = pb.getUserId();
-    t.UserName = pb.getUserName();
-    t.FirstName = pb.getFirstName();
-    t.LastName = pb.getLastName();
-    t.About = pb.getAbout();
-    t.FullName = pb.getFullName();
-    t.AvatarUrl = pb.getAvatarUrl();
-    t.PrivacyProfile = pb.getPrivacyProfile();
-    t.IsDeleted = pb.getIsDeleted();
-    t.FollowersCount = pb.getFollowersCount();
-    t.FollowingCount = pb.getFollowingCount();
-    t.PostsCount = pb.getPostsCount();
-    t.UpdatedTime = pb.getUpdatedTime();
-    t.AppVersion = pb.getAppVersion();
-    t.LastActivityTime = pb.getLastActivityTime();
-    t.FollowingType = pb.getFollowingType();
-	*/
+	//sett
+	RealmUserView r = new RealmUserView();
+	
+	r.UserId = ;//0
+	r.UserName = ;//1
+	r.FirstName = ;//2
+	r.LastName = ;//3
+	r.About = ;//4
+	r.FullName = ;//5
+	r.AvatarUrl = ;//6
+	r.PrivacyProfile = ;//7
+	r.IsDeleted = ;//8
+	r.FollowersCount = ;//9
+	r.FollowingCount = ;//10
+	r.PostsCount = ;//11
+	r.UpdatedTime = ;//12
+	r.AppVersion = ;//13
+	r.LastActivityTime = ;//14
+	r.FollowingType = ;//15
 
-	/*
-	PBFlatTypes.PB_UserView t = new PBFlatTypes.PB_UserView();
-	t.UserId = ;
-	t.UserName = ;
-	t.FirstName = ;
-	t.LastName = ;
-	t.About = ;
-	t.FullName = ;
-	t.AvatarUrl = ;
-	t.PrivacyProfile = ;
-	t.IsDeleted = ;
-	t.FollowersCount = ;
-	t.FollowingCount = ;
-	t.PostsCount = ;
-	t.UpdatedTime = ;
-	t.AppVersion = ;
-	t.LastActivityTime = ;
-	t.FollowingType = ;
-	*/
+	//sett - no tag number 
+	RealmUserView r = new RealmUserView();
+	
+	r.UserId = ;
+	r.UserName = ;
+	r.FirstName = ;
+	r.LastName = ;
+	r.About = ;
+	r.FullName = ;
+	r.AvatarUrl = ;
+	r.PrivacyProfile = ;
+	r.IsDeleted = ;
+	r.FollowersCount = ;
+	r.FollowingCount = ;
+	r.PostsCount = ;
+	r.UpdatedTime = ;
+	r.AppVersion = ;
+	r.LastActivityTime = ;
+	r.FollowingType = ;
 
-	/*
-	PB_UserView t = new PB_UserView();
-	t.UserId = m.getUserId() ;
-	t.UserName = m.getUserName() ;
-	t.FirstName = m.getFirstName() ;
-	t.LastName = m.getLastName() ;
-	t.About = m.getAbout() ;
-	t.FullName = m.getFullName() ;
-	t.AvatarUrl = m.getAvatarUrl() ;
-	t.PrivacyProfile = m.getPrivacyProfile() ;
-	t.IsDeleted = m.getIsDeleted() ;
-	t.FollowersCount = m.getFollowersCount() ;
-	t.FollowingCount = m.getFollowingCount() ;
-	t.PostsCount = m.getPostsCount() ;
-	t.UpdatedTime = m.getUpdatedTime() ;
-	t.AppVersion = m.getAppVersion() ;
-	t.LastActivityTime = m.getLastActivityTime() ;
-	t.FollowingType = m.getFollowingType() ;
+	//get
+	
+	m. = r.UserId ;//0
+	m. = r.UserName ;//1
+	m. = r.FirstName ;//2
+	m. = r.LastName ;//3
+	m. = r.About ;//4
+	m. = r.FullName ;//5
+	m. = r.AvatarUrl ;//6
+	m. = r.PrivacyProfile ;//7
+	m. = r.IsDeleted ;//8
+	m. = r.FollowersCount ;//9
+	m. = r.FollowingCount ;//10
+	m. = r.PostsCount ;//11
+	m. = r.UpdatedTime ;//12
+	m. = r.AppVersion ;//13
+	m. = r.LastActivityTime ;//14
+	m. = r.FollowingType ;//15
+
+	//get - no tag number
+	
+	m. = r.UserId ;
+	m. = r.UserName ;
+	m. = r.FirstName ;
+	m. = r.LastName ;
+	m. = r.About ;
+	m. = r.FullName ;
+	m. = r.AvatarUrl ;
+	m. = r.PrivacyProfile ;
+	m. = r.IsDeleted ;
+	m. = r.FollowersCount ;
+	m. = r.FollowingCount ;
+	m. = r.PostsCount ;
+	m. = r.UpdatedTime ;
+	m. = r.AppVersion ;
+	m. = r.LastActivityTime ;
+	m. = r.FollowingType ;
 	
 */
