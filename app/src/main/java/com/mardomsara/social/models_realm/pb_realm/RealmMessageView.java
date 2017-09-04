@@ -5,7 +5,6 @@ import io.realm.annotations.PrimaryKey;
 import ir.ms.pb.*;
 
 
-
 public class RealmMessageView extends RealmObject {
 		 @PrimaryKey 
 		public long MessageId;//0 				 PB 1
@@ -19,7 +18,7 @@ public class RealmMessageView extends RealmObject {
 		public int PeerSeenTime;//8 				 PB 17
 		public int DeliviryStatusEnumId;//9 				 PB 19
 		public long ChatId;//10 				 PB 30
-		public RoomTypeEnum RoomTypeEnum;//11 				 PB 31
+		public int RoomTypeEnumId;//11 				 PB 31
 		public boolean IsByMe;//12 				 PB 33
 		public RealmMessageFileView File;//13 				 PB 100
 	
@@ -38,7 +37,7 @@ public class RealmMessageView extends RealmObject {
 		r.PeerSeenTime = pb.getPeerSeenTime();//8
 		r.DeliviryStatusEnumId = pb.getDeliviryStatusEnumId();//9
 		r.ChatId = pb.getChatId();//10
-		r.RoomTypeEnum = pb.getRoomTypeEnum();//11
+		r.RoomTypeEnumId = pb.getRoomTypeEnumId();//11
 		r.IsByMe = pb.getIsByMe();//12
 		//r.File = pb.getFile();//13
 
@@ -63,7 +62,7 @@ public class RealmMessageView extends RealmObject {
 	r.PeerSeenTime = ;//8
 	r.DeliviryStatusEnumId = ;//9
 	r.ChatId = ;//10
-	r.RoomTypeEnum = ;//11
+	r.RoomTypeEnumId = ;//11
 	r.IsByMe = ;//12
 	r.File = ;//13
 
@@ -81,7 +80,7 @@ public class RealmMessageView extends RealmObject {
 	r.PeerSeenTime = ;
 	r.DeliviryStatusEnumId = ;
 	r.ChatId = ;
-	r.RoomTypeEnum = ;
+	r.RoomTypeEnumId = ;
 	r.IsByMe = ;
 	r.File = ;
 
@@ -98,7 +97,7 @@ public class RealmMessageView extends RealmObject {
 	m. = r.PeerSeenTime ;//8
 	m. = r.DeliviryStatusEnumId ;//9
 	m. = r.ChatId ;//10
-	m. = r.RoomTypeEnum ;//11
+	m. = r.RoomTypeEnumId ;//11
 	m. = r.IsByMe ;//12
 	m. = r.File ;//13
 
@@ -115,7 +114,7 @@ public class RealmMessageView extends RealmObject {
 	m. = r.PeerSeenTime ;
 	m. = r.DeliviryStatusEnumId ;
 	m. = r.ChatId ;
-	m. = r.RoomTypeEnum ;
+	m. = r.RoomTypeEnumId ;
 	m. = r.IsByMe ;
 	m. = r.File ;
 	

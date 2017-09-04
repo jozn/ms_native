@@ -5,7 +5,6 @@ import io.realm.annotations.PrimaryKey;
 import ir.ms.pb.*;
 
 
-
 public class RealmMessageFileView extends RealmObject {
 		 @PrimaryKey 
 		public long MessageFileId;//0 				 PB 1

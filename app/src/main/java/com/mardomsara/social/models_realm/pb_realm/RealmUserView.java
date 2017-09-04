@@ -5,7 +5,6 @@ import io.realm.annotations.PrimaryKey;
 import ir.ms.pb.*;
 
 
-
 public class RealmUserView extends RealmObject {
 		 @PrimaryKey 
 		public int UserId;//0 				 PB 1

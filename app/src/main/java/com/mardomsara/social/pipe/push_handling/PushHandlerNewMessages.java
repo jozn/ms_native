@@ -3,7 +3,7 @@ package com.mardomsara.social.pipe.push_handling;
 import com.mardomsara.social.app.MSRealm;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.models_realm.RealmChatViewHelper;
-import com.mardomsara.social.models_realm.PBToRealm;
+import com.mardomsara.social.models_realm.RealmMessageViewHelper;
 import com.mardomsara.social.models_realm.pb_realm.RealmChatView;
 import com.mardomsara.social.models_realm.pb_realm.RealmMessageView;
 import com.mardomsara.social.models_realm.pb_realm.RealmUserView;
@@ -14,13 +14,12 @@ import java.util.List;
 import ir.ms.pb.PB_ChatView;
 import ir.ms.pb.PB_MessageView;
 import ir.ms.pb.PB_PushHolderView;
-import ir.ms.pb.PB_UserView;
 
 /**
  * Created by Hamid on 8/30/2017.
  */
 
-final class PushNewMessagesHandler {
+final class PushHandlerNewMessages {
 
 	//first insert users > messages > chats
 	public static void handle(PB_PushHolderView push) {
@@ -29,7 +28,7 @@ final class PushNewMessagesHandler {
 		AppUtil.log("push: handling - realm messages count: " + c + " chat count " + push.getChatsCount());
 
 
-		List<RealmUserView> users = new ArrayList();
+		/*List<RealmUserView> users = new ArrayList();
 		for (PB_UserView m : push.getUsersList()) {
 			RealmUserView t = PBToRealm.from_userView(m);
 
@@ -37,11 +36,11 @@ final class PushNewMessagesHandler {
 		}
 		MSRealm.getChatRealm().executeTransaction((trans) -> {
 			trans.copyToRealmOrUpdate(users);
-		});
+		});*/
 
 		List<RealmMessageView> msgs = new ArrayList();
-		for (PB_MessageView m : push.getNewMessagesList()) {
-			RealmMessageView t = PBToRealm.from_messageView(m);
+		for (PB_MessageView pbMessageView : push.getNewMessagesList()) {
+			RealmMessageView t = RealmMessageView.fromPB(pbMessageView);
 			msgs.add(t);
 		}
 
@@ -50,17 +49,22 @@ final class PushNewMessagesHandler {
 		});
 
 		List chats = new ArrayList();
-		for (PB_ChatView m : push.getChatsList()) {
-			RealmChatView t = PBToRealm.from_chatView(m);
+		for (PB_ChatView pb_chatView : push.getChatsList()) {
+			RealmChatView realmChatView = RealmChatView.fromPB(pb_chatView);
 
-			chats.add(t);
+			if(pb_chatView.getUser() != null){
+				AppUtil.log("push: handling - realm users: " + pb_chatView.getUser().getUserName());
+				realmChatView.User = RealmUserView.fromPB(pb_chatView.getUser());
+			}
+			realmChatView.LastMessage = RealmMessageViewHelper.getLastMessageForChat(MSRealm.getChatRealm(),realmChatView.ChatId);
+
+			chats.add(realmChatView);
 		}
 		MSRealm.getChatRealm().executeTransaction((trans) -> {
 			trans.copyToRealmOrUpdate(chats);
 		});
 
 		RealmChatViewHelper.insertOrUpdateNewChatsFromPipe(push.getChatsList());
-
 
 	}
 }

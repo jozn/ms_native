@@ -241,33 +241,21 @@ public final class PB_MessageView
     chatId_ = 0L;
   }
 
-  public static final int ROOMTYPEENUM_FIELD_NUMBER = 31;
-  private int roomTypeEnum_;
-  /** <code>.RoomTypeEnum RoomTypeEnum = 31;</code> */
-  public int getRoomTypeEnumValue() {
-    return roomTypeEnum_;
+  public static final int ROOMTYPEENUMID_FIELD_NUMBER = 31;
+  private int roomTypeEnumId_;
+  /** <code>int32 RoomTypeEnumId = 31;</code> */
+  public int getRoomTypeEnumId() {
+    return roomTypeEnumId_;
   }
-  /** <code>.RoomTypeEnum RoomTypeEnum = 31;</code> */
-  public ir.ms.pb.RoomTypeEnum getRoomTypeEnum() {
-    ir.ms.pb.RoomTypeEnum result = ir.ms.pb.RoomTypeEnum.forNumber(roomTypeEnum_);
-    return result == null ? ir.ms.pb.RoomTypeEnum.UNRECOGNIZED : result;
-  }
-  /** <code>.RoomTypeEnum RoomTypeEnum = 31;</code> */
-  private void setRoomTypeEnumValue(int value) {
-    roomTypeEnum_ = value;
-  }
-  /** <code>.RoomTypeEnum RoomTypeEnum = 31;</code> */
-  private void setRoomTypeEnum(ir.ms.pb.RoomTypeEnum value) {
-    if (value == null) {
-      throw new NullPointerException();
-    }
+  /** <code>int32 RoomTypeEnumId = 31;</code> */
+  private void setRoomTypeEnumId(int value) {
 
-    roomTypeEnum_ = value.getNumber();
+    roomTypeEnumId_ = value;
   }
-  /** <code>.RoomTypeEnum RoomTypeEnum = 31;</code> */
-  private void clearRoomTypeEnum() {
+  /** <code>int32 RoomTypeEnumId = 31;</code> */
+  private void clearRoomTypeEnumId() {
 
-    roomTypeEnum_ = 0;
+    roomTypeEnumId_ = 0;
   }
 
   public static final int ISBYME_FIELD_NUMBER = 33;
@@ -355,8 +343,8 @@ public final class PB_MessageView
     if (chatId_ != 0L) {
       output.writeInt64(30, chatId_);
     }
-    if (roomTypeEnum_ != ir.ms.pb.RoomTypeEnum.UNKNOWN_ROOM_TYPE.getNumber()) {
-      output.writeEnum(31, roomTypeEnum_);
+    if (roomTypeEnumId_ != 0) {
+      output.writeInt32(31, roomTypeEnumId_);
     }
     if (isByMe_ != false) {
       output.writeBool(33, isByMe_);
@@ -404,8 +392,8 @@ public final class PB_MessageView
     if (chatId_ != 0L) {
       size += com.google.protobuf.CodedOutputStream.computeInt64Size(30, chatId_);
     }
-    if (roomTypeEnum_ != ir.ms.pb.RoomTypeEnum.UNKNOWN_ROOM_TYPE.getNumber()) {
-      size += com.google.protobuf.CodedOutputStream.computeEnumSize(31, roomTypeEnum_);
+    if (roomTypeEnumId_ != 0) {
+      size += com.google.protobuf.CodedOutputStream.computeInt32Size(31, roomTypeEnumId_);
     }
     if (isByMe_ != false) {
       size += com.google.protobuf.CodedOutputStream.computeBoolSize(33, isByMe_);
@@ -712,30 +700,20 @@ public final class PB_MessageView
       return this;
     }
 
-    /** <code>.RoomTypeEnum RoomTypeEnum = 31;</code> */
-    public int getRoomTypeEnumValue() {
-      return instance.getRoomTypeEnumValue();
+    /** <code>int32 RoomTypeEnumId = 31;</code> */
+    public int getRoomTypeEnumId() {
+      return instance.getRoomTypeEnumId();
     }
-    /** <code>.RoomTypeEnum RoomTypeEnum = 31;</code> */
-    public Builder setRoomTypeEnumValue(int value) {
+    /** <code>int32 RoomTypeEnumId = 31;</code> */
+    public Builder setRoomTypeEnumId(int value) {
       copyOnWrite();
-      instance.setRoomTypeEnumValue(value);
+      instance.setRoomTypeEnumId(value);
       return this;
     }
-    /** <code>.RoomTypeEnum RoomTypeEnum = 31;</code> */
-    public ir.ms.pb.RoomTypeEnum getRoomTypeEnum() {
-      return instance.getRoomTypeEnum();
-    }
-    /** <code>.RoomTypeEnum RoomTypeEnum = 31;</code> */
-    public Builder setRoomTypeEnum(ir.ms.pb.RoomTypeEnum value) {
+    /** <code>int32 RoomTypeEnumId = 31;</code> */
+    public Builder clearRoomTypeEnumId() {
       copyOnWrite();
-      instance.setRoomTypeEnum(value);
-      return this;
-    }
-    /** <code>.RoomTypeEnum RoomTypeEnum = 31;</code> */
-    public Builder clearRoomTypeEnum() {
-      copyOnWrite();
-      instance.clearRoomTypeEnum();
+      instance.clearRoomTypeEnumId();
       return this;
     }
 
@@ -852,9 +830,12 @@ public final class PB_MessageView
                   other.deliviryStatusEnumId_ != 0,
                   other.deliviryStatusEnumId_);
           chatId_ = visitor.visitLong(chatId_ != 0L, chatId_, other.chatId_ != 0L, other.chatId_);
-          roomTypeEnum_ =
+          roomTypeEnumId_ =
               visitor.visitInt(
-                  roomTypeEnum_ != 0, roomTypeEnum_, other.roomTypeEnum_ != 0, other.roomTypeEnum_);
+                  roomTypeEnumId_ != 0,
+                  roomTypeEnumId_,
+                  other.roomTypeEnumId_ != 0,
+                  other.roomTypeEnumId_);
           isByMe_ =
               visitor.visitBoolean(
                   isByMe_ != false, isByMe_, other.isByMe_ != false, other.isByMe_);
@@ -943,9 +924,7 @@ public final class PB_MessageView
                   }
                 case 248:
                   {
-                    int rawValue = input.readEnum();
-
-                    roomTypeEnum_ = rawValue;
+                    roomTypeEnumId_ = input.readInt32();
                     break;
                   }
                 case 264:

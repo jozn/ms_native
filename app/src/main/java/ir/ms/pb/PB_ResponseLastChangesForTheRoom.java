@@ -206,6 +206,7 @@ public final class PB_ResponseLastChangesForTheRoom
       return instance.getMessagesCount();
     }
     /** <code>repeated .PB_MessageView Messages = 1;</code> */
+
     public ir.ms.pb.PB_MessageView getMessages(int index) {
       return instance.getMessages(index);
     }

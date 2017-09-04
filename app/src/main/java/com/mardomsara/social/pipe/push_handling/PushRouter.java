@@ -8,6 +8,6 @@ import ir.ms.pb.PB_PushHolderView;
 
 public class PushRouter {
 	public static void handle(PB_PushHolderView push){
-		PushNewMessagesHandler.handle(push);
+		PushHandlerNewMessages.handle(push);
 	}
 }

@@ -41,8 +41,8 @@ class InboxRowCell {
 		x.date_txt.setText("" + FormaterUtil.friendlyTimeClockOrDayMs(room.UpdatedMs));//+"قبل");
 		x.unseen_count_txt.setCount(room.LastSeqSeen);
 
-		if (lastMsg != null) {
-			x.last_msg_txt.setText(InboxRoomHelper.getLastMsgFormatedText(lastMsg));
+		if (room.LastMessage != null) {
+			x.last_msg_txt.setText(InboxRoomHelper.getLastMsgFormatedText(room.LastMessage));
 		} else {//clear from previus
 			x.last_msg_txt.setText("");
 		}

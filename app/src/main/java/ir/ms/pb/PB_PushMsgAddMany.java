@@ -383,6 +383,7 @@ public final class PB_PushMsgAddMany
       return instance.getMessagesCount();
     }
     /** <code>repeated .PB_Message Messages = 2;</code> */
+
     public ir.ms.pb.PB_Message getMessages(int index) {
       return instance.getMessages(index);
     }
@@ -450,6 +451,7 @@ public final class PB_PushMsgAddMany
       return instance.getUsersCount();
     }
     /** <code>repeated .PB_UserWithMe Users = 3;</code> */
+
     public ir.ms.pb.PB_UserWithMe getUsers(int index) {
       return instance.getUsers(index);
     }

@@ -2802,7 +2802,7 @@ public class PBFlatTypes {
     public int PeerSeenTime;
     public int DeliviryStatusEnumId;
     public long ChatId;
-    public RoomTypeEnum RoomTypeEnum;
+    public int RoomTypeEnumId;
     public boolean IsByMe;
     public PB_MessageFileView File;
   }
@@ -2820,7 +2820,7 @@ public class PBFlatTypes {
      t.setPeerSeenTime();
      t.setDeliviryStatusEnumId();
      t.setChatId();
-     t.setRoomTypeEnum();
+     t.setRoomTypeEnumId();
      t.setIsByMe();
      t.setFile();
   */
@@ -2838,7 +2838,7 @@ public class PBFlatTypes {
   t.PeerSeenTime = ;
   t.DeliviryStatusEnumId = ;
   t.ChatId = ;
-  t.RoomTypeEnum = ;
+  t.RoomTypeEnumId = ;
   t.IsByMe = ;
   t.File = ;
   */
@@ -2856,7 +2856,7 @@ public class PBFlatTypes {
   t.PeerSeenTime = m.getPeerSeenTime() ;
   t.DeliviryStatusEnumId = m.getDeliviryStatusEnumId() ;
   t.ChatId = m.getChatId() ;
-  t.RoomTypeEnum = m.getRoomTypeEnum() ;
+  t.RoomTypeEnumId = m.getRoomTypeEnumId() ;
   t.IsByMe = m.getIsByMe() ;
   t.File = m.getFile() ;
   */
@@ -3027,12 +3027,12 @@ public class PBFlatTypes {
 
 /*
 
-RPC_INTERFACES.RPC_MessageReq RPC_MessageReq_Handeler = null;
-RPC_INTERFACES.RPC_MessageReqOffline RPC_MessageReqOffline_Handeler = null;
-RPC_INTERFACES.RpcMsgs RpcMsgs_Handeler = null;
-RPC_INTERFACES.RPC_Auth RPC_Auth_Handeler = null;
-RPC_INTERFACES.RPC_Msg RPC_Msg_Handeler = null;
-RPC_INTERFACES.RPC_UserOffline RPC_UserOffline_Handeler = null;
-RPC_INTERFACES.RPC_User RPC_User_Handeler = null;
+RPC_HANDLERS.RPC_MessageReq RPC_MessageReq_Handeler = null;
+RPC_HANDLERS.RPC_MessageReqOffline RPC_MessageReqOffline_Handeler = null;
+RPC_HANDLERS.RpcMsgs RpcMsgs_Handeler = null;
+RPC_HANDLERS.RPC_Auth RPC_Auth_Handeler = null;
+RPC_HANDLERS.RPC_Msg RPC_Msg_Handeler = null;
+RPC_HANDLERS.RPC_UserOffline RPC_UserOffline_Handeler = null;
+RPC_HANDLERS.RPC_User RPC_User_Handeler = null;
 
 */

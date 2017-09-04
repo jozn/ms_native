@@ -16,6 +16,7 @@ import com.mardomsara.social.App;
 import com.mardomsara.social.Nav;
 import com.mardomsara.social.app.Config;
 import com.mardomsara.social.app.LifeCycle;
+import com.mardomsara.social.app.ConfigRealmBrowser;
 import com.mardomsara.social.app.memory.TrimMemory;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.Helper;
@@ -187,9 +188,16 @@ public abstract class AppBaseActivity extends AppCompatActivity {
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		AppUtil.log("called onKeyDown: " + keyCode);
-		if (Config.IS_DEBUG && keyCode == KeyEvent.KEYCODE_VOLUME_DOWN) {
-			Nav.push(new Play_TestsPresenter());
-			return true;
+		if (Config.IS_DEBUG) {
+			if (keyCode == KeyEvent.KEYCODE_VOLUME_DOWN) {
+				Nav.push(new Play_TestsPresenter());
+				return true;
+			}
+
+			if (keyCode == KeyEvent.KEYCODE_VOLUME_UP) {
+				ConfigRealmBrowser.init(this);
+				return true;
+			}
 		}
 		return super.onKeyDown(keyCode, event);
 	}

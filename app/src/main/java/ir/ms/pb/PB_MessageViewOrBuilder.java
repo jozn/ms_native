@@ -45,10 +45,8 @@ public interface PB_MessageViewOrBuilder
   /** <code>int64 ChatId = 30;</code> */
   long getChatId();
 
-  /** <code>.RoomTypeEnum RoomTypeEnum = 31;</code> */
-  int getRoomTypeEnumValue();
-  /** <code>.RoomTypeEnum RoomTypeEnum = 31;</code> */
-  ir.ms.pb.RoomTypeEnum getRoomTypeEnum();
+  /** <code>int32 RoomTypeEnumId = 31;</code> */
+  int getRoomTypeEnumId();
 
   /** <code>bool IsByMe = 33;</code> */
   boolean getIsByMe();

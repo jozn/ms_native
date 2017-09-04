@@ -45,6 +45,15 @@ allprojects {
             url 'https://github.com/uPhyca/stetho-realm/raw/master/maven-repo'
         }
         maven { url 'https://github.com/linchaolong/stetho-realm/raw/master/maven-repo' }
+
+        //for realm brwser
+        maven {
+            url 's3://assets.scand.com/maven/repository/RealmBrowser'
+            credentials(AwsCredentials) {
+                accessKey "AKIAIQXKP5XUVFLEEAKA"
+                secretKey "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"
+            }
+        }
     }
 }
 

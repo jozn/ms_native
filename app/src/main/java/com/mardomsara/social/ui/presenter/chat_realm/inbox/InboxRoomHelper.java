@@ -38,6 +38,8 @@ final class InboxRoomHelper {
                 case Constants.MESSAGE_lOCCASION:
                     txt = "[مکان] " +LangUtil.limitText(lastMsg.Text, limit);
                     break;
+				default:
+					txt = "" +LangUtil.limitText(lastMsg.Text, limit);
             }
             return txt;
         }

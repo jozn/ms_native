@@ -6,12 +6,13 @@ import android.support.annotation.Nullable;
 import com.mardomsara.social.app.MSRealm;
 import com.mardomsara.social.models_realm.pb_realm.RealmChatView;
 import com.mardomsara.social.models_realm.pb_realm.RealmMessageView;
-import com.mardomsara.social.models_realm.realm_local.RealmChatViewFields;
 
 import java.util.List;
 
 import io.realm.Realm;
 import ir.ms.pb.PB_ChatView;
+
+//import com.mardomsara.social.models_realm.realm_local.RealmChatViewFields;
 
 /**
  * Created by Hamid on 9/1/2017.
@@ -22,7 +23,7 @@ public class RealmChatViewHelper {
 	/////////////////////////////////////////
 	public static String getRoomName(RealmChatView chatView){
 		if(chatView.User != null){
-			return chatView.User.FullName;
+			return "" + chatView.User.FirstName + " " + chatView.User.LastName;
 		}
 		return "name: " + chatView.ChatKey;
 	}
@@ -47,7 +48,7 @@ public class RealmChatViewHelper {
 	@Nullable
 	RealmChatView getChatByChatId(long chatId) {
 		Realm realm = MSRealm.getChatRealm();
-		RealmChatView chatView = realm.where(RealmChatView.class).equalTo(RealmChatViewFields.CHAT_ID, chatId).findFirst();
+		RealmChatView chatView = realm.where(RealmChatView.class).equalTo("ChatId", chatId).findFirst();
 		realm.close();
 
 		return chatView;
@@ -93,9 +94,9 @@ public class RealmChatViewHelper {
 			RealmChatView chatView = Database.getRealmChatView(realm, m.getChatId());
 			if (chatView == null) {//create new chat
 //				chatView = realm.createObject(RealmChatView.class);
-				chatView = PBToRealm.from_chatView(m);
-				chatView.user = Database.getRealmUserView(realm, m.getUserId());
-				if (chatView.user == null);// continue;//user must set
+//				chatView = PBToRealm.from_chatView(m);
+				//chatView.user = Database.getRealmUserView(realm, m.getUserId());
+//				if (chatView.user == null);// continue;//user must set
 
 			} else {//update existing ine
 
@@ -119,7 +120,7 @@ public class RealmChatViewHelper {
 			if (chatView == null) {//create new chat
 				chatView = realm.createObject(RealmChatView.class);
 //				chatView.user = RealmUserView.getUserByUserId(m.getUserId());
-				if (chatView.user == null) continue;//user must set
+//				if (chatView.user == null) continue;//user must set
 
 			} else {//update existing ine
 

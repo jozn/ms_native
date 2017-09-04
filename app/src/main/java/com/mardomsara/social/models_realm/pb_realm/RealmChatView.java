@@ -5,7 +5,6 @@ import io.realm.annotations.PrimaryKey;
 import ir.ms.pb.*;
 
 
-
 public class RealmChatView extends RealmObject {
 		 @PrimaryKey 
 		public String ChatKey;//0 				 PB 3

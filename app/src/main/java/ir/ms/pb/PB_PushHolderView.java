@@ -1905,6 +1905,7 @@ public final class PB_PushHolderView
      *
      * <code>repeated .PB_MessageView NewMessages = 1;</code>
      */
+
     public ir.ms.pb.PB_MessageView getNewMessages(int index) {
       return instance.getNewMessages(index);
     }
@@ -2044,6 +2045,7 @@ public final class PB_PushHolderView
       return instance.getChatFilesCount();
     }
     /** <code>repeated .PB_MessageFileView ChatFiles = 2;</code> */
+
     public ir.ms.pb.PB_MessageFileView getChatFiles(int index) {
       return instance.getChatFiles(index);
     }
@@ -2112,6 +2114,7 @@ public final class PB_PushHolderView
       return instance.getChatsCount();
     }
     /** <code>repeated .PB_ChatView Chats = 3;</code> */
+
     public ir.ms.pb.PB_ChatView getChats(int index) {
       return instance.getChats(index);
     }
@@ -2179,6 +2182,7 @@ public final class PB_PushHolderView
       return instance.getUsersCount();
     }
     /** <code>repeated .PB_UserView Users = 6;</code> */
+
     public ir.ms.pb.PB_UserView getUsers(int index) {
       return instance.getUsers(index);
     }
@@ -2246,6 +2250,7 @@ public final class PB_PushHolderView
       return instance.getMessagesChangeIdsCount();
     }
     /** <code>repeated .PB_UpdateMessageId MessagesChangeIds = 10;</code> */
+
     public ir.ms.pb.PB_UpdateMessageId getMessagesChangeIds(int index) {
       return instance.getMessagesChangeIds(index);
     }
@@ -2316,6 +2321,7 @@ public final class PB_PushHolderView
       return instance.getMessagesToUpdateCount();
     }
     /** <code>repeated .PB_UpdateMessageToEdit MessagesToUpdate = 11;</code> */
+
     public ir.ms.pb.PB_UpdateMessageToEdit getMessagesToUpdate(int index) {
       return instance.getMessagesToUpdate(index);
     }
@@ -2386,6 +2392,7 @@ public final class PB_PushHolderView
       return instance.getMessagesToDeleteCount();
     }
     /** <code>repeated .PB_UpdateMessageToDelete MessagesToDelete = 12;</code> */
+
     public ir.ms.pb.PB_UpdateMessageToDelete getMessagesToDelete(int index) {
       return instance.getMessagesToDelete(index);
     }
@@ -2480,6 +2487,7 @@ public final class PB_PushHolderView
      *
      * <code>repeated .PB_UpdateMessageMeta MessagesDelivierdToServer = 20;</code>
      */
+
     public ir.ms.pb.PB_UpdateMessageMeta getMessagesDelivierdToServer(int index) {
       return instance.getMessagesDelivierdToServer(index);
     }
@@ -2623,6 +2631,7 @@ public final class PB_PushHolderView
       return instance.getMessagesDelivierdToPeerCount();
     }
     /** <code>repeated .PB_UpdateMessageMeta MessagesDelivierdToPeer = 21;</code> */
+
     public ir.ms.pb.PB_UpdateMessageMeta getMessagesDelivierdToPeer(int index) {
       return instance.getMessagesDelivierdToPeer(index);
     }
@@ -2694,6 +2703,7 @@ public final class PB_PushHolderView
       return instance.getMessagesSeenByPeerCount();
     }
     /** <code>repeated .PB_UpdateMessageMeta MessagesSeenByPeer = 22;</code> */
+
     public ir.ms.pb.PB_UpdateMessageMeta getMessagesSeenByPeer(int index) {
       return instance.getMessagesSeenByPeer(index);
     }
@@ -2764,6 +2774,7 @@ public final class PB_PushHolderView
       return instance.getMessagesDeletedFromServerCount();
     }
     /** <code>repeated .PB_UpdateMessageMeta MessagesDeletedFromServer = 23;</code> */
+
     public ir.ms.pb.PB_UpdateMessageMeta getMessagesDeletedFromServer(int index) {
       return instance.getMessagesDeletedFromServer(index);
     }
@@ -2859,6 +2870,7 @@ public final class PB_PushHolderView
      *
      * <code>repeated .PB_UpdateRoomActionDoing RoomActionDoing = 30;</code>
      */
+
     public ir.ms.pb.PB_UpdateRoomActionDoing getRoomActionDoing(int index) {
       return instance.getRoomActionDoing(index);
     }
@@ -3025,6 +3037,7 @@ public final class PB_PushHolderView
      *
      * <code>repeated .PB_UpdateUserBlocked UserBlockedByMe = 50;</code>
      */
+
     public ir.ms.pb.PB_UpdateUserBlocked getUserBlockedByMe(int index) {
       return instance.getUserBlockedByMe(index);
     }
@@ -3167,6 +3180,7 @@ public final class PB_PushHolderView
       return instance.getUserBlockedMeCount();
     }
     /** <code>repeated .PB_UpdateUserBlocked UserBlockedMe = 51;</code> */
+
     public ir.ms.pb.PB_UpdateUserBlocked getUserBlockedMe(int index) {
       return instance.getUserBlockedMe(index);
     }

@@ -205,6 +205,7 @@ public final class PB_PushDirectLogViewsMany
       return instance.getRowsCount();
     }
     /** <code>repeated .PB_DirectLogView Rows = 1;</code> */
+
     public ir.ms.pb.PB_DirectLogView getRows(int index) {
       return instance.getRows(index);
     }

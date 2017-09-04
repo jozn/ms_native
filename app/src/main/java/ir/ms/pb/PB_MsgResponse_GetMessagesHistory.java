@@ -207,6 +207,7 @@ public final class PB_MsgResponse_GetMessagesHistory
       return instance.getMessagesViewsCount();
     }
     /** <code>repeated .PB_MessageView MessagesViews = 1;</code> */
+
     public ir.ms.pb.PB_MessageView getMessagesViews(int index) {
       return instance.getMessagesViews(index);
     }
