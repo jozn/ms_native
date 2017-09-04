@@ -2709,6 +2709,7 @@ public class PBFlatTypes {
     public int CreatedTime;
     public long UpdatedMs;
     public long DirectLastMessageId;
+    public long DirectLastDeletedMessageId;
     public long LastSeenMessageId;
     public int LastSeqSeen;
     public int LastSeqDelete;
@@ -2727,6 +2728,7 @@ public class PBFlatTypes {
      t.setCreatedTime();
      t.setUpdatedMs();
      t.setDirectLastMessageId();
+     t.setDirectLastDeletedMessageId();
      t.setLastSeenMessageId();
      t.setLastSeqSeen();
      t.setLastSeqDelete();
@@ -2745,6 +2747,7 @@ public class PBFlatTypes {
   t.CreatedTime = ;
   t.UpdatedMs = ;
   t.DirectLastMessageId = ;
+  t.DirectLastDeletedMessageId = ;
   t.LastSeenMessageId = ;
   t.LastSeqSeen = ;
   t.LastSeqDelete = ;
@@ -2763,6 +2766,7 @@ public class PBFlatTypes {
   t.CreatedTime = m.getCreatedTime() ;
   t.UpdatedMs = m.getUpdatedMs() ;
   t.DirectLastMessageId = m.getDirectLastMessageId() ;
+  t.DirectLastDeletedMessageId = m.getDirectLastDeletedMessageId() ;
   t.LastSeenMessageId = m.getLastSeenMessageId() ;
   t.LastSeqSeen = m.getLastSeqSeen() ;
   t.LastSeqDelete = m.getLastSeqDelete() ;

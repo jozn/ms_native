@@ -5,7 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.mardomsara.social.Branch;
+import com.mardomsara.social.BranchEnum;
 import com.mardomsara.social.Nav;
 import com.mardomsara.social.R;
 import com.mardomsara.social.helpers.AndroidUtil;
@@ -22,8 +22,8 @@ public class FooterBarCell {
     TextView home;
     TextView chat;
     TextView[] cells;
-    Branch activeBranch;
-    Map<Branch,TextView> cellsMap = new HashMap<>();
+    BranchEnum activeBranch;
+    Map<BranchEnum,TextView> cellsMap = new HashMap<>();
 
 	public FooterBarCell(ViewGroup container) {
 		root = AppUtil.inflate(R.layout.fragment_footer_bar, container);
@@ -42,16 +42,16 @@ public class FooterBarCell {
 	}
 
 	public void setUpMaper(){
-        cellsMap.put(Branch.Profile,profile);
-        cellsMap.put(Branch.Activity,activity);
-        cellsMap.put(Branch.Search,search);
-        cellsMap.put(Branch.Home,home);
-        cellsMap.put(Branch.Chat,chat);
+        cellsMap.put(BranchEnum.Profile,profile);
+        cellsMap.put(BranchEnum.Activity,activity);
+        cellsMap.put(BranchEnum.Search,search);
+        cellsMap.put(BranchEnum.Home,home);
+        cellsMap.put(BranchEnum.Chat,chat);
     }
 
     public void setUpEvents(){
 
-        for (final Branch k: cellsMap.keySet()){
+        for (final BranchEnum k: cellsMap.keySet()){
             cellsMap.get(k).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -71,8 +71,8 @@ public class FooterBarCell {
         }
     }
 
-    public void activateBranch(Branch bra){
-        for (Branch k: cellsMap.keySet()){
+    public void activateBranch(BranchEnum bra){
+        for (BranchEnum k: cellsMap.keySet()){
             cellsMap.get(k).setBackgroundColor(getResources().getColor(R.color.navbar_background));
             cellsMap.get(k).setTextColor(getResources().getColor(R.color.navbar_icon_font));
         }

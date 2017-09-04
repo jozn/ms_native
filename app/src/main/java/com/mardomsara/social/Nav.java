@@ -18,6 +18,7 @@ import java.util.Set;
 import java.util.Stack;
 
 import hugo.weaving.DebugLog;
+import ir.ms.pb.RPC_HANDLERS;
 
 /**
  * Created by Hamid on 1/30/2016.
@@ -57,17 +58,17 @@ public class Nav {
 		getDefaultTree().showFooter();
     }
 
-    public static void goToBranch(Branch bra) {
+    public static void goToBranch(BranchEnum bra) {
 		getDefaultTree().goToBranch(bra);
     }
 
 	@Deprecated
 	public static void goToBranch(String bra) {
-		getDefaultTree().goToBranch(Branch.Chat);
+		getDefaultTree().goToBranch(BranchEnum.Chat);
 	}
 
     //Fixme: .pop() events + bug: get longcliked branced not active
-    public static void resetBranch(Branch branch) {
+    public static void resetBranch(BranchEnum branch) {
 		getDefaultTree().resetBranch(branch);
     }
 
@@ -104,7 +105,7 @@ public class Nav {
 
 	public static class BranchCell {
 		public Stack<PresenterPage> pageStacks = new Stack<>();//all contents hsbeen attched so we can call attach/deattach
-		public Branch name;
+		public BranchEnum name;
 		public PresenterPage defaultPage;
 
 		void setDefaultPage(PresenterPage defaultPage){
@@ -129,16 +130,16 @@ public class Nav {
 	//used for ordering backstack of active branches
 	static class BranchOrderStacks {
 		Set<String> branchSet = new LinkedHashSet<>();
-		List<Branch> branchList = new ArrayList<>();
+		List<BranchEnum> branchList = new ArrayList<>();
 
-		public void push(Branch bra) {
+		public void push(BranchEnum bra) {
 			branchList.remove(bra);//remove older
 			branchList.add(bra); //apend
 		}
 
 		@Nullable
-		public Branch peek() {
-			Branch res = null;
+		public BranchEnum peek() {
+			BranchEnum res = null;
 			if (branchList.size()>0){
 				res = branchList.get(branchList.size()-1);
 			}
@@ -146,9 +147,9 @@ public class Nav {
 		}
 
 		@Nullable
-		public Branch pop() {
+		public BranchEnum pop() {
 			int size = branchList.size();
-			Branch res = null;
+			BranchEnum res = null;
 			if (size > 0) {
 				res = branchList.get(size - 1);
 				branchList.remove(size - 1);
@@ -157,8 +158,8 @@ public class Nav {
 		}
 	}
 
-	static void setDefultBranc(Map<Branch,BranchCell> branchMapHolder){
-		for (Branch b : Branch.values()){
+	static void setDefultBranc(Map<BranchEnum,BranchCell> branchMapHolder){
+		for (BranchEnum b : BranchEnum.values()){
 			BranchCell cell = new BranchCell();
 			cell.name = b;
 			switch (b){
@@ -186,11 +187,11 @@ public class Nav {
 		static String TAG = "Nav";
 		int MAX_BRANCH_STACKE_SIZE = 8;
 
-		Map<Branch,BranchCell> branchMapHolder = new HashMap<>();
+		Map<BranchEnum,BranchCell> branchMapHolder = new HashMap<>();
 
 		private List<OnBackPressHandler> customOnBackPressHandler = new ArrayList();
 		BranchOrderStacks branchOrderStacks = new BranchOrderStacks();
-		Branch activeBranch = Branch.Chat;
+		BranchEnum activeBranch = BranchEnum.Chat;
 		ViewGroup containerFrame;
 		ViewGroup footerFrame;
 		FooterBarCell footerCell;
@@ -256,7 +257,7 @@ public class Nav {
 			footerFrame.setVisibility(View.VISIBLE);
 		}
 
-		public void goToBranch(Branch bra) {
+		public void goToBranch(BranchEnum bra) {
 			branchOrderStacks.push(bra);
 			if (getContainerFrame().getChildCount()>0){
 				getContainerFrame().removeViewAt(0);
@@ -311,7 +312,7 @@ public class Nav {
 		}
 
 		//Fixme: .pop() events + bug: get longcliked branced not active
-		public void resetBranch(Branch branch) {
+		public void resetBranch(BranchEnum branch) {
 			BranchCell bc = branchMapHolder.get(branch);
 			PresenterPage page;
 			while (bc.pageStacks.size() >1 ){
@@ -353,7 +354,7 @@ public class Nav {
 		public void reset(){
 			branchMapHolder = new HashMap<>();
 			setDefultBranc(branchMapHolder);
-			activeBranch = Branch.Chat;
+			activeBranch = BranchEnum.Chat;
 		}
 
 		public void onActivityResult(int requestCode, int resultCode, Intent data){

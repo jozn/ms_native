@@ -17,11 +17,12 @@ public class RealmChatView extends RealmObject {
 		public int CreatedTime;//6 				 PB 13
 		public long UpdatedMs;//7 				 PB 15
 		public long DirectLastMessageId;//8 				 PB 17
-		public long LastSeenMessageId;//9 				 PB 19
-		public int LastSeqSeen;//10 				 PB 21
-		public int LastSeqDelete;//11 				 PB 23
-		public int CurrentSeq;//12 				 PB 25
-		public PB_UserView User;//13 				 PB 100
+		public long DirectLastDeletedMessageId;//9 				 PB 18
+		public long LastSeenMessageId;//10 				 PB 19
+		public int LastSeqSeen;//11 				 PB 21
+		public int LastSeqDelete;//12 				 PB 23
+		public int CurrentSeq;//13 				 PB 25
+		public PB_UserView User;//14 				 PB 100
 	
 
 	public static RealmChatView fromPB(PB_ChatView pb){
@@ -36,11 +37,12 @@ public class RealmChatView extends RealmObject {
 	    r.CreatedTime = pb.getCreatedTime();//6
 	    r.UpdatedMs = pb.getUpdatedMs();//7
 	    r.DirectLastMessageId = pb.getDirectLastMessageId();//8
-	    r.LastSeenMessageId = pb.getLastSeenMessageId();//9
-	    r.LastSeqSeen = pb.getLastSeqSeen();//10
-	    r.LastSeqDelete = pb.getLastSeqDelete();//11
-	    r.CurrentSeq = pb.getCurrentSeq();//12
-	    r.User = pb.getUser();//13
+	    r.DirectLastDeletedMessageId = pb.getDirectLastDeletedMessageId();//9
+	    r.LastSeenMessageId = pb.getLastSeenMessageId();//10
+	    r.LastSeqSeen = pb.getLastSeqSeen();//11
+	    r.LastSeqDelete = pb.getLastSeqDelete();//12
+	    r.CurrentSeq = pb.getCurrentSeq();//13
+	    r.User = pb.getUser();//14
 
 	    return r;
 	}
@@ -61,11 +63,12 @@ public class RealmChatView extends RealmObject {
 	r.CreatedTime = ;//6
 	r.UpdatedMs = ;//7
 	r.DirectLastMessageId = ;//8
-	r.LastSeenMessageId = ;//9
-	r.LastSeqSeen = ;//10
-	r.LastSeqDelete = ;//11
-	r.CurrentSeq = ;//12
-	r.User = ;//13
+	r.DirectLastDeletedMessageId = ;//9
+	r.LastSeenMessageId = ;//10
+	r.LastSeqSeen = ;//11
+	r.LastSeqDelete = ;//12
+	r.CurrentSeq = ;//13
+	r.User = ;//14
 
 	//sett - no tag number 
 	RealmChatView r = new RealmChatView();
@@ -79,6 +82,7 @@ public class RealmChatView extends RealmObject {
 	r.CreatedTime = ;
 	r.UpdatedMs = ;
 	r.DirectLastMessageId = ;
+	r.DirectLastDeletedMessageId = ;
 	r.LastSeenMessageId = ;
 	r.LastSeqSeen = ;
 	r.LastSeqDelete = ;
@@ -96,11 +100,12 @@ public class RealmChatView extends RealmObject {
 	m. = r.CreatedTime ;//6
 	m. = r.UpdatedMs ;//7
 	m. = r.DirectLastMessageId ;//8
-	m. = r.LastSeenMessageId ;//9
-	m. = r.LastSeqSeen ;//10
-	m. = r.LastSeqDelete ;//11
-	m. = r.CurrentSeq ;//12
-	m. = r.User ;//13
+	m. = r.DirectLastDeletedMessageId ;//9
+	m. = r.LastSeenMessageId ;//10
+	m. = r.LastSeqSeen ;//11
+	m. = r.LastSeqDelete ;//12
+	m. = r.CurrentSeq ;//13
+	m. = r.User ;//14
 
 	//get - no tag number
 	
@@ -113,6 +118,7 @@ public class RealmChatView extends RealmObject {
 	m. = r.CreatedTime ;
 	m. = r.UpdatedMs ;
 	m. = r.DirectLastMessageId ;
+	m. = r.DirectLastDeletedMessageId ;
 	m. = r.LastSeenMessageId ;
 	m. = r.LastSeqSeen ;
 	m. = r.LastSeqDelete ;
