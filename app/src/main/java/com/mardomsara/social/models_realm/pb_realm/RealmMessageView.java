@@ -21,26 +21,26 @@ public class RealmMessageView extends RealmObject {
 		public long ChatId;//10 				 PB 30
 		public RoomTypeEnum RoomTypeEnum;//11 				 PB 31
 		public boolean IsByMe;//12 				 PB 33
-		public PB_MessageFileView File;//13 				 PB 100
+		public RealmMessageFileView File;//13 				 PB 100
 	
 
 	public static RealmMessageView fromPB(PB_MessageView pb){
 		RealmMessageView r = new RealmMessageView();
 		
-	    r.MessageId = pb.getMessageId();//0
-	    r.RoomKey = pb.getRoomKey();//1
-	    r.UserId = pb.getUserId();//2
-	    r.MessageFileId = pb.getMessageFileId();//3
-	    r.MessageTypeEnumId = pb.getMessageTypeEnumId();//4
-	    r.Text = pb.getText();//5
-	    r.Time = pb.getTime();//6
-	    r.PeerReceivedTime = pb.getPeerReceivedTime();//7
-	    r.PeerSeenTime = pb.getPeerSeenTime();//8
-	    r.DeliviryStatusEnumId = pb.getDeliviryStatusEnumId();//9
-	    r.ChatId = pb.getChatId();//10
-	    r.RoomTypeEnum = pb.getRoomTypeEnum();//11
-	    r.IsByMe = pb.getIsByMe();//12
-	    r.File = pb.getFile();//13
+		r.MessageId = pb.getMessageId();//0
+		r.RoomKey = pb.getRoomKey();//1
+		r.UserId = pb.getUserId();//2
+		r.MessageFileId = pb.getMessageFileId();//3
+		r.MessageTypeEnumId = pb.getMessageTypeEnumId();//4
+		r.Text = pb.getText();//5
+		r.Time = pb.getTime();//6
+		r.PeerReceivedTime = pb.getPeerReceivedTime();//7
+		r.PeerSeenTime = pb.getPeerSeenTime();//8
+		r.DeliviryStatusEnumId = pb.getDeliviryStatusEnumId();//9
+		r.ChatId = pb.getChatId();//10
+		r.RoomTypeEnum = pb.getRoomTypeEnum();//11
+		r.IsByMe = pb.getIsByMe();//12
+		//r.File = pb.getFile();//13
 
 	    return r;
 	}

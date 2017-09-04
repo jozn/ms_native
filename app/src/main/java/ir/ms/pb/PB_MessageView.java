@@ -3,7 +3,15 @@
 
 package ir.ms.pb;
 
-/** Protobuf type {@code PB_MessageView} */
+/**
+ *
+ *
+ * <pre>
+ * {realm} ,
+ * </pre>
+ *
+ * Protobuf type {@code PB_MessageView}
+ */
 public final class PB_MessageView
     extends com.google.protobuf.GeneratedMessageLite<PB_MessageView, PB_MessageView.Builder>
     implements
@@ -478,7 +486,15 @@ public final class PB_MessageView
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
 
-  /** Protobuf type {@code PB_MessageView} */
+  /**
+   *
+   *
+   * <pre>
+   * {realm} ,
+   * </pre>
+   *
+   * Protobuf type {@code PB_MessageView}
+   */
   public static final class Builder
       extends com.google.protobuf.GeneratedMessageLite.Builder<ir.ms.pb.PB_MessageView, Builder>
       implements

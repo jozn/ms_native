@@ -6,7 +6,7 @@ import com.mardomsara.social.json.JV;
 import com.mardomsara.social.models.RoomModel;
 import com.mardomsara.social.models.tables.Session;
 import com.mardomsara.social.models.tables.Room;
-import com.mardomsara.social.models_realm.realm.RealmChatView;
+import com.mardomsara.social.models_realm.pb_realm.RealmChatView;
 import com.mardomsara.social.ui.presenter.HelloPresenter;
 import com.mardomsara.social.ui.presenter.chats.ChatRoomPresenter;
 import com.mardomsara.social.ui.presenter.chats.GalleryChooserPresenter;

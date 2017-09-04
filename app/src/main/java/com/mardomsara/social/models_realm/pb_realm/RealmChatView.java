@@ -16,33 +16,41 @@ public class RealmChatView extends RealmObject {
 		public long GroupId;//5 				 PB 11
 		public int CreatedTime;//6 				 PB 13
 		public long UpdatedMs;//7 				 PB 15
-		public long DirectLastMessageId;//8 				 PB 17
-		public long DirectLastDeletedMessageId;//9 				 PB 18
+		public long LastMessageId;//8 				 PB 17
+		public long LastDeletedMessageId;//9 				 PB 18
 		public long LastSeenMessageId;//10 				 PB 19
 		public int LastSeqSeen;//11 				 PB 21
 		public int LastSeqDelete;//12 				 PB 23
 		public int CurrentSeq;//13 				 PB 25
-		public PB_UserView User;//14 				 PB 100
+		public RealmUserView User;//14 				 PB 100
+		public int SharedMediaCount;//15 				 PB 200
+		public int UnseenCount;//16 				 PB 205
+		public RealmMessageView FirstUnreadMessage;//17 				 PB 210
+		public RealmMessageView LastMessage;//18 				 PB 212
 	
 
 	public static RealmChatView fromPB(PB_ChatView pb){
 		RealmChatView r = new RealmChatView();
 		
-	    r.ChatKey = pb.getChatKey();//0
-	    r.ChatId = pb.getChatId();//1
-	    r.RoomTypeEnumId = pb.getRoomTypeEnumId();//2
-	    r.UserId = pb.getUserId();//3
-	    r.PeerUserId = pb.getPeerUserId();//4
-	    r.GroupId = pb.getGroupId();//5
-	    r.CreatedTime = pb.getCreatedTime();//6
-	    r.UpdatedMs = pb.getUpdatedMs();//7
-	    r.DirectLastMessageId = pb.getDirectLastMessageId();//8
-	    r.DirectLastDeletedMessageId = pb.getDirectLastDeletedMessageId();//9
-	    r.LastSeenMessageId = pb.getLastSeenMessageId();//10
-	    r.LastSeqSeen = pb.getLastSeqSeen();//11
-	    r.LastSeqDelete = pb.getLastSeqDelete();//12
-	    r.CurrentSeq = pb.getCurrentSeq();//13
-	    r.User = pb.getUser();//14
+		r.ChatKey = pb.getChatKey();//0
+		r.ChatId = pb.getChatId();//1
+		r.RoomTypeEnumId = pb.getRoomTypeEnumId();//2
+		r.UserId = pb.getUserId();//3
+		r.PeerUserId = pb.getPeerUserId();//4
+		r.GroupId = pb.getGroupId();//5
+		r.CreatedTime = pb.getCreatedTime();//6
+		r.UpdatedMs = pb.getUpdatedMs();//7
+		r.LastMessageId = pb.getLastMessageId();//8
+		r.LastDeletedMessageId = pb.getLastDeletedMessageId();//9
+		r.LastSeenMessageId = pb.getLastSeenMessageId();//10
+		r.LastSeqSeen = pb.getLastSeqSeen();//11
+		r.LastSeqDelete = pb.getLastSeqDelete();//12
+		r.CurrentSeq = pb.getCurrentSeq();//13
+		//r.User = pb.getUser();//14
+		r.SharedMediaCount = pb.getSharedMediaCount();//15
+		r.UnseenCount = pb.getUnseenCount();//16
+		//r.FirstUnreadMessage = pb.getFirstUnreadMessage();//17
+		//r.LastMessage = pb.getLastMessage();//18
 
 	    return r;
 	}
@@ -62,13 +70,17 @@ public class RealmChatView extends RealmObject {
 	r.GroupId = ;//5
 	r.CreatedTime = ;//6
 	r.UpdatedMs = ;//7
-	r.DirectLastMessageId = ;//8
-	r.DirectLastDeletedMessageId = ;//9
+	r.LastMessageId = ;//8
+	r.LastDeletedMessageId = ;//9
 	r.LastSeenMessageId = ;//10
 	r.LastSeqSeen = ;//11
 	r.LastSeqDelete = ;//12
 	r.CurrentSeq = ;//13
 	r.User = ;//14
+	r.SharedMediaCount = ;//15
+	r.UnseenCount = ;//16
+	r.FirstUnreadMessage = ;//17
+	r.LastMessage = ;//18
 
 	//sett - no tag number 
 	RealmChatView r = new RealmChatView();
@@ -81,13 +93,17 @@ public class RealmChatView extends RealmObject {
 	r.GroupId = ;
 	r.CreatedTime = ;
 	r.UpdatedMs = ;
-	r.DirectLastMessageId = ;
-	r.DirectLastDeletedMessageId = ;
+	r.LastMessageId = ;
+	r.LastDeletedMessageId = ;
 	r.LastSeenMessageId = ;
 	r.LastSeqSeen = ;
 	r.LastSeqDelete = ;
 	r.CurrentSeq = ;
 	r.User = ;
+	r.SharedMediaCount = ;
+	r.UnseenCount = ;
+	r.FirstUnreadMessage = ;
+	r.LastMessage = ;
 
 	//get
 	
@@ -99,13 +115,17 @@ public class RealmChatView extends RealmObject {
 	m. = r.GroupId ;//5
 	m. = r.CreatedTime ;//6
 	m. = r.UpdatedMs ;//7
-	m. = r.DirectLastMessageId ;//8
-	m. = r.DirectLastDeletedMessageId ;//9
+	m. = r.LastMessageId ;//8
+	m. = r.LastDeletedMessageId ;//9
 	m. = r.LastSeenMessageId ;//10
 	m. = r.LastSeqSeen ;//11
 	m. = r.LastSeqDelete ;//12
 	m. = r.CurrentSeq ;//13
 	m. = r.User ;//14
+	m. = r.SharedMediaCount ;//15
+	m. = r.UnseenCount ;//16
+	m. = r.FirstUnreadMessage ;//17
+	m. = r.LastMessage ;//18
 
 	//get - no tag number
 	
@@ -117,12 +137,16 @@ public class RealmChatView extends RealmObject {
 	m. = r.GroupId ;
 	m. = r.CreatedTime ;
 	m. = r.UpdatedMs ;
-	m. = r.DirectLastMessageId ;
-	m. = r.DirectLastDeletedMessageId ;
+	m. = r.LastMessageId ;
+	m. = r.LastDeletedMessageId ;
 	m. = r.LastSeenMessageId ;
 	m. = r.LastSeqSeen ;
 	m. = r.LastSeqDelete ;
 	m. = r.CurrentSeq ;
 	m. = r.User ;
+	m. = r.SharedMediaCount ;
+	m. = r.UnseenCount ;
+	m. = r.FirstUnreadMessage ;
+	m. = r.LastMessage ;
 	
 */

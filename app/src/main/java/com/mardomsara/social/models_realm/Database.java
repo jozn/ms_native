@@ -2,12 +2,12 @@ package com.mardomsara.social.models_realm;
 
 import android.support.annotation.Nullable;
 
-import com.mardomsara.social.models_realm.realm.RealmChatView;
-import com.mardomsara.social.models_realm.realm.RealmChatViewFields;
-import com.mardomsara.social.models_realm.realm.RealmMessageView;
-import com.mardomsara.social.models_realm.realm.RealmMessageViewFields;
-import com.mardomsara.social.models_realm.realm.RealmUserView;
-import com.mardomsara.social.models_realm.realm.RealmUserViewFields;
+import com.mardomsara.social.models_realm.pb_realm.RealmChatView;
+import com.mardomsara.social.models_realm.realm_local.RealmChatViewFields;
+import com.mardomsara.social.models_realm.pb_realm.RealmMessageView;
+import com.mardomsara.social.models_realm.realm_local.RealmMessageViewFields;
+import com.mardomsara.social.models_realm.pb_realm.RealmUserView;
+import com.mardomsara.social.models_realm.realm_local.RealmUserViewFields;
 
 import io.realm.Realm;
 

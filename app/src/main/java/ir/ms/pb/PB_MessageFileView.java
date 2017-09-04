@@ -3,7 +3,15 @@
 
 package ir.ms.pb;
 
-/** Protobuf type {@code PB_MessageFileView} */
+/**
+ *
+ *
+ * <pre>
+ *    option realm = "1";
+ * </pre>
+ *
+ * Protobuf type {@code PB_MessageFileView}
+ */
 public final class PB_MessageFileView
     extends com.google.protobuf.GeneratedMessageLite<PB_MessageFileView, PB_MessageFileView.Builder>
     implements
@@ -660,7 +668,15 @@ public final class PB_MessageFileView
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
 
-  /** Protobuf type {@code PB_MessageFileView} */
+  /**
+   *
+   *
+   * <pre>
+   *    option realm = "1";
+   * </pre>
+   *
+   * Protobuf type {@code PB_MessageFileView}
+   */
   public static final class Builder
       extends com.google.protobuf.GeneratedMessageLite.Builder<ir.ms.pb.PB_MessageFileView, Builder>
       implements

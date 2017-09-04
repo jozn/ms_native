@@ -8,8 +8,9 @@ import com.mardomsara.social.Nav;
 import com.mardomsara.social.app.Router;
 import com.mardomsara.social.helpers.FormaterUtil;
 import com.mardomsara.social.helpers.Helper;
-import com.mardomsara.social.models_realm.realm.RealmChatView;
-import com.mardomsara.social.models_realm.realm.RealmMessageView;
+import com.mardomsara.social.models_realm.RealmChatViewHelper;
+import com.mardomsara.social.models_realm.pb_realm.RealmChatView;
+import com.mardomsara.social.models_realm.pb_realm.RealmMessageView;
 import com.mardomsara.social.ui.X;
 
 class InboxRowCell {
@@ -36,7 +37,7 @@ class InboxRowCell {
 	public void bind(RealmChatView room) {
 //            Message lastMsg = MemoryStore_LastMsgs.getForRoom(room);
 		this.room = room;
-		x.name_txt.setText(room.getRoomName());
+		x.name_txt.setText(RealmChatViewHelper.getRoomName(room));
 		x.date_txt.setText("" + FormaterUtil.friendlyTimeClockOrDayMs(room.UpdatedMs));//+"قبل");
 		x.unseen_count_txt.setCount(room.LastSeqSeen);
 
@@ -45,8 +46,8 @@ class InboxRowCell {
 		} else {//clear from previus
 			x.last_msg_txt.setText("");
 		}
-		Uri imageUri = Helper.PathToUserAvatarUri(room.getRoomAvatarUrl());
+		Uri imageUri = Helper.PathToUserAvatarUri(RealmChatViewHelper.getRoomAvatarUrl(room));
 //
-		x.avatar.setImageURIAndId(imageUri, room.getUserId());
+		x.avatar.setImageURIAndId(imageUri, room.UserId);
 	}
 }

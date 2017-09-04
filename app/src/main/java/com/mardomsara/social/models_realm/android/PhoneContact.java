@@ -2,7 +2,7 @@ package com.mardomsara.social.models_realm.android;
 
 import com.mardomsara.social.base.FNV;
 import com.mardomsara.social.models.tables.ContactsCopy;
-import com.mardomsara.social.models_realm.realm.RealmContactsCopy;
+import com.mardomsara.social.models_realm.realm_local.RealmContactsCopy;
 
 public class PhoneContact {
 	//fields

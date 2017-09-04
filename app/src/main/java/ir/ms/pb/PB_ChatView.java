@@ -3,7 +3,15 @@
 
 package ir.ms.pb;
 
-/** Protobuf type {@code PB_ChatView} */
+/**
+ *
+ *
+ * <pre>
+ * {realm} ,
+ * </pre>
+ *
+ * Protobuf type {@code PB_ChatView}
+ */
 public final class PB_ChatView
     extends com.google.protobuf.GeneratedMessageLite<PB_ChatView, PB_ChatView.Builder>
     implements
@@ -11,23 +19,6 @@ public final class PB_ChatView
     PB_ChatViewOrBuilder {
   private PB_ChatView() {
     chatKey_ = "";
-  }
-
-  public static final int CHATID_FIELD_NUMBER = 1;
-  private long chatId_;
-  /** <code>int64 ChatId = 1;</code> */
-  public long getChatId() {
-    return chatId_;
-  }
-  /** <code>int64 ChatId = 1;</code> */
-  private void setChatId(long value) {
-
-    chatId_ = value;
-  }
-  /** <code>int64 ChatId = 1;</code> */
-  private void clearChatId() {
-
-    chatId_ = 0L;
   }
 
   public static final int CHATKEY_FIELD_NUMBER = 3;
@@ -61,6 +52,23 @@ public final class PB_ChatView
     checkByteStringIsUtf8(value);
 
     chatKey_ = value.toStringUtf8();
+  }
+
+  public static final int CHATID_FIELD_NUMBER = 1;
+  private long chatId_;
+  /** <code>int64 ChatId = 1;</code> */
+  public long getChatId() {
+    return chatId_;
+  }
+  /** <code>int64 ChatId = 1;</code> */
+  private void setChatId(long value) {
+
+    chatId_ = value;
+  }
+  /** <code>int64 ChatId = 1;</code> */
+  private void clearChatId() {
+
+    chatId_ = 0L;
   }
 
   public static final int ROOMTYPEENUMID_FIELD_NUMBER = 5;
@@ -165,21 +173,38 @@ public final class PB_ChatView
     updatedMs_ = 0L;
   }
 
-  public static final int DIRECTLASTMESSAGEID_FIELD_NUMBER = 17;
-  private long directLastMessageId_;
-  /** <code>int64 DirectLastMessageId = 17;</code> */
-  public long getDirectLastMessageId() {
-    return directLastMessageId_;
+  public static final int LASTMESSAGEID_FIELD_NUMBER = 17;
+  private long lastMessageId_;
+  /** <code>int64 LastMessageId = 17;</code> */
+  public long getLastMessageId() {
+    return lastMessageId_;
   }
-  /** <code>int64 DirectLastMessageId = 17;</code> */
-  private void setDirectLastMessageId(long value) {
+  /** <code>int64 LastMessageId = 17;</code> */
+  private void setLastMessageId(long value) {
 
-    directLastMessageId_ = value;
+    lastMessageId_ = value;
   }
-  /** <code>int64 DirectLastMessageId = 17;</code> */
-  private void clearDirectLastMessageId() {
+  /** <code>int64 LastMessageId = 17;</code> */
+  private void clearLastMessageId() {
 
-    directLastMessageId_ = 0L;
+    lastMessageId_ = 0L;
+  }
+
+  public static final int LASTDELETEDMESSAGEID_FIELD_NUMBER = 18;
+  private long lastDeletedMessageId_;
+  /** <code>int64 LastDeletedMessageId = 18;</code> */
+  public long getLastDeletedMessageId() {
+    return lastDeletedMessageId_;
+  }
+  /** <code>int64 LastDeletedMessageId = 18;</code> */
+  private void setLastDeletedMessageId(long value) {
+
+    lastDeletedMessageId_ = value;
+  }
+  /** <code>int64 LastDeletedMessageId = 18;</code> */
+  private void clearLastDeletedMessageId() {
+
+    lastDeletedMessageId_ = 0L;
   }
 
   public static final int LASTSEENMESSAGEID_FIELD_NUMBER = 19;
@@ -284,6 +309,137 @@ public final class PB_ChatView
     user_ = null;
   }
 
+  public static final int SHAREDMEDIACOUNT_FIELD_NUMBER = 200;
+  private int sharedMediaCount_;
+  /**
+   *
+   *
+   * <pre>
+   * local
+   * </pre>
+   *
+   * <code>int32 SharedMediaCount = 200;</code>
+   */
+  public int getSharedMediaCount() {
+    return sharedMediaCount_;
+  }
+  /**
+   *
+   *
+   * <pre>
+   * local
+   * </pre>
+   *
+   * <code>int32 SharedMediaCount = 200;</code>
+   */
+  private void setSharedMediaCount(int value) {
+
+    sharedMediaCount_ = value;
+  }
+  /**
+   *
+   *
+   * <pre>
+   * local
+   * </pre>
+   *
+   * <code>int32 SharedMediaCount = 200;</code>
+   */
+  private void clearSharedMediaCount() {
+
+    sharedMediaCount_ = 0;
+  }
+
+  public static final int UNSEENCOUNT_FIELD_NUMBER = 205;
+  private int unseenCount_;
+  /** <code>int32 UnseenCount = 205;</code> */
+  public int getUnseenCount() {
+    return unseenCount_;
+  }
+  /** <code>int32 UnseenCount = 205;</code> */
+  private void setUnseenCount(int value) {
+
+    unseenCount_ = value;
+  }
+  /** <code>int32 UnseenCount = 205;</code> */
+  private void clearUnseenCount() {
+
+    unseenCount_ = 0;
+  }
+
+  public static final int FIRSTUNREADMESSAGE_FIELD_NUMBER = 210;
+  private ir.ms.pb.PB_MessageView firstUnreadMessage_;
+  /** <code>.PB_MessageView FirstUnreadMessage = 210;</code> */
+  public boolean hasFirstUnreadMessage() {
+    return firstUnreadMessage_ != null;
+  }
+  /** <code>.PB_MessageView FirstUnreadMessage = 210;</code> */
+  public ir.ms.pb.PB_MessageView getFirstUnreadMessage() {
+    return firstUnreadMessage_ == null
+        ? ir.ms.pb.PB_MessageView.getDefaultInstance()
+        : firstUnreadMessage_;
+  }
+  /** <code>.PB_MessageView FirstUnreadMessage = 210;</code> */
+  private void setFirstUnreadMessage(ir.ms.pb.PB_MessageView value) {
+    if (value == null) {
+      throw new NullPointerException();
+    }
+    firstUnreadMessage_ = value;
+  }
+  /** <code>.PB_MessageView FirstUnreadMessage = 210;</code> */
+  private void setFirstUnreadMessage(ir.ms.pb.PB_MessageView.Builder builderForValue) {
+    firstUnreadMessage_ = builderForValue.build();
+  }
+  /** <code>.PB_MessageView FirstUnreadMessage = 210;</code> */
+  private void mergeFirstUnreadMessage(ir.ms.pb.PB_MessageView value) {
+    if (firstUnreadMessage_ != null
+        && firstUnreadMessage_ != ir.ms.pb.PB_MessageView.getDefaultInstance()) {
+      firstUnreadMessage_ =
+          ir.ms.pb.PB_MessageView.newBuilder(firstUnreadMessage_).mergeFrom(value).buildPartial();
+    } else {
+      firstUnreadMessage_ = value;
+    }
+  }
+  /** <code>.PB_MessageView FirstUnreadMessage = 210;</code> */
+  private void clearFirstUnreadMessage() {
+    firstUnreadMessage_ = null;
+  }
+
+  public static final int LASTMESSAGE_FIELD_NUMBER = 212;
+  private ir.ms.pb.PB_MessageView lastMessage_;
+  /** <code>.PB_MessageView LastMessage = 212;</code> */
+  public boolean hasLastMessage() {
+    return lastMessage_ != null;
+  }
+  /** <code>.PB_MessageView LastMessage = 212;</code> */
+  public ir.ms.pb.PB_MessageView getLastMessage() {
+    return lastMessage_ == null ? ir.ms.pb.PB_MessageView.getDefaultInstance() : lastMessage_;
+  }
+  /** <code>.PB_MessageView LastMessage = 212;</code> */
+  private void setLastMessage(ir.ms.pb.PB_MessageView value) {
+    if (value == null) {
+      throw new NullPointerException();
+    }
+    lastMessage_ = value;
+  }
+  /** <code>.PB_MessageView LastMessage = 212;</code> */
+  private void setLastMessage(ir.ms.pb.PB_MessageView.Builder builderForValue) {
+    lastMessage_ = builderForValue.build();
+  }
+  /** <code>.PB_MessageView LastMessage = 212;</code> */
+  private void mergeLastMessage(ir.ms.pb.PB_MessageView value) {
+    if (lastMessage_ != null && lastMessage_ != ir.ms.pb.PB_MessageView.getDefaultInstance()) {
+      lastMessage_ =
+          ir.ms.pb.PB_MessageView.newBuilder(lastMessage_).mergeFrom(value).buildPartial();
+    } else {
+      lastMessage_ = value;
+    }
+  }
+  /** <code>.PB_MessageView LastMessage = 212;</code> */
+  private void clearLastMessage() {
+    lastMessage_ = null;
+  }
+
   public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
     if (chatId_ != 0L) {
       output.writeInt64(1, chatId_);
@@ -309,8 +465,11 @@ public final class PB_ChatView
     if (updatedMs_ != 0L) {
       output.writeInt64(15, updatedMs_);
     }
-    if (directLastMessageId_ != 0L) {
-      output.writeInt64(17, directLastMessageId_);
+    if (lastMessageId_ != 0L) {
+      output.writeInt64(17, lastMessageId_);
+    }
+    if (lastDeletedMessageId_ != 0L) {
+      output.writeInt64(18, lastDeletedMessageId_);
     }
     if (lastSeenMessageId_ != 0L) {
       output.writeInt64(19, lastSeenMessageId_);
@@ -326,6 +485,18 @@ public final class PB_ChatView
     }
     if (user_ != null) {
       output.writeMessage(100, getUser());
+    }
+    if (sharedMediaCount_ != 0) {
+      output.writeInt32(200, sharedMediaCount_);
+    }
+    if (unseenCount_ != 0) {
+      output.writeInt32(205, unseenCount_);
+    }
+    if (firstUnreadMessage_ != null) {
+      output.writeMessage(210, getFirstUnreadMessage());
+    }
+    if (lastMessage_ != null) {
+      output.writeMessage(212, getLastMessage());
     }
   }
 
@@ -358,8 +529,11 @@ public final class PB_ChatView
     if (updatedMs_ != 0L) {
       size += com.google.protobuf.CodedOutputStream.computeInt64Size(15, updatedMs_);
     }
-    if (directLastMessageId_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream.computeInt64Size(17, directLastMessageId_);
+    if (lastMessageId_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream.computeInt64Size(17, lastMessageId_);
+    }
+    if (lastDeletedMessageId_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream.computeInt64Size(18, lastDeletedMessageId_);
     }
     if (lastSeenMessageId_ != 0L) {
       size += com.google.protobuf.CodedOutputStream.computeInt64Size(19, lastSeenMessageId_);
@@ -375,6 +549,19 @@ public final class PB_ChatView
     }
     if (user_ != null) {
       size += com.google.protobuf.CodedOutputStream.computeMessageSize(100, getUser());
+    }
+    if (sharedMediaCount_ != 0) {
+      size += com.google.protobuf.CodedOutputStream.computeInt32Size(200, sharedMediaCount_);
+    }
+    if (unseenCount_ != 0) {
+      size += com.google.protobuf.CodedOutputStream.computeInt32Size(205, unseenCount_);
+    }
+    if (firstUnreadMessage_ != null) {
+      size +=
+          com.google.protobuf.CodedOutputStream.computeMessageSize(210, getFirstUnreadMessage());
+    }
+    if (lastMessage_ != null) {
+      size += com.google.protobuf.CodedOutputStream.computeMessageSize(212, getLastMessage());
     }
     memoizedSerializedSize = size;
     return size;
@@ -449,7 +636,15 @@ public final class PB_ChatView
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
 
-  /** Protobuf type {@code PB_ChatView} */
+  /**
+   *
+   *
+   * <pre>
+   * {realm} ,
+   * </pre>
+   *
+   * Protobuf type {@code PB_ChatView}
+   */
   public static final class Builder
       extends com.google.protobuf.GeneratedMessageLite.Builder<ir.ms.pb.PB_ChatView, Builder>
       implements
@@ -458,23 +653,6 @@ public final class PB_ChatView
     // Construct using ir.ms.pb.PB_ChatView.newBuilder()
     private Builder() {
       super(DEFAULT_INSTANCE);
-    }
-
-    /** <code>int64 ChatId = 1;</code> */
-    public long getChatId() {
-      return instance.getChatId();
-    }
-    /** <code>int64 ChatId = 1;</code> */
-    public Builder setChatId(long value) {
-      copyOnWrite();
-      instance.setChatId(value);
-      return this;
-    }
-    /** <code>int64 ChatId = 1;</code> */
-    public Builder clearChatId() {
-      copyOnWrite();
-      instance.clearChatId();
-      return this;
     }
 
     /** <code>string ChatKey = 3;</code> */
@@ -501,6 +679,23 @@ public final class PB_ChatView
     public Builder setChatKeyBytes(com.google.protobuf.ByteString value) {
       copyOnWrite();
       instance.setChatKeyBytes(value);
+      return this;
+    }
+
+    /** <code>int64 ChatId = 1;</code> */
+    public long getChatId() {
+      return instance.getChatId();
+    }
+    /** <code>int64 ChatId = 1;</code> */
+    public Builder setChatId(long value) {
+      copyOnWrite();
+      instance.setChatId(value);
+      return this;
+    }
+    /** <code>int64 ChatId = 1;</code> */
+    public Builder clearChatId() {
+      copyOnWrite();
+      instance.clearChatId();
       return this;
     }
 
@@ -606,20 +801,37 @@ public final class PB_ChatView
       return this;
     }
 
-    /** <code>int64 DirectLastMessageId = 17;</code> */
-    public long getDirectLastMessageId() {
-      return instance.getDirectLastMessageId();
+    /** <code>int64 LastMessageId = 17;</code> */
+    public long getLastMessageId() {
+      return instance.getLastMessageId();
     }
-    /** <code>int64 DirectLastMessageId = 17;</code> */
-    public Builder setDirectLastMessageId(long value) {
+    /** <code>int64 LastMessageId = 17;</code> */
+    public Builder setLastMessageId(long value) {
       copyOnWrite();
-      instance.setDirectLastMessageId(value);
+      instance.setLastMessageId(value);
       return this;
     }
-    /** <code>int64 DirectLastMessageId = 17;</code> */
-    public Builder clearDirectLastMessageId() {
+    /** <code>int64 LastMessageId = 17;</code> */
+    public Builder clearLastMessageId() {
       copyOnWrite();
-      instance.clearDirectLastMessageId();
+      instance.clearLastMessageId();
+      return this;
+    }
+
+    /** <code>int64 LastDeletedMessageId = 18;</code> */
+    public long getLastDeletedMessageId() {
+      return instance.getLastDeletedMessageId();
+    }
+    /** <code>int64 LastDeletedMessageId = 18;</code> */
+    public Builder setLastDeletedMessageId(long value) {
+      copyOnWrite();
+      instance.setLastDeletedMessageId(value);
+      return this;
+    }
+    /** <code>int64 LastDeletedMessageId = 18;</code> */
+    public Builder clearLastDeletedMessageId() {
+      copyOnWrite();
+      instance.clearLastDeletedMessageId();
       return this;
     }
 
@@ -724,6 +936,130 @@ public final class PB_ChatView
       return this;
     }
 
+    /**
+     *
+     *
+     * <pre>
+     * local
+     * </pre>
+     *
+     * <code>int32 SharedMediaCount = 200;</code>
+     */
+    public int getSharedMediaCount() {
+      return instance.getSharedMediaCount();
+    }
+    /**
+     *
+     *
+     * <pre>
+     * local
+     * </pre>
+     *
+     * <code>int32 SharedMediaCount = 200;</code>
+     */
+    public Builder setSharedMediaCount(int value) {
+      copyOnWrite();
+      instance.setSharedMediaCount(value);
+      return this;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * local
+     * </pre>
+     *
+     * <code>int32 SharedMediaCount = 200;</code>
+     */
+    public Builder clearSharedMediaCount() {
+      copyOnWrite();
+      instance.clearSharedMediaCount();
+      return this;
+    }
+
+    /** <code>int32 UnseenCount = 205;</code> */
+    public int getUnseenCount() {
+      return instance.getUnseenCount();
+    }
+    /** <code>int32 UnseenCount = 205;</code> */
+    public Builder setUnseenCount(int value) {
+      copyOnWrite();
+      instance.setUnseenCount(value);
+      return this;
+    }
+    /** <code>int32 UnseenCount = 205;</code> */
+    public Builder clearUnseenCount() {
+      copyOnWrite();
+      instance.clearUnseenCount();
+      return this;
+    }
+
+    /** <code>.PB_MessageView FirstUnreadMessage = 210;</code> */
+    public boolean hasFirstUnreadMessage() {
+      return instance.hasFirstUnreadMessage();
+    }
+    /** <code>.PB_MessageView FirstUnreadMessage = 210;</code> */
+    public ir.ms.pb.PB_MessageView getFirstUnreadMessage() {
+      return instance.getFirstUnreadMessage();
+    }
+    /** <code>.PB_MessageView FirstUnreadMessage = 210;</code> */
+    public Builder setFirstUnreadMessage(ir.ms.pb.PB_MessageView value) {
+      copyOnWrite();
+      instance.setFirstUnreadMessage(value);
+      return this;
+    }
+    /** <code>.PB_MessageView FirstUnreadMessage = 210;</code> */
+    public Builder setFirstUnreadMessage(ir.ms.pb.PB_MessageView.Builder builderForValue) {
+      copyOnWrite();
+      instance.setFirstUnreadMessage(builderForValue);
+      return this;
+    }
+    /** <code>.PB_MessageView FirstUnreadMessage = 210;</code> */
+    public Builder mergeFirstUnreadMessage(ir.ms.pb.PB_MessageView value) {
+      copyOnWrite();
+      instance.mergeFirstUnreadMessage(value);
+      return this;
+    }
+    /** <code>.PB_MessageView FirstUnreadMessage = 210;</code> */
+    public Builder clearFirstUnreadMessage() {
+      copyOnWrite();
+      instance.clearFirstUnreadMessage();
+      return this;
+    }
+
+    /** <code>.PB_MessageView LastMessage = 212;</code> */
+    public boolean hasLastMessage() {
+      return instance.hasLastMessage();
+    }
+    /** <code>.PB_MessageView LastMessage = 212;</code> */
+    public ir.ms.pb.PB_MessageView getLastMessage() {
+      return instance.getLastMessage();
+    }
+    /** <code>.PB_MessageView LastMessage = 212;</code> */
+    public Builder setLastMessage(ir.ms.pb.PB_MessageView value) {
+      copyOnWrite();
+      instance.setLastMessage(value);
+      return this;
+    }
+    /** <code>.PB_MessageView LastMessage = 212;</code> */
+    public Builder setLastMessage(ir.ms.pb.PB_MessageView.Builder builderForValue) {
+      copyOnWrite();
+      instance.setLastMessage(builderForValue);
+      return this;
+    }
+    /** <code>.PB_MessageView LastMessage = 212;</code> */
+    public Builder mergeLastMessage(ir.ms.pb.PB_MessageView value) {
+      copyOnWrite();
+      instance.mergeLastMessage(value);
+      return this;
+    }
+    /** <code>.PB_MessageView LastMessage = 212;</code> */
+    public Builder clearLastMessage() {
+      copyOnWrite();
+      instance.clearLastMessage();
+      return this;
+    }
+
     // @@protoc_insertion_point(builder_scope:PB_ChatView)
   }
 
@@ -750,10 +1086,10 @@ public final class PB_ChatView
         {
           Visitor visitor = (Visitor) arg0;
           ir.ms.pb.PB_ChatView other = (ir.ms.pb.PB_ChatView) arg1;
-          chatId_ = visitor.visitLong(chatId_ != 0L, chatId_, other.chatId_ != 0L, other.chatId_);
           chatKey_ =
               visitor.visitString(
                   !chatKey_.isEmpty(), chatKey_, !other.chatKey_.isEmpty(), other.chatKey_);
+          chatId_ = visitor.visitLong(chatId_ != 0L, chatId_, other.chatId_ != 0L, other.chatId_);
           roomTypeEnumId_ =
               visitor.visitInt(
                   roomTypeEnumId_ != 0,
@@ -772,12 +1108,18 @@ public final class PB_ChatView
           updatedMs_ =
               visitor.visitLong(
                   updatedMs_ != 0L, updatedMs_, other.updatedMs_ != 0L, other.updatedMs_);
-          directLastMessageId_ =
+          lastMessageId_ =
               visitor.visitLong(
-                  directLastMessageId_ != 0L,
-                  directLastMessageId_,
-                  other.directLastMessageId_ != 0L,
-                  other.directLastMessageId_);
+                  lastMessageId_ != 0L,
+                  lastMessageId_,
+                  other.lastMessageId_ != 0L,
+                  other.lastMessageId_);
+          lastDeletedMessageId_ =
+              visitor.visitLong(
+                  lastDeletedMessageId_ != 0L,
+                  lastDeletedMessageId_,
+                  other.lastDeletedMessageId_ != 0L,
+                  other.lastDeletedMessageId_);
           lastSeenMessageId_ =
               visitor.visitLong(
                   lastSeenMessageId_ != 0L,
@@ -797,6 +1139,18 @@ public final class PB_ChatView
               visitor.visitInt(
                   currentSeq_ != 0, currentSeq_, other.currentSeq_ != 0, other.currentSeq_);
           user_ = visitor.visitMessage(user_, other.user_);
+          sharedMediaCount_ =
+              visitor.visitInt(
+                  sharedMediaCount_ != 0,
+                  sharedMediaCount_,
+                  other.sharedMediaCount_ != 0,
+                  other.sharedMediaCount_);
+          unseenCount_ =
+              visitor.visitInt(
+                  unseenCount_ != 0, unseenCount_, other.unseenCount_ != 0, other.unseenCount_);
+          firstUnreadMessage_ =
+              visitor.visitMessage(firstUnreadMessage_, other.firstUnreadMessage_);
+          lastMessage_ = visitor.visitMessage(lastMessage_, other.lastMessage_);
           if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor.INSTANCE) {}
           return this;
         }
@@ -864,7 +1218,12 @@ public final class PB_ChatView
                   }
                 case 136:
                   {
-                    directLastMessageId_ = input.readInt64();
+                    lastMessageId_ = input.readInt64();
+                    break;
+                  }
+                case 144:
+                  {
+                    lastDeletedMessageId_ = input.readInt64();
                     break;
                   }
                 case 152:
@@ -897,6 +1256,46 @@ public final class PB_ChatView
                     if (subBuilder != null) {
                       subBuilder.mergeFrom(user_);
                       user_ = subBuilder.buildPartial();
+                    }
+
+                    break;
+                  }
+                case 1600:
+                  {
+                    sharedMediaCount_ = input.readInt32();
+                    break;
+                  }
+                case 1640:
+                  {
+                    unseenCount_ = input.readInt32();
+                    break;
+                  }
+                case 1682:
+                  {
+                    ir.ms.pb.PB_MessageView.Builder subBuilder = null;
+                    if (firstUnreadMessage_ != null) {
+                      subBuilder = firstUnreadMessage_.toBuilder();
+                    }
+                    firstUnreadMessage_ =
+                        input.readMessage(ir.ms.pb.PB_MessageView.parser(), extensionRegistry);
+                    if (subBuilder != null) {
+                      subBuilder.mergeFrom(firstUnreadMessage_);
+                      firstUnreadMessage_ = subBuilder.buildPartial();
+                    }
+
+                    break;
+                  }
+                case 1698:
+                  {
+                    ir.ms.pb.PB_MessageView.Builder subBuilder = null;
+                    if (lastMessage_ != null) {
+                      subBuilder = lastMessage_.toBuilder();
+                    }
+                    lastMessage_ =
+                        input.readMessage(ir.ms.pb.PB_MessageView.parser(), extensionRegistry);
+                    if (subBuilder != null) {
+                      subBuilder.mergeFrom(lastMessage_);
+                      lastMessage_ = subBuilder.buildPartial();
                     }
 
                     break;

@@ -8,13 +8,13 @@ public interface PB_ChatViewOrBuilder
     // @@protoc_insertion_point(interface_extends:PB_ChatView)
     com.google.protobuf.MessageLiteOrBuilder {
 
-  /** <code>int64 ChatId = 1;</code> */
-  long getChatId();
-
   /** <code>string ChatKey = 3;</code> */
   java.lang.String getChatKey();
   /** <code>string ChatKey = 3;</code> */
   com.google.protobuf.ByteString getChatKeyBytes();
+
+  /** <code>int64 ChatId = 1;</code> */
+  long getChatId();
 
   /** <code>int32 RoomTypeEnumId = 5;</code> */
   int getRoomTypeEnumId();
@@ -34,8 +34,11 @@ public interface PB_ChatViewOrBuilder
   /** <code>int64 UpdatedMs = 15;</code> */
   long getUpdatedMs();
 
-  /** <code>int64 DirectLastMessageId = 17;</code> */
-  long getDirectLastMessageId();
+  /** <code>int64 LastMessageId = 17;</code> */
+  long getLastMessageId();
+
+  /** <code>int64 LastDeletedMessageId = 18;</code> */
+  long getLastDeletedMessageId();
 
   /** <code>int64 LastSeenMessageId = 19;</code> */
   long getLastSeenMessageId();
@@ -53,4 +56,28 @@ public interface PB_ChatViewOrBuilder
   boolean hasUser();
   /** <code>.PB_UserView User = 100;</code> */
   ir.ms.pb.PB_UserView getUser();
+
+  /**
+   *
+   *
+   * <pre>
+   * local
+   * </pre>
+   *
+   * <code>int32 SharedMediaCount = 200;</code>
+   */
+  int getSharedMediaCount();
+
+  /** <code>int32 UnseenCount = 205;</code> */
+  int getUnseenCount();
+
+  /** <code>.PB_MessageView FirstUnreadMessage = 210;</code> */
+  boolean hasFirstUnreadMessage();
+  /** <code>.PB_MessageView FirstUnreadMessage = 210;</code> */
+  ir.ms.pb.PB_MessageView getFirstUnreadMessage();
+
+  /** <code>.PB_MessageView LastMessage = 212;</code> */
+  boolean hasLastMessage();
+  /** <code>.PB_MessageView LastMessage = 212;</code> */
+  ir.ms.pb.PB_MessageView getLastMessage();
 }

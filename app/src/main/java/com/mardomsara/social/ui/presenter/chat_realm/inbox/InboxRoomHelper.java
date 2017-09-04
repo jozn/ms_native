@@ -2,15 +2,11 @@ package com.mardomsara.social.ui.presenter.chat_realm.inbox;
 
 import com.mardomsara.social.app.Constants;
 import com.mardomsara.social.app.Router;
-import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.DialogHelper;
 import com.mardomsara.social.helpers.LangUtil;
-import com.mardomsara.social.models.RoomModel;
-import com.mardomsara.social.models.tables.Message;
-import com.mardomsara.social.models.tables.Room;
-import com.mardomsara.social.models_realm.realm.RealmChatView;
-import com.mardomsara.social.models_realm.realm.RealmMessageView;
-import com.mardomsara.social.ui.cells.chat_realm.RoomsListCell;
+import com.mardomsara.social.models_realm.RealmChatViewHelper;
+import com.mardomsara.social.models_realm.pb_realm.RealmChatView;
+import com.mardomsara.social.models_realm.pb_realm.RealmMessageView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -64,7 +60,7 @@ final class InboxRoomHelper {
             }));
 
             items.add(new DialogHelper.MenuItem("رفتن به پروفایل",(v)->{
-                Router.goToProfile(room.getUserId());
+                Router.goToProfile(RealmChatViewHelper.getUserId(room));
             }));
 
             DialogHelper.simpleMenu(items);

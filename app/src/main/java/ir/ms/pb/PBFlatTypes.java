@@ -2708,13 +2708,17 @@ public class PBFlatTypes {
     public long GroupId;
     public int CreatedTime;
     public long UpdatedMs;
-    public long DirectLastMessageId;
-    public long DirectLastDeletedMessageId;
+    public long LastMessageId;
+    public long LastDeletedMessageId;
     public long LastSeenMessageId;
     public int LastSeqSeen;
     public int LastSeqDelete;
     public int CurrentSeq;
     public PB_UserView User;
+    public int SharedMediaCount;
+    public int UnseenCount;
+    public PB_MessageView FirstUnreadMessage;
+    public PB_MessageView LastMessage;
   }
   /*
   folding
@@ -2727,13 +2731,17 @@ public class PBFlatTypes {
      t.setGroupId();
      t.setCreatedTime();
      t.setUpdatedMs();
-     t.setDirectLastMessageId();
-     t.setDirectLastDeletedMessageId();
+     t.setLastMessageId();
+     t.setLastDeletedMessageId();
      t.setLastSeenMessageId();
      t.setLastSeqSeen();
      t.setLastSeqDelete();
      t.setCurrentSeq();
      t.setUser();
+     t.setSharedMediaCount();
+     t.setUnseenCount();
+     t.setFirstUnreadMessage();
+     t.setLastMessage();
   */
 
   /*
@@ -2746,13 +2754,17 @@ public class PBFlatTypes {
   t.GroupId = ;
   t.CreatedTime = ;
   t.UpdatedMs = ;
-  t.DirectLastMessageId = ;
-  t.DirectLastDeletedMessageId = ;
+  t.LastMessageId = ;
+  t.LastDeletedMessageId = ;
   t.LastSeenMessageId = ;
   t.LastSeqSeen = ;
   t.LastSeqDelete = ;
   t.CurrentSeq = ;
   t.User = ;
+  t.SharedMediaCount = ;
+  t.UnseenCount = ;
+  t.FirstUnreadMessage = ;
+  t.LastMessage = ;
   */
 
   /*
@@ -2765,13 +2777,17 @@ public class PBFlatTypes {
   t.GroupId = m.getGroupId() ;
   t.CreatedTime = m.getCreatedTime() ;
   t.UpdatedMs = m.getUpdatedMs() ;
-  t.DirectLastMessageId = m.getDirectLastMessageId() ;
-  t.DirectLastDeletedMessageId = m.getDirectLastDeletedMessageId() ;
+  t.LastMessageId = m.getLastMessageId() ;
+  t.LastDeletedMessageId = m.getLastDeletedMessageId() ;
   t.LastSeenMessageId = m.getLastSeenMessageId() ;
   t.LastSeqSeen = m.getLastSeqSeen() ;
   t.LastSeqDelete = m.getLastSeqDelete() ;
   t.CurrentSeq = m.getCurrentSeq() ;
   t.User = m.getUser() ;
+  t.SharedMediaCount = m.getSharedMediaCount() ;
+  t.UnseenCount = m.getUnseenCount() ;
+  t.FirstUnreadMessage = m.getFirstUnreadMessage() ;
+  t.LastMessage = m.getLastMessage() ;
   */
 
   public class PB_MessageView {

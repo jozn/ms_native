@@ -30,23 +30,23 @@ public class RealmMessageFileView extends RealmObject {
 	public static RealmMessageFileView fromPB(PB_MessageFileView pb){
 		RealmMessageFileView r = new RealmMessageFileView();
 		
-	    r.MessageFileId = pb.getMessageFileId();//0
-	    r.Name = pb.getName();//1
-	    r.Size = pb.getSize();//2
-	    r.FileTypeEnum = pb.getFileTypeEnum();//3
-	    r.MimeType = pb.getMimeType();//4
-	    r.Width = pb.getWidth();//5
-	    r.Height = pb.getHeight();//6
-	    r.Duration = pb.getDuration();//7
-	    r.Extension = pb.getExtension();//8
-	    r.ThumbData64 = pb.getThumbData64();//9
-	    r.ServerSrc = pb.getServerSrc();//10
-	    r.ServerPath = pb.getServerPath();//11
-	    r.ServerThumbPath = pb.getServerThumbPath();//12
-	    r.BucketId = pb.getBucketId();//13
-	    r.ServerId = pb.getServerId();//14
-	    r.CanDel = pb.getCanDel();//15
-	    r.CreatedTime = pb.getCreatedTime();//16
+		r.MessageFileId = pb.getMessageFileId();//0
+		r.Name = pb.getName();//1
+		r.Size = pb.getSize();//2
+		r.FileTypeEnum = pb.getFileTypeEnum();//3
+		r.MimeType = pb.getMimeType();//4
+		r.Width = pb.getWidth();//5
+		r.Height = pb.getHeight();//6
+		r.Duration = pb.getDuration();//7
+		r.Extension = pb.getExtension();//8
+		r.ThumbData64 = pb.getThumbData64();//9
+		r.ServerSrc = pb.getServerSrc();//10
+		r.ServerPath = pb.getServerPath();//11
+		r.ServerThumbPath = pb.getServerThumbPath();//12
+		r.BucketId = pb.getBucketId();//13
+		r.ServerId = pb.getServerId();//14
+		r.CanDel = pb.getCanDel();//15
+		r.CreatedTime = pb.getCreatedTime();//16
 
 	    return r;
 	}

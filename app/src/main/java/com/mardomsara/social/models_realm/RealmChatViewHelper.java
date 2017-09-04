@@ -4,10 +4,9 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import com.mardomsara.social.app.MSRealm;
-import com.mardomsara.social.models_realm.realm.RealmChatView;
-import com.mardomsara.social.models_realm.realm.RealmChatViewFields;
-import com.mardomsara.social.models_realm.realm.RealmMessageView;
-import com.mardomsara.social.models_realm.realm.RealmUserView;
+import com.mardomsara.social.models_realm.pb_realm.RealmChatView;
+import com.mardomsara.social.models_realm.pb_realm.RealmMessageView;
+import com.mardomsara.social.models_realm.realm_local.RealmChatViewFields;
 
 import java.util.List;
 
@@ -18,7 +17,31 @@ import ir.ms.pb.PB_ChatView;
  * Created by Hamid on 9/1/2017.
  */
 
-public class ModelChat {
+public class RealmChatViewHelper {
+
+	/////////////////////////////////////////
+	public static String getRoomName(RealmChatView chatView){
+		if(chatView.User != null){
+			return chatView.User.FullName;
+		}
+		return "name: " + chatView.ChatKey;
+	}
+
+	public static String getRoomAvatarUrl(RealmChatView chatView){
+		if(chatView.User != null){
+			return chatView.User.AvatarUrl;
+		}
+		return "http://192.168.0.10:5000/upload/avatar/1/21_mOId_200.jpg";
+	}
+
+	public static int getUserId(RealmChatView chatView){
+		if(chatView.User != null){
+			return chatView.User.UserId;
+		}
+		return 12;
+	}
+
+	/////////////////////////////////////////
 
 	public static
 	@Nullable
@@ -95,7 +118,7 @@ public class ModelChat {
 			RealmChatView chatView = getChatByChatId(m.getChatId());
 			if (chatView == null) {//create new chat
 				chatView = realm.createObject(RealmChatView.class);
-				chatView.user = RealmUserView.getUserByUserId(m.getUserId());
+//				chatView.user = RealmUserView.getUserByUserId(m.getUserId());
 				if (chatView.user == null) continue;//user must set
 
 			} else {//update existing ine

@@ -2,11 +2,11 @@ package com.mardomsara.social.pipe.push_handling;
 
 import com.mardomsara.social.app.MSRealm;
 import com.mardomsara.social.helpers.AppUtil;
-import com.mardomsara.social.models_realm.ModelChat;
+import com.mardomsara.social.models_realm.RealmChatViewHelper;
 import com.mardomsara.social.models_realm.PBToRealm;
-import com.mardomsara.social.models_realm.realm.RealmChatView;
-import com.mardomsara.social.models_realm.realm.RealmMessageView;
-import com.mardomsara.social.models_realm.realm.RealmUserView;
+import com.mardomsara.social.models_realm.pb_realm.RealmChatView;
+import com.mardomsara.social.models_realm.pb_realm.RealmMessageView;
+import com.mardomsara.social.models_realm.pb_realm.RealmUserView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -59,7 +59,7 @@ final class PushNewMessagesHandler {
 			trans.copyToRealmOrUpdate(chats);
 		});
 
-		ModelChat.insertOrUpdateNewChatsFromPipe(push.getChatsList());
+		RealmChatViewHelper.insertOrUpdateNewChatsFromPipe(push.getChatsList());
 
 
 	}

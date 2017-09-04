@@ -4,8 +4,8 @@ import android.support.v7.widget.LinearLayoutManager;
 
 import com.mardomsara.social.app.MSRealm;
 import com.mardomsara.social.helpers.AppUtil;
-import com.mardomsara.social.models_realm.realm.RealmChatView;
-import com.mardomsara.social.models_realm.realm.RealmChatViewFields;
+import com.mardomsara.social.models_realm.pb_realm.RealmChatView;
+import com.mardomsara.social.models_realm.realm_local.RealmChatViewFields;
 import com.mardomsara.social.ui.X;
 
 import io.realm.RealmResults;

@@ -6,7 +6,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.mardomsara.social.App;
 import com.mardomsara.social.Nav;
 import com.mardomsara.social.R;
 import com.mardomsara.social.app.Constants;
@@ -25,10 +24,8 @@ import com.mardomsara.social.models.memory_store.MemoryStore_LastMsgs;
 import com.mardomsara.social.models.memory_store.MemoryStore_Rooms;
 import com.mardomsara.social.models.tables.Message;
 import com.mardomsara.social.models.tables.Room;
-import com.mardomsara.social.models_realm.realm.RealmChatView;
-import com.mardomsara.social.models_realm.realm.RealmChatViewFields;
-import com.mardomsara.social.models_realm.realm.RealmUserView;
-import com.mardomsara.social.models_realm.realm.RealmUserViewFields;
+import com.mardomsara.social.models_realm.pb_realm.RealmChatView;
+import com.mardomsara.social.models_realm.realm_local.RealmChatViewFields;
 import com.mardomsara.social.play.DividerItemDecoration;
 import com.mardomsara.social.ui.X;
 

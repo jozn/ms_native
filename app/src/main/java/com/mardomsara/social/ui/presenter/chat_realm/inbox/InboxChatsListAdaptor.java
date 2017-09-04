@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import com.mardomsara.social.lib.ms.ArrayListHashSetKey;
 import com.mardomsara.social.lib.realm.RealmRecyclerViewAdapter;
 import com.mardomsara.social.models.tables.Room;
-import com.mardomsara.social.models_realm.realm.RealmChatView;
+import com.mardomsara.social.models_realm.pb_realm.RealmChatView;
 import com.mardomsara.social.ui.cells.chat_realm.RoomsListCell;
 
 import io.realm.RealmResults;

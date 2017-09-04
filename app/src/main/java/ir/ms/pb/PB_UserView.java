@@ -3,7 +3,15 @@
 
 package ir.ms.pb;
 
-/** Protobuf type {@code PB_UserView} */
+/**
+ *
+ *
+ * <pre>
+ * {realm} ,
+ * </pre>
+ *
+ * Protobuf type {@code PB_UserView}
+ */
 public final class PB_UserView
     extends com.google.protobuf.GeneratedMessageLite<PB_UserView, PB_UserView.Builder>
     implements
@@ -590,7 +598,15 @@ public final class PB_UserView
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
 
-  /** Protobuf type {@code PB_UserView} */
+  /**
+   *
+   *
+   * <pre>
+   * {realm} ,
+   * </pre>
+   *
+   * Protobuf type {@code PB_UserView}
+   */
   public static final class Builder
       extends com.google.protobuf.GeneratedMessageLite.Builder<ir.ms.pb.PB_UserView, Builder>
       implements

@@ -1,8 +1,8 @@
 package com.mardomsara.social.models_realm;
 
-import com.mardomsara.social.models_realm.realm.RealmChatView;
-import com.mardomsara.social.models_realm.realm.RealmMessageView;
-import com.mardomsara.social.models_realm.realm.RealmUserView;
+import com.mardomsara.social.models_realm.pb_realm.RealmChatView;
+import com.mardomsara.social.models_realm.pb_realm.RealmMessageView;
+import com.mardomsara.social.models_realm.pb_realm.RealmUserView;
 
 import ir.ms.pb.PB_ChatView;
 import ir.ms.pb.PB_MessageView;

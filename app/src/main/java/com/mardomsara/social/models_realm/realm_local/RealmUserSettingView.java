@@ -1,4 +1,4 @@
-package com.mardomsara.social.models_realm.realm;
+package com.mardomsara.social.models_realm.realm_local;
 
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;

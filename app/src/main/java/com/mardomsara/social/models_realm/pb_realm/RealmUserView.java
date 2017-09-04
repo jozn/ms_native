@@ -29,22 +29,22 @@ public class RealmUserView extends RealmObject {
 	public static RealmUserView fromPB(PB_UserView pb){
 		RealmUserView r = new RealmUserView();
 		
-	    r.UserId = pb.getUserId();//0
-	    r.UserName = pb.getUserName();//1
-	    r.FirstName = pb.getFirstName();//2
-	    r.LastName = pb.getLastName();//3
-	    r.About = pb.getAbout();//4
-	    r.FullName = pb.getFullName();//5
-	    r.AvatarUrl = pb.getAvatarUrl();//6
-	    r.PrivacyProfile = pb.getPrivacyProfile();//7
-	    r.IsDeleted = pb.getIsDeleted();//8
-	    r.FollowersCount = pb.getFollowersCount();//9
-	    r.FollowingCount = pb.getFollowingCount();//10
-	    r.PostsCount = pb.getPostsCount();//11
-	    r.UpdatedTime = pb.getUpdatedTime();//12
-	    r.AppVersion = pb.getAppVersion();//13
-	    r.LastActivityTime = pb.getLastActivityTime();//14
-	    r.FollowingType = pb.getFollowingType();//15
+		r.UserId = pb.getUserId();//0
+		r.UserName = pb.getUserName();//1
+		r.FirstName = pb.getFirstName();//2
+		r.LastName = pb.getLastName();//3
+		r.About = pb.getAbout();//4
+		r.FullName = pb.getFullName();//5
+		r.AvatarUrl = pb.getAvatarUrl();//6
+		r.PrivacyProfile = pb.getPrivacyProfile();//7
+		r.IsDeleted = pb.getIsDeleted();//8
+		r.FollowersCount = pb.getFollowersCount();//9
+		r.FollowingCount = pb.getFollowingCount();//10
+		r.PostsCount = pb.getPostsCount();//11
+		r.UpdatedTime = pb.getUpdatedTime();//12
+		r.AppVersion = pb.getAppVersion();//13
+		r.LastActivityTime = pb.getLastActivityTime();//14
+		r.FollowingType = pb.getFollowingType();//15
 
 	    return r;
 	}
