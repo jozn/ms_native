@@ -53,7 +53,7 @@ import java.util.List;
 /**
  * Created by Hamid on 5/4/2016.
  */
-public class ChatRoomPresenter extends BasePresenter implements
+public class ChatRoomPresenter_OLD extends BasePresenter implements
         KeyboardAttachmentCell.Callbacks , AppHeaderFooterRecyclerViewAdapter.LoadNextPage{
     public Room room;
 
@@ -70,7 +70,7 @@ public class ChatRoomPresenter extends BasePresenter implements
 
     KeyboardAttachmentCell attachment_view;
     LinearLayoutManager mLayoutManager;
-    ChatRoomPresenter that;
+    ChatRoomPresenter_OLD that;
 
     IntentHelper intentHelper;
     Uri file_uri;

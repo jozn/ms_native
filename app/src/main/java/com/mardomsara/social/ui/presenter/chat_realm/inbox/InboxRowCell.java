@@ -33,7 +33,6 @@ class InboxRowCell {
 		});
 	}
 
-	RealmMessageView lastMsg;
 	public void bind(RealmChatView room) {
 //            Message lastMsg = MemoryStore_LastMsgs.getForRoom(room);
 		this.room = room;

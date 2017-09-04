@@ -62,6 +62,10 @@ public class FormaterUtil {
 //        return DateFormat.getDateInstance().format(d);
     }
 
+	public static String timeToClockTimeSec(long sec){
+		return timeToClockTimeMs(sec*1000);
+	}
+
     public static String timeToDayTime(long seconds){
         return timeToClockTimeMs(seconds*1000);
     }

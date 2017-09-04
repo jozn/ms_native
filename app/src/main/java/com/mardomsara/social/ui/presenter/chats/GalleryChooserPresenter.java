@@ -51,7 +51,7 @@ public class GalleryChooserPresenter extends BasePresenter {
     Map<String, Integer> folder_count_cache = new HashMap<>();;
     Map<String, Integer> folder_count_video_cache = new HashMap<>();;
 
-    public ChatRoomPresenter chatEntryPresenter;
+    public ChatRoomPresenter_OLD chatEntryPresenter;
 
     @Bind(R.id.view_pager)
     ViewPager view_pager;

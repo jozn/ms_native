@@ -373,6 +373,45 @@ public class X {
         }
     }
 
+    public static class ChatRoom_ScreenParent {
+        public LinearLayout root;
+        public XTextView room_name;
+        public ImageView avatar;
+        public XRawIcon back;
+        public RecyclerView recycler_view;
+        public LinearLayout bottom_container;
+        public TextView emoji_opener_btn;
+        public XEditTextView edit_field;
+        public IconTextView attach_btn;
+        public IconTextView attach2;
+        public IconTextView send_msg_btn;
+
+        public ChatRoom_ScreenParent(Context context,ViewGroup parent) {
+            root = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.chat_room__screen_parent,parent ,false);
+            room_name = (XTextView) root.findViewById( R.id.room_name);
+            avatar = (ImageView) root.findViewById( R.id.avatar);
+            back = (XRawIcon) root.findViewById( R.id.back);
+            recycler_view = (RecyclerView) root.findViewById( R.id.recycler_view);
+            bottom_container = (LinearLayout) root.findViewById( R.id.bottom_container);
+            emoji_opener_btn = (TextView) root.findViewById( R.id.emoji_opener_btn);
+            edit_field = (XEditTextView) root.findViewById( R.id.edit_field);
+            attach_btn = (IconTextView) root.findViewById( R.id.attach_btn);
+            attach2 = (IconTextView) root.findViewById( R.id.attach2);
+            send_msg_btn = (IconTextView) root.findViewById( R.id.send_msg_btn);
+        }
+        public ChatRoom_ScreenParent() {
+            this(AppUtil.getContext(),null);
+        }
+
+        public ChatRoom_ScreenParent(Context context) {
+            this(context ,null);
+        }
+
+        public ChatRoom_ScreenParent(ViewGroup parent) {
+            this(AppUtil.getContext() ,parent);
+        }
+    }
+
     public static class CommentRow {
         public RelativeLayout root;
         public SimpleDraweeView avatar;
