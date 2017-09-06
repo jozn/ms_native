@@ -8,13 +8,15 @@ import android.view.View;
 
 import com.mardomsara.social.App;
 import com.mardomsara.social.Nav;
+import com.mardomsara.social.app.MSRealm;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.IntentHelper;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
-import com.mardomsara.social.models.RoomModel;
 import com.mardomsara.social.models.tables.Message;
-import com.mardomsara.social.models.tables.Room;
+import com.mardomsara.social.models_realm.RealmChatViewHelper;
+import com.mardomsara.social.models_realm.pb_realm.RealmChatView;
+import com.mardomsara.social.models_realm.pb_realm.RealmMessageView;
 import com.mardomsara.social.pipe_pb.from_net_calls.events.MsgReceivedToServerEvent;
 import com.mardomsara.social.pipe_pb.from_net_calls.json.MsgAddManyJson;
 import com.mardomsara.social.pipe_pb.from_net_calls.json.MsgAddOneJson;
@@ -34,12 +36,15 @@ import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.List;
 
+import io.realm.Realm;
+import io.realm.RealmResults;
+
 /**
  * Created by Hamid on 5/4/2016.
  */
 public class ChatRoomPresenter extends BasePresenter implements
         KeyboardAttachmentCell.Callbacks , AppHeaderFooterRecyclerViewAdapter.LoadNextPage{
-    public Room room;
+    public RealmChatView room;
 
     //constants
     final int ATTACH_CAMERA_IMAGE = 1001;
@@ -50,6 +55,8 @@ public class ChatRoomPresenter extends BasePresenter implements
 
 //	ArrayListHashSetKey<Message,String> messages;
     ChatEntryAdaptor messagesAdaptor_DEP;
+    ChatRoomEntryAdaptor adaptor;
+	RealmChatAdaptor adaptor2;
 
     KeyboardAttachmentCell attachment_view;
     LinearLayoutManager mLayoutManager;
@@ -74,7 +81,13 @@ public class ChatRoomPresenter extends BasePresenter implements
 
         Nav.hideFooter();
 
+		Realm realm = MSRealm.getChatRealm();
+		RealmResults<RealmMessageView> realmResults = realm.where(RealmMessageView.class).findAll();
+
         messagesAdaptor_DEP = new ChatEntryAdaptor();
+        adaptor = new ChatRoomEntryAdaptor();
+        adaptor2 = new RealmChatAdaptor(realmResults,true);
+
 
 //		messages = messagesAdaptor_DEP.msgs;
 
@@ -85,19 +98,24 @@ public class ChatRoomPresenter extends BasePresenter implements
         mLayoutManager.setStackFromEnd(true);
         mLayoutManager.scrollToPositionWithOffset(0,10000);
 
-        x.recycler_view.setAdapter(messagesAdaptor_DEP);
+//        x.recycler_view.setAdapter(messagesAdaptor_DEP);
+        x.recycler_view.setAdapter(adaptor2);
         x.recycler_view.setLayoutManager(mLayoutManager);
         x.recycler_view.setHasFixedSize(false);
 
-        messagesAdaptor_DEP.setUpForPaginationWith(x.recycler_view,mLayoutManager,this);
-		messagesAdaptor_DEP.setRecyclerView(x.recycler_view);
+//        messagesAdaptor_DEP.setUpForPaginationWith(x.recycler_view,mLayoutManager,this);
+//		messagesAdaptor_DEP.setRecyclerView(x.recycler_view);
+
+//		adaptor.setUpForPaginationWith(x.recycler_view,mLayoutManager,this);
+//		adaptor.setRecyclerView(x.recycler_view);
 
         x.back.setOnClickListener((v)-> {
 			onBack();
 			Nav.pop();
 		});
 
-        x.room_name.setText(room.getRoomName());
+//        x.room_name.setText(room.getRoomName());
+        x.room_name.setText(RealmChatViewHelper.getRoomName(room));
         App.getBus().register(this);
 
         emojiKeyboard = new EmojiKeyboard(x.edit_field,x.emoji_opener_btn, AppUtil.global_window);
@@ -109,12 +127,12 @@ public class ChatRoomPresenter extends BasePresenter implements
 
         setUpInputOnTextTextChanged();
 
-        Uri imageUri = Helper.PathToUserAvatarUri(room.getRoomAvatarUrl());
+        Uri imageUri = Helper.PathToUserAvatarUri(RealmChatViewHelper.getRoomAvatarUrl(room));
         Picasso.with(AppUtil.getContext())
                 .load(imageUri)
                 .into(x.avatar);
 
-		RoomModel.updateRoomSeenMsgsToNow_BG(room);
+//		RoomModel.updateRoomSeenMsgsToNow_BG(room);
 
 		return x.root;
     }

@@ -21,6 +21,7 @@ import com.mardomsara.social.ui.cells.chats.msgs.MsgCell_TextPeer;*/
 //import com.mardomsara.social.ui.cells.chats.msgs.MsgCell_VideoMe;
 import com.mardomsara.social.ui.presenter.chat_realm.chat_room.msgs.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -30,10 +31,12 @@ public class ChatRoomEntryAdaptor extends AppHeaderFooterRecyclerViewAdapter<Msg
 
 	static LayoutInflater _infl = LayoutInflater.from(AppUtil.getContext());
 
-	public final ArrayListHashSetKey<RealmMessageView, String> msgs = new ArrayListHashSetKey<>((msg) -> msg.toString());
+//	public final ArrayListHashSetKey<RealmMessageView, String> msgs = new ArrayListHashSetKey<>((msg) -> msg.toString());
+	public final ArrayList<RealmMessageView> msgs = new ArrayList();
 
 	public void setMsgs(List<RealmMessageView> msgs) {
-		this.msgs.fromList(msgs);
+		this.msgs.clear();
+		this.msgs.addAll(msgs);
 	}
 
 	@Override
