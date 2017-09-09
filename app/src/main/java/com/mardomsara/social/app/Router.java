@@ -8,7 +8,7 @@ import com.mardomsara.social.models.tables.Session;
 import com.mardomsara.social.models.tables.Room;
 import com.mardomsara.social.models_realm.pb_realm.RealmChatView;
 import com.mardomsara.social.ui.presenter.HelloPresenter;
-import com.mardomsara.social.ui.presenter.chat_realm.chat_room.ChatRoomPresenter;
+import com.mardomsara.social.ui.presenter.chat_realm.chat_room.ChatRoomEntryPresenter;
 import com.mardomsara.social.ui.presenter.chats.ChatRoomPresenter_OLD;
 import com.mardomsara.social.ui.presenter.chats.GalleryChooserPresenter;
 import com.mardomsara.social.ui.presenter.pages.CommentsPage;
@@ -60,7 +60,7 @@ public class Router {
     }
 
 	public static PresenterPage getRoomEntry(RealmChatView room) {
-		ChatRoomPresenter p = new ChatRoomPresenter();
+		ChatRoomEntryPresenter p = new ChatRoomEntryPresenter();
 		p.room = room;
 		return p;
 	}

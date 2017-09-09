@@ -42,7 +42,7 @@ import io.realm.RealmResults;
 /**
  * Created by Hamid on 5/4/2016.
  */
-public class ChatRoomPresenter extends BasePresenter implements
+public class ChatRoomEntryPresenter extends BasePresenter implements
         KeyboardAttachmentCell.Callbacks , AppHeaderFooterRecyclerViewAdapter.LoadNextPage{
     public RealmChatView room;
 
@@ -60,7 +60,7 @@ public class ChatRoomPresenter extends BasePresenter implements
 
     KeyboardAttachmentCell attachment_view;
     LinearLayoutManager mLayoutManager;
-    ChatRoomPresenter that;
+    ChatRoomEntryPresenter that;
 
     IntentHelper intentHelper;
     Uri file_uri;
