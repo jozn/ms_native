@@ -82,6 +82,15 @@ public class X {
         public Actions_Row(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+                public int frame_layout = R.id.frame_layout;
+                public int image_extra = R.id.image_extra;
+                public int following_button = R.id.following_button;
+                public int text_main = R.id.text_main;
+                public int date = R.id.date;
+                public int avatar_image = R.id.avatar_image;
+        }
     }
 
     public static class ActivityCrop {
@@ -106,6 +115,12 @@ public class X {
 
         public ActivityCrop(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
+        }
+
+        public static class IDS {
+                public int gallery = R.id.gallery;
+                public int take_picture = R.id.take_picture;
+                public int image = R.id.image;
         }
     }
 
@@ -134,6 +149,13 @@ public class X {
         public ActivityMainApp(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+                public int global_window = R.id.global_window;
+                public int frag1 = R.id.frag1;
+                public int footerbar_holder = R.id.footerbar_holder;
+                public int dialog = R.id.dialog;
+        }
     }
 
     public static class ActivityPlayAdvanced {
@@ -154,6 +176,10 @@ public class X {
 
         public ActivityPlayAdvanced(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
+        }
+
+        public static class IDS {
+                public int output = R.id.output;
         }
     }
 
@@ -198,6 +224,21 @@ public class X {
         public AddPost_Container(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+                public int top_nav = R.id.top_nav;
+                public int top_holder = R.id.top_holder;
+                public int emoji_opener_btn = R.id.emoji_opener_btn;
+                public int left_side = R.id.left_side;
+                public int image = R.id.image;
+                public int cancel_image = R.id.cancel_image;
+                public int post_field = R.id.post_field;
+                public int bottom_holder = R.id.bottom_holder;
+                public int share_media_buttons_holder = R.id.share_media_buttons_holder;
+                public int gallery_btn = R.id.gallery_btn;
+                public int camera_btn = R.id.camera_btn;
+                public int recent_images_holder = R.id.recent_images_holder;
+        }
     }
 
     public static class AddPostGallery_Container {
@@ -221,6 +262,11 @@ public class X {
         public AddPostGallery_Container(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+                public int top_nav = R.id.top_nav;
+                public int recycler_view = R.id.recycler_view;
+        }
     }
 
     public static class AddPostGallery_Image {
@@ -242,6 +288,10 @@ public class X {
         public AddPostGallery_Image(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+                public int image = R.id.image;
+        }
     }
 
     public static class ButtonPostMultiway {
@@ -260,6 +310,9 @@ public class X {
 
         public ButtonPostMultiway(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
+        }
+
+        public static class IDS {
         }
     }
 
@@ -284,6 +337,11 @@ public class X {
         public CellPageCellNavRecylcerViewBk(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+                public int simpleTopNav = R.id.simpleTopNav;
+                public int recycler_view = R.id.recycler_view;
+        }
     }
 
     public static class CellPageCommingSoon {
@@ -302,6 +360,9 @@ public class X {
 
         public CellPageCommingSoon(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
+        }
+
+        public static class IDS {
         }
     }
 
@@ -342,6 +403,19 @@ public class X {
         public Chat_EntryRoom(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+                public int room_name = R.id.room_name;
+                public int avatar = R.id.avatar;
+                public int back = R.id.back;
+                public int recycler_view = R.id.recycler_view;
+                public int bottom_container = R.id.bottom_container;
+                public int emoji_opener_btn = R.id.emoji_opener_btn;
+                public int edit_field = R.id.edit_field;
+                public int attach_btn = R.id.attach_btn;
+                public int attach2 = R.id.attach2;
+                public int send_msg_btn = R.id.send_msg_btn;
+        }
     }
 
     public static class Chat_ListRow {
@@ -370,6 +444,14 @@ public class X {
 
         public Chat_ListRow(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
+        }
+
+        public static class IDS {
+                public int avatar = R.id.avatar;
+                public int name_txt = R.id.name_txt;
+                public int date_txt = R.id.date_txt;
+                public int unseen_count_txt = R.id.unseen_count_txt;
+                public int last_msg_txt = R.id.last_msg_txt;
         }
     }
 
@@ -410,6 +492,19 @@ public class X {
         public ChatRoom_ScreenParent(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+                public int room_name = R.id.room_name;
+                public int avatar = R.id.avatar;
+                public int back = R.id.back;
+                public int recycler_view = R.id.recycler_view;
+                public int bottom_container = R.id.bottom_container;
+                public int emoji_opener_btn = R.id.emoji_opener_btn;
+                public int edit_field = R.id.edit_field;
+                public int attach_btn = R.id.attach_btn;
+                public int attach2 = R.id.attach2;
+                public int send_msg_btn = R.id.send_msg_btn;
+        }
     }
 
     public static class CommentRow {
@@ -439,6 +534,14 @@ public class X {
         public CommentRow(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+                public int avatar = R.id.avatar;
+                public int fullname = R.id.fullname;
+                public int date = R.id.date;
+                public int loadingView = R.id.loadingView;
+                public int text = R.id.text;
+        }
     }
 
     public static class Comments_WithFieldCell {
@@ -464,6 +567,12 @@ public class X {
         public Comments_WithFieldCell(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+                public int post_row_holder = R.id.post_row_holder;
+                public int content = R.id.content;
+                public int simpleAddText = R.id.simpleAddText;
+        }
     }
 
     public static class Common_CellLoading {
@@ -484,6 +593,10 @@ public class X {
 
         public Common_CellLoading(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
+        }
+
+        public static class IDS {
+                public int loadingView = R.id.loadingView;
         }
     }
 
@@ -506,6 +619,10 @@ public class X {
         public Common_ContainerLoading(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+                public int loading = R.id.loading;
+        }
     }
 
     public static class Common_LoadingRow {
@@ -524,6 +641,9 @@ public class X {
 
         public Common_LoadingRow(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
+        }
+
+        public static class IDS {
         }
     }
 
@@ -546,6 +666,10 @@ public class X {
         public Common_OneThirdImage(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+                public int img = R.id.img;
+        }
     }
 
     public static class Common_OneThirdImageCenter {
@@ -566,6 +690,10 @@ public class X {
 
         public Common_OneThirdImageCenter(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
+        }
+
+        public static class IDS {
+                public int img = R.id.img;
         }
     }
 
@@ -594,6 +722,13 @@ public class X {
         public ContactsFollowingsList_Row(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+                public int following_button = R.id.following_button;
+                public int second_name = R.id.second_name;
+                public int primary_name = R.id.primary_name;
+                public int avatar = R.id.avatar;
+        }
     }
 
     public static class ContactsFollowingsList_RowUnregisteredContact {
@@ -614,6 +749,10 @@ public class X {
 
         public ContactsFollowingsList_RowUnregisteredContact(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
+        }
+
+        public static class IDS {
+                public int name_text = R.id.name_text;
         }
     }
 
@@ -650,6 +789,17 @@ public class X {
         public ContactsFollowingsList_Screen(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+                public int followings_tab_btn = R.id.followings_tab_btn;
+                public int contacts_tab_btn = R.id.contacts_tab_btn;
+                public int layout_contacts = R.id.layout_contacts;
+                public int empty_contacts_msg = R.id.empty_contacts_msg;
+                public int contacts_list_rv = R.id.contacts_list_rv;
+                public int layout_followings = R.id.layout_followings;
+                public int empty_followings_msg = R.id.empty_followings_msg;
+                public int followings_list_rv = R.id.followings_list_rv;
+        }
     }
 
     public static class Cropimage {
@@ -677,6 +827,13 @@ public class X {
         public Cropimage(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+                public int discard = R.id.discard;
+                public int rotateLeft = R.id.rotateLeft;
+                public int rotateRight = R.id.rotateRight;
+                public int save = R.id.save;
+        }
     }
 
     public static class Dialog_BaseContainer {
@@ -699,6 +856,11 @@ public class X {
 
         public Dialog_BaseContainer(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
+        }
+
+        public static class IDS {
+                public int dialogplus_outmost_container = R.id.dialogplus_outmost_container;
+                public int dialogplus_content_container = R.id.dialogplus_content_container;
         }
     }
 
@@ -725,6 +887,12 @@ public class X {
         public Dialog_CheckboxContainer(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+                public int dialogplus_outmost_container = R.id.dialogplus_outmost_container;
+                public int container = R.id.container;
+                public int close = R.id.close;
+        }
     }
 
     public static class Dialog_CheckboxItem {
@@ -747,6 +915,11 @@ public class X {
 
         public Dialog_CheckboxItem(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
+        }
+
+        public static class IDS {
+                public int name = R.id.name;
+                public int checkbox = R.id.checkbox;
         }
     }
 
@@ -775,6 +948,13 @@ public class X {
         public Dialog_Grid(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+                public int dialogplus_outmost_container = R.id.dialogplus_outmost_container;
+                public int dialogplus_header_container = R.id.dialogplus_header_container;
+                public int dialogplus_list = R.id.dialogplus_list;
+                public int dialogplus_footer_container = R.id.dialogplus_footer_container;
+        }
     }
 
     public static class Dialog_List {
@@ -798,6 +978,11 @@ public class X {
         public Dialog_List(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+                public int dialogplus_outmost_container = R.id.dialogplus_outmost_container;
+                public int dialogplus_list = R.id.dialogplus_list;
+        }
     }
 
     public static class Dialog_OptionsRoomRow {
@@ -820,6 +1005,11 @@ public class X {
 
         public Dialog_OptionsRoomRow(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
+        }
+
+        public static class IDS {
+                public int text = R.id.text;
+                public int list_view = R.id.list_view;
         }
     }
 
@@ -846,6 +1036,12 @@ public class X {
         public Dialog_SimpleAlert(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+                public int title = R.id.title;
+                public int body = R.id.body;
+                public int close = R.id.close;
+        }
     }
 
     public static class Dialog_SimpleBody {
@@ -864,6 +1060,9 @@ public class X {
 
         public Dialog_SimpleBody(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
+        }
+
+        public static class IDS {
         }
     }
 
@@ -884,6 +1083,9 @@ public class X {
         public Dialog_SimpleClose(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+        }
     }
 
     public static class Dialog_SimpleMenuString {
@@ -903,6 +1105,9 @@ public class X {
         public Dialog_SimpleMenuString(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+        }
     }
 
     public static class Dialog_SimpleTitle {
@@ -921,6 +1126,9 @@ public class X {
 
         public Dialog_SimpleTitle(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
+        }
+
+        public static class IDS {
         }
     }
 
@@ -948,6 +1156,13 @@ public class X {
 
         public Dialog_View(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
+        }
+
+        public static class IDS {
+                public int dialogplus_outmost_container = R.id.dialogplus_outmost_container;
+                public int dialogplus_header_container = R.id.dialogplus_header_container;
+                public int dialogplus_view_container = R.id.dialogplus_view_container;
+                public int dialogplus_footer_container = R.id.dialogplus_footer_container;
         }
     }
 
@@ -990,6 +1205,20 @@ public class X {
         public FragmentChatEnteryPage(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+                public int room_name = R.id.room_name;
+                public int avatar = R.id.avatar;
+                public int back = R.id.back;
+                public int imageView = R.id.imageView;
+                public int recycler_view = R.id.recycler_view;
+                public int bottom_container = R.id.bottom_container;
+                public int emoji_opener_btn = R.id.emoji_opener_btn;
+                public int edit_field = R.id.edit_field;
+                public int attach_btn = R.id.attach_btn;
+                public int send_msg_btn = R.id.send_msg_btn;
+                public int emoji_window_holder = R.id.emoji_window_holder;
+        }
     }
 
     public static class FragmentFooterBar {
@@ -1019,6 +1248,14 @@ public class X {
         public FragmentFooterBar(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+                public int profile = R.id.profile;
+                public int activity = R.id.activity;
+                public int search = R.id.search;
+                public int home = R.id.home;
+                public int chat = R.id.chat;
+        }
     }
 
     public static class FramelayoutMatch {
@@ -1037,6 +1274,9 @@ public class X {
 
         public FramelayoutMatch(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
+        }
+
+        public static class IDS {
         }
     }
 
@@ -1069,6 +1309,15 @@ public class X {
         public FullScreenImage(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+                public int window = R.id.window;
+                public int image_holder = R.id.image_holder;
+                public int image_view = R.id.image_view;
+                public int top_nav = R.id.top_nav;
+                public int back_btn = R.id.back_btn;
+                public int text_view = R.id.text_view;
+        }
     }
 
     public static class FullScreenImageFresco {
@@ -1096,6 +1345,13 @@ public class X {
         public FullScreenImageFresco(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+                public int window = R.id.window;
+                public int image_view = R.id.image_view;
+                public int top_nav = R.id.top_nav;
+                public int text_view = R.id.text_view;
+        }
     }
 
     public static class GalleryChooserFoldersRecyiclerView {
@@ -1116,6 +1372,10 @@ public class X {
 
         public GalleryChooserFoldersRecyiclerView(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
+        }
+
+        public static class IDS {
+                public int recycler_view = R.id.recycler_view;
         }
     }
 
@@ -1142,6 +1402,12 @@ public class X {
         public HeaderChatEntary(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+                public int room_name = R.id.room_name;
+                public int avatar = R.id.avatar;
+                public int back = R.id.back;
+        }
     }
 
     public static class HelloWorld {
@@ -1163,6 +1429,10 @@ public class X {
         public HelloWorld(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+                public int pppp = R.id.pppp;
+        }
     }
 
     public static class HelloWorldMerge {
@@ -1179,6 +1449,11 @@ public class X {
 
         public HelloWorldMerge(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
+        }
+
+        public static class IDS {
+                public int follow_button = R.id.follow_button;
+                public int followings_btn = R.id.followings_btn;
         }
     }
 
@@ -1213,6 +1488,16 @@ public class X {
         public HelloWorldRow(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+                public int loadingView = R.id.loadingView;
+                public int txt = R.id.txt;
+                public int btn = R.id.btn;
+                public int btn2 = R.id.btn2;
+                public int btn3 = R.id.btn3;
+                public int anvil = R.id.anvil;
+                public int anvil2 = R.id.anvil2;
+        }
     }
 
     public static class Home_AddPostBox {
@@ -1244,6 +1529,15 @@ public class X {
         public Home_AddPostBox(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+                public int top_holder = R.id.top_holder;
+                public int avatar = R.id.avatar;
+                public int share_media_buttons_holder = R.id.share_media_buttons_holder;
+                public int gallery_btn = R.id.gallery_btn;
+                public int camera_btn = R.id.camera_btn;
+                public int recent_images_holder = R.id.recent_images_holder;
+        }
     }
 
     public static class Home_Parent {
@@ -1271,6 +1565,13 @@ public class X {
         public Home_Parent(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+                public int refresh_layout = R.id.refresh_layout;
+                public int top_holder = R.id.top_holder;
+                public int button_post_way = R.id.button_post_way;
+                public int recycler_view = R.id.recycler_view;
+        }
     }
 
     public static class InboxChatList {
@@ -1293,6 +1594,11 @@ public class X {
 
         public InboxChatList(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
+        }
+
+        public static class IDS {
+                public int layout1 = R.id.layout1;
+                public int recycler_view = R.id.recycler_view;
         }
     }
 
@@ -1320,6 +1626,13 @@ public class X {
 
         public InputTextAddSimpleText(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
+        }
+
+        public static class IDS {
+                public int bottom_container = R.id.bottom_container;
+                public int emoji_opener_btn = R.id.emoji_opener_btn;
+                public int input = R.id.input;
+                public int send_btn = R.id.send_btn;
         }
     }
 
@@ -1362,6 +1675,20 @@ public class X {
         public KeywoardAttachment(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+                public int attachment_top = R.id.attachment_top;
+                public int attachment_main = R.id.attachment_main;
+                public int frame_layout = R.id.frame_layout;
+                public int attach_video = R.id.attach_video;
+                public int attach_gallery = R.id.attach_gallery;
+                public int attach_camera = R.id.attach_camera;
+                public int attach_audio = R.id.attach_audio;
+                public int attach_file = R.id.attach_file;
+                public int close_send_btn = R.id.close_send_btn;
+                public int close_icon = R.id.close_icon;
+                public int close_text = R.id.close_text;
+        }
     }
 
     public static class KeywoardAttachment2 {
@@ -1395,6 +1722,16 @@ public class X {
         public KeywoardAttachment2(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+                public int attachment_top = R.id.attachment_top;
+                public int attachment_main = R.id.attachment_main;
+                public int attach_camera = R.id.attach_camera;
+                public int attach_gallery = R.id.attach_gallery;
+                public int attach_video = R.id.attach_video;
+                public int attach_file = R.id.attach_file;
+                public int close_send_btn = R.id.close_send_btn;
+        }
     }
 
     public static class KeywoardEmoji {
@@ -1417,6 +1754,11 @@ public class X {
 
         public KeywoardEmoji(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
+        }
+
+        public static class IDS {
+                public int attachment_top = R.id.attachment_top;
+                public int emoji_window_holder2 = R.id.emoji_window_holder2;
         }
     }
 
@@ -1449,6 +1791,15 @@ public class X {
         public LastActivity_Row(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+                public int frame_layout = R.id.frame_layout;
+                public int image_extra = R.id.image_extra;
+                public int following_button = R.id.following_button;
+                public int text = R.id.text;
+                public int date = R.id.date;
+                public int avatar = R.id.avatar;
+        }
     }
 
     public static class LinearlayoutMatch {
@@ -1467,6 +1818,9 @@ public class X {
 
         public LinearlayoutMatch(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
+        }
+
+        public static class IDS {
         }
     }
 
@@ -1490,6 +1844,11 @@ public class X {
 
         public ListRoomsPresenter(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
+        }
+
+        public static class IDS {
+                public int layout1 = R.id.layout1;
+                public int contacts_list_rv = R.id.contacts_list_rv;
         }
     }
 
@@ -1518,6 +1877,13 @@ public class X {
         public ListUserFollowRow(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+                public int row = R.id.row;
+                public int textView2 = R.id.textView2;
+                public int user = R.id.user;
+                public int my_image_view = R.id.my_image_view;
+        }
     }
 
     public static class ListviewPlanetTextview {
@@ -1538,6 +1904,10 @@ public class X {
 
         public ListviewPlanetTextview(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
+        }
+
+        public static class IDS {
+                public int listViewText = R.id.listViewText;
         }
     }
 
@@ -1560,6 +1930,10 @@ public class X {
         public Loading(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+                public int loading = R.id.loading;
+        }
     }
 
     public static class Main {
@@ -1580,6 +1954,10 @@ public class X {
 
         public Main(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
+        }
+
+        public static class IDS {
+                public int textView = R.id.textView;
         }
     }
 
@@ -1604,6 +1982,11 @@ public class X {
         public MainBranchChat(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+                public int sliding_tabs = R.id.sliding_tabs;
+                public int viewpager = R.id.viewpager;
+        }
     }
 
     public static class MainPageChatPresenter {
@@ -1622,6 +2005,9 @@ public class X {
 
         public MainPageChatPresenter(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
+        }
+
+        public static class IDS {
         }
     }
 
@@ -1652,6 +2038,14 @@ public class X {
         public MediaChooserTopNav(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+                public int left_side = R.id.left_side;
+                public int send_btn = R.id.send_btn;
+                public int text_icon = R.id.text_icon;
+                public int back_btn = R.id.back_btn;
+                public int title = R.id.title;
+        }
     }
 
     public static class Msg_Empty {
@@ -1671,6 +2065,9 @@ public class X {
         public Msg_Empty(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+        }
     }
 
     public static class Msg_FullPageEmptyNote {
@@ -1689,6 +2086,9 @@ public class X {
 
         public Msg_FullPageEmptyNote(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
+        }
+
+        public static class IDS {
         }
     }
 
@@ -1711,6 +2111,13 @@ public class X {
         public Msg_MediaNetworkLoader(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+                public int msg_image = R.id.msg_image;
+                public int loading_holder = R.id.loading_holder;
+                public int icon_action_btn = R.id.icon_action_btn;
+                public int loading_progress = R.id.loading_progress;
+        }
     }
 
     public static class Msg_RowAllMe {
@@ -1731,6 +2138,10 @@ public class X {
 
         public Msg_RowAllMe(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
+        }
+
+        public static class IDS {
+                public int txt = R.id.txt;
         }
     }
 
@@ -1753,6 +2164,10 @@ public class X {
         public Msg_RowAllPeer(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+                public int txt = R.id.txt;
+        }
     }
 
     public static class Msg_RowAudioMe {
@@ -1771,6 +2186,9 @@ public class X {
 
         public Msg_RowAudioMe(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
+        }
+
+        public static class IDS {
         }
     }
 
@@ -1791,6 +2209,9 @@ public class X {
         public Msg_RowAudioPeer(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+        }
     }
 
     public static class Msg_RowContactMe {
@@ -1809,6 +2230,9 @@ public class X {
 
         public Msg_RowContactMe(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
+        }
+
+        public static class IDS {
         }
     }
 
@@ -1829,6 +2253,9 @@ public class X {
         public Msg_RowContactPeer(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+        }
     }
 
     public static class Msg_RowFileMe {
@@ -1848,6 +2275,9 @@ public class X {
         public Msg_RowFileMe(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+        }
     }
 
     public static class Msg_RowFilePeer {
@@ -1866,6 +2296,9 @@ public class X {
 
         public Msg_RowFilePeer(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
+        }
+
+        public static class IDS {
         }
     }
 
@@ -1896,6 +2329,14 @@ public class X {
         public Msg_RowImageMe(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+                public int msg_content_holder = R.id.msg_content_holder;
+                public int image_holder = R.id.image_holder;
+                public int msg_text = R.id.msg_text;
+                public int msg_time = R.id.msg_time;
+                public int msg_delivery_status = R.id.msg_delivery_status;
+        }
     }
 
     public static class Msg_RowImagePeer {
@@ -1923,6 +2364,13 @@ public class X {
         public Msg_RowImagePeer(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+                public int msg_content_holder = R.id.msg_content_holder;
+                public int image_holder = R.id.image_holder;
+                public int msg_text = R.id.msg_text;
+                public int msg_time = R.id.msg_time;
+        }
     }
 
     public static class Msg_RowLocationMe {
@@ -1942,6 +2390,9 @@ public class X {
         public Msg_RowLocationMe(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+        }
     }
 
     public static class Msg_RowLocationPeer {
@@ -1960,6 +2411,9 @@ public class X {
 
         public Msg_RowLocationPeer(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
+        }
+
+        public static class IDS {
         }
     }
 
@@ -1984,6 +2438,11 @@ public class X {
         public Msg_RowNotSupportedPeer(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+                public int msg_content_holder = R.id.msg_content_holder;
+                public int msg_text = R.id.msg_text;
+        }
     }
 
     public static class Msg_RowPostMe {
@@ -2002,6 +2461,9 @@ public class X {
 
         public Msg_RowPostMe(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
+        }
+
+        public static class IDS {
         }
     }
 
@@ -2022,6 +2484,9 @@ public class X {
         public Msg_RowPostPeer(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+        }
     }
 
     public static class Msg_RowStickerMe {
@@ -2040,6 +2505,9 @@ public class X {
 
         public Msg_RowStickerMe(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
+        }
+
+        public static class IDS {
         }
     }
 
@@ -2060,6 +2528,9 @@ public class X {
         public Msg_RowStickerPeer(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+        }
     }
 
     public static class Msg_RowSystem {
@@ -2078,6 +2549,9 @@ public class X {
 
         public Msg_RowSystem(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
+        }
+
+        public static class IDS {
         }
     }
 
@@ -2106,6 +2580,13 @@ public class X {
         public Msg_RowTextMe(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+                public int msg_content_holder = R.id.msg_content_holder;
+                public int msg_text = R.id.msg_text;
+                public int msg_time = R.id.msg_time;
+                public int msg_delivery_status = R.id.msg_delivery_status;
+        }
     }
 
     public static class Msg_RowTextPeer {
@@ -2130,6 +2611,12 @@ public class X {
 
         public Msg_RowTextPeer(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
+        }
+
+        public static class IDS {
+                public int msg_content_holder = R.id.msg_content_holder;
+                public int msg_text = R.id.msg_text;
+                public int msg_time = R.id.msg_time;
         }
     }
 
@@ -2160,6 +2647,14 @@ public class X {
         public Msg_RowVideoMe(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+                public int msg_content_holder = R.id.msg_content_holder;
+                public int msg_image = R.id.msg_image;
+                public int msg_text = R.id.msg_text;
+                public int msg_time = R.id.msg_time;
+                public int msg_delivery_status = R.id.msg_delivery_status;
+        }
     }
 
     public static class Msg_SharedTime {
@@ -2174,6 +2669,10 @@ public class X {
 
         public Msg_SharedTime(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
+        }
+
+        public static class IDS {
+                public int msg_time = R.id.msg_time;
         }
     }
 
@@ -2191,6 +2690,11 @@ public class X {
 
         public Msg_SharedTimeAndDelivery(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
+        }
+
+        public static class IDS {
+                public int msg_time = R.id.msg_time;
+                public int msg_delivery_status = R.id.msg_delivery_status;
         }
     }
 
@@ -2215,6 +2719,11 @@ public class X {
         public Msg_SharedTimeStatus(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+                public int msg_time = R.id.msg_time;
+                public int msg_delivery_status = R.id.msg_delivery_status;
+        }
     }
 
     public static class Nav_IconHolder {
@@ -2235,6 +2744,10 @@ public class X {
 
         public Nav_IconHolder(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
+        }
+
+        public static class IDS {
+                public int icon_text = R.id.icon_text;
         }
     }
 
@@ -2259,6 +2772,11 @@ public class X {
         public Nav_RecylcerView(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+                public int simpleTopNav = R.id.simpleTopNav;
+                public int recycler_view = R.id.recycler_view;
+        }
     }
 
     public static class Nav_Simple {
@@ -2277,6 +2795,12 @@ public class X {
 
         public Nav_Simple(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
+        }
+
+        public static class IDS {
+                public int left_text = R.id.left_text;
+                public int title_text = R.id.title_text;
+                public int back_btn = R.id.back_btn;
         }
     }
 
@@ -2302,6 +2826,12 @@ public class X {
 
         public NavHeaderPagerMenu(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
+        }
+
+        public static class IDS {
+                public int search = R.id.search;
+                public int sliding_tabs = R.id.sliding_tabs;
+                public int viewpager = R.id.viewpager;
         }
     }
 
@@ -2334,6 +2864,15 @@ public class X {
         public Notify_Row(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+                public int frame_layout = R.id.frame_layout;
+                public int image_extra = R.id.image_extra;
+                public int following_button = R.id.following_button;
+                public int text_main = R.id.text_main;
+                public int date = R.id.date;
+                public int avatar_image = R.id.avatar_image;
+        }
     }
 
     public static class NotifyNotSuportedCell {
@@ -2352,6 +2891,9 @@ public class X {
 
         public NotifyNotSuportedCell(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
+        }
+
+        public static class IDS {
         }
     }
 
@@ -2394,6 +2936,20 @@ public class X {
         public Page_EditProfile(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+                public int simpleTopNav = R.id.simpleTopNav;
+                public int container = R.id.container;
+                public int avatar = R.id.avatar;
+                public int textView5 = R.id.textView5;
+                public int guideline3 = R.id.guideline3;
+                public int editText = R.id.editText;
+                public int editText2 = R.id.editText2;
+                public int textView6 = R.id.textView6;
+                public int editText3 = R.id.editText3;
+                public int textView7 = R.id.textView7;
+                public int editText4 = R.id.editText4;
+        }
     }
 
     public static class Page_EditProfileBk {
@@ -2419,6 +2975,12 @@ public class X {
         public Page_EditProfileBk(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+                public int simpleTopNav = R.id.simpleTopNav;
+                public int container = R.id.container;
+                public int avatar = R.id.avatar;
+        }
     }
 
     public static class Page_PostSingleEntry {
@@ -2443,6 +3005,12 @@ public class X {
 
         public Page_PostSingleEntry(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
+        }
+
+        public static class IDS {
+                public int simpleTopNav = R.id.simpleTopNav;
+                public int post_row_holder = R.id.post_row_holder;
+                public int comments_holder = R.id.comments_holder;
         }
     }
 
@@ -2481,6 +3049,18 @@ public class X {
         public Page_ProfileEdit2(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+                public int cover = R.id.cover;
+                public int profilePicture = R.id.profilePicture;
+                public int removeAvatar = R.id.removeAvatar;
+                public int inputName = R.id.inputName;
+                public int descriptionRoot = R.id.descriptionRoot;
+                public int inputDescription = R.id.inputDescription;
+                public int genderRoot = R.id.genderRoot;
+                public int radioMale = R.id.radioMale;
+                public int btnRegister = R.id.btnRegister;
+        }
     }
 
     public static class Page_ProfileEdit3 {
@@ -2512,6 +3092,15 @@ public class X {
         public Page_ProfileEdit3(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+                public int textView3 = R.id.textView3;
+                public int progressBar = R.id.progressBar;
+                public int guideline = R.id.guideline;
+                public int guideline2 = R.id.guideline2;
+                public int textView4 = R.id.textView4;
+                public int floatingActionButton = R.id.floatingActionButton;
+        }
     }
 
     public static class PageRecentPosts_Parent {
@@ -2536,6 +3125,12 @@ public class X {
 
         public PageRecentPosts_Parent(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
+        }
+
+        public static class IDS {
+                public int root_layout = R.id.root_layout;
+                public int top_nav = R.id.top_nav;
+                public int container = R.id.container;
         }
     }
 
@@ -2562,6 +3157,12 @@ public class X {
         public PageTag_Parent(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+                public int root_layout = R.id.root_layout;
+                public int top_nav = R.id.top_nav;
+                public int container = R.id.container;
+        }
     }
 
     public static class Pager_CellNavLinearView {
@@ -2582,6 +3183,10 @@ public class X {
 
         public Pager_CellNavLinearView(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
+        }
+
+        public static class IDS {
+                public int simpleTopNav = R.id.simpleTopNav;
         }
     }
 
@@ -2608,6 +3213,12 @@ public class X {
         public Pager_NavRecyclerviewWithRefresher(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+                public int nav = R.id.nav;
+                public int refresh_layout = R.id.refresh_layout;
+                public int recycler_view = R.id.recycler_view;
+        }
     }
 
     public static class Pager_RecyclerviewWithRefresher {
@@ -2631,6 +3242,11 @@ public class X {
         public Pager_RecyclerviewWithRefresher(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+                public int refresh_layout = R.id.refresh_layout;
+                public int recycler_view = R.id.recycler_view;
+        }
     }
 
     public static class PlayActivityFontsScrolling {
@@ -2651,6 +3267,10 @@ public class X {
 
         public PlayActivityFontsScrolling(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
+        }
+
+        public static class IDS {
+                public int btn = R.id.btn;
         }
     }
 
@@ -2683,6 +3303,15 @@ public class X {
         public PlayMainPopup(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+                public int txt = R.id.txt;
+                public int base64 = R.id.base64;
+                public int img = R.id.img;
+                public int img2 = R.id.img2;
+                public int dl = R.id.dl;
+                public int openpopup = R.id.openpopup;
+        }
     }
 
     public static class PlayRealm {
@@ -2705,6 +3334,11 @@ public class X {
 
         public PlayRealm(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
+        }
+
+        public static class IDS {
+                public int container = R.id.container;
+                public int txt = R.id.txt;
         }
     }
 
@@ -2729,6 +3363,11 @@ public class X {
         public PlayRecipies(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+                public int _status_bar = R.id._status_bar;
+                public int p_navigation = R.id.p_navigation;
+        }
     }
 
     public static class PlayXicon {
@@ -2747,6 +3386,9 @@ public class X {
 
         public PlayXicon(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
+        }
+
+        public static class IDS {
         }
     }
 
@@ -2767,6 +3409,9 @@ public class X {
         public PlayXtextcoloersview(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+        }
     }
 
     public static class PlayXtextview {
@@ -2785,6 +3430,9 @@ public class X {
 
         public PlayXtextview(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
+        }
+
+        public static class IDS {
         }
     }
 
@@ -2806,6 +3454,10 @@ public class X {
 
         public Post_SingleEntryHolder(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
+        }
+
+        public static class IDS {
+                public int loading = R.id.loading;
         }
     }
 
@@ -2829,6 +3481,11 @@ public class X {
 
         public PostList_Parent(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
+        }
+
+        public static class IDS {
+                public int refresh_layout = R.id.refresh_layout;
+                public int recycler_view = R.id.recycler_view;
         }
     }
 
@@ -2871,6 +3528,20 @@ public class X {
         public PostRow_Compact(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+                public int post_row_holder = R.id.post_row_holder;
+                public int date = R.id.date;
+                public int avatar = R.id.avatar;
+                public int fullname = R.id.fullname;
+                public int text = R.id.text;
+                public int image_holder = R.id.image_holder;
+                public int image = R.id.image;
+                public int counts_info = R.id.counts_info;
+                public int comment_count = R.id.comment_count;
+                public int likes_count = R.id.likes_count;
+                public int like_btn = R.id.like_btn;
+        }
     }
 
     public static class PostRow_Stream {
@@ -2910,6 +3581,19 @@ public class X {
         public PostRow_Stream(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+                public int post_row_holder = R.id.post_row_holder;
+                public int date = R.id.date;
+                public int avatar = R.id.avatar;
+                public int fullname = R.id.fullname;
+                public int text = R.id.text;
+                public int image = R.id.image;
+                public int counts_info = R.id.counts_info;
+                public int comment_count = R.id.comment_count;
+                public int likes_count = R.id.likes_count;
+                public int like_btn = R.id.like_btn;
+        }
     }
 
     public static class PresenterGalleryChooser {
@@ -2933,6 +3617,11 @@ public class X {
         public PresenterGalleryChooser(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+                public int tab_layout = R.id.tab_layout;
+                public int view_pager = R.id.view_pager;
+        }
     }
 
     public static class Profile_Parent {
@@ -2955,6 +3644,11 @@ public class X {
 
         public Profile_Parent(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
+        }
+
+        public static class IDS {
+                public int top_nav = R.id.top_nav;
+                public int container = R.id.container;
         }
     }
 
@@ -2999,6 +3693,61 @@ public class X {
         public Profile_TopInfo(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+                public int count_holder = R.id.count_holder;
+                public int followings_holder = R.id.followings_holder;
+                public int followings_count = R.id.followings_count;
+                public int followers_holder = R.id.followers_holder;
+                public int followers_count = R.id.followers_count;
+                public int posts_count = R.id.posts_count;
+                public int button_edit_profile = R.id.button_edit_profile;
+                public int chat_button = R.id.chat_button;
+                public int follow_button = R.id.follow_button;
+                public int avatar = R.id.avatar;
+                public int fullname = R.id.fullname;
+                public int about = R.id.about;
+        }
+    }
+
+    public static class QuickViewLoadMore {
+        public FrameLayout root;
+        public LinearLayout load_more_loading_view;
+        public ProgressBar loading_progress;
+        public TextView loading_text;
+        public FrameLayout load_more_load_fail_view;
+        public TextView tv_prompt;
+        public FrameLayout load_more_load_end_view;
+
+        public QuickViewLoadMore(Context context,ViewGroup parent) {
+            root = (FrameLayout) LayoutInflater.from(context).inflate(R.layout.quick_view_load_more,parent ,false);
+            load_more_loading_view = (LinearLayout) root.findViewById( R.id.load_more_loading_view);
+            loading_progress = (ProgressBar) root.findViewById( R.id.loading_progress);
+            loading_text = (TextView) root.findViewById( R.id.loading_text);
+            load_more_load_fail_view = (FrameLayout) root.findViewById( R.id.load_more_load_fail_view);
+            tv_prompt = (TextView) root.findViewById( R.id.tv_prompt);
+            load_more_load_end_view = (FrameLayout) root.findViewById( R.id.load_more_load_end_view);
+        }
+        public QuickViewLoadMore() {
+            this(AppUtil.getContext(),null);
+        }
+
+        public QuickViewLoadMore(Context context) {
+            this(context ,null);
+        }
+
+        public QuickViewLoadMore(ViewGroup parent) {
+            this(AppUtil.getContext() ,parent);
+        }
+
+        public static class IDS {
+                public int load_more_loading_view = R.id.load_more_loading_view;
+                public int loading_progress = R.id.loading_progress;
+                public int loading_text = R.id.loading_text;
+                public int load_more_load_fail_view = R.id.load_more_load_fail_view;
+                public int tv_prompt = R.id.tv_prompt;
+                public int load_more_load_end_view = R.id.load_more_load_end_view;
+        }
     }
 
     public static class RecentImages_ImageItem {
@@ -3023,6 +3772,12 @@ public class X {
 
         public RecentImages_ImageItem(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
+        }
+
+        public static class IDS {
+                public int image = R.id.image;
+                public int text_holder = R.id.text_holder;
+                public int text_icon = R.id.text_icon;
         }
     }
 
@@ -3049,6 +3804,12 @@ public class X {
         public RecentImagesAddPost_ImageItem(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+                public int image_drawee = R.id.image_drawee;
+                public int text_holder = R.id.text_holder;
+                public int text_icon = R.id.text_icon;
+        }
     }
 
     public static class RecentImagesPostBox_RecyclerView {
@@ -3069,6 +3830,10 @@ public class X {
 
         public RecentImagesPostBox_RecyclerView(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
+        }
+
+        public static class IDS {
+                public int recycler_view = R.id.recycler_view;
         }
     }
 
@@ -3098,6 +3863,14 @@ public class X {
 
         public Recommend_TopTags(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
+        }
+
+        public static class IDS {
+                public int text = R.id.text;
+                public int see_more = R.id.see_more;
+                public int image1 = R.id.image1;
+                public int image3 = R.id.image3;
+                public int image2 = R.id.image2;
         }
     }
 
@@ -3132,6 +3905,16 @@ public class X {
         public Recommend_UserRow(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+                public int following_button = R.id.following_button;
+                public int ignore = R.id.ignore;
+                public int avatar = R.id.avatar;
+                public int top = R.id.top;
+                public int primary_name = R.id.primary_name;
+                public int second_name = R.id.second_name;
+                public int about = R.id.about;
+        }
     }
 
     public static class RowTagSimple {
@@ -3157,6 +3940,12 @@ public class X {
         public RowTagSimple(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+                public int icon = R.id.icon;
+                public int text = R.id.text;
+                public int count = R.id.count;
+        }
     }
 
     public static class Rv_EmptyNote {
@@ -3179,6 +3968,11 @@ public class X {
 
         public Rv_EmptyNote(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
+        }
+
+        public static class IDS {
+                public int reload = R.id.reload;
+                public int empty_note = R.id.empty_note;
         }
     }
 
@@ -3203,6 +3997,11 @@ public class X {
         public Rv_FailedReload(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+                public int reload = R.id.reload;
+                public int not_internet = R.id.not_internet;
+        }
     }
 
     public static class Settings_Block {
@@ -3226,6 +4025,11 @@ public class X {
         public Settings_Block(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+                public int title = R.id.title;
+                public int rows_container = R.id.rows_container;
+        }
     }
 
     public static class Settings_RowNoteCenter {
@@ -3246,6 +4050,10 @@ public class X {
 
         public Settings_RowNoteCenter(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
+        }
+
+        public static class IDS {
+                public int title = R.id.title;
         }
     }
 
@@ -3276,6 +4084,14 @@ public class X {
         public Settings_RowSimple(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+                public int title = R.id.title;
+                public int info = R.id.info;
+                public int left_container = R.id.left_container;
+                public int has_page = R.id.has_page;
+                public int switch_btn = R.id.switch_btn;
+        }
     }
 
     public static class TabCellGeneral {
@@ -3298,6 +4114,11 @@ public class X {
 
         public TabCellGeneral(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
+        }
+
+        public static class IDS {
+                public int textView = R.id.textView;
+                public int imgView = R.id.imgView;
         }
     }
 
@@ -3322,6 +4143,11 @@ public class X {
         public Title_ClickableNewPage(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+                public int icon = R.id.icon;
+                public int text_view = R.id.text_view;
+        }
     }
 
     public static class Title_Info {
@@ -3343,6 +4169,10 @@ public class X {
         public Title_Info(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+                public int text_view = R.id.text_view;
+        }
     }
 
     public static class Title_InfoLight {
@@ -3363,6 +4193,10 @@ public class X {
 
         public Title_InfoLight(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
+        }
+
+        public static class IDS {
+                public int text_view = R.id.text_view;
         }
     }
 
@@ -3395,6 +4229,15 @@ public class X {
         public UserList_RowFollowAbout(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+                public int following_button = R.id.following_button;
+                public int avatar = R.id.avatar;
+                public int top = R.id.top;
+                public int primary_name = R.id.primary_name;
+                public int second_name = R.id.second_name;
+                public int about = R.id.about;
+        }
     }
 
     public static class UserList_TypeFollowRow {
@@ -3422,6 +4265,13 @@ public class X {
         public UserList_TypeFollowRow(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+                public int following_button = R.id.following_button;
+                public int primary_name = R.id.primary_name;
+                public int second_name = R.id.second_name;
+                public int avatar = R.id.avatar;
+        }
     }
 
     public static class ViewPostCompactImage {
@@ -3443,6 +4293,10 @@ public class X {
         public ViewPostCompactImage(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+                public int post_row_holder = R.id.post_row_holder;
+        }
     }
 
     public static class ViewRecyclerView {
@@ -3461,6 +4315,9 @@ public class X {
 
         public ViewRecyclerView(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
+        }
+
+        public static class IDS {
         }
     }
 
@@ -3489,6 +4346,13 @@ public class X {
         public Widget_PlaySample(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+                public int window = R.id.window;
+                public int image_view = R.id.image_view;
+                public int top_nav = R.id.top_nav;
+                public int text_view = R.id.text_view;
+        }
     }
 
     public static class WidgetAddSimpleText {
@@ -3516,6 +4380,13 @@ public class X {
         public WidgetAddSimpleText(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
         }
+
+        public static class IDS {
+                public int bottom_container = R.id.bottom_container;
+                public int emoji_opener_btn = R.id.emoji_opener_btn;
+                public int input = R.id.input;
+                public int send_btn = R.id.send_btn;
+        }
     }
 
     public static class WidgetTextAndIcon {
@@ -3532,6 +4403,11 @@ public class X {
 
         public WidgetTextAndIcon(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
+        }
+
+        public static class IDS {
+                public int text = R.id.text;
+                public int icon = R.id.icon;
         }
     }
 
@@ -3553,6 +4429,13 @@ public class X {
 
         public X_TopNav(ViewGroup parent) {
             this(AppUtil.getContext() ,parent);
+        }
+
+        public static class IDS {
+                public int left_container = R.id.left_container;
+                public int left_text = R.id.left_text;
+                public int title_text = R.id.title_text;
+                public int back_btn = R.id.back_btn;
         }
     }
 
