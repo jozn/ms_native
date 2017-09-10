@@ -84,13 +84,13 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.actions__row;
-            public int frame_layout = R.id.frame_layout;
-            public int image_extra = R.id.image_extra;
-            public int following_button = R.id.following_button;
-            public int text_main = R.id.text_main;
-            public int date = R.id.date;
-            public int avatar_image = R.id.avatar_image;
+            public static int LAYOUT = R.layout.actions__row;
+            public static int frame_layout = R.id.frame_layout;
+            public static int image_extra = R.id.image_extra;
+            public static int following_button = R.id.following_button;
+            public static int text_main = R.id.text_main;
+            public static int date = R.id.date;
+            public static int avatar_image = R.id.avatar_image;
         }
     }
 
@@ -119,10 +119,10 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.activity_crop;
-            public int gallery = R.id.gallery;
-            public int take_picture = R.id.take_picture;
-            public int image = R.id.image;
+            public static int LAYOUT = R.layout.activity_crop;
+            public static int gallery = R.id.gallery;
+            public static int take_picture = R.id.take_picture;
+            public static int image = R.id.image;
         }
     }
 
@@ -153,11 +153,11 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.activity_main_app;
-            public int global_window = R.id.global_window;
-            public int frag1 = R.id.frag1;
-            public int footerbar_holder = R.id.footerbar_holder;
-            public int dialog = R.id.dialog;
+            public static int LAYOUT = R.layout.activity_main_app;
+            public static int global_window = R.id.global_window;
+            public static int frag1 = R.id.frag1;
+            public static int footerbar_holder = R.id.footerbar_holder;
+            public static int dialog = R.id.dialog;
         }
     }
 
@@ -182,8 +182,8 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.activity_play_advanced;
-            public int output = R.id.output;
+            public static int LAYOUT = R.layout.activity_play_advanced;
+            public static int output = R.id.output;
         }
     }
 
@@ -230,19 +230,19 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.add_post__container;
-            public int top_nav = R.id.top_nav;
-            public int top_holder = R.id.top_holder;
-            public int emoji_opener_btn = R.id.emoji_opener_btn;
-            public int left_side = R.id.left_side;
-            public int image = R.id.image;
-            public int cancel_image = R.id.cancel_image;
-            public int post_field = R.id.post_field;
-            public int bottom_holder = R.id.bottom_holder;
-            public int share_media_buttons_holder = R.id.share_media_buttons_holder;
-            public int gallery_btn = R.id.gallery_btn;
-            public int camera_btn = R.id.camera_btn;
-            public int recent_images_holder = R.id.recent_images_holder;
+            public static int LAYOUT = R.layout.add_post__container;
+            public static int top_nav = R.id.top_nav;
+            public static int top_holder = R.id.top_holder;
+            public static int emoji_opener_btn = R.id.emoji_opener_btn;
+            public static int left_side = R.id.left_side;
+            public static int image = R.id.image;
+            public static int cancel_image = R.id.cancel_image;
+            public static int post_field = R.id.post_field;
+            public static int bottom_holder = R.id.bottom_holder;
+            public static int share_media_buttons_holder = R.id.share_media_buttons_holder;
+            public static int gallery_btn = R.id.gallery_btn;
+            public static int camera_btn = R.id.camera_btn;
+            public static int recent_images_holder = R.id.recent_images_holder;
         }
     }
 
@@ -269,9 +269,9 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.add_post_gallery__container;
-            public int top_nav = R.id.top_nav;
-            public int recycler_view = R.id.recycler_view;
+            public static int LAYOUT = R.layout.add_post_gallery__container;
+            public static int top_nav = R.id.top_nav;
+            public static int recycler_view = R.id.recycler_view;
         }
     }
 
@@ -296,8 +296,8 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.add_post_gallery__image;
-            public int image = R.id.image;
+            public static int LAYOUT = R.layout.add_post_gallery__image;
+            public static int image = R.id.image;
         }
     }
 
@@ -320,7 +320,7 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.button_post_multiway;
+            public static int LAYOUT = R.layout.button_post_multiway;
         }
     }
 
@@ -347,9 +347,9 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.cell_page_cell_nav_recylcer_view_bk;
-            public int simpleTopNav = R.id.simpleTopNav;
-            public int recycler_view = R.id.recycler_view;
+            public static int LAYOUT = R.layout.cell_page_cell_nav_recylcer_view_bk;
+            public static int simpleTopNav = R.id.simpleTopNav;
+            public static int recycler_view = R.id.recycler_view;
         }
     }
 
@@ -372,7 +372,7 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.cell_page_comming_soon;
+            public static int LAYOUT = R.layout.cell_page_comming_soon;
         }
     }
 
@@ -415,17 +415,17 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.chat__entry_room;
-            public int room_name = R.id.room_name;
-            public int avatar = R.id.avatar;
-            public int back = R.id.back;
-            public int recycler_view = R.id.recycler_view;
-            public int bottom_container = R.id.bottom_container;
-            public int emoji_opener_btn = R.id.emoji_opener_btn;
-            public int edit_field = R.id.edit_field;
-            public int attach_btn = R.id.attach_btn;
-            public int attach2 = R.id.attach2;
-            public int send_msg_btn = R.id.send_msg_btn;
+            public static int LAYOUT = R.layout.chat__entry_room;
+            public static int room_name = R.id.room_name;
+            public static int avatar = R.id.avatar;
+            public static int back = R.id.back;
+            public static int recycler_view = R.id.recycler_view;
+            public static int bottom_container = R.id.bottom_container;
+            public static int emoji_opener_btn = R.id.emoji_opener_btn;
+            public static int edit_field = R.id.edit_field;
+            public static int attach_btn = R.id.attach_btn;
+            public static int attach2 = R.id.attach2;
+            public static int send_msg_btn = R.id.send_msg_btn;
         }
     }
 
@@ -458,12 +458,12 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.chat__list_row;
-            public int avatar = R.id.avatar;
-            public int name_txt = R.id.name_txt;
-            public int date_txt = R.id.date_txt;
-            public int unseen_count_txt = R.id.unseen_count_txt;
-            public int last_msg_txt = R.id.last_msg_txt;
+            public static int LAYOUT = R.layout.chat__list_row;
+            public static int avatar = R.id.avatar;
+            public static int name_txt = R.id.name_txt;
+            public static int date_txt = R.id.date_txt;
+            public static int unseen_count_txt = R.id.unseen_count_txt;
+            public static int last_msg_txt = R.id.last_msg_txt;
         }
     }
 
@@ -506,17 +506,17 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.chat_room__screen_parent;
-            public int room_name = R.id.room_name;
-            public int avatar = R.id.avatar;
-            public int back = R.id.back;
-            public int recycler_view = R.id.recycler_view;
-            public int bottom_container = R.id.bottom_container;
-            public int emoji_opener_btn = R.id.emoji_opener_btn;
-            public int edit_field = R.id.edit_field;
-            public int attach_btn = R.id.attach_btn;
-            public int attach2 = R.id.attach2;
-            public int send_msg_btn = R.id.send_msg_btn;
+            public static int LAYOUT = R.layout.chat_room__screen_parent;
+            public static int room_name = R.id.room_name;
+            public static int avatar = R.id.avatar;
+            public static int back = R.id.back;
+            public static int recycler_view = R.id.recycler_view;
+            public static int bottom_container = R.id.bottom_container;
+            public static int emoji_opener_btn = R.id.emoji_opener_btn;
+            public static int edit_field = R.id.edit_field;
+            public static int attach_btn = R.id.attach_btn;
+            public static int attach2 = R.id.attach2;
+            public static int send_msg_btn = R.id.send_msg_btn;
         }
     }
 
@@ -549,12 +549,12 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.comment_row;
-            public int avatar = R.id.avatar;
-            public int fullname = R.id.fullname;
-            public int date = R.id.date;
-            public int loadingView = R.id.loadingView;
-            public int text = R.id.text;
+            public static int LAYOUT = R.layout.comment_row;
+            public static int avatar = R.id.avatar;
+            public static int fullname = R.id.fullname;
+            public static int date = R.id.date;
+            public static int loadingView = R.id.loadingView;
+            public static int text = R.id.text;
         }
     }
 
@@ -583,10 +583,10 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.comments__with_field_cell;
-            public int post_row_holder = R.id.post_row_holder;
-            public int content = R.id.content;
-            public int simpleAddText = R.id.simpleAddText;
+            public static int LAYOUT = R.layout.comments__with_field_cell;
+            public static int post_row_holder = R.id.post_row_holder;
+            public static int content = R.id.content;
+            public static int simpleAddText = R.id.simpleAddText;
         }
     }
 
@@ -611,8 +611,8 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.common__cell_loading;
-            public int loadingView = R.id.loadingView;
+            public static int LAYOUT = R.layout.common__cell_loading;
+            public static int loadingView = R.id.loadingView;
         }
     }
 
@@ -637,8 +637,8 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.common__container_loading;
-            public int loading = R.id.loading;
+            public static int LAYOUT = R.layout.common__container_loading;
+            public static int loading = R.id.loading;
         }
     }
 
@@ -661,7 +661,7 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.common__loading_row;
+            public static int LAYOUT = R.layout.common__loading_row;
         }
     }
 
@@ -686,8 +686,8 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.common__one_third_image;
-            public int img = R.id.img;
+            public static int LAYOUT = R.layout.common__one_third_image;
+            public static int img = R.id.img;
         }
     }
 
@@ -712,8 +712,8 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.common__one_third_image_center;
-            public int img = R.id.img;
+            public static int LAYOUT = R.layout.common__one_third_image_center;
+            public static int img = R.id.img;
         }
     }
 
@@ -744,11 +744,11 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.contacts_followings_list__row;
-            public int following_button = R.id.following_button;
-            public int second_name = R.id.second_name;
-            public int primary_name = R.id.primary_name;
-            public int avatar = R.id.avatar;
+            public static int LAYOUT = R.layout.contacts_followings_list__row;
+            public static int following_button = R.id.following_button;
+            public static int second_name = R.id.second_name;
+            public static int primary_name = R.id.primary_name;
+            public static int avatar = R.id.avatar;
         }
     }
 
@@ -773,8 +773,8 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.contacts_followings_list__row_unregistered_contact;
-            public int name_text = R.id.name_text;
+            public static int LAYOUT = R.layout.contacts_followings_list__row_unregistered_contact;
+            public static int name_text = R.id.name_text;
         }
     }
 
@@ -813,15 +813,15 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.contacts_followings_list__screen;
-            public int followings_tab_btn = R.id.followings_tab_btn;
-            public int contacts_tab_btn = R.id.contacts_tab_btn;
-            public int layout_contacts = R.id.layout_contacts;
-            public int empty_contacts_msg = R.id.empty_contacts_msg;
-            public int contacts_list_rv = R.id.contacts_list_rv;
-            public int layout_followings = R.id.layout_followings;
-            public int empty_followings_msg = R.id.empty_followings_msg;
-            public int followings_list_rv = R.id.followings_list_rv;
+            public static int LAYOUT = R.layout.contacts_followings_list__screen;
+            public static int followings_tab_btn = R.id.followings_tab_btn;
+            public static int contacts_tab_btn = R.id.contacts_tab_btn;
+            public static int layout_contacts = R.id.layout_contacts;
+            public static int empty_contacts_msg = R.id.empty_contacts_msg;
+            public static int contacts_list_rv = R.id.contacts_list_rv;
+            public static int layout_followings = R.id.layout_followings;
+            public static int empty_followings_msg = R.id.empty_followings_msg;
+            public static int followings_list_rv = R.id.followings_list_rv;
         }
     }
 
@@ -852,11 +852,11 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.cropimage;
-            public int discard = R.id.discard;
-            public int rotateLeft = R.id.rotateLeft;
-            public int rotateRight = R.id.rotateRight;
-            public int save = R.id.save;
+            public static int LAYOUT = R.layout.cropimage;
+            public static int discard = R.id.discard;
+            public static int rotateLeft = R.id.rotateLeft;
+            public static int rotateRight = R.id.rotateRight;
+            public static int save = R.id.save;
         }
     }
 
@@ -883,9 +883,9 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.dialog__base_container;
-            public int dialogplus_outmost_container = R.id.dialogplus_outmost_container;
-            public int dialogplus_content_container = R.id.dialogplus_content_container;
+            public static int LAYOUT = R.layout.dialog__base_container;
+            public static int dialogplus_outmost_container = R.id.dialogplus_outmost_container;
+            public static int dialogplus_content_container = R.id.dialogplus_content_container;
         }
     }
 
@@ -914,10 +914,10 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.dialog__checkbox_container;
-            public int dialogplus_outmost_container = R.id.dialogplus_outmost_container;
-            public int container = R.id.container;
-            public int close = R.id.close;
+            public static int LAYOUT = R.layout.dialog__checkbox_container;
+            public static int dialogplus_outmost_container = R.id.dialogplus_outmost_container;
+            public static int container = R.id.container;
+            public static int close = R.id.close;
         }
     }
 
@@ -944,9 +944,9 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.dialog__checkbox_item;
-            public int name = R.id.name;
-            public int checkbox = R.id.checkbox;
+            public static int LAYOUT = R.layout.dialog__checkbox_item;
+            public static int name = R.id.name;
+            public static int checkbox = R.id.checkbox;
         }
     }
 
@@ -977,11 +977,11 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.dialog__grid;
-            public int dialogplus_outmost_container = R.id.dialogplus_outmost_container;
-            public int dialogplus_header_container = R.id.dialogplus_header_container;
-            public int dialogplus_list = R.id.dialogplus_list;
-            public int dialogplus_footer_container = R.id.dialogplus_footer_container;
+            public static int LAYOUT = R.layout.dialog__grid;
+            public static int dialogplus_outmost_container = R.id.dialogplus_outmost_container;
+            public static int dialogplus_header_container = R.id.dialogplus_header_container;
+            public static int dialogplus_list = R.id.dialogplus_list;
+            public static int dialogplus_footer_container = R.id.dialogplus_footer_container;
         }
     }
 
@@ -1008,9 +1008,9 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.dialog__list;
-            public int dialogplus_outmost_container = R.id.dialogplus_outmost_container;
-            public int dialogplus_list = R.id.dialogplus_list;
+            public static int LAYOUT = R.layout.dialog__list;
+            public static int dialogplus_outmost_container = R.id.dialogplus_outmost_container;
+            public static int dialogplus_list = R.id.dialogplus_list;
         }
     }
 
@@ -1037,9 +1037,9 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.dialog__options_room_row;
-            public int text = R.id.text;
-            public int list_view = R.id.list_view;
+            public static int LAYOUT = R.layout.dialog__options_room_row;
+            public static int text = R.id.text;
+            public static int list_view = R.id.list_view;
         }
     }
 
@@ -1068,10 +1068,10 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.dialog__simple_alert;
-            public int title = R.id.title;
-            public int body = R.id.body;
-            public int close = R.id.close;
+            public static int LAYOUT = R.layout.dialog__simple_alert;
+            public static int title = R.id.title;
+            public static int body = R.id.body;
+            public static int close = R.id.close;
         }
     }
 
@@ -1094,7 +1094,7 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.dialog__simple_body;
+            public static int LAYOUT = R.layout.dialog__simple_body;
         }
     }
 
@@ -1117,7 +1117,7 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.dialog__simple_close;
+            public static int LAYOUT = R.layout.dialog__simple_close;
         }
     }
 
@@ -1140,7 +1140,7 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.dialog__simple_menu_string;
+            public static int LAYOUT = R.layout.dialog__simple_menu_string;
         }
     }
 
@@ -1163,7 +1163,7 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.dialog__simple_title;
+            public static int LAYOUT = R.layout.dialog__simple_title;
         }
     }
 
@@ -1194,11 +1194,11 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.dialog__view;
-            public int dialogplus_outmost_container = R.id.dialogplus_outmost_container;
-            public int dialogplus_header_container = R.id.dialogplus_header_container;
-            public int dialogplus_view_container = R.id.dialogplus_view_container;
-            public int dialogplus_footer_container = R.id.dialogplus_footer_container;
+            public static int LAYOUT = R.layout.dialog__view;
+            public static int dialogplus_outmost_container = R.id.dialogplus_outmost_container;
+            public static int dialogplus_header_container = R.id.dialogplus_header_container;
+            public static int dialogplus_view_container = R.id.dialogplus_view_container;
+            public static int dialogplus_footer_container = R.id.dialogplus_footer_container;
         }
     }
 
@@ -1243,18 +1243,18 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.fragment_chat_entery_page;
-            public int room_name = R.id.room_name;
-            public int avatar = R.id.avatar;
-            public int back = R.id.back;
-            public int imageView = R.id.imageView;
-            public int recycler_view = R.id.recycler_view;
-            public int bottom_container = R.id.bottom_container;
-            public int emoji_opener_btn = R.id.emoji_opener_btn;
-            public int edit_field = R.id.edit_field;
-            public int attach_btn = R.id.attach_btn;
-            public int send_msg_btn = R.id.send_msg_btn;
-            public int emoji_window_holder = R.id.emoji_window_holder;
+            public static int LAYOUT = R.layout.fragment_chat_entery_page;
+            public static int room_name = R.id.room_name;
+            public static int avatar = R.id.avatar;
+            public static int back = R.id.back;
+            public static int imageView = R.id.imageView;
+            public static int recycler_view = R.id.recycler_view;
+            public static int bottom_container = R.id.bottom_container;
+            public static int emoji_opener_btn = R.id.emoji_opener_btn;
+            public static int edit_field = R.id.edit_field;
+            public static int attach_btn = R.id.attach_btn;
+            public static int send_msg_btn = R.id.send_msg_btn;
+            public static int emoji_window_holder = R.id.emoji_window_holder;
         }
     }
 
@@ -1287,12 +1287,12 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.fragment_footer_bar;
-            public int profile = R.id.profile;
-            public int activity = R.id.activity;
-            public int search = R.id.search;
-            public int home = R.id.home;
-            public int chat = R.id.chat;
+            public static int LAYOUT = R.layout.fragment_footer_bar;
+            public static int profile = R.id.profile;
+            public static int activity = R.id.activity;
+            public static int search = R.id.search;
+            public static int home = R.id.home;
+            public static int chat = R.id.chat;
         }
     }
 
@@ -1315,7 +1315,7 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.framelayout_match;
+            public static int LAYOUT = R.layout.framelayout_match;
         }
     }
 
@@ -1350,13 +1350,13 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.full_screen_image;
-            public int window = R.id.window;
-            public int image_holder = R.id.image_holder;
-            public int image_view = R.id.image_view;
-            public int top_nav = R.id.top_nav;
-            public int back_btn = R.id.back_btn;
-            public int text_view = R.id.text_view;
+            public static int LAYOUT = R.layout.full_screen_image;
+            public static int window = R.id.window;
+            public static int image_holder = R.id.image_holder;
+            public static int image_view = R.id.image_view;
+            public static int top_nav = R.id.top_nav;
+            public static int back_btn = R.id.back_btn;
+            public static int text_view = R.id.text_view;
         }
     }
 
@@ -1387,11 +1387,11 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.full_screen_image_fresco;
-            public int window = R.id.window;
-            public int image_view = R.id.image_view;
-            public int top_nav = R.id.top_nav;
-            public int text_view = R.id.text_view;
+            public static int LAYOUT = R.layout.full_screen_image_fresco;
+            public static int window = R.id.window;
+            public static int image_view = R.id.image_view;
+            public static int top_nav = R.id.top_nav;
+            public static int text_view = R.id.text_view;
         }
     }
 
@@ -1416,8 +1416,8 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.gallery_chooser_folders_recyicler_view;
-            public int recycler_view = R.id.recycler_view;
+            public static int LAYOUT = R.layout.gallery_chooser_folders_recyicler_view;
+            public static int recycler_view = R.id.recycler_view;
         }
     }
 
@@ -1446,10 +1446,10 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.header_chat_entary;
-            public int room_name = R.id.room_name;
-            public int avatar = R.id.avatar;
-            public int back = R.id.back;
+            public static int LAYOUT = R.layout.header_chat_entary;
+            public static int room_name = R.id.room_name;
+            public static int avatar = R.id.avatar;
+            public static int back = R.id.back;
         }
     }
 
@@ -1474,8 +1474,8 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.hello_world;
-            public int pppp = R.id.pppp;
+            public static int LAYOUT = R.layout.hello_world;
+            public static int pppp = R.id.pppp;
         }
     }
 
@@ -1496,9 +1496,9 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.hello_world_merge;
-            public int follow_button = R.id.follow_button;
-            public int followings_btn = R.id.followings_btn;
+            public static int LAYOUT = R.layout.hello_world_merge;
+            public static int follow_button = R.id.follow_button;
+            public static int followings_btn = R.id.followings_btn;
         }
     }
 
@@ -1535,14 +1535,14 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.hello_world_row;
-            public int loadingView = R.id.loadingView;
-            public int txt = R.id.txt;
-            public int btn = R.id.btn;
-            public int btn2 = R.id.btn2;
-            public int btn3 = R.id.btn3;
-            public int anvil = R.id.anvil;
-            public int anvil2 = R.id.anvil2;
+            public static int LAYOUT = R.layout.hello_world_row;
+            public static int loadingView = R.id.loadingView;
+            public static int txt = R.id.txt;
+            public static int btn = R.id.btn;
+            public static int btn2 = R.id.btn2;
+            public static int btn3 = R.id.btn3;
+            public static int anvil = R.id.anvil;
+            public static int anvil2 = R.id.anvil2;
         }
     }
 
@@ -1577,13 +1577,13 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.home__add_post_box;
-            public int top_holder = R.id.top_holder;
-            public int avatar = R.id.avatar;
-            public int share_media_buttons_holder = R.id.share_media_buttons_holder;
-            public int gallery_btn = R.id.gallery_btn;
-            public int camera_btn = R.id.camera_btn;
-            public int recent_images_holder = R.id.recent_images_holder;
+            public static int LAYOUT = R.layout.home__add_post_box;
+            public static int top_holder = R.id.top_holder;
+            public static int avatar = R.id.avatar;
+            public static int share_media_buttons_holder = R.id.share_media_buttons_holder;
+            public static int gallery_btn = R.id.gallery_btn;
+            public static int camera_btn = R.id.camera_btn;
+            public static int recent_images_holder = R.id.recent_images_holder;
         }
     }
 
@@ -1614,11 +1614,11 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.home__parent;
-            public int refresh_layout = R.id.refresh_layout;
-            public int top_holder = R.id.top_holder;
-            public int button_post_way = R.id.button_post_way;
-            public int recycler_view = R.id.recycler_view;
+            public static int LAYOUT = R.layout.home__parent;
+            public static int refresh_layout = R.id.refresh_layout;
+            public static int top_holder = R.id.top_holder;
+            public static int button_post_way = R.id.button_post_way;
+            public static int recycler_view = R.id.recycler_view;
         }
     }
 
@@ -1645,9 +1645,9 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.inbox_chat_list;
-            public int layout1 = R.id.layout1;
-            public int recycler_view = R.id.recycler_view;
+            public static int LAYOUT = R.layout.inbox_chat_list;
+            public static int layout1 = R.id.layout1;
+            public static int recycler_view = R.id.recycler_view;
         }
     }
 
@@ -1678,11 +1678,11 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.input_text_add_simple_text;
-            public int bottom_container = R.id.bottom_container;
-            public int emoji_opener_btn = R.id.emoji_opener_btn;
-            public int input = R.id.input;
-            public int send_btn = R.id.send_btn;
+            public static int LAYOUT = R.layout.input_text_add_simple_text;
+            public static int bottom_container = R.id.bottom_container;
+            public static int emoji_opener_btn = R.id.emoji_opener_btn;
+            public static int input = R.id.input;
+            public static int send_btn = R.id.send_btn;
         }
     }
 
@@ -1727,18 +1727,18 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.keywoard_attachment;
-            public int attachment_top = R.id.attachment_top;
-            public int attachment_main = R.id.attachment_main;
-            public int frame_layout = R.id.frame_layout;
-            public int attach_video = R.id.attach_video;
-            public int attach_gallery = R.id.attach_gallery;
-            public int attach_camera = R.id.attach_camera;
-            public int attach_audio = R.id.attach_audio;
-            public int attach_file = R.id.attach_file;
-            public int close_send_btn = R.id.close_send_btn;
-            public int close_icon = R.id.close_icon;
-            public int close_text = R.id.close_text;
+            public static int LAYOUT = R.layout.keywoard_attachment;
+            public static int attachment_top = R.id.attachment_top;
+            public static int attachment_main = R.id.attachment_main;
+            public static int frame_layout = R.id.frame_layout;
+            public static int attach_video = R.id.attach_video;
+            public static int attach_gallery = R.id.attach_gallery;
+            public static int attach_camera = R.id.attach_camera;
+            public static int attach_audio = R.id.attach_audio;
+            public static int attach_file = R.id.attach_file;
+            public static int close_send_btn = R.id.close_send_btn;
+            public static int close_icon = R.id.close_icon;
+            public static int close_text = R.id.close_text;
         }
     }
 
@@ -1775,14 +1775,14 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.keywoard_attachment2;
-            public int attachment_top = R.id.attachment_top;
-            public int attachment_main = R.id.attachment_main;
-            public int attach_camera = R.id.attach_camera;
-            public int attach_gallery = R.id.attach_gallery;
-            public int attach_video = R.id.attach_video;
-            public int attach_file = R.id.attach_file;
-            public int close_send_btn = R.id.close_send_btn;
+            public static int LAYOUT = R.layout.keywoard_attachment2;
+            public static int attachment_top = R.id.attachment_top;
+            public static int attachment_main = R.id.attachment_main;
+            public static int attach_camera = R.id.attach_camera;
+            public static int attach_gallery = R.id.attach_gallery;
+            public static int attach_video = R.id.attach_video;
+            public static int attach_file = R.id.attach_file;
+            public static int close_send_btn = R.id.close_send_btn;
         }
     }
 
@@ -1809,9 +1809,9 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.keywoard_emoji;
-            public int attachment_top = R.id.attachment_top;
-            public int emoji_window_holder2 = R.id.emoji_window_holder2;
+            public static int LAYOUT = R.layout.keywoard_emoji;
+            public static int attachment_top = R.id.attachment_top;
+            public static int emoji_window_holder2 = R.id.emoji_window_holder2;
         }
     }
 
@@ -1846,13 +1846,13 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.last_activity__row;
-            public int frame_layout = R.id.frame_layout;
-            public int image_extra = R.id.image_extra;
-            public int following_button = R.id.following_button;
-            public int text = R.id.text;
-            public int date = R.id.date;
-            public int avatar = R.id.avatar;
+            public static int LAYOUT = R.layout.last_activity__row;
+            public static int frame_layout = R.id.frame_layout;
+            public static int image_extra = R.id.image_extra;
+            public static int following_button = R.id.following_button;
+            public static int text = R.id.text;
+            public static int date = R.id.date;
+            public static int avatar = R.id.avatar;
         }
     }
 
@@ -1875,7 +1875,7 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.linearlayout_match;
+            public static int LAYOUT = R.layout.linearlayout_match;
         }
     }
 
@@ -1902,9 +1902,9 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.list_rooms_presenter;
-            public int layout1 = R.id.layout1;
-            public int contacts_list_rv = R.id.contacts_list_rv;
+            public static int LAYOUT = R.layout.list_rooms_presenter;
+            public static int layout1 = R.id.layout1;
+            public static int contacts_list_rv = R.id.contacts_list_rv;
         }
     }
 
@@ -1935,11 +1935,11 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.list_user_follow_row;
-            public int row = R.id.row;
-            public int textView2 = R.id.textView2;
-            public int user = R.id.user;
-            public int my_image_view = R.id.my_image_view;
+            public static int LAYOUT = R.layout.list_user_follow_row;
+            public static int row = R.id.row;
+            public static int textView2 = R.id.textView2;
+            public static int user = R.id.user;
+            public static int my_image_view = R.id.my_image_view;
         }
     }
 
@@ -1964,8 +1964,8 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.listview_planet_textview;
-            public int listViewText = R.id.listViewText;
+            public static int LAYOUT = R.layout.listview_planet_textview;
+            public static int listViewText = R.id.listViewText;
         }
     }
 
@@ -1990,8 +1990,8 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.loading;
-            public int loading = R.id.loading;
+            public static int LAYOUT = R.layout.loading;
+            public static int loading = R.id.loading;
         }
     }
 
@@ -2016,8 +2016,8 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.main;
-            public int textView = R.id.textView;
+            public static int LAYOUT = R.layout.main;
+            public static int textView = R.id.textView;
         }
     }
 
@@ -2044,9 +2044,9 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.main_branch_chat;
-            public int sliding_tabs = R.id.sliding_tabs;
-            public int viewpager = R.id.viewpager;
+            public static int LAYOUT = R.layout.main_branch_chat;
+            public static int sliding_tabs = R.id.sliding_tabs;
+            public static int viewpager = R.id.viewpager;
         }
     }
 
@@ -2069,7 +2069,7 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.main_page_chat_presenter;
+            public static int LAYOUT = R.layout.main_page_chat_presenter;
         }
     }
 
@@ -2102,12 +2102,12 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.media_chooser_top_nav;
-            public int left_side = R.id.left_side;
-            public int send_btn = R.id.send_btn;
-            public int text_icon = R.id.text_icon;
-            public int back_btn = R.id.back_btn;
-            public int title = R.id.title;
+            public static int LAYOUT = R.layout.media_chooser_top_nav;
+            public static int left_side = R.id.left_side;
+            public static int send_btn = R.id.send_btn;
+            public static int text_icon = R.id.text_icon;
+            public static int back_btn = R.id.back_btn;
+            public static int title = R.id.title;
         }
     }
 
@@ -2130,7 +2130,7 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.msg__empty;
+            public static int LAYOUT = R.layout.msg__empty;
         }
     }
 
@@ -2153,7 +2153,7 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.msg__full_page_empty_note;
+            public static int LAYOUT = R.layout.msg__full_page_empty_note;
         }
     }
 
@@ -2178,11 +2178,11 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.msg__media_network_loader;
-            public int msg_image = R.id.msg_image;
-            public int loading_holder = R.id.loading_holder;
-            public int icon_action_btn = R.id.icon_action_btn;
-            public int loading_progress = R.id.loading_progress;
+            public static int LAYOUT = R.layout.msg__media_network_loader;
+            public static int msg_image = R.id.msg_image;
+            public static int loading_holder = R.id.loading_holder;
+            public static int icon_action_btn = R.id.icon_action_btn;
+            public static int loading_progress = R.id.loading_progress;
         }
     }
 
@@ -2207,8 +2207,8 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.msg__row_all_me;
-            public int txt = R.id.txt;
+            public static int LAYOUT = R.layout.msg__row_all_me;
+            public static int txt = R.id.txt;
         }
     }
 
@@ -2233,8 +2233,8 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.msg__row_all_peer;
-            public int txt = R.id.txt;
+            public static int LAYOUT = R.layout.msg__row_all_peer;
+            public static int txt = R.id.txt;
         }
     }
 
@@ -2257,7 +2257,7 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.msg__row_audio_me;
+            public static int LAYOUT = R.layout.msg__row_audio_me;
         }
     }
 
@@ -2280,7 +2280,7 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.msg__row_audio_peer;
+            public static int LAYOUT = R.layout.msg__row_audio_peer;
         }
     }
 
@@ -2303,7 +2303,7 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.msg__row_contact_me;
+            public static int LAYOUT = R.layout.msg__row_contact_me;
         }
     }
 
@@ -2326,7 +2326,7 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.msg__row_contact_peer;
+            public static int LAYOUT = R.layout.msg__row_contact_peer;
         }
     }
 
@@ -2349,7 +2349,7 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.msg__row_file_me;
+            public static int LAYOUT = R.layout.msg__row_file_me;
         }
     }
 
@@ -2372,7 +2372,7 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.msg__row_file_peer;
+            public static int LAYOUT = R.layout.msg__row_file_peer;
         }
     }
 
@@ -2405,12 +2405,12 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.msg__row_image_me;
-            public int msg_content_holder = R.id.msg_content_holder;
-            public int image_holder = R.id.image_holder;
-            public int msg_text = R.id.msg_text;
-            public int msg_time = R.id.msg_time;
-            public int msg_delivery_status = R.id.msg_delivery_status;
+            public static int LAYOUT = R.layout.msg__row_image_me;
+            public static int msg_content_holder = R.id.msg_content_holder;
+            public static int image_holder = R.id.image_holder;
+            public static int msg_text = R.id.msg_text;
+            public static int msg_time = R.id.msg_time;
+            public static int msg_delivery_status = R.id.msg_delivery_status;
         }
     }
 
@@ -2441,11 +2441,11 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.msg__row_image_peer;
-            public int msg_content_holder = R.id.msg_content_holder;
-            public int image_holder = R.id.image_holder;
-            public int msg_text = R.id.msg_text;
-            public int msg_time = R.id.msg_time;
+            public static int LAYOUT = R.layout.msg__row_image_peer;
+            public static int msg_content_holder = R.id.msg_content_holder;
+            public static int image_holder = R.id.image_holder;
+            public static int msg_text = R.id.msg_text;
+            public static int msg_time = R.id.msg_time;
         }
     }
 
@@ -2468,7 +2468,7 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.msg__row_location_me;
+            public static int LAYOUT = R.layout.msg__row_location_me;
         }
     }
 
@@ -2491,7 +2491,7 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.msg__row_location_peer;
+            public static int LAYOUT = R.layout.msg__row_location_peer;
         }
     }
 
@@ -2518,9 +2518,9 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.msg__row_not_supported_peer;
-            public int msg_content_holder = R.id.msg_content_holder;
-            public int msg_text = R.id.msg_text;
+            public static int LAYOUT = R.layout.msg__row_not_supported_peer;
+            public static int msg_content_holder = R.id.msg_content_holder;
+            public static int msg_text = R.id.msg_text;
         }
     }
 
@@ -2543,7 +2543,7 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.msg__row_post_me;
+            public static int LAYOUT = R.layout.msg__row_post_me;
         }
     }
 
@@ -2566,7 +2566,7 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.msg__row_post_peer;
+            public static int LAYOUT = R.layout.msg__row_post_peer;
         }
     }
 
@@ -2589,7 +2589,7 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.msg__row_sticker_me;
+            public static int LAYOUT = R.layout.msg__row_sticker_me;
         }
     }
 
@@ -2612,7 +2612,7 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.msg__row_sticker_peer;
+            public static int LAYOUT = R.layout.msg__row_sticker_peer;
         }
     }
 
@@ -2635,7 +2635,7 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.msg__row_system;
+            public static int LAYOUT = R.layout.msg__row_system;
         }
     }
 
@@ -2666,11 +2666,11 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.msg__row_text_me;
-            public int msg_content_holder = R.id.msg_content_holder;
-            public int msg_text = R.id.msg_text;
-            public int msg_time = R.id.msg_time;
-            public int msg_delivery_status = R.id.msg_delivery_status;
+            public static int LAYOUT = R.layout.msg__row_text_me;
+            public static int msg_content_holder = R.id.msg_content_holder;
+            public static int msg_text = R.id.msg_text;
+            public static int msg_time = R.id.msg_time;
+            public static int msg_delivery_status = R.id.msg_delivery_status;
         }
     }
 
@@ -2699,10 +2699,10 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.msg__row_text_peer;
-            public int msg_content_holder = R.id.msg_content_holder;
-            public int msg_text = R.id.msg_text;
-            public int msg_time = R.id.msg_time;
+            public static int LAYOUT = R.layout.msg__row_text_peer;
+            public static int msg_content_holder = R.id.msg_content_holder;
+            public static int msg_text = R.id.msg_text;
+            public static int msg_time = R.id.msg_time;
         }
     }
 
@@ -2735,12 +2735,12 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.msg__row_video_me;
-            public int msg_content_holder = R.id.msg_content_holder;
-            public int msg_image = R.id.msg_image;
-            public int msg_text = R.id.msg_text;
-            public int msg_time = R.id.msg_time;
-            public int msg_delivery_status = R.id.msg_delivery_status;
+            public static int LAYOUT = R.layout.msg__row_video_me;
+            public static int msg_content_holder = R.id.msg_content_holder;
+            public static int msg_image = R.id.msg_image;
+            public static int msg_text = R.id.msg_text;
+            public static int msg_time = R.id.msg_time;
+            public static int msg_delivery_status = R.id.msg_delivery_status;
         }
     }
 
@@ -2759,8 +2759,8 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.msg__shared_time;
-            public int msg_time = R.id.msg_time;
+            public static int LAYOUT = R.layout.msg__shared_time;
+            public static int msg_time = R.id.msg_time;
         }
     }
 
@@ -2781,9 +2781,9 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.msg__shared_time_and_delivery;
-            public int msg_time = R.id.msg_time;
-            public int msg_delivery_status = R.id.msg_delivery_status;
+            public static int LAYOUT = R.layout.msg__shared_time_and_delivery;
+            public static int msg_time = R.id.msg_time;
+            public static int msg_delivery_status = R.id.msg_delivery_status;
         }
     }
 
@@ -2810,9 +2810,9 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.msg__shared_time_status;
-            public int msg_time = R.id.msg_time;
-            public int msg_delivery_status = R.id.msg_delivery_status;
+            public static int LAYOUT = R.layout.msg__shared_time_status;
+            public static int msg_time = R.id.msg_time;
+            public static int msg_delivery_status = R.id.msg_delivery_status;
         }
     }
 
@@ -2837,8 +2837,8 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.nav__icon_holder;
-            public int icon_text = R.id.icon_text;
+            public static int LAYOUT = R.layout.nav__icon_holder;
+            public static int icon_text = R.id.icon_text;
         }
     }
 
@@ -2865,9 +2865,9 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.nav__recylcer_view;
-            public int simpleTopNav = R.id.simpleTopNav;
-            public int recycler_view = R.id.recycler_view;
+            public static int LAYOUT = R.layout.nav__recylcer_view;
+            public static int simpleTopNav = R.id.simpleTopNav;
+            public static int recycler_view = R.id.recycler_view;
         }
     }
 
@@ -2890,10 +2890,10 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.nav__simple;
-            public int left_text = R.id.left_text;
-            public int title_text = R.id.title_text;
-            public int back_btn = R.id.back_btn;
+            public static int LAYOUT = R.layout.nav__simple;
+            public static int left_text = R.id.left_text;
+            public static int title_text = R.id.title_text;
+            public static int back_btn = R.id.back_btn;
         }
     }
 
@@ -2922,10 +2922,10 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.nav_header_pager_menu;
-            public int search = R.id.search;
-            public int sliding_tabs = R.id.sliding_tabs;
-            public int viewpager = R.id.viewpager;
+            public static int LAYOUT = R.layout.nav_header_pager_menu;
+            public static int search = R.id.search;
+            public static int sliding_tabs = R.id.sliding_tabs;
+            public static int viewpager = R.id.viewpager;
         }
     }
 
@@ -2960,13 +2960,13 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.notify__row;
-            public int frame_layout = R.id.frame_layout;
-            public int image_extra = R.id.image_extra;
-            public int following_button = R.id.following_button;
-            public int text_main = R.id.text_main;
-            public int date = R.id.date;
-            public int avatar_image = R.id.avatar_image;
+            public static int LAYOUT = R.layout.notify__row;
+            public static int frame_layout = R.id.frame_layout;
+            public static int image_extra = R.id.image_extra;
+            public static int following_button = R.id.following_button;
+            public static int text_main = R.id.text_main;
+            public static int date = R.id.date;
+            public static int avatar_image = R.id.avatar_image;
         }
     }
 
@@ -2989,7 +2989,7 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.notify_not_suported_cell;
+            public static int LAYOUT = R.layout.notify_not_suported_cell;
         }
     }
 
@@ -3034,18 +3034,18 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.page__edit_profile;
-            public int simpleTopNav = R.id.simpleTopNav;
-            public int container = R.id.container;
-            public int avatar = R.id.avatar;
-            public int textView5 = R.id.textView5;
-            public int guideline3 = R.id.guideline3;
-            public int editText = R.id.editText;
-            public int editText2 = R.id.editText2;
-            public int textView6 = R.id.textView6;
-            public int editText3 = R.id.editText3;
-            public int textView7 = R.id.textView7;
-            public int editText4 = R.id.editText4;
+            public static int LAYOUT = R.layout.page__edit_profile;
+            public static int simpleTopNav = R.id.simpleTopNav;
+            public static int container = R.id.container;
+            public static int avatar = R.id.avatar;
+            public static int textView5 = R.id.textView5;
+            public static int guideline3 = R.id.guideline3;
+            public static int editText = R.id.editText;
+            public static int editText2 = R.id.editText2;
+            public static int textView6 = R.id.textView6;
+            public static int editText3 = R.id.editText3;
+            public static int textView7 = R.id.textView7;
+            public static int editText4 = R.id.editText4;
         }
     }
 
@@ -3074,10 +3074,10 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.page__edit_profile_bk;
-            public int simpleTopNav = R.id.simpleTopNav;
-            public int container = R.id.container;
-            public int avatar = R.id.avatar;
+            public static int LAYOUT = R.layout.page__edit_profile_bk;
+            public static int simpleTopNav = R.id.simpleTopNav;
+            public static int container = R.id.container;
+            public static int avatar = R.id.avatar;
         }
     }
 
@@ -3106,10 +3106,10 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.page__post_single_entry;
-            public int simpleTopNav = R.id.simpleTopNav;
-            public int post_row_holder = R.id.post_row_holder;
-            public int comments_holder = R.id.comments_holder;
+            public static int LAYOUT = R.layout.page__post_single_entry;
+            public static int simpleTopNav = R.id.simpleTopNav;
+            public static int post_row_holder = R.id.post_row_holder;
+            public static int comments_holder = R.id.comments_holder;
         }
     }
 
@@ -3150,16 +3150,16 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.page__profile_edit2;
-            public int cover = R.id.cover;
-            public int profilePicture = R.id.profilePicture;
-            public int removeAvatar = R.id.removeAvatar;
-            public int inputName = R.id.inputName;
-            public int descriptionRoot = R.id.descriptionRoot;
-            public int inputDescription = R.id.inputDescription;
-            public int genderRoot = R.id.genderRoot;
-            public int radioMale = R.id.radioMale;
-            public int btnRegister = R.id.btnRegister;
+            public static int LAYOUT = R.layout.page__profile_edit2;
+            public static int cover = R.id.cover;
+            public static int profilePicture = R.id.profilePicture;
+            public static int removeAvatar = R.id.removeAvatar;
+            public static int inputName = R.id.inputName;
+            public static int descriptionRoot = R.id.descriptionRoot;
+            public static int inputDescription = R.id.inputDescription;
+            public static int genderRoot = R.id.genderRoot;
+            public static int radioMale = R.id.radioMale;
+            public static int btnRegister = R.id.btnRegister;
         }
     }
 
@@ -3194,13 +3194,13 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.page__profile_edit3;
-            public int textView3 = R.id.textView3;
-            public int progressBar = R.id.progressBar;
-            public int guideline = R.id.guideline;
-            public int guideline2 = R.id.guideline2;
-            public int textView4 = R.id.textView4;
-            public int floatingActionButton = R.id.floatingActionButton;
+            public static int LAYOUT = R.layout.page__profile_edit3;
+            public static int textView3 = R.id.textView3;
+            public static int progressBar = R.id.progressBar;
+            public static int guideline = R.id.guideline;
+            public static int guideline2 = R.id.guideline2;
+            public static int textView4 = R.id.textView4;
+            public static int floatingActionButton = R.id.floatingActionButton;
         }
     }
 
@@ -3229,10 +3229,10 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.page_recent_posts__parent;
-            public int root_layout = R.id.root_layout;
-            public int top_nav = R.id.top_nav;
-            public int container = R.id.container;
+            public static int LAYOUT = R.layout.page_recent_posts__parent;
+            public static int root_layout = R.id.root_layout;
+            public static int top_nav = R.id.top_nav;
+            public static int container = R.id.container;
         }
     }
 
@@ -3261,10 +3261,10 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.page_tag__parent;
-            public int root_layout = R.id.root_layout;
-            public int top_nav = R.id.top_nav;
-            public int container = R.id.container;
+            public static int LAYOUT = R.layout.page_tag__parent;
+            public static int root_layout = R.id.root_layout;
+            public static int top_nav = R.id.top_nav;
+            public static int container = R.id.container;
         }
     }
 
@@ -3289,8 +3289,8 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.pager__cell_nav_linear_view;
-            public int simpleTopNav = R.id.simpleTopNav;
+            public static int LAYOUT = R.layout.pager__cell_nav_linear_view;
+            public static int simpleTopNav = R.id.simpleTopNav;
         }
     }
 
@@ -3319,10 +3319,10 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.pager__nav_recyclerview_with_refresher;
-            public int nav = R.id.nav;
-            public int refresh_layout = R.id.refresh_layout;
-            public int recycler_view = R.id.recycler_view;
+            public static int LAYOUT = R.layout.pager__nav_recyclerview_with_refresher;
+            public static int nav = R.id.nav;
+            public static int refresh_layout = R.id.refresh_layout;
+            public static int recycler_view = R.id.recycler_view;
         }
     }
 
@@ -3349,9 +3349,9 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.pager__recyclerview_with_refresher;
-            public int refresh_layout = R.id.refresh_layout;
-            public int recycler_view = R.id.recycler_view;
+            public static int LAYOUT = R.layout.pager__recyclerview_with_refresher;
+            public static int refresh_layout = R.id.refresh_layout;
+            public static int recycler_view = R.id.recycler_view;
         }
     }
 
@@ -3376,8 +3376,8 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.play_activity_fonts_scrolling;
-            public int btn = R.id.btn;
+            public static int LAYOUT = R.layout.play_activity_fonts_scrolling;
+            public static int btn = R.id.btn;
         }
     }
 
@@ -3412,13 +3412,13 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.play_main_popup;
-            public int txt = R.id.txt;
-            public int base64 = R.id.base64;
-            public int img = R.id.img;
-            public int img2 = R.id.img2;
-            public int dl = R.id.dl;
-            public int openpopup = R.id.openpopup;
+            public static int LAYOUT = R.layout.play_main_popup;
+            public static int txt = R.id.txt;
+            public static int base64 = R.id.base64;
+            public static int img = R.id.img;
+            public static int img2 = R.id.img2;
+            public static int dl = R.id.dl;
+            public static int openpopup = R.id.openpopup;
         }
     }
 
@@ -3445,9 +3445,9 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.play_realm;
-            public int container = R.id.container;
-            public int txt = R.id.txt;
+            public static int LAYOUT = R.layout.play_realm;
+            public static int container = R.id.container;
+            public static int txt = R.id.txt;
         }
     }
 
@@ -3474,9 +3474,9 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.play_recipies;
-            public int _status_bar = R.id._status_bar;
-            public int p_navigation = R.id.p_navigation;
+            public static int LAYOUT = R.layout.play_recipies;
+            public static int _status_bar = R.id._status_bar;
+            public static int p_navigation = R.id.p_navigation;
         }
     }
 
@@ -3499,7 +3499,7 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.play_xicon;
+            public static int LAYOUT = R.layout.play_xicon;
         }
     }
 
@@ -3522,7 +3522,7 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.play_xtextcoloersview;
+            public static int LAYOUT = R.layout.play_xtextcoloersview;
         }
     }
 
@@ -3545,7 +3545,7 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.play_xtextview;
+            public static int LAYOUT = R.layout.play_xtextview;
         }
     }
 
@@ -3570,8 +3570,8 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.post__single_entry_holder;
-            public int loading = R.id.loading;
+            public static int LAYOUT = R.layout.post__single_entry_holder;
+            public static int loading = R.id.loading;
         }
     }
 
@@ -3598,9 +3598,9 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.post_list__parent;
-            public int refresh_layout = R.id.refresh_layout;
-            public int recycler_view = R.id.recycler_view;
+            public static int LAYOUT = R.layout.post_list__parent;
+            public static int refresh_layout = R.id.refresh_layout;
+            public static int recycler_view = R.id.recycler_view;
         }
     }
 
@@ -3645,18 +3645,18 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.post_row__compact;
-            public int post_row_holder = R.id.post_row_holder;
-            public int date = R.id.date;
-            public int avatar = R.id.avatar;
-            public int fullname = R.id.fullname;
-            public int text = R.id.text;
-            public int image_holder = R.id.image_holder;
-            public int image = R.id.image;
-            public int counts_info = R.id.counts_info;
-            public int comment_count = R.id.comment_count;
-            public int likes_count = R.id.likes_count;
-            public int like_btn = R.id.like_btn;
+            public static int LAYOUT = R.layout.post_row__compact;
+            public static int post_row_holder = R.id.post_row_holder;
+            public static int date = R.id.date;
+            public static int avatar = R.id.avatar;
+            public static int fullname = R.id.fullname;
+            public static int text = R.id.text;
+            public static int image_holder = R.id.image_holder;
+            public static int image = R.id.image;
+            public static int counts_info = R.id.counts_info;
+            public static int comment_count = R.id.comment_count;
+            public static int likes_count = R.id.likes_count;
+            public static int like_btn = R.id.like_btn;
         }
     }
 
@@ -3699,17 +3699,17 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.post_row__stream;
-            public int post_row_holder = R.id.post_row_holder;
-            public int date = R.id.date;
-            public int avatar = R.id.avatar;
-            public int fullname = R.id.fullname;
-            public int text = R.id.text;
-            public int image = R.id.image;
-            public int counts_info = R.id.counts_info;
-            public int comment_count = R.id.comment_count;
-            public int likes_count = R.id.likes_count;
-            public int like_btn = R.id.like_btn;
+            public static int LAYOUT = R.layout.post_row__stream;
+            public static int post_row_holder = R.id.post_row_holder;
+            public static int date = R.id.date;
+            public static int avatar = R.id.avatar;
+            public static int fullname = R.id.fullname;
+            public static int text = R.id.text;
+            public static int image = R.id.image;
+            public static int counts_info = R.id.counts_info;
+            public static int comment_count = R.id.comment_count;
+            public static int likes_count = R.id.likes_count;
+            public static int like_btn = R.id.like_btn;
         }
     }
 
@@ -3736,9 +3736,9 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.presenter_gallery_chooser;
-            public int tab_layout = R.id.tab_layout;
-            public int view_pager = R.id.view_pager;
+            public static int LAYOUT = R.layout.presenter_gallery_chooser;
+            public static int tab_layout = R.id.tab_layout;
+            public static int view_pager = R.id.view_pager;
         }
     }
 
@@ -3765,9 +3765,9 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.profile__parent;
-            public int top_nav = R.id.top_nav;
-            public int container = R.id.container;
+            public static int LAYOUT = R.layout.profile__parent;
+            public static int top_nav = R.id.top_nav;
+            public static int container = R.id.container;
         }
     }
 
@@ -3814,19 +3814,19 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.profile__top_info;
-            public int count_holder = R.id.count_holder;
-            public int followings_holder = R.id.followings_holder;
-            public int followings_count = R.id.followings_count;
-            public int followers_holder = R.id.followers_holder;
-            public int followers_count = R.id.followers_count;
-            public int posts_count = R.id.posts_count;
-            public int button_edit_profile = R.id.button_edit_profile;
-            public int chat_button = R.id.chat_button;
-            public int follow_button = R.id.follow_button;
-            public int avatar = R.id.avatar;
-            public int fullname = R.id.fullname;
-            public int about = R.id.about;
+            public static int LAYOUT = R.layout.profile__top_info;
+            public static int count_holder = R.id.count_holder;
+            public static int followings_holder = R.id.followings_holder;
+            public static int followings_count = R.id.followings_count;
+            public static int followers_holder = R.id.followers_holder;
+            public static int followers_count = R.id.followers_count;
+            public static int posts_count = R.id.posts_count;
+            public static int button_edit_profile = R.id.button_edit_profile;
+            public static int chat_button = R.id.chat_button;
+            public static int follow_button = R.id.follow_button;
+            public static int avatar = R.id.avatar;
+            public static int fullname = R.id.fullname;
+            public static int about = R.id.about;
         }
     }
 
@@ -3861,13 +3861,13 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.quick_view_load_more;
-            public int load_more_loading_view = R.id.load_more_loading_view;
-            public int loading_progress = R.id.loading_progress;
-            public int loading_text = R.id.loading_text;
-            public int load_more_load_fail_view = R.id.load_more_load_fail_view;
-            public int tv_prompt = R.id.tv_prompt;
-            public int load_more_load_end_view = R.id.load_more_load_end_view;
+            public static int LAYOUT = R.layout.quick_view_load_more;
+            public static int load_more_loading_view = R.id.load_more_loading_view;
+            public static int loading_progress = R.id.loading_progress;
+            public static int loading_text = R.id.loading_text;
+            public static int load_more_load_fail_view = R.id.load_more_load_fail_view;
+            public static int tv_prompt = R.id.tv_prompt;
+            public static int load_more_load_end_view = R.id.load_more_load_end_view;
         }
     }
 
@@ -3896,10 +3896,10 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.recent_images__image_item;
-            public int image = R.id.image;
-            public int text_holder = R.id.text_holder;
-            public int text_icon = R.id.text_icon;
+            public static int LAYOUT = R.layout.recent_images__image_item;
+            public static int image = R.id.image;
+            public static int text_holder = R.id.text_holder;
+            public static int text_icon = R.id.text_icon;
         }
     }
 
@@ -3928,10 +3928,10 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.recent_images_add_post__image_item;
-            public int image_drawee = R.id.image_drawee;
-            public int text_holder = R.id.text_holder;
-            public int text_icon = R.id.text_icon;
+            public static int LAYOUT = R.layout.recent_images_add_post__image_item;
+            public static int image_drawee = R.id.image_drawee;
+            public static int text_holder = R.id.text_holder;
+            public static int text_icon = R.id.text_icon;
         }
     }
 
@@ -3956,8 +3956,8 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.recent_images_post_box__recycler_view;
-            public int recycler_view = R.id.recycler_view;
+            public static int LAYOUT = R.layout.recent_images_post_box__recycler_view;
+            public static int recycler_view = R.id.recycler_view;
         }
     }
 
@@ -3990,12 +3990,12 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.recommend__top_tags;
-            public int text = R.id.text;
-            public int see_more = R.id.see_more;
-            public int image1 = R.id.image1;
-            public int image3 = R.id.image3;
-            public int image2 = R.id.image2;
+            public static int LAYOUT = R.layout.recommend__top_tags;
+            public static int text = R.id.text;
+            public static int see_more = R.id.see_more;
+            public static int image1 = R.id.image1;
+            public static int image3 = R.id.image3;
+            public static int image2 = R.id.image2;
         }
     }
 
@@ -4032,14 +4032,14 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.recommend__user_row;
-            public int following_button = R.id.following_button;
-            public int ignore = R.id.ignore;
-            public int avatar = R.id.avatar;
-            public int top = R.id.top;
-            public int primary_name = R.id.primary_name;
-            public int second_name = R.id.second_name;
-            public int about = R.id.about;
+            public static int LAYOUT = R.layout.recommend__user_row;
+            public static int following_button = R.id.following_button;
+            public static int ignore = R.id.ignore;
+            public static int avatar = R.id.avatar;
+            public static int top = R.id.top;
+            public static int primary_name = R.id.primary_name;
+            public static int second_name = R.id.second_name;
+            public static int about = R.id.about;
         }
     }
 
@@ -4068,10 +4068,10 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.row_tag_simple;
-            public int icon = R.id.icon;
-            public int text = R.id.text;
-            public int count = R.id.count;
+            public static int LAYOUT = R.layout.row_tag_simple;
+            public static int icon = R.id.icon;
+            public static int text = R.id.text;
+            public static int count = R.id.count;
         }
     }
 
@@ -4098,9 +4098,9 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.rv__empty_note;
-            public int reload = R.id.reload;
-            public int empty_note = R.id.empty_note;
+            public static int LAYOUT = R.layout.rv__empty_note;
+            public static int reload = R.id.reload;
+            public static int empty_note = R.id.empty_note;
         }
     }
 
@@ -4127,9 +4127,9 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.rv__failed_reload;
-            public int reload = R.id.reload;
-            public int not_internet = R.id.not_internet;
+            public static int LAYOUT = R.layout.rv__failed_reload;
+            public static int reload = R.id.reload;
+            public static int not_internet = R.id.not_internet;
         }
     }
 
@@ -4156,9 +4156,9 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.settings__block;
-            public int title = R.id.title;
-            public int rows_container = R.id.rows_container;
+            public static int LAYOUT = R.layout.settings__block;
+            public static int title = R.id.title;
+            public static int rows_container = R.id.rows_container;
         }
     }
 
@@ -4183,8 +4183,8 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.settings__row_note_center;
-            public int title = R.id.title;
+            public static int LAYOUT = R.layout.settings__row_note_center;
+            public static int title = R.id.title;
         }
     }
 
@@ -4217,12 +4217,12 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.settings__row_simple;
-            public int title = R.id.title;
-            public int info = R.id.info;
-            public int left_container = R.id.left_container;
-            public int has_page = R.id.has_page;
-            public int switch_btn = R.id.switch_btn;
+            public static int LAYOUT = R.layout.settings__row_simple;
+            public static int title = R.id.title;
+            public static int info = R.id.info;
+            public static int left_container = R.id.left_container;
+            public static int has_page = R.id.has_page;
+            public static int switch_btn = R.id.switch_btn;
         }
     }
 
@@ -4249,9 +4249,9 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.tab_cell_general;
-            public int textView = R.id.textView;
-            public int imgView = R.id.imgView;
+            public static int LAYOUT = R.layout.tab_cell_general;
+            public static int textView = R.id.textView;
+            public static int imgView = R.id.imgView;
         }
     }
 
@@ -4278,9 +4278,9 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.title__clickable_new_page;
-            public int icon = R.id.icon;
-            public int text_view = R.id.text_view;
+            public static int LAYOUT = R.layout.title__clickable_new_page;
+            public static int icon = R.id.icon;
+            public static int text_view = R.id.text_view;
         }
     }
 
@@ -4305,8 +4305,8 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.title__info;
-            public int text_view = R.id.text_view;
+            public static int LAYOUT = R.layout.title__info;
+            public static int text_view = R.id.text_view;
         }
     }
 
@@ -4331,8 +4331,8 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.title__info_light;
-            public int text_view = R.id.text_view;
+            public static int LAYOUT = R.layout.title__info_light;
+            public static int text_view = R.id.text_view;
         }
     }
 
@@ -4367,13 +4367,13 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.user_list__row_follow_about;
-            public int following_button = R.id.following_button;
-            public int avatar = R.id.avatar;
-            public int top = R.id.top;
-            public int primary_name = R.id.primary_name;
-            public int second_name = R.id.second_name;
-            public int about = R.id.about;
+            public static int LAYOUT = R.layout.user_list__row_follow_about;
+            public static int following_button = R.id.following_button;
+            public static int avatar = R.id.avatar;
+            public static int top = R.id.top;
+            public static int primary_name = R.id.primary_name;
+            public static int second_name = R.id.second_name;
+            public static int about = R.id.about;
         }
     }
 
@@ -4404,11 +4404,11 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.user_list__type_follow_row;
-            public int following_button = R.id.following_button;
-            public int primary_name = R.id.primary_name;
-            public int second_name = R.id.second_name;
-            public int avatar = R.id.avatar;
+            public static int LAYOUT = R.layout.user_list__type_follow_row;
+            public static int following_button = R.id.following_button;
+            public static int primary_name = R.id.primary_name;
+            public static int second_name = R.id.second_name;
+            public static int avatar = R.id.avatar;
         }
     }
 
@@ -4433,8 +4433,8 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.view_post_compact_image;
-            public int post_row_holder = R.id.post_row_holder;
+            public static int LAYOUT = R.layout.view_post_compact_image;
+            public static int post_row_holder = R.id.post_row_holder;
         }
     }
 
@@ -4457,7 +4457,7 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.view_recycler_view;
+            public static int LAYOUT = R.layout.view_recycler_view;
         }
     }
 
@@ -4488,11 +4488,11 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.widget__play_sample;
-            public int window = R.id.window;
-            public int image_view = R.id.image_view;
-            public int top_nav = R.id.top_nav;
-            public int text_view = R.id.text_view;
+            public static int LAYOUT = R.layout.widget__play_sample;
+            public static int window = R.id.window;
+            public static int image_view = R.id.image_view;
+            public static int top_nav = R.id.top_nav;
+            public static int text_view = R.id.text_view;
         }
     }
 
@@ -4523,11 +4523,11 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.widget_add_simple_text;
-            public int bottom_container = R.id.bottom_container;
-            public int emoji_opener_btn = R.id.emoji_opener_btn;
-            public int input = R.id.input;
-            public int send_btn = R.id.send_btn;
+            public static int LAYOUT = R.layout.widget_add_simple_text;
+            public static int bottom_container = R.id.bottom_container;
+            public static int emoji_opener_btn = R.id.emoji_opener_btn;
+            public static int input = R.id.input;
+            public static int send_btn = R.id.send_btn;
         }
     }
 
@@ -4548,9 +4548,9 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.widget_text_and_icon;
-            public int text = R.id.text;
-            public int icon = R.id.icon;
+            public static int LAYOUT = R.layout.widget_text_and_icon;
+            public static int text = R.id.text;
+            public static int icon = R.id.icon;
         }
     }
 
@@ -4575,11 +4575,11 @@ public class X {
         }
 
         public static class IDS {
-            public int LAYOUT = R.layout.x__top_nav_;
-            public int left_container = R.id.left_container;
-            public int left_text = R.id.left_text;
-            public int title_text = R.id.title_text;
-            public int back_btn = R.id.back_btn;
+            public static int LAYOUT = R.layout.x__top_nav_;
+            public static int left_container = R.id.left_container;
+            public static int left_text = R.id.left_text;
+            public static int title_text = R.id.title_text;
+            public static int back_btn = R.id.back_btn;
         }
     }
 

@@ -45,8 +45,8 @@ public abstract class BaseMultiItemQuickAdapter<T extends MultiItemEntity, K ext
     }
 
     @Override
-    protected K onCreateDefViewHolder(ViewGroup parent, int viewType) {
-        return createBaseViewHolder(parent, getLayoutId(viewType));
+    protected K onCreateDefViewHolder_DONT_OVERIDE(ViewGroup parent, int viewType) {
+        return createBaseViewHolder(parent, getLayoutId(viewType),viewType);
     }
 
     private int getLayoutId(int viewType) {

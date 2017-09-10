@@ -34,6 +34,7 @@ import com.sw926.imagefileselector.ImageFileSelector;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import io.realm.Realm;
@@ -56,7 +57,8 @@ public class ChatRoomEntryPresenter extends BasePresenter implements
 //	ArrayListHashSetKey<Message,String> messages;
     ChatEntryAdaptor messagesAdaptor_DEP;
     ChatRoomEntryAdaptor adaptor;
-	RealmChatAdaptor adaptor2;
+	RealmChatAdaptor_DEP adaptor_depp;
+	ChatRoomEntryAdaptor2 adaptor2;
 
     KeyboardAttachmentCell attachment_view;
     LinearLayoutManager mLayoutManager;
@@ -84,9 +86,17 @@ public class ChatRoomEntryPresenter extends BasePresenter implements
 		Realm realm = MSRealm.getChatRealm();
 		RealmResults<RealmMessageView> realmResults = realm.where(RealmMessageView.class).findAll();
 
+		List<RealmMessageViewWrapper> messageViewList = new ArrayList<>();
+		for (RealmMessageView messageView: realmResults){
+			RealmMessageViewWrapper viewWrapper = new RealmMessageViewWrapper();
+			viewWrapper.messageView = messageView;
+			messageViewList.add(viewWrapper);
+		}
+
         messagesAdaptor_DEP = new ChatEntryAdaptor();
         adaptor = new ChatRoomEntryAdaptor();
-        adaptor2 = new RealmChatAdaptor(realmResults,true);
+//        adaptor_depp = new RealmChatAdaptor_DEP(realmResults,true);
+        adaptor2 = new ChatRoomEntryAdaptor2(messageViewList);
 
 
 //		messages = messagesAdaptor_DEP.msgs;
@@ -99,6 +109,7 @@ public class ChatRoomEntryPresenter extends BasePresenter implements
         mLayoutManager.scrollToPositionWithOffset(0,10000);
 
 //        x.recycler_view.setAdapter(messagesAdaptor_DEP);
+//        x.recycler_view.setAdapter(adaptor_depp);
         x.recycler_view.setAdapter(adaptor2);
         x.recycler_view.setLayoutManager(mLayoutManager);
         x.recycler_view.setHasFixedSize(false);

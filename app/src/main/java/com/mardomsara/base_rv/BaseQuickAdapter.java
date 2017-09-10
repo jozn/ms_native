@@ -759,7 +759,7 @@ public abstract class BaseQuickAdapter<T, K extends BaseViewHolder> extends Recy
                 baseViewHolder = createBaseViewHolder(mFooterLayout);
                 break;
             default:
-                baseViewHolder = onCreateDefViewHolder(parent, viewType);
+                baseViewHolder = onCreateDefViewHolder_DONT_OVERIDE(parent, viewType);
                 bindViewClickListener(baseViewHolder);
         }
         baseViewHolder.setAdapter(this);
@@ -977,16 +977,17 @@ public abstract class BaseQuickAdapter<T, K extends BaseViewHolder> extends Recy
         return mMultiTypeDelegate;
     }
 
-    protected K onCreateDefViewHolder(ViewGroup parent, int viewType) {
+    protected K onCreateDefViewHolder_DONT_OVERIDE(ViewGroup parent, int viewType) {
         int layoutId = mLayoutResId;
         if (mMultiTypeDelegate != null) {
             layoutId = mMultiTypeDelegate.getLayoutId(viewType);
         }
-        return createBaseViewHolder(parent, layoutId);
+        //ME:: if we dont overide this we will paic in most cases beacuse layoutId will be == 0
+        return createBaseViewHolder(parent, layoutId,viewType);
     }
 
     //ME: must oveide this in most situations
-    protected K createBaseViewHolder(ViewGroup parent, int layoutResId) {
+    protected K createBaseViewHolder(ViewGroup parent, int layoutResId, int viewType ) {
         return createBaseViewHolder(getItemView(layoutResId, parent));
     }
 

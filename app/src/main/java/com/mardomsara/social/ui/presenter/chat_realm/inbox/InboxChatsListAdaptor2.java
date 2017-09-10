@@ -42,7 +42,7 @@ final class InboxChatsListAdaptor2 extends BaseQuickAdapter<RealmChatView, Inbox
 	}*/
 
 	@Override
-	protected RV createBaseViewHolder(ViewGroup parent, int layoutResId) {
+	protected RV createBaseViewHolder(ViewGroup parent, int layoutResId, int typeId) {
 		return new RV(new InboxRowCell(parent, this));
 	}
 

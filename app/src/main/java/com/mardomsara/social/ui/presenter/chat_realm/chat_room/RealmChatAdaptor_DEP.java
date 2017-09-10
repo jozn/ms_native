@@ -14,9 +14,9 @@ import io.realm.OrderedRealmCollection;
  * Created by Hamid on 9/5/2017.
  */
 
-public class RealmChatAdaptor extends RealmRecyclerViewAdapter<RealmMessageView,RealmChatAdaptor.VH> {
+public class RealmChatAdaptor_DEP extends RealmRecyclerViewAdapter<RealmMessageView,RealmChatAdaptor_DEP.VH> {
 	OrderedRealmCollection<RealmMessageView> data;
-	public RealmChatAdaptor(@Nullable OrderedRealmCollection<RealmMessageView> data, boolean autoUpdate) {
+	public RealmChatAdaptor_DEP(@Nullable OrderedRealmCollection<RealmMessageView> data, boolean autoUpdate) {
 		super(data, autoUpdate);
 		this.data = data;
 	}

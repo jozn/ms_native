@@ -34,11 +34,11 @@ public abstract class BaseSectionQuickAdapter<T extends SectionEntity, K extends
     }
 
     @Override
-    protected K onCreateDefViewHolder(ViewGroup parent, int viewType) {
+    protected K onCreateDefViewHolder_DONT_OVERIDE(ViewGroup parent, int viewType) {
         if (viewType == SECTION_HEADER_VIEW)
             return createBaseViewHolder(getItemView(mSectionHeadResId, parent));
 
-        return super.onCreateDefViewHolder(parent, viewType);
+        return super.onCreateDefViewHolder_DONT_OVERIDE(parent, viewType);
     }
 
     @Override

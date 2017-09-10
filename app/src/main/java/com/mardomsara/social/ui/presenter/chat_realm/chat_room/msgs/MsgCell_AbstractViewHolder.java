@@ -3,6 +3,7 @@ package com.mardomsara.social.ui.presenter.chat_realm.chat_room.msgs;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import com.mardomsara.base_rv.BaseViewHolder;
 import com.mardomsara.social.models.tables.Message;
 import com.mardomsara.social.models_realm.pb_realm.RealmMessageView;
 
@@ -16,7 +17,8 @@ import com.mardomsara.social.models_realm.pb_realm.RealmMessageView;
 // we do it this way beause of java limitations for abstract static methods and
 // the way RecyclerView.UserRowViewHolder works it must setOrReplace inflated viw in constructor so
 // this approche gives us flexblites;
-public abstract class MsgCell_AbstractViewHolder extends RecyclerView.ViewHolder {
+//public abstract class MsgCell_AbstractViewHolder extends RecyclerView.ViewHolder {
+public abstract class MsgCell_AbstractViewHolder extends BaseViewHolder {
     View grandView;
     public MsgCell_AbstractViewHolder(View itemView) {
         super(itemView);

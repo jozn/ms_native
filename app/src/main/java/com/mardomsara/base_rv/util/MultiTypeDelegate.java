@@ -48,7 +48,7 @@ public abstract class MultiTypeDelegate<T> {
         return this.layouts.get(viewType, TYPE_NOT_FOUND);
     }
 
-    private void addItemType(int type, @LayoutRes int layoutResId) {
+    protected void addItemType(int type, @LayoutRes int layoutResId) {
         if (this.layouts == null) {
             this.layouts = new SparseIntArray();
         }
