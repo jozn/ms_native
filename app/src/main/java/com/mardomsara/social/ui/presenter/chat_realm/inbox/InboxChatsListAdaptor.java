@@ -26,7 +26,8 @@ final class InboxChatsListAdaptor extends RealmRecyclerViewAdapter<RealmChatView
 
 	@Override
 	public RoomRowCellHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-		return new RoomRowCellHolder(new InboxRowCell(parent, this));
+//		return new RoomRowCellHolder(new InboxRowCell(parent, this));
+		return null;
 	}
 
 	@Override

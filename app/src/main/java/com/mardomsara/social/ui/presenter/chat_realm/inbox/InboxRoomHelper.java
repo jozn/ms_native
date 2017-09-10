@@ -1,5 +1,7 @@
 package com.mardomsara.social.ui.presenter.chat_realm.inbox;
 
+import android.support.v7.widget.RecyclerView;
+
 import com.mardomsara.social.app.Constants;
 import com.mardomsara.social.app.Router;
 import com.mardomsara.social.helpers.DialogHelper;
@@ -44,7 +46,7 @@ final class InboxRoomHelper {
             return txt;
         }
 
-        public static void moreRoomOptin(RealmChatView room, InboxChatsListAdaptor adaptor) {
+        public static void moreRoomOptin(RealmChatView room, RecyclerView.Adapter adaptor) {
             if(room == null || adaptor == null) return;
             List<DialogHelper.MenuItem> items = new ArrayList<>();
             items.add(new DialogHelper.MenuItem("پاک کردن پیام ها",(v)->{

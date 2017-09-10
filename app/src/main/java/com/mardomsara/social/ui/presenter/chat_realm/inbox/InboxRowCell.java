@@ -15,11 +15,11 @@ import com.mardomsara.social.ui.X;
 
 class InboxRowCell {
 	RealmChatView room;
-	InboxChatsListAdaptor adaptor;
+	InboxChatsListAdaptor2 adaptor;
 
 	X.Chat_ListRow x;
 
-	InboxRowCell(ViewGroup parent, InboxChatsListAdaptor adaptor) {
+	InboxRowCell(ViewGroup parent, InboxChatsListAdaptor2 adaptor) {
 		x = new X.Chat_ListRow(parent);
 		this.adaptor = adaptor;
 

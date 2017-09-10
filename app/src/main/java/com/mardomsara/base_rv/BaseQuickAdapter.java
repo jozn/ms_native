@@ -985,6 +985,7 @@ public abstract class BaseQuickAdapter<T, K extends BaseViewHolder> extends Recy
         return createBaseViewHolder(parent, layoutId);
     }
 
+    //ME: must oveide this in most situations
     protected K createBaseViewHolder(ViewGroup parent, int layoutResId) {
         return createBaseViewHolder(getItemView(layoutResId, parent));
     }
