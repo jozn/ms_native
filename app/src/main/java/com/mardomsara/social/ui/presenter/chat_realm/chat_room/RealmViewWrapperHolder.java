@@ -12,8 +12,7 @@ import io.realm.RealmResults;
  * Created by Hamid on 9/11/2017.
  */
 
-public class Wrapper {
+public class RealmViewWrapperHolder {
 	RealmResults<RealmMessageView> realmResults;
-	//	List<RealmMessageView> messageViewList;
 	Map<RealmMessageView, RealmMessageViewWrapper> map = new HashMap<>();
 }

@@ -1,4 +1,4 @@
-package com.mardomsara.social.ui.presenter.chat_realm.chat_room;
+package com.mardomsara.social.ui.presenter.chat_realm.chat_room.del;
 
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;

@@ -29,6 +29,7 @@ import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.X;
 import com.mardomsara.social.ui.cells.chats.adaptors.ChatEntryAdaptor;
 import com.mardomsara.social.ui.cells.general.KeyboardAttachmentCell;
+import com.mardomsara.social.ui.presenter.chat_realm.chat_room.del.RealmChatAdaptor_DEP;
 import com.mardomsara.social.ui.views.EmojiKeyboard;
 import com.squareup.picasso.Picasso;
 import com.sw926.imagefileselector.ImageFileSelector;
@@ -58,9 +59,9 @@ public class ChatRoomEntryPresenter extends BasePresenter implements
 
 //	ArrayListHashSetKey<Message,String> messages;
     ChatEntryAdaptor messagesAdaptor_DEP;
-    ChatRoomEntryAdaptor adaptor;
+    com.mardomsara.social.ui.presenter.chat_realm.chat_room.del.ChatRoomEntryAdaptor adaptor;
 	RealmChatAdaptor_DEP adaptor_depp;
-	ChatRoomEntryAdaptor2 adaptor2;
+	ChatRoomEntryAdaptor adaptor2;
 
     KeyboardAttachmentCell attachment_view;
     LinearLayoutManager mLayoutManager;
@@ -96,12 +97,12 @@ public class ChatRoomEntryPresenter extends BasePresenter implements
 		}
 
         messagesAdaptor_DEP = new ChatEntryAdaptor();
-        adaptor = new ChatRoomEntryAdaptor();
+        adaptor = new com.mardomsara.social.ui.presenter.chat_realm.chat_room.del.ChatRoomEntryAdaptor();
 //        adaptor_depp = new RealmChatAdaptor_DEP(realmResults,true);
-		Wrapper wrapper = new Wrapper();
+		RealmViewWrapperHolder wrapper = new RealmViewWrapperHolder();
 //		wrapper.messageViewList = messageViewList;
 		wrapper.realmResults= realmResults;
-        adaptor2 = new ChatRoomEntryAdaptor2(wrapper);
+        adaptor2 = new ChatRoomEntryAdaptor(wrapper);
 
 
 //		messages = messagesAdaptor_DEP.msgs;
