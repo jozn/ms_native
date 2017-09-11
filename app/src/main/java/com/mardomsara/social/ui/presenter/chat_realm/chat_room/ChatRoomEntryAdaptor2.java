@@ -3,9 +3,9 @@ package com.mardomsara.social.ui.presenter.chat_realm.chat_room;
 import android.view.ViewGroup;
 
 import com.mardomsara.base_rv.BaseMultiItemQuickAdapter;
-import com.mardomsara.base_rv.util.MultiTypeDelegate;
+import com.mardomsara.base_rv.BaseQuickAdapter;
 import com.mardomsara.social.helpers.AppUtil;
-import com.mardomsara.social.models.tables.Session;
+import com.mardomsara.social.models_realm.pb_realm.RealmMessageView;
 import com.mardomsara.social.ui.X;
 import com.mardomsara.social.ui.presenter.chat_realm.chat_room.msgs.MsgCell_AbstractViewHolder;
 import com.mardomsara.social.ui.presenter.chat_realm.chat_room.msgs.MsgCell_Empty;
@@ -15,24 +15,26 @@ import com.mardomsara.social.ui.presenter.chat_realm.chat_room.msgs.MsgCell_Text
 import com.mardomsara.social.ui.presenter.chat_realm.chat_room.msgs.MsgCell_TextPeer;
 import com.mardomsara.social.ui.presenter.chat_realm.chat_room.msgs.MsgCell_VideoMe;
 
-import java.util.List;
-
 import ir.ms.pb.RoomMessageTypeEnum;
 
 /**
  * Created by Hamid on 1/28/2017.
  */
-public class ChatRoomEntryAdaptor2 extends BaseMultiItemQuickAdapter<RealmMessageViewWrapper, MsgCell_AbstractViewHolder> {
+//public class ChatRoomEntryAdaptor2 extends BaseMultiItemQuickAdapter<RealmMessageView, MsgCell_AbstractViewHolder> {
+public class ChatRoomEntryAdaptor2 extends BaseQuickAdapter<RealmMessageView, MsgCell_AbstractViewHolder> {
 
 	final int ME_SHIFT = 100;
+	Wrapper wraper;
 
-	public ChatRoomEntryAdaptor2(List<RealmMessageViewWrapper> data) {
-		super(data);
-		setDefaultViewTypeLayout(X.Msg_Empty.IDS.LAYOUT);
-		addItemType(RoomMessageTypeEnum.UNKNOWN_MESSAGE_TYPE_VALUE, X.Msg_Empty.IDS.LAYOUT);
+//	public ChatRoomEntryAdaptor2(List<RealmMessageViewWrapper> data) {
+	public ChatRoomEntryAdaptor2(Wrapper data) {
+		super(data.realmResults);
+		this.wraper = data;
+//		setDefaultViewTypeLayout(X.Msg_Empty.IDS.LAYOUT);
+//		addItemType(RoomMessageTypeEnum.UNKNOWN_MESSAGE_TYPE_VALUE, X.Msg_Empty.IDS.LAYOUT);
 
 		setMultiTypeDelegate(new MultiDelegate());
-
+/*
 		//peers default - me id + 100
 		addItemType(RoomMessageTypeEnum.TEXT_VALUE, X.Msg_RowTextPeer.IDS.LAYOUT);
 		addItemType(RoomMessageTypeEnum.IMAGE_VALUE, X.Msg_RowImagePeer.IDS.LAYOUT);
@@ -47,7 +49,7 @@ public class ChatRoomEntryAdaptor2 extends BaseMultiItemQuickAdapter<RealmMessag
 		addItemType(RoomMessageTypeEnum.IMAGE_VALUE + ME_SHIFT, X.Msg_RowImageMe.IDS.LAYOUT);
 		addItemType(RoomMessageTypeEnum.IMAGE_TEXT_VALUE + ME_SHIFT, X.Msg_RowImageMe.IDS.LAYOUT);
 		addItemType(RoomMessageTypeEnum.VIDEO_VALUE + ME_SHIFT, X.Msg_RowVideoMe.IDS.LAYOUT);
-		addItemType(RoomMessageTypeEnum.VIDEO_TEXT_VALUE + ME_SHIFT, X.Msg_RowVideoMe.IDS.LAYOUT);
+		addItemType(RoomMessageTypeEnum.VIDEO_TEXT_VALUE + ME_SHIFT, X.Msg_RowVideoMe.IDS.LAYOUT);*/
 
 	}
 
@@ -100,9 +102,9 @@ public class ChatRoomEntryAdaptor2 extends BaseMultiItemQuickAdapter<RealmMessag
 	}
 
 	@Override
-	protected void convert(MsgCell_AbstractViewHolder helper, RealmMessageViewWrapper item) {
+	protected void convert(MsgCell_AbstractViewHolder helper, RealmMessageView item) {
 //		item.getItemType();
-		helper.bindToView(item.messageView);
+		helper.bindToView(item);
 	}
 }
 /*

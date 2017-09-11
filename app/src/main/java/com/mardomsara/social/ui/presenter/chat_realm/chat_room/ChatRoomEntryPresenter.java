@@ -98,7 +98,10 @@ public class ChatRoomEntryPresenter extends BasePresenter implements
         messagesAdaptor_DEP = new ChatEntryAdaptor();
         adaptor = new ChatRoomEntryAdaptor();
 //        adaptor_depp = new RealmChatAdaptor_DEP(realmResults,true);
-        adaptor2 = new ChatRoomEntryAdaptor2(messageViewList);
+		Wrapper wrapper = new Wrapper();
+//		wrapper.messageViewList = messageViewList;
+		wrapper.realmResults= realmResults;
+        adaptor2 = new ChatRoomEntryAdaptor2(wrapper);
 
 
 //		messages = messagesAdaptor_DEP.msgs;

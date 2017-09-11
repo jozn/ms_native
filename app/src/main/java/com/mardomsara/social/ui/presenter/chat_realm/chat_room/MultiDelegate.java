@@ -2,6 +2,7 @@ package com.mardomsara.social.ui.presenter.chat_realm.chat_room;
 
 import com.mardomsara.base_rv.util.MultiTypeDelegate;
 import com.mardomsara.social.models.tables.Session;
+import com.mardomsara.social.models_realm.pb_realm.RealmMessageView;
 import com.mardomsara.social.ui.X;
 
 import ir.ms.pb.RoomMessageTypeEnum;
@@ -10,7 +11,7 @@ import ir.ms.pb.RoomMessageTypeEnum;
  * Created by Hamid on 9/10/2017.
  */
 
-public class MultiDelegate  extends MultiTypeDelegate<RealmMessageViewWrapper>{
+public class MultiDelegate  extends MultiTypeDelegate<RealmMessageView>{
 	final int ME_SHIFT = 100;
 	public MultiDelegate() {
 		//peers default - me id + 100
@@ -31,9 +32,9 @@ public class MultiDelegate  extends MultiTypeDelegate<RealmMessageViewWrapper>{
 	}
 
 	@Override
-	protected int getItemType(RealmMessageViewWrapper realmMessageViewWrapper) {
-		int i = realmMessageViewWrapper.getItemType();
-		if(realmMessageViewWrapper.messageView.UserId == Session.getUserId()){
+	protected int getItemType(RealmMessageView realmMessageViewWrapper) {
+		int i = realmMessageViewWrapper.MessageTypeEnumId;
+		if(realmMessageViewWrapper.UserId == Session.getUserId()){
 			i = 100 + i;
 		}
 		return i;
