@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.mardomsara.base_rv.BaseQuickAdapter;
+import com.mardomsara.base_rv.BaseRealmRecyclerViewAdapter;
 import com.mardomsara.base_rv.BaseViewHolder;
 import com.mardomsara.social.lib.ms.ArrayListHashSetKey;
 import com.mardomsara.social.lib.realm.RealmRecyclerViewAdapter;
@@ -17,13 +18,14 @@ import com.mardomsara.social.ui.cells.chat_realm.RoomsListCell;
 
 import java.util.List;
 
+import io.realm.OrderedRealmCollection;
 import io.realm.RealmResults;
 
 
-final class InboxChatsListAdaptor2 extends BaseQuickAdapter<RealmChatView, InboxChatsListAdaptor2.RV> {
+final class InboxChatsListAdaptor2 extends BaseRealmRecyclerViewAdapter<RealmChatView, InboxChatsListAdaptor2.RV> {
 
-	public InboxChatsListAdaptor2(@Nullable List<RealmChatView> data) {
-		super(data);
+	public InboxChatsListAdaptor2(@Nullable OrderedRealmCollection<RealmChatView> data, boolean autoUpdate) {
+		super(data, autoUpdate);
 	}
 
 	@Override

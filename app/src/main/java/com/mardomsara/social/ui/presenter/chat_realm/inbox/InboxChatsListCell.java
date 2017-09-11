@@ -32,7 +32,7 @@ public class InboxChatsListCell {
 			chatViewList.add(r);
 		}
 
-		adaptor = new InboxChatsListAdaptor2(chatViewList);
+		adaptor = new InboxChatsListAdaptor2(realmResults,true);
 
 		xChatList.recycler_view.setAdapter(adaptor);
 		xChatList.recycler_view.setHasFixedSize(true);
