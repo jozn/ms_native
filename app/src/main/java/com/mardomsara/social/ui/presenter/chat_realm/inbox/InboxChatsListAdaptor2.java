@@ -79,7 +79,7 @@ final class InboxChatsListAdaptor2 extends BaseQuickAdapter<RealmChatView, Inbox
 		public void bind(RealmChatView room) {
 			this.room = room;
 			roomRowCell.bind(room);
-			roomRowCell.x.root.setBackgroundColor(Color.CYAN);
+//			roomRowCell.x.root.setBackgroundColor(Color.CYAN);
 		}
 	}
 }

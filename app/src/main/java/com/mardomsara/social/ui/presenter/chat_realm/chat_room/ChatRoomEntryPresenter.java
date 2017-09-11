@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 
 import com.mardomsara.social.App;
@@ -173,7 +175,7 @@ public class ChatRoomEntryPresenter extends BasePresenter implements
     }
 
     void setUpInputOnTextTextChanged(){
-        /*x.edit_field.addTextChangedListener(new TextWatcher(){
+        x.edit_field.addTextChangedListener(new TextWatcher(){
 
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -195,7 +197,7 @@ public class ChatRoomEntryPresenter extends BasePresenter implements
             public void afterTextChanged(Editable editable) {
 
             }
-        });*/
+        });
     }
 
     void addNewMsg(){
