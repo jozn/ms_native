@@ -19,6 +19,7 @@ import com.mardomsara.social.models.tables.Message;
 import com.mardomsara.social.models_realm.RealmChatViewHelper;
 import com.mardomsara.social.models_realm.pb_realm.RealmChatView;
 import com.mardomsara.social.models_realm.pb_realm.RealmMessageView;
+import com.mardomsara.social.models_realm.pb_realm.RealmMessageViewFields;
 import com.mardomsara.social.pipe_pb.from_net_calls.events.MsgReceivedToServerEvent;
 import com.mardomsara.social.pipe_pb.from_net_calls.json.MsgAddManyJson;
 import com.mardomsara.social.pipe_pb.from_net_calls.json.MsgAddOneJson;
@@ -42,6 +43,7 @@ import java.util.List;
 
 import io.realm.Realm;
 import io.realm.RealmResults;
+import io.realm.Sort;
 
 /**
  * Created by Hamid on 5/4/2016.
@@ -87,7 +89,7 @@ public class ChatRoomEntryPresenter extends BasePresenter implements
         Nav.hideFooter();
 
 		Realm realm = MSRealm.getChatRealm();
-		RealmResults<RealmMessageView> realmResults = realm.where(RealmMessageView.class).findAll();
+		RealmResults<RealmMessageView> realmResults = realm.where(RealmMessageView.class).equalTo(RealmMessageViewFields.CHAT_ID, room.ChatId).findAllSorted(RealmMessageViewFields.MESSAGE_ID, Sort.DESCENDING);
 
 		List<RealmMessageViewWrapper> messageViewList = new ArrayList<>();
 		for (RealmMessageView messageView: realmResults){
@@ -205,6 +207,12 @@ public class ChatRoomEntryPresenter extends BasePresenter implements
     }
 
     void addNewMsg(){
+
+		ModelChatEntry.addNewTextMessage(room,x.edit_field.getText().toString());
+		x.edit_field.setText("");
+		adaptor2.notifyDataSetChanged();
+		mLayoutManager.scrollToPosition(0);
+
         /*Message msg =  MessageModel.newTextMsgForRoom_ByMe(room);
         msg.MessageTypeId = Constants.MESSAGE_TEXT;
         msg.Text = x.edit_field.getText().toString();

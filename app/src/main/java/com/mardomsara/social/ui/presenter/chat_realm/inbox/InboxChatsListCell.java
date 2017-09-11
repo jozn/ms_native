@@ -5,6 +5,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import com.mardomsara.social.app.MSRealm;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.models_realm.pb_realm.RealmChatView;
+import com.mardomsara.social.models_realm.pb_realm.RealmChatViewFields;
 import com.mardomsara.social.ui.X;
 
 import java.util.ArrayList;
@@ -19,12 +20,12 @@ import io.realm.Sort;
  */
 public class InboxChatsListCell {
 
-    InboxChatsListAdaptor2 adaptor;
+    InboxChatsListAdaptor adaptor;
 	LinearLayoutManager layoutManager = new LinearLayoutManager(AppUtil.getContext());
 	public X.InboxChatList xChatList = new X.InboxChatList();
 
     public InboxChatsListCell() {
-		RealmResults<RealmChatView> realmResults = MSRealm.getChatRealm().where(RealmChatView.class).findAllSorted("UpdatedMs", Sort.DESCENDING);
+		RealmResults<RealmChatView> realmResults = MSRealm.getChatRealm().where(RealmChatView.class).findAllSorted(RealmChatViewFields.UPDATED_MS, Sort.DESCENDING);
 
 //		adaptor = new InboxChatsListAdaptor(realmResults);
 		List<RealmChatView> chatViewList = new ArrayList<>();
@@ -32,7 +33,7 @@ public class InboxChatsListCell {
 			chatViewList.add(r);
 		}
 
-		adaptor = new InboxChatsListAdaptor2(realmResults,true);
+		adaptor = new InboxChatsListAdaptor(realmResults,true);
 
 		xChatList.recycler_view.setAdapter(adaptor);
 		xChatList.recycler_view.setHasFixedSize(true);

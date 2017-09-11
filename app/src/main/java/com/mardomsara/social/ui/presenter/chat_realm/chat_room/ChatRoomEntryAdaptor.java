@@ -3,6 +3,7 @@ package com.mardomsara.social.ui.presenter.chat_realm.chat_room;
 import android.view.ViewGroup;
 
 import com.mardomsara.base_rv.BaseQuickAdapter;
+import com.mardomsara.base_rv.BaseRealmRecyclerViewAdapter;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.models_realm.pb_realm.RealmMessageView;
 import com.mardomsara.social.ui.presenter.chat_realm.chat_room.msgs.MsgCell_AbstractViewHolder;
@@ -18,13 +19,13 @@ import ir.ms.pb.RoomMessageTypeEnum;
 /**
  * Created by Hamid on 1/28/2017.
  */
-public class ChatRoomEntryAdaptor extends BaseQuickAdapter<RealmMessageView, MsgCell_AbstractViewHolder> {
+public class ChatRoomEntryAdaptor extends BaseRealmRecyclerViewAdapter<RealmMessageView, MsgCell_AbstractViewHolder> {
 
 	final int ME_SHIFT = 100;
 	RealmViewWrapperHolder wraper;
 
 	public ChatRoomEntryAdaptor(RealmViewWrapperHolder data) {
-		super(data.realmResults);
+		super(data.realmResults,true);
 		this.wraper = data;
 
 		setMultiTypeDelegate(new MultiDelegate());

@@ -1,46 +1,63 @@
 package com.mardomsara.social.ui.presenter.chat_realm.inbox;
 
 
-import android.support.v7.widget.RecyclerView;
+import android.support.annotation.Nullable;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.mardomsara.social.lib.ms.ArrayListHashSetKey;
-import com.mardomsara.social.lib.realm.RealmRecyclerViewAdapter;
-import com.mardomsara.social.models.tables.Room;
+import com.mardomsara.base_rv.BaseRealmRecyclerViewAdapter;
+import com.mardomsara.base_rv.BaseViewHolder;
 import com.mardomsara.social.models_realm.pb_realm.RealmChatView;
 import com.mardomsara.social.ui.cells.chat_realm.RoomsListCell;
 
-import io.realm.RealmResults;
+import io.realm.OrderedRealmCollection;
 
 
-final class InboxChatsListAdaptor extends RealmRecyclerViewAdapter<RealmChatView, InboxChatsListAdaptor.RoomRowCellHolder> {
-	ArrayListHashSetKey<Room, String> roomsList = null;//; new ArrayList<>();
+final class InboxChatsListAdaptor extends BaseRealmRecyclerViewAdapter<RealmChatView, InboxChatsListAdaptor.RV> {
 
-	RealmResults<RealmChatView> rooms;
-
-	InboxChatsListAdaptor(RealmResults<RealmChatView> rooms) {
-		super(rooms, true);
-		this.rooms = rooms;
+	public InboxChatsListAdaptor(@Nullable OrderedRealmCollection<RealmChatView> data, boolean autoUpdate) {
+		super(data, autoUpdate);
 	}
 
 	@Override
-	public RoomRowCellHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-//		return new RoomRowCellHolder(new InboxRowCell(parent, this));
-		return null;
+	protected int getDefItemViewType(int position) {
+		return super.getDefItemViewType(position);
+	}
+
+	/*@Override
+	public void onBindViewHolder(RV holder, int position, List<Object> payloads) {
+		super.onBindViewHolder(holder, position, payloads);
+	}*/
+
+	/*@Override
+	public RV onCreateViewHolder(ViewGroup parent, int viewType) {
+		return super.onCreateViewHolder(parent, viewType);
+	}*/
+
+	@Override
+	protected RV createBaseViewHolder(ViewGroup parent, int layoutResId, int typeId) {
+		return new RV(new InboxRowCell(parent, this));
 	}
 
 	@Override
-	public void onBindViewHolder(RoomRowCellHolder holder, int position) {
-		holder.bind(rooms.get(position));
+	protected void convert(RV helper, RealmChatView item) {
+//		super.convert();
+		helper.bind(item);
 	}
 
-	static class RoomRowCellHolder extends RecyclerView.ViewHolder {
+	/*static class RV extends BaseViewHolder {
+
+		public RV(View view) {
+			super(view);
+		}
+	}*/
+
+	static class RV extends BaseViewHolder {
 		public RealmChatView room;
 		public View root_view;
 		InboxRowCell roomRowCell;
 
-		RoomRowCellHolder(InboxRowCell rowCell) {
+		RV(InboxRowCell rowCell) {
 			super(rowCell.x.root);
 			roomRowCell = rowCell;
 
@@ -55,8 +72,7 @@ final class InboxChatsListAdaptor extends RealmRecyclerViewAdapter<RealmChatView
 		public void bind(RealmChatView room) {
 			this.room = room;
 			roomRowCell.bind(room);
+//			roomRowCell.x.root.setBackgroundColor(Color.CYAN);
 		}
 	}
-
-
 }

@@ -10,16 +10,15 @@ import com.mardomsara.social.helpers.FormaterUtil;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.models_realm.RealmChatViewHelper;
 import com.mardomsara.social.models_realm.pb_realm.RealmChatView;
-import com.mardomsara.social.models_realm.pb_realm.RealmMessageView;
 import com.mardomsara.social.ui.X;
 
 class InboxRowCell {
 	RealmChatView room;
-	InboxChatsListAdaptor2 adaptor;
+	InboxChatsListAdaptor adaptor;
 
 	X.Chat_ListRow x;
 
-	InboxRowCell(ViewGroup parent, InboxChatsListAdaptor2 adaptor) {
+	InboxRowCell(ViewGroup parent, InboxChatsListAdaptor adaptor) {
 		x = new X.Chat_ListRow(parent);
 		this.adaptor = adaptor;
 

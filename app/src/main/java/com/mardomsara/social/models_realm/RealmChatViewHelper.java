@@ -5,7 +5,9 @@ import android.support.annotation.Nullable;
 
 import com.mardomsara.social.app.MSRealm;
 import com.mardomsara.social.models_realm.pb_realm.RealmChatView;
+import com.mardomsara.social.models_realm.pb_realm.RealmChatViewFields;
 import com.mardomsara.social.models_realm.pb_realm.RealmMessageView;
+import com.mardomsara.social.models_realm.pb_realm.RealmMessageViewFields;
 
 import java.util.List;
 
@@ -51,6 +53,12 @@ public class RealmChatViewHelper {
 		RealmChatView chatView = realm.where(RealmChatView.class).equalTo("ChatId", chatId).findFirst();
 		realm.close();
 
+		return chatView;
+	}
+
+	public static
+	@Nullable RealmChatView getChatByChatKey(Realm realm,String chatId) {
+		RealmChatView chatView = realm.where(RealmChatView.class).equalTo(RealmChatViewFields.CHAT_KEY, chatId).findFirst();
 		return chatView;
 	}
 
