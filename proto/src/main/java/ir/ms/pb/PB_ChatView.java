@@ -21,12 +21,20 @@ public  final class PB_ChatView extends
   public static final int CHATKEY_FIELD_NUMBER = 3;
   private java.lang.String chatKey_;
   /**
+   * <pre>
+   *use as RemoteId
+   * </pre>
+   *
    * <code>string ChatKey = 3;</code>
    */
   public java.lang.String getChatKey() {
     return chatKey_;
   }
   /**
+   * <pre>
+   *use as RemoteId
+   * </pre>
+   *
    * <code>string ChatKey = 3;</code>
    */
   public com.google.protobuf.ByteString
@@ -34,6 +42,10 @@ public  final class PB_ChatView extends
     return com.google.protobuf.ByteString.copyFromUtf8(chatKey_);
   }
   /**
+   * <pre>
+   *use as RemoteId
+   * </pre>
+   *
    * <code>string ChatKey = 3;</code>
    */
   private void setChatKey(
@@ -45,6 +57,10 @@ public  final class PB_ChatView extends
     chatKey_ = value;
   }
   /**
+   * <pre>
+   *use as RemoteId
+   * </pre>
+   *
    * <code>string ChatKey = 3;</code>
    */
   private void clearChatKey() {
@@ -52,6 +68,10 @@ public  final class PB_ChatView extends
     chatKey_ = getDefaultInstance().getChatKey();
   }
   /**
+   * <pre>
+   *use as RemoteId
+   * </pre>
+   *
    * <code>string ChatKey = 3;</code>
    */
   private void setChatKeyBytes(
@@ -810,12 +830,20 @@ public  final class PB_ChatView extends
 
 
     /**
+     * <pre>
+     *use as RemoteId
+     * </pre>
+     *
      * <code>string ChatKey = 3;</code>
      */
     public java.lang.String getChatKey() {
       return instance.getChatKey();
     }
     /**
+     * <pre>
+     *use as RemoteId
+     * </pre>
+     *
      * <code>string ChatKey = 3;</code>
      */
     public com.google.protobuf.ByteString
@@ -823,6 +851,10 @@ public  final class PB_ChatView extends
       return instance.getChatKeyBytes();
     }
     /**
+     * <pre>
+     *use as RemoteId
+     * </pre>
+     *
      * <code>string ChatKey = 3;</code>
      */
     public Builder setChatKey(
@@ -832,6 +864,10 @@ public  final class PB_ChatView extends
       return this;
     }
     /**
+     * <pre>
+     *use as RemoteId
+     * </pre>
+     *
      * <code>string ChatKey = 3;</code>
      */
     public Builder clearChatKey() {
@@ -840,6 +876,10 @@ public  final class PB_ChatView extends
       return this;
     }
     /**
+     * <pre>
+     *use as RemoteId
+     * </pre>
+     *
      * <code>string ChatKey = 3;</code>
      */
     public Builder setChatKeyBytes(

@@ -134,20 +134,20 @@ public class ModelChatEntry {
 			r.MessageFileId = NanoTimestamp.getNano() ;//0
 			r.Name = "";//1
 			r.Size = (int)file.length();//2
-			r.FileTypeEnum = 0;//3
-			r.MimeType = file.getName();//4
+			r.FileTypeEnumId = 0;//3
+//			r.MimeType = file.getName();//4
 			r.Width = mBitmap.getWidth();//5
 			r.Height = mBitmap.getHeight();//6
 			r.Duration = 0;//7
 			r.Extension = ".jpg";//8
-			r.ThumbData64 ="" ;//9
+//			r.ThumbData64 ="" ;//9
 			r.ServerSrc = "" ;//10
 			r.ServerPath = "" ;//11
 			r.ServerThumbPath = "";//12
 			r.BucketId = "" ;//13
 			r.ServerId = 0 ;//14
 			r.CanDel = 1 ;//15
-			r.CreatedTime = (int)AppUtil.getTime();//16
+			r.CreatedSe = (int)AppUtil.getTime();//16
 
 			/*msgFile.Thumb64 = ImageUtil.blurThumbnailToBase64(mBitmap);
 			msgFile.ThumbData = ImageUtil.blurThumbnailToBytesArray(mBitmap);

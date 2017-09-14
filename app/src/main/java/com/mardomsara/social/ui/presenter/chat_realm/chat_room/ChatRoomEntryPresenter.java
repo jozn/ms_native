@@ -75,52 +75,56 @@ public class ChatRoomEntryPresenter extends BasePresenter implements
 
 	X.ChatRoom_ScreenParent x;
 
-    @Override
+	RealmResults<RealmMessageView> realmResults;
+	@Override
     public View buildView() {
 		x = new X.ChatRoom_ScreenParent();
 
-        x.send_msg_btn.setOnClickListener((v)->addNewMsg());
+		AndroidUtil.runInUi(()->{
 
-        x.edit_field.setOnClickListener((v)->{
-            AppUtil.log("Keybord");
-        });
-        x.edit_field.requestFocus();
 
-        Nav.hideFooter();
+			x.send_msg_btn.setOnClickListener((v)->addNewMsg());
 
-		Realm realm = MSRealm.getChatRealm();
-		RealmResults<RealmMessageView> realmResults = realm.where(RealmMessageView.class).equalTo(RealmMessageViewFields.CHAT_ID, room.ChatId).findAllSorted(RealmMessageViewFields.MESSAGE_ID, Sort.DESCENDING);
+			x.edit_field.setOnClickListener((v)->{
+				AppUtil.log("Keybord");
+			});
+			x.edit_field.requestFocus();
 
-		List<RealmMessageViewWrapper> messageViewList = new ArrayList<>();
-		for (RealmMessageView messageView: realmResults){
-			RealmMessageViewWrapper viewWrapper = new RealmMessageViewWrapper();
-			viewWrapper.messageView = messageView;
-			messageViewList.add(viewWrapper);
-		}
+			Nav.hideFooter();
 
-        messagesAdaptor_DEP = new ChatEntryAdaptor();
+			Realm realm = MSRealm.getChatRealm();
+			realmResults = realm.where(RealmMessageView.class).equalTo(RealmMessageViewFields.CHAT_ID, room.ChatId).findAllSorted(RealmMessageViewFields.MESSAGE_ID, Sort.DESCENDING);
+
+			List<RealmMessageViewWrapper> messageViewList = new ArrayList<>();
+			for (RealmMessageView messageView: realmResults){
+				RealmMessageViewWrapper viewWrapper = new RealmMessageViewWrapper();
+				viewWrapper.messageView = messageView;
+				messageViewList.add(viewWrapper);
+			}
+
+			messagesAdaptor_DEP = new ChatEntryAdaptor();
 //        adaptor = new com.mardomsara.social.ui.presenter.chat_realm.chat_room.del.ChatRoomEntryAdaptor();
 //        adaptor_depp = new RealmChatAdaptor_DEP(realmResults,true);
-		RealmViewWrapperHolder wrapper = new RealmViewWrapperHolder();
+			RealmViewWrapperHolder wrapper = new RealmViewWrapperHolder();
 //		wrapper.messageViewList = messageViewList;
-		wrapper.realmResults= realmResults;
-        adaptor2 = new ChatRoomEntryAdaptor(wrapper);
+			wrapper.realmResults= realmResults;
+			adaptor2 = new ChatRoomEntryAdaptor(wrapper);
 
 
 //		messages = messagesAdaptor_DEP.msgs;
 
-        mLayoutManager = new LinearLayoutManager(AppUtil.getContext());
+			mLayoutManager = new LinearLayoutManager(AppUtil.getContext());
 
-        mLayoutManager.setSmoothScrollbarEnabled(true);
-        mLayoutManager.setReverseLayout(true);
-        mLayoutManager.setStackFromEnd(true);
-        mLayoutManager.scrollToPositionWithOffset(0,10000);
+			mLayoutManager.setSmoothScrollbarEnabled(true);
+			mLayoutManager.setReverseLayout(true);
+			mLayoutManager.setStackFromEnd(true);
+			mLayoutManager.scrollToPositionWithOffset(0,10000);
 
 //        x.recycler_view.setAdapter(messagesAdaptor_DEP);
 //        x.recycler_view.setAdapter(adaptor_depp);
-        x.recycler_view.setAdapter(adaptor2);
-        x.recycler_view.setLayoutManager(mLayoutManager);
-        x.recycler_view.setHasFixedSize(false);
+			x.recycler_view.setAdapter(adaptor2);
+			x.recycler_view.setLayoutManager(mLayoutManager);
+			x.recycler_view.setHasFixedSize(false);
 
 //        messagesAdaptor_DEP.setUpForPaginationWith(x.recycler_view,mLayoutManager,this);
 //		messagesAdaptor_DEP.setRecyclerView(x.recycler_view);
@@ -128,36 +132,43 @@ public class ChatRoomEntryPresenter extends BasePresenter implements
 //		adaptor.setUpForPaginationWith(x.recycler_view,mLayoutManager,this);
 //		adaptor.setRecyclerView(x.recycler_view);
 
-        x.back.setOnClickListener((v)-> {
-			onBack();
-			Nav.pop();
-		});
+			x.back.setOnClickListener((v)-> {
+				onBack();
+				Nav.pop();
+			});
 
 //        x.room_name.setText(room.getRoomName());
-        x.room_name.setText(RealmChatViewHelper.getRoomName(room));
-        App.getBus().register(this);
+			x.room_name.setText(RealmChatViewHelper.getRoomName(room));
+			App.getBus().register(this);
 
-        emojiKeyboard = new EmojiKeyboard(x.edit_field,x.emoji_opener_btn, AppUtil.global_window);
+			emojiKeyboard = new EmojiKeyboard(x.edit_field,x.emoji_opener_btn, AppUtil.global_window);
 
-        that = this;
-        x.attach_btn.setOnClickListener((v)->{ showAttachmentWindow();});
-        //todo later fix this for G
+			that = this;
+			x.attach_btn.setOnClickListener((v)->{ showAttachmentWindow();});
+			//todo later fix this for G
 //        AppUtil.listanAndSaveKewordSize(view);
 
-        setUpInputOnTextTextChanged();
+			setUpInputOnTextTextChanged();
 
-        Uri imageUri = Helper.PathToUserAvatarUri(RealmChatViewHelper.getRoomAvatarUrl(room));
-        Picasso.with(AppUtil.getContext())
-                .load(imageUri)
-                .into(x.avatar);
+			Uri imageUri = Helper.PathToUserAvatarUri(RealmChatViewHelper.getRoomAvatarUrl(room));
+			Picasso.with(AppUtil.getContext())
+				.load(imageUri)
+				.into(x.avatar);
 
 //		RoomModel.updateRoomSeenMsgsToNow_BG(room);
+
+
+		});
+
 
 		return x.root;
     }
 
 	@Override
     public void onDestroy() {
+		if(realmResults != null){
+			realmResults.removeAllChangeListeners();
+		}
         /*super.onDestroy();
         App.getBus().unregister(this);
         AppUtil.unRegisterKeywoardlistaner(view);
@@ -177,6 +188,7 @@ public class ChatRoomEntryPresenter extends BasePresenter implements
         if(emojiKeyboard != null){
             emojiKeyboard.destroy();
         }
+
         Nav.showFooter();
     }
 

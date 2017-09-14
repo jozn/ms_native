@@ -170,7 +170,7 @@ public class SuggestionsTagsPresenter extends BasePresenter implements AppHeader
         void setImage(ImageView image, JV.PostView postView, String tag, JV.PostView post) {
 			image.setVisibility(View.VISIBLE);
 			//todo extract this url
-            String src = Helper.postsGetBestPhotoResUrl(postView.PhotoView,s) ;//"http://localhost:5000/"+src;
+            String src = Helper.postsGetBestPhotoResUrl(postView.PhotoView,s) ;//"http://192.168.0.105:5000/"+src;
             AppUtil.log("SCC2" +src);
             if(src.equals("")) return;
             Picasso.with(AppUtil.getContext())

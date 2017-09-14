@@ -364,6 +364,29 @@ public  final class PB_MessageView extends
     isByMe_ = false;
   }
 
+  public static final int REMOTEID_FIELD_NUMBER = 50;
+  private boolean remoteId_;
+  /**
+   * <code>bool RemoteId = 50;</code>
+   */
+  public boolean getRemoteId() {
+    return remoteId_;
+  }
+  /**
+   * <code>bool RemoteId = 50;</code>
+   */
+  private void setRemoteId(boolean value) {
+    
+    remoteId_ = value;
+  }
+  /**
+   * <code>bool RemoteId = 50;</code>
+   */
+  private void clearRemoteId() {
+    
+    remoteId_ = false;
+  }
+
   public static final int FILE_FIELD_NUMBER = 100;
   private ir.ms.pb.PB_MessageFileView file_;
   /**
@@ -457,6 +480,9 @@ public  final class PB_MessageView extends
     if (isByMe_ != false) {
       output.writeBool(33, isByMe_);
     }
+    if (remoteId_ != false) {
+      output.writeBool(50, remoteId_);
+    }
     if (file_ != null) {
       output.writeMessage(100, getFile());
     }
@@ -518,6 +544,10 @@ public  final class PB_MessageView extends
     if (isByMe_ != false) {
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(33, isByMe_);
+    }
+    if (remoteId_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(50, remoteId_);
     }
     if (file_ != null) {
       size += com.google.protobuf.CodedOutputStream
@@ -947,6 +977,29 @@ public  final class PB_MessageView extends
     }
 
     /**
+     * <code>bool RemoteId = 50;</code>
+     */
+    public boolean getRemoteId() {
+      return instance.getRemoteId();
+    }
+    /**
+     * <code>bool RemoteId = 50;</code>
+     */
+    public Builder setRemoteId(boolean value) {
+      copyOnWrite();
+      instance.setRemoteId(value);
+      return this;
+    }
+    /**
+     * <code>bool RemoteId = 50;</code>
+     */
+    public Builder clearRemoteId() {
+      copyOnWrite();
+      instance.clearRemoteId();
+      return this;
+    }
+
+    /**
      * <code>.PB_MessageFileView File = 100;</code>
      */
     public boolean hasFile() {
@@ -1038,6 +1091,8 @@ public  final class PB_MessageView extends
             other.roomTypeEnumId_ != 0, other.roomTypeEnumId_);
         isByMe_ = visitor.visitBoolean(isByMe_ != false, isByMe_,
             other.isByMe_ != false, other.isByMe_);
+        remoteId_ = visitor.visitBoolean(remoteId_ != false, remoteId_,
+            other.remoteId_ != false, other.remoteId_);
         file_ = visitor.visitMessage(file_, other.file_);
         if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
             .INSTANCE) {
@@ -1128,6 +1183,11 @@ public  final class PB_MessageView extends
               case 264: {
 
                 isByMe_ = input.readBool();
+                break;
+              }
+              case 400: {
+
+                remoteId_ = input.readBool();
                 break;
               }
               case 802: {

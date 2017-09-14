@@ -83,6 +83,11 @@ public interface PB_MessageViewOrBuilder extends
   boolean getIsByMe();
 
   /**
+   * <code>bool RemoteId = 50;</code>
+   */
+  boolean getRemoteId();
+
+  /**
    * <code>.PB_MessageFileView File = 100;</code>
    */
   boolean hasFile();

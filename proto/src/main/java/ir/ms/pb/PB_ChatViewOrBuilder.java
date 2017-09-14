@@ -8,10 +8,18 @@ public interface PB_ChatViewOrBuilder extends
     com.google.protobuf.MessageLiteOrBuilder {
 
   /**
+   * <pre>
+   *use as RemoteId
+   * </pre>
+   *
    * <code>string ChatKey = 3;</code>
    */
   java.lang.String getChatKey();
   /**
+   * <pre>
+   *use as RemoteId
+   * </pre>
+   *
    * <code>string ChatKey = 3;</code>
    */
   com.google.protobuf.ByteString

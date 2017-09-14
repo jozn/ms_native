@@ -104,7 +104,7 @@ public class PostsGridAdaptor extends AppHeaderFooterRecyclerViewAdapter<PostsGr
                 int screenSize = AndroidUtil.getScreenWidth()/ 3;
 //                ViewHelper.setImageSizesWithMaxPx(imageView,screenSize,screenSize,post.Width,post.Height);
                 v.img.setVisibility(View.VISIBLE);
-//                String urlStr = "http://localhost:5000/"+post.MediaUrl;
+//                String urlStr = "http://192.168.0.105:5000/"+post.MediaUrl;
                 String urlStr = Helper.postsGetBestPhotoResUrl(post.PhotoView, screenSize);
 
                 /*Picasso.with(AppUtil.getContext())

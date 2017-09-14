@@ -2321,6 +2321,89 @@ public class PBFlatTypes {
 	t.DeliviryStatusEnum = m.getDeliviryStatusEnum() ;
 	*/
 
+	public class PB_MessageFile {
+	   public long MessageFileId;
+	   public String Name;
+	   public int Size;
+	   public int FileTypeEnumId;
+	   public int Width;
+	   public int Height;
+	   public int Duration;
+	   public String Extension;
+	   public String HashMd5;
+	   public long HashAccess;
+	   public int CreatedSe;
+	   public String ServerSrc;
+	   public String ServerPath;
+	   public String ServerThumbPath;
+	   public String BucketId;
+	   public int ServerId;
+	   public int CanDel;
+	}
+	/*
+	folding
+	PBFlatTypes.PB_MessageFile t = new PBFlatTypes.PB_MessageFile();
+    t.setMessageFileId();
+    t.setName();
+    t.setSize();
+    t.setFileTypeEnumId();
+    t.setWidth();
+    t.setHeight();
+    t.setDuration();
+    t.setExtension();
+    t.setHashMd5();
+    t.setHashAccess();
+    t.setCreatedSe();
+    t.setServerSrc();
+    t.setServerPath();
+    t.setServerThumbPath();
+    t.setBucketId();
+    t.setServerId();
+    t.setCanDel();
+	*/
+
+	/*
+	PBFlatTypes.PB_MessageFile t = new PBFlatTypes.PB_MessageFile();
+	t.MessageFileId = ;
+	t.Name = ;
+	t.Size = ;
+	t.FileTypeEnumId = ;
+	t.Width = ;
+	t.Height = ;
+	t.Duration = ;
+	t.Extension = ;
+	t.HashMd5 = ;
+	t.HashAccess = ;
+	t.CreatedSe = ;
+	t.ServerSrc = ;
+	t.ServerPath = ;
+	t.ServerThumbPath = ;
+	t.BucketId = ;
+	t.ServerId = ;
+	t.CanDel = ;
+	*/
+
+	/*
+	PB_MessageFile t = new PB_MessageFile();
+	t.MessageFileId = m.getMessageFileId() ;
+	t.Name = m.getName() ;
+	t.Size = m.getSize() ;
+	t.FileTypeEnumId = m.getFileTypeEnumId() ;
+	t.Width = m.getWidth() ;
+	t.Height = m.getHeight() ;
+	t.Duration = m.getDuration() ;
+	t.Extension = m.getExtension() ;
+	t.HashMd5 = m.getHashMd5() ;
+	t.HashAccess = m.getHashAccess() ;
+	t.CreatedSe = m.getCreatedSe() ;
+	t.ServerSrc = m.getServerSrc() ;
+	t.ServerPath = m.getServerPath() ;
+	t.ServerThumbPath = m.getServerThumbPath() ;
+	t.BucketId = m.getBucketId() ;
+	t.ServerId = m.getServerId() ;
+	t.CanDel = m.getCanDel() ;
+	*/
+
 	public class PB_User {
 	   public int Id;
 	   public String UserName;
@@ -2823,6 +2906,7 @@ public class PBFlatTypes {
 	   public long ChatId;
 	   public int RoomTypeEnumId;
 	   public boolean IsByMe;
+	   public boolean RemoteId;
 	   public PB_MessageFileView File;
 	}
 	/*
@@ -2841,6 +2925,7 @@ public class PBFlatTypes {
     t.setChatId();
     t.setRoomTypeEnumId();
     t.setIsByMe();
+    t.setRemoteId();
     t.setFile();
 	*/
 
@@ -2859,6 +2944,7 @@ public class PBFlatTypes {
 	t.ChatId = ;
 	t.RoomTypeEnumId = ;
 	t.IsByMe = ;
+	t.RemoteId = ;
 	t.File = ;
 	*/
 
@@ -2877,90 +2963,115 @@ public class PBFlatTypes {
 	t.ChatId = m.getChatId() ;
 	t.RoomTypeEnumId = m.getRoomTypeEnumId() ;
 	t.IsByMe = m.getIsByMe() ;
+	t.RemoteId = m.getRemoteId() ;
 	t.File = m.getFile() ;
 	*/
 
 	public class PB_MessageFileView {
 	   public long MessageFileId;
+	   public int OriginalUserId;
 	   public String Name;
 	   public int Size;
-	   public int FileTypeEnum;
-	   public String MimeType;
+	   public int FileTypeEnumId;
 	   public int Width;
 	   public int Height;
 	   public int Duration;
 	   public String Extension;
-	   public String ThumbData64;
+	   public String HashMd5;
+	   public long HashAccess;
+	   public int CreatedSe;
 	   public String ServerSrc;
 	   public String ServerPath;
 	   public String ServerThumbPath;
 	   public String BucketId;
 	   public int ServerId;
 	   public int CanDel;
-	   public int CreatedTime;
+	   public String ServerThumbLocalSrc;
+	   public long RemoteMessageFileId;
+	   public String LocalSrc;
+	   public String ThumbLocalSrc;
+	   public String MessageFileStatusId;
 	}
 	/*
 	folding
 	PBFlatTypes.PB_MessageFileView t = new PBFlatTypes.PB_MessageFileView();
     t.setMessageFileId();
+    t.setOriginalUserId();
     t.setName();
     t.setSize();
-    t.setFileTypeEnum();
-    t.setMimeType();
+    t.setFileTypeEnumId();
     t.setWidth();
     t.setHeight();
     t.setDuration();
     t.setExtension();
-    t.setThumbData64();
+    t.setHashMd5();
+    t.setHashAccess();
+    t.setCreatedSe();
     t.setServerSrc();
     t.setServerPath();
     t.setServerThumbPath();
     t.setBucketId();
     t.setServerId();
     t.setCanDel();
-    t.setCreatedTime();
+    t.setServerThumbLocalSrc();
+    t.setRemoteMessageFileId();
+    t.setLocalSrc();
+    t.setThumbLocalSrc();
+    t.setMessageFileStatusId();
 	*/
 
 	/*
 	PBFlatTypes.PB_MessageFileView t = new PBFlatTypes.PB_MessageFileView();
 	t.MessageFileId = ;
+	t.OriginalUserId = ;
 	t.Name = ;
 	t.Size = ;
-	t.FileTypeEnum = ;
-	t.MimeType = ;
+	t.FileTypeEnumId = ;
 	t.Width = ;
 	t.Height = ;
 	t.Duration = ;
 	t.Extension = ;
-	t.ThumbData64 = ;
+	t.HashMd5 = ;
+	t.HashAccess = ;
+	t.CreatedSe = ;
 	t.ServerSrc = ;
 	t.ServerPath = ;
 	t.ServerThumbPath = ;
 	t.BucketId = ;
 	t.ServerId = ;
 	t.CanDel = ;
-	t.CreatedTime = ;
+	t.ServerThumbLocalSrc = ;
+	t.RemoteMessageFileId = ;
+	t.LocalSrc = ;
+	t.ThumbLocalSrc = ;
+	t.MessageFileStatusId = ;
 	*/
 
 	/*
 	PB_MessageFileView t = new PB_MessageFileView();
 	t.MessageFileId = m.getMessageFileId() ;
+	t.OriginalUserId = m.getOriginalUserId() ;
 	t.Name = m.getName() ;
 	t.Size = m.getSize() ;
-	t.FileTypeEnum = m.getFileTypeEnum() ;
-	t.MimeType = m.getMimeType() ;
+	t.FileTypeEnumId = m.getFileTypeEnumId() ;
 	t.Width = m.getWidth() ;
 	t.Height = m.getHeight() ;
 	t.Duration = m.getDuration() ;
 	t.Extension = m.getExtension() ;
-	t.ThumbData64 = m.getThumbData64() ;
+	t.HashMd5 = m.getHashMd5() ;
+	t.HashAccess = m.getHashAccess() ;
+	t.CreatedSe = m.getCreatedSe() ;
 	t.ServerSrc = m.getServerSrc() ;
 	t.ServerPath = m.getServerPath() ;
 	t.ServerThumbPath = m.getServerThumbPath() ;
 	t.BucketId = m.getBucketId() ;
 	t.ServerId = m.getServerId() ;
 	t.CanDel = m.getCanDel() ;
-	t.CreatedTime = m.getCreatedTime() ;
+	t.ServerThumbLocalSrc = m.getServerThumbLocalSrc() ;
+	t.RemoteMessageFileId = m.getRemoteMessageFileId() ;
+	t.LocalSrc = m.getLocalSrc() ;
+	t.ThumbLocalSrc = m.getThumbLocalSrc() ;
+	t.MessageFileStatusId = m.getMessageFileStatusId() ;
 	*/
 
 	public class PB_UserView {
