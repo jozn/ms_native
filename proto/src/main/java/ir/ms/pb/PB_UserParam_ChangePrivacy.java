@@ -4,51 +4,59 @@
 package ir.ms.pb;
 
 /**
- *
- *
  * <pre>
  * </pre>
  *
  * Protobuf type {@code PB_UserParam_ChangePrivacy}
  */
-public final class PB_UserParam_ChangePrivacy
-    extends com.google.protobuf.GeneratedMessageLite<
-        PB_UserParam_ChangePrivacy, PB_UserParam_ChangePrivacy.Builder>
-    implements
+public  final class PB_UserParam_ChangePrivacy extends
+    com.google.protobuf.GeneratedMessageLite<
+        PB_UserParam_ChangePrivacy, PB_UserParam_ChangePrivacy.Builder> implements
     // @@protoc_insertion_point(message_implements:PB_UserParam_ChangePrivacy)
     PB_UserParam_ChangePrivacyOrBuilder {
-  private PB_UserParam_ChangePrivacy() {}
-
+  private PB_UserParam_ChangePrivacy() {
+  }
   public static final int LEVEL_FIELD_NUMBER = 1;
   private int level_;
-  /** <code>.ProfilePrivacyLevelEnum Level = 1;</code> */
+  /**
+   * <code>.ProfilePrivacyLevelEnum Level = 1;</code>
+   */
   public int getLevelValue() {
     return level_;
   }
-  /** <code>.ProfilePrivacyLevelEnum Level = 1;</code> */
+  /**
+   * <code>.ProfilePrivacyLevelEnum Level = 1;</code>
+   */
   public ir.ms.pb.ProfilePrivacyLevelEnum getLevel() {
     ir.ms.pb.ProfilePrivacyLevelEnum result = ir.ms.pb.ProfilePrivacyLevelEnum.forNumber(level_);
     return result == null ? ir.ms.pb.ProfilePrivacyLevelEnum.UNRECOGNIZED : result;
   }
-  /** <code>.ProfilePrivacyLevelEnum Level = 1;</code> */
+  /**
+   * <code>.ProfilePrivacyLevelEnum Level = 1;</code>
+   */
   private void setLevelValue(int value) {
-    level_ = value;
+      level_ = value;
   }
-  /** <code>.ProfilePrivacyLevelEnum Level = 1;</code> */
+  /**
+   * <code>.ProfilePrivacyLevelEnum Level = 1;</code>
+   */
   private void setLevel(ir.ms.pb.ProfilePrivacyLevelEnum value) {
     if (value == null) {
       throw new NullPointerException();
     }
-
+    
     level_ = value.getNumber();
   }
-  /** <code>.ProfilePrivacyLevelEnum Level = 1;</code> */
+  /**
+   * <code>.ProfilePrivacyLevelEnum Level = 1;</code>
+   */
   private void clearLevel() {
-
+    
     level_ = 0;
   }
 
-  public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
+  public void writeTo(com.google.protobuf.CodedOutputStream output)
+                      throws java.io.IOException {
     if (level_ != ir.ms.pb.ProfilePrivacyLevelEnum.NONE.getNumber()) {
       output.writeEnum(1, level_);
     }
@@ -60,17 +68,19 @@ public final class PB_UserParam_ChangePrivacy
 
     size = 0;
     if (level_ != ir.ms.pb.ProfilePrivacyLevelEnum.NONE.getNumber()) {
-      size += com.google.protobuf.CodedOutputStream.computeEnumSize(1, level_);
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(1, level_);
     }
     memoizedSerializedSize = size;
     return size;
   }
 
-  public static ir.ms.pb.PB_UserParam_ChangePrivacy parseFrom(com.google.protobuf.ByteString data)
+  public static ir.ms.pb.PB_UserParam_ChangePrivacy parseFrom(
+      com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, data);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(
+        DEFAULT_INSTANCE, data);
   }
-
   public static ir.ms.pb.PB_UserParam_ChangePrivacy parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -78,47 +88,46 @@ public final class PB_UserParam_ChangePrivacy
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
-
   public static ir.ms.pb.PB_UserParam_ChangePrivacy parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, data);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(
+        DEFAULT_INSTANCE, data);
   }
-
   public static ir.ms.pb.PB_UserParam_ChangePrivacy parseFrom(
-      byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      byte[] data,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
-
   public static ir.ms.pb.PB_UserParam_ChangePrivacy parseFrom(java.io.InputStream input)
       throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, input);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(
+        DEFAULT_INSTANCE, input);
   }
-
   public static ir.ms.pb.PB_UserParam_ChangePrivacy parseFrom(
-      java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      java.io.InputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, input, extensionRegistry);
   }
-
   public static ir.ms.pb.PB_UserParam_ChangePrivacy parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input);
   }
-
   public static ir.ms.pb.PB_UserParam_ChangePrivacy parseDelimitedFrom(
-      java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      java.io.InputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
   }
-
   public static ir.ms.pb.PB_UserParam_ChangePrivacy parseFrom(
-      com.google.protobuf.CodedInputStream input) throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, input);
+      com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(
+        DEFAULT_INSTANCE, input);
   }
-
   public static ir.ms.pb.PB_UserParam_ChangePrivacy parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -130,23 +139,19 @@ public final class PB_UserParam_ChangePrivacy
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-
   public static Builder newBuilder(ir.ms.pb.PB_UserParam_ChangePrivacy prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
 
   /**
-   *
-   *
    * <pre>
    * </pre>
    *
    * Protobuf type {@code PB_UserParam_ChangePrivacy}
    */
-  public static final class Builder
-      extends com.google.protobuf.GeneratedMessageLite.Builder<
-          ir.ms.pb.PB_UserParam_ChangePrivacy, Builder>
-      implements
+  public static final class Builder extends
+      com.google.protobuf.GeneratedMessageLite.Builder<
+        ir.ms.pb.PB_UserParam_ChangePrivacy, Builder> implements
       // @@protoc_insertion_point(builder_implements:PB_UserParam_ChangePrivacy)
       ir.ms.pb.PB_UserParam_ChangePrivacyOrBuilder {
     // Construct using ir.ms.pb.PB_UserParam_ChangePrivacy.newBuilder()
@@ -154,27 +159,38 @@ public final class PB_UserParam_ChangePrivacy
       super(DEFAULT_INSTANCE);
     }
 
-    /** <code>.ProfilePrivacyLevelEnum Level = 1;</code> */
+
+    /**
+     * <code>.ProfilePrivacyLevelEnum Level = 1;</code>
+     */
     public int getLevelValue() {
       return instance.getLevelValue();
     }
-    /** <code>.ProfilePrivacyLevelEnum Level = 1;</code> */
+    /**
+     * <code>.ProfilePrivacyLevelEnum Level = 1;</code>
+     */
     public Builder setLevelValue(int value) {
       copyOnWrite();
       instance.setLevelValue(value);
       return this;
     }
-    /** <code>.ProfilePrivacyLevelEnum Level = 1;</code> */
+    /**
+     * <code>.ProfilePrivacyLevelEnum Level = 1;</code>
+     */
     public ir.ms.pb.ProfilePrivacyLevelEnum getLevel() {
       return instance.getLevel();
     }
-    /** <code>.ProfilePrivacyLevelEnum Level = 1;</code> */
+    /**
+     * <code>.ProfilePrivacyLevelEnum Level = 1;</code>
+     */
     public Builder setLevel(ir.ms.pb.ProfilePrivacyLevelEnum value) {
       copyOnWrite();
       instance.setLevel(value);
       return this;
     }
-    /** <code>.ProfilePrivacyLevelEnum Level = 1;</code> */
+    /**
+     * <code>.ProfilePrivacyLevelEnum Level = 1;</code>
+     */
     public Builder clearLevel() {
       copyOnWrite();
       instance.clearLevel();
@@ -183,94 +199,86 @@ public final class PB_UserParam_ChangePrivacy
 
     // @@protoc_insertion_point(builder_scope:PB_UserParam_ChangePrivacy)
   }
-
   protected final Object dynamicMethod(
-      com.google.protobuf.GeneratedMessageLite.MethodToInvoke method, Object arg0, Object arg1) {
+      com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+      Object arg0, Object arg1) {
     switch (method) {
-      case NEW_MUTABLE_INSTANCE:
-        {
-          return new ir.ms.pb.PB_UserParam_ChangePrivacy();
+      case NEW_MUTABLE_INSTANCE: {
+        return new ir.ms.pb.PB_UserParam_ChangePrivacy();
+      }
+      case IS_INITIALIZED: {
+        return DEFAULT_INSTANCE;
+      }
+      case MAKE_IMMUTABLE: {
+        return null;
+      }
+      case NEW_BUILDER: {
+        return new Builder();
+      }
+      case VISIT: {
+        Visitor visitor = (Visitor) arg0;
+        ir.ms.pb.PB_UserParam_ChangePrivacy other = (ir.ms.pb.PB_UserParam_ChangePrivacy) arg1;
+        level_ = visitor.visitInt(level_ != 0, level_,    other.level_ != 0, other.level_);
+        if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
+            .INSTANCE) {
         }
-      case IS_INITIALIZED:
-        {
-          return DEFAULT_INSTANCE;
-        }
-      case MAKE_IMMUTABLE:
-        {
-          return null;
-        }
-      case NEW_BUILDER:
-        {
-          return new Builder();
-        }
-      case VISIT:
-        {
-          Visitor visitor = (Visitor) arg0;
-          ir.ms.pb.PB_UserParam_ChangePrivacy other = (ir.ms.pb.PB_UserParam_ChangePrivacy) arg1;
-          level_ = visitor.visitInt(level_ != 0, level_, other.level_ != 0, other.level_);
-          if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor.INSTANCE) {}
-          return this;
-        }
-      case MERGE_FROM_STREAM:
-        {
-          com.google.protobuf.CodedInputStream input = (com.google.protobuf.CodedInputStream) arg0;
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry =
-              (com.google.protobuf.ExtensionRegistryLite) arg1;
-          try {
-            boolean done = false;
-            while (!done) {
-              int tag = input.readTag();
-              switch (tag) {
-                case 0:
+        return this;
+      }
+      case MERGE_FROM_STREAM: {
+        com.google.protobuf.CodedInputStream input =
+            (com.google.protobuf.CodedInputStream) arg0;
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry =
+            (com.google.protobuf.ExtensionRegistryLite) arg1;
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              default: {
+                if (!input.skipField(tag)) {
                   done = true;
-                  break;
-                default:
-                  {
-                    if (!input.skipField(tag)) {
-                      done = true;
-                    }
-                    break;
-                  }
-                case 8:
-                  {
-                    int rawValue = input.readEnum();
+                }
+                break;
+              }
+              case 8: {
+                int rawValue = input.readEnum();
 
-                    level_ = rawValue;
-                    break;
-                  }
-              }
-            }
-          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            throw new RuntimeException(e.setUnfinishedMessage(this));
-          } catch (java.io.IOException e) {
-            throw new RuntimeException(
-                new com.google.protobuf.InvalidProtocolBufferException(e.getMessage())
-                    .setUnfinishedMessage(this));
-          } finally {
-          }
-        }
-      case GET_DEFAULT_INSTANCE:
-        {
-          return DEFAULT_INSTANCE;
-        }
-      case GET_PARSER:
-        {
-          if (PARSER == null) {
-            synchronized (ir.ms.pb.PB_UserParam_ChangePrivacy.class) {
-              if (PARSER == null) {
-                PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
+                level_ = rawValue;
+                break;
               }
             }
           }
-          return PARSER;
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw new RuntimeException(e.setUnfinishedMessage(this));
+        } catch (java.io.IOException e) {
+          throw new RuntimeException(
+              new com.google.protobuf.InvalidProtocolBufferException(
+                  e.getMessage()).setUnfinishedMessage(this));
+        } finally {
         }
+      }
+      case GET_DEFAULT_INSTANCE: {
+        return DEFAULT_INSTANCE;
+      }
+      case GET_PARSER: {
+        if (PARSER == null) {    synchronized (ir.ms.pb.PB_UserParam_ChangePrivacy.class) {
+            if (PARSER == null) {
+              PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
+            }
+          }
+        }
+        return PARSER;
+      }
     }
     throw new UnsupportedOperationException();
   }
 
+
   // @@protoc_insertion_point(class_scope:PB_UserParam_ChangePrivacy)
   private static final ir.ms.pb.PB_UserParam_ChangePrivacy DEFAULT_INSTANCE;
-
   static {
     DEFAULT_INSTANCE = new PB_UserParam_ChangePrivacy();
     DEFAULT_INSTANCE.makeImmutable();
@@ -286,3 +294,4 @@ public final class PB_UserParam_ChangePrivacy
     return DEFAULT_INSTANCE.getParserForType();
   }
 }
+

@@ -3,22 +3,25 @@
 
 package ir.ms.pb;
 
-public interface RoomMessageLogOrBuilder
-    extends
+public interface RoomMessageLogOrBuilder extends
     // @@protoc_insertion_point(interface_extends:RoomMessageLog)
     com.google.protobuf.MessageLiteOrBuilder {
 
-  /** <code>.RoomMessageLogEnum typ = 1;</code> */
+  /**
+   * <code>.RoomMessageLogEnum typ = 1;</code>
+   */
   int getTypValue();
-  /** <code>.RoomMessageLogEnum typ = 1;</code> */
+  /**
+   * <code>.RoomMessageLogEnum typ = 1;</code>
+   */
   ir.ms.pb.RoomMessageLogEnum getTyp();
 
-  /** <code>uint64 TargetUserId = 2;</code> */
+  /**
+   * <code>uint64 TargetUserId = 2;</code>
+   */
   long getTargetUserId();
 
   /**
-   *
-   *
    * <pre>
    *    /&#42;
    *    enum ExtraType {

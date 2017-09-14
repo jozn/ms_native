@@ -3,13 +3,16 @@
 
 package ir.ms.pb;
 
-public interface PB_UserParam_CheckUserNameOrBuilder
-    extends
+public interface PB_UserParam_CheckUserNameOrBuilder extends
     // @@protoc_insertion_point(interface_extends:PB_UserParam_CheckUserName)
     com.google.protobuf.MessageLiteOrBuilder {
 
-  /** <code>.ProfilePrivacyLevelEnum Level = 1;</code> */
+  /**
+   * <code>.ProfilePrivacyLevelEnum Level = 1;</code>
+   */
   int getLevelValue();
-  /** <code>.ProfilePrivacyLevelEnum Level = 1;</code> */
+  /**
+   * <code>.ProfilePrivacyLevelEnum Level = 1;</code>
+   */
   ir.ms.pb.ProfilePrivacyLevelEnum getLevel();
 }

@@ -3,7 +3,7 @@
 
 package ir.ms.pb;
 
-public interface PB_UpdateNotifySettingsOrBuilder
-    extends
+public interface PB_UpdateNotifySettingsOrBuilder extends
     // @@protoc_insertion_point(interface_extends:PB_UpdateNotifySettings)
-    com.google.protobuf.MessageLiteOrBuilder {}
+    com.google.protobuf.MessageLiteOrBuilder {
+}

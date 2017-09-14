@@ -4,11 +4,13 @@ import android.content.Context;
 import android.content.Intent;
 
 import com.crashlytics.android.Crashlytics;
+import com.crashlytics.android.core.CrashlyticsCore;
 import com.facebook.common.logging.FLog;
 import com.joanzapata.iconify.Iconify;
 import com.joanzapata.iconify.fonts.IoniconsModule;
 import com.joanzapata.iconify.fonts.SimpleLineIconsModule;
 import com.mardomsara.social.App;
+import com.mardomsara.social.BuildConfig;
 import com.mardomsara.social.app.fresco.FrescoConfig;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
@@ -56,7 +58,12 @@ public class LifeCycle {
 			.with(new com.mardomsara.x.iconify.icons.MaterialModule());
 
 
-		Fabric.with(context, new Crashlytics());
+		// Initializes Fabric for builds that don't use the debug build type.
+		Crashlytics crashlyticsKit = new Crashlytics.Builder()
+			.core(new CrashlyticsCore.Builder().disabled(BuildConfig.DEBUG).build())
+			.build();
+
+		Fabric.with(context, crashlyticsKit);
 
 		FrescoConfig.init(context);
 		ConfigRealm.config(context);

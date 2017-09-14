@@ -3,220 +3,295 @@
 
 package ir.ms.pb;
 
-/** Protobuf type {@code PB_Chat} */
-public final class PB_Chat
-    extends com.google.protobuf.GeneratedMessageLite<PB_Chat, PB_Chat.Builder>
-    implements
+/**
+ * Protobuf type {@code PB_Chat}
+ */
+public  final class PB_Chat extends
+    com.google.protobuf.GeneratedMessageLite<
+        PB_Chat, PB_Chat.Builder> implements
     // @@protoc_insertion_point(message_implements:PB_Chat)
     PB_ChatOrBuilder {
   private PB_Chat() {
     chatKey_ = "";
   }
-
   public static final int CHATID_FIELD_NUMBER = 1;
   private long chatId_;
-  /** <code>int64 ChatId = 1;</code> */
+  /**
+   * <code>int64 ChatId = 1;</code>
+   */
   public long getChatId() {
     return chatId_;
   }
-  /** <code>int64 ChatId = 1;</code> */
+  /**
+   * <code>int64 ChatId = 1;</code>
+   */
   private void setChatId(long value) {
-
+    
     chatId_ = value;
   }
-  /** <code>int64 ChatId = 1;</code> */
+  /**
+   * <code>int64 ChatId = 1;</code>
+   */
   private void clearChatId() {
-
+    
     chatId_ = 0L;
   }
 
   public static final int CHATKEY_FIELD_NUMBER = 3;
   private java.lang.String chatKey_;
-  /** <code>string ChatKey = 3;</code> */
+  /**
+   * <code>string ChatKey = 3;</code>
+   */
   public java.lang.String getChatKey() {
     return chatKey_;
   }
-  /** <code>string ChatKey = 3;</code> */
-  public com.google.protobuf.ByteString getChatKeyBytes() {
+  /**
+   * <code>string ChatKey = 3;</code>
+   */
+  public com.google.protobuf.ByteString
+      getChatKeyBytes() {
     return com.google.protobuf.ByteString.copyFromUtf8(chatKey_);
   }
-  /** <code>string ChatKey = 3;</code> */
-  private void setChatKey(java.lang.String value) {
+  /**
+   * <code>string ChatKey = 3;</code>
+   */
+  private void setChatKey(
+      java.lang.String value) {
     if (value == null) {
-      throw new NullPointerException();
-    }
-
+    throw new NullPointerException();
+  }
+  
     chatKey_ = value;
   }
-  /** <code>string ChatKey = 3;</code> */
+  /**
+   * <code>string ChatKey = 3;</code>
+   */
   private void clearChatKey() {
-
+    
     chatKey_ = getDefaultInstance().getChatKey();
   }
-  /** <code>string ChatKey = 3;</code> */
-  private void setChatKeyBytes(com.google.protobuf.ByteString value) {
+  /**
+   * <code>string ChatKey = 3;</code>
+   */
+  private void setChatKeyBytes(
+      com.google.protobuf.ByteString value) {
     if (value == null) {
-      throw new NullPointerException();
-    }
-    checkByteStringIsUtf8(value);
-
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+    
     chatKey_ = value.toStringUtf8();
   }
 
   public static final int ROOMTYPEENUMID_FIELD_NUMBER = 5;
   private int roomTypeEnumId_;
-  /** <code>int32 RoomTypeEnumId = 5;</code> */
+  /**
+   * <code>int32 RoomTypeEnumId = 5;</code>
+   */
   public int getRoomTypeEnumId() {
     return roomTypeEnumId_;
   }
-  /** <code>int32 RoomTypeEnumId = 5;</code> */
+  /**
+   * <code>int32 RoomTypeEnumId = 5;</code>
+   */
   private void setRoomTypeEnumId(int value) {
-
+    
     roomTypeEnumId_ = value;
   }
-  /** <code>int32 RoomTypeEnumId = 5;</code> */
+  /**
+   * <code>int32 RoomTypeEnumId = 5;</code>
+   */
   private void clearRoomTypeEnumId() {
-
+    
     roomTypeEnumId_ = 0;
   }
 
   public static final int USERID_FIELD_NUMBER = 7;
   private int userId_;
-  /** <code>int32 UserId = 7;</code> */
+  /**
+   * <code>int32 UserId = 7;</code>
+   */
   public int getUserId() {
     return userId_;
   }
-  /** <code>int32 UserId = 7;</code> */
+  /**
+   * <code>int32 UserId = 7;</code>
+   */
   private void setUserId(int value) {
-
+    
     userId_ = value;
   }
-  /** <code>int32 UserId = 7;</code> */
+  /**
+   * <code>int32 UserId = 7;</code>
+   */
   private void clearUserId() {
-
+    
     userId_ = 0;
   }
 
   public static final int LASTSEQSEEN_FIELD_NUMBER = 9;
   private int lastSeqSeen_;
-  /** <code>int32 LastSeqSeen = 9;</code> */
+  /**
+   * <code>int32 LastSeqSeen = 9;</code>
+   */
   public int getLastSeqSeen() {
     return lastSeqSeen_;
   }
-  /** <code>int32 LastSeqSeen = 9;</code> */
+  /**
+   * <code>int32 LastSeqSeen = 9;</code>
+   */
   private void setLastSeqSeen(int value) {
-
+    
     lastSeqSeen_ = value;
   }
-  /** <code>int32 LastSeqSeen = 9;</code> */
+  /**
+   * <code>int32 LastSeqSeen = 9;</code>
+   */
   private void clearLastSeqSeen() {
-
+    
     lastSeqSeen_ = 0;
   }
 
   public static final int LASTSEQDELETE_FIELD_NUMBER = 11;
   private int lastSeqDelete_;
-  /** <code>int32 LastSeqDelete = 11;</code> */
+  /**
+   * <code>int32 LastSeqDelete = 11;</code>
+   */
   public int getLastSeqDelete() {
     return lastSeqDelete_;
   }
-  /** <code>int32 LastSeqDelete = 11;</code> */
+  /**
+   * <code>int32 LastSeqDelete = 11;</code>
+   */
   private void setLastSeqDelete(int value) {
-
+    
     lastSeqDelete_ = value;
   }
-  /** <code>int32 LastSeqDelete = 11;</code> */
+  /**
+   * <code>int32 LastSeqDelete = 11;</code>
+   */
   private void clearLastSeqDelete() {
-
+    
     lastSeqDelete_ = 0;
   }
 
   public static final int PEERUSERID_FIELD_NUMBER = 13;
   private int peerUserId_;
-  /** <code>int32 PeerUserId = 13;</code> */
+  /**
+   * <code>int32 PeerUserId = 13;</code>
+   */
   public int getPeerUserId() {
     return peerUserId_;
   }
-  /** <code>int32 PeerUserId = 13;</code> */
+  /**
+   * <code>int32 PeerUserId = 13;</code>
+   */
   private void setPeerUserId(int value) {
-
+    
     peerUserId_ = value;
   }
-  /** <code>int32 PeerUserId = 13;</code> */
+  /**
+   * <code>int32 PeerUserId = 13;</code>
+   */
   private void clearPeerUserId() {
-
+    
     peerUserId_ = 0;
   }
 
   public static final int GROUPID_FIELD_NUMBER = 15;
   private long groupId_;
-  /** <code>int64 GroupId = 15;</code> */
+  /**
+   * <code>int64 GroupId = 15;</code>
+   */
   public long getGroupId() {
     return groupId_;
   }
-  /** <code>int64 GroupId = 15;</code> */
+  /**
+   * <code>int64 GroupId = 15;</code>
+   */
   private void setGroupId(long value) {
-
+    
     groupId_ = value;
   }
-  /** <code>int64 GroupId = 15;</code> */
+  /**
+   * <code>int64 GroupId = 15;</code>
+   */
   private void clearGroupId() {
-
+    
     groupId_ = 0L;
   }
 
   public static final int CREATEDTIME_FIELD_NUMBER = 17;
   private int createdTime_;
-  /** <code>int32 CreatedTime = 17;</code> */
+  /**
+   * <code>int32 CreatedTime = 17;</code>
+   */
   public int getCreatedTime() {
     return createdTime_;
   }
-  /** <code>int32 CreatedTime = 17;</code> */
+  /**
+   * <code>int32 CreatedTime = 17;</code>
+   */
   private void setCreatedTime(int value) {
-
+    
     createdTime_ = value;
   }
-  /** <code>int32 CreatedTime = 17;</code> */
+  /**
+   * <code>int32 CreatedTime = 17;</code>
+   */
   private void clearCreatedTime() {
-
+    
     createdTime_ = 0;
   }
 
   public static final int CURRENTSEQ_FIELD_NUMBER = 19;
   private int currentSeq_;
-  /** <code>int32 CurrentSeq = 19;</code> */
+  /**
+   * <code>int32 CurrentSeq = 19;</code>
+   */
   public int getCurrentSeq() {
     return currentSeq_;
   }
-  /** <code>int32 CurrentSeq = 19;</code> */
+  /**
+   * <code>int32 CurrentSeq = 19;</code>
+   */
   private void setCurrentSeq(int value) {
-
+    
     currentSeq_ = value;
   }
-  /** <code>int32 CurrentSeq = 19;</code> */
+  /**
+   * <code>int32 CurrentSeq = 19;</code>
+   */
   private void clearCurrentSeq() {
-
+    
     currentSeq_ = 0;
   }
 
   public static final int UPDATEDMS_FIELD_NUMBER = 21;
   private long updatedMs_;
-  /** <code>int64 UpdatedMs = 21;</code> */
+  /**
+   * <code>int64 UpdatedMs = 21;</code>
+   */
   public long getUpdatedMs() {
     return updatedMs_;
   }
-  /** <code>int64 UpdatedMs = 21;</code> */
+  /**
+   * <code>int64 UpdatedMs = 21;</code>
+   */
   private void setUpdatedMs(long value) {
-
+    
     updatedMs_ = value;
   }
-  /** <code>int64 UpdatedMs = 21;</code> */
+  /**
+   * <code>int64 UpdatedMs = 21;</code>
+   */
   private void clearUpdatedMs() {
-
+    
     updatedMs_ = 0L;
   }
 
-  public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
+  public void writeTo(com.google.protobuf.CodedOutputStream output)
+                      throws java.io.IOException {
     if (chatId_ != 0L) {
       output.writeInt64(1, chatId_);
     }
@@ -258,47 +333,59 @@ public final class PB_Chat
 
     size = 0;
     if (chatId_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream.computeInt64Size(1, chatId_);
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(1, chatId_);
     }
     if (!chatKey_.isEmpty()) {
-      size += com.google.protobuf.CodedOutputStream.computeStringSize(3, getChatKey());
+      size += com.google.protobuf.CodedOutputStream
+        .computeStringSize(3, getChatKey());
     }
     if (roomTypeEnumId_ != 0) {
-      size += com.google.protobuf.CodedOutputStream.computeInt32Size(5, roomTypeEnumId_);
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(5, roomTypeEnumId_);
     }
     if (userId_ != 0) {
-      size += com.google.protobuf.CodedOutputStream.computeInt32Size(7, userId_);
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(7, userId_);
     }
     if (lastSeqSeen_ != 0) {
-      size += com.google.protobuf.CodedOutputStream.computeInt32Size(9, lastSeqSeen_);
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(9, lastSeqSeen_);
     }
     if (lastSeqDelete_ != 0) {
-      size += com.google.protobuf.CodedOutputStream.computeInt32Size(11, lastSeqDelete_);
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(11, lastSeqDelete_);
     }
     if (peerUserId_ != 0) {
-      size += com.google.protobuf.CodedOutputStream.computeInt32Size(13, peerUserId_);
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(13, peerUserId_);
     }
     if (groupId_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream.computeInt64Size(15, groupId_);
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(15, groupId_);
     }
     if (createdTime_ != 0) {
-      size += com.google.protobuf.CodedOutputStream.computeInt32Size(17, createdTime_);
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(17, createdTime_);
     }
     if (currentSeq_ != 0) {
-      size += com.google.protobuf.CodedOutputStream.computeInt32Size(19, currentSeq_);
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(19, currentSeq_);
     }
     if (updatedMs_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream.computeInt64Size(21, updatedMs_);
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(21, updatedMs_);
     }
     memoizedSerializedSize = size;
     return size;
   }
 
-  public static ir.ms.pb.PB_Chat parseFrom(com.google.protobuf.ByteString data)
+  public static ir.ms.pb.PB_Chat parseFrom(
+      com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, data);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(
+        DEFAULT_INSTANCE, data);
   }
-
   public static ir.ms.pb.PB_Chat parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -306,46 +393,46 @@ public final class PB_Chat
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
-
   public static ir.ms.pb.PB_Chat parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, data);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(
+        DEFAULT_INSTANCE, data);
   }
-
   public static ir.ms.pb.PB_Chat parseFrom(
-      byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      byte[] data,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
-
-  public static ir.ms.pb.PB_Chat parseFrom(java.io.InputStream input) throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, input);
+  public static ir.ms.pb.PB_Chat parseFrom(java.io.InputStream input)
+      throws java.io.IOException {
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(
+        DEFAULT_INSTANCE, input);
   }
-
   public static ir.ms.pb.PB_Chat parseFrom(
-      java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      java.io.InputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, input, extensionRegistry);
   }
-
   public static ir.ms.pb.PB_Chat parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input);
   }
-
   public static ir.ms.pb.PB_Chat parseDelimitedFrom(
-      java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      java.io.InputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
   }
-
-  public static ir.ms.pb.PB_Chat parseFrom(com.google.protobuf.CodedInputStream input)
+  public static ir.ms.pb.PB_Chat parseFrom(
+      com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, input);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(
+        DEFAULT_INSTANCE, input);
   }
-
   public static ir.ms.pb.PB_Chat parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -357,15 +444,16 @@ public final class PB_Chat
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-
   public static Builder newBuilder(ir.ms.pb.PB_Chat prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
 
-  /** Protobuf type {@code PB_Chat} */
-  public static final class Builder
-      extends com.google.protobuf.GeneratedMessageLite.Builder<ir.ms.pb.PB_Chat, Builder>
-      implements
+  /**
+   * Protobuf type {@code PB_Chat}
+   */
+  public static final class Builder extends
+      com.google.protobuf.GeneratedMessageLite.Builder<
+        ir.ms.pb.PB_Chat, Builder> implements
       // @@protoc_insertion_point(builder_implements:PB_Chat)
       ir.ms.pb.PB_ChatOrBuilder {
     // Construct using ir.ms.pb.PB_Chat.newBuilder()
@@ -373,197 +461,271 @@ public final class PB_Chat
       super(DEFAULT_INSTANCE);
     }
 
-    /** <code>int64 ChatId = 1;</code> */
+
+    /**
+     * <code>int64 ChatId = 1;</code>
+     */
     public long getChatId() {
       return instance.getChatId();
     }
-    /** <code>int64 ChatId = 1;</code> */
+    /**
+     * <code>int64 ChatId = 1;</code>
+     */
     public Builder setChatId(long value) {
       copyOnWrite();
       instance.setChatId(value);
       return this;
     }
-    /** <code>int64 ChatId = 1;</code> */
+    /**
+     * <code>int64 ChatId = 1;</code>
+     */
     public Builder clearChatId() {
       copyOnWrite();
       instance.clearChatId();
       return this;
     }
 
-    /** <code>string ChatKey = 3;</code> */
+    /**
+     * <code>string ChatKey = 3;</code>
+     */
     public java.lang.String getChatKey() {
       return instance.getChatKey();
     }
-    /** <code>string ChatKey = 3;</code> */
-    public com.google.protobuf.ByteString getChatKeyBytes() {
+    /**
+     * <code>string ChatKey = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getChatKeyBytes() {
       return instance.getChatKeyBytes();
     }
-    /** <code>string ChatKey = 3;</code> */
-    public Builder setChatKey(java.lang.String value) {
+    /**
+     * <code>string ChatKey = 3;</code>
+     */
+    public Builder setChatKey(
+        java.lang.String value) {
       copyOnWrite();
       instance.setChatKey(value);
       return this;
     }
-    /** <code>string ChatKey = 3;</code> */
+    /**
+     * <code>string ChatKey = 3;</code>
+     */
     public Builder clearChatKey() {
       copyOnWrite();
       instance.clearChatKey();
       return this;
     }
-    /** <code>string ChatKey = 3;</code> */
-    public Builder setChatKeyBytes(com.google.protobuf.ByteString value) {
+    /**
+     * <code>string ChatKey = 3;</code>
+     */
+    public Builder setChatKeyBytes(
+        com.google.protobuf.ByteString value) {
       copyOnWrite();
       instance.setChatKeyBytes(value);
       return this;
     }
 
-    /** <code>int32 RoomTypeEnumId = 5;</code> */
+    /**
+     * <code>int32 RoomTypeEnumId = 5;</code>
+     */
     public int getRoomTypeEnumId() {
       return instance.getRoomTypeEnumId();
     }
-    /** <code>int32 RoomTypeEnumId = 5;</code> */
+    /**
+     * <code>int32 RoomTypeEnumId = 5;</code>
+     */
     public Builder setRoomTypeEnumId(int value) {
       copyOnWrite();
       instance.setRoomTypeEnumId(value);
       return this;
     }
-    /** <code>int32 RoomTypeEnumId = 5;</code> */
+    /**
+     * <code>int32 RoomTypeEnumId = 5;</code>
+     */
     public Builder clearRoomTypeEnumId() {
       copyOnWrite();
       instance.clearRoomTypeEnumId();
       return this;
     }
 
-    /** <code>int32 UserId = 7;</code> */
+    /**
+     * <code>int32 UserId = 7;</code>
+     */
     public int getUserId() {
       return instance.getUserId();
     }
-    /** <code>int32 UserId = 7;</code> */
+    /**
+     * <code>int32 UserId = 7;</code>
+     */
     public Builder setUserId(int value) {
       copyOnWrite();
       instance.setUserId(value);
       return this;
     }
-    /** <code>int32 UserId = 7;</code> */
+    /**
+     * <code>int32 UserId = 7;</code>
+     */
     public Builder clearUserId() {
       copyOnWrite();
       instance.clearUserId();
       return this;
     }
 
-    /** <code>int32 LastSeqSeen = 9;</code> */
+    /**
+     * <code>int32 LastSeqSeen = 9;</code>
+     */
     public int getLastSeqSeen() {
       return instance.getLastSeqSeen();
     }
-    /** <code>int32 LastSeqSeen = 9;</code> */
+    /**
+     * <code>int32 LastSeqSeen = 9;</code>
+     */
     public Builder setLastSeqSeen(int value) {
       copyOnWrite();
       instance.setLastSeqSeen(value);
       return this;
     }
-    /** <code>int32 LastSeqSeen = 9;</code> */
+    /**
+     * <code>int32 LastSeqSeen = 9;</code>
+     */
     public Builder clearLastSeqSeen() {
       copyOnWrite();
       instance.clearLastSeqSeen();
       return this;
     }
 
-    /** <code>int32 LastSeqDelete = 11;</code> */
+    /**
+     * <code>int32 LastSeqDelete = 11;</code>
+     */
     public int getLastSeqDelete() {
       return instance.getLastSeqDelete();
     }
-    /** <code>int32 LastSeqDelete = 11;</code> */
+    /**
+     * <code>int32 LastSeqDelete = 11;</code>
+     */
     public Builder setLastSeqDelete(int value) {
       copyOnWrite();
       instance.setLastSeqDelete(value);
       return this;
     }
-    /** <code>int32 LastSeqDelete = 11;</code> */
+    /**
+     * <code>int32 LastSeqDelete = 11;</code>
+     */
     public Builder clearLastSeqDelete() {
       copyOnWrite();
       instance.clearLastSeqDelete();
       return this;
     }
 
-    /** <code>int32 PeerUserId = 13;</code> */
+    /**
+     * <code>int32 PeerUserId = 13;</code>
+     */
     public int getPeerUserId() {
       return instance.getPeerUserId();
     }
-    /** <code>int32 PeerUserId = 13;</code> */
+    /**
+     * <code>int32 PeerUserId = 13;</code>
+     */
     public Builder setPeerUserId(int value) {
       copyOnWrite();
       instance.setPeerUserId(value);
       return this;
     }
-    /** <code>int32 PeerUserId = 13;</code> */
+    /**
+     * <code>int32 PeerUserId = 13;</code>
+     */
     public Builder clearPeerUserId() {
       copyOnWrite();
       instance.clearPeerUserId();
       return this;
     }
 
-    /** <code>int64 GroupId = 15;</code> */
+    /**
+     * <code>int64 GroupId = 15;</code>
+     */
     public long getGroupId() {
       return instance.getGroupId();
     }
-    /** <code>int64 GroupId = 15;</code> */
+    /**
+     * <code>int64 GroupId = 15;</code>
+     */
     public Builder setGroupId(long value) {
       copyOnWrite();
       instance.setGroupId(value);
       return this;
     }
-    /** <code>int64 GroupId = 15;</code> */
+    /**
+     * <code>int64 GroupId = 15;</code>
+     */
     public Builder clearGroupId() {
       copyOnWrite();
       instance.clearGroupId();
       return this;
     }
 
-    /** <code>int32 CreatedTime = 17;</code> */
+    /**
+     * <code>int32 CreatedTime = 17;</code>
+     */
     public int getCreatedTime() {
       return instance.getCreatedTime();
     }
-    /** <code>int32 CreatedTime = 17;</code> */
+    /**
+     * <code>int32 CreatedTime = 17;</code>
+     */
     public Builder setCreatedTime(int value) {
       copyOnWrite();
       instance.setCreatedTime(value);
       return this;
     }
-    /** <code>int32 CreatedTime = 17;</code> */
+    /**
+     * <code>int32 CreatedTime = 17;</code>
+     */
     public Builder clearCreatedTime() {
       copyOnWrite();
       instance.clearCreatedTime();
       return this;
     }
 
-    /** <code>int32 CurrentSeq = 19;</code> */
+    /**
+     * <code>int32 CurrentSeq = 19;</code>
+     */
     public int getCurrentSeq() {
       return instance.getCurrentSeq();
     }
-    /** <code>int32 CurrentSeq = 19;</code> */
+    /**
+     * <code>int32 CurrentSeq = 19;</code>
+     */
     public Builder setCurrentSeq(int value) {
       copyOnWrite();
       instance.setCurrentSeq(value);
       return this;
     }
-    /** <code>int32 CurrentSeq = 19;</code> */
+    /**
+     * <code>int32 CurrentSeq = 19;</code>
+     */
     public Builder clearCurrentSeq() {
       copyOnWrite();
       instance.clearCurrentSeq();
       return this;
     }
 
-    /** <code>int64 UpdatedMs = 21;</code> */
+    /**
+     * <code>int64 UpdatedMs = 21;</code>
+     */
     public long getUpdatedMs() {
       return instance.getUpdatedMs();
     }
-    /** <code>int64 UpdatedMs = 21;</code> */
+    /**
+     * <code>int64 UpdatedMs = 21;</code>
+     */
     public Builder setUpdatedMs(long value) {
       copyOnWrite();
       instance.setUpdatedMs(value);
       return this;
     }
-    /** <code>int64 UpdatedMs = 21;</code> */
+    /**
+     * <code>int64 UpdatedMs = 21;</code>
+     */
     public Builder clearUpdatedMs() {
       copyOnWrite();
       instance.clearUpdatedMs();
@@ -572,177 +734,157 @@ public final class PB_Chat
 
     // @@protoc_insertion_point(builder_scope:PB_Chat)
   }
-
   protected final Object dynamicMethod(
-      com.google.protobuf.GeneratedMessageLite.MethodToInvoke method, Object arg0, Object arg1) {
+      com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+      Object arg0, Object arg1) {
     switch (method) {
-      case NEW_MUTABLE_INSTANCE:
-        {
-          return new ir.ms.pb.PB_Chat();
+      case NEW_MUTABLE_INSTANCE: {
+        return new ir.ms.pb.PB_Chat();
+      }
+      case IS_INITIALIZED: {
+        return DEFAULT_INSTANCE;
+      }
+      case MAKE_IMMUTABLE: {
+        return null;
+      }
+      case NEW_BUILDER: {
+        return new Builder();
+      }
+      case VISIT: {
+        Visitor visitor = (Visitor) arg0;
+        ir.ms.pb.PB_Chat other = (ir.ms.pb.PB_Chat) arg1;
+        chatId_ = visitor.visitLong(chatId_ != 0L, chatId_,
+            other.chatId_ != 0L, other.chatId_);
+        chatKey_ = visitor.visitString(!chatKey_.isEmpty(), chatKey_,
+            !other.chatKey_.isEmpty(), other.chatKey_);
+        roomTypeEnumId_ = visitor.visitInt(roomTypeEnumId_ != 0, roomTypeEnumId_,
+            other.roomTypeEnumId_ != 0, other.roomTypeEnumId_);
+        userId_ = visitor.visitInt(userId_ != 0, userId_,
+            other.userId_ != 0, other.userId_);
+        lastSeqSeen_ = visitor.visitInt(lastSeqSeen_ != 0, lastSeqSeen_,
+            other.lastSeqSeen_ != 0, other.lastSeqSeen_);
+        lastSeqDelete_ = visitor.visitInt(lastSeqDelete_ != 0, lastSeqDelete_,
+            other.lastSeqDelete_ != 0, other.lastSeqDelete_);
+        peerUserId_ = visitor.visitInt(peerUserId_ != 0, peerUserId_,
+            other.peerUserId_ != 0, other.peerUserId_);
+        groupId_ = visitor.visitLong(groupId_ != 0L, groupId_,
+            other.groupId_ != 0L, other.groupId_);
+        createdTime_ = visitor.visitInt(createdTime_ != 0, createdTime_,
+            other.createdTime_ != 0, other.createdTime_);
+        currentSeq_ = visitor.visitInt(currentSeq_ != 0, currentSeq_,
+            other.currentSeq_ != 0, other.currentSeq_);
+        updatedMs_ = visitor.visitLong(updatedMs_ != 0L, updatedMs_,
+            other.updatedMs_ != 0L, other.updatedMs_);
+        if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
+            .INSTANCE) {
         }
-      case IS_INITIALIZED:
-        {
-          return DEFAULT_INSTANCE;
-        }
-      case MAKE_IMMUTABLE:
-        {
-          return null;
-        }
-      case NEW_BUILDER:
-        {
-          return new Builder();
-        }
-      case VISIT:
-        {
-          Visitor visitor = (Visitor) arg0;
-          ir.ms.pb.PB_Chat other = (ir.ms.pb.PB_Chat) arg1;
-          chatId_ = visitor.visitLong(chatId_ != 0L, chatId_, other.chatId_ != 0L, other.chatId_);
-          chatKey_ =
-              visitor.visitString(
-                  !chatKey_.isEmpty(), chatKey_, !other.chatKey_.isEmpty(), other.chatKey_);
-          roomTypeEnumId_ =
-              visitor.visitInt(
-                  roomTypeEnumId_ != 0,
-                  roomTypeEnumId_,
-                  other.roomTypeEnumId_ != 0,
-                  other.roomTypeEnumId_);
-          userId_ = visitor.visitInt(userId_ != 0, userId_, other.userId_ != 0, other.userId_);
-          lastSeqSeen_ =
-              visitor.visitInt(
-                  lastSeqSeen_ != 0, lastSeqSeen_, other.lastSeqSeen_ != 0, other.lastSeqSeen_);
-          lastSeqDelete_ =
-              visitor.visitInt(
-                  lastSeqDelete_ != 0,
-                  lastSeqDelete_,
-                  other.lastSeqDelete_ != 0,
-                  other.lastSeqDelete_);
-          peerUserId_ =
-              visitor.visitInt(
-                  peerUserId_ != 0, peerUserId_, other.peerUserId_ != 0, other.peerUserId_);
-          groupId_ =
-              visitor.visitLong(groupId_ != 0L, groupId_, other.groupId_ != 0L, other.groupId_);
-          createdTime_ =
-              visitor.visitInt(
-                  createdTime_ != 0, createdTime_, other.createdTime_ != 0, other.createdTime_);
-          currentSeq_ =
-              visitor.visitInt(
-                  currentSeq_ != 0, currentSeq_, other.currentSeq_ != 0, other.currentSeq_);
-          updatedMs_ =
-              visitor.visitLong(
-                  updatedMs_ != 0L, updatedMs_, other.updatedMs_ != 0L, other.updatedMs_);
-          if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor.INSTANCE) {}
-          return this;
-        }
-      case MERGE_FROM_STREAM:
-        {
-          com.google.protobuf.CodedInputStream input = (com.google.protobuf.CodedInputStream) arg0;
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry =
-              (com.google.protobuf.ExtensionRegistryLite) arg1;
-          try {
-            boolean done = false;
-            while (!done) {
-              int tag = input.readTag();
-              switch (tag) {
-                case 0:
+        return this;
+      }
+      case MERGE_FROM_STREAM: {
+        com.google.protobuf.CodedInputStream input =
+            (com.google.protobuf.CodedInputStream) arg0;
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry =
+            (com.google.protobuf.ExtensionRegistryLite) arg1;
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              default: {
+                if (!input.skipField(tag)) {
                   done = true;
-                  break;
-                default:
-                  {
-                    if (!input.skipField(tag)) {
-                      done = true;
-                    }
-                    break;
-                  }
-                case 8:
-                  {
-                    chatId_ = input.readInt64();
-                    break;
-                  }
-                case 26:
-                  {
-                    String s = input.readStringRequireUtf8();
+                }
+                break;
+              }
+              case 8: {
 
-                    chatKey_ = s;
-                    break;
-                  }
-                case 40:
-                  {
-                    roomTypeEnumId_ = input.readInt32();
-                    break;
-                  }
-                case 56:
-                  {
-                    userId_ = input.readInt32();
-                    break;
-                  }
-                case 72:
-                  {
-                    lastSeqSeen_ = input.readInt32();
-                    break;
-                  }
-                case 88:
-                  {
-                    lastSeqDelete_ = input.readInt32();
-                    break;
-                  }
-                case 104:
-                  {
-                    peerUserId_ = input.readInt32();
-                    break;
-                  }
-                case 120:
-                  {
-                    groupId_ = input.readInt64();
-                    break;
-                  }
-                case 136:
-                  {
-                    createdTime_ = input.readInt32();
-                    break;
-                  }
-                case 152:
-                  {
-                    currentSeq_ = input.readInt32();
-                    break;
-                  }
-                case 168:
-                  {
-                    updatedMs_ = input.readInt64();
-                    break;
-                  }
+                chatId_ = input.readInt64();
+                break;
               }
-            }
-          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            throw new RuntimeException(e.setUnfinishedMessage(this));
-          } catch (java.io.IOException e) {
-            throw new RuntimeException(
-                new com.google.protobuf.InvalidProtocolBufferException(e.getMessage())
-                    .setUnfinishedMessage(this));
-          } finally {
-          }
-        }
-      case GET_DEFAULT_INSTANCE:
-        {
-          return DEFAULT_INSTANCE;
-        }
-      case GET_PARSER:
-        {
-          if (PARSER == null) {
-            synchronized (ir.ms.pb.PB_Chat.class) {
-              if (PARSER == null) {
-                PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
+              case 26: {
+                String s = input.readStringRequireUtf8();
+
+                chatKey_ = s;
+                break;
+              }
+              case 40: {
+
+                roomTypeEnumId_ = input.readInt32();
+                break;
+              }
+              case 56: {
+
+                userId_ = input.readInt32();
+                break;
+              }
+              case 72: {
+
+                lastSeqSeen_ = input.readInt32();
+                break;
+              }
+              case 88: {
+
+                lastSeqDelete_ = input.readInt32();
+                break;
+              }
+              case 104: {
+
+                peerUserId_ = input.readInt32();
+                break;
+              }
+              case 120: {
+
+                groupId_ = input.readInt64();
+                break;
+              }
+              case 136: {
+
+                createdTime_ = input.readInt32();
+                break;
+              }
+              case 152: {
+
+                currentSeq_ = input.readInt32();
+                break;
+              }
+              case 168: {
+
+                updatedMs_ = input.readInt64();
+                break;
               }
             }
           }
-          return PARSER;
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw new RuntimeException(e.setUnfinishedMessage(this));
+        } catch (java.io.IOException e) {
+          throw new RuntimeException(
+              new com.google.protobuf.InvalidProtocolBufferException(
+                  e.getMessage()).setUnfinishedMessage(this));
+        } finally {
         }
+      }
+      case GET_DEFAULT_INSTANCE: {
+        return DEFAULT_INSTANCE;
+      }
+      case GET_PARSER: {
+        if (PARSER == null) {    synchronized (ir.ms.pb.PB_Chat.class) {
+            if (PARSER == null) {
+              PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
+            }
+          }
+        }
+        return PARSER;
+      }
     }
     throw new UnsupportedOperationException();
   }
 
+
   // @@protoc_insertion_point(class_scope:PB_Chat)
   private static final ir.ms.pb.PB_Chat DEFAULT_INSTANCE;
-
   static {
     DEFAULT_INSTANCE = new PB_Chat();
     DEFAULT_INSTANCE.makeImmutable();
@@ -758,3 +900,4 @@ public final class PB_Chat
     return DEFAULT_INSTANCE.getParserForType();
   }
 }
+

@@ -3,77 +3,122 @@
 
 package ir.ms.pb;
 
-public interface PB_UserViewOrBuilder
-    extends
+public interface PB_UserViewOrBuilder extends
     // @@protoc_insertion_point(interface_extends:PB_UserView)
     com.google.protobuf.MessageLiteOrBuilder {
 
-  /** <code>int32 UserId = 1;</code> */
+  /**
+   * <code>int32 UserId = 1;</code>
+   */
   int getUserId();
 
-  /** <code>string UserName = 3;</code> */
+  /**
+   * <code>string UserName = 3;</code>
+   */
   java.lang.String getUserName();
-  /** <code>string UserName = 3;</code> */
-  com.google.protobuf.ByteString getUserNameBytes();
+  /**
+   * <code>string UserName = 3;</code>
+   */
+  com.google.protobuf.ByteString
+      getUserNameBytes();
 
-  /** <code>string FirstName = 7;</code> */
+  /**
+   * <code>string FirstName = 7;</code>
+   */
   java.lang.String getFirstName();
-  /** <code>string FirstName = 7;</code> */
-  com.google.protobuf.ByteString getFirstNameBytes();
+  /**
+   * <code>string FirstName = 7;</code>
+   */
+  com.google.protobuf.ByteString
+      getFirstNameBytes();
 
-  /** <code>string LastName = 9;</code> */
+  /**
+   * <code>string LastName = 9;</code>
+   */
   java.lang.String getLastName();
-  /** <code>string LastName = 9;</code> */
-  com.google.protobuf.ByteString getLastNameBytes();
+  /**
+   * <code>string LastName = 9;</code>
+   */
+  com.google.protobuf.ByteString
+      getLastNameBytes();
 
-  /** <code>string About = 11;</code> */
+  /**
+   * <code>string About = 11;</code>
+   */
   java.lang.String getAbout();
-  /** <code>string About = 11;</code> */
-  com.google.protobuf.ByteString getAboutBytes();
+  /**
+   * <code>string About = 11;</code>
+   */
+  com.google.protobuf.ByteString
+      getAboutBytes();
 
-  /** <code>string FullName = 13;</code> */
+  /**
+   * <code>string FullName = 13;</code>
+   */
   java.lang.String getFullName();
-  /** <code>string FullName = 13;</code> */
-  com.google.protobuf.ByteString getFullNameBytes();
+  /**
+   * <code>string FullName = 13;</code>
+   */
+  com.google.protobuf.ByteString
+      getFullNameBytes();
 
-  /** <code>string AvatarUrl = 15;</code> */
+  /**
+   * <code>string AvatarUrl = 15;</code>
+   */
   java.lang.String getAvatarUrl();
-  /** <code>string AvatarUrl = 15;</code> */
-  com.google.protobuf.ByteString getAvatarUrlBytes();
+  /**
+   * <code>string AvatarUrl = 15;</code>
+   */
+  com.google.protobuf.ByteString
+      getAvatarUrlBytes();
 
-  /** <code>int32 PrivacyProfile = 17;</code> */
+  /**
+   * <code>int32 PrivacyProfile = 17;</code>
+   */
   int getPrivacyProfile();
 
   /**
-   *
-   *
    * <pre>
-   * string Phone = 19;
-   * string Email = 21;
+   *string Phone = 19;
+   *string Email = 21;
    * </pre>
    *
    * <code>int32 IsDeleted = 23;</code>
    */
   int getIsDeleted();
 
-  /** <code>int32 FollowersCount = 29;</code> */
+  /**
+   * <code>int32 FollowersCount = 29;</code>
+   */
   int getFollowersCount();
 
-  /** <code>int32 FollowingCount = 31;</code> */
+  /**
+   * <code>int32 FollowingCount = 31;</code>
+   */
   int getFollowingCount();
 
-  /** <code>int32 PostsCount = 33;</code> */
+  /**
+   * <code>int32 PostsCount = 33;</code>
+   */
   int getPostsCount();
 
-  /** <code>int32 UpdatedTime = 49;</code> */
+  /**
+   * <code>int32 UpdatedTime = 49;</code>
+   */
   int getUpdatedTime();
 
-  /** <code>int32 AppVersion = 59;</code> */
+  /**
+   * <code>int32 AppVersion = 59;</code>
+   */
   int getAppVersion();
 
-  /** <code>int32 LastActivityTime = 61;</code> */
+  /**
+   * <code>int32 LastActivityTime = 61;</code>
+   */
   int getLastActivityTime();
 
-  /** <code>int32 FollowingType = 62;</code> */
+  /**
+   * <code>int32 FollowingType = 62;</code>
+   */
   int getFollowingType();
 }

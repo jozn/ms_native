@@ -3,65 +3,81 @@
 
 package ir.ms.pb;
 
-/** Protobuf type {@code RoomMessageLog} */
-public final class RoomMessageLog
-    extends com.google.protobuf.GeneratedMessageLite<RoomMessageLog, RoomMessageLog.Builder>
-    implements
+/**
+ * Protobuf type {@code RoomMessageLog}
+ */
+public  final class RoomMessageLog extends
+    com.google.protobuf.GeneratedMessageLite<
+        RoomMessageLog, RoomMessageLog.Builder> implements
     // @@protoc_insertion_point(message_implements:RoomMessageLog)
     RoomMessageLogOrBuilder {
-  private RoomMessageLog() {}
-
+  private RoomMessageLog() {
+  }
   public static final int TYP_FIELD_NUMBER = 1;
   private int typ_;
-  /** <code>.RoomMessageLogEnum typ = 1;</code> */
+  /**
+   * <code>.RoomMessageLogEnum typ = 1;</code>
+   */
   public int getTypValue() {
     return typ_;
   }
-  /** <code>.RoomMessageLogEnum typ = 1;</code> */
+  /**
+   * <code>.RoomMessageLogEnum typ = 1;</code>
+   */
   public ir.ms.pb.RoomMessageLogEnum getTyp() {
     ir.ms.pb.RoomMessageLogEnum result = ir.ms.pb.RoomMessageLogEnum.forNumber(typ_);
     return result == null ? ir.ms.pb.RoomMessageLogEnum.UNRECOGNIZED : result;
   }
-  /** <code>.RoomMessageLogEnum typ = 1;</code> */
+  /**
+   * <code>.RoomMessageLogEnum typ = 1;</code>
+   */
   private void setTypValue(int value) {
-    typ_ = value;
+      typ_ = value;
   }
-  /** <code>.RoomMessageLogEnum typ = 1;</code> */
+  /**
+   * <code>.RoomMessageLogEnum typ = 1;</code>
+   */
   private void setTyp(ir.ms.pb.RoomMessageLogEnum value) {
     if (value == null) {
       throw new NullPointerException();
     }
-
+    
     typ_ = value.getNumber();
   }
-  /** <code>.RoomMessageLogEnum typ = 1;</code> */
+  /**
+   * <code>.RoomMessageLogEnum typ = 1;</code>
+   */
   private void clearTyp() {
-
+    
     typ_ = 0;
   }
 
   public static final int TARGETUSERID_FIELD_NUMBER = 2;
   private long targetUserId_;
-  /** <code>uint64 TargetUserId = 2;</code> */
+  /**
+   * <code>uint64 TargetUserId = 2;</code>
+   */
   public long getTargetUserId() {
     return targetUserId_;
   }
-  /** <code>uint64 TargetUserId = 2;</code> */
+  /**
+   * <code>uint64 TargetUserId = 2;</code>
+   */
   private void setTargetUserId(long value) {
-
+    
     targetUserId_ = value;
   }
-  /** <code>uint64 TargetUserId = 2;</code> */
+  /**
+   * <code>uint64 TargetUserId = 2;</code>
+   */
   private void clearTargetUserId() {
-
+    
     targetUserId_ = 0L;
   }
 
   public static final int BYUSERID_FIELD_NUMBER = 3;
   private long byUserId_;
   /**
-   *
-   *
    * <pre>
    *    /&#42;
    *    enum ExtraType {
@@ -80,8 +96,6 @@ public final class RoomMessageLog
     return byUserId_;
   }
   /**
-   *
-   *
    * <pre>
    *    /&#42;
    *    enum ExtraType {
@@ -97,12 +111,10 @@ public final class RoomMessageLog
    * <code>uint64 ByUserId = 3;</code>
    */
   private void setByUserId(long value) {
-
+    
     byUserId_ = value;
   }
   /**
-   *
-   *
    * <pre>
    *    /&#42;
    *    enum ExtraType {
@@ -118,11 +130,12 @@ public final class RoomMessageLog
    * <code>uint64 ByUserId = 3;</code>
    */
   private void clearByUserId() {
-
+    
     byUserId_ = 0L;
   }
 
-  public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
+  public void writeTo(com.google.protobuf.CodedOutputStream output)
+                      throws java.io.IOException {
     if (typ_ != ir.ms.pb.RoomMessageLogEnum.UNKNOWN_ROOM_MESSAGE_LOG.getNumber()) {
       output.writeEnum(1, typ_);
     }
@@ -140,23 +153,27 @@ public final class RoomMessageLog
 
     size = 0;
     if (typ_ != ir.ms.pb.RoomMessageLogEnum.UNKNOWN_ROOM_MESSAGE_LOG.getNumber()) {
-      size += com.google.protobuf.CodedOutputStream.computeEnumSize(1, typ_);
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(1, typ_);
     }
     if (targetUserId_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream.computeUInt64Size(2, targetUserId_);
+      size += com.google.protobuf.CodedOutputStream
+        .computeUInt64Size(2, targetUserId_);
     }
     if (byUserId_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream.computeUInt64Size(3, byUserId_);
+      size += com.google.protobuf.CodedOutputStream
+        .computeUInt64Size(3, byUserId_);
     }
     memoizedSerializedSize = size;
     return size;
   }
 
-  public static ir.ms.pb.RoomMessageLog parseFrom(com.google.protobuf.ByteString data)
+  public static ir.ms.pb.RoomMessageLog parseFrom(
+      com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, data);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(
+        DEFAULT_INSTANCE, data);
   }
-
   public static ir.ms.pb.RoomMessageLog parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -164,47 +181,46 @@ public final class RoomMessageLog
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
-
   public static ir.ms.pb.RoomMessageLog parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, data);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(
+        DEFAULT_INSTANCE, data);
   }
-
   public static ir.ms.pb.RoomMessageLog parseFrom(
-      byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      byte[] data,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
-
   public static ir.ms.pb.RoomMessageLog parseFrom(java.io.InputStream input)
       throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, input);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(
+        DEFAULT_INSTANCE, input);
   }
-
   public static ir.ms.pb.RoomMessageLog parseFrom(
-      java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      java.io.InputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, input, extensionRegistry);
   }
-
   public static ir.ms.pb.RoomMessageLog parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input);
   }
-
   public static ir.ms.pb.RoomMessageLog parseDelimitedFrom(
-      java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      java.io.InputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
   }
-
-  public static ir.ms.pb.RoomMessageLog parseFrom(com.google.protobuf.CodedInputStream input)
+  public static ir.ms.pb.RoomMessageLog parseFrom(
+      com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, input);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(
+        DEFAULT_INSTANCE, input);
   }
-
   public static ir.ms.pb.RoomMessageLog parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -216,15 +232,16 @@ public final class RoomMessageLog
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-
   public static Builder newBuilder(ir.ms.pb.RoomMessageLog prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
 
-  /** Protobuf type {@code RoomMessageLog} */
-  public static final class Builder
-      extends com.google.protobuf.GeneratedMessageLite.Builder<ir.ms.pb.RoomMessageLog, Builder>
-      implements
+  /**
+   * Protobuf type {@code RoomMessageLog}
+   */
+  public static final class Builder extends
+      com.google.protobuf.GeneratedMessageLite.Builder<
+        ir.ms.pb.RoomMessageLog, Builder> implements
       // @@protoc_insertion_point(builder_implements:RoomMessageLog)
       ir.ms.pb.RoomMessageLogOrBuilder {
     // Construct using ir.ms.pb.RoomMessageLog.newBuilder()
@@ -232,44 +249,61 @@ public final class RoomMessageLog
       super(DEFAULT_INSTANCE);
     }
 
-    /** <code>.RoomMessageLogEnum typ = 1;</code> */
+
+    /**
+     * <code>.RoomMessageLogEnum typ = 1;</code>
+     */
     public int getTypValue() {
       return instance.getTypValue();
     }
-    /** <code>.RoomMessageLogEnum typ = 1;</code> */
+    /**
+     * <code>.RoomMessageLogEnum typ = 1;</code>
+     */
     public Builder setTypValue(int value) {
       copyOnWrite();
       instance.setTypValue(value);
       return this;
     }
-    /** <code>.RoomMessageLogEnum typ = 1;</code> */
+    /**
+     * <code>.RoomMessageLogEnum typ = 1;</code>
+     */
     public ir.ms.pb.RoomMessageLogEnum getTyp() {
       return instance.getTyp();
     }
-    /** <code>.RoomMessageLogEnum typ = 1;</code> */
+    /**
+     * <code>.RoomMessageLogEnum typ = 1;</code>
+     */
     public Builder setTyp(ir.ms.pb.RoomMessageLogEnum value) {
       copyOnWrite();
       instance.setTyp(value);
       return this;
     }
-    /** <code>.RoomMessageLogEnum typ = 1;</code> */
+    /**
+     * <code>.RoomMessageLogEnum typ = 1;</code>
+     */
     public Builder clearTyp() {
       copyOnWrite();
       instance.clearTyp();
       return this;
     }
 
-    /** <code>uint64 TargetUserId = 2;</code> */
+    /**
+     * <code>uint64 TargetUserId = 2;</code>
+     */
     public long getTargetUserId() {
       return instance.getTargetUserId();
     }
-    /** <code>uint64 TargetUserId = 2;</code> */
+    /**
+     * <code>uint64 TargetUserId = 2;</code>
+     */
     public Builder setTargetUserId(long value) {
       copyOnWrite();
       instance.setTargetUserId(value);
       return this;
     }
-    /** <code>uint64 TargetUserId = 2;</code> */
+    /**
+     * <code>uint64 TargetUserId = 2;</code>
+     */
     public Builder clearTargetUserId() {
       copyOnWrite();
       instance.clearTargetUserId();
@@ -277,8 +311,6 @@ public final class RoomMessageLog
     }
 
     /**
-     *
-     *
      * <pre>
      *    /&#42;
      *    enum ExtraType {
@@ -297,8 +329,6 @@ public final class RoomMessageLog
       return instance.getByUserId();
     }
     /**
-     *
-     *
      * <pre>
      *    /&#42;
      *    enum ExtraType {
@@ -319,8 +349,6 @@ public final class RoomMessageLog
       return this;
     }
     /**
-     *
-     *
      * <pre>
      *    /&#42;
      *    enum ExtraType {
@@ -343,112 +371,100 @@ public final class RoomMessageLog
 
     // @@protoc_insertion_point(builder_scope:RoomMessageLog)
   }
-
   protected final Object dynamicMethod(
-      com.google.protobuf.GeneratedMessageLite.MethodToInvoke method, Object arg0, Object arg1) {
+      com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+      Object arg0, Object arg1) {
     switch (method) {
-      case NEW_MUTABLE_INSTANCE:
-        {
-          return new ir.ms.pb.RoomMessageLog();
+      case NEW_MUTABLE_INSTANCE: {
+        return new ir.ms.pb.RoomMessageLog();
+      }
+      case IS_INITIALIZED: {
+        return DEFAULT_INSTANCE;
+      }
+      case MAKE_IMMUTABLE: {
+        return null;
+      }
+      case NEW_BUILDER: {
+        return new Builder();
+      }
+      case VISIT: {
+        Visitor visitor = (Visitor) arg0;
+        ir.ms.pb.RoomMessageLog other = (ir.ms.pb.RoomMessageLog) arg1;
+        typ_ = visitor.visitInt(typ_ != 0, typ_,    other.typ_ != 0, other.typ_);
+        targetUserId_ = visitor.visitLong(targetUserId_ != 0L, targetUserId_,
+            other.targetUserId_ != 0L, other.targetUserId_);
+        byUserId_ = visitor.visitLong(byUserId_ != 0L, byUserId_,
+            other.byUserId_ != 0L, other.byUserId_);
+        if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
+            .INSTANCE) {
         }
-      case IS_INITIALIZED:
-        {
-          return DEFAULT_INSTANCE;
-        }
-      case MAKE_IMMUTABLE:
-        {
-          return null;
-        }
-      case NEW_BUILDER:
-        {
-          return new Builder();
-        }
-      case VISIT:
-        {
-          Visitor visitor = (Visitor) arg0;
-          ir.ms.pb.RoomMessageLog other = (ir.ms.pb.RoomMessageLog) arg1;
-          typ_ = visitor.visitInt(typ_ != 0, typ_, other.typ_ != 0, other.typ_);
-          targetUserId_ =
-              visitor.visitLong(
-                  targetUserId_ != 0L,
-                  targetUserId_,
-                  other.targetUserId_ != 0L,
-                  other.targetUserId_);
-          byUserId_ =
-              visitor.visitLong(byUserId_ != 0L, byUserId_, other.byUserId_ != 0L, other.byUserId_);
-          if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor.INSTANCE) {}
-          return this;
-        }
-      case MERGE_FROM_STREAM:
-        {
-          com.google.protobuf.CodedInputStream input = (com.google.protobuf.CodedInputStream) arg0;
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry =
-              (com.google.protobuf.ExtensionRegistryLite) arg1;
-          try {
-            boolean done = false;
-            while (!done) {
-              int tag = input.readTag();
-              switch (tag) {
-                case 0:
+        return this;
+      }
+      case MERGE_FROM_STREAM: {
+        com.google.protobuf.CodedInputStream input =
+            (com.google.protobuf.CodedInputStream) arg0;
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry =
+            (com.google.protobuf.ExtensionRegistryLite) arg1;
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              default: {
+                if (!input.skipField(tag)) {
                   done = true;
-                  break;
-                default:
-                  {
-                    if (!input.skipField(tag)) {
-                      done = true;
-                    }
-                    break;
-                  }
-                case 8:
-                  {
-                    int rawValue = input.readEnum();
+                }
+                break;
+              }
+              case 8: {
+                int rawValue = input.readEnum();
 
-                    typ_ = rawValue;
-                    break;
-                  }
-                case 16:
-                  {
-                    targetUserId_ = input.readUInt64();
-                    break;
-                  }
-                case 24:
-                  {
-                    byUserId_ = input.readUInt64();
-                    break;
-                  }
+                typ_ = rawValue;
+                break;
               }
-            }
-          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            throw new RuntimeException(e.setUnfinishedMessage(this));
-          } catch (java.io.IOException e) {
-            throw new RuntimeException(
-                new com.google.protobuf.InvalidProtocolBufferException(e.getMessage())
-                    .setUnfinishedMessage(this));
-          } finally {
-          }
-        }
-      case GET_DEFAULT_INSTANCE:
-        {
-          return DEFAULT_INSTANCE;
-        }
-      case GET_PARSER:
-        {
-          if (PARSER == null) {
-            synchronized (ir.ms.pb.RoomMessageLog.class) {
-              if (PARSER == null) {
-                PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
+              case 16: {
+
+                targetUserId_ = input.readUInt64();
+                break;
+              }
+              case 24: {
+
+                byUserId_ = input.readUInt64();
+                break;
               }
             }
           }
-          return PARSER;
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw new RuntimeException(e.setUnfinishedMessage(this));
+        } catch (java.io.IOException e) {
+          throw new RuntimeException(
+              new com.google.protobuf.InvalidProtocolBufferException(
+                  e.getMessage()).setUnfinishedMessage(this));
+        } finally {
         }
+      }
+      case GET_DEFAULT_INSTANCE: {
+        return DEFAULT_INSTANCE;
+      }
+      case GET_PARSER: {
+        if (PARSER == null) {    synchronized (ir.ms.pb.RoomMessageLog.class) {
+            if (PARSER == null) {
+              PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
+            }
+          }
+        }
+        return PARSER;
+      }
     }
     throw new UnsupportedOperationException();
   }
 
+
   // @@protoc_insertion_point(class_scope:RoomMessageLog)
   private static final ir.ms.pb.RoomMessageLog DEFAULT_INSTANCE;
-
   static {
     DEFAULT_INSTANCE = new RoomMessageLog();
     DEFAULT_INSTANCE.makeImmutable();
@@ -464,3 +480,4 @@ public final class RoomMessageLog
     return DEFAULT_INSTANCE.getParserForType();
   }
 }
+

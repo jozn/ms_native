@@ -4,46 +4,47 @@
 package ir.ms.pb;
 
 /**
- *
- *
  * <pre>
- * &#47;//////////////////////////////////
+ *&#47;//////////////////////////////////
  * </pre>
  *
  * Protobuf type {@code PB_MsgParam_DeleteChatHistory}
  */
-public final class PB_MsgParam_DeleteChatHistory
-    extends com.google.protobuf.GeneratedMessageLite<
-        PB_MsgParam_DeleteChatHistory, PB_MsgParam_DeleteChatHistory.Builder>
-    implements
+public  final class PB_MsgParam_DeleteChatHistory extends
+    com.google.protobuf.GeneratedMessageLite<
+        PB_MsgParam_DeleteChatHistory, PB_MsgParam_DeleteChatHistory.Builder> implements
     // @@protoc_insertion_point(message_implements:PB_MsgParam_DeleteChatHistory)
     PB_MsgParam_DeleteChatHistoryOrBuilder {
-  private PB_MsgParam_DeleteChatHistory() {}
-
+  private PB_MsgParam_DeleteChatHistory() {
+  }
   public static final int CHATID_FIELD_NUMBER = 1;
   private long chatId_;
-  /** <code>int64 ChatId = 1;</code> */
+  /**
+   * <code>int64 ChatId = 1;</code>
+   */
   public long getChatId() {
     return chatId_;
   }
-  /** <code>int64 ChatId = 1;</code> */
+  /**
+   * <code>int64 ChatId = 1;</code>
+   */
   private void setChatId(long value) {
-
+    
     chatId_ = value;
   }
-  /** <code>int64 ChatId = 1;</code> */
+  /**
+   * <code>int64 ChatId = 1;</code>
+   */
   private void clearChatId() {
-
+    
     chatId_ = 0L;
   }
 
   public static final int TOSEQ_FIELD_NUMBER = 2;
   private int toSeq_;
   /**
-   *
-   *
    * <pre>
-   * must persent
+   *must persent
    * </pre>
    *
    * <code>sint32 ToSeq = 2;</code>
@@ -52,33 +53,30 @@ public final class PB_MsgParam_DeleteChatHistory
     return toSeq_;
   }
   /**
-   *
-   *
    * <pre>
-   * must persent
+   *must persent
    * </pre>
    *
    * <code>sint32 ToSeq = 2;</code>
    */
   private void setToSeq(int value) {
-
+    
     toSeq_ = value;
   }
   /**
-   *
-   *
    * <pre>
-   * must persent
+   *must persent
    * </pre>
    *
    * <code>sint32 ToSeq = 2;</code>
    */
   private void clearToSeq() {
-
+    
     toSeq_ = 0;
   }
 
-  public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
+  public void writeTo(com.google.protobuf.CodedOutputStream output)
+                      throws java.io.IOException {
     if (chatId_ != 0L) {
       output.writeInt64(1, chatId_);
     }
@@ -93,10 +91,12 @@ public final class PB_MsgParam_DeleteChatHistory
 
     size = 0;
     if (chatId_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream.computeInt64Size(1, chatId_);
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(1, chatId_);
     }
     if (toSeq_ != 0) {
-      size += com.google.protobuf.CodedOutputStream.computeSInt32Size(2, toSeq_);
+      size += com.google.protobuf.CodedOutputStream
+        .computeSInt32Size(2, toSeq_);
     }
     memoizedSerializedSize = size;
     return size;
@@ -105,9 +105,9 @@ public final class PB_MsgParam_DeleteChatHistory
   public static ir.ms.pb.PB_MsgParam_DeleteChatHistory parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, data);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(
+        DEFAULT_INSTANCE, data);
   }
-
   public static ir.ms.pb.PB_MsgParam_DeleteChatHistory parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -115,47 +115,46 @@ public final class PB_MsgParam_DeleteChatHistory
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
-
   public static ir.ms.pb.PB_MsgParam_DeleteChatHistory parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, data);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(
+        DEFAULT_INSTANCE, data);
   }
-
   public static ir.ms.pb.PB_MsgParam_DeleteChatHistory parseFrom(
-      byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      byte[] data,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
-
   public static ir.ms.pb.PB_MsgParam_DeleteChatHistory parseFrom(java.io.InputStream input)
       throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, input);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(
+        DEFAULT_INSTANCE, input);
   }
-
   public static ir.ms.pb.PB_MsgParam_DeleteChatHistory parseFrom(
-      java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      java.io.InputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, input, extensionRegistry);
   }
-
   public static ir.ms.pb.PB_MsgParam_DeleteChatHistory parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input);
   }
-
   public static ir.ms.pb.PB_MsgParam_DeleteChatHistory parseDelimitedFrom(
-      java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      java.io.InputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
   }
-
   public static ir.ms.pb.PB_MsgParam_DeleteChatHistory parseFrom(
-      com.google.protobuf.CodedInputStream input) throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, input);
+      com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(
+        DEFAULT_INSTANCE, input);
   }
-
   public static ir.ms.pb.PB_MsgParam_DeleteChatHistory parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -167,24 +166,20 @@ public final class PB_MsgParam_DeleteChatHistory
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-
   public static Builder newBuilder(ir.ms.pb.PB_MsgParam_DeleteChatHistory prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
 
   /**
-   *
-   *
    * <pre>
-   * &#47;//////////////////////////////////
+   *&#47;//////////////////////////////////
    * </pre>
    *
    * Protobuf type {@code PB_MsgParam_DeleteChatHistory}
    */
-  public static final class Builder
-      extends com.google.protobuf.GeneratedMessageLite.Builder<
-          ir.ms.pb.PB_MsgParam_DeleteChatHistory, Builder>
-      implements
+  public static final class Builder extends
+      com.google.protobuf.GeneratedMessageLite.Builder<
+        ir.ms.pb.PB_MsgParam_DeleteChatHistory, Builder> implements
       // @@protoc_insertion_point(builder_implements:PB_MsgParam_DeleteChatHistory)
       ir.ms.pb.PB_MsgParam_DeleteChatHistoryOrBuilder {
     // Construct using ir.ms.pb.PB_MsgParam_DeleteChatHistory.newBuilder()
@@ -192,17 +187,24 @@ public final class PB_MsgParam_DeleteChatHistory
       super(DEFAULT_INSTANCE);
     }
 
-    /** <code>int64 ChatId = 1;</code> */
+
+    /**
+     * <code>int64 ChatId = 1;</code>
+     */
     public long getChatId() {
       return instance.getChatId();
     }
-    /** <code>int64 ChatId = 1;</code> */
+    /**
+     * <code>int64 ChatId = 1;</code>
+     */
     public Builder setChatId(long value) {
       copyOnWrite();
       instance.setChatId(value);
       return this;
     }
-    /** <code>int64 ChatId = 1;</code> */
+    /**
+     * <code>int64 ChatId = 1;</code>
+     */
     public Builder clearChatId() {
       copyOnWrite();
       instance.clearChatId();
@@ -210,10 +212,8 @@ public final class PB_MsgParam_DeleteChatHistory
     }
 
     /**
-     *
-     *
      * <pre>
-     * must persent
+     *must persent
      * </pre>
      *
      * <code>sint32 ToSeq = 2;</code>
@@ -222,10 +222,8 @@ public final class PB_MsgParam_DeleteChatHistory
       return instance.getToSeq();
     }
     /**
-     *
-     *
      * <pre>
-     * must persent
+     *must persent
      * </pre>
      *
      * <code>sint32 ToSeq = 2;</code>
@@ -236,10 +234,8 @@ public final class PB_MsgParam_DeleteChatHistory
       return this;
     }
     /**
-     *
-     *
      * <pre>
-     * must persent
+     *must persent
      * </pre>
      *
      * <code>sint32 ToSeq = 2;</code>
@@ -252,99 +248,93 @@ public final class PB_MsgParam_DeleteChatHistory
 
     // @@protoc_insertion_point(builder_scope:PB_MsgParam_DeleteChatHistory)
   }
-
   protected final Object dynamicMethod(
-      com.google.protobuf.GeneratedMessageLite.MethodToInvoke method, Object arg0, Object arg1) {
+      com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+      Object arg0, Object arg1) {
     switch (method) {
-      case NEW_MUTABLE_INSTANCE:
-        {
-          return new ir.ms.pb.PB_MsgParam_DeleteChatHistory();
+      case NEW_MUTABLE_INSTANCE: {
+        return new ir.ms.pb.PB_MsgParam_DeleteChatHistory();
+      }
+      case IS_INITIALIZED: {
+        return DEFAULT_INSTANCE;
+      }
+      case MAKE_IMMUTABLE: {
+        return null;
+      }
+      case NEW_BUILDER: {
+        return new Builder();
+      }
+      case VISIT: {
+        Visitor visitor = (Visitor) arg0;
+        ir.ms.pb.PB_MsgParam_DeleteChatHistory other = (ir.ms.pb.PB_MsgParam_DeleteChatHistory) arg1;
+        chatId_ = visitor.visitLong(chatId_ != 0L, chatId_,
+            other.chatId_ != 0L, other.chatId_);
+        toSeq_ = visitor.visitInt(toSeq_ != 0, toSeq_,
+            other.toSeq_ != 0, other.toSeq_);
+        if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
+            .INSTANCE) {
         }
-      case IS_INITIALIZED:
-        {
-          return DEFAULT_INSTANCE;
-        }
-      case MAKE_IMMUTABLE:
-        {
-          return null;
-        }
-      case NEW_BUILDER:
-        {
-          return new Builder();
-        }
-      case VISIT:
-        {
-          Visitor visitor = (Visitor) arg0;
-          ir.ms.pb.PB_MsgParam_DeleteChatHistory other =
-              (ir.ms.pb.PB_MsgParam_DeleteChatHistory) arg1;
-          chatId_ = visitor.visitLong(chatId_ != 0L, chatId_, other.chatId_ != 0L, other.chatId_);
-          toSeq_ = visitor.visitInt(toSeq_ != 0, toSeq_, other.toSeq_ != 0, other.toSeq_);
-          if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor.INSTANCE) {}
-          return this;
-        }
-      case MERGE_FROM_STREAM:
-        {
-          com.google.protobuf.CodedInputStream input = (com.google.protobuf.CodedInputStream) arg0;
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry =
-              (com.google.protobuf.ExtensionRegistryLite) arg1;
-          try {
-            boolean done = false;
-            while (!done) {
-              int tag = input.readTag();
-              switch (tag) {
-                case 0:
+        return this;
+      }
+      case MERGE_FROM_STREAM: {
+        com.google.protobuf.CodedInputStream input =
+            (com.google.protobuf.CodedInputStream) arg0;
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry =
+            (com.google.protobuf.ExtensionRegistryLite) arg1;
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              default: {
+                if (!input.skipField(tag)) {
                   done = true;
-                  break;
-                default:
-                  {
-                    if (!input.skipField(tag)) {
-                      done = true;
-                    }
-                    break;
-                  }
-                case 8:
-                  {
-                    chatId_ = input.readInt64();
-                    break;
-                  }
-                case 16:
-                  {
-                    toSeq_ = input.readSInt32();
-                    break;
-                  }
+                }
+                break;
               }
-            }
-          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            throw new RuntimeException(e.setUnfinishedMessage(this));
-          } catch (java.io.IOException e) {
-            throw new RuntimeException(
-                new com.google.protobuf.InvalidProtocolBufferException(e.getMessage())
-                    .setUnfinishedMessage(this));
-          } finally {
-          }
-        }
-      case GET_DEFAULT_INSTANCE:
-        {
-          return DEFAULT_INSTANCE;
-        }
-      case GET_PARSER:
-        {
-          if (PARSER == null) {
-            synchronized (ir.ms.pb.PB_MsgParam_DeleteChatHistory.class) {
-              if (PARSER == null) {
-                PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
+              case 8: {
+
+                chatId_ = input.readInt64();
+                break;
+              }
+              case 16: {
+
+                toSeq_ = input.readSInt32();
+                break;
               }
             }
           }
-          return PARSER;
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw new RuntimeException(e.setUnfinishedMessage(this));
+        } catch (java.io.IOException e) {
+          throw new RuntimeException(
+              new com.google.protobuf.InvalidProtocolBufferException(
+                  e.getMessage()).setUnfinishedMessage(this));
+        } finally {
         }
+      }
+      case GET_DEFAULT_INSTANCE: {
+        return DEFAULT_INSTANCE;
+      }
+      case GET_PARSER: {
+        if (PARSER == null) {    synchronized (ir.ms.pb.PB_MsgParam_DeleteChatHistory.class) {
+            if (PARSER == null) {
+              PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
+            }
+          }
+        }
+        return PARSER;
+      }
     }
     throw new UnsupportedOperationException();
   }
 
+
   // @@protoc_insertion_point(class_scope:PB_MsgParam_DeleteChatHistory)
   private static final ir.ms.pb.PB_MsgParam_DeleteChatHistory DEFAULT_INSTANCE;
-
   static {
     DEFAULT_INSTANCE = new PB_MsgParam_DeleteChatHistory();
     DEFAULT_INSTANCE.makeImmutable();
@@ -360,3 +350,4 @@ public final class PB_MsgParam_DeleteChatHistory
     return DEFAULT_INSTANCE.getParserForType();
   }
 }
+

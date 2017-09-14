@@ -3,13 +3,17 @@
 
 package ir.ms.pb;
 
-public interface PB_MsgParam_EchoOrBuilder
-    extends
+public interface PB_MsgParam_EchoOrBuilder extends
     // @@protoc_insertion_point(interface_extends:PB_MsgParam_Echo)
     com.google.protobuf.MessageLiteOrBuilder {
 
-  /** <code>string Text = 1;</code> */
+  /**
+   * <code>string Text = 1;</code>
+   */
   java.lang.String getText();
-  /** <code>string Text = 1;</code> */
-  com.google.protobuf.ByteString getTextBytes();
+  /**
+   * <code>string Text = 1;</code>
+   */
+  com.google.protobuf.ByteString
+      getTextBytes();
 }

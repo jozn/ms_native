@@ -3,49 +3,64 @@
 
 package ir.ms.pb;
 
-/** Protobuf type {@code GeoLocation} */
-public final class GeoLocation
-    extends com.google.protobuf.GeneratedMessageLite<GeoLocation, GeoLocation.Builder>
-    implements
+/**
+ * Protobuf type {@code GeoLocation}
+ */
+public  final class GeoLocation extends
+    com.google.protobuf.GeneratedMessageLite<
+        GeoLocation, GeoLocation.Builder> implements
     // @@protoc_insertion_point(message_implements:GeoLocation)
     GeoLocationOrBuilder {
-  private GeoLocation() {}
-
+  private GeoLocation() {
+  }
   public static final int LAT_FIELD_NUMBER = 1;
   private double lat_;
-  /** <code>double Lat = 1;</code> */
+  /**
+   * <code>double Lat = 1;</code>
+   */
   public double getLat() {
     return lat_;
   }
-  /** <code>double Lat = 1;</code> */
+  /**
+   * <code>double Lat = 1;</code>
+   */
   private void setLat(double value) {
-
+    
     lat_ = value;
   }
-  /** <code>double Lat = 1;</code> */
+  /**
+   * <code>double Lat = 1;</code>
+   */
   private void clearLat() {
-
+    
     lat_ = 0D;
   }
 
   public static final int LON_FIELD_NUMBER = 2;
   private double lon_;
-  /** <code>double Lon = 2;</code> */
+  /**
+   * <code>double Lon = 2;</code>
+   */
   public double getLon() {
     return lon_;
   }
-  /** <code>double Lon = 2;</code> */
+  /**
+   * <code>double Lon = 2;</code>
+   */
   private void setLon(double value) {
-
+    
     lon_ = value;
   }
-  /** <code>double Lon = 2;</code> */
+  /**
+   * <code>double Lon = 2;</code>
+   */
   private void clearLon() {
-
+    
     lon_ = 0D;
   }
 
-  public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
+  public void writeTo(com.google.protobuf.CodedOutputStream output)
+                      throws java.io.IOException {
     if (lat_ != 0D) {
       output.writeDouble(1, lat_);
     }
@@ -60,20 +75,23 @@ public final class GeoLocation
 
     size = 0;
     if (lat_ != 0D) {
-      size += com.google.protobuf.CodedOutputStream.computeDoubleSize(1, lat_);
+      size += com.google.protobuf.CodedOutputStream
+        .computeDoubleSize(1, lat_);
     }
     if (lon_ != 0D) {
-      size += com.google.protobuf.CodedOutputStream.computeDoubleSize(2, lon_);
+      size += com.google.protobuf.CodedOutputStream
+        .computeDoubleSize(2, lon_);
     }
     memoizedSerializedSize = size;
     return size;
   }
 
-  public static ir.ms.pb.GeoLocation parseFrom(com.google.protobuf.ByteString data)
+  public static ir.ms.pb.GeoLocation parseFrom(
+      com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, data);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(
+        DEFAULT_INSTANCE, data);
   }
-
   public static ir.ms.pb.GeoLocation parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -81,47 +99,46 @@ public final class GeoLocation
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
-
   public static ir.ms.pb.GeoLocation parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, data);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(
+        DEFAULT_INSTANCE, data);
   }
-
   public static ir.ms.pb.GeoLocation parseFrom(
-      byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      byte[] data,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
-
   public static ir.ms.pb.GeoLocation parseFrom(java.io.InputStream input)
       throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, input);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(
+        DEFAULT_INSTANCE, input);
   }
-
   public static ir.ms.pb.GeoLocation parseFrom(
-      java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      java.io.InputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, input, extensionRegistry);
   }
-
   public static ir.ms.pb.GeoLocation parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input);
   }
-
   public static ir.ms.pb.GeoLocation parseDelimitedFrom(
-      java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      java.io.InputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
   }
-
-  public static ir.ms.pb.GeoLocation parseFrom(com.google.protobuf.CodedInputStream input)
+  public static ir.ms.pb.GeoLocation parseFrom(
+      com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, input);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(
+        DEFAULT_INSTANCE, input);
   }
-
   public static ir.ms.pb.GeoLocation parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -133,15 +150,16 @@ public final class GeoLocation
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-
   public static Builder newBuilder(ir.ms.pb.GeoLocation prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
 
-  /** Protobuf type {@code GeoLocation} */
-  public static final class Builder
-      extends com.google.protobuf.GeneratedMessageLite.Builder<ir.ms.pb.GeoLocation, Builder>
-      implements
+  /**
+   * Protobuf type {@code GeoLocation}
+   */
+  public static final class Builder extends
+      com.google.protobuf.GeneratedMessageLite.Builder<
+        ir.ms.pb.GeoLocation, Builder> implements
       // @@protoc_insertion_point(builder_implements:GeoLocation)
       ir.ms.pb.GeoLocationOrBuilder {
     // Construct using ir.ms.pb.GeoLocation.newBuilder()
@@ -149,34 +167,47 @@ public final class GeoLocation
       super(DEFAULT_INSTANCE);
     }
 
-    /** <code>double Lat = 1;</code> */
+
+    /**
+     * <code>double Lat = 1;</code>
+     */
     public double getLat() {
       return instance.getLat();
     }
-    /** <code>double Lat = 1;</code> */
+    /**
+     * <code>double Lat = 1;</code>
+     */
     public Builder setLat(double value) {
       copyOnWrite();
       instance.setLat(value);
       return this;
     }
-    /** <code>double Lat = 1;</code> */
+    /**
+     * <code>double Lat = 1;</code>
+     */
     public Builder clearLat() {
       copyOnWrite();
       instance.clearLat();
       return this;
     }
 
-    /** <code>double Lon = 2;</code> */
+    /**
+     * <code>double Lon = 2;</code>
+     */
     public double getLon() {
       return instance.getLon();
     }
-    /** <code>double Lon = 2;</code> */
+    /**
+     * <code>double Lon = 2;</code>
+     */
     public Builder setLon(double value) {
       copyOnWrite();
       instance.setLon(value);
       return this;
     }
-    /** <code>double Lon = 2;</code> */
+    /**
+     * <code>double Lon = 2;</code>
+     */
     public Builder clearLon() {
       copyOnWrite();
       instance.clearLon();
@@ -185,98 +216,93 @@ public final class GeoLocation
 
     // @@protoc_insertion_point(builder_scope:GeoLocation)
   }
-
   protected final Object dynamicMethod(
-      com.google.protobuf.GeneratedMessageLite.MethodToInvoke method, Object arg0, Object arg1) {
+      com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+      Object arg0, Object arg1) {
     switch (method) {
-      case NEW_MUTABLE_INSTANCE:
-        {
-          return new ir.ms.pb.GeoLocation();
+      case NEW_MUTABLE_INSTANCE: {
+        return new ir.ms.pb.GeoLocation();
+      }
+      case IS_INITIALIZED: {
+        return DEFAULT_INSTANCE;
+      }
+      case MAKE_IMMUTABLE: {
+        return null;
+      }
+      case NEW_BUILDER: {
+        return new Builder();
+      }
+      case VISIT: {
+        Visitor visitor = (Visitor) arg0;
+        ir.ms.pb.GeoLocation other = (ir.ms.pb.GeoLocation) arg1;
+        lat_ = visitor.visitDouble(lat_ != 0D, lat_,
+            other.lat_ != 0D, other.lat_);
+        lon_ = visitor.visitDouble(lon_ != 0D, lon_,
+            other.lon_ != 0D, other.lon_);
+        if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
+            .INSTANCE) {
         }
-      case IS_INITIALIZED:
-        {
-          return DEFAULT_INSTANCE;
-        }
-      case MAKE_IMMUTABLE:
-        {
-          return null;
-        }
-      case NEW_BUILDER:
-        {
-          return new Builder();
-        }
-      case VISIT:
-        {
-          Visitor visitor = (Visitor) arg0;
-          ir.ms.pb.GeoLocation other = (ir.ms.pb.GeoLocation) arg1;
-          lat_ = visitor.visitDouble(lat_ != 0D, lat_, other.lat_ != 0D, other.lat_);
-          lon_ = visitor.visitDouble(lon_ != 0D, lon_, other.lon_ != 0D, other.lon_);
-          if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor.INSTANCE) {}
-          return this;
-        }
-      case MERGE_FROM_STREAM:
-        {
-          com.google.protobuf.CodedInputStream input = (com.google.protobuf.CodedInputStream) arg0;
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry =
-              (com.google.protobuf.ExtensionRegistryLite) arg1;
-          try {
-            boolean done = false;
-            while (!done) {
-              int tag = input.readTag();
-              switch (tag) {
-                case 0:
+        return this;
+      }
+      case MERGE_FROM_STREAM: {
+        com.google.protobuf.CodedInputStream input =
+            (com.google.protobuf.CodedInputStream) arg0;
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry =
+            (com.google.protobuf.ExtensionRegistryLite) arg1;
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              default: {
+                if (!input.skipField(tag)) {
                   done = true;
-                  break;
-                default:
-                  {
-                    if (!input.skipField(tag)) {
-                      done = true;
-                    }
-                    break;
-                  }
-                case 9:
-                  {
-                    lat_ = input.readDouble();
-                    break;
-                  }
-                case 17:
-                  {
-                    lon_ = input.readDouble();
-                    break;
-                  }
+                }
+                break;
               }
-            }
-          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            throw new RuntimeException(e.setUnfinishedMessage(this));
-          } catch (java.io.IOException e) {
-            throw new RuntimeException(
-                new com.google.protobuf.InvalidProtocolBufferException(e.getMessage())
-                    .setUnfinishedMessage(this));
-          } finally {
-          }
-        }
-      case GET_DEFAULT_INSTANCE:
-        {
-          return DEFAULT_INSTANCE;
-        }
-      case GET_PARSER:
-        {
-          if (PARSER == null) {
-            synchronized (ir.ms.pb.GeoLocation.class) {
-              if (PARSER == null) {
-                PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
+              case 9: {
+
+                lat_ = input.readDouble();
+                break;
+              }
+              case 17: {
+
+                lon_ = input.readDouble();
+                break;
               }
             }
           }
-          return PARSER;
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw new RuntimeException(e.setUnfinishedMessage(this));
+        } catch (java.io.IOException e) {
+          throw new RuntimeException(
+              new com.google.protobuf.InvalidProtocolBufferException(
+                  e.getMessage()).setUnfinishedMessage(this));
+        } finally {
         }
+      }
+      case GET_DEFAULT_INSTANCE: {
+        return DEFAULT_INSTANCE;
+      }
+      case GET_PARSER: {
+        if (PARSER == null) {    synchronized (ir.ms.pb.GeoLocation.class) {
+            if (PARSER == null) {
+              PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
+            }
+          }
+        }
+        return PARSER;
+      }
     }
     throw new UnsupportedOperationException();
   }
 
+
   // @@protoc_insertion_point(class_scope:GeoLocation)
   private static final ir.ms.pb.GeoLocation DEFAULT_INSTANCE;
-
   static {
     DEFAULT_INSTANCE = new GeoLocation();
     DEFAULT_INSTANCE.makeImmutable();
@@ -292,3 +318,4 @@ public final class GeoLocation
     return DEFAULT_INSTANCE.getParserForType();
   }
 }
+

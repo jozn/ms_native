@@ -3,7 +3,7 @@
 
 package ir.ms.pb;
 
-public interface PB_UserResponse_CheckUserNameOrBuilder
-    extends
+public interface PB_UserResponse_CheckUserNameOrBuilder extends
     // @@protoc_insertion_point(interface_extends:PB_UserResponse_CheckUserName)
-    com.google.protobuf.MessageLiteOrBuilder {}
+    com.google.protobuf.MessageLiteOrBuilder {
+}

@@ -3,19 +3,18 @@
 
 package ir.ms.pb;
 
-public interface PB_MsgParam_SetChatMessagesRangeAsSeenOrBuilder
-    extends
+public interface PB_MsgParam_SetChatMessagesRangeAsSeenOrBuilder extends
     // @@protoc_insertion_point(interface_extends:PB_MsgParam_SetChatMessagesRangeAsSeen)
     com.google.protobuf.MessageLiteOrBuilder {
 
-  /** <code>int64 ChatId = 1;</code> */
+  /**
+   * <code>int64 ChatId = 1;</code>
+   */
   long getChatId();
 
   /**
-   *
-   *
    * <pre>
-   * must persent
+   *must persent 
    * </pre>
    *
    * <code>sint32 FromSeq = 2;</code>
@@ -23,8 +22,6 @@ public interface PB_MsgParam_SetChatMessagesRangeAsSeenOrBuilder
   int getFromSeq();
 
   /**
-   *
-   *
    * <pre>
    * must persent
    * </pre>
@@ -33,6 +30,8 @@ public interface PB_MsgParam_SetChatMessagesRangeAsSeenOrBuilder
    */
   int getEndSeq();
 
-  /** <code>int64 SeenTimeMs = 4;</code> */
+  /**
+   * <code>int64 SeenTimeMs = 4;</code>
+   */
   long getSeenTimeMs();
 }

@@ -11,6 +11,7 @@ import android.view.View;
 import com.mardomsara.social.App;
 import com.mardomsara.social.Nav;
 import com.mardomsara.social.app.MSRealm;
+import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.IntentHelper;
@@ -30,7 +31,6 @@ import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.X;
 import com.mardomsara.social.ui.cells.chats.adaptors.ChatEntryAdaptor;
 import com.mardomsara.social.ui.cells.general.KeyboardAttachmentCell;
-import com.mardomsara.social.ui.presenter.chat_realm.chat_room.del.RealmChatAdaptor_DEP;
 import com.mardomsara.social.ui.views.EmojiKeyboard;
 import com.squareup.picasso.Picasso;
 import com.sw926.imagefileselector.ImageFileSelector;
@@ -49,7 +49,7 @@ import io.realm.Sort;
  * Created by Hamid on 5/4/2016.
  */
 public class ChatRoomEntryPresenter extends BasePresenter implements
-        KeyboardAttachmentCell.Callbacks , AppHeaderFooterRecyclerViewAdapter.LoadNextPage{
+	KeyboardAttachmentCell.KeyboardAttachmentListener, AppHeaderFooterRecyclerViewAdapter.LoadNextPage{
     public RealmChatView room;
 
     //constants
@@ -61,8 +61,8 @@ public class ChatRoomEntryPresenter extends BasePresenter implements
 
 //	ArrayListHashSetKey<Message,String> messages;
     ChatEntryAdaptor messagesAdaptor_DEP;
-    com.mardomsara.social.ui.presenter.chat_realm.chat_room.del.ChatRoomEntryAdaptor adaptor;
-	RealmChatAdaptor_DEP adaptor_depp;
+//    com.mardomsara.social.ui.presenter.chat_realm.chat_room.del.ChatRoomEntryAdaptor adaptor;
+//	RealmChatAdaptor_DEP adaptor_depp;
 	ChatRoomEntryAdaptor adaptor2;
 
     KeyboardAttachmentCell attachment_view;
@@ -99,7 +99,7 @@ public class ChatRoomEntryPresenter extends BasePresenter implements
 		}
 
         messagesAdaptor_DEP = new ChatEntryAdaptor();
-        adaptor = new com.mardomsara.social.ui.presenter.chat_realm.chat_room.del.ChatRoomEntryAdaptor();
+//        adaptor = new com.mardomsara.social.ui.presenter.chat_realm.chat_room.del.ChatRoomEntryAdaptor();
 //        adaptor_depp = new RealmChatAdaptor_DEP(realmResults,true);
 		RealmViewWrapperHolder wrapper = new RealmViewWrapperHolder();
 //		wrapper.messageViewList = messageViewList;
@@ -349,9 +349,9 @@ public class ChatRoomEntryPresenter extends BasePresenter implements
     /////////////// Keyboard listener ////////////////
     @Override
     public void onCameraPhotoClick() {
-        /*intentHelper = new IntentHelper();
+        intentHelper = new IntentHelper();
         attachment_view.dismiss();
-        file_uri =  intentHelper.captureImage(getActivity(), ATTACH_CAMERA_IMAGE,"back");*/
+        file_uri =  intentHelper.captureImage(getActivity(), ATTACH_CAMERA_IMAGE,"back");
     }
 
     @Override
@@ -401,12 +401,12 @@ public class ChatRoomEntryPresenter extends BasePresenter implements
 
     @Override
     public void onRecentImagesSendClicked(List<String> imagesPath){
-        /*attachment_view.dismiss();
-		AndroidUtil.runInBackgroundNoPanic(()->{
+        attachment_view.dismiss();
+//		AndroidUtil.runInBackgroundNoPanic(()->{
 			for(String image : imagesPath){
 				_sendMsgImage(image,false);
 			}
-		});*/
+//		});
     };
 
 
@@ -450,6 +450,10 @@ public class ChatRoomEntryPresenter extends BasePresenter implements
     }
 
     void _sendMsgImage(String path, final boolean deleteOriginal){
+		ModelChatEntry.addSingleImageMessage(room,"new 2image !!!",path,deleteOriginal);
+		scrollToBottom();
+
+
         /*logIt("_sendMsgImage: "+ path + " "+deleteOriginal);
         if(path== null || path.equals("")) return;
         File fileOriginal = new File(path);
@@ -543,5 +547,9 @@ public class ChatRoomEntryPresenter extends BasePresenter implements
 
         Helper.showDebugMessage("page : "+pageNum);*/
     }
+
+    void scrollToBottom(){
+		mLayoutManager.scrollToPosition(0);
+	}
 
 }

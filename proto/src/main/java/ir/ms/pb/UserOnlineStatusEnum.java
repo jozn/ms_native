@@ -3,49 +3,87 @@
 
 package ir.ms.pb;
 
-/** Protobuf enum {@code UserOnlineStatusEnum} */
-public enum UserOnlineStatusEnum implements com.google.protobuf.Internal.EnumLite {
-  /** <code>LONG_TIME_AGO = 0;</code> */
+/**
+ * Protobuf enum {@code UserOnlineStatusEnum}
+ */
+public enum UserOnlineStatusEnum
+    implements com.google.protobuf.Internal.EnumLite {
+  /**
+   * <code>LONG_TIME_AGO = 0;</code>
+   */
   LONG_TIME_AGO(0),
-  /** <code>LAST_MONTH = 1;</code> */
+  /**
+   * <code>LAST_MONTH = 1;</code>
+   */
   LAST_MONTH(1),
-  /** <code>LAST_WEEK = 2;</code> */
+  /**
+   * <code>LAST_WEEK = 2;</code>
+   */
   LAST_WEEK(2),
-  /** <code>ONLINE = 3;</code> */
+  /**
+   * <code>ONLINE = 3;</code>
+   */
   ONLINE(3),
-  /** <code>EXACTLY = 4;</code> */
+  /**
+   * <code>EXACTLY = 4;</code>
+   */
   EXACTLY(4),
-  /** <code>RECENTLY = 5;</code> */
+  /**
+   * <code>RECENTLY = 5;</code>
+   */
   RECENTLY(5),
-  /** <code>SUPPORT = 6;</code> */
+  /**
+   * <code>SUPPORT = 6;</code>
+   */
   SUPPORT(6),
-  /** <code>SERVICE_NOTIFICATIONS = 7;</code> */
+  /**
+   * <code>SERVICE_NOTIFICATIONS = 7;</code>
+   */
   SERVICE_NOTIFICATIONS(7),
   UNRECOGNIZED(-1),
   ;
 
-  /** <code>LONG_TIME_AGO = 0;</code> */
+  /**
+   * <code>LONG_TIME_AGO = 0;</code>
+   */
   public static final int LONG_TIME_AGO_VALUE = 0;
-  /** <code>LAST_MONTH = 1;</code> */
+  /**
+   * <code>LAST_MONTH = 1;</code>
+   */
   public static final int LAST_MONTH_VALUE = 1;
-  /** <code>LAST_WEEK = 2;</code> */
+  /**
+   * <code>LAST_WEEK = 2;</code>
+   */
   public static final int LAST_WEEK_VALUE = 2;
-  /** <code>ONLINE = 3;</code> */
+  /**
+   * <code>ONLINE = 3;</code>
+   */
   public static final int ONLINE_VALUE = 3;
-  /** <code>EXACTLY = 4;</code> */
+  /**
+   * <code>EXACTLY = 4;</code>
+   */
   public static final int EXACTLY_VALUE = 4;
-  /** <code>RECENTLY = 5;</code> */
+  /**
+   * <code>RECENTLY = 5;</code>
+   */
   public static final int RECENTLY_VALUE = 5;
-  /** <code>SUPPORT = 6;</code> */
+  /**
+   * <code>SUPPORT = 6;</code>
+   */
   public static final int SUPPORT_VALUE = 6;
-  /** <code>SERVICE_NOTIFICATIONS = 7;</code> */
+  /**
+   * <code>SERVICE_NOTIFICATIONS = 7;</code>
+   */
   public static final int SERVICE_NOTIFICATIONS_VALUE = 7;
+
 
   public final int getNumber() {
     return value;
   }
 
-  /** @deprecated Use {@link #forNumber(int)} instead. */
+  /**
+   * @deprecated Use {@link #forNumber(int)} instead.
+   */
   @java.lang.Deprecated
   public static UserOnlineStatusEnum valueOf(int value) {
     return forNumber(value);
@@ -53,24 +91,15 @@ public enum UserOnlineStatusEnum implements com.google.protobuf.Internal.EnumLit
 
   public static UserOnlineStatusEnum forNumber(int value) {
     switch (value) {
-      case 0:
-        return LONG_TIME_AGO;
-      case 1:
-        return LAST_MONTH;
-      case 2:
-        return LAST_WEEK;
-      case 3:
-        return ONLINE;
-      case 4:
-        return EXACTLY;
-      case 5:
-        return RECENTLY;
-      case 6:
-        return SUPPORT;
-      case 7:
-        return SERVICE_NOTIFICATIONS;
-      default:
-        return null;
+      case 0: return LONG_TIME_AGO;
+      case 1: return LAST_MONTH;
+      case 2: return LAST_WEEK;
+      case 3: return ONLINE;
+      case 4: return EXACTLY;
+      case 5: return RECENTLY;
+      case 6: return SUPPORT;
+      case 7: return SERVICE_NOTIFICATIONS;
+      default: return null;
     }
   }
 
@@ -78,14 +107,13 @@ public enum UserOnlineStatusEnum implements com.google.protobuf.Internal.EnumLit
       internalGetValueMap() {
     return internalValueMap;
   }
-
-  private static final com.google.protobuf.Internal.EnumLiteMap<UserOnlineStatusEnum>
-      internalValueMap =
-          new com.google.protobuf.Internal.EnumLiteMap<UserOnlineStatusEnum>() {
-            public UserOnlineStatusEnum findValueByNumber(int number) {
-              return UserOnlineStatusEnum.forNumber(number);
-            }
-          };
+  private static final com.google.protobuf.Internal.EnumLiteMap<
+      UserOnlineStatusEnum> internalValueMap =
+        new com.google.protobuf.Internal.EnumLiteMap<UserOnlineStatusEnum>() {
+          public UserOnlineStatusEnum findValueByNumber(int number) {
+            return UserOnlineStatusEnum.forNumber(number);
+          }
+        };
 
   private final int value;
 
@@ -95,3 +123,4 @@ public enum UserOnlineStatusEnum implements com.google.protobuf.Internal.EnumLit
 
   // @@protoc_insertion_point(enum_scope:UserOnlineStatusEnum)
 }
+

@@ -3,7 +3,7 @@
 
 package ir.ms.pb;
 
-public interface PB_UpdateGroupParticipantsOrBuilder
-    extends
+public interface PB_UpdateGroupParticipantsOrBuilder extends
     // @@protoc_insertion_point(interface_extends:PB_UpdateGroupParticipants)
-    com.google.protobuf.MessageLiteOrBuilder {}
+    com.google.protobuf.MessageLiteOrBuilder {
+}

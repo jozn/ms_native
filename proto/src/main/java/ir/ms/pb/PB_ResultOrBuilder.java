@@ -3,11 +3,12 @@
 
 package ir.ms.pb;
 
-public interface PB_ResultOrBuilder
-    extends
+public interface PB_ResultOrBuilder extends
     // @@protoc_insertion_point(interface_extends:PB_Result)
     com.google.protobuf.MessageLiteOrBuilder {
 
-  /** <code>int32 Status = 1;</code> */
+  /**
+   * <code>int32 Status = 1;</code>
+   */
   int getStatus();
 }

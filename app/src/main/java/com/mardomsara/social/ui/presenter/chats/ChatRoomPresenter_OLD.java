@@ -54,7 +54,7 @@ import java.util.List;
  * Created by Hamid on 5/4/2016.
  */
 public class ChatRoomPresenter_OLD extends BasePresenter implements
-        KeyboardAttachmentCell.Callbacks , AppHeaderFooterRecyclerViewAdapter.LoadNextPage{
+	KeyboardAttachmentCell.KeyboardAttachmentListener, AppHeaderFooterRecyclerViewAdapter.LoadNextPage{
     public Room room;
 
     //constants

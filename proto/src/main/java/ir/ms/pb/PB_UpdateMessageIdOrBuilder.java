@@ -3,14 +3,17 @@
 
 package ir.ms.pb;
 
-public interface PB_UpdateMessageIdOrBuilder
-    extends
+public interface PB_UpdateMessageIdOrBuilder extends
     // @@protoc_insertion_point(interface_extends:PB_UpdateMessageId)
     com.google.protobuf.MessageLiteOrBuilder {
 
-  /** <code>int64 OldMessageId = 1;</code> */
+  /**
+   * <code>int64 OldMessageId = 1;</code>
+   */
   long getOldMessageId();
 
-  /** <code>int64 NewMessageId = 2;</code> */
+  /**
+   * <code>int64 NewMessageId = 2;</code>
+   */
   long getNewMessageId();
 }

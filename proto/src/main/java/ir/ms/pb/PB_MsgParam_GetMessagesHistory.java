@@ -4,74 +4,90 @@
 package ir.ms.pb;
 
 /**
- *
- *
  * <pre>
  * GetMessagesHistory
  * </pre>
  *
  * Protobuf type {@code PB_MsgParam_GetMessagesHistory}
  */
-public final class PB_MsgParam_GetMessagesHistory
-    extends com.google.protobuf.GeneratedMessageLite<
-        PB_MsgParam_GetMessagesHistory, PB_MsgParam_GetMessagesHistory.Builder>
-    implements
+public  final class PB_MsgParam_GetMessagesHistory extends
+    com.google.protobuf.GeneratedMessageLite<
+        PB_MsgParam_GetMessagesHistory, PB_MsgParam_GetMessagesHistory.Builder> implements
     // @@protoc_insertion_point(message_implements:PB_MsgParam_GetMessagesHistory)
     PB_MsgParam_GetMessagesHistoryOrBuilder {
-  private PB_MsgParam_GetMessagesHistory() {}
-
+  private PB_MsgParam_GetMessagesHistory() {
+  }
   public static final int CHATID_FIELD_NUMBER = 1;
   private long chatId_;
-  /** <code>int64 ChatId = 1;</code> */
+  /**
+   * <code>int64 ChatId = 1;</code>
+   */
   public long getChatId() {
     return chatId_;
   }
-  /** <code>int64 ChatId = 1;</code> */
+  /**
+   * <code>int64 ChatId = 1;</code>
+   */
   private void setChatId(long value) {
-
+    
     chatId_ = value;
   }
-  /** <code>int64 ChatId = 1;</code> */
+  /**
+   * <code>int64 ChatId = 1;</code>
+   */
   private void clearChatId() {
-
+    
     chatId_ = 0L;
   }
 
   public static final int FROMSEQ_FIELD_NUMBER = 2;
   private int fromSeq_;
-  /** <code>sint32 FromSeq = 2;</code> */
+  /**
+   * <code>sint32 FromSeq = 2;</code>
+   */
   public int getFromSeq() {
     return fromSeq_;
   }
-  /** <code>sint32 FromSeq = 2;</code> */
+  /**
+   * <code>sint32 FromSeq = 2;</code>
+   */
   private void setFromSeq(int value) {
-
+    
     fromSeq_ = value;
   }
-  /** <code>sint32 FromSeq = 2;</code> */
+  /**
+   * <code>sint32 FromSeq = 2;</code>
+   */
   private void clearFromSeq() {
-
+    
     fromSeq_ = 0;
   }
 
   public static final int ENDSEQ_FIELD_NUMBER = 3;
   private int endSeq_;
-  /** <code>sint32 EndSeq = 3;</code> */
+  /**
+   * <code>sint32 EndSeq = 3;</code>
+   */
   public int getEndSeq() {
     return endSeq_;
   }
-  /** <code>sint32 EndSeq = 3;</code> */
+  /**
+   * <code>sint32 EndSeq = 3;</code>
+   */
   private void setEndSeq(int value) {
-
+    
     endSeq_ = value;
   }
-  /** <code>sint32 EndSeq = 3;</code> */
+  /**
+   * <code>sint32 EndSeq = 3;</code>
+   */
   private void clearEndSeq() {
-
+    
     endSeq_ = 0;
   }
 
-  public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
+  public void writeTo(com.google.protobuf.CodedOutputStream output)
+                      throws java.io.IOException {
     if (chatId_ != 0L) {
       output.writeInt64(1, chatId_);
     }
@@ -89,13 +105,16 @@ public final class PB_MsgParam_GetMessagesHistory
 
     size = 0;
     if (chatId_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream.computeInt64Size(1, chatId_);
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(1, chatId_);
     }
     if (fromSeq_ != 0) {
-      size += com.google.protobuf.CodedOutputStream.computeSInt32Size(2, fromSeq_);
+      size += com.google.protobuf.CodedOutputStream
+        .computeSInt32Size(2, fromSeq_);
     }
     if (endSeq_ != 0) {
-      size += com.google.protobuf.CodedOutputStream.computeSInt32Size(3, endSeq_);
+      size += com.google.protobuf.CodedOutputStream
+        .computeSInt32Size(3, endSeq_);
     }
     memoizedSerializedSize = size;
     return size;
@@ -104,9 +123,9 @@ public final class PB_MsgParam_GetMessagesHistory
   public static ir.ms.pb.PB_MsgParam_GetMessagesHistory parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, data);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(
+        DEFAULT_INSTANCE, data);
   }
-
   public static ir.ms.pb.PB_MsgParam_GetMessagesHistory parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -114,47 +133,46 @@ public final class PB_MsgParam_GetMessagesHistory
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
-
   public static ir.ms.pb.PB_MsgParam_GetMessagesHistory parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, data);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(
+        DEFAULT_INSTANCE, data);
   }
-
   public static ir.ms.pb.PB_MsgParam_GetMessagesHistory parseFrom(
-      byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      byte[] data,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
-
   public static ir.ms.pb.PB_MsgParam_GetMessagesHistory parseFrom(java.io.InputStream input)
       throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, input);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(
+        DEFAULT_INSTANCE, input);
   }
-
   public static ir.ms.pb.PB_MsgParam_GetMessagesHistory parseFrom(
-      java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      java.io.InputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, input, extensionRegistry);
   }
-
-  public static ir.ms.pb.PB_MsgParam_GetMessagesHistory parseDelimitedFrom(
-      java.io.InputStream input) throws java.io.IOException {
+  public static ir.ms.pb.PB_MsgParam_GetMessagesHistory parseDelimitedFrom(java.io.InputStream input)
+      throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input);
   }
-
   public static ir.ms.pb.PB_MsgParam_GetMessagesHistory parseDelimitedFrom(
-      java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      java.io.InputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
   }
-
   public static ir.ms.pb.PB_MsgParam_GetMessagesHistory parseFrom(
-      com.google.protobuf.CodedInputStream input) throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, input);
+      com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(
+        DEFAULT_INSTANCE, input);
   }
-
   public static ir.ms.pb.PB_MsgParam_GetMessagesHistory parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -166,24 +184,20 @@ public final class PB_MsgParam_GetMessagesHistory
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-
   public static Builder newBuilder(ir.ms.pb.PB_MsgParam_GetMessagesHistory prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
 
   /**
-   *
-   *
    * <pre>
    * GetMessagesHistory
    * </pre>
    *
    * Protobuf type {@code PB_MsgParam_GetMessagesHistory}
    */
-  public static final class Builder
-      extends com.google.protobuf.GeneratedMessageLite.Builder<
-          ir.ms.pb.PB_MsgParam_GetMessagesHistory, Builder>
-      implements
+  public static final class Builder extends
+      com.google.protobuf.GeneratedMessageLite.Builder<
+        ir.ms.pb.PB_MsgParam_GetMessagesHistory, Builder> implements
       // @@protoc_insertion_point(builder_implements:PB_MsgParam_GetMessagesHistory)
       ir.ms.pb.PB_MsgParam_GetMessagesHistoryOrBuilder {
     // Construct using ir.ms.pb.PB_MsgParam_GetMessagesHistory.newBuilder()
@@ -191,51 +205,70 @@ public final class PB_MsgParam_GetMessagesHistory
       super(DEFAULT_INSTANCE);
     }
 
-    /** <code>int64 ChatId = 1;</code> */
+
+    /**
+     * <code>int64 ChatId = 1;</code>
+     */
     public long getChatId() {
       return instance.getChatId();
     }
-    /** <code>int64 ChatId = 1;</code> */
+    /**
+     * <code>int64 ChatId = 1;</code>
+     */
     public Builder setChatId(long value) {
       copyOnWrite();
       instance.setChatId(value);
       return this;
     }
-    /** <code>int64 ChatId = 1;</code> */
+    /**
+     * <code>int64 ChatId = 1;</code>
+     */
     public Builder clearChatId() {
       copyOnWrite();
       instance.clearChatId();
       return this;
     }
 
-    /** <code>sint32 FromSeq = 2;</code> */
+    /**
+     * <code>sint32 FromSeq = 2;</code>
+     */
     public int getFromSeq() {
       return instance.getFromSeq();
     }
-    /** <code>sint32 FromSeq = 2;</code> */
+    /**
+     * <code>sint32 FromSeq = 2;</code>
+     */
     public Builder setFromSeq(int value) {
       copyOnWrite();
       instance.setFromSeq(value);
       return this;
     }
-    /** <code>sint32 FromSeq = 2;</code> */
+    /**
+     * <code>sint32 FromSeq = 2;</code>
+     */
     public Builder clearFromSeq() {
       copyOnWrite();
       instance.clearFromSeq();
       return this;
     }
 
-    /** <code>sint32 EndSeq = 3;</code> */
+    /**
+     * <code>sint32 EndSeq = 3;</code>
+     */
     public int getEndSeq() {
       return instance.getEndSeq();
     }
-    /** <code>sint32 EndSeq = 3;</code> */
+    /**
+     * <code>sint32 EndSeq = 3;</code>
+     */
     public Builder setEndSeq(int value) {
       copyOnWrite();
       instance.setEndSeq(value);
       return this;
     }
-    /** <code>sint32 EndSeq = 3;</code> */
+    /**
+     * <code>sint32 EndSeq = 3;</code>
+     */
     public Builder clearEndSeq() {
       copyOnWrite();
       instance.clearEndSeq();
@@ -244,105 +277,100 @@ public final class PB_MsgParam_GetMessagesHistory
 
     // @@protoc_insertion_point(builder_scope:PB_MsgParam_GetMessagesHistory)
   }
-
   protected final Object dynamicMethod(
-      com.google.protobuf.GeneratedMessageLite.MethodToInvoke method, Object arg0, Object arg1) {
+      com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+      Object arg0, Object arg1) {
     switch (method) {
-      case NEW_MUTABLE_INSTANCE:
-        {
-          return new ir.ms.pb.PB_MsgParam_GetMessagesHistory();
+      case NEW_MUTABLE_INSTANCE: {
+        return new ir.ms.pb.PB_MsgParam_GetMessagesHistory();
+      }
+      case IS_INITIALIZED: {
+        return DEFAULT_INSTANCE;
+      }
+      case MAKE_IMMUTABLE: {
+        return null;
+      }
+      case NEW_BUILDER: {
+        return new Builder();
+      }
+      case VISIT: {
+        Visitor visitor = (Visitor) arg0;
+        ir.ms.pb.PB_MsgParam_GetMessagesHistory other = (ir.ms.pb.PB_MsgParam_GetMessagesHistory) arg1;
+        chatId_ = visitor.visitLong(chatId_ != 0L, chatId_,
+            other.chatId_ != 0L, other.chatId_);
+        fromSeq_ = visitor.visitInt(fromSeq_ != 0, fromSeq_,
+            other.fromSeq_ != 0, other.fromSeq_);
+        endSeq_ = visitor.visitInt(endSeq_ != 0, endSeq_,
+            other.endSeq_ != 0, other.endSeq_);
+        if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
+            .INSTANCE) {
         }
-      case IS_INITIALIZED:
-        {
-          return DEFAULT_INSTANCE;
-        }
-      case MAKE_IMMUTABLE:
-        {
-          return null;
-        }
-      case NEW_BUILDER:
-        {
-          return new Builder();
-        }
-      case VISIT:
-        {
-          Visitor visitor = (Visitor) arg0;
-          ir.ms.pb.PB_MsgParam_GetMessagesHistory other =
-              (ir.ms.pb.PB_MsgParam_GetMessagesHistory) arg1;
-          chatId_ = visitor.visitLong(chatId_ != 0L, chatId_, other.chatId_ != 0L, other.chatId_);
-          fromSeq_ = visitor.visitInt(fromSeq_ != 0, fromSeq_, other.fromSeq_ != 0, other.fromSeq_);
-          endSeq_ = visitor.visitInt(endSeq_ != 0, endSeq_, other.endSeq_ != 0, other.endSeq_);
-          if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor.INSTANCE) {}
-          return this;
-        }
-      case MERGE_FROM_STREAM:
-        {
-          com.google.protobuf.CodedInputStream input = (com.google.protobuf.CodedInputStream) arg0;
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry =
-              (com.google.protobuf.ExtensionRegistryLite) arg1;
-          try {
-            boolean done = false;
-            while (!done) {
-              int tag = input.readTag();
-              switch (tag) {
-                case 0:
+        return this;
+      }
+      case MERGE_FROM_STREAM: {
+        com.google.protobuf.CodedInputStream input =
+            (com.google.protobuf.CodedInputStream) arg0;
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry =
+            (com.google.protobuf.ExtensionRegistryLite) arg1;
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              default: {
+                if (!input.skipField(tag)) {
                   done = true;
-                  break;
-                default:
-                  {
-                    if (!input.skipField(tag)) {
-                      done = true;
-                    }
-                    break;
-                  }
-                case 8:
-                  {
-                    chatId_ = input.readInt64();
-                    break;
-                  }
-                case 16:
-                  {
-                    fromSeq_ = input.readSInt32();
-                    break;
-                  }
-                case 24:
-                  {
-                    endSeq_ = input.readSInt32();
-                    break;
-                  }
+                }
+                break;
               }
-            }
-          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            throw new RuntimeException(e.setUnfinishedMessage(this));
-          } catch (java.io.IOException e) {
-            throw new RuntimeException(
-                new com.google.protobuf.InvalidProtocolBufferException(e.getMessage())
-                    .setUnfinishedMessage(this));
-          } finally {
-          }
-        }
-      case GET_DEFAULT_INSTANCE:
-        {
-          return DEFAULT_INSTANCE;
-        }
-      case GET_PARSER:
-        {
-          if (PARSER == null) {
-            synchronized (ir.ms.pb.PB_MsgParam_GetMessagesHistory.class) {
-              if (PARSER == null) {
-                PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
+              case 8: {
+
+                chatId_ = input.readInt64();
+                break;
+              }
+              case 16: {
+
+                fromSeq_ = input.readSInt32();
+                break;
+              }
+              case 24: {
+
+                endSeq_ = input.readSInt32();
+                break;
               }
             }
           }
-          return PARSER;
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw new RuntimeException(e.setUnfinishedMessage(this));
+        } catch (java.io.IOException e) {
+          throw new RuntimeException(
+              new com.google.protobuf.InvalidProtocolBufferException(
+                  e.getMessage()).setUnfinishedMessage(this));
+        } finally {
         }
+      }
+      case GET_DEFAULT_INSTANCE: {
+        return DEFAULT_INSTANCE;
+      }
+      case GET_PARSER: {
+        if (PARSER == null) {    synchronized (ir.ms.pb.PB_MsgParam_GetMessagesHistory.class) {
+            if (PARSER == null) {
+              PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
+            }
+          }
+        }
+        return PARSER;
+      }
     }
     throw new UnsupportedOperationException();
   }
 
+
   // @@protoc_insertion_point(class_scope:PB_MsgParam_GetMessagesHistory)
   private static final ir.ms.pb.PB_MsgParam_GetMessagesHistory DEFAULT_INSTANCE;
-
   static {
     DEFAULT_INSTANCE = new PB_MsgParam_GetMessagesHistory();
     DEFAULT_INSTANCE.makeImmutable();
@@ -358,3 +386,4 @@ public final class PB_MsgParam_GetMessagesHistory
     return DEFAULT_INSTANCE.getParserForType();
   }
 }
+

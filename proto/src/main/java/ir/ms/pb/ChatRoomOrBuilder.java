@@ -3,7 +3,7 @@
 
 package ir.ms.pb;
 
-public interface ChatRoomOrBuilder
-    extends
+public interface ChatRoomOrBuilder extends
     // @@protoc_insertion_point(interface_extends:ChatRoom)
-    com.google.protobuf.MessageLiteOrBuilder {}
+    com.google.protobuf.MessageLiteOrBuilder {
+}

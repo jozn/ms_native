@@ -3,14 +3,17 @@
 
 package ir.ms.pb;
 
-public interface PB_UpdateMessageMetaOrBuilder
-    extends
+public interface PB_UpdateMessageMetaOrBuilder extends
     // @@protoc_insertion_point(interface_extends:PB_UpdateMessageMeta)
     com.google.protobuf.MessageLiteOrBuilder {
 
-  /** <code>int64 MessageId = 1;</code> */
+  /**
+   * <code>int64 MessageId = 1;</code>
+   */
   long getMessageId();
 
-  /** <code>int64 AtTime = 2;</code> */
+  /**
+   * <code>int64 AtTime = 2;</code>
+   */
   long getAtTime();
 }

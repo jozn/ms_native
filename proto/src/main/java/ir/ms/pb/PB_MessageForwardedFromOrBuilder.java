@@ -3,22 +3,31 @@
 
 package ir.ms.pb;
 
-public interface PB_MessageForwardedFromOrBuilder
-    extends
+public interface PB_MessageForwardedFromOrBuilder extends
     // @@protoc_insertion_point(interface_extends:PB_MessageForwardedFrom)
     com.google.protobuf.MessageLiteOrBuilder {
 
-  /** <code>int64 RoomId = 1;</code> */
+  /**
+   * <code>int64 RoomId = 1;</code>
+   */
   long getRoomId();
 
-  /** <code>.RoomTypeEnum RoomTypeEnum = 2;</code> */
+  /**
+   * <code>.RoomTypeEnum RoomTypeEnum = 2;</code>
+   */
   int getRoomTypeEnumValue();
-  /** <code>.RoomTypeEnum RoomTypeEnum = 2;</code> */
+  /**
+   * <code>.RoomTypeEnum RoomTypeEnum = 2;</code>
+   */
   ir.ms.pb.RoomTypeEnum getRoomTypeEnum();
 
-  /** <code>int64 MessageId = 3;</code> */
+  /**
+   * <code>int64 MessageId = 3;</code>
+   */
   long getMessageId();
 
-  /** <code>int32 MessageSeq = 4;</code> */
+  /**
+   * <code>int32 MessageSeq = 4;</code>
+   */
   int getMessageSeq();
 }

@@ -3,19 +3,18 @@
 
 package ir.ms.pb;
 
-public interface PB_MsgParam_DeleteChatHistoryOrBuilder
-    extends
+public interface PB_MsgParam_DeleteChatHistoryOrBuilder extends
     // @@protoc_insertion_point(interface_extends:PB_MsgParam_DeleteChatHistory)
     com.google.protobuf.MessageLiteOrBuilder {
 
-  /** <code>int64 ChatId = 1;</code> */
+  /**
+   * <code>int64 ChatId = 1;</code>
+   */
   long getChatId();
 
   /**
-   *
-   *
    * <pre>
-   * must persent
+   *must persent
    * </pre>
    *
    * <code>sint32 ToSeq = 2;</code>

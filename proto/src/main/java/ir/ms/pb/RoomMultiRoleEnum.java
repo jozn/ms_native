@@ -3,37 +3,63 @@
 
 package ir.ms.pb;
 
-/** Protobuf enum {@code RoomMultiRoleEnum} */
-public enum RoomMultiRoleEnum implements com.google.protobuf.Internal.EnumLite {
-  /** <code>UNKNOWN_ROOM_ROLE = 0;</code> */
+/**
+ * Protobuf enum {@code RoomMultiRoleEnum}
+ */
+public enum RoomMultiRoleEnum
+    implements com.google.protobuf.Internal.EnumLite {
+  /**
+   * <code>UNKNOWN_ROOM_ROLE = 0;</code>
+   */
   UNKNOWN_ROOM_ROLE(0),
-  /** <code>MEMBER = 1;</code> */
+  /**
+   * <code>MEMBER = 1;</code>
+   */
   MEMBER(1),
-  /** <code>MODERATOR = 2;</code> */
+  /**
+   * <code>MODERATOR = 2;</code>
+   */
   MODERATOR(2),
-  /** <code>ADMIN = 3;</code> */
+  /**
+   * <code>ADMIN = 3;</code>
+   */
   ADMIN(3),
-  /** <code>OWNER = 4;</code> */
+  /**
+   * <code>OWNER = 4;</code>
+   */
   OWNER(4),
   UNRECOGNIZED(-1),
   ;
 
-  /** <code>UNKNOWN_ROOM_ROLE = 0;</code> */
+  /**
+   * <code>UNKNOWN_ROOM_ROLE = 0;</code>
+   */
   public static final int UNKNOWN_ROOM_ROLE_VALUE = 0;
-  /** <code>MEMBER = 1;</code> */
+  /**
+   * <code>MEMBER = 1;</code>
+   */
   public static final int MEMBER_VALUE = 1;
-  /** <code>MODERATOR = 2;</code> */
+  /**
+   * <code>MODERATOR = 2;</code>
+   */
   public static final int MODERATOR_VALUE = 2;
-  /** <code>ADMIN = 3;</code> */
+  /**
+   * <code>ADMIN = 3;</code>
+   */
   public static final int ADMIN_VALUE = 3;
-  /** <code>OWNER = 4;</code> */
+  /**
+   * <code>OWNER = 4;</code>
+   */
   public static final int OWNER_VALUE = 4;
+
 
   public final int getNumber() {
     return value;
   }
 
-  /** @deprecated Use {@link #forNumber(int)} instead. */
+  /**
+   * @deprecated Use {@link #forNumber(int)} instead.
+   */
   @java.lang.Deprecated
   public static RoomMultiRoleEnum valueOf(int value) {
     return forNumber(value);
@@ -41,32 +67,26 @@ public enum RoomMultiRoleEnum implements com.google.protobuf.Internal.EnumLite {
 
   public static RoomMultiRoleEnum forNumber(int value) {
     switch (value) {
-      case 0:
-        return UNKNOWN_ROOM_ROLE;
-      case 1:
-        return MEMBER;
-      case 2:
-        return MODERATOR;
-      case 3:
-        return ADMIN;
-      case 4:
-        return OWNER;
-      default:
-        return null;
+      case 0: return UNKNOWN_ROOM_ROLE;
+      case 1: return MEMBER;
+      case 2: return MODERATOR;
+      case 3: return ADMIN;
+      case 4: return OWNER;
+      default: return null;
     }
   }
 
-  public static com.google.protobuf.Internal.EnumLiteMap<RoomMultiRoleEnum> internalGetValueMap() {
+  public static com.google.protobuf.Internal.EnumLiteMap<RoomMultiRoleEnum>
+      internalGetValueMap() {
     return internalValueMap;
   }
-
-  private static final com.google.protobuf.Internal.EnumLiteMap<RoomMultiRoleEnum>
-      internalValueMap =
-          new com.google.protobuf.Internal.EnumLiteMap<RoomMultiRoleEnum>() {
-            public RoomMultiRoleEnum findValueByNumber(int number) {
-              return RoomMultiRoleEnum.forNumber(number);
-            }
-          };
+  private static final com.google.protobuf.Internal.EnumLiteMap<
+      RoomMultiRoleEnum> internalValueMap =
+        new com.google.protobuf.Internal.EnumLiteMap<RoomMultiRoleEnum>() {
+          public RoomMultiRoleEnum findValueByNumber(int number) {
+            return RoomMultiRoleEnum.forNumber(number);
+          }
+        };
 
   private final int value;
 
@@ -76,3 +96,4 @@ public enum RoomMultiRoleEnum implements com.google.protobuf.Internal.EnumLite {
 
   // @@protoc_insertion_point(enum_scope:RoomMultiRoleEnum)
 }
+

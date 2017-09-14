@@ -3,61 +3,111 @@
 
 package ir.ms.pb;
 
-/** Protobuf enum {@code RoomMessageLogEnum} */
-public enum RoomMessageLogEnum implements com.google.protobuf.Internal.EnumLite {
-  /** <code>UNKNOWN_ROOM_MESSAGE_LOG = 0;</code> */
+/**
+ * Protobuf enum {@code RoomMessageLogEnum}
+ */
+public enum RoomMessageLogEnum
+    implements com.google.protobuf.Internal.EnumLite {
+  /**
+   * <code>UNKNOWN_ROOM_MESSAGE_LOG = 0;</code>
+   */
   UNKNOWN_ROOM_MESSAGE_LOG(0),
-  /** <code>USER_JOINED = 1;</code> */
+  /**
+   * <code>USER_JOINED = 1;</code>
+   */
   USER_JOINED(1),
-  /** <code>USER_DELETED = 2;</code> */
+  /**
+   * <code>USER_DELETED = 2;</code>
+   */
   USER_DELETED(2),
-  /** <code>ROOM_CREATED = 3;</code> */
+  /**
+   * <code>ROOM_CREATED = 3;</code>
+   */
   ROOM_CREATED(3),
-  /** <code>MEMBER_ADDED = 4;</code> */
+  /**
+   * <code>MEMBER_ADDED = 4;</code>
+   */
   MEMBER_ADDED(4),
-  /** <code>MEMBER_KICKED = 5;</code> */
+  /**
+   * <code>MEMBER_KICKED = 5;</code>
+   */
   MEMBER_KICKED(5),
-  /** <code>MEMBER_LEFT = 6;</code> */
+  /**
+   * <code>MEMBER_LEFT = 6;</code>
+   */
   MEMBER_LEFT(6),
-  /** <code>ROOM_CONVERTED_TO_PUBLIC = 7;</code> */
+  /**
+   * <code>ROOM_CONVERTED_TO_PUBLIC = 7;</code>
+   */
   ROOM_CONVERTED_TO_PUBLIC(7),
-  /** <code>ROOM_CONVERTED_TO_PRIVATE = 8;</code> */
+  /**
+   * <code>ROOM_CONVERTED_TO_PRIVATE = 8;</code>
+   */
   ROOM_CONVERTED_TO_PRIVATE(8),
-  /** <code>MEMBER_JOINED_BY_INVITE_LINK = 9;</code> */
+  /**
+   * <code>MEMBER_JOINED_BY_INVITE_LINK = 9;</code>
+   */
   MEMBER_JOINED_BY_INVITE_LINK(9),
-  /** <code>ROOM_DELETED = 10;</code> */
+  /**
+   * <code>ROOM_DELETED = 10;</code>
+   */
   ROOM_DELETED(10),
   UNRECOGNIZED(-1),
   ;
 
-  /** <code>UNKNOWN_ROOM_MESSAGE_LOG = 0;</code> */
+  /**
+   * <code>UNKNOWN_ROOM_MESSAGE_LOG = 0;</code>
+   */
   public static final int UNKNOWN_ROOM_MESSAGE_LOG_VALUE = 0;
-  /** <code>USER_JOINED = 1;</code> */
+  /**
+   * <code>USER_JOINED = 1;</code>
+   */
   public static final int USER_JOINED_VALUE = 1;
-  /** <code>USER_DELETED = 2;</code> */
+  /**
+   * <code>USER_DELETED = 2;</code>
+   */
   public static final int USER_DELETED_VALUE = 2;
-  /** <code>ROOM_CREATED = 3;</code> */
+  /**
+   * <code>ROOM_CREATED = 3;</code>
+   */
   public static final int ROOM_CREATED_VALUE = 3;
-  /** <code>MEMBER_ADDED = 4;</code> */
+  /**
+   * <code>MEMBER_ADDED = 4;</code>
+   */
   public static final int MEMBER_ADDED_VALUE = 4;
-  /** <code>MEMBER_KICKED = 5;</code> */
+  /**
+   * <code>MEMBER_KICKED = 5;</code>
+   */
   public static final int MEMBER_KICKED_VALUE = 5;
-  /** <code>MEMBER_LEFT = 6;</code> */
+  /**
+   * <code>MEMBER_LEFT = 6;</code>
+   */
   public static final int MEMBER_LEFT_VALUE = 6;
-  /** <code>ROOM_CONVERTED_TO_PUBLIC = 7;</code> */
+  /**
+   * <code>ROOM_CONVERTED_TO_PUBLIC = 7;</code>
+   */
   public static final int ROOM_CONVERTED_TO_PUBLIC_VALUE = 7;
-  /** <code>ROOM_CONVERTED_TO_PRIVATE = 8;</code> */
+  /**
+   * <code>ROOM_CONVERTED_TO_PRIVATE = 8;</code>
+   */
   public static final int ROOM_CONVERTED_TO_PRIVATE_VALUE = 8;
-  /** <code>MEMBER_JOINED_BY_INVITE_LINK = 9;</code> */
+  /**
+   * <code>MEMBER_JOINED_BY_INVITE_LINK = 9;</code>
+   */
   public static final int MEMBER_JOINED_BY_INVITE_LINK_VALUE = 9;
-  /** <code>ROOM_DELETED = 10;</code> */
+  /**
+   * <code>ROOM_DELETED = 10;</code>
+   */
   public static final int ROOM_DELETED_VALUE = 10;
+
 
   public final int getNumber() {
     return value;
   }
 
-  /** @deprecated Use {@link #forNumber(int)} instead. */
+  /**
+   * @deprecated Use {@link #forNumber(int)} instead.
+   */
   @java.lang.Deprecated
   public static RoomMessageLogEnum valueOf(int value) {
     return forNumber(value);
@@ -65,44 +115,32 @@ public enum RoomMessageLogEnum implements com.google.protobuf.Internal.EnumLite 
 
   public static RoomMessageLogEnum forNumber(int value) {
     switch (value) {
-      case 0:
-        return UNKNOWN_ROOM_MESSAGE_LOG;
-      case 1:
-        return USER_JOINED;
-      case 2:
-        return USER_DELETED;
-      case 3:
-        return ROOM_CREATED;
-      case 4:
-        return MEMBER_ADDED;
-      case 5:
-        return MEMBER_KICKED;
-      case 6:
-        return MEMBER_LEFT;
-      case 7:
-        return ROOM_CONVERTED_TO_PUBLIC;
-      case 8:
-        return ROOM_CONVERTED_TO_PRIVATE;
-      case 9:
-        return MEMBER_JOINED_BY_INVITE_LINK;
-      case 10:
-        return ROOM_DELETED;
-      default:
-        return null;
+      case 0: return UNKNOWN_ROOM_MESSAGE_LOG;
+      case 1: return USER_JOINED;
+      case 2: return USER_DELETED;
+      case 3: return ROOM_CREATED;
+      case 4: return MEMBER_ADDED;
+      case 5: return MEMBER_KICKED;
+      case 6: return MEMBER_LEFT;
+      case 7: return ROOM_CONVERTED_TO_PUBLIC;
+      case 8: return ROOM_CONVERTED_TO_PRIVATE;
+      case 9: return MEMBER_JOINED_BY_INVITE_LINK;
+      case 10: return ROOM_DELETED;
+      default: return null;
     }
   }
 
-  public static com.google.protobuf.Internal.EnumLiteMap<RoomMessageLogEnum> internalGetValueMap() {
+  public static com.google.protobuf.Internal.EnumLiteMap<RoomMessageLogEnum>
+      internalGetValueMap() {
     return internalValueMap;
   }
-
-  private static final com.google.protobuf.Internal.EnumLiteMap<RoomMessageLogEnum>
-      internalValueMap =
-          new com.google.protobuf.Internal.EnumLiteMap<RoomMessageLogEnum>() {
-            public RoomMessageLogEnum findValueByNumber(int number) {
-              return RoomMessageLogEnum.forNumber(number);
-            }
-          };
+  private static final com.google.protobuf.Internal.EnumLiteMap<
+      RoomMessageLogEnum> internalValueMap =
+        new com.google.protobuf.Internal.EnumLiteMap<RoomMessageLogEnum>() {
+          public RoomMessageLogEnum findValueByNumber(int number) {
+            return RoomMessageLogEnum.forNumber(number);
+          }
+        };
 
   private final int value;
 
@@ -112,3 +150,4 @@ public enum RoomMessageLogEnum implements com.google.protobuf.Internal.EnumLite 
 
   // @@protoc_insertion_point(enum_scope:RoomMessageLogEnum)
 }
+

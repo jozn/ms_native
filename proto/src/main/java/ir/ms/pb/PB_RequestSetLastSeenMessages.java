@@ -4,91 +4,113 @@
 package ir.ms.pb;
 
 /**
- *
- *
  * <pre>
- * &#47;/
+ *&#47;/
  * </pre>
  *
  * Protobuf type {@code PB_RequestSetLastSeenMessages}
  */
-public final class PB_RequestSetLastSeenMessages
-    extends com.google.protobuf.GeneratedMessageLite<
-        PB_RequestSetLastSeenMessages, PB_RequestSetLastSeenMessages.Builder>
-    implements
+public  final class PB_RequestSetLastSeenMessages extends
+    com.google.protobuf.GeneratedMessageLite<
+        PB_RequestSetLastSeenMessages, PB_RequestSetLastSeenMessages.Builder> implements
     // @@protoc_insertion_point(message_implements:PB_RequestSetLastSeenMessages)
     PB_RequestSetLastSeenMessagesOrBuilder {
-  private PB_RequestSetLastSeenMessages() {}
-
+  private PB_RequestSetLastSeenMessages() {
+  }
   public static final int ROOMID_FIELD_NUMBER = 1;
   private long roomId_;
-  /** <code>int64 RoomId = 1;</code> */
+  /**
+   * <code>int64 RoomId = 1;</code>
+   */
   public long getRoomId() {
     return roomId_;
   }
-  /** <code>int64 RoomId = 1;</code> */
+  /**
+   * <code>int64 RoomId = 1;</code>
+   */
   private void setRoomId(long value) {
-
+    
     roomId_ = value;
   }
-  /** <code>int64 RoomId = 1;</code> */
+  /**
+   * <code>int64 RoomId = 1;</code>
+   */
   private void clearRoomId() {
-
+    
     roomId_ = 0L;
   }
 
   public static final int FROMMESSAGEID_FIELD_NUMBER = 2;
   private long fromMessageId_;
-  /** <code>int64 FromMessageId = 2;</code> */
+  /**
+   * <code>int64 FromMessageId = 2;</code>
+   */
   public long getFromMessageId() {
     return fromMessageId_;
   }
-  /** <code>int64 FromMessageId = 2;</code> */
+  /**
+   * <code>int64 FromMessageId = 2;</code>
+   */
   private void setFromMessageId(long value) {
-
+    
     fromMessageId_ = value;
   }
-  /** <code>int64 FromMessageId = 2;</code> */
+  /**
+   * <code>int64 FromMessageId = 2;</code>
+   */
   private void clearFromMessageId() {
-
+    
     fromMessageId_ = 0L;
   }
 
   public static final int TOMESSAGEID_FIELD_NUMBER = 3;
   private int toMessageId_;
-  /** <code>int32 ToMessageId = 3;</code> */
+  /**
+   * <code>int32 ToMessageId = 3;</code>
+   */
   public int getToMessageId() {
     return toMessageId_;
   }
-  /** <code>int32 ToMessageId = 3;</code> */
+  /**
+   * <code>int32 ToMessageId = 3;</code>
+   */
   private void setToMessageId(int value) {
-
+    
     toMessageId_ = value;
   }
-  /** <code>int32 ToMessageId = 3;</code> */
+  /**
+   * <code>int32 ToMessageId = 3;</code>
+   */
   private void clearToMessageId() {
-
+    
     toMessageId_ = 0;
   }
 
   public static final int ATTIMEMS_FIELD_NUMBER = 4;
   private long atTimeMs_;
-  /** <code>int64 AtTimeMs = 4;</code> */
+  /**
+   * <code>int64 AtTimeMs = 4;</code>
+   */
   public long getAtTimeMs() {
     return atTimeMs_;
   }
-  /** <code>int64 AtTimeMs = 4;</code> */
+  /**
+   * <code>int64 AtTimeMs = 4;</code>
+   */
   private void setAtTimeMs(long value) {
-
+    
     atTimeMs_ = value;
   }
-  /** <code>int64 AtTimeMs = 4;</code> */
+  /**
+   * <code>int64 AtTimeMs = 4;</code>
+   */
   private void clearAtTimeMs() {
-
+    
     atTimeMs_ = 0L;
   }
 
-  public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
+  public void writeTo(com.google.protobuf.CodedOutputStream output)
+                      throws java.io.IOException {
     if (roomId_ != 0L) {
       output.writeInt64(1, roomId_);
     }
@@ -109,16 +131,20 @@ public final class PB_RequestSetLastSeenMessages
 
     size = 0;
     if (roomId_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream.computeInt64Size(1, roomId_);
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(1, roomId_);
     }
     if (fromMessageId_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream.computeInt64Size(2, fromMessageId_);
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(2, fromMessageId_);
     }
     if (toMessageId_ != 0) {
-      size += com.google.protobuf.CodedOutputStream.computeInt32Size(3, toMessageId_);
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(3, toMessageId_);
     }
     if (atTimeMs_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream.computeInt64Size(4, atTimeMs_);
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(4, atTimeMs_);
     }
     memoizedSerializedSize = size;
     return size;
@@ -127,9 +153,9 @@ public final class PB_RequestSetLastSeenMessages
   public static ir.ms.pb.PB_RequestSetLastSeenMessages parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, data);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(
+        DEFAULT_INSTANCE, data);
   }
-
   public static ir.ms.pb.PB_RequestSetLastSeenMessages parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -137,47 +163,46 @@ public final class PB_RequestSetLastSeenMessages
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
-
   public static ir.ms.pb.PB_RequestSetLastSeenMessages parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, data);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(
+        DEFAULT_INSTANCE, data);
   }
-
   public static ir.ms.pb.PB_RequestSetLastSeenMessages parseFrom(
-      byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      byte[] data,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
-
   public static ir.ms.pb.PB_RequestSetLastSeenMessages parseFrom(java.io.InputStream input)
       throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, input);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(
+        DEFAULT_INSTANCE, input);
   }
-
   public static ir.ms.pb.PB_RequestSetLastSeenMessages parseFrom(
-      java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      java.io.InputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, input, extensionRegistry);
   }
-
   public static ir.ms.pb.PB_RequestSetLastSeenMessages parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input);
   }
-
   public static ir.ms.pb.PB_RequestSetLastSeenMessages parseDelimitedFrom(
-      java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      java.io.InputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
   }
-
   public static ir.ms.pb.PB_RequestSetLastSeenMessages parseFrom(
-      com.google.protobuf.CodedInputStream input) throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, input);
+      com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(
+        DEFAULT_INSTANCE, input);
   }
-
   public static ir.ms.pb.PB_RequestSetLastSeenMessages parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -189,24 +214,20 @@ public final class PB_RequestSetLastSeenMessages
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-
   public static Builder newBuilder(ir.ms.pb.PB_RequestSetLastSeenMessages prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
 
   /**
-   *
-   *
    * <pre>
-   * &#47;/
+   *&#47;/
    * </pre>
    *
    * Protobuf type {@code PB_RequestSetLastSeenMessages}
    */
-  public static final class Builder
-      extends com.google.protobuf.GeneratedMessageLite.Builder<
-          ir.ms.pb.PB_RequestSetLastSeenMessages, Builder>
-      implements
+  public static final class Builder extends
+      com.google.protobuf.GeneratedMessageLite.Builder<
+        ir.ms.pb.PB_RequestSetLastSeenMessages, Builder> implements
       // @@protoc_insertion_point(builder_implements:PB_RequestSetLastSeenMessages)
       ir.ms.pb.PB_RequestSetLastSeenMessagesOrBuilder {
     // Construct using ir.ms.pb.PB_RequestSetLastSeenMessages.newBuilder()
@@ -214,68 +235,93 @@ public final class PB_RequestSetLastSeenMessages
       super(DEFAULT_INSTANCE);
     }
 
-    /** <code>int64 RoomId = 1;</code> */
+
+    /**
+     * <code>int64 RoomId = 1;</code>
+     */
     public long getRoomId() {
       return instance.getRoomId();
     }
-    /** <code>int64 RoomId = 1;</code> */
+    /**
+     * <code>int64 RoomId = 1;</code>
+     */
     public Builder setRoomId(long value) {
       copyOnWrite();
       instance.setRoomId(value);
       return this;
     }
-    /** <code>int64 RoomId = 1;</code> */
+    /**
+     * <code>int64 RoomId = 1;</code>
+     */
     public Builder clearRoomId() {
       copyOnWrite();
       instance.clearRoomId();
       return this;
     }
 
-    /** <code>int64 FromMessageId = 2;</code> */
+    /**
+     * <code>int64 FromMessageId = 2;</code>
+     */
     public long getFromMessageId() {
       return instance.getFromMessageId();
     }
-    /** <code>int64 FromMessageId = 2;</code> */
+    /**
+     * <code>int64 FromMessageId = 2;</code>
+     */
     public Builder setFromMessageId(long value) {
       copyOnWrite();
       instance.setFromMessageId(value);
       return this;
     }
-    /** <code>int64 FromMessageId = 2;</code> */
+    /**
+     * <code>int64 FromMessageId = 2;</code>
+     */
     public Builder clearFromMessageId() {
       copyOnWrite();
       instance.clearFromMessageId();
       return this;
     }
 
-    /** <code>int32 ToMessageId = 3;</code> */
+    /**
+     * <code>int32 ToMessageId = 3;</code>
+     */
     public int getToMessageId() {
       return instance.getToMessageId();
     }
-    /** <code>int32 ToMessageId = 3;</code> */
+    /**
+     * <code>int32 ToMessageId = 3;</code>
+     */
     public Builder setToMessageId(int value) {
       copyOnWrite();
       instance.setToMessageId(value);
       return this;
     }
-    /** <code>int32 ToMessageId = 3;</code> */
+    /**
+     * <code>int32 ToMessageId = 3;</code>
+     */
     public Builder clearToMessageId() {
       copyOnWrite();
       instance.clearToMessageId();
       return this;
     }
 
-    /** <code>int64 AtTimeMs = 4;</code> */
+    /**
+     * <code>int64 AtTimeMs = 4;</code>
+     */
     public long getAtTimeMs() {
       return instance.getAtTimeMs();
     }
-    /** <code>int64 AtTimeMs = 4;</code> */
+    /**
+     * <code>int64 AtTimeMs = 4;</code>
+     */
     public Builder setAtTimeMs(long value) {
       copyOnWrite();
       instance.setAtTimeMs(value);
       return this;
     }
-    /** <code>int64 AtTimeMs = 4;</code> */
+    /**
+     * <code>int64 AtTimeMs = 4;</code>
+     */
     public Builder clearAtTimeMs() {
       copyOnWrite();
       instance.clearAtTimeMs();
@@ -284,119 +330,107 @@ public final class PB_RequestSetLastSeenMessages
 
     // @@protoc_insertion_point(builder_scope:PB_RequestSetLastSeenMessages)
   }
-
   protected final Object dynamicMethod(
-      com.google.protobuf.GeneratedMessageLite.MethodToInvoke method, Object arg0, Object arg1) {
+      com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+      Object arg0, Object arg1) {
     switch (method) {
-      case NEW_MUTABLE_INSTANCE:
-        {
-          return new ir.ms.pb.PB_RequestSetLastSeenMessages();
+      case NEW_MUTABLE_INSTANCE: {
+        return new ir.ms.pb.PB_RequestSetLastSeenMessages();
+      }
+      case IS_INITIALIZED: {
+        return DEFAULT_INSTANCE;
+      }
+      case MAKE_IMMUTABLE: {
+        return null;
+      }
+      case NEW_BUILDER: {
+        return new Builder();
+      }
+      case VISIT: {
+        Visitor visitor = (Visitor) arg0;
+        ir.ms.pb.PB_RequestSetLastSeenMessages other = (ir.ms.pb.PB_RequestSetLastSeenMessages) arg1;
+        roomId_ = visitor.visitLong(roomId_ != 0L, roomId_,
+            other.roomId_ != 0L, other.roomId_);
+        fromMessageId_ = visitor.visitLong(fromMessageId_ != 0L, fromMessageId_,
+            other.fromMessageId_ != 0L, other.fromMessageId_);
+        toMessageId_ = visitor.visitInt(toMessageId_ != 0, toMessageId_,
+            other.toMessageId_ != 0, other.toMessageId_);
+        atTimeMs_ = visitor.visitLong(atTimeMs_ != 0L, atTimeMs_,
+            other.atTimeMs_ != 0L, other.atTimeMs_);
+        if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
+            .INSTANCE) {
         }
-      case IS_INITIALIZED:
-        {
-          return DEFAULT_INSTANCE;
-        }
-      case MAKE_IMMUTABLE:
-        {
-          return null;
-        }
-      case NEW_BUILDER:
-        {
-          return new Builder();
-        }
-      case VISIT:
-        {
-          Visitor visitor = (Visitor) arg0;
-          ir.ms.pb.PB_RequestSetLastSeenMessages other =
-              (ir.ms.pb.PB_RequestSetLastSeenMessages) arg1;
-          roomId_ = visitor.visitLong(roomId_ != 0L, roomId_, other.roomId_ != 0L, other.roomId_);
-          fromMessageId_ =
-              visitor.visitLong(
-                  fromMessageId_ != 0L,
-                  fromMessageId_,
-                  other.fromMessageId_ != 0L,
-                  other.fromMessageId_);
-          toMessageId_ =
-              visitor.visitInt(
-                  toMessageId_ != 0, toMessageId_, other.toMessageId_ != 0, other.toMessageId_);
-          atTimeMs_ =
-              visitor.visitLong(atTimeMs_ != 0L, atTimeMs_, other.atTimeMs_ != 0L, other.atTimeMs_);
-          if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor.INSTANCE) {}
-          return this;
-        }
-      case MERGE_FROM_STREAM:
-        {
-          com.google.protobuf.CodedInputStream input = (com.google.protobuf.CodedInputStream) arg0;
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry =
-              (com.google.protobuf.ExtensionRegistryLite) arg1;
-          try {
-            boolean done = false;
-            while (!done) {
-              int tag = input.readTag();
-              switch (tag) {
-                case 0:
+        return this;
+      }
+      case MERGE_FROM_STREAM: {
+        com.google.protobuf.CodedInputStream input =
+            (com.google.protobuf.CodedInputStream) arg0;
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry =
+            (com.google.protobuf.ExtensionRegistryLite) arg1;
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              default: {
+                if (!input.skipField(tag)) {
                   done = true;
-                  break;
-                default:
-                  {
-                    if (!input.skipField(tag)) {
-                      done = true;
-                    }
-                    break;
-                  }
-                case 8:
-                  {
-                    roomId_ = input.readInt64();
-                    break;
-                  }
-                case 16:
-                  {
-                    fromMessageId_ = input.readInt64();
-                    break;
-                  }
-                case 24:
-                  {
-                    toMessageId_ = input.readInt32();
-                    break;
-                  }
-                case 32:
-                  {
-                    atTimeMs_ = input.readInt64();
-                    break;
-                  }
+                }
+                break;
               }
-            }
-          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            throw new RuntimeException(e.setUnfinishedMessage(this));
-          } catch (java.io.IOException e) {
-            throw new RuntimeException(
-                new com.google.protobuf.InvalidProtocolBufferException(e.getMessage())
-                    .setUnfinishedMessage(this));
-          } finally {
-          }
-        }
-      case GET_DEFAULT_INSTANCE:
-        {
-          return DEFAULT_INSTANCE;
-        }
-      case GET_PARSER:
-        {
-          if (PARSER == null) {
-            synchronized (ir.ms.pb.PB_RequestSetLastSeenMessages.class) {
-              if (PARSER == null) {
-                PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
+              case 8: {
+
+                roomId_ = input.readInt64();
+                break;
+              }
+              case 16: {
+
+                fromMessageId_ = input.readInt64();
+                break;
+              }
+              case 24: {
+
+                toMessageId_ = input.readInt32();
+                break;
+              }
+              case 32: {
+
+                atTimeMs_ = input.readInt64();
+                break;
               }
             }
           }
-          return PARSER;
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw new RuntimeException(e.setUnfinishedMessage(this));
+        } catch (java.io.IOException e) {
+          throw new RuntimeException(
+              new com.google.protobuf.InvalidProtocolBufferException(
+                  e.getMessage()).setUnfinishedMessage(this));
+        } finally {
         }
+      }
+      case GET_DEFAULT_INSTANCE: {
+        return DEFAULT_INSTANCE;
+      }
+      case GET_PARSER: {
+        if (PARSER == null) {    synchronized (ir.ms.pb.PB_RequestSetLastSeenMessages.class) {
+            if (PARSER == null) {
+              PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
+            }
+          }
+        }
+        return PARSER;
+      }
     }
     throw new UnsupportedOperationException();
   }
 
+
   // @@protoc_insertion_point(class_scope:PB_RequestSetLastSeenMessages)
   private static final ir.ms.pb.PB_RequestSetLastSeenMessages DEFAULT_INSTANCE;
-
   static {
     DEFAULT_INSTANCE = new PB_RequestSetLastSeenMessages();
     DEFAULT_INSTANCE.makeImmutable();
@@ -412,3 +446,4 @@ public final class PB_RequestSetLastSeenMessages
     return DEFAULT_INSTANCE.getParserForType();
   }
 }
+

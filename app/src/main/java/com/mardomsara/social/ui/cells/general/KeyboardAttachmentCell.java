@@ -23,13 +23,14 @@ public class KeyboardAttachmentCell implements RecentImagesCell.onRecentImageCli
 
 	X.KeywoardAttachment x;
 
-    @NonNull Callbacks callback_listener;
+    @NonNull
+	KeyboardAttachmentListener callback_listener;
     @NonNull RecentImagesCell recentImagesCell;
     @NonNull PopupWindow attachWindow;
 
     int keyboardSize = Store.getInt(StoreConstants.KEYBOARD_SIZE, (int) (AndroidUtil.getScreenHeight()/2.5));
 
-    public KeyboardAttachmentCell(Callbacks listener, View bottom_container) {
+    public KeyboardAttachmentCell(KeyboardAttachmentListener listener, View bottom_container) {
         callback_listener = listener;
 		x = new X.KeywoardAttachment();
 
@@ -134,7 +135,7 @@ public class KeyboardAttachmentCell implements RecentImagesCell.onRecentImageCli
 	}
 
 
-    public interface Callbacks {
+    public interface KeyboardAttachmentListener {
         void onCameraPhotoClick();
         void onGalleryClick();
         void onVideoClick();

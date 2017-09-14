@@ -23,7 +23,7 @@ public class RPC {
               public void handle(byte[] data) {
                 Log.i(
                     "RPC ws",
-                    "handling rpc  respnse for: GetLastChnagesForRoom with respose class PB_ResponseLastChangesForTheRoom");
+                    "handling rpc respnse for: GetLastChnagesForRoom with respose class PB_ResponseLastChangesForTheRoom");
                 try {
                   PB_ResponseLastChangesForTheRoom d =
                       PB_ResponseLastChangesForTheRoom.parseFrom(data);

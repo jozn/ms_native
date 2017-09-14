@@ -3,68 +3,88 @@
 
 package ir.ms.pb;
 
-/** Protobuf type {@code PB_UpdateMessageToEdit} */
-public final class PB_UpdateMessageToEdit
-    extends com.google.protobuf.GeneratedMessageLite<
-        PB_UpdateMessageToEdit, PB_UpdateMessageToEdit.Builder>
-    implements
+/**
+ * Protobuf type {@code PB_UpdateMessageToEdit}
+ */
+public  final class PB_UpdateMessageToEdit extends
+    com.google.protobuf.GeneratedMessageLite<
+        PB_UpdateMessageToEdit, PB_UpdateMessageToEdit.Builder> implements
     // @@protoc_insertion_point(message_implements:PB_UpdateMessageToEdit)
     PB_UpdateMessageToEditOrBuilder {
   private PB_UpdateMessageToEdit() {
     newText_ = "";
   }
-
   public static final int MESSAGEID_FIELD_NUMBER = 1;
   private long messageId_;
-  /** <code>int64 MessageId = 1;</code> */
+  /**
+   * <code>int64 MessageId = 1;</code>
+   */
   public long getMessageId() {
     return messageId_;
   }
-  /** <code>int64 MessageId = 1;</code> */
+  /**
+   * <code>int64 MessageId = 1;</code>
+   */
   private void setMessageId(long value) {
-
+    
     messageId_ = value;
   }
-  /** <code>int64 MessageId = 1;</code> */
+  /**
+   * <code>int64 MessageId = 1;</code>
+   */
   private void clearMessageId() {
-
+    
     messageId_ = 0L;
   }
 
   public static final int NEWTEXT_FIELD_NUMBER = 2;
   private java.lang.String newText_;
-  /** <code>string NewText = 2;</code> */
+  /**
+   * <code>string NewText = 2;</code>
+   */
   public java.lang.String getNewText() {
     return newText_;
   }
-  /** <code>string NewText = 2;</code> */
-  public com.google.protobuf.ByteString getNewTextBytes() {
+  /**
+   * <code>string NewText = 2;</code>
+   */
+  public com.google.protobuf.ByteString
+      getNewTextBytes() {
     return com.google.protobuf.ByteString.copyFromUtf8(newText_);
   }
-  /** <code>string NewText = 2;</code> */
-  private void setNewText(java.lang.String value) {
+  /**
+   * <code>string NewText = 2;</code>
+   */
+  private void setNewText(
+      java.lang.String value) {
     if (value == null) {
-      throw new NullPointerException();
-    }
-
+    throw new NullPointerException();
+  }
+  
     newText_ = value;
   }
-  /** <code>string NewText = 2;</code> */
+  /**
+   * <code>string NewText = 2;</code>
+   */
   private void clearNewText() {
-
+    
     newText_ = getDefaultInstance().getNewText();
   }
-  /** <code>string NewText = 2;</code> */
-  private void setNewTextBytes(com.google.protobuf.ByteString value) {
+  /**
+   * <code>string NewText = 2;</code>
+   */
+  private void setNewTextBytes(
+      com.google.protobuf.ByteString value) {
     if (value == null) {
-      throw new NullPointerException();
-    }
-    checkByteStringIsUtf8(value);
-
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+    
     newText_ = value.toStringUtf8();
   }
 
-  public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
+  public void writeTo(com.google.protobuf.CodedOutputStream output)
+                      throws java.io.IOException {
     if (messageId_ != 0L) {
       output.writeInt64(1, messageId_);
     }
@@ -79,20 +99,23 @@ public final class PB_UpdateMessageToEdit
 
     size = 0;
     if (messageId_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream.computeInt64Size(1, messageId_);
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(1, messageId_);
     }
     if (!newText_.isEmpty()) {
-      size += com.google.protobuf.CodedOutputStream.computeStringSize(2, getNewText());
+      size += com.google.protobuf.CodedOutputStream
+        .computeStringSize(2, getNewText());
     }
     memoizedSerializedSize = size;
     return size;
   }
 
-  public static ir.ms.pb.PB_UpdateMessageToEdit parseFrom(com.google.protobuf.ByteString data)
+  public static ir.ms.pb.PB_UpdateMessageToEdit parseFrom(
+      com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, data);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(
+        DEFAULT_INSTANCE, data);
   }
-
   public static ir.ms.pb.PB_UpdateMessageToEdit parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -100,47 +123,46 @@ public final class PB_UpdateMessageToEdit
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
-
   public static ir.ms.pb.PB_UpdateMessageToEdit parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, data);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(
+        DEFAULT_INSTANCE, data);
   }
-
   public static ir.ms.pb.PB_UpdateMessageToEdit parseFrom(
-      byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      byte[] data,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
-
   public static ir.ms.pb.PB_UpdateMessageToEdit parseFrom(java.io.InputStream input)
       throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, input);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(
+        DEFAULT_INSTANCE, input);
   }
-
   public static ir.ms.pb.PB_UpdateMessageToEdit parseFrom(
-      java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      java.io.InputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, input, extensionRegistry);
   }
-
   public static ir.ms.pb.PB_UpdateMessageToEdit parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input);
   }
-
   public static ir.ms.pb.PB_UpdateMessageToEdit parseDelimitedFrom(
-      java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      java.io.InputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
   }
-
   public static ir.ms.pb.PB_UpdateMessageToEdit parseFrom(
-      com.google.protobuf.CodedInputStream input) throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, input);
+      com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(
+        DEFAULT_INSTANCE, input);
   }
-
   public static ir.ms.pb.PB_UpdateMessageToEdit parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -152,16 +174,16 @@ public final class PB_UpdateMessageToEdit
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-
   public static Builder newBuilder(ir.ms.pb.PB_UpdateMessageToEdit prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
 
-  /** Protobuf type {@code PB_UpdateMessageToEdit} */
-  public static final class Builder
-      extends com.google.protobuf.GeneratedMessageLite.Builder<
-          ir.ms.pb.PB_UpdateMessageToEdit, Builder>
-      implements
+  /**
+   * Protobuf type {@code PB_UpdateMessageToEdit}
+   */
+  public static final class Builder extends
+      com.google.protobuf.GeneratedMessageLite.Builder<
+        ir.ms.pb.PB_UpdateMessageToEdit, Builder> implements
       // @@protoc_insertion_point(builder_implements:PB_UpdateMessageToEdit)
       ir.ms.pb.PB_UpdateMessageToEditOrBuilder {
     // Construct using ir.ms.pb.PB_UpdateMessageToEdit.newBuilder()
@@ -169,45 +191,65 @@ public final class PB_UpdateMessageToEdit
       super(DEFAULT_INSTANCE);
     }
 
-    /** <code>int64 MessageId = 1;</code> */
+
+    /**
+     * <code>int64 MessageId = 1;</code>
+     */
     public long getMessageId() {
       return instance.getMessageId();
     }
-    /** <code>int64 MessageId = 1;</code> */
+    /**
+     * <code>int64 MessageId = 1;</code>
+     */
     public Builder setMessageId(long value) {
       copyOnWrite();
       instance.setMessageId(value);
       return this;
     }
-    /** <code>int64 MessageId = 1;</code> */
+    /**
+     * <code>int64 MessageId = 1;</code>
+     */
     public Builder clearMessageId() {
       copyOnWrite();
       instance.clearMessageId();
       return this;
     }
 
-    /** <code>string NewText = 2;</code> */
+    /**
+     * <code>string NewText = 2;</code>
+     */
     public java.lang.String getNewText() {
       return instance.getNewText();
     }
-    /** <code>string NewText = 2;</code> */
-    public com.google.protobuf.ByteString getNewTextBytes() {
+    /**
+     * <code>string NewText = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getNewTextBytes() {
       return instance.getNewTextBytes();
     }
-    /** <code>string NewText = 2;</code> */
-    public Builder setNewText(java.lang.String value) {
+    /**
+     * <code>string NewText = 2;</code>
+     */
+    public Builder setNewText(
+        java.lang.String value) {
       copyOnWrite();
       instance.setNewText(value);
       return this;
     }
-    /** <code>string NewText = 2;</code> */
+    /**
+     * <code>string NewText = 2;</code>
+     */
     public Builder clearNewText() {
       copyOnWrite();
       instance.clearNewText();
       return this;
     }
-    /** <code>string NewText = 2;</code> */
-    public Builder setNewTextBytes(com.google.protobuf.ByteString value) {
+    /**
+     * <code>string NewText = 2;</code>
+     */
+    public Builder setNewTextBytes(
+        com.google.protobuf.ByteString value) {
       copyOnWrite();
       instance.setNewTextBytes(value);
       return this;
@@ -215,104 +257,94 @@ public final class PB_UpdateMessageToEdit
 
     // @@protoc_insertion_point(builder_scope:PB_UpdateMessageToEdit)
   }
-
   protected final Object dynamicMethod(
-      com.google.protobuf.GeneratedMessageLite.MethodToInvoke method, Object arg0, Object arg1) {
+      com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+      Object arg0, Object arg1) {
     switch (method) {
-      case NEW_MUTABLE_INSTANCE:
-        {
-          return new ir.ms.pb.PB_UpdateMessageToEdit();
+      case NEW_MUTABLE_INSTANCE: {
+        return new ir.ms.pb.PB_UpdateMessageToEdit();
+      }
+      case IS_INITIALIZED: {
+        return DEFAULT_INSTANCE;
+      }
+      case MAKE_IMMUTABLE: {
+        return null;
+      }
+      case NEW_BUILDER: {
+        return new Builder();
+      }
+      case VISIT: {
+        Visitor visitor = (Visitor) arg0;
+        ir.ms.pb.PB_UpdateMessageToEdit other = (ir.ms.pb.PB_UpdateMessageToEdit) arg1;
+        messageId_ = visitor.visitLong(messageId_ != 0L, messageId_,
+            other.messageId_ != 0L, other.messageId_);
+        newText_ = visitor.visitString(!newText_.isEmpty(), newText_,
+            !other.newText_.isEmpty(), other.newText_);
+        if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
+            .INSTANCE) {
         }
-      case IS_INITIALIZED:
-        {
-          return DEFAULT_INSTANCE;
-        }
-      case MAKE_IMMUTABLE:
-        {
-          return null;
-        }
-      case NEW_BUILDER:
-        {
-          return new Builder();
-        }
-      case VISIT:
-        {
-          Visitor visitor = (Visitor) arg0;
-          ir.ms.pb.PB_UpdateMessageToEdit other = (ir.ms.pb.PB_UpdateMessageToEdit) arg1;
-          messageId_ =
-              visitor.visitLong(
-                  messageId_ != 0L, messageId_, other.messageId_ != 0L, other.messageId_);
-          newText_ =
-              visitor.visitString(
-                  !newText_.isEmpty(), newText_, !other.newText_.isEmpty(), other.newText_);
-          if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor.INSTANCE) {}
-          return this;
-        }
-      case MERGE_FROM_STREAM:
-        {
-          com.google.protobuf.CodedInputStream input = (com.google.protobuf.CodedInputStream) arg0;
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry =
-              (com.google.protobuf.ExtensionRegistryLite) arg1;
-          try {
-            boolean done = false;
-            while (!done) {
-              int tag = input.readTag();
-              switch (tag) {
-                case 0:
+        return this;
+      }
+      case MERGE_FROM_STREAM: {
+        com.google.protobuf.CodedInputStream input =
+            (com.google.protobuf.CodedInputStream) arg0;
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry =
+            (com.google.protobuf.ExtensionRegistryLite) arg1;
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              default: {
+                if (!input.skipField(tag)) {
                   done = true;
-                  break;
-                default:
-                  {
-                    if (!input.skipField(tag)) {
-                      done = true;
-                    }
-                    break;
-                  }
-                case 8:
-                  {
-                    messageId_ = input.readInt64();
-                    break;
-                  }
-                case 18:
-                  {
-                    String s = input.readStringRequireUtf8();
+                }
+                break;
+              }
+              case 8: {
 
-                    newText_ = s;
-                    break;
-                  }
+                messageId_ = input.readInt64();
+                break;
               }
-            }
-          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            throw new RuntimeException(e.setUnfinishedMessage(this));
-          } catch (java.io.IOException e) {
-            throw new RuntimeException(
-                new com.google.protobuf.InvalidProtocolBufferException(e.getMessage())
-                    .setUnfinishedMessage(this));
-          } finally {
-          }
-        }
-      case GET_DEFAULT_INSTANCE:
-        {
-          return DEFAULT_INSTANCE;
-        }
-      case GET_PARSER:
-        {
-          if (PARSER == null) {
-            synchronized (ir.ms.pb.PB_UpdateMessageToEdit.class) {
-              if (PARSER == null) {
-                PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
+              case 18: {
+                String s = input.readStringRequireUtf8();
+
+                newText_ = s;
+                break;
               }
             }
           }
-          return PARSER;
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw new RuntimeException(e.setUnfinishedMessage(this));
+        } catch (java.io.IOException e) {
+          throw new RuntimeException(
+              new com.google.protobuf.InvalidProtocolBufferException(
+                  e.getMessage()).setUnfinishedMessage(this));
+        } finally {
         }
+      }
+      case GET_DEFAULT_INSTANCE: {
+        return DEFAULT_INSTANCE;
+      }
+      case GET_PARSER: {
+        if (PARSER == null) {    synchronized (ir.ms.pb.PB_UpdateMessageToEdit.class) {
+            if (PARSER == null) {
+              PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
+            }
+          }
+        }
+        return PARSER;
+      }
     }
     throw new UnsupportedOperationException();
   }
 
+
   // @@protoc_insertion_point(class_scope:PB_UpdateMessageToEdit)
   private static final ir.ms.pb.PB_UpdateMessageToEdit DEFAULT_INSTANCE;
-
   static {
     DEFAULT_INSTANCE = new PB_UpdateMessageToEdit();
     DEFAULT_INSTANCE.makeImmutable();
@@ -328,3 +360,4 @@ public final class PB_UpdateMessageToEdit
     return DEFAULT_INSTANCE.getParserForType();
   }
 }
+

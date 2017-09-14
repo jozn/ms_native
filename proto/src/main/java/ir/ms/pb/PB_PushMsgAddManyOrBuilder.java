@@ -3,27 +3,44 @@
 
 package ir.ms.pb;
 
-public interface PB_PushMsgAddManyOrBuilder
-    extends
+public interface PB_PushMsgAddManyOrBuilder extends
     // @@protoc_insertion_point(interface_extends:PB_PushMsgAddMany)
     com.google.protobuf.MessageLiteOrBuilder {
 
-  /** <code>.PB_Push Push = 1;</code> */
+  /**
+   * <code>.PB_Push Push = 1;</code>
+   */
   boolean hasPush();
-  /** <code>.PB_Push Push = 1;</code> */
+  /**
+   * <code>.PB_Push Push = 1;</code>
+   */
   ir.ms.pb.PB_Push getPush();
 
-  /** <code>repeated .PB_Message Messages = 2;</code> */
-  java.util.List<ir.ms.pb.PB_Message> getMessagesList();
-  /** <code>repeated .PB_Message Messages = 2;</code> */
+  /**
+   * <code>repeated .PB_Message Messages = 2;</code>
+   */
+  java.util.List<ir.ms.pb.PB_Message> 
+      getMessagesList();
+  /**
+   * <code>repeated .PB_Message Messages = 2;</code>
+   */
   ir.ms.pb.PB_Message getMessages(int index);
-  /** <code>repeated .PB_Message Messages = 2;</code> */
+  /**
+   * <code>repeated .PB_Message Messages = 2;</code>
+   */
   int getMessagesCount();
 
-  /** <code>repeated .PB_UserWithMe Users = 3;</code> */
-  java.util.List<ir.ms.pb.PB_UserWithMe> getUsersList();
-  /** <code>repeated .PB_UserWithMe Users = 3;</code> */
+  /**
+   * <code>repeated .PB_UserWithMe Users = 3;</code>
+   */
+  java.util.List<ir.ms.pb.PB_UserWithMe> 
+      getUsersList();
+  /**
+   * <code>repeated .PB_UserWithMe Users = 3;</code>
+   */
   ir.ms.pb.PB_UserWithMe getUsers(int index);
-  /** <code>repeated .PB_UserWithMe Users = 3;</code> */
+  /**
+   * <code>repeated .PB_UserWithMe Users = 3;</code>
+   */
   int getUsersCount();
 }

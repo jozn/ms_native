@@ -3,7 +3,7 @@
 
 package ir.ms.pb;
 
-public interface PB_UserResponseOffline_ChangePrivacyOrBuilder
-    extends
+public interface PB_UserResponseOffline_ChangePrivacyOrBuilder extends
     // @@protoc_insertion_point(interface_extends:PB_UserResponseOffline_ChangePrivacy)
-    com.google.protobuf.MessageLiteOrBuilder {}
+    com.google.protobuf.MessageLiteOrBuilder {
+}

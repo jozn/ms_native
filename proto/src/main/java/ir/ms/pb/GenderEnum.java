@@ -3,11 +3,12 @@
 
 package ir.ms.pb;
 
-/** Protobuf enum {@code GenderEnum} */
-public enum GenderEnum implements com.google.protobuf.Internal.EnumLite {
+/**
+ * Protobuf enum {@code GenderEnum}
+ */
+public enum GenderEnum
+    implements com.google.protobuf.Internal.EnumLite {
   /**
-   *
-   *
    * <pre>
    * option allow_alias = true;
    * </pre>
@@ -15,16 +16,18 @@ public enum GenderEnum implements com.google.protobuf.Internal.EnumLite {
    * <code>UNKNOWN_GENDER = 0;</code>
    */
   UNKNOWN_GENDER(0),
-  /** <code>MALE = 1;</code> */
+  /**
+   * <code>MALE = 1;</code>
+   */
   MALE(1),
-  /** <code>FEMALE = 2;</code> */
+  /**
+   * <code>FEMALE = 2;</code>
+   */
   FEMALE(2),
   UNRECOGNIZED(-1),
   ;
 
   /**
-   *
-   *
    * <pre>
    * option allow_alias = true;
    * </pre>
@@ -32,16 +35,23 @@ public enum GenderEnum implements com.google.protobuf.Internal.EnumLite {
    * <code>UNKNOWN_GENDER = 0;</code>
    */
   public static final int UNKNOWN_GENDER_VALUE = 0;
-  /** <code>MALE = 1;</code> */
+  /**
+   * <code>MALE = 1;</code>
+   */
   public static final int MALE_VALUE = 1;
-  /** <code>FEMALE = 2;</code> */
+  /**
+   * <code>FEMALE = 2;</code>
+   */
   public static final int FEMALE_VALUE = 2;
+
 
   public final int getNumber() {
     return value;
   }
 
-  /** @deprecated Use {@link #forNumber(int)} instead. */
+  /**
+   * @deprecated Use {@link #forNumber(int)} instead.
+   */
   @java.lang.Deprecated
   public static GenderEnum valueOf(int value) {
     return forNumber(value);
@@ -49,27 +59,24 @@ public enum GenderEnum implements com.google.protobuf.Internal.EnumLite {
 
   public static GenderEnum forNumber(int value) {
     switch (value) {
-      case 0:
-        return UNKNOWN_GENDER;
-      case 1:
-        return MALE;
-      case 2:
-        return FEMALE;
-      default:
-        return null;
+      case 0: return UNKNOWN_GENDER;
+      case 1: return MALE;
+      case 2: return FEMALE;
+      default: return null;
     }
   }
 
-  public static com.google.protobuf.Internal.EnumLiteMap<GenderEnum> internalGetValueMap() {
+  public static com.google.protobuf.Internal.EnumLiteMap<GenderEnum>
+      internalGetValueMap() {
     return internalValueMap;
   }
-
-  private static final com.google.protobuf.Internal.EnumLiteMap<GenderEnum> internalValueMap =
-      new com.google.protobuf.Internal.EnumLiteMap<GenderEnum>() {
-        public GenderEnum findValueByNumber(int number) {
-          return GenderEnum.forNumber(number);
-        }
-      };
+  private static final com.google.protobuf.Internal.EnumLiteMap<
+      GenderEnum> internalValueMap =
+        new com.google.protobuf.Internal.EnumLiteMap<GenderEnum>() {
+          public GenderEnum findValueByNumber(int number) {
+            return GenderEnum.forNumber(number);
+          }
+        };
 
   private final int value;
 
@@ -79,3 +86,4 @@ public enum GenderEnum implements com.google.protobuf.Internal.EnumLite {
 
   // @@protoc_insertion_point(enum_scope:GenderEnum)
 }
+

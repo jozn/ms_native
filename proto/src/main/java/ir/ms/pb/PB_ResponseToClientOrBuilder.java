@@ -3,19 +3,27 @@
 
 package ir.ms.pb;
 
-public interface PB_ResponseToClientOrBuilder
-    extends
+public interface PB_ResponseToClientOrBuilder extends
     // @@protoc_insertion_point(interface_extends:PB_ResponseToClient)
     com.google.protobuf.MessageLiteOrBuilder {
 
-  /** <code>int64 ClientCallId = 1;</code> */
+  /**
+   * <code>int64 ClientCallId = 1;</code>
+   */
   long getClientCallId();
 
-  /** <code>string PBClass = 2;</code> */
+  /**
+   * <code>string PBClass = 2;</code>
+   */
   java.lang.String getPBClass();
-  /** <code>string PBClass = 2;</code> */
-  com.google.protobuf.ByteString getPBClassBytes();
+  /**
+   * <code>string PBClass = 2;</code>
+   */
+  com.google.protobuf.ByteString
+      getPBClassBytes();
 
-  /** <code>bytes Data = 3;</code> */
+  /**
+   * <code>bytes Data = 3;</code>
+   */
   com.google.protobuf.ByteString getData();
 }

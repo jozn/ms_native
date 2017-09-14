@@ -3,15 +3,21 @@
 
 package ir.ms.pb;
 
-public interface PB_ResponseSetLastSeenMessagesOrBuilder
-    extends
+public interface PB_ResponseSetLastSeenMessagesOrBuilder extends
     // @@protoc_insertion_point(interface_extends:PB_ResponseSetLastSeenMessages)
     com.google.protobuf.MessageLiteOrBuilder {
 
-  /** <code>repeated .PB_MessageView Messages = 1;</code> */
-  java.util.List<ir.ms.pb.PB_MessageView> getMessagesList();
-  /** <code>repeated .PB_MessageView Messages = 1;</code> */
+  /**
+   * <code>repeated .PB_MessageView Messages = 1;</code>
+   */
+  java.util.List<ir.ms.pb.PB_MessageView> 
+      getMessagesList();
+  /**
+   * <code>repeated .PB_MessageView Messages = 1;</code>
+   */
   ir.ms.pb.PB_MessageView getMessages(int index);
-  /** <code>repeated .PB_MessageView Messages = 1;</code> */
+  /**
+   * <code>repeated .PB_MessageView Messages = 1;</code>
+   */
   int getMessagesCount();
 }

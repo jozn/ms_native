@@ -3,17 +3,22 @@
 
 package ir.ms.pb;
 
-public interface PB_ReqLastChangesForTheRoomOrBuilder
-    extends
+public interface PB_ReqLastChangesForTheRoomOrBuilder extends
     // @@protoc_insertion_point(interface_extends:PB_ReqLastChangesForTheRoom)
     com.google.protobuf.MessageLiteOrBuilder {
 
-  /** <code>int64 RoomId = 1;</code> */
+  /**
+   * <code>int64 RoomId = 1;</code>
+   */
   long getRoomId();
 
-  /** <code>int64 LastLogId = 2;</code> */
+  /**
+   * <code>int64 LastLogId = 2;</code>
+   */
   long getLastLogId();
 
-  /** <code>int32 LastHaveSeq = 3;</code> */
+  /**
+   * <code>int32 LastHaveSeq = 3;</code>
+   */
   int getLastHaveSeq();
 }

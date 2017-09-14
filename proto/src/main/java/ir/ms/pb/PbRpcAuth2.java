@@ -5,8 +5,9 @@ package ir.ms.pb;
 
 public final class PbRpcAuth2 {
   private PbRpcAuth2() {}
-
-  public static void registerAllExtensions(com.google.protobuf.ExtensionRegistryLite registry) {}
+  public static void registerAllExtensions(
+      com.google.protobuf.ExtensionRegistryLite registry) {
+  }
 
   static {
   }

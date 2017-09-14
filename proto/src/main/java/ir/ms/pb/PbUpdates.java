@@ -5,8 +5,9 @@ package ir.ms.pb;
 
 public final class PbUpdates {
   private PbUpdates() {}
-
-  public static void registerAllExtensions(com.google.protobuf.ExtensionRegistryLite registry) {}
+  public static void registerAllExtensions(
+      com.google.protobuf.ExtensionRegistryLite registry) {
+  }
 
   static {
   }

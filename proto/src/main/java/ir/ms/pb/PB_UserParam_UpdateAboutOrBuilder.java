@@ -3,13 +3,17 @@
 
 package ir.ms.pb;
 
-public interface PB_UserParam_UpdateAboutOrBuilder
-    extends
+public interface PB_UserParam_UpdateAboutOrBuilder extends
     // @@protoc_insertion_point(interface_extends:PB_UserParam_UpdateAbout)
     com.google.protobuf.MessageLiteOrBuilder {
 
-  /** <code>string NewAbout = 1;</code> */
+  /**
+   * <code>string NewAbout = 1;</code>
+   */
   java.lang.String getNewAbout();
-  /** <code>string NewAbout = 1;</code> */
-  com.google.protobuf.ByteString getNewAboutBytes();
+  /**
+   * <code>string NewAbout = 1;</code>
+   */
+  com.google.protobuf.ByteString
+      getNewAboutBytes();
 }

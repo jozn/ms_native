@@ -3,14 +3,17 @@
 
 package ir.ms.pb;
 
-public interface PB_UserParam_UnBlockUserOrBuilder
-    extends
+public interface PB_UserParam_UnBlockUserOrBuilder extends
     // @@protoc_insertion_point(interface_extends:PB_UserParam_UnBlockUser)
     com.google.protobuf.MessageLiteOrBuilder {
 
-  /** <code>int32 Offset = 1;</code> */
+  /**
+   * <code>int32 Offset = 1;</code>
+   */
   int getOffset();
 
-  /** <code>int32 Limit = 2;</code> */
+  /**
+   * <code>int32 Limit = 2;</code>
+   */
   int getLimit();
 }

@@ -3,14 +3,11 @@
 
 package ir.ms.pb;
 
-public interface PB_MsgParam_DeleteMessagesByIdsOrBuilder
-    extends
+public interface PB_MsgParam_DeleteMessagesByIdsOrBuilder extends
     // @@protoc_insertion_point(interface_extends:PB_MsgParam_DeleteMessagesByIds)
     com.google.protobuf.MessageLiteOrBuilder {
 
   /**
-   *
-   *
    * <pre>
    *    /&#42;repeated int64 DirectMessagesIds = 10;
    *    repeated int64 GroupMessagesIds = 20;*&#47;
@@ -20,8 +17,6 @@ public interface PB_MsgParam_DeleteMessagesByIdsOrBuilder
    */
   boolean hasMessagesCollections();
   /**
-   *
-   *
    * <pre>
    *    /&#42;repeated int64 DirectMessagesIds = 10;
    *    repeated int64 GroupMessagesIds = 20;*&#47;

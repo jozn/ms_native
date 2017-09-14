@@ -3,24 +3,36 @@
 
 package ir.ms.pb;
 
-public interface PB_MsgParam_EditMessageOrBuilder
-    extends
+public interface PB_MsgParam_EditMessageOrBuilder extends
     // @@protoc_insertion_point(interface_extends:PB_MsgParam_EditMessage)
     com.google.protobuf.MessageLiteOrBuilder {
 
-  /** <code>int64 ChatId = 1;</code> */
+  /**
+   * <code>int64 ChatId = 1;</code>
+   */
   long getChatId();
 
-  /** <code>.RoomTypeEnum RoomType = 2;</code> */
+  /**
+   * <code>.RoomTypeEnum RoomType = 2;</code>
+   */
   int getRoomTypeValue();
-  /** <code>.RoomTypeEnum RoomType = 2;</code> */
+  /**
+   * <code>.RoomTypeEnum RoomType = 2;</code>
+   */
   ir.ms.pb.RoomTypeEnum getRoomType();
 
-  /** <code>int64 MessageId = 3;</code> */
+  /**
+   * <code>int64 MessageId = 3;</code>
+   */
   long getMessageId();
 
-  /** <code>string NewText = 4;</code> */
+  /**
+   * <code>string NewText = 4;</code>
+   */
   java.lang.String getNewText();
-  /** <code>string NewText = 4;</code> */
-  com.google.protobuf.ByteString getNewTextBytes();
+  /**
+   * <code>string NewText = 4;</code>
+   */
+  com.google.protobuf.ByteString
+      getNewTextBytes();
 }

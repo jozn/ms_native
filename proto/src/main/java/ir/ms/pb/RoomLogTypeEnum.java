@@ -3,57 +3,103 @@
 
 package ir.ms.pb;
 
-/** Protobuf enum {@code RoomLogTypeEnum} */
-public enum RoomLogTypeEnum implements com.google.protobuf.Internal.EnumLite {
-  /** <code>UNKNOWN_ROOM_UPDATE_LOG = 0;</code> */
+/**
+ * Protobuf enum {@code RoomLogTypeEnum}
+ */
+public enum RoomLogTypeEnum
+    implements com.google.protobuf.Internal.EnumLite {
+  /**
+   * <code>UNKNOWN_ROOM_UPDATE_LOG = 0;</code>
+   */
   UNKNOWN_ROOM_UPDATE_LOG(0),
-  /** <code>NEW_DIRECT_MESSAGE = 1;</code> */
+  /**
+   * <code>NEW_DIRECT_MESSAGE = 1;</code>
+   */
   NEW_DIRECT_MESSAGE(1),
-  /** <code>CHANGE_MESSAGE_ID = 2;</code> */
+  /**
+   * <code>CHANGE_MESSAGE_ID = 2;</code>
+   */
   CHANGE_MESSAGE_ID(2),
-  /** <code>MESSAGE_RECIVED_TO_SERVER = 3;</code> */
+  /**
+   * <code>MESSAGE_RECIVED_TO_SERVER = 3;</code>
+   */
   MESSAGE_RECIVED_TO_SERVER(3),
-  /** <code>MESSAGE_DELIVIERD_TO_PEER = 4;</code> */
+  /**
+   * <code>MESSAGE_DELIVIERD_TO_PEER = 4;</code>
+   */
   MESSAGE_DELIVIERD_TO_PEER(4),
-  /** <code>MESSAGE_SEEN_BY_PEER = 5;</code> */
+  /**
+   * <code>MESSAGE_SEEN_BY_PEER = 5;</code>
+   */
   MESSAGE_SEEN_BY_PEER(5),
-  /** <code>MESSAGE_DELETED_FROM_SERVER = 6;</code> */
+  /**
+   * <code>MESSAGE_DELETED_FROM_SERVER = 6;</code>
+   */
   MESSAGE_DELETED_FROM_SERVER(6),
-  /** <code>MESSAGE_UPDATE_BY_USER = 7;</code> */
+  /**
+   * <code>MESSAGE_UPDATE_BY_USER = 7;</code>
+   */
   MESSAGE_UPDATE_BY_USER(7),
-  /** <code>MESSAGE_DELETE_BY_USER = 8;</code> */
+  /**
+   * <code>MESSAGE_DELETE_BY_USER = 8;</code>
+   */
   MESSAGE_DELETE_BY_USER(8),
-  /** <code>ROOM_ACTION_DOING = 10;</code> */
+  /**
+   * <code>ROOM_ACTION_DOING = 10;</code>
+   */
   ROOM_ACTION_DOING(10),
   UNRECOGNIZED(-1),
   ;
 
-  /** <code>UNKNOWN_ROOM_UPDATE_LOG = 0;</code> */
+  /**
+   * <code>UNKNOWN_ROOM_UPDATE_LOG = 0;</code>
+   */
   public static final int UNKNOWN_ROOM_UPDATE_LOG_VALUE = 0;
-  /** <code>NEW_DIRECT_MESSAGE = 1;</code> */
+  /**
+   * <code>NEW_DIRECT_MESSAGE = 1;</code>
+   */
   public static final int NEW_DIRECT_MESSAGE_VALUE = 1;
-  /** <code>CHANGE_MESSAGE_ID = 2;</code> */
+  /**
+   * <code>CHANGE_MESSAGE_ID = 2;</code>
+   */
   public static final int CHANGE_MESSAGE_ID_VALUE = 2;
-  /** <code>MESSAGE_RECIVED_TO_SERVER = 3;</code> */
+  /**
+   * <code>MESSAGE_RECIVED_TO_SERVER = 3;</code>
+   */
   public static final int MESSAGE_RECIVED_TO_SERVER_VALUE = 3;
-  /** <code>MESSAGE_DELIVIERD_TO_PEER = 4;</code> */
+  /**
+   * <code>MESSAGE_DELIVIERD_TO_PEER = 4;</code>
+   */
   public static final int MESSAGE_DELIVIERD_TO_PEER_VALUE = 4;
-  /** <code>MESSAGE_SEEN_BY_PEER = 5;</code> */
+  /**
+   * <code>MESSAGE_SEEN_BY_PEER = 5;</code>
+   */
   public static final int MESSAGE_SEEN_BY_PEER_VALUE = 5;
-  /** <code>MESSAGE_DELETED_FROM_SERVER = 6;</code> */
+  /**
+   * <code>MESSAGE_DELETED_FROM_SERVER = 6;</code>
+   */
   public static final int MESSAGE_DELETED_FROM_SERVER_VALUE = 6;
-  /** <code>MESSAGE_UPDATE_BY_USER = 7;</code> */
+  /**
+   * <code>MESSAGE_UPDATE_BY_USER = 7;</code>
+   */
   public static final int MESSAGE_UPDATE_BY_USER_VALUE = 7;
-  /** <code>MESSAGE_DELETE_BY_USER = 8;</code> */
+  /**
+   * <code>MESSAGE_DELETE_BY_USER = 8;</code>
+   */
   public static final int MESSAGE_DELETE_BY_USER_VALUE = 8;
-  /** <code>ROOM_ACTION_DOING = 10;</code> */
+  /**
+   * <code>ROOM_ACTION_DOING = 10;</code>
+   */
   public static final int ROOM_ACTION_DOING_VALUE = 10;
+
 
   public final int getNumber() {
     return value;
   }
 
-  /** @deprecated Use {@link #forNumber(int)} instead. */
+  /**
+   * @deprecated Use {@link #forNumber(int)} instead.
+   */
   @java.lang.Deprecated
   public static RoomLogTypeEnum valueOf(int value) {
     return forNumber(value);
@@ -61,41 +107,31 @@ public enum RoomLogTypeEnum implements com.google.protobuf.Internal.EnumLite {
 
   public static RoomLogTypeEnum forNumber(int value) {
     switch (value) {
-      case 0:
-        return UNKNOWN_ROOM_UPDATE_LOG;
-      case 1:
-        return NEW_DIRECT_MESSAGE;
-      case 2:
-        return CHANGE_MESSAGE_ID;
-      case 3:
-        return MESSAGE_RECIVED_TO_SERVER;
-      case 4:
-        return MESSAGE_DELIVIERD_TO_PEER;
-      case 5:
-        return MESSAGE_SEEN_BY_PEER;
-      case 6:
-        return MESSAGE_DELETED_FROM_SERVER;
-      case 7:
-        return MESSAGE_UPDATE_BY_USER;
-      case 8:
-        return MESSAGE_DELETE_BY_USER;
-      case 10:
-        return ROOM_ACTION_DOING;
-      default:
-        return null;
+      case 0: return UNKNOWN_ROOM_UPDATE_LOG;
+      case 1: return NEW_DIRECT_MESSAGE;
+      case 2: return CHANGE_MESSAGE_ID;
+      case 3: return MESSAGE_RECIVED_TO_SERVER;
+      case 4: return MESSAGE_DELIVIERD_TO_PEER;
+      case 5: return MESSAGE_SEEN_BY_PEER;
+      case 6: return MESSAGE_DELETED_FROM_SERVER;
+      case 7: return MESSAGE_UPDATE_BY_USER;
+      case 8: return MESSAGE_DELETE_BY_USER;
+      case 10: return ROOM_ACTION_DOING;
+      default: return null;
     }
   }
 
-  public static com.google.protobuf.Internal.EnumLiteMap<RoomLogTypeEnum> internalGetValueMap() {
+  public static com.google.protobuf.Internal.EnumLiteMap<RoomLogTypeEnum>
+      internalGetValueMap() {
     return internalValueMap;
   }
-
-  private static final com.google.protobuf.Internal.EnumLiteMap<RoomLogTypeEnum> internalValueMap =
-      new com.google.protobuf.Internal.EnumLiteMap<RoomLogTypeEnum>() {
-        public RoomLogTypeEnum findValueByNumber(int number) {
-          return RoomLogTypeEnum.forNumber(number);
-        }
-      };
+  private static final com.google.protobuf.Internal.EnumLiteMap<
+      RoomLogTypeEnum> internalValueMap =
+        new com.google.protobuf.Internal.EnumLiteMap<RoomLogTypeEnum>() {
+          public RoomLogTypeEnum findValueByNumber(int number) {
+            return RoomLogTypeEnum.forNumber(number);
+          }
+        };
 
   private final int value;
 
@@ -105,3 +141,4 @@ public enum RoomLogTypeEnum implements com.google.protobuf.Internal.EnumLite {
 
   // @@protoc_insertion_point(enum_scope:RoomLogTypeEnum)
 }
+

@@ -3,14 +3,11 @@
 
 package ir.ms.pb;
 
-public interface PB_MsgParam_SetMessagesAsReceivedOrBuilder
-    extends
+public interface PB_MsgParam_SetMessagesAsReceivedOrBuilder extends
     // @@protoc_insertion_point(interface_extends:PB_MsgParam_SetMessagesAsReceived)
     com.google.protobuf.MessageLiteOrBuilder {
 
   /**
-   *
-   *
    * <pre>
    *    /&#42;int64 ChatId = 1;
    *    RoomTypeEnum RoomType = 2;
@@ -23,8 +20,6 @@ public interface PB_MsgParam_SetMessagesAsReceivedOrBuilder
    */
   boolean hasMessagesCollections();
   /**
-   *
-   *
    * <pre>
    *    /&#42;int64 ChatId = 1;
    *    RoomTypeEnum RoomType = 2;

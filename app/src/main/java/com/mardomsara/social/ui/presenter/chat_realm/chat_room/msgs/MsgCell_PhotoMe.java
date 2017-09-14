@@ -35,7 +35,7 @@ public class MsgCell_PhotoMe extends MsgCell_AbstractViewHolder {
     @Override
     public void bindToView(RealmMessageView msg) {
 		this.msg = msg;
-        AppUtil.log("bindToView Peer");
+        AppUtil.log("bindToView Peer -- ");
         x.msg_time.setText(MsgCommon.msgRawTime2(msg));
 		imageWrapper.bind(msg);
 //        msg_text.setText(msg.getText());

@@ -3,43 +3,67 @@
 
 package ir.ms.pb;
 
-public interface PB_ChatOrBuilder
-    extends
+public interface PB_ChatOrBuilder extends
     // @@protoc_insertion_point(interface_extends:PB_Chat)
     com.google.protobuf.MessageLiteOrBuilder {
 
-  /** <code>int64 ChatId = 1;</code> */
+  /**
+   * <code>int64 ChatId = 1;</code>
+   */
   long getChatId();
 
-  /** <code>string ChatKey = 3;</code> */
+  /**
+   * <code>string ChatKey = 3;</code>
+   */
   java.lang.String getChatKey();
-  /** <code>string ChatKey = 3;</code> */
-  com.google.protobuf.ByteString getChatKeyBytes();
+  /**
+   * <code>string ChatKey = 3;</code>
+   */
+  com.google.protobuf.ByteString
+      getChatKeyBytes();
 
-  /** <code>int32 RoomTypeEnumId = 5;</code> */
+  /**
+   * <code>int32 RoomTypeEnumId = 5;</code>
+   */
   int getRoomTypeEnumId();
 
-  /** <code>int32 UserId = 7;</code> */
+  /**
+   * <code>int32 UserId = 7;</code>
+   */
   int getUserId();
 
-  /** <code>int32 LastSeqSeen = 9;</code> */
+  /**
+   * <code>int32 LastSeqSeen = 9;</code>
+   */
   int getLastSeqSeen();
 
-  /** <code>int32 LastSeqDelete = 11;</code> */
+  /**
+   * <code>int32 LastSeqDelete = 11;</code>
+   */
   int getLastSeqDelete();
 
-  /** <code>int32 PeerUserId = 13;</code> */
+  /**
+   * <code>int32 PeerUserId = 13;</code>
+   */
   int getPeerUserId();
 
-  /** <code>int64 GroupId = 15;</code> */
+  /**
+   * <code>int64 GroupId = 15;</code>
+   */
   long getGroupId();
 
-  /** <code>int32 CreatedTime = 17;</code> */
+  /**
+   * <code>int32 CreatedTime = 17;</code>
+   */
   int getCreatedTime();
 
-  /** <code>int32 CurrentSeq = 19;</code> */
+  /**
+   * <code>int32 CurrentSeq = 19;</code>
+   */
   int getCurrentSeq();
 
-  /** <code>int64 UpdatedMs = 21;</code> */
+  /**
+   * <code>int64 UpdatedMs = 21;</code>
+   */
   long getUpdatedMs();
 }

@@ -3,19 +3,28 @@
 
 package ir.ms.pb;
 
-/** Protobuf enum {@code RoomTypeEnum} */
-public enum RoomTypeEnum implements com.google.protobuf.Internal.EnumLite {
-  /** <code>UNKNOWN_ROOM_TYPE = 0;</code> */
+/**
+ * Protobuf enum {@code RoomTypeEnum}
+ */
+public enum RoomTypeEnum
+    implements com.google.protobuf.Internal.EnumLite {
+  /**
+   * <code>UNKNOWN_ROOM_TYPE = 0;</code>
+   */
   UNKNOWN_ROOM_TYPE(0),
-  /** <code>DIRECT = 1;</code> */
+  /**
+   * <code>DIRECT = 1;</code>
+   */
   DIRECT(1),
-  /** <code>GROUP = 2;</code> */
+  /**
+   * <code>GROUP = 2;</code>
+   */
   GROUP(2),
-  /** <code>CHANNEL = 3;</code> */
+  /**
+   * <code>CHANNEL = 3;</code>
+   */
   CHANNEL(3),
   /**
-   *
-   *
    * <pre>
    *    BULK = 3;
    * </pre>
@@ -26,17 +35,23 @@ public enum RoomTypeEnum implements com.google.protobuf.Internal.EnumLite {
   UNRECOGNIZED(-1),
   ;
 
-  /** <code>UNKNOWN_ROOM_TYPE = 0;</code> */
+  /**
+   * <code>UNKNOWN_ROOM_TYPE = 0;</code>
+   */
   public static final int UNKNOWN_ROOM_TYPE_VALUE = 0;
-  /** <code>DIRECT = 1;</code> */
+  /**
+   * <code>DIRECT = 1;</code>
+   */
   public static final int DIRECT_VALUE = 1;
-  /** <code>GROUP = 2;</code> */
+  /**
+   * <code>GROUP = 2;</code>
+   */
   public static final int GROUP_VALUE = 2;
-  /** <code>CHANNEL = 3;</code> */
+  /**
+   * <code>CHANNEL = 3;</code>
+   */
   public static final int CHANNEL_VALUE = 3;
   /**
-   *
-   *
    * <pre>
    *    BULK = 3;
    * </pre>
@@ -45,11 +60,14 @@ public enum RoomTypeEnum implements com.google.protobuf.Internal.EnumLite {
    */
   public static final int BROADCAST_VALUE = 4;
 
+
   public final int getNumber() {
     return value;
   }
 
-  /** @deprecated Use {@link #forNumber(int)} instead. */
+  /**
+   * @deprecated Use {@link #forNumber(int)} instead.
+   */
   @java.lang.Deprecated
   public static RoomTypeEnum valueOf(int value) {
     return forNumber(value);
@@ -57,31 +75,26 @@ public enum RoomTypeEnum implements com.google.protobuf.Internal.EnumLite {
 
   public static RoomTypeEnum forNumber(int value) {
     switch (value) {
-      case 0:
-        return UNKNOWN_ROOM_TYPE;
-      case 1:
-        return DIRECT;
-      case 2:
-        return GROUP;
-      case 3:
-        return CHANNEL;
-      case 4:
-        return BROADCAST;
-      default:
-        return null;
+      case 0: return UNKNOWN_ROOM_TYPE;
+      case 1: return DIRECT;
+      case 2: return GROUP;
+      case 3: return CHANNEL;
+      case 4: return BROADCAST;
+      default: return null;
     }
   }
 
-  public static com.google.protobuf.Internal.EnumLiteMap<RoomTypeEnum> internalGetValueMap() {
+  public static com.google.protobuf.Internal.EnumLiteMap<RoomTypeEnum>
+      internalGetValueMap() {
     return internalValueMap;
   }
-
-  private static final com.google.protobuf.Internal.EnumLiteMap<RoomTypeEnum> internalValueMap =
-      new com.google.protobuf.Internal.EnumLiteMap<RoomTypeEnum>() {
-        public RoomTypeEnum findValueByNumber(int number) {
-          return RoomTypeEnum.forNumber(number);
-        }
-      };
+  private static final com.google.protobuf.Internal.EnumLiteMap<
+      RoomTypeEnum> internalValueMap =
+        new com.google.protobuf.Internal.EnumLiteMap<RoomTypeEnum>() {
+          public RoomTypeEnum findValueByNumber(int number) {
+            return RoomTypeEnum.forNumber(number);
+          }
+        };
 
   private final int value;
 
@@ -91,3 +104,4 @@ public enum RoomTypeEnum implements com.google.protobuf.Internal.EnumLite {
 
   // @@protoc_insertion_point(enum_scope:RoomTypeEnum)
 }
+
