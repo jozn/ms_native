@@ -53,6 +53,7 @@ class MsgImageWrapper implements MessageProgressListener {
 
 
 	void bind(@NonNull RealmMessageViewWrapper msgWrapper) {
+		wrapper = msgWrapper;
 		this.msg = msgWrapper.messageView;
 		msgFile = msg.MessageFileView;
 		msgWrapper.messageProgressListener = this;

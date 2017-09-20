@@ -2,7 +2,6 @@ package com.mardomsara.social.ui.presenter.chat_realm.chat_room;
 
 import android.view.ViewGroup;
 
-import com.mardomsara.base_rv.BaseQuickAdapter;
 import com.mardomsara.base_rv.BaseRealmRecyclerViewAdapter;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.models_realm.pb_realm.RealmMessageView;
@@ -22,11 +21,11 @@ import ir.ms.pb.RoomMessageTypeEnum;
 public class ChatRoomEntryAdaptor extends BaseRealmRecyclerViewAdapter<RealmMessageView, MsgCell_AbstractViewHolder> {
 
 	final int ME_SHIFT = 100;
-	RealmViewWrapperHolder wraper;
+	RealmViewWrapperHolder wrapperHolder;
 
 	public ChatRoomEntryAdaptor(RealmViewWrapperHolder data) {
 		super(data.realmResults,true);
-		this.wraper = data;
+		this.wrapperHolder = data;
 
 		setMultiTypeDelegate(new MultiDelegate());
 
@@ -76,6 +75,8 @@ public class ChatRoomEntryAdaptor extends BaseRealmRecyclerViewAdapter<RealmMess
 
 	@Override
 	protected void convert(MsgCell_AbstractViewHolder helper, RealmMessageView item) {
-		helper.bindToView(item);
+		RealmMessageViewWrapper wrapper = new RealmMessageViewWrapper();
+		wrapper.messageView = item;
+		helper.bindToView(wrapper);
 	}
 }

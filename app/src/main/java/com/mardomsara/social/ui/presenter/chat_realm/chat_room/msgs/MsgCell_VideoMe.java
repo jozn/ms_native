@@ -9,6 +9,7 @@ import com.mardomsara.social.R;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.models.tables.Message;
 import com.mardomsara.social.models_realm.pb_realm.RealmMessageView;
+import com.mardomsara.social.ui.presenter.chat_realm.chat_room.RealmMessageViewWrapper;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -23,9 +24,11 @@ public class MsgCell_VideoMe extends MsgCell_AbstractViewHolder {
     @Bind(R.id.msg_image) SimpleDraweeView msg_image;
     @Bind(R.id.msg_content_holder) ViewGroup msg_content_holder;
 //    LinkerText msg_text;
-    Message msg;
+    Message msg0;
+	RealmMessageView msg;
 
-    public MsgCell_VideoMe(View itemView) {
+
+	public MsgCell_VideoMe(View itemView) {
         super(itemView);
         ButterKnife.bind(this, itemView);
     }
@@ -35,8 +38,9 @@ public class MsgCell_VideoMe extends MsgCell_AbstractViewHolder {
     }
 
     @Override
-    public void bindToView(RealmMessageView msg) {
+    public void bindToView(RealmMessageViewWrapper wrapper) {
         AppUtil.log("bindToView Peer");
+        this.msg = wrapper.messageView;
         time_txt.setText(MsgCommon.msgRawTime2(msg));
         msg_text.setText(msg.Text);
         MsgCommon.msgDeliveryStatusText(msg,msg_delivery_status);

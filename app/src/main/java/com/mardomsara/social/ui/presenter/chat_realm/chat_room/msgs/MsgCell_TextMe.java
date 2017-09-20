@@ -7,12 +7,14 @@ import com.mardomsara.emojicon.EmojiMaper;
 import com.mardomsara.social.models.tables.Message;
 import com.mardomsara.social.models_realm.pb_realm.RealmMessageView;
 import com.mardomsara.social.ui.X;
+import com.mardomsara.social.ui.presenter.chat_realm.chat_room.RealmMessageViewWrapper;
 
 /**
  * Created by Hamid on 6/13/2016.
  */
 public class MsgCell_TextMe extends MsgCell_AbstractViewHolder {
 	X.Msg_RowTextMe x;
+	RealmMessageView msg;
 
 	public MsgCell_TextMe(X.Msg_RowTextMe xv) {
 		super(xv.root);
@@ -24,8 +26,9 @@ public class MsgCell_TextMe extends MsgCell_AbstractViewHolder {
 	}
 
     @Override
-    public void bindToView(RealmMessageView msg) {
+    public void bindToView(RealmMessageViewWrapper wrapper) {
         Log.d("Msg","bindToView Me");
+        this.msg = wrapper.messageView;
 
 		x.msg_time.setText(MsgCommon.msgRawTime2(msg));
 		x.msg_text.setText(""+msg.Text+" ");

@@ -6,6 +6,7 @@ import android.view.View;
 import com.mardomsara.base_rv.BaseViewHolder;
 import com.mardomsara.social.models.tables.Message;
 import com.mardomsara.social.models_realm.pb_realm.RealmMessageView;
+import com.mardomsara.social.ui.presenter.chat_realm.chat_room.RealmMessageViewWrapper;
 
 //import Message;
 
@@ -24,7 +25,7 @@ public abstract class MsgCell_AbstractViewHolder extends BaseViewHolder {
         super(itemView);
         grandView = itemView;
     }
-    public abstract void bindToView(RealmMessageView msg);
+    public abstract void bindToView(RealmMessageViewWrapper msg);
 
 	public void onRecycled(){
 	};

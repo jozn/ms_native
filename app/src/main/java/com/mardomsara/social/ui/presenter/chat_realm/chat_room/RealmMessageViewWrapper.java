@@ -1,5 +1,7 @@
 package com.mardomsara.social.ui.presenter.chat_realm.chat_room;
 
+import android.support.annotation.NonNull;
+
 import com.mardomsara.base_rv.entity.MultiItemEntity;
 import com.mardomsara.social.base.Http.Req;
 import com.mardomsara.social.base.Http.listener.DownloadProgressListener;
@@ -20,7 +22,7 @@ import java.io.File;
  */
 
 public class RealmMessageViewWrapper implements MultiItemEntity, UploadProgressListener, DownloadProgressListener {
-	public RealmMessageView messageView;
+	@NonNull public RealmMessageView messageView;
 	public MessageProgressListener messageProgressListener;
 	public transient Req req;
 	private boolean isNetWorkTransferring = false;

@@ -7,6 +7,7 @@ import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.models.tables.Message;
 import com.mardomsara.social.models_realm.pb_realm.RealmMessageView;
 import com.mardomsara.social.ui.X;
+import com.mardomsara.social.ui.presenter.chat_realm.chat_room.RealmMessageViewWrapper;
 import com.mardomsara.social.ui.views.helpers.ViewHelper;
 
 /**
@@ -21,6 +22,7 @@ public class MsgCell_PhotoMe extends MsgCell_AbstractViewHolder {
 	MsgImageWrapper imageWrapper;
 
 	RealmMessageView msg;
+	RealmMessageViewWrapper wrapper;
 
     public MsgCell_PhotoMe(X.Msg_RowImageMe xv) {
         super(xv.root);
@@ -33,11 +35,12 @@ public class MsgCell_PhotoMe extends MsgCell_AbstractViewHolder {
     }
 
     @Override
-    public void bindToView(RealmMessageView msg) {
-		this.msg = msg;
+    public void bindToView(RealmMessageViewWrapper wrapper) {
+		this.msg = wrapper.messageView;
+		this.wrapper = wrapper;
         AppUtil.log("bindToView Peer -- ");
         x.msg_time.setText(MsgCommon.msgRawTime2(msg));
-		imageWrapper.bind(msg);
+		imageWrapper.bind(wrapper);
 //        msg_text.setText(msg.getText());
 //        MsgCommon.setImage2(msg,x.image_holder);
 //        MsgCommon.setContentMaxwhidth(msg,msg_image);
@@ -52,6 +55,6 @@ public class MsgCell_PhotoMe extends MsgCell_AbstractViewHolder {
 	@Override
 	public void onRecycled() {
 //		AppUtil.log("onRecycled msg me image: "+ msg.MessageKey);
-		imageWrapper.unbind(msg);
+		imageWrapper.unbind(wrapper);
 	}
 }

@@ -8,12 +8,14 @@ import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.models.tables.Message;
 import com.mardomsara.social.models_realm.pb_realm.RealmMessageView;
 import com.mardomsara.social.ui.X;
+import com.mardomsara.social.ui.presenter.chat_realm.chat_room.RealmMessageViewWrapper;
 
 /**
  * Created by Hamid on 6/13/2016.
  */
 public class MsgCell_TextPeer extends MsgCell_AbstractViewHolder {
-    Message msg;
+    Message msg0;
+	RealmMessageView msg;
 
 	@NonNull
 	X.Msg_RowTextPeer x;
@@ -28,8 +30,9 @@ public class MsgCell_TextPeer extends MsgCell_AbstractViewHolder {
     }
 
     @Override
-    public void bindToView(RealmMessageView msg) {
+    public void bindToView(RealmMessageViewWrapper wrapper) {
         AppUtil.log("bindToView Peer");
+        this.msg = wrapper.messageView;
 
 		x.msg_time.setText(MsgCommon.msgRawTime2(msg));
 		x.msg_text.setText(msg.Text + " ");// " " is for emoji not to break

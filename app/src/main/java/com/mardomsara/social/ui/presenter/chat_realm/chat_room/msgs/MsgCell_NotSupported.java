@@ -6,6 +6,7 @@ import android.view.ViewGroup;
 import com.mardomsara.social.models.tables.Message;
 import com.mardomsara.social.models_realm.pb_realm.RealmMessageView;
 import com.mardomsara.social.ui.X;
+import com.mardomsara.social.ui.presenter.chat_realm.chat_room.RealmMessageViewWrapper;
 
 /**
  * Created by Hamid on 6/13/2016.
@@ -24,7 +25,7 @@ public class MsgCell_NotSupported extends MsgCell_AbstractViewHolder {
     }
 
     @Override
-    public void bindToView(RealmMessageView msg) {
+    public void bindToView(RealmMessageViewWrapper msg) {
 
     }
 
