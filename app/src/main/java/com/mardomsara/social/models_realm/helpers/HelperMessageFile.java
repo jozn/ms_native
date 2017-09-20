@@ -21,10 +21,11 @@ import java.io.File;
  */
 
 public class HelperMessageFile {
-	public static void downloadForceMessageMediaFile(String serverSrc, String localSrc, DownloadProgressListener listener){
-		AndroidUtil.runInBackgroundNoPanic(()->{
+	public static void downloadForceMessageMediaFile(String serverSrc, String localSrc, DownloadProgressListener listener) {
+		AndroidUtil.runInBackgroundNoPanic(() -> {
 			File file = new File(localSrc);
-			Http.download(serverSrc,localSrc)
+			if(file.exists()) return;
+			Http.download(serverSrc, localSrc)
 				.setDownloadProgress(listener)
 				.doAsyncDownload((result -> {
 					/*if(result.isOk()){
@@ -37,12 +38,14 @@ public class HelperMessageFile {
 		});
 	}
 
-	public static void setLoacPathInNeccocery(RealmMessageFileView msgFile){
-		String $fileName = AppFiles.PHOTO_DIR_PATH + FormaterUtil.getFullyYearToSecondsSolarName() + "$" + msgFile.Extension;
-		String fileName = FileUtil.createNextName($fileName);
-		MSRealm.getChatRealm().executeTransaction((r)->{
-			msgFile.LocalSrc = fileName;
-		});
+	public static void setLocalPathInNecessary(RealmMessageFileView msgFile) {
+		if (msgFile.LocalSrc == null || msgFile.LocalSrc.equals("")) {
+			String $fileName = AppFiles.PHOTO_DIR_PATH + FormaterUtil.getFullyYearToSecondsSolarName() + "$" + msgFile.Extension;
+			String fileName = FileUtil.createNextName($fileName);
+			MSRealm.getChatRealm().executeTransaction((r) -> {
+				msgFile.LocalSrc = fileName;
+			});
+		}
 	}
 
 	public static void downloadForceMessageMediaFile(@NonNull Message msg) {

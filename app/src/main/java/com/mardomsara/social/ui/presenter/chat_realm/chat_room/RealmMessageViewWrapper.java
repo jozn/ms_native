@@ -8,14 +8,10 @@ import com.mardomsara.social.base.Http.listener.DownloadProgressListener;
 import com.mardomsara.social.base.Http.listener.UploadProgressListener;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.Helper;
-import com.mardomsara.social.models.MessageModel;
-import com.mardomsara.social.models.flusher.MsgsCallToServer;
 import com.mardomsara.social.models.interfaces.MessageProgressListener;
 import com.mardomsara.social.models_realm.helpers.HelperMessageFile;
 import com.mardomsara.social.models_realm.pb_realm.RealmMessageFileView;
 import com.mardomsara.social.models_realm.pb_realm.RealmMessageView;
-
-import java.io.File;
 
 /**
  * Created by Hamid on 9/10/2017.
@@ -78,7 +74,7 @@ public class RealmMessageViewWrapper implements MultiItemEntity, UploadProgressL
 //		MessageModel.downloadForceMessageMediaFile(this);
 		RealmMessageFileView f = messageView.MessageFileView;
 		if (f != null) {
-			HelperMessageFile.setLoacPathInNeccocery(f);
+			HelperMessageFile.setLocalPathInNecessary(f);
 			HelperMessageFile.downloadForceMessageMediaFile(f.ServerSrc, f.LocalSrc, this);
 		}
 	}
