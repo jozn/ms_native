@@ -1410,6 +1410,68 @@ public class PBFlatTypes {
 	PB_MsgResponse_AddNewTextMessage t = new PB_MsgResponse_AddNewTextMessage();
 	*/
 
+	public class PB_MsgParam_AddNewMessage {
+	   public String Text;
+	   public int PeerId;
+	   public int Time;
+	   public long ReplyToMessageId;
+	   public PB_MessageForwardedFrom Forward;
+	   public RoomMessageTypeEnum RoomMessageType;
+	   public byte[] Blob;
+	   public PB_MessageView MessageView;
+	}
+	/*
+	folding
+	PBFlatTypes.PB_MsgParam_AddNewMessage t = new PBFlatTypes.PB_MsgParam_AddNewMessage();
+    t.setText();
+    t.setPeerId();
+    t.setTime();
+    t.setReplyToMessageId();
+    t.setForward();
+    t.setRoomMessageType();
+    t.setBlob();
+    t.setMessageView();
+	*/
+
+	/*
+	PBFlatTypes.PB_MsgParam_AddNewMessage t = new PBFlatTypes.PB_MsgParam_AddNewMessage();
+	t.Text = ;
+	t.PeerId = ;
+	t.Time = ;
+	t.ReplyToMessageId = ;
+	t.Forward = ;
+	t.RoomMessageType = ;
+	t.Blob = ;
+	t.MessageView = ;
+	*/
+
+	/*
+	PB_MsgParam_AddNewMessage t = new PB_MsgParam_AddNewMessage();
+	t.Text = m.getText() ;
+	t.PeerId = m.getPeerId() ;
+	t.Time = m.getTime() ;
+	t.ReplyToMessageId = m.getReplyToMessageId() ;
+	t.Forward = m.getForward() ;
+	t.RoomMessageType = m.getRoomMessageType() ;
+	t.Blob = m.getBlob() ;
+	t.MessageView = m.getMessageView() ;
+	*/
+
+	public class PB_MsgResponse_AddNewMessage {
+	}
+	/*
+	folding
+	PBFlatTypes.PB_MsgResponse_AddNewMessage t = new PBFlatTypes.PB_MsgResponse_AddNewMessage();
+	*/
+
+	/*
+	PBFlatTypes.PB_MsgResponse_AddNewMessage t = new PBFlatTypes.PB_MsgResponse_AddNewMessage();
+	*/
+
+	/*
+	PB_MsgResponse_AddNewMessage t = new PB_MsgResponse_AddNewMessage();
+	*/
+
 	public class PB_MsgParam_SetRoomActionDoing {
 	   public long GroupId;
 	   public String DirectRoomKey;
@@ -2816,7 +2878,7 @@ public class PBFlatTypes {
 	   public int LastSeqSeen;
 	   public int LastSeqDelete;
 	   public int CurrentSeq;
-	   public PB_UserView User;
+	   public PB_UserView UserView;
 	   public int SharedMediaCount;
 	   public int UnseenCount;
 	   public PB_MessageView FirstUnreadMessage;
@@ -2839,7 +2901,7 @@ public class PBFlatTypes {
     t.setLastSeqSeen();
     t.setLastSeqDelete();
     t.setCurrentSeq();
-    t.setUser();
+    t.setUserView();
     t.setSharedMediaCount();
     t.setUnseenCount();
     t.setFirstUnreadMessage();
@@ -2862,7 +2924,7 @@ public class PBFlatTypes {
 	t.LastSeqSeen = ;
 	t.LastSeqDelete = ;
 	t.CurrentSeq = ;
-	t.User = ;
+	t.UserView = ;
 	t.SharedMediaCount = ;
 	t.UnseenCount = ;
 	t.FirstUnreadMessage = ;
@@ -2885,7 +2947,7 @@ public class PBFlatTypes {
 	t.LastSeqSeen = m.getLastSeqSeen() ;
 	t.LastSeqDelete = m.getLastSeqDelete() ;
 	t.CurrentSeq = m.getCurrentSeq() ;
-	t.User = m.getUser() ;
+	t.UserView = m.getUserView() ;
 	t.SharedMediaCount = m.getSharedMediaCount() ;
 	t.UnseenCount = m.getUnseenCount() ;
 	t.FirstUnreadMessage = m.getFirstUnreadMessage() ;
@@ -2906,8 +2968,8 @@ public class PBFlatTypes {
 	   public long ChatId;
 	   public int RoomTypeEnumId;
 	   public boolean IsByMe;
-	   public boolean RemoteId;
-	   public PB_MessageFileView File;
+	   public long RemoteId;
+	   public PB_MessageFileView MessageFileView;
 	}
 	/*
 	folding
@@ -2926,7 +2988,7 @@ public class PBFlatTypes {
     t.setRoomTypeEnumId();
     t.setIsByMe();
     t.setRemoteId();
-    t.setFile();
+    t.setMessageFileView();
 	*/
 
 	/*
@@ -2945,7 +3007,7 @@ public class PBFlatTypes {
 	t.RoomTypeEnumId = ;
 	t.IsByMe = ;
 	t.RemoteId = ;
-	t.File = ;
+	t.MessageFileView = ;
 	*/
 
 	/*
@@ -2964,7 +3026,7 @@ public class PBFlatTypes {
 	t.RoomTypeEnumId = m.getRoomTypeEnumId() ;
 	t.IsByMe = m.getIsByMe() ;
 	t.RemoteId = m.getRemoteId() ;
-	t.File = m.getFile() ;
+	t.MessageFileView = m.getMessageFileView() ;
 	*/
 
 	public class PB_MessageFileView {

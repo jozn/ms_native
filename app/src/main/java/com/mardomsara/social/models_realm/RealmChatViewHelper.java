@@ -7,7 +7,6 @@ import com.mardomsara.social.app.MSRealm;
 import com.mardomsara.social.models_realm.pb_realm.RealmChatView;
 import com.mardomsara.social.models_realm.pb_realm.RealmChatViewFields;
 import com.mardomsara.social.models_realm.pb_realm.RealmMessageView;
-import com.mardomsara.social.models_realm.pb_realm.RealmMessageViewFields;
 
 import java.util.List;
 
@@ -24,22 +23,22 @@ public class RealmChatViewHelper {
 
 	/////////////////////////////////////////
 	public static String getRoomName(RealmChatView chatView){
-		if(chatView.User != null){
-			return "" + chatView.User.FirstName + " " + chatView.User.LastName;
+		if(chatView.UserView != null){
+			return "" + chatView.UserView.FirstName + " " + chatView.UserView.LastName;
 		}
 		return "name: " + chatView.ChatKey;
 	}
 
 	public static String getRoomAvatarUrl(RealmChatView chatView){
-		if(chatView.User != null){
-			return chatView.User.AvatarUrl;
+		if(chatView.UserView != null){
+			return chatView.UserView.AvatarUrl;
 		}
 		return "http://192.168.0.105:5000/upload/avatar/1/21_mOId_200.jpg";
 	}
 
 	public static int getUserId(RealmChatView chatView){
-		if(chatView.User != null){
-			return chatView.User.UserId;
+		if(chatView.UserView != null){
+			return chatView.UserView.UserId;
 		}
 		return 12;
 	}

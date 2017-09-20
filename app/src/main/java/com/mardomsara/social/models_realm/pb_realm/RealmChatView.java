@@ -21,7 +21,7 @@ public class RealmChatView extends RealmObject {
 		public int LastSeqSeen;//11 				 PB 21
 		public int LastSeqDelete;//12 				 PB 23
 		public int CurrentSeq;//13 				 PB 25
-		public RealmUserView User;//14 				 PB 100
+		public RealmUserView UserView;//14 				 PB 100
 		public int SharedMediaCount;//15 				 PB 200
 		public int UnseenCount;//16 				 PB 205
 		public RealmMessageView FirstUnreadMessage;//17 				 PB 210
@@ -45,7 +45,7 @@ public class RealmChatView extends RealmObject {
 		r.LastSeqSeen = pb.getLastSeqSeen();//11
 		r.LastSeqDelete = pb.getLastSeqDelete();//12
 		r.CurrentSeq = pb.getCurrentSeq();//13
-		//r.User = pb.getUser();//14
+		//r.UserView = pb.getUserView();//14
 		r.SharedMediaCount = pb.getSharedMediaCount();//15
 		r.UnseenCount = pb.getUnseenCount();//16
 		//r.FirstUnreadMessage = pb.getFirstUnreadMessage();//17
@@ -75,7 +75,7 @@ public class RealmChatView extends RealmObject {
 	r.LastSeqSeen = ;//11
 	r.LastSeqDelete = ;//12
 	r.CurrentSeq = ;//13
-	r.User = ;//14
+	r.UserView = ;//14
 	r.SharedMediaCount = ;//15
 	r.UnseenCount = ;//16
 	r.FirstUnreadMessage = ;//17
@@ -98,7 +98,7 @@ public class RealmChatView extends RealmObject {
 	r.LastSeqSeen = ;
 	r.LastSeqDelete = ;
 	r.CurrentSeq = ;
-	r.User = ;
+	r.UserView = ;
 	r.SharedMediaCount = ;
 	r.UnseenCount = ;
 	r.FirstUnreadMessage = ;
@@ -120,7 +120,7 @@ public class RealmChatView extends RealmObject {
 	m. = r.LastSeqSeen ;//11
 	m. = r.LastSeqDelete ;//12
 	m. = r.CurrentSeq ;//13
-	m. = r.User ;//14
+	m. = r.UserView ;//14
 	m. = r.SharedMediaCount ;//15
 	m. = r.UnseenCount ;//16
 	m. = r.FirstUnreadMessage ;//17
@@ -142,7 +142,7 @@ public class RealmChatView extends RealmObject {
 	m. = r.LastSeqSeen ;
 	m. = r.LastSeqDelete ;
 	m. = r.CurrentSeq ;
-	m. = r.User ;
+	m. = r.UserView ;
 	m. = r.SharedMediaCount ;
 	m. = r.UnseenCount ;
 	m. = r.FirstUnreadMessage ;

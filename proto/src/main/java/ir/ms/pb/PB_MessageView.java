@@ -365,77 +365,77 @@ public  final class PB_MessageView extends
   }
 
   public static final int REMOTEID_FIELD_NUMBER = 50;
-  private boolean remoteId_;
+  private long remoteId_;
   /**
-   * <code>bool RemoteId = 50;</code>
+   * <code>int64 RemoteId = 50;</code>
    */
-  public boolean getRemoteId() {
+  public long getRemoteId() {
     return remoteId_;
   }
   /**
-   * <code>bool RemoteId = 50;</code>
+   * <code>int64 RemoteId = 50;</code>
    */
-  private void setRemoteId(boolean value) {
+  private void setRemoteId(long value) {
     
     remoteId_ = value;
   }
   /**
-   * <code>bool RemoteId = 50;</code>
+   * <code>int64 RemoteId = 50;</code>
    */
   private void clearRemoteId() {
     
-    remoteId_ = false;
+    remoteId_ = 0L;
   }
 
-  public static final int FILE_FIELD_NUMBER = 100;
-  private ir.ms.pb.PB_MessageFileView file_;
+  public static final int MESSAGEFILEVIEW_FIELD_NUMBER = 100;
+  private ir.ms.pb.PB_MessageFileView messageFileView_;
   /**
-   * <code>.PB_MessageFileView File = 100;</code>
+   * <code>.PB_MessageFileView MessageFileView = 100;</code>
    */
-  public boolean hasFile() {
-    return file_ != null;
+  public boolean hasMessageFileView() {
+    return messageFileView_ != null;
   }
   /**
-   * <code>.PB_MessageFileView File = 100;</code>
+   * <code>.PB_MessageFileView MessageFileView = 100;</code>
    */
-  public ir.ms.pb.PB_MessageFileView getFile() {
-    return file_ == null ? ir.ms.pb.PB_MessageFileView.getDefaultInstance() : file_;
+  public ir.ms.pb.PB_MessageFileView getMessageFileView() {
+    return messageFileView_ == null ? ir.ms.pb.PB_MessageFileView.getDefaultInstance() : messageFileView_;
   }
   /**
-   * <code>.PB_MessageFileView File = 100;</code>
+   * <code>.PB_MessageFileView MessageFileView = 100;</code>
    */
-  private void setFile(ir.ms.pb.PB_MessageFileView value) {
+  private void setMessageFileView(ir.ms.pb.PB_MessageFileView value) {
     if (value == null) {
       throw new NullPointerException();
     }
-    file_ = value;
+    messageFileView_ = value;
     
     }
   /**
-   * <code>.PB_MessageFileView File = 100;</code>
+   * <code>.PB_MessageFileView MessageFileView = 100;</code>
    */
-  private void setFile(
+  private void setMessageFileView(
       ir.ms.pb.PB_MessageFileView.Builder builderForValue) {
-    file_ = builderForValue.build();
+    messageFileView_ = builderForValue.build();
     
   }
   /**
-   * <code>.PB_MessageFileView File = 100;</code>
+   * <code>.PB_MessageFileView MessageFileView = 100;</code>
    */
-  private void mergeFile(ir.ms.pb.PB_MessageFileView value) {
-    if (file_ != null &&
-        file_ != ir.ms.pb.PB_MessageFileView.getDefaultInstance()) {
-      file_ =
-        ir.ms.pb.PB_MessageFileView.newBuilder(file_).mergeFrom(value).buildPartial();
+  private void mergeMessageFileView(ir.ms.pb.PB_MessageFileView value) {
+    if (messageFileView_ != null &&
+        messageFileView_ != ir.ms.pb.PB_MessageFileView.getDefaultInstance()) {
+      messageFileView_ =
+        ir.ms.pb.PB_MessageFileView.newBuilder(messageFileView_).mergeFrom(value).buildPartial();
     } else {
-      file_ = value;
+      messageFileView_ = value;
     }
     
   }
   /**
-   * <code>.PB_MessageFileView File = 100;</code>
+   * <code>.PB_MessageFileView MessageFileView = 100;</code>
    */
-  private void clearFile() {  file_ = null;
+  private void clearMessageFileView() {  messageFileView_ = null;
     
   }
 
@@ -480,11 +480,11 @@ public  final class PB_MessageView extends
     if (isByMe_ != false) {
       output.writeBool(33, isByMe_);
     }
-    if (remoteId_ != false) {
-      output.writeBool(50, remoteId_);
+    if (remoteId_ != 0L) {
+      output.writeInt64(50, remoteId_);
     }
-    if (file_ != null) {
-      output.writeMessage(100, getFile());
+    if (messageFileView_ != null) {
+      output.writeMessage(100, getMessageFileView());
     }
   }
 
@@ -545,13 +545,13 @@ public  final class PB_MessageView extends
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(33, isByMe_);
     }
-    if (remoteId_ != false) {
+    if (remoteId_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(50, remoteId_);
+        .computeInt64Size(50, remoteId_);
     }
-    if (file_ != null) {
+    if (messageFileView_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(100, getFile());
+        .computeMessageSize(100, getMessageFileView());
     }
     memoizedSerializedSize = size;
     return size;
@@ -977,21 +977,21 @@ public  final class PB_MessageView extends
     }
 
     /**
-     * <code>bool RemoteId = 50;</code>
+     * <code>int64 RemoteId = 50;</code>
      */
-    public boolean getRemoteId() {
+    public long getRemoteId() {
       return instance.getRemoteId();
     }
     /**
-     * <code>bool RemoteId = 50;</code>
+     * <code>int64 RemoteId = 50;</code>
      */
-    public Builder setRemoteId(boolean value) {
+    public Builder setRemoteId(long value) {
       copyOnWrite();
       instance.setRemoteId(value);
       return this;
     }
     /**
-     * <code>bool RemoteId = 50;</code>
+     * <code>int64 RemoteId = 50;</code>
      */
     public Builder clearRemoteId() {
       copyOnWrite();
@@ -1000,47 +1000,47 @@ public  final class PB_MessageView extends
     }
 
     /**
-     * <code>.PB_MessageFileView File = 100;</code>
+     * <code>.PB_MessageFileView MessageFileView = 100;</code>
      */
-    public boolean hasFile() {
-      return instance.hasFile();
+    public boolean hasMessageFileView() {
+      return instance.hasMessageFileView();
     }
     /**
-     * <code>.PB_MessageFileView File = 100;</code>
+     * <code>.PB_MessageFileView MessageFileView = 100;</code>
      */
-    public ir.ms.pb.PB_MessageFileView getFile() {
-      return instance.getFile();
+    public ir.ms.pb.PB_MessageFileView getMessageFileView() {
+      return instance.getMessageFileView();
     }
     /**
-     * <code>.PB_MessageFileView File = 100;</code>
+     * <code>.PB_MessageFileView MessageFileView = 100;</code>
      */
-    public Builder setFile(ir.ms.pb.PB_MessageFileView value) {
+    public Builder setMessageFileView(ir.ms.pb.PB_MessageFileView value) {
       copyOnWrite();
-      instance.setFile(value);
+      instance.setMessageFileView(value);
       return this;
       }
     /**
-     * <code>.PB_MessageFileView File = 100;</code>
+     * <code>.PB_MessageFileView MessageFileView = 100;</code>
      */
-    public Builder setFile(
+    public Builder setMessageFileView(
         ir.ms.pb.PB_MessageFileView.Builder builderForValue) {
       copyOnWrite();
-      instance.setFile(builderForValue);
+      instance.setMessageFileView(builderForValue);
       return this;
     }
     /**
-     * <code>.PB_MessageFileView File = 100;</code>
+     * <code>.PB_MessageFileView MessageFileView = 100;</code>
      */
-    public Builder mergeFile(ir.ms.pb.PB_MessageFileView value) {
+    public Builder mergeMessageFileView(ir.ms.pb.PB_MessageFileView value) {
       copyOnWrite();
-      instance.mergeFile(value);
+      instance.mergeMessageFileView(value);
       return this;
     }
     /**
-     * <code>.PB_MessageFileView File = 100;</code>
+     * <code>.PB_MessageFileView MessageFileView = 100;</code>
      */
-    public Builder clearFile() {  copyOnWrite();
-      instance.clearFile();
+    public Builder clearMessageFileView() {  copyOnWrite();
+      instance.clearMessageFileView();
       return this;
     }
 
@@ -1091,9 +1091,9 @@ public  final class PB_MessageView extends
             other.roomTypeEnumId_ != 0, other.roomTypeEnumId_);
         isByMe_ = visitor.visitBoolean(isByMe_ != false, isByMe_,
             other.isByMe_ != false, other.isByMe_);
-        remoteId_ = visitor.visitBoolean(remoteId_ != false, remoteId_,
-            other.remoteId_ != false, other.remoteId_);
-        file_ = visitor.visitMessage(file_, other.file_);
+        remoteId_ = visitor.visitLong(remoteId_ != 0L, remoteId_,
+            other.remoteId_ != 0L, other.remoteId_);
+        messageFileView_ = visitor.visitMessage(messageFileView_, other.messageFileView_);
         if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
             .INSTANCE) {
         }
@@ -1187,18 +1187,18 @@ public  final class PB_MessageView extends
               }
               case 400: {
 
-                remoteId_ = input.readBool();
+                remoteId_ = input.readInt64();
                 break;
               }
               case 802: {
                 ir.ms.pb.PB_MessageFileView.Builder subBuilder = null;
-                if (file_ != null) {
-                  subBuilder = file_.toBuilder();
+                if (messageFileView_ != null) {
+                  subBuilder = messageFileView_.toBuilder();
                 }
-                file_ = input.readMessage(ir.ms.pb.PB_MessageFileView.parser(), extensionRegistry);
+                messageFileView_ = input.readMessage(ir.ms.pb.PB_MessageFileView.parser(), extensionRegistry);
                 if (subBuilder != null) {
-                  subBuilder.mergeFrom(file_);
-                  file_ = subBuilder.buildPartial();
+                  subBuilder.mergeFrom(messageFileView_);
+                  messageFileView_ = subBuilder.buildPartial();
                 }
 
                 break;

@@ -42,6 +42,9 @@ public class RPC_ResponseBase {/*
 		public void AddNewTextMessage( PB_MsgResponse_AddNewTextMessage pbOut){
 			Log.d("RPC:Response", "RPC_Msg_Base.RPC_Msg");
 		}
+		public void AddNewMessage( PB_MsgResponse_AddNewMessage pbOut){
+			Log.d("RPC:Response", "RPC_Msg_Base.RPC_Msg");
+		}
 		public void SetRoomActionDoing( PB_MsgResponse_SetRoomActionDoing pbOut){
 			Log.d("RPC:Response", "RPC_Msg_Base.RPC_Msg");
 		}

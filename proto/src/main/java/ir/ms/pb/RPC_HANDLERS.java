@@ -27,6 +27,7 @@ public interface RPC_Auth {
 }
 public interface RPC_Msg {
     void AddNewTextMessage( PB_MsgResponse_AddNewTextMessage pb, boolean handled);
+    void AddNewMessage( PB_MsgResponse_AddNewMessage pb, boolean handled);
     void SetRoomActionDoing( PB_MsgResponse_SetRoomActionDoing pb, boolean handled);
     void GetMessagesByIds( PB_MsgResponse_GetMessagesByIds pb, boolean handled);
     void GetMessagesHistory( PB_MsgResponse_GetMessagesHistory pb, boolean handled);
@@ -110,6 +111,10 @@ public interface RPC_User {
   	@Override
     public void AddNewTextMessage( PB_MsgResponse_AddNewTextMessage pb, boolean handled){
     	Log.d("RPC", " default empty handler for RPC 'RPC_Msg.AddNewTextMessage' ");
+    }
+  	@Override
+    public void AddNewMessage( PB_MsgResponse_AddNewMessage pb, boolean handled){
+    	Log.d("RPC", " default empty handler for RPC 'RPC_Msg.AddNewMessage' ");
     }
   	@Override
     public void SetRoomActionDoing( PB_MsgResponse_SetRoomActionDoing pb, boolean handled){
@@ -305,6 +310,14 @@ public interface RPC_User {
                 		RPC_Msg_Default_Handler.AddNewTextMessage((PB_MsgResponse_AddNewTextMessage) pb, handled);
                 	}else{
                 		Log.d("RPC", " can not convert response object to PB_MsgResponse_AddNewTextMessage in rpc: .AddNewTextMessage ");
+                	}
+                });
+              
+              	maper.put("RPC_Msg.AddNewMessage", (pb, handled)->{
+                	if(pb instanceof PB_MsgResponse_AddNewMessage){
+                		RPC_Msg_Default_Handler.AddNewMessage((PB_MsgResponse_AddNewMessage) pb, handled);
+                	}else{
+                		Log.d("RPC", " can not convert response object to PB_MsgResponse_AddNewMessage in rpc: .AddNewMessage ");
                 	}
                 });
               

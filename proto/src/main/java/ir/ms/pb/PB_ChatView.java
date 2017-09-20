@@ -383,55 +383,55 @@ public  final class PB_ChatView extends
     currentSeq_ = 0;
   }
 
-  public static final int USER_FIELD_NUMBER = 100;
-  private ir.ms.pb.PB_UserView user_;
+  public static final int USERVIEW_FIELD_NUMBER = 100;
+  private ir.ms.pb.PB_UserView userView_;
   /**
-   * <code>.PB_UserView User = 100;</code>
+   * <code>.PB_UserView UserView = 100;</code>
    */
-  public boolean hasUser() {
-    return user_ != null;
+  public boolean hasUserView() {
+    return userView_ != null;
   }
   /**
-   * <code>.PB_UserView User = 100;</code>
+   * <code>.PB_UserView UserView = 100;</code>
    */
-  public ir.ms.pb.PB_UserView getUser() {
-    return user_ == null ? ir.ms.pb.PB_UserView.getDefaultInstance() : user_;
+  public ir.ms.pb.PB_UserView getUserView() {
+    return userView_ == null ? ir.ms.pb.PB_UserView.getDefaultInstance() : userView_;
   }
   /**
-   * <code>.PB_UserView User = 100;</code>
+   * <code>.PB_UserView UserView = 100;</code>
    */
-  private void setUser(ir.ms.pb.PB_UserView value) {
+  private void setUserView(ir.ms.pb.PB_UserView value) {
     if (value == null) {
       throw new NullPointerException();
     }
-    user_ = value;
+    userView_ = value;
     
     }
   /**
-   * <code>.PB_UserView User = 100;</code>
+   * <code>.PB_UserView UserView = 100;</code>
    */
-  private void setUser(
+  private void setUserView(
       ir.ms.pb.PB_UserView.Builder builderForValue) {
-    user_ = builderForValue.build();
+    userView_ = builderForValue.build();
     
   }
   /**
-   * <code>.PB_UserView User = 100;</code>
+   * <code>.PB_UserView UserView = 100;</code>
    */
-  private void mergeUser(ir.ms.pb.PB_UserView value) {
-    if (user_ != null &&
-        user_ != ir.ms.pb.PB_UserView.getDefaultInstance()) {
-      user_ =
-        ir.ms.pb.PB_UserView.newBuilder(user_).mergeFrom(value).buildPartial();
+  private void mergeUserView(ir.ms.pb.PB_UserView value) {
+    if (userView_ != null &&
+        userView_ != ir.ms.pb.PB_UserView.getDefaultInstance()) {
+      userView_ =
+        ir.ms.pb.PB_UserView.newBuilder(userView_).mergeFrom(value).buildPartial();
     } else {
-      user_ = value;
+      userView_ = value;
     }
     
   }
   /**
-   * <code>.PB_UserView User = 100;</code>
+   * <code>.PB_UserView UserView = 100;</code>
    */
-  private void clearUser() {  user_ = null;
+  private void clearUserView() {  userView_ = null;
     
   }
 
@@ -641,8 +641,8 @@ public  final class PB_ChatView extends
     if (currentSeq_ != 0) {
       output.writeInt32(25, currentSeq_);
     }
-    if (user_ != null) {
-      output.writeMessage(100, getUser());
+    if (userView_ != null) {
+      output.writeMessage(100, getUserView());
     }
     if (sharedMediaCount_ != 0) {
       output.writeInt32(200, sharedMediaCount_);
@@ -719,9 +719,9 @@ public  final class PB_ChatView extends
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(25, currentSeq_);
     }
-    if (user_ != null) {
+    if (userView_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(100, getUser());
+        .computeMessageSize(100, getUserView());
     }
     if (sharedMediaCount_ != 0) {
       size += com.google.protobuf.CodedOutputStream
@@ -1189,47 +1189,47 @@ public  final class PB_ChatView extends
     }
 
     /**
-     * <code>.PB_UserView User = 100;</code>
+     * <code>.PB_UserView UserView = 100;</code>
      */
-    public boolean hasUser() {
-      return instance.hasUser();
+    public boolean hasUserView() {
+      return instance.hasUserView();
     }
     /**
-     * <code>.PB_UserView User = 100;</code>
+     * <code>.PB_UserView UserView = 100;</code>
      */
-    public ir.ms.pb.PB_UserView getUser() {
-      return instance.getUser();
+    public ir.ms.pb.PB_UserView getUserView() {
+      return instance.getUserView();
     }
     /**
-     * <code>.PB_UserView User = 100;</code>
+     * <code>.PB_UserView UserView = 100;</code>
      */
-    public Builder setUser(ir.ms.pb.PB_UserView value) {
+    public Builder setUserView(ir.ms.pb.PB_UserView value) {
       copyOnWrite();
-      instance.setUser(value);
+      instance.setUserView(value);
       return this;
       }
     /**
-     * <code>.PB_UserView User = 100;</code>
+     * <code>.PB_UserView UserView = 100;</code>
      */
-    public Builder setUser(
+    public Builder setUserView(
         ir.ms.pb.PB_UserView.Builder builderForValue) {
       copyOnWrite();
-      instance.setUser(builderForValue);
+      instance.setUserView(builderForValue);
       return this;
     }
     /**
-     * <code>.PB_UserView User = 100;</code>
+     * <code>.PB_UserView UserView = 100;</code>
      */
-    public Builder mergeUser(ir.ms.pb.PB_UserView value) {
+    public Builder mergeUserView(ir.ms.pb.PB_UserView value) {
       copyOnWrite();
-      instance.mergeUser(value);
+      instance.mergeUserView(value);
       return this;
     }
     /**
-     * <code>.PB_UserView User = 100;</code>
+     * <code>.PB_UserView UserView = 100;</code>
      */
-    public Builder clearUser() {  copyOnWrite();
-      instance.clearUser();
+    public Builder clearUserView() {  copyOnWrite();
+      instance.clearUserView();
       return this;
     }
 
@@ -1430,7 +1430,7 @@ public  final class PB_ChatView extends
             other.lastSeqDelete_ != 0, other.lastSeqDelete_);
         currentSeq_ = visitor.visitInt(currentSeq_ != 0, currentSeq_,
             other.currentSeq_ != 0, other.currentSeq_);
-        user_ = visitor.visitMessage(user_, other.user_);
+        userView_ = visitor.visitMessage(userView_, other.userView_);
         sharedMediaCount_ = visitor.visitInt(sharedMediaCount_ != 0, sharedMediaCount_,
             other.sharedMediaCount_ != 0, other.sharedMediaCount_);
         unseenCount_ = visitor.visitInt(unseenCount_ != 0, unseenCount_,
@@ -1534,13 +1534,13 @@ public  final class PB_ChatView extends
               }
               case 802: {
                 ir.ms.pb.PB_UserView.Builder subBuilder = null;
-                if (user_ != null) {
-                  subBuilder = user_.toBuilder();
+                if (userView_ != null) {
+                  subBuilder = userView_.toBuilder();
                 }
-                user_ = input.readMessage(ir.ms.pb.PB_UserView.parser(), extensionRegistry);
+                userView_ = input.readMessage(ir.ms.pb.PB_UserView.parser(), extensionRegistry);
                 if (subBuilder != null) {
-                  subBuilder.mergeFrom(user_);
-                  user_ = subBuilder.buildPartial();
+                  subBuilder.mergeFrom(userView_);
+                  userView_ = subBuilder.buildPartial();
                 }
 
                 break;

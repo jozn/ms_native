@@ -40,6 +40,18 @@ public final class RPC_MsgGrpc {
               ir.ms.pb.PB_MsgResponse_AddNewTextMessage.getDefaultInstance()))
           .build();
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static final io.grpc.MethodDescriptor<ir.ms.pb.PB_MsgParam_AddNewMessage,
+      ir.ms.pb.PB_MsgResponse_AddNewMessage> METHOD_ADD_NEW_MESSAGE =
+      io.grpc.MethodDescriptor.<ir.ms.pb.PB_MsgParam_AddNewMessage, ir.ms.pb.PB_MsgResponse_AddNewMessage>newBuilder()
+          .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+          .setFullMethodName(generateFullMethodName(
+              "RPC_Msg", "AddNewMessage"))
+          .setRequestMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
+              ir.ms.pb.PB_MsgParam_AddNewMessage.getDefaultInstance()))
+          .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
+              ir.ms.pb.PB_MsgResponse_AddNewMessage.getDefaultInstance()))
+          .build();
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
   public static final io.grpc.MethodDescriptor<ir.ms.pb.PB_MsgParam_SetRoomActionDoing,
       ir.ms.pb.PB_MsgResponse_SetRoomActionDoing> METHOD_SET_ROOM_ACTION_DOING =
       io.grpc.MethodDescriptor.<ir.ms.pb.PB_MsgParam_SetRoomActionDoing, ir.ms.pb.PB_MsgResponse_SetRoomActionDoing>newBuilder()
@@ -208,6 +220,13 @@ public final class RPC_MsgGrpc {
 
     /**
      */
+    public void addNewMessage(ir.ms.pb.PB_MsgParam_AddNewMessage request,
+        io.grpc.stub.StreamObserver<ir.ms.pb.PB_MsgResponse_AddNewMessage> responseObserver) {
+      asyncUnimplementedUnaryCall(METHOD_ADD_NEW_MESSAGE, responseObserver);
+    }
+
+    /**
+     */
     public void setRoomActionDoing(ir.ms.pb.PB_MsgParam_SetRoomActionDoing request,
         io.grpc.stub.StreamObserver<ir.ms.pb.PB_MsgResponse_SetRoomActionDoing> responseObserver) {
       asyncUnimplementedUnaryCall(METHOD_SET_ROOM_ACTION_DOING, responseObserver);
@@ -292,6 +311,13 @@ public final class RPC_MsgGrpc {
                 ir.ms.pb.PB_MsgParam_AddNewTextMessage,
                 ir.ms.pb.PB_MsgResponse_AddNewTextMessage>(
                   this, METHODID_ADD_NEW_TEXT_MESSAGE)))
+          .addMethod(
+            METHOD_ADD_NEW_MESSAGE,
+            asyncUnaryCall(
+              new MethodHandlers<
+                ir.ms.pb.PB_MsgParam_AddNewMessage,
+                ir.ms.pb.PB_MsgResponse_AddNewMessage>(
+                  this, METHODID_ADD_NEW_MESSAGE)))
           .addMethod(
             METHOD_SET_ROOM_ACTION_DOING,
             asyncUnaryCall(
@@ -397,6 +423,14 @@ public final class RPC_MsgGrpc {
         io.grpc.stub.StreamObserver<ir.ms.pb.PB_MsgResponse_AddNewTextMessage> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(METHOD_ADD_NEW_TEXT_MESSAGE, getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void addNewMessage(ir.ms.pb.PB_MsgParam_AddNewMessage request,
+        io.grpc.stub.StreamObserver<ir.ms.pb.PB_MsgResponse_AddNewMessage> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(METHOD_ADD_NEW_MESSAGE, getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -515,6 +549,13 @@ public final class RPC_MsgGrpc {
 
     /**
      */
+    public ir.ms.pb.PB_MsgResponse_AddNewMessage addNewMessage(ir.ms.pb.PB_MsgParam_AddNewMessage request) {
+      return blockingUnaryCall(
+          getChannel(), METHOD_ADD_NEW_MESSAGE, getCallOptions(), request);
+    }
+
+    /**
+     */
     public ir.ms.pb.PB_MsgResponse_SetRoomActionDoing setRoomActionDoing(ir.ms.pb.PB_MsgParam_SetRoomActionDoing request) {
       return blockingUnaryCall(
           getChannel(), METHOD_SET_ROOM_ACTION_DOING, getCallOptions(), request);
@@ -619,6 +660,14 @@ public final class RPC_MsgGrpc {
 
     /**
      */
+    public com.google.common.util.concurrent.ListenableFuture<ir.ms.pb.PB_MsgResponse_AddNewMessage> addNewMessage(
+        ir.ms.pb.PB_MsgParam_AddNewMessage request) {
+      return futureUnaryCall(
+          getChannel().newCall(METHOD_ADD_NEW_MESSAGE, getCallOptions()), request);
+    }
+
+    /**
+     */
     public com.google.common.util.concurrent.ListenableFuture<ir.ms.pb.PB_MsgResponse_SetRoomActionDoing> setRoomActionDoing(
         ir.ms.pb.PB_MsgParam_SetRoomActionDoing request) {
       return futureUnaryCall(
@@ -707,17 +756,18 @@ public final class RPC_MsgGrpc {
   }
 
   private static final int METHODID_ADD_NEW_TEXT_MESSAGE = 0;
-  private static final int METHODID_SET_ROOM_ACTION_DOING = 1;
-  private static final int METHODID_GET_MESSAGES_BY_IDS = 2;
-  private static final int METHODID_GET_MESSAGES_HISTORY = 3;
-  private static final int METHODID_SET_MESSAGES_RANGE_AS_SEEN = 4;
-  private static final int METHODID_DELETE_CHAT_HISTORY = 5;
-  private static final int METHODID_DELETE_MESSAGES_BY_IDS = 6;
-  private static final int METHODID_SET_MESSAGES_AS_RECEIVED = 7;
-  private static final int METHODID_FORWARD_MESSAGES = 8;
-  private static final int METHODID_EDIT_MESSAGE = 9;
-  private static final int METHODID_BROADCAST_NEW_MESSAGE = 10;
-  private static final int METHODID_ECHO = 11;
+  private static final int METHODID_ADD_NEW_MESSAGE = 1;
+  private static final int METHODID_SET_ROOM_ACTION_DOING = 2;
+  private static final int METHODID_GET_MESSAGES_BY_IDS = 3;
+  private static final int METHODID_GET_MESSAGES_HISTORY = 4;
+  private static final int METHODID_SET_MESSAGES_RANGE_AS_SEEN = 5;
+  private static final int METHODID_DELETE_CHAT_HISTORY = 6;
+  private static final int METHODID_DELETE_MESSAGES_BY_IDS = 7;
+  private static final int METHODID_SET_MESSAGES_AS_RECEIVED = 8;
+  private static final int METHODID_FORWARD_MESSAGES = 9;
+  private static final int METHODID_EDIT_MESSAGE = 10;
+  private static final int METHODID_BROADCAST_NEW_MESSAGE = 11;
+  private static final int METHODID_ECHO = 12;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -739,6 +789,10 @@ public final class RPC_MsgGrpc {
         case METHODID_ADD_NEW_TEXT_MESSAGE:
           serviceImpl.addNewTextMessage((ir.ms.pb.PB_MsgParam_AddNewTextMessage) request,
               (io.grpc.stub.StreamObserver<ir.ms.pb.PB_MsgResponse_AddNewTextMessage>) responseObserver);
+          break;
+        case METHODID_ADD_NEW_MESSAGE:
+          serviceImpl.addNewMessage((ir.ms.pb.PB_MsgParam_AddNewMessage) request,
+              (io.grpc.stub.StreamObserver<ir.ms.pb.PB_MsgResponse_AddNewMessage>) responseObserver);
           break;
         case METHODID_SET_ROOM_ACTION_DOING:
           serviceImpl.setRoomActionDoing((ir.ms.pb.PB_MsgParam_SetRoomActionDoing) request,
@@ -810,6 +864,7 @@ public final class RPC_MsgGrpc {
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .addMethod(METHOD_ADD_NEW_TEXT_MESSAGE)
+              .addMethod(METHOD_ADD_NEW_MESSAGE)
               .addMethod(METHOD_SET_ROOM_ACTION_DOING)
               .addMethod(METHOD_GET_MESSAGES_BY_IDS)
               .addMethod(METHOD_GET_MESSAGES_HISTORY)

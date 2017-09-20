@@ -7,18 +7,30 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.mardomsara.social.R;
+import com.mardomsara.social.app.AppFiles;
 import com.mardomsara.social.app.Constants;
+import com.mardomsara.social.app.MSRealm;
+import com.mardomsara.social.base.Http.Http;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
+import com.mardomsara.social.helpers.FileUtil;
+import com.mardomsara.social.helpers.FormaterUtil;
+import com.mardomsara.social.helpers.LangUtil;
 import com.mardomsara.social.models.interfaces.MessageProgressListener;
 import com.mardomsara.social.models.tables.Message;
 import com.mardomsara.social.models.tables.MsgFile;
+import com.mardomsara.social.models_realm.RealmMessageViewHelper;
+import com.mardomsara.social.models_realm.pb_realm.RealmMessageFileView;
 import com.mardomsara.social.models_realm.pb_realm.RealmMessageView;
+import com.mardomsara.social.ui.presenter.chat_realm.chat_room.RealmMessageViewWrapper;
 import com.mardomsara.social.ui.views.FullScreenImage_Fresco;
 import com.mardomsara.social.ui.views.helpers.ViewHelper;
 import com.mardomsara.social.ui.views.wigets.ChatMediaNetworkLoader;
 
 import java.io.File;
+import java.util.Random;
+
+import ir.ms.pb.RoomMessageDeliviryStatusEnum;
 
 /**
  * Created by Hamid on 2/10/2017.
@@ -32,33 +44,37 @@ class MsgImageWrapper implements MessageProgressListener {
 
 	@NonNull ChatMediaNetworkLoader image_holder;
 	RealmMessageView msg;
+	RealmMessageViewWrapper wrapper;
+	RealmMessageFileView msgFile ;
 
 	public MsgImageWrapper(@NonNull ChatMediaNetworkLoader image_holder) {
 		this.image_holder = image_holder;
 	}
 
 
-	void bind(@NonNull RealmMessageView msg) {
-		/*this.msg = msg;
-		msg.messageProgressListener = this;
-		run();*/
+	void bind(@NonNull RealmMessageViewWrapper msgWrapper) {
+		this.msg = msgWrapper.messageView;
+		msgFile = msg.MessageFileView;
+		msgWrapper.messageProgressListener = this;
+		run();
 	}
 
-	void unbind(@NonNull RealmMessageView message){
-//		message.messageProgressListener = null;
+	void unbind(@NonNull RealmMessageViewWrapper message){
+		message.messageProgressListener = null;
 	}
 
 	void run(){
-		/*showImage();
+		showImage();
 		image_holder.x.loading_progress.setIndeterminate(false);
 
-		MsgFile msgFile = msg.getMsgFile();
+		RealmMessageFileView msgFile = msg.MessageFileView;
 		if(msgFile == null)return;//should not happen
 		File file = new File(msgFile.LocalSrc);
 
-		if(msg.isMsgByMe()){
-			if(msg.needPush()){
-				if( msg.isNetWorkTransferring()){//show uploading
+		if(RealmMessageViewHelper.isMessageByMe(msg)){
+			if(msg.DeliviryStatusEnumId == RoomMessageDeliviryStatusEnum.NEED_TO_SINK_VALUE){
+//				if(LangUtil.getRandom(2) == 1){//msg.isNetWorkTransferring()){//show uploading
+				if(wrapper.isNetWorkTransferring()){//show uploading
 					showUploading();
 				}else { //show retry
 					showUploadRetery();
@@ -67,8 +83,9 @@ class MsgImageWrapper implements MessageProgressListener {
 				image_holder.x.loading_holder.setVisibility(View.GONE);
 			}
 		} else {
-			if( (!file.exists()) || msgFile.Status < Constants.Msg_Media_Downloaded){
-				if( msg.isNetWorkTransferring()){//show uploading
+			if( (!file.exists())){// || msgFile.Status < Constants.Msg_Media_Downloaded){
+//				if( LangUtil.getRandom(2) == 1){// msg.isNetWorkTransferring()){//show uploading
+				if( wrapper.isNetWorkTransferring()){//show uploading
 					showDownloading();
 
 				}else { //show retry
@@ -79,12 +96,12 @@ class MsgImageWrapper implements MessageProgressListener {
 			}
 		}
 
-		image_holder.x.icon_action_btn.setTextSize(TypedValue.COMPLEX_UNIT_DIP,42);*/
+		image_holder.x.icon_action_btn.setTextSize(TypedValue.COMPLEX_UNIT_DIP,42);
 	}
 
 	void showImage(){
-		/*ImageView image_view = image_holder.x.msg_image;
-		MsgFile msgFile = msg.getMsgFile();
+		ImageView image_view = image_holder.x.msg_image;
+		RealmMessageFileView msgFile = msg.MessageFileView;
 
 		try {
 			image_view.setVisibility(View.VISIBLE);
@@ -109,7 +126,7 @@ class MsgImageWrapper implements MessageProgressListener {
 					});
 				}else {//just file don't exists
 					image_view.setImageDrawable(AndroidUtil.getResources().getDrawable(R.drawable.image_background));
-					if(msg.isMsgByMe()){ //msg is by this user and this file is deleted we can't do anything
+					if(RealmMessageViewHelper.isMessageByMe(msg)){ //msg is by this user and this file is deleted we can't do anything
 
 					}else {//try download
 
@@ -121,41 +138,68 @@ class MsgImageWrapper implements MessageProgressListener {
 		}catch (Exception e){
 			e.printStackTrace();
 			image_view.setVisibility(View.INVISIBLE);
-		}*/
+		}
 	}
 
 	void showDownload(){
-		/*image_holder.x.loading_holder.setVisibility(View.VISIBLE);
+		image_holder.x.loading_holder.setVisibility(View.VISIBLE);
 		image_holder.x.loading_progress.setVisibility(View.GONE);
 		image_holder.x.icon_action_btn.setText(iconDownload);
-		image_holder.x.loading_holder.setOnClickListener((v)->{msg.retryDownloading();});*/
+		image_holder.x.loading_holder.setOnClickListener((v)->{
+			wrapper.retryDownloading();
+			if( msgFile == null)return;
+			String $fileName = AppFiles.PHOTO_DIR_PATH + FormaterUtil.getFullyYearToSecondsSolarName() + "$" + msgFile.Extension;
+			String fileName = FileUtil.createNextName($fileName);
+			MSRealm.getChatRealm().executeTransaction((r)->{
+				msgFile.LocalSrc = fileName;
+			});
+
+			String ServerSrc = msgFile.ServerSrc;
+			String LocalSrc = msgFile.LocalSrc;
+			AndroidUtil.runInBackgroundNoPanic(()->{
+//				File file = new File(msgFile.LocalSrc);
+				Http.download(ServerSrc,LocalSrc)
+//					.setDownloadProgress(msg)
+					.doAsyncDownload((result -> {
+						if(result.isOk()){
+							/*msgFile.Status = Constants.Msg_Media_Downloaded;
+							msgFile.Origin = Constants.Msg_Media_Origin_Server;
+							msg.saveWithRoom();*/
+						}
+//						msg.setNetWorkTransferring(false);
+					}));
+			});
+		});
 	}
 
 	void showDownloading(){
-		/*image_holder.x.loading_holder.setVisibility(View.VISIBLE);
+		image_holder.x.loading_holder.setVisibility(View.VISIBLE);
 		image_holder.x.loading_progress.setVisibility(View.VISIBLE);
 		image_holder.x.icon_action_btn.setText(iconClose);
-		image_holder.x.loading_holder.setOnClickListener((v)->{msg.cancelDownloading();});
-		image_holder.x.loading_progress.setProgress(2);*/
+		image_holder.x.loading_holder.setOnClickListener((v)-> {
+			wrapper.cancelDownloading();
+		});
+		image_holder.x.loading_progress.setProgress(2);
 	}
 
 	void showUploadRetery(){
-		/*image_holder.x.loading_holder.setVisibility(View.VISIBLE);
+		image_holder.x.loading_holder.setVisibility(View.VISIBLE);
 		image_holder.x.loading_progress.setVisibility(View.GONE);
 		image_holder.x.icon_action_btn.setText(iconUpload);
 		image_holder.x.loading_holder.setOnClickListener((v)->{
-//			showUploading();
-			msg.retryUploading();
-		});*/
+			wrapper.retryUploading();
+		});
 	}
 
 	void showUploading(){
 //		msg.messageProgressListener = this;
-		/*image_holder.x.loading_holder.setVisibility(View.VISIBLE);
+		image_holder.x.loading_holder.setVisibility(View.VISIBLE);
 		image_holder.x.loading_progress.setVisibility(View.VISIBLE);
 		image_holder.x.icon_action_btn.setText(iconClose);
-		image_holder.x.loading_holder.setOnClickListener((v)->{msg.cancelUploading();});
-		image_holder.x.loading_progress.setProgress(2);*/
+		image_holder.x.loading_holder.setOnClickListener((v)->{
+			wrapper.cancelUploading();
+		});
+		image_holder.x.loading_progress.setProgress(2);
 	}
 
 	void hideUi(){
@@ -164,10 +208,10 @@ class MsgImageWrapper implements MessageProgressListener {
 
 	@Override
 	public void onProgress(long bytesRead, long contentLength, boolean done) {
-		/*AndroidUtil.runInUiNoPanic(()->{
-			AppUtil.log("Progress Listener UI "+msg.MessageKey +" " + image_holder.x.loading_progress.getId() + " " +bytesRead+ " "+ contentLength + " "+done);
+		AndroidUtil.runInUiNoPanic(()->{
+			AppUtil.log("Progress Listener UI "+msg.MessageId +" " + image_holder.x.loading_progress.getId() + " " +bytesRead+ " "+ contentLength + " "+done);
 			image_holder.x.loading_progress.setProgress((bytesRead/contentLength)*100);
-		});*/
+		});
 	}
 
 	@Override

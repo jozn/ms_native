@@ -5,6 +5,7 @@ import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.models_realm.RealmChatViewHelper;
 import com.mardomsara.social.models_realm.RealmMessageViewHelper;
 import com.mardomsara.social.models_realm.pb_realm.RealmChatView;
+import com.mardomsara.social.models_realm.pb_realm.RealmMessageFileView;
 import com.mardomsara.social.models_realm.pb_realm.RealmMessageView;
 import com.mardomsara.social.models_realm.pb_realm.RealmUserView;
 
@@ -41,6 +42,9 @@ final class PushHandlerNewMessages {
 		List<RealmMessageView> msgs = new ArrayList();
 		for (PB_MessageView pbMessageView : push.getNewMessagesList()) {
 			RealmMessageView t = RealmMessageView.fromPB(pbMessageView);
+			if(pbMessageView.getMessageFileView() != null){
+				t.MessageFileView = RealmMessageFileView.fromPB(pbMessageView.getMessageFileView());
+			}
 			msgs.add(t);
 		}
 
@@ -52,9 +56,9 @@ final class PushHandlerNewMessages {
 		for (PB_ChatView pb_chatView : push.getChatsList()) {
 			RealmChatView realmChatView = RealmChatView.fromPB(pb_chatView);
 
-			if(pb_chatView.getUser() != null){
-				AppUtil.log("push: handling - realm users: " + pb_chatView.getUser().getUserName());
-				realmChatView.User = RealmUserView.fromPB(pb_chatView.getUser());
+			if(pb_chatView.getUserView() != null){
+				AppUtil.log("push: handling - realm users: " + pb_chatView.getUserView().getUserName());
+				realmChatView.UserView = RealmUserView.fromPB(pb_chatView.getUserView());
 			}
 			realmChatView.LastMessage = RealmMessageViewHelper.getLastMessageForChat(MSRealm.getChatRealm(),realmChatView.ChatId);
 

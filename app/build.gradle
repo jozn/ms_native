@@ -73,7 +73,7 @@ android {
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
-        multiDexEnabled false//for faster build in debug // must enable for realse builds
+        multiDexEnabled true//for faster build in debug // must enable for realse builds
         //renderscript
         renderscriptTargetApi 16
         renderscriptSupportModeEnabled true
@@ -326,6 +326,7 @@ dependencies {
 
     compile 'com.facebook.stetho:stetho:1.5.0'
     compile 'com.uphyca:stetho_realm:2.1.0'
+    compile 'com.facebook.stetho:stetho-okhttp3:1.5.0'
 
     compile 'com.scand:realm-browser:0.1.13'
 

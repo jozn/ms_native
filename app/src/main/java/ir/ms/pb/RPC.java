@@ -332,6 +332,10 @@ public class RPC {
       void onResult(PB_MsgResponse_AddNewTextMessage res);
     }
 
+    public static interface AddNewMessage_ResultHandler {
+      void onResult(PB_MsgResponse_AddNewMessage res);
+    }
+
     public static interface SetRoomActionDoing_ResultHandler {
       void onResult(PB_MsgResponse_SetRoomActionDoing res);
     }
@@ -403,6 +407,32 @@ public class RPC {
       }
 
       Pipe.send("RPC_Msg.AddNewTextMessage", param, callback, errorCallback);
+    }
+
+    public static void AddNewMessage(
+        PB_MsgParam_AddNewMessage param,
+        AddNewMessage_ResultHandler resultHandler,
+        ErrorCallback errorCallback) {
+      SuccessCallback callback = null;
+      if (resultHandler != null) {
+        callback =
+            new SuccessCallback() {
+              @Override
+              public void handle(byte[] data) {
+                Log.i(
+                    "RPC ws",
+                    "handling rpc respnse for: AddNewMessage with respose class PB_MsgResponse_AddNewMessage");
+                try {
+                  PB_MsgResponse_AddNewMessage d = PB_MsgResponse_AddNewMessage.parseFrom(data);
+                  resultHandler.onResult(d);
+                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                  Log.d("RPC ws", "parsing protocol buffer is faild: PB_MsgResponse_AddNewMessage");
+                }
+              }
+            };
+      }
+
+      Pipe.send("RPC_Msg.AddNewMessage", param, callback, errorCallback);
     }
 
     public static void SetRoomActionDoing(

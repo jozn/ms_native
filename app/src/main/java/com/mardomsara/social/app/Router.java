@@ -81,7 +81,6 @@ public class Router {
 		Nav.push(new PostEntryPage(postView));
 	}
 
-
     public static void goToTag(String tag) {
         Nav.push(new TagsPage(tag));
     }

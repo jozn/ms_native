@@ -80,27 +80,29 @@ public class ChatRoomEntryPresenter extends BasePresenter implements
     public View buildView() {
 		x = new X.ChatRoom_ScreenParent();
 
+		Nav.hideFooter();
+
 		AndroidUtil.runInUi(()->{
 
 
 			x.send_msg_btn.setOnClickListener((v)->addNewMsg());
 
 			x.edit_field.setOnClickListener((v)->{
-				AppUtil.log("Keybord");
+				AppUtil.log("Keyboard");
 			});
 			x.edit_field.requestFocus();
 
-			Nav.hideFooter();
+
 
 			Realm realm = MSRealm.getChatRealm();
 			realmResults = realm.where(RealmMessageView.class).equalTo(RealmMessageViewFields.CHAT_ID, room.ChatId).findAllSorted(RealmMessageViewFields.MESSAGE_ID, Sort.DESCENDING);
 
-			List<RealmMessageViewWrapper> messageViewList = new ArrayList<>();
+			/*List<RealmMessageViewWrapper> messageViewList = new ArrayList<>();
 			for (RealmMessageView messageView: realmResults){
 				RealmMessageViewWrapper viewWrapper = new RealmMessageViewWrapper();
 				viewWrapper.messageView = messageView;
 				messageViewList.add(viewWrapper);
-			}
+			}*/
 
 			messagesAdaptor_DEP = new ChatEntryAdaptor();
 //        adaptor = new com.mardomsara.social.ui.presenter.chat_realm.chat_room.del.ChatRoomEntryAdaptor();

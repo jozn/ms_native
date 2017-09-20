@@ -91,13 +91,13 @@ public interface PB_ChatViewOrBuilder extends
   int getCurrentSeq();
 
   /**
-   * <code>.PB_UserView User = 100;</code>
+   * <code>.PB_UserView UserView = 100;</code>
    */
-  boolean hasUser();
+  boolean hasUserView();
   /**
-   * <code>.PB_UserView User = 100;</code>
+   * <code>.PB_UserView UserView = 100;</code>
    */
-  ir.ms.pb.PB_UserView getUser();
+  ir.ms.pb.PB_UserView getUserView();
 
   /**
    * <pre>

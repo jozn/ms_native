@@ -106,8 +106,8 @@ public class ModelChatEntry {
 		messageView.MessageTypeEnumId = RoomMessageTypeEnum.IMAGE_TEXT_VALUE;
 		messageView.Text = text;
 
-		messageView.File = setPhotoParams_ME(messageView,path);
-		messageView.MessageFileId = messageView.File.MessageFileId;
+		messageView.MessageFileView = setPhotoParams_ME(messageView,path);
+		messageView.MessageFileId = messageView.MessageFileView.MessageFileId;
 
 		saveNewMeMessage(chatView.ChatKey, messageView);
 

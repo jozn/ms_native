@@ -4,9 +4,12 @@ import android.content.Context;
 import android.os.Environment;
 
 import com.facebook.stetho.Stetho;
+import com.facebook.stetho.okhttp3.StethoInterceptor;
 import com.uphyca.stetho_realm.RealmInspectorModulesProvider;
 
 import java.util.regex.Pattern;
+
+import okhttp3.OkHttpClient;
 
 /**
  * Created by Hamid on 7/4/2017.
@@ -23,6 +26,10 @@ public class ConfigStetho {
 			.withDescendingOrder()
 			.withLimit(1000)
 			.databaseNamePattern(Pattern.compile(".+\\.realm"))
+			.build();
+
+		new OkHttpClient.Builder()
+			.addNetworkInterceptor(new StethoInterceptor())
 			.build();
 
 		Stetho.initialize(

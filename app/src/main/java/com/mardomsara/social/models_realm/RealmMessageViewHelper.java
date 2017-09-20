@@ -2,6 +2,7 @@ package com.mardomsara.social.models_realm;
 
 import android.support.annotation.Nullable;
 
+import com.mardomsara.social.models.tables.Session;
 import com.mardomsara.social.models_realm.pb_realm.RealmMessageView;
 //import com.mardomsara.social.models_realm.realm_local.RealmMessageViewFields;
 //import com.mardomsara.social.models_realm.realm_local.RealmMessageViewFields;
@@ -18,5 +19,10 @@ public class RealmMessageViewHelper {
 	public static RealmMessageView getLastMessageForChat(Realm realm ,long chatId){
 		return realm.where(RealmMessageView.class).equalTo("ChatId",chatId)
 			.findFirst();
+	}
+
+	@Nullable
+	public static boolean isMessageByMe(RealmMessageView msg ){
+		return Session.isUserIdMe(msg.UserId);
 	}
 }

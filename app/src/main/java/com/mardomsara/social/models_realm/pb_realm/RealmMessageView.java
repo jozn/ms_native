@@ -20,8 +20,8 @@ public class RealmMessageView extends RealmObject {
 		public long ChatId;//10 				 PB 30
 		public int RoomTypeEnumId;//11 				 PB 31
 		public boolean IsByMe;//12 				 PB 33
-		public boolean RemoteId;//13 				 PB 50
-		public RealmMessageFileView File;//14 				 PB 100
+		public long RemoteId;//13 				 PB 50
+		public RealmMessageFileView MessageFileView;//14 				 PB 100
 	
 
 	public static RealmMessageView fromPB(PB_MessageView pb){
@@ -41,7 +41,7 @@ public class RealmMessageView extends RealmObject {
 		r.RoomTypeEnumId = pb.getRoomTypeEnumId();//11
 		r.IsByMe = pb.getIsByMe();//12
 		r.RemoteId = pb.getRemoteId();//13
-		//r.File = pb.getFile();//14
+		//r.MessageFileView = pb.getMessageFileView();//14
 
 	    return r;
 	}
@@ -67,7 +67,7 @@ public class RealmMessageView extends RealmObject {
 	r.RoomTypeEnumId = ;//11
 	r.IsByMe = ;//12
 	r.RemoteId = ;//13
-	r.File = ;//14
+	r.MessageFileView = ;//14
 
 	//sett - no tag number 
 	RealmMessageView r = new RealmMessageView();
@@ -86,7 +86,7 @@ public class RealmMessageView extends RealmObject {
 	r.RoomTypeEnumId = ;
 	r.IsByMe = ;
 	r.RemoteId = ;
-	r.File = ;
+	r.MessageFileView = ;
 
 	//get
 	
@@ -104,7 +104,7 @@ public class RealmMessageView extends RealmObject {
 	m. = r.RoomTypeEnumId ;//11
 	m. = r.IsByMe ;//12
 	m. = r.RemoteId ;//13
-	m. = r.File ;//14
+	m. = r.MessageFileView ;//14
 
 	//get - no tag number
 	
@@ -122,6 +122,6 @@ public class RealmMessageView extends RealmObject {
 	m. = r.RoomTypeEnumId ;
 	m. = r.IsByMe ;
 	m. = r.RemoteId ;
-	m. = r.File ;
+	m. = r.MessageFileView ;
 	
 */

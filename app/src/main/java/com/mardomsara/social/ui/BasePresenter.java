@@ -74,7 +74,7 @@ public  abstract class BasePresenter implements PresenterPage {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        logIt("onActivityResult: BasePresenter: "+ this.getClass().getSimpleName());
+        logIt("onActivityResult: BasePresenter:  "+ this.getClass().getSimpleName());
     }
 
     public Activity getActivity(){
