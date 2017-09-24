@@ -18,7 +18,8 @@ import com.mardomsara.social.models_realm.pb_realm.RealmMessageView;
  */
 
 public class RealmMessageViewWrapper implements MultiItemEntity, UploadProgressListener, DownloadProgressListener {
-	@NonNull public RealmMessageView messageView;
+	@NonNull
+	public RealmMessageView messageView;
 	public MessageProgressListener messageProgressListener;
 	public transient Req req;
 	private boolean isNetWorkTransferring = false;
@@ -30,12 +31,24 @@ public class RealmMessageViewWrapper implements MultiItemEntity, UploadProgressL
 
 	@Override
 	public void onUploadProgress(long bytesRead, long contentLength, boolean done) {
+		if(done){
+			setNetWorkTransferring(false);
+		}
 
+		if (messageProgressListener != null) {
+			messageProgressListener.onProgress(bytesRead, contentLength, done);
+		}
 	}
 
 	@Override
 	public void onDownloadProgress(long bytesRead, long contentLength, boolean done) {
+		if(done){
+			setNetWorkTransferring(false);
+		}
 
+		if (messageProgressListener != null) {
+			messageProgressListener.onProgress(bytesRead, contentLength, done);
+		}
 	}
 
 	public boolean isNetWorkTransferring() {
@@ -75,7 +88,7 @@ public class RealmMessageViewWrapper implements MultiItemEntity, UploadProgressL
 		RealmMessageFileView f = messageView.MessageFileView;
 		if (f != null) {
 			HelperMessageFile.setLocalPathInNecessary(f);
-			HelperMessageFile.downloadForceMessageMediaFile(f.ServerSrc, f.LocalSrc, this);
+			req = HelperMessageFile.downloadForceMessageMediaFile(f.ServerSrc, f.LocalSrc, this);
 		}
 	}
 

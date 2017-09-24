@@ -6,6 +6,7 @@ import com.mardomsara.social.app.AppFiles;
 import com.mardomsara.social.app.Constants;
 import com.mardomsara.social.app.MSRealm;
 import com.mardomsara.social.base.Http.Http;
+import com.mardomsara.social.base.Http.Req;
 import com.mardomsara.social.base.Http.listener.DownloadProgressListener;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.FileUtil;
@@ -21,11 +22,11 @@ import java.io.File;
  */
 
 public class HelperMessageFile {
-	public static void downloadForceMessageMediaFile(String serverSrc, String localSrc, DownloadProgressListener listener) {
-		AndroidUtil.runInBackgroundNoPanic(() -> {
+	public static Req downloadForceMessageMediaFile(String serverSrc, String localSrc, DownloadProgressListener listener) {
+//		AndroidUtil.runInBackgroundNoPanic(() -> {
 			File file = new File(localSrc);
-			if(file.exists()) return;
-			Http.download(serverSrc, localSrc)
+			if(file.exists()) return null;
+			return Http.download(serverSrc, localSrc)
 				.setDownloadProgress(listener)
 				.doAsyncDownload((result -> {
 					/*if(result.isOk()){
@@ -35,7 +36,8 @@ public class HelperMessageFile {
 					}
 					msg.setNetWorkTransferring(false);*/
 				}));
-		});
+
+//		});
 	}
 
 	public static void setLocalPathInNecessary(RealmMessageFileView msgFile) {
