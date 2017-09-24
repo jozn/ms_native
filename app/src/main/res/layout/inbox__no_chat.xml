@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="50dp"
+        android:layout_centerInParent="true"
+        android:background="@color/border_gray"
+        android:padding="20dp"
+        >
+        <com.mardomsara.social.ui.views.x.XTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/text_bold.black"
+            android:text="هنگامی که با دیگران شروع به چت کنید لیست چت را در اینجا می بینید.\nبا دوستانتان چت کنید, یا دوستان جدیدی پیدا کنید."
+            app:xFont="IranMedium"
+            />
+
+    </FrameLayout>
+
+</RelativeLayout>

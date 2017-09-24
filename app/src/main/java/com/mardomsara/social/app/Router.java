@@ -105,7 +105,8 @@ public class Router {
 
 	//////// Tabs -just must use in default Nav ////////////
 	public static PresenterPage getChatTab() {
-		return new ChatTab();
+//		return new ChatTab();
+		return new SearchTab();
 	}
 
 	public static PresenterPage getActivityTab() {
@@ -117,7 +118,8 @@ public class Router {
 	}
 
 	public static PresenterPage getSearchTab() {
-		return new SearchTab();
+//		return new SearchTab();
+		return new ChatTab();
 	}
 
 	public static PresenterPage getProfileTab() {

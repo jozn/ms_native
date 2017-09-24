@@ -110,7 +110,7 @@ class MsgImageWrapper implements MessageProgressListener {
 
 			File file = new File(msgFile.LocalSrc);
 			if (msgFile != null) {
-				int max_width = (int) (AndroidUtil.getScreenWidth() * 0.70);
+				int max_width = (int) (AndroidUtil.getScreenWidth() * 0.80);
 				AppUtil.log("width: " + max_width + AndroidUtil.getScreenResolution() + AndroidUtil.getDensity());
 				max_width = AndroidUtil.pxToDp(max_width);
 				ViewHelper.setImageSizesWithMaxPx(image_view, max_width - 2, max_width, msgFile.Width, msgFile.Height);

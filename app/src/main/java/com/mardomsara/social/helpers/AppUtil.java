@@ -112,6 +112,7 @@ public class AppUtil {
 		return LayoutInflater.from(_context).inflate(id,parent,attach);
 	}
 
+	@Deprecated
     public static void runInUi(Runnable r)
     {
         new AsyncTask<Void,Void,Void>(){

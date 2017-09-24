@@ -15,7 +15,7 @@ public class MSRealm {
 		if (realmChatConfiguration == null) {
 			realmChatConfiguration = new RealmConfiguration.Builder()
 				.deleteRealmIfMigrationNeeded()
-				.name("app_chats.realm")
+				.name("app_chats2.realm")
 				.build();
 		}
 		return realmChatConfiguration;

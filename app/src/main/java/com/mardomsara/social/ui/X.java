@@ -1622,6 +1622,29 @@ public class X {
         }
     }
 
+    public static class Inbox_NoChat {
+        public RelativeLayout root;
+
+        public Inbox_NoChat(Context context,ViewGroup parent) {
+            root = (RelativeLayout) LayoutInflater.from(context).inflate(R.layout.inbox__no_chat,parent ,false);
+        }
+        public Inbox_NoChat() {
+            this(AppUtil.getContext(),null);
+        }
+
+        public Inbox_NoChat(Context context) {
+            this(context ,null);
+        }
+
+        public Inbox_NoChat(ViewGroup parent) {
+            this(AppUtil.getContext() ,parent);
+        }
+
+        public static class IDS {
+            public static int LAYOUT = R.layout.inbox__no_chat;
+        }
+    }
+
     public static class InboxChatList {
         public LinearLayout root;
         public FrameLayout layout1;

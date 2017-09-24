@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import com.mardomsara.base_rv.BaseRealmRecyclerViewAdapter;
 import com.mardomsara.base_rv.BaseViewHolder;
 import com.mardomsara.social.models_realm.pb_realm.RealmChatView;
+import com.mardomsara.social.ui.X;
 import com.mardomsara.social.ui.cells.chat_realm.RoomsListCell;
 
 import io.realm.OrderedRealmCollection;
@@ -17,6 +18,7 @@ final class InboxChatsListAdaptor extends BaseRealmRecyclerViewAdapter<RealmChat
 
 	public InboxChatsListAdaptor(@Nullable OrderedRealmCollection<RealmChatView> data, boolean autoUpdate) {
 		super(data, autoUpdate);
+		setEmptyView(new X.Inbox_NoChat().root);
 	}
 
 	@Override

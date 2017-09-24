@@ -20,8 +20,13 @@ public class DB {
 
     public static AppDB db = null;
 
+	static {
+		init();
+	}
+
     public static void init(){
         if(db != null) return;
+//        if(true) return;
 
 		AppDB.Builder builder = AppDB.builder(AppUtil.getContext());
 
