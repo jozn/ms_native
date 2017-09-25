@@ -103,13 +103,17 @@ public class ModelChatEntry {
 			return;
 		}
 		RealmMessageView messageView = getNewMessage(chatView);
-		messageView.MessageTypeEnumId = RoomMessageTypeEnum.IMAGE_TEXT_VALUE;
-		messageView.Text = text;
+		if(messageView != null){
+			messageView.MessageTypeEnumId = RoomMessageTypeEnum.IMAGE_TEXT_VALUE;
+			messageView.Text = text;
 
-		messageView.MessageFileView = setPhotoParams_ME(messageView,path);
-		messageView.MessageFileId = messageView.MessageFileView.MessageFileId;
+			messageView.MessageFileView = setPhotoParams_ME(messageView,path);
+			messageView.MessageFileView.LocalSrc = resizedPath;
+			messageView.MessageFileId = messageView.MessageFileView.MessageFileId;
 
-		saveNewMeMessage(chatView.ChatKey, messageView);
+			saveNewMeMessage(chatView.ChatKey, messageView);
+		}
+
 
 		/*
 
@@ -160,6 +164,7 @@ public class ModelChatEntry {
 			msgFile.Origin = Constants.Msg_Media_Origin_Here;*/
 		}catch (Exception e){
 			e.printStackTrace();
+			return null;
 		}
 
 		return r;

@@ -49,49 +49,42 @@ import io.realm.Sort;
  * Created by Hamid on 5/4/2016.
  */
 public class ChatRoomEntryPresenter extends BasePresenter implements
-	KeyboardAttachmentCell.KeyboardAttachmentListener, AppHeaderFooterRecyclerViewAdapter.LoadNextPage{
-    public RealmChatView room;
-
-    //constants
-    final int ATTACH_CAMERA_IMAGE = 1001;
-    final int ATTACH_CAMERA_VIDEO = 1002;
-    final int ATTACH_FILE = 1003;
-
-    private ImageFileSelector mImageFileSelector;
-
-//	ArrayListHashSetKey<Message,String> messages;
-    ChatEntryAdaptor messagesAdaptor_DEP;
-//    com.mardomsara.social.ui.presenter.chat_realm.chat_room.del.ChatRoomEntryAdaptor adaptor;
+	KeyboardAttachmentCell.KeyboardAttachmentListener, AppHeaderFooterRecyclerViewAdapter.LoadNextPage {
+	//constants
+	final int ATTACH_CAMERA_IMAGE = 1001;
+	final int ATTACH_CAMERA_VIDEO = 1002;
+	final int ATTACH_FILE = 1003;
+	public RealmChatView room;
+	//	ArrayListHashSetKey<Message,String> messages;
+	ChatEntryAdaptor messagesAdaptor_DEP;
+	//    com.mardomsara.social.ui.presenter.chat_realm.chat_room.del.ChatRoomEntryAdaptor adaptor;
 //	RealmChatAdaptor_DEP adaptor_depp;
 	ChatRoomEntryAdaptor adaptor2;
-
-    KeyboardAttachmentCell attachment_view;
-    LinearLayoutManager mLayoutManager;
-    ChatRoomEntryPresenter that;
-
-    IntentHelper intentHelper;
-    Uri file_uri;
-    EmojiKeyboard emojiKeyboard;
-
+	KeyboardAttachmentCell attachment_view;
+	LinearLayoutManager mLayoutManager;
+	ChatRoomEntryPresenter that;
+	IntentHelper intentHelper;
+	Uri file_uri;
+	EmojiKeyboard emojiKeyboard;
 	X.ChatRoom_ScreenParent x;
-
 	RealmResults<RealmMessageView> realmResults;
+	private ImageFileSelector mImageFileSelector;
+
 	@Override
-    public View buildView() {
+	public View buildView() {
 		x = new X.ChatRoom_ScreenParent();
 
 		Nav.hideFooter();
 
-		AndroidUtil.runInUi(()->{
+		AndroidUtil.runInUi(() -> {
 
 
-			x.send_msg_btn.setOnClickListener((v)->addNewMsg());
+			x.send_msg_btn.setOnClickListener((v) -> addNewMsg());
 
-			x.edit_field.setOnClickListener((v)->{
+			x.edit_field.setOnClickListener((v) -> {
 				AppUtil.log("Keyboard");
 			});
 			x.edit_field.requestFocus();
-
 
 
 			Realm realm = MSRealm.getChatRealm();
@@ -109,7 +102,7 @@ public class ChatRoomEntryPresenter extends BasePresenter implements
 //        adaptor_depp = new RealmChatAdaptor_DEP(realmResults,true);
 			RealmViewWrapperHolder wrapper = new RealmViewWrapperHolder();
 //		wrapper.messageViewList = messageViewList;
-			wrapper.realmResults= realmResults;
+			wrapper.realmResults = realmResults;
 			adaptor2 = new ChatRoomEntryAdaptor(wrapper);
 
 
@@ -120,7 +113,7 @@ public class ChatRoomEntryPresenter extends BasePresenter implements
 			mLayoutManager.setSmoothScrollbarEnabled(true);
 			mLayoutManager.setReverseLayout(true);
 			mLayoutManager.setStackFromEnd(true);
-			mLayoutManager.scrollToPositionWithOffset(0,10000);
+			mLayoutManager.scrollToPositionWithOffset(0, 10000);
 
 //        x.recycler_view.setAdapter(messagesAdaptor_DEP);
 //        x.recycler_view.setAdapter(adaptor_depp);
@@ -134,7 +127,7 @@ public class ChatRoomEntryPresenter extends BasePresenter implements
 //		adaptor.setUpForPaginationWith(x.recycler_view,mLayoutManager,this);
 //		adaptor.setRecyclerView(x.recycler_view);
 
-			x.back.setOnClickListener((v)-> {
+			x.back.setOnClickListener((v) -> {
 				onBack();
 				Nav.pop();
 			});
@@ -143,10 +136,12 @@ public class ChatRoomEntryPresenter extends BasePresenter implements
 			x.room_name.setText(RealmChatViewHelper.getRoomName(room));
 			App.getBus().register(this);
 
-			emojiKeyboard = new EmojiKeyboard(x.edit_field,x.emoji_opener_btn, AppUtil.global_window);
+			emojiKeyboard = new EmojiKeyboard(x.edit_field, x.emoji_opener_btn, AppUtil.global_window);
 
 			that = this;
-			x.attach_btn.setOnClickListener((v)->{ showAttachmentWindow();});
+			x.attach_btn.setOnClickListener((v) -> {
+				showAttachmentWindow();
+			});
 			//todo later fix this for G
 //        AppUtil.listanAndSaveKewordSize(view);
 
@@ -164,65 +159,65 @@ public class ChatRoomEntryPresenter extends BasePresenter implements
 
 
 		return x.root;
-    }
+	}
 
 	@Override
-    public void onDestroy() {
-		if(realmResults != null){
+	public void onDestroy() {
+		if (realmResults != null) {
 			realmResults.removeAllChangeListeners();
 		}
-        /*super.onDestroy();
-        App.getBus().unregister(this);
+		/*super.onDestroy();
+		App.getBus().unregister(this);
         AppUtil.unRegisterKeywoardlistaner(view);
 
         if(emojiKeyboard != null) emojiKeyboard.destroy();*/
-    }
+	}
 
-    public void onFocus() {
+	public void onFocus() {
         /*super.onFocus();
         AppUtil.log("chatroom onFocus()");
         RoomModel.onRoomOpened_InBackground(room);*/
-    }
+	}
 
-    @Override
-    public void onBack() {
-        super.onBack();
-        if(emojiKeyboard != null){
-            emojiKeyboard.destroy();
-        }
+	@Override
+	public void onBack() {
+		super.onBack();
+		if (emojiKeyboard != null) {
+			emojiKeyboard.destroy();
+		}
 
-        Nav.showFooter();
-    }
+		Nav.showFooter();
+	}
 
-    void setUpInputOnTextTextChanged(){
-        x.edit_field.addTextChangedListener(new TextWatcher(){
+	void setUpInputOnTextTextChanged() {
+		x.edit_field.addTextChangedListener(new TextWatcher() {
 
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+			@Override
+			public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
-            }
+			}
 
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                if(charSequence.length()>0){
-                    x.attach_btn.setVisibility(View.GONE);
-                    x.send_msg_btn.setVisibility(View.VISIBLE);
-                }else {
-                    x.attach_btn.setVisibility(View.VISIBLE);
-                    x.send_msg_btn.setVisibility(View.GONE);
-                }
-            }
+			@Override
+			public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+				if (charSequence.length() > 0) {
+					x.attach_btn.setVisibility(View.GONE);
+					x.send_msg_btn.setVisibility(View.VISIBLE);
+				} else {
+					x.attach_btn.setVisibility(View.VISIBLE);
+					x.send_msg_btn.setVisibility(View.GONE);
+				}
+			}
 
-            @Override
-            public void afterTextChanged(Editable editable) {
+			@Override
+			public void afterTextChanged(Editable editable) {
 
-            }
-        });
-    }
+			}
+		});
+	}
 
-    void addNewMsg(){
+	void addNewMsg() {
 
-		ModelChatEntry.addNewTextMessage(room,x.edit_field.getText().toString());
+		ModelChatEntry.addNewTextMessage(room, x.edit_field.getText().toString());
 		x.edit_field.setText("");
 		adaptor2.notifyDataSetChanged();
 		mLayoutManager.scrollToPosition(0);
@@ -236,9 +231,9 @@ public class ChatRoomEntryPresenter extends BasePresenter implements
         MessageModel.syncTextMsgToServer(msg);
 
         onHereAddedNewMsgEvent_UI(msg);*/
-    }
+	}
 
-    void onHereAddedNewMsgEvent_UI(Message msg){
+	void onHereAddedNewMsgEvent_UI(Message msg) {
 		/*AndroidUtil.runInUiNoPanic(()->{
 			messages.addStart(msg);
 			messagesAdaptor_DEP.notifyContentItemInserted(0);
@@ -248,193 +243,100 @@ public class ChatRoomEntryPresenter extends BasePresenter implements
 //			App.getBus().post(new RoomOrderChanged());
 			Events.publish(new Events.RoomOrderChanged());
 		});*/
-    }
-
-    public void showAttachmentWindow(){
-        attachment_view = new KeyboardAttachmentCell(this,x.bottom_container);
-    }
-
-	/////////////////// Events /////////////////////////
-
-	@Subscribe(threadMode = ThreadMode.MAIN)
-	public void onEvent(@NonNull MsgAddOneJson data){
-		/*logIt("event new: MsgAddOneJson " + data.toString());
-		Message msg = data.Message;
-		if(msg.RoomKey.equals(room.RoomKey)){
-			if(!messagesAdaptor_DEP.msgs.contains(msg)){
-				try {
-					messagesAdaptor_DEP.msgs.addStart(msg);
-					messagesAdaptor_DEP.notifyDataChanged();
-
-				}catch (Exception e){
-					e.printStackTrace();
-				}
-			}
-		}
-		RoomModel.updateRoomSeenMsgsToNow_BG(room);*/
 	}
 
-	@Subscribe(threadMode = ThreadMode.MAIN)
-	public void onEvent(@NonNull MsgAddManyJson data){
-		/*logIt("event new: MsgAddManyJson " + data.toString());
-		List<Message> msgs = data.Messages;
-		for(Message msg : msgs){
-			if(msg.RoomKey.equals(room.RoomKey)) {
-				if (!messagesAdaptor_DEP.msgs.contains(msg)) {
-					try {
-						messagesAdaptor_DEP.msgs.addStart(msg);
-
-					} catch (Exception e) {
-						e.printStackTrace();
-					}
-				}
-			}
-		}
-		messagesAdaptor_DEP.notifyDataChanged();
-
-		RoomModel.updateRoomSeenMsgsToNow_BG(room);*/
-	}
-
-	@Subscribe(threadMode = ThreadMode.MAIN)
-	public void onEvent(@NonNull MsgReceivedToServerEvent data){
-		/*logIt("event new: MsgReceivedToServerEvent " + data.toString());
-		if(data.RoomKey.equals(room.RoomKey)){
-			Message msg = messagesAdaptor_DEP.msgs.getByKey(data.MsgKey);
-			if(msg != null){
-				try {
-					msg.ServerReceivedTime = data.AtTime;
-					messagesAdaptor_DEP.notifyDataChanged();
-				}catch (Exception e){
-					e.printStackTrace();
-				}
-			}
-		}*/
-	}
-
-	@Subscribe(threadMode = ThreadMode.MAIN)
-	public void onEvent(@NonNull MsgDeletedFromServerJson data){
-		/*logIt("event new: MsgDeletedFromServerJson " + data.toString());
-		if(data.RoomKey.equals(room.RoomKey)){
-			Message msg = messagesAdaptor_DEP.msgs.getByKey(data.MsgKey);
-			if(msg != null){
-				try {
-					msg.ServerDeletedTime = data.AtTime;
-					messagesAdaptor_DEP.notifyDataChanged();
-				}catch (Exception e){
-					e.printStackTrace();
-				}
-			}
-		}*/
-	}
-
-	@Subscribe(threadMode = ThreadMode.MAIN)
-	public void onEvent(@NonNull MsgReceivedToPeerJson data){
-		/*logIt("event new: MsgReceivedToPeerJson  " + data.toString());
-		if(data.RoomKey.equals(room.RoomKey)){
-			Message msg = messagesAdaptor_DEP.msgs.getByKey(data.MsgKey);
-			if(msg != null){
-				try {
-					msg.PeerReceivedTime = data.AtTime;
-					messagesAdaptor_DEP.notifyDataChanged();
-				}catch (Exception e){
-					e.printStackTrace();
-				}
-			}
-		}*/
-	}
-
-	@Subscribe(threadMode = ThreadMode.MAIN)
-	public void onEvent(@NonNull MsgSeenByPeerJson data){
-		/*logIt("event new: MsgSeenByPeerJson " + data.toString());
-		if(data.RoomKey.equals(room.RoomKey)){
-			Message msg = messagesAdaptor_DEP.msgs.getByKey(data.MsgKey);
-			if(msg != null){
-				try {
-					msg.PeerSeenTime = data.AtTime;
-					messagesAdaptor_DEP.notifyDataChanged();
-				}catch (Exception e){
-					e.printStackTrace();
-				}
-			}
-		}*/
+	public void showAttachmentWindow() {
+		attachment_view = new KeyboardAttachmentCell(this, x.bottom_container);
 	}
 
 	///////////////////////////////////////////////////
-    /////////////// Keyboard listener ////////////////
-    @Override
-    public void onCameraPhotoClick() {
-        intentHelper = new IntentHelper();
-        attachment_view.dismiss();
-        file_uri =  intentHelper.captureImage(getActivity(), ATTACH_CAMERA_IMAGE,"back");
-    }
+	/////////////// Keyboard listener ////////////////
+	@Override
+	public void onCameraPhotoClick() {
+		intentHelper = new IntentHelper();
+		attachment_view.dismiss();
+		file_uri = intentHelper.captureImage(getActivity(), ATTACH_CAMERA_IMAGE, "back");
+	}
 
-    @Override
-    public void onGalleryClick() {
+	@Override
+	public void onGalleryClick() {
         /*attachment_view.dismiss();
         GalleryChooserPresenter gallery =new GalleryChooserPresenter();
         FIxme: gallery.chatEntryPresenter to interface
 //        gallery.chatEntryPresenter = this;
         Nav.push(gallery);*/
-    }
+	}
 
-    @Override
-    public void onVideoClick() {
+	@Override
+	public void onVideoClick() {
         /*attachment_view.dismiss();
         String tempPath = AppFiles.APP_TEMP_DIR_PATH+"VID_"+ FormaterUtil.getFullyYearToSecondsSolarName()+"$.mp4";
         String resizedPath = FileUtil.createNextName(tempPath);
 
         intentHelper = new IntentHelper();
         file_uri = intentHelper.recordVideo(getActivity(),ATTACH_CAMERA_VIDEO,"back",resizedPath);*/
-    }
+	}
 
-    @Override
-    public void onAudioClick() {
+	@Override
+	public void onAudioClick() {
 		comingSoon();
-    }
+	}
 
-    @Override
-    public void onLocationClick() {
+	@Override
+	public void onLocationClick() {
 
-    }
+	}
 
-    @Override
-    public void onFileClick() {
+	@Override
+	public void onFileClick() {
 		comingSoon();
 		//keep this
 
-    }
+	}
 
-	void comingSoon(){
+	void comingSoon() {
 		Helper.showMessage("به زودی در نسخه های بعد ...");
 	}
 
-    @Override
-    public void onContactClick() {
+	@Override
+	public void onContactClick() {
 
-    }
+	}
 
-    @Override
-    public void onRecentImagesSendClicked(List<String> imagesPath){
-        attachment_view.dismiss();
-//		AndroidUtil.runInBackgroundNoPanic(()->{
+	@Override
+	public void onRecentImagesSendClicked(List<String> imagesPath) {
+		attachment_view.dismiss();
+
+		for (String image : imagesPath) {
+			AndroidUtil.runInUiNoPanic(() -> {//Async
+				_sendMsgImage(image, false);
+				scrollToBottom();
+			});
+		}
+
+		/*AndroidUtil.runInUiNoPanic(()->{//Async
 			for(String image : imagesPath){
 				_sendMsgImage(image,false);
 			}
-//		});
-    };
+		});*/
+	}
+
+	;
 
 
-    public void onGalleryChooserVideoClicked(List<String> videoPaths){
+	public void onGalleryChooserVideoClicked(List<String> videoPaths) {
         /*attachment_view.dismiss();
 		AndroidUtil.runInBackgroundNoPanic(()->{
 			for(String image : videoPaths){
 				_sendMsgVideo(image);
 			}
 		});*/
-    };
+	}
 
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+	;
+
+	@Override
+	public void onActivityResult(int requestCode, int resultCode, Intent data) {
         /*super.onActivityResult(requestCode, resultCode, data);
         logIt("onActivityResult: chat "+requestCode+ " " + resultCode+ Activity.RESULT_OK + " " +data);
         if(resultCode == Activity.RESULT_OK){
@@ -447,25 +349,25 @@ public class ChatRoomEntryPresenter extends BasePresenter implements
                     break;
             }
         }*/
-    }
+	}
 
-    //// TODO: migrate to _sendMsgImage(path)
-    void createMsgPhotoFromCamera(){
+	//// TODO: migrate to _sendMsgImage(path)
+	void createMsgPhotoFromCamera() {
         /*logIt("file_uri: "+ file_uri);
         if(file_uri == null)return;
         _sendMsgImage(file_uri.getPath(),true);*/
-    }
+	}
 
-    void createMsgVideoFromCamera(){
+	void createMsgVideoFromCamera() {
         /*logIt("createMsgVideoFromCamera() file_uri: "+ file_uri);
         String path = file_uri.getPath();
         File file = new File(file_uri.getPath());
         _sendMsgVideo(file_uri.getPath());*/
-    }
+	}
 
-    void _sendMsgImage(String path, final boolean deleteOriginal){
-		ModelChatEntry.addSingleImageMessage(room,"new 2image !!!",path,deleteOriginal);
-		scrollToBottom();
+	void _sendMsgImage(String path, final boolean deleteOriginal) {
+		ModelChatEntry.addSingleImageMessage(room, "new 2image !!!" + path, path, deleteOriginal);
+//		scrollToBottom();
 
 
         /*logIt("_sendMsgImage: "+ path + " "+deleteOriginal);
@@ -494,13 +396,13 @@ public class ChatRoomEntryPresenter extends BasePresenter implements
 		MsgsCallToServer.sendNewPhoto(msg,resizedFile,fileOriginal,deleteOriginal);
 		onHereAddedNewMsgEvent_UI(msg);*/
 
-    }
+	}
 
-	private void _showToastFileAreNotExist(){
+	private void _showToastFileAreNotExist() {
 		Helper.showMessage("فایل موجود نیست");
 	}
 
-    void _sendMsgVideo(String savedPath){
+	void _sendMsgVideo(String savedPath) {
         /*logIt("_sendMsgVideo: "+ savedPath);
         String $resizedPath = AppFiles.VIDEO_SENT_DIR_PATH+"VID_"+ FormaterUtil.getFullyYearToSecondsSolarName()+"$.mp4";
         String thumbPath = AppFiles.VIDEO_SENT_DIR_PATH+"THUMB_"+ FormaterUtil.getFullyYearToSecondsSolarName()+"$.jpg";
@@ -527,12 +429,12 @@ public class ChatRoomEntryPresenter extends BasePresenter implements
 
 		onHereAddedNewMsgEvent_UI(msg);*/
 
-    }
+	}
 
 	//// TODO: 1/30/2017 do in background
 	//pageNum is actuly is alaways >= 1
-    @Override
-    public void loadNextPage(int pageNum) {
+	@Override
+	public void loadNextPage(int pageNum) {
 		/*messagesAdaptor_DEP.nextPageIsLoaded();
 
         int size = messagesAdaptor_DEP.msgs.size();
@@ -560,10 +462,118 @@ public class ChatRoomEntryPresenter extends BasePresenter implements
 		messagesAdaptor_DEP.notifyDataChanged();
 
         Helper.showDebugMessage("page : "+pageNum);*/
-    }
+	}
 
-    void scrollToBottom(){
-		mLayoutManager.scrollToPosition(0);
+	void scrollToBottom() {
+		AndroidUtil.runInUiNoPanic(() -> {
+			mLayoutManager.scrollToPosition(0);
+		});
+	}
+
+	//all deprecated
+	/////////////////// Events /////////////////////////
+
+	@Subscribe(threadMode = ThreadMode.MAIN)
+	public void onEvent(@NonNull MsgAddOneJson data) {
+		/*logIt("event new: MsgAddOneJson " + data.toString());
+		Message msg = data.Message;
+		if(msg.RoomKey.equals(room.RoomKey)){
+			if(!messagesAdaptor_DEP.msgs.contains(msg)){
+				try {
+					messagesAdaptor_DEP.msgs.addStart(msg);
+					messagesAdaptor_DEP.notifyDataChanged();
+
+				}catch (Exception e){
+					e.printStackTrace();
+				}
+			}
+		}
+		RoomModel.updateRoomSeenMsgsToNow_BG(room);*/
+	}
+
+	@Subscribe(threadMode = ThreadMode.MAIN)
+	public void onEvent(@NonNull MsgAddManyJson data) {
+		/*logIt("event new: MsgAddManyJson " + data.toString());
+		List<Message> msgs = data.Messages;
+		for(Message msg : msgs){
+			if(msg.RoomKey.equals(room.RoomKey)) {
+				if (!messagesAdaptor_DEP.msgs.contains(msg)) {
+					try {
+						messagesAdaptor_DEP.msgs.addStart(msg);
+
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
+			}
+		}
+		messagesAdaptor_DEP.notifyDataChanged();
+
+		RoomModel.updateRoomSeenMsgsToNow_BG(room);*/
+	}
+
+	@Subscribe(threadMode = ThreadMode.MAIN)
+	public void onEvent(@NonNull MsgReceivedToServerEvent data) {
+		/*logIt("event new: MsgReceivedToServerEvent " + data.toString());
+		if(data.RoomKey.equals(room.RoomKey)){
+			Message msg = messagesAdaptor_DEP.msgs.getByKey(data.MsgKey);
+			if(msg != null){
+				try {
+					msg.ServerReceivedTime = data.AtTime;
+					messagesAdaptor_DEP.notifyDataChanged();
+				}catch (Exception e){
+					e.printStackTrace();
+				}
+			}
+		}*/
+	}
+
+	@Subscribe(threadMode = ThreadMode.MAIN)
+	public void onEvent(@NonNull MsgDeletedFromServerJson data) {
+		/*logIt("event new: MsgDeletedFromServerJson " + data.toString());
+		if(data.RoomKey.equals(room.RoomKey)){
+			Message msg = messagesAdaptor_DEP.msgs.getByKey(data.MsgKey);
+			if(msg != null){
+				try {
+					msg.ServerDeletedTime = data.AtTime;
+					messagesAdaptor_DEP.notifyDataChanged();
+				}catch (Exception e){
+					e.printStackTrace();
+				}
+			}
+		}*/
+	}
+
+	@Subscribe(threadMode = ThreadMode.MAIN)
+	public void onEvent(@NonNull MsgReceivedToPeerJson data) {
+		/*logIt("event new: MsgReceivedToPeerJson  " + data.toString());
+		if(data.RoomKey.equals(room.RoomKey)){
+			Message msg = messagesAdaptor_DEP.msgs.getByKey(data.MsgKey);
+			if(msg != null){
+				try {
+					msg.PeerReceivedTime = data.AtTime;
+					messagesAdaptor_DEP.notifyDataChanged();
+				}catch (Exception e){
+					e.printStackTrace();
+				}
+			}
+		}*/
+	}
+
+	@Subscribe(threadMode = ThreadMode.MAIN)
+	public void onEvent(@NonNull MsgSeenByPeerJson data) {
+		/*logIt("event new: MsgSeenByPeerJson " + data.toString());
+		if(data.RoomKey.equals(room.RoomKey)){
+			Message msg = messagesAdaptor_DEP.msgs.getByKey(data.MsgKey);
+			if(msg != null){
+				try {
+					msg.PeerSeenTime = data.AtTime;
+					messagesAdaptor_DEP.notifyDataChanged();
+				}catch (Exception e){
+					e.printStackTrace();
+				}
+			}
+		}*/
 	}
 
 }

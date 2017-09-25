@@ -16,7 +16,8 @@
         <com.mardomsara.social.ui.views.x.XTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/text_bold.black"
+            style="@style/text_normal0.black"
+            android:gravity="center_horizontal"
             android:text="هنگامی که با دیگران شروع به چت کنید لیست چت را در اینجا می بینید.\nبا دوستانتان چت کنید, یا دوستان جدیدی پیدا کنید."
             app:xFont="IranMedium"
             />

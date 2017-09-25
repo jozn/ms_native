@@ -20,6 +20,7 @@ import com.mardomsara.social.models.interfaces.MessageProgressListener;
 import com.mardomsara.social.models.tables.Message;
 import com.mardomsara.social.models.tables.MsgFile;
 import com.mardomsara.social.models_realm.RealmMessageViewHelper;
+import com.mardomsara.social.models_realm.helpers.HelperMessageFile;
 import com.mardomsara.social.models_realm.pb_realm.RealmMessageFileView;
 import com.mardomsara.social.models_realm.pb_realm.RealmMessageView;
 import com.mardomsara.social.ui.presenter.chat_realm.chat_room.RealmMessageViewWrapper;
@@ -38,6 +39,7 @@ import ir.ms.pb.RoomMessageDeliviryStatusEnum;
 
 //TOdo to realm All methods
 class MsgImageWrapper implements MessageProgressListener {
+	static String TAG = "MsgImageWrapper";
 	private final String iconClose = "\uf404";
 	private final String iconUpload = "\uf40a";
 	private final String iconDownload = "\uf407";
@@ -66,12 +68,16 @@ class MsgImageWrapper implements MessageProgressListener {
 	}
 
 	void run() {
-		showImage();
+
 		image_holder.x.loading_progress.setIndeterminate(false);
 
 		RealmMessageFileView msgFile = msg.MessageFileView;
 		if (msgFile == null) return;//should not happen
+		HelperMessageFile.setLocalPathInNecessary(msgFile);
+		if(msgFile.LocalSrc == null)return;
 		File file = new File(msgFile.LocalSrc);
+
+		showImage();
 
 		if (RealmMessageViewHelper.isMessageByMe(msg)) {
 			if (msg.DeliviryStatusEnumId == RoomMessageDeliviryStatusEnum.NEED_TO_SINK_VALUE) {
@@ -136,10 +142,13 @@ class MsgImageWrapper implements MessageProgressListener {
 				}
 			} else {//should not happen but for more reliability
 				image_view.setVisibility(View.INVISIBLE);
+				AppUtil.log(TAG + " showImage(): msg.MessageFileView is null");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 			image_view.setVisibility(View.INVISIBLE);
+			AppUtil.log(TAG + " panic in showImage()");
+
 		}
 	}
 
