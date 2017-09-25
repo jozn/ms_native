@@ -1,5 +1,7 @@
 package com.mardomsara.social.pipe;
 
+import com.mardomsara.social.app.DB;
+import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.pipe.push_handling.PushRouter;
 
@@ -31,6 +33,11 @@ class RouterLayerOneHandler {
 		}else {
 			AppUtil.error("ws pipe error in handling handle_PB_ResponseToClient for "+pb_responseToClient.getPBClass() + " "+ pb_responseToClient.getClientCallId());
 		}
+
+		AndroidUtil.runInBackgroundNoPanic(()->{
+			DB.getRpcDB().deleteFromRpcOffline().CallIdEq(pb_responseToClient.getClientCallId()).execute();
+		});
+
 	};
 
 	static PipeNetEventHandler handle_PB_PushDirectLogViewsMany = (data)->{

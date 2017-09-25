@@ -2,6 +2,7 @@ package com.mardomsara.social.pipe;
 
 import android.util.Log;
 
+import com.mardomsara.social.app.DB;
 import com.mardomsara.social.helpers.AppUtil;
 
 import java.util.HashMap;
@@ -69,6 +70,7 @@ final class RouterForDataReceived {
 					CallRespondCallbacksRegistery.tryReachedServer(clientCallId);
 					return;
 				}*/
+
 
 				if (pbCommandToClient.getRespondReached() == true && pbCommandToClient.getServerCallId() != 0) {//respond call
 					PipeWS.getInstance().sendToServer_CallReceivedToAndroid(pbCommandToClient.getServerCallId());

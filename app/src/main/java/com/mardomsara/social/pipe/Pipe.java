@@ -92,8 +92,6 @@ public class Pipe {
 		}
 	}
 
-	;
-
 	public void sendOffline() {
 	}
 
