@@ -19,15 +19,15 @@ import java.lang.reflect.Field;
  */
 public class DB {
 
-    private static RpcDB rpcDB = null;
-    private static AppDB db = null;
+	private static RpcDB rpcDB = null;
+	private static AppDB db = null;
 
 	public static AppDB getAppDB() {
-		if(db != null) return db;
+		if (db != null) return db;
 
 		AppDB.Builder builder = AppDB.builder(AppUtil.getContext());
 
-		if(Config.IS_DEBUG){
+		if (Config.IS_DEBUG) {
 			builder.readOnMainThread(AccessThreadConstraint.WARNING)
 				.writeOnMainThread(AccessThreadConstraint.WARNING);
 		} else {
@@ -41,10 +41,10 @@ public class DB {
 	}
 
 	public static RpcDB getRpcDB() {
-		if(rpcDB == null){
+		if (rpcDB == null) {
 			RpcDB.Builder builder = RpcDB.builder(AppUtil.getContext());
 
-			if(Config.IS_DEBUG){
+			if (Config.IS_DEBUG) {
 				builder.readOnMainThread(AccessThreadConstraint.WARNING)
 					.writeOnMainThread(AccessThreadConstraint.WARNING);
 			} else {
@@ -58,56 +58,55 @@ public class DB {
 		return rpcDB;
 	}
 
-    public static void updateAuto(Object row, Schema tableSchema) {
-        try {
-            String primaryKey ="";
-            String primaryVal ="";
+	public static void updateAuto(Object row, Schema tableSchema) {
+		try {
+			String primaryKey = "";
+			String primaryVal = "";
 
-            ContentValues content= new ContentValues();
+			ContentValues content = new ContentValues();
 
-            Field[] fields = row.getClass().getDeclaredFields();
-            for(Field f : fields){
-                String col = f.getName();//columname
-                f.setAccessible(true);
-                Object val =f.get(row);//col val
+			Field[] fields = row.getClass().getDeclaredFields();
+			for (Field f : fields) {
+				String col = f.getName();//columname
+				f.setAccessible(true);
+				Object val = f.get(row);//col val
 
-                if(f.isAnnotationPresent(PrimaryKey.class)){
-                    primaryKey = col;
-                    primaryVal = ""+val;
-                    continue;
-                }
+				if (f.isAnnotationPresent(PrimaryKey.class)) {
+					primaryKey = col;
+					primaryVal = "" + val;
+					continue;
+				}
 
-                if(f.isAnnotationPresent(Column.class) == false){
-                    continue;
-                }
+				if (f.isAnnotationPresent(Column.class) == false) {
+					continue;
+				}
 
-                if(val instanceof String){
+				if (val instanceof String) {
 //                    content.put(col, "'"+(String)val +"'");
-                    content.put(col, (String)val);
-                }else if(val instanceof Integer){
-                    content.put(col,(Integer)val);
-                }else if(val instanceof Float){
-                    content.put(col,(Float) val);
-                }else if(val instanceof Long){
-                    content.put(col,(Long) val);
-                }else if(val instanceof Short){
-                    content.put(col,(Short) val);
-                }else if(val instanceof Double){
-                    content.put(col,(Double) val);
-                }else if(val instanceof Byte) {
-                    content.put(col, (Byte) val);
-                }
-            }
+					content.put(col, (String) val);
+				} else if (val instanceof Integer) {
+					content.put(col, (Integer) val);
+				} else if (val instanceof Float) {
+					content.put(col, (Float) val);
+				} else if (val instanceof Long) {
+					content.put(col, (Long) val);
+				} else if (val instanceof Short) {
+					content.put(col, (Short) val);
+				} else if (val instanceof Double) {
+					content.put(col, (Double) val);
+				} else if (val instanceof Byte) {
+					content.put(col, (Byte) val);
+				}
+			}
 
-            String whereClause = primaryKey + "=?";
-            String[] whereArgs = new String[]{primaryVal};
+			String whereClause = primaryKey + "=?";
+			String[] whereArgs = new String[]{primaryVal};
 
-            getAppDB().getConnection().update(tableSchema,content,whereClause,whereArgs);
+			getAppDB().getConnection().update(tableSchema, content, whereClause, whereArgs);
 
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 }
