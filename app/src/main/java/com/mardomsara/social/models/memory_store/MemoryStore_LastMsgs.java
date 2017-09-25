@@ -55,11 +55,11 @@ public class MemoryStore_LastMsgs {
 		String ins = StringUtils.join(roomKeys,"','");
 		if (ins.length()  < 1 ) return;
 		ins = "'"+ins+"'";
-		Cursor cursor =  DB.db.getConnection().rawQuery("select * from Message where RoomKey in("+ ins + ") GROUP BY RoomKey order by NanoId Desc ");
+		Cursor cursor =  DB.getAppDB().getConnection().rawQuery("select * from Message where RoomKey in("+ ins + ") GROUP BY RoomKey order by NanoId Desc ");
 
 		List<Message> msgs = new ArrayList<>();
 		for(cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
-			msgs.add(DB.db.newMessageFromCursor(cursor));
+			msgs.add(DB.getAppDB().newMessageFromCursor(cursor));
 		}
 
 		for (Message msg : msgs){

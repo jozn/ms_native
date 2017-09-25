@@ -56,7 +56,7 @@ public class CacheBank {
 		}
 		if (ints.size() == 0) return;
 
-		List<User> users = DB.db.selectFromUser().UserIdIn(ints).toList();
+		List<User> users = DB.getAppDB().selectFromUser().UserIdIn(ints).toList();
 
 		for (User user : users) {
 			getUser().put(user.UserId, user);

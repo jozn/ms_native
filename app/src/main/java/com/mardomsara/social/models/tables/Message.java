@@ -131,7 +131,7 @@ public class Message implements Comparable<Message>, UploadProgressListener, Dow
 	@Nullable
 	MsgFile getMsgFile() {
 		if (MsgFile == null || ( MsgFile_LocalSrc!=null && !MsgFile_LocalSrc.equals("") ) ) {
-			MsgFile = DB.db.selectFromMsgFile().LocalSrcEq(MsgFile_LocalSrc).getOrNull(0);
+			MsgFile = DB.getAppDB().selectFromMsgFile().LocalSrcEq(MsgFile_LocalSrc).getOrNull(0);
 		}
 		return MsgFile;
 	}
@@ -246,21 +246,21 @@ public class Message implements Comparable<Message>, UploadProgressListener, Dow
 	public void saveWithRoom() {
 		onBeforeSave();
 		trySaveMsgFile();
-		DB.db.prepareInsertIntoMessage(OnConflict.REPLACE, true).execute(this);
+		DB.getAppDB().prepareInsertIntoMessage(OnConflict.REPLACE, true).execute(this);
 		onAfterSave();
 	}
 
 	public void save() {
 		onBeforeSave();
 		trySaveMsgFile();
-		DB.db.prepareInsertIntoMessage(OnConflict.REPLACE, true).execute(this);
+		DB.getAppDB().prepareInsertIntoMessage(OnConflict.REPLACE, true).execute(this);
 //		onAfterSave();
 	}
 
 	public void insertInBackground() {
 		onBeforeSave();
 		trySaveMsgFile();
-		AndroidUtil.runInBackgroundNoPanic(() -> DB.db.prepareInsertIntoMessage(OnConflict.ABORT, true).execute(this));
+		AndroidUtil.runInBackgroundNoPanic(() -> DB.getAppDB().prepareInsertIntoMessage(OnConflict.ABORT, true).execute(this));
 	}
 
 	private void trySaveMsgFile() {

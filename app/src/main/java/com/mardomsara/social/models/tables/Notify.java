@@ -65,7 +65,7 @@ public class Notify {
 		if(PayloadStored == null || PayloadStored.length() ==0){
 			setPayloadStored();
 		}
-		DB.db.insertIntoNotify(this);
+		DB.getAppDB().insertIntoNotify(this);
 	}
 
 }

@@ -57,7 +57,7 @@ public class UserSyncer {
 	}
 
 	private static void saveNewUsers (List<User> newUsers) {
-		DB.db.transactionSync(()->{
+		DB.getAppDB().transactionSync(()->{
 			for(User u: newUsers){
 				u.save();
 			}

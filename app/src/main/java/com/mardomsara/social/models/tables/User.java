@@ -102,7 +102,7 @@ public class User {
 		MemoryStore_Users.set(this);
 		CacheBank.getUser().put(UserId,this);
 //		AppUtil.log("user: " + JsonUtil.toJson(this));
-        DB.db.relationOfUser().upserter().execute(this);
+        DB.getAppDB().relationOfUser().upserter().execute(this);
     }
 
 

@@ -102,7 +102,7 @@ public class MsgFile {
 		if(LocalSrc.equals("")) return;//avoid bugs
 		//todo calculate hash
 		CacheBank.getMsgFile().put(LocalSrc,this);
-		DB.db.prepareInsertIntoMsgFile(OnConflict.REPLACE,false).execute(this);
+		DB.getAppDB().prepareInsertIntoMsgFile(OnConflict.REPLACE,false).execute(this);
 	}
 
 }

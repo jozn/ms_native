@@ -30,16 +30,16 @@ public class RoomModel {
 
     //////////////////// CRUD ////////////////////
     public static void updateOrInsert(Room room) {
-        DB.db.prepareInsertIntoRoom(OnConflict.REPLACE,true).execute(room);
+        DB.getAppDB().prepareInsertIntoRoom(OnConflict.REPLACE,true).execute(room);
     }
 
     @Nullable
     public static Room getRoomByRoomKey(@NonNull String roomKey){
-        return DB.db.selectFromRoom().RoomKeyEq(roomKey).getOrNull(0);
+        return DB.getAppDB().selectFromRoom().RoomKeyEq(roomKey).getOrNull(0);
     }
 
 	public static List<Room> loadListOfRoomByRoomKeys(List<String> roomKeys){
-		List<Room> rooms = DB.db.selectFromRoom().RoomKeyIn(roomKeys).toList();
+		List<Room> rooms = DB.getAppDB().selectFromRoom().RoomKeyIn(roomKeys).toList();
 		for (Room r : rooms){
 			CacheBank.getRoom().put(r.RoomKey,r);
 		}
@@ -69,7 +69,7 @@ public class RoomModel {
         room.UnseenMessageCount = 0;
         AndroidUtil.runInBackgroundNoPanic(()->{
 			//just if we actuly has message in the room, not just opening the room
-			if(DB.db.selectFromMessage().RoomKeyEq(room.RoomKey).count() > 0 ){
+			if(DB.getAppDB().selectFromMessage().RoomKeyEq(room.RoomKey).count() > 0 ){
 				updateOrInsert(room);
 				/*RoomInfoChangedEvent event = new RoomInfoChangedEvent();
 				event.RoomKey = room.RoomKey;
@@ -80,7 +80,7 @@ public class RoomModel {
     }
 
 	private static int countUnseenMsgsForRoom(String RoomKey, long LastSeenTimeMs ){
-		int count = DB.db.relationOfMessage()
+		int count = DB.getAppDB().relationOfMessage()
 			.RoomKeyEq(RoomKey)
 			.NanoIdGe(LastSeenTimeMs*1000000)
 			.IsByMeEq(0)
@@ -114,7 +114,7 @@ public class RoomModel {
 			Room room = onReceivedNewMsg_NotSave(msg,null);
 			rooms.add(room);
 		}
-		DB.db.transactionSync(()->{
+		DB.getAppDB().transactionSync(()->{
 			for(Room room: rooms){
 				room.save();
 			}
@@ -139,7 +139,7 @@ public class RoomModel {
     }
 
     public static List<Room> getAllRoomsList(int page) {
-        List<Room> rooms = DB.db.selectFromRoom().orderBySortTimeMsDesc().toList();
+        List<Room> rooms = DB.getAppDB().selectFromRoom().orderBySortTimeMsDesc().toList();
         loadAllUserForRooms(rooms);
 		MemoryStore_LastMsgs.setAutoForRoom(rooms);
         return rooms;
@@ -152,7 +152,7 @@ public class RoomModel {
             in.add(room.getUserId());
         }
 		if(in.size() == 0)return;
-        List<User> users = DB.db.selectFromUser().UserIdIn(in).toList();
+        List<User> users = DB.getAppDB().selectFromUser().UserIdIn(in).toList();
         Map<Integer,User> usersMap = LangUtil.listToHashMap(users,(u)->u.UserId);
         for (Room room : rooms) {
             room.User = usersMap.get(room.getUserId());
@@ -163,7 +163,7 @@ public class RoomModel {
         Room room = getRoomByRoomKey(roomKey);
         if(room != null){
             clearRoomMsgs(room);
-            DB.db.deleteFromRoom().RoomKeyEq(room.RoomKey).execute();
+            DB.getAppDB().deleteFromRoom().RoomKeyEq(room.RoomKey).execute();
         }
         //???for safety if room somehow doesn't exit
         MessageModel.clearAllMessagesOfRoom_BG(roomKey);
@@ -183,7 +183,7 @@ public class RoomModel {
 		long lastNano = TimeUtil.getTimeNano();
 
 		AndroidUtil.runInBackgroundNoPanic(()->{
-			List<Message> msgs = DB.db.selectFromMessage()
+			List<Message> msgs = DB.getAppDB().selectFromMessage()
 				.RoomKeyEq(room.RoomKey)
 				.ISeenTimeEq(0)
 				.IsByMeEq(0)
@@ -201,8 +201,8 @@ public class RoomModel {
 				msgsSeen.add(mseen);
 			}
 
-			DB.db.transactionSync(()->{
-				DB.db.updateMessage()
+			DB.getAppDB().transactionSync(()->{
+				DB.getAppDB().updateMessage()
 					.ISeenTime(now)//onDownloadProgress
 					.RoomKeyEq(room.RoomKey)//where
 					.ISeenTimeEq(0)
@@ -272,7 +272,7 @@ public class RoomModel {
 			roomMem.UnseenMessageCount = countUnseenMsgsForRoom(rk,roomMem.LastSeenTimeMs);
 		}
 
-		DB.db.transactionSync(()->{
+		DB.getAppDB().transactionSync(()->{
 			roomsMap.values().forEach(Room::save);
 		});
 	}

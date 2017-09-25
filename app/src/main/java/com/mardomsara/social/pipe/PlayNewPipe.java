@@ -47,7 +47,7 @@ public class PlayNewPipe {
 
 		AndroidUtil.runInBackgroundNoPanic(()->{
 			int i =0;
-			List<Message> msgs=  DB.db.selectFromMessage().toList();
+			List<Message> msgs=  DB.getAppDB().selectFromMessage().toList();
 			for (Message m : msgs){
 				/*PipeCallBack<PB_ResponseMsgAddOne> callBack = (pb_responsMsgAddOne) -> pb_responsMsgAddOne.getResponse() ;
 				Runnable err = ()->{

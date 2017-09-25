@@ -39,7 +39,7 @@ public class ContactsCopySyncer {
 				listOfHashes.add(row.Hash);
 			}
 
-			List<ContactsCopy> list = DB.db.selectFromContactsCopy().HashIn(listOfHashes).toList();
+			List<ContactsCopy> list = DB.getAppDB().selectFromContactsCopy().HashIn(listOfHashes).toList();
 			if(list.size() != rows.size() || (force && rows.size()>0) ){
 				insertFetchedContactsToTable(rows);
 			}
@@ -59,8 +59,8 @@ public class ContactsCopySyncer {
 			list.add(row.toNewContactsCopy());
 		}
 
-		DB.db.deleteFromContactsCopy().execute();//delete all
-		DB.db.transactionSync(()->{
+		DB.getAppDB().deleteFromContactsCopy().execute();//delete all
+		DB.getAppDB().transactionSync(()->{
 			for(ContactsCopy r : list){
 				r.insert();
 			}
@@ -70,11 +70,11 @@ public class ContactsCopySyncer {
 
 	//must be called during change contact AND on startup of app (maybe we haven has internet connection)
 	private static void syncCopyTableRowsToServer() {
-		List<ContactsCopy> list = DB.db.selectFromContactsCopy().IsSyncedEq(0).toList();
+		List<ContactsCopy> list = DB.getAppDB().selectFromContactsCopy().IsSyncedEq(0).toList();
 		if(list.size() ==0 )return;
 
 		//work around: PhoneNormalizedNumber is alot empty: for noe mobile phone for example
-		DB.db.updateContactsCopy().IsSynced(1).PhoneNormalizedNumberEq("").execute();
+		DB.getAppDB().updateContactsCopy().IsSynced(1).PhoneNormalizedNumberEq("").execute();
 
 		Http.postPath("/v1/grab_contacts")
 			.setFormParam("contacts", JsonUtil.toJson(list))
@@ -82,7 +82,7 @@ public class ContactsCopySyncer {
 				if(result.isOk()){
 					HttpJsonList<String> res =Result.fromJsonList(result, String.class);
 					if(res != null && res.Payload != null){
-						DB.db.updateContactsCopy().IsSynced(1).PhoneNormalizedNumberIn(res.Payload).execute();
+						DB.getAppDB().updateContactsCopy().IsSynced(1).PhoneNormalizedNumberIn(res.Payload).execute();
 					}
 				}
 				Helper.showDebugMessage("sync contacts: " +result.isOk());

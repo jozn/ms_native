@@ -40,21 +40,21 @@ public class MessageModel {
             DB.db.getConnection().execSQL("onDownloadProgress Message setOrReplace SortId = CreatedDeviceMs * 1000000");
         });*/
         if(deviceCreatedTimeOffset <= 0){
-            return DB.db.selectFromMessage().RoomKeyEq(roomKey).orderBySortIdDesc().limit(MSGS_PER_PAGE).toList();
+            return DB.getAppDB().selectFromMessage().RoomKeyEq(roomKey).orderBySortIdDesc().limit(MSGS_PER_PAGE).toList();
         }
-        return DB.db.selectFromMessage().RoomKeyEq(roomKey).SortIdLt(deviceCreatedTimeOffset).orderBySortIdDesc().limit(MSGS_PER_PAGE).toList();
+        return DB.getAppDB().selectFromMessage().RoomKeyEq(roomKey).SortIdLt(deviceCreatedTimeOffset).orderBySortIdDesc().limit(MSGS_PER_PAGE).toList();
     }
 
     private static List<Message> getAllRoomsMessages(String roomKey) {
-        return DB.db.selectFromMessage().RoomKeyEq(roomKey).orderByCreatedDeviceMsDesc().toList();
+        return DB.getAppDB().selectFromMessage().RoomKeyEq(roomKey).orderByCreatedDeviceMsDesc().toList();
     }
 
     public static Message getMessageByKey(String msgKey) {
-        return DB.db.selectFromMessage().MessageKeyEq(msgKey).getOrNull(0);
+        return DB.getAppDB().selectFromMessage().MessageKeyEq(msgKey).getOrNull(0);
     }
 
 	public static Message getLastMsgOfRoom(String roomKey) {
-		return onLoadMessage(DB.db.selectFromMessage().orderByNanoIdDesc().limit(1).getOrNull(0));
+		return onLoadMessage(DB.getAppDB().selectFromMessage().orderByNanoIdDesc().limit(1).getOrNull(0));
 	}
 
 	public static List<Message> onLoadMessages(List<Message> list){
@@ -110,7 +110,7 @@ public class MessageModel {
             for(Message msg : msgs){
                 listMsgs.add(msg.MessageKey);
             }
-            DB.db.deleteFromMessage().MessageKeyIn(listMsgs).execute();
+            DB.getAppDB().deleteFromMessage().MessageKeyIn(listMsgs).execute();
 			MemoryStore_LastMsgs.removeForRoom(roomKey);
         });
     }

@@ -64,7 +64,7 @@ public class MsgsCallToServer {
 			.build();
 
 		Runnable succ =  ()->{
-			DB.db.transactionSync(()->{
+			DB.getAppDB().transactionSync(()->{
 				for(Message msg: msgs){
 					msg.setToPush(0);
 					msg.ServerReceivedTime = TimeUtil.getTimeSec();
@@ -166,12 +166,12 @@ public class MsgsCallToServer {
 			.build();
 
 		Runnable succ =  ()->{
-			DB.db.transactionSync(()->{
+			DB.getAppDB().transactionSync(()->{
 				List<Long> ids = new ArrayList<Long>();
 				for (MsgSeen seen: msgsSeen){
 					ids.add(seen.NanoId);
 				}
-				DB.db.deleteFromMsgSeen().NanoIdIn(ids).execute();
+				DB.getAppDB().deleteFromMsgSeen().NanoIdIn(ids).execute();
 			});
 		};
 

@@ -20,12 +20,12 @@ public class NotifyModel {
 
 	@Deprecated
     private static List<Notify> getAll(){
-        return DB.db.selectFromNotify().toList();
+        return DB.getAppDB().selectFromNotify().toList();
     }
 
     public static List<Notify> getAllReverse(){
 //        DB.db.updateNotify().ForUserId(55).execute();
-        return DB.db.selectFromNotify().orderByIdDesc().toList();
+        return DB.getAppDB().selectFromNotify().orderByIdDesc().toList();
     }
 
     public static void fetchSyncLasts(){
@@ -42,16 +42,16 @@ public class NotifyModel {
 				HttpJson<NotifysAddRemoveJson> data = Result.fromJson(result,NotifysAddRemoveJson.class);
 				if(data.isPayloadNoneEmpty()){
 					if(data.Payload.Add != null && data.Payload.Add.size()>0){
-						DB.db.transactionSync(()->{
+						DB.getAppDB().transactionSync(()->{
 							for(Notify n : data.Payload.Add){
 								n.PayloadStored = AppUtil.toJson(n.Load);
-								DB.db.insertIntoNotify(n);
+								DB.getAppDB().insertIntoNotify(n);
 							}
 						});
 					}
 
 					if(data.Payload.Remove != null && data.Payload.Remove.size()>0){
-						DB.db.deleteFromNotify().IdIn(data.Payload.Remove).execute();
+						DB.getAppDB().deleteFromNotify().IdIn(data.Payload.Remove).execute();
 					}
 
 					App.getBus().post(new NotifyChanged());
@@ -69,16 +69,16 @@ public class NotifyModel {
 				HttpJson<NotifysAddRemoveJson> data = Result.fromJson(result,NotifysAddRemoveJson.class);
 				if(data.isPayloadNoneEmpty()){
 					if(data.Payload.Add != null && data.Payload.Add.size()>0){
-						DB.db.transactionSync(()->{
+						DB.getAppDB().transactionSync(()->{
 							for(Notify n : data.Payload.Add){
 								n.PayloadStored = AppUtil.toJson(n.Load);
-								DB.db.insertIntoNotify(n);
+								DB.getAppDB().insertIntoNotify(n);
 							}
 						});
 					}
 
 					if(data.Payload.Remove != null && data.Payload.Remove.size()>0){
-						DB.db.deleteFromNotify().IdIn(data.Payload.Remove).execute();
+						DB.getAppDB().deleteFromNotify().IdIn(data.Payload.Remove).execute();
 					}
 
 					App.getBus().post(new NotifyChanged());
@@ -94,10 +94,10 @@ public class NotifyModel {
 			.doAsync(result -> {
 				HttpJsonList<Notify> data = Result.fromJsonList(result,Notify.class);
 				if(data.isPayloadNoneEmpty()){
-					DB.db.transactionSync(()->{
+					DB.getAppDB().transactionSync(()->{
 						for(Notify n : data.Payload){
 							n.PayloadStored = AppUtil.toJson(n.Load);
-							DB.db.insertIntoNotify(n);
+							DB.getAppDB().insertIntoNotify(n);
 						}
 					});
 				}
@@ -105,7 +105,7 @@ public class NotifyModel {
 	}
 
 	public static long getLast() {
-		Notify not = DB.db.selectFromNotify().orderByIdDesc().limit(1).getOrNull(0);
+		Notify not = DB.getAppDB().selectFromNotify().orderByIdDesc().limit(1).getOrNull(0);
 		if(not != null){
 			return not.Id;
 		}

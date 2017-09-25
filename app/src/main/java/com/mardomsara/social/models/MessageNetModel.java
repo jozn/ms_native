@@ -36,7 +36,7 @@ public class MessageNetModel {
 		Map<String, Boolean> roomsKeys = new HashMap<>();
 
 		//TODO Extract msg for reuse in the add new by me
-		DB.db.transactionSync(() -> {
+		DB.getAppDB().transactionSync(() -> {
 			for (PB_Message pbMsg : pbPushMsgAddMany.getMessagesList()) {
 				Message msgRow = PBConv.PB_Message_toNew_Message(pbMsg);
 				MessageModel.setParamsForNewMsgRecivedFromNet(msgRow);
@@ -51,7 +51,7 @@ public class MessageNetModel {
 		});
 
 		//first user then rooms updates and events
-		DB.db.transactionSync(() -> {
+		DB.getAppDB().transactionSync(() -> {
 			for (PB_UserWithMe pbMsg : pbPushMsgAddMany.getUsersList()) {
 				User userRow = PBConv.PB_UserWithMe_toNew_User(pbMsg);
 				UserModel.saveNewUser(userRow);
@@ -75,11 +75,11 @@ public class MessageNetModel {
 	public static void onNewMessagesEventsFromPipe(PB_PushMsgEvents data) {
 		List<String> msgkeys = new ArrayList<>();
 
-		DB.db.transactionSync(() -> {
+		DB.getAppDB().transactionSync(() -> {
 			for (PB_MsgEvent meta : data.getEventsList()) {
 				switch (meta.getEventType()) {
 					case Constants.MESSAGE_PUSH_EVENT_RECEIVED_TO_PEER:
-						DB.db.updateMessage()
+						DB.getAppDB().updateMessage()
 							.PeerReceivedTime(meta.getAtTime())//updtaed
 							.MessageKeyEq(meta.getMessageKey())
 							.RoomKeyEq(meta.getRoomKey())
@@ -87,7 +87,7 @@ public class MessageNetModel {
 						break;
 
 					case Constants.MESSAGE_PUSH_EVENT_SEEN_BY_PEER:
-						DB.db.updateMessage()
+						DB.getAppDB().updateMessage()
 							.PeerSeenTime(meta.getAtTime())//updtaed
 							.MessageKeyEq(meta.getMessageKey())
 							.RoomKeyEq(meta.getRoomKey())
@@ -95,7 +95,7 @@ public class MessageNetModel {
 						break;
 
 					case Constants.MESSAGE_PUSH_EVENT_DELETED_FROM_SERVER:
-						DB.db.updateMessage()
+						DB.getAppDB().updateMessage()
 							.ServerDeletedTime(meta.getAtTime())//updtaed
 							.MessageKeyEq(meta.getMessageKey())
 							.RoomKeyEq(meta.getRoomKey())

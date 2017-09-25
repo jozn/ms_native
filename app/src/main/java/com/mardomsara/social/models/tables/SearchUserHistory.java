@@ -37,19 +37,19 @@ public class SearchUserHistory {
 	final static int LIMIT = 50;
 
 	public void save(){
-		DB.db.insertIntoSearchUserHistory(this);
+		DB.getAppDB().insertIntoSearchUserHistory(this);
 		if(LangUtil.getRandom(10) == 5){
 			AndroidUtil.runInBackgroundNoPanic(()->{runGc();});
 		}
 	}
 
 	private static void runGc(){
-		List<SearchUserHistory> rows = DB.db.selectFromSearchUserHistory().orderByCreatedAtDesc().toList();
+		List<SearchUserHistory> rows = DB.getAppDB().selectFromSearchUserHistory().orderByCreatedAtDesc().toList();
 		if(rows.size()>LIMIT){
 			int delCnt = rows.size() - LIMIT;
-			DB.db.transactionSync(()->{
+			DB.getAppDB().transactionSync(()->{
 				for (int i=1 ;i <= delCnt; i++){
-					DB.db.deleteFromSearchUserHistory().UserIdEq(rows.get(rows.size()-i).UserId).execute();
+					DB.getAppDB().deleteFromSearchUserHistory().UserIdEq(rows.get(rows.size()-i).UserId).execute();
 				}
 			});
 		}

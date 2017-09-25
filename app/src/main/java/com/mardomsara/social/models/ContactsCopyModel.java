@@ -20,7 +20,7 @@ public class ContactsCopyModel {
 	public static Map<String,ContactsCopy> getCacheOfContactsCopy(){
 		if(cacheMap == null){
 			cacheMap = new HashMap<>();
-			List<ContactsCopy> list = DB.db.selectFromContactsCopy().toList();
+			List<ContactsCopy> list = DB.getAppDB().selectFromContactsCopy().toList();
 			for (ContactsCopy row: list){
 				if(row.PhoneNormalizedNumber != null && !row.PhoneNormalizedNumber.equals("")){
 					cacheMap.put(row.PhoneNormalizedNumber, row);
@@ -31,7 +31,7 @@ public class ContactsCopyModel {
 	}
 
 	public static List<ContactsCopy> getAllContactsCopy(){
-		return DB.db.selectFromContactsCopy().PhoneNormalizedNumberNotEq("").toList();
+		return DB.getAppDB().selectFromContactsCopy().PhoneNormalizedNumberNotEq("").toList();
 	}
 
 	@NonNull
@@ -42,7 +42,7 @@ public class ContactsCopyModel {
 			regs.add(u.PhoneNormalizedNumber);
 		}
 
-		return DB.db.selectFromContactsCopy().PhoneNormalizedNumberNotIn(regs).toList();
+		return DB.getAppDB().selectFromContactsCopy().PhoneNormalizedNumberNotIn(regs).toList();
 	}
 
 }

@@ -17,7 +17,7 @@ import java.util.List;
 public class FlushStoredDataToServer {
 	public static void flushAllMessages() {
 		if (false){
-			List<Message> msgs = DB.db.selectFromMessage().ToPushEq(1).toList();
+			List<Message> msgs = DB.getAppDB().selectFromMessage().ToPushEq(1).toList();
 			flushTextMessages(msgs);
 			flushMediaMsgs(msgs);
 			flushVideoMessages(msgs);
@@ -70,7 +70,7 @@ public class FlushStoredDataToServer {
 	}
 
 	public static void flushSeenMessages(){
-		List<MsgSeen> msgsSeen = DB.db.selectFromMsgSeen().toList();
+		List<MsgSeen> msgsSeen = DB.getAppDB().selectFromMsgSeen().toList();
 		if(msgsSeen == null || msgsSeen.size() ==0 )return;
 		MsgsCallToServer.sendSeenMsgs(msgsSeen);
 	}

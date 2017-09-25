@@ -21,14 +21,14 @@ public class UserModel {
 
 	//////////// CRUD ///////////
 	public static void create(User user) {
-		DB.db.insertIntoUser(user);
+		DB.getAppDB().insertIntoUser(user);
 	}
 
 	@Nullable
 	public static User getByUserId(int id) {
-		User user = DB.db.selectFromUser().UserIdEq(id).getOrNull(0);
+		User user = DB.getAppDB().selectFromUser().UserIdEq(id).getOrNull(0);
 		MemoryStore_Users.set(user);
-		return DB.db.selectFromUser().UserIdEq(id).getOrNull(0);
+		return DB.getAppDB().selectFromUser().UserIdEq(id).getOrNull(0);
 	}
 
 	/////////////////////////////
@@ -60,11 +60,11 @@ public class UserModel {
 	}
 
 	public static List<User> getAllFollowings() {
-		return DB.db.selectFromUser().FollowingTypeEq(1).toList();
+		return DB.getAppDB().selectFromUser().FollowingTypeEq(1).toList();
 	}
 
 	public static List<User> getAllRegisteredContacts() {
-		return DB.db.selectFromUser().IsPhoneContactEq(1).toList();
+		return DB.getAppDB().selectFromUser().IsPhoneContactEq(1).toList();
 	}
 
 	public static void onFollowedUser(UserInfoJson userJson) {

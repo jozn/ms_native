@@ -35,19 +35,19 @@ public class SearchTagHistory {
 	final static int LIMIT = 50;
 
 	public void save(){
-		DB.db.insertIntoSearchTagHistory(this);
+		DB.getAppDB().insertIntoSearchTagHistory(this);
 		if(LangUtil.getRandom(10) == 5){
 			AndroidUtil.runInBackgroundNoPanic(()->{runGc();});
 		}
 	}
 
 	private static void runGc(){
-		List<SearchTagHistory> rows = DB.db.selectFromSearchTagHistory().orderByCreatedAtDesc().toList();
+		List<SearchTagHistory> rows = DB.getAppDB().selectFromSearchTagHistory().orderByCreatedAtDesc().toList();
 		if(rows.size()>LIMIT){
 			int delCnt = rows.size() - LIMIT;
-			DB.db.transactionSync(()->{
+			DB.getAppDB().transactionSync(()->{
 				for (int i=1 ;i <= delCnt; i++){
-					DB.db.deleteFromSearchTagHistory().NameEq(rows.get(rows.size()-i).Name).execute();
+					DB.getAppDB().deleteFromSearchTagHistory().NameEq(rows.get(rows.size()-i).Name).execute();
 				}
 			});
 		}

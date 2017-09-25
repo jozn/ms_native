@@ -62,13 +62,13 @@ public class Room implements Comparable<Room> {
     public void saveAndEmit() {
 		MemoryStore_Rooms.setAndEmit(this);
 		saveToCahce();
-		DB.db.prepareInsertIntoRoom(OnConflict.REPLACE,false).execute(this);
+		DB.getAppDB().prepareInsertIntoRoom(OnConflict.REPLACE,false).execute(this);
     }
 
 	public void save() {
 		saveToCahce();
 //		MemoryStore_Rooms.set(this);
-		DB.db.prepareInsertIntoRoom(OnConflict.REPLACE,false).execute(this);
+		DB.getAppDB().prepareInsertIntoRoom(OnConflict.REPLACE,false).execute(this);
 	}
 
 	private void saveToCahce(){

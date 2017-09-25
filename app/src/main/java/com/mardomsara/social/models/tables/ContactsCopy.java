@@ -4,7 +4,6 @@ import com.github.gfx.android.orma.annotation.Column;
 import com.github.gfx.android.orma.annotation.PrimaryKey;
 import com.github.gfx.android.orma.annotation.Table;
 import com.mardomsara.social.app.DB;
-import com.mardomsara.social.base.FNV;
 
 /**
  * Created by Hamid on 9/4/2016.
@@ -44,7 +43,7 @@ public class ContactsCopy {
     }*/
 
     public void insert(){
-        DB.db.relationOfContactsCopy().upserter().execute(this);
+        DB.getAppDB().relationOfContactsCopy().upserter().execute(this);
     }
 
 }

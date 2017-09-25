@@ -32,6 +32,6 @@ public class MsgSeen {
 	public long AtTime = TimeUtil.getTimeSec();
 
 	public void save(){
-		DB.db.insertIntoMsgSeen(this);
+		DB.getAppDB().insertIntoMsgSeen(this);
 	}
 }

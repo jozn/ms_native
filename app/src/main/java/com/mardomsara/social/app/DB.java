@@ -20,10 +20,29 @@ import java.lang.reflect.Field;
 public class DB {
 
     private static RpcDB rpcDB = null;
-    public static AppDB db = null;
+    private static AppDB db = null;
 
 	static {
 		init();
+	}
+
+
+	public static AppDB getAppDB() {
+		if(db != null) return db;
+
+		AppDB.Builder builder = AppDB.builder(AppUtil.getContext());
+
+		if(Config.IS_DEBUG){
+			builder.readOnMainThread(AccessThreadConstraint.WARNING)
+				.writeOnMainThread(AccessThreadConstraint.WARNING);
+		} else {
+
+		}
+
+		db = (builder.name("ms40")
+			.trace(true)
+			.build());
+		return db;
 	}
 
 	public static RpcDB getRpcDB() {
@@ -45,7 +64,7 @@ public class DB {
 	}
 
 	public static void init(){
-        if(db != null) return;
+        if(getAppDB() != null) return;
 //        if(true) return;
 
 		AppDB.Builder builder = AppDB.builder(AppUtil.getContext());
@@ -57,9 +76,9 @@ public class DB {
 
 		}
 
-		db = builder.name("ms40")
+		setDb(builder.name("ms40")
 			.trace(true)
-			.build();
+			.build());
     }
 
     public static void updateAuto(Object row, Schema tableSchema) {
@@ -106,7 +125,7 @@ public class DB {
             String whereClause = primaryKey + "=?";
             String[] whereArgs = new String[]{primaryVal};
 
-            db.getConnection().update(tableSchema,content,whereClause,whereArgs);
+            getAppDB().getConnection().update(tableSchema,content,whereClause,whereArgs);
 
         } catch (Exception e) {
             e.printStackTrace();

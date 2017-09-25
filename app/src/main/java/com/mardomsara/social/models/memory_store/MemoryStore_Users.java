@@ -38,7 +38,7 @@ public class MemoryStore_Users {
 			ints.add(Room.roomKeyToPeerId(key));
 		}
 
-		List<User> users = DB.db.selectFromUser().UserIdIn(ints).toList();
+		List<User> users = DB.getAppDB().selectFromUser().UserIdIn(ints).toList();
 
 		for (User user : users){
 			set(user);

@@ -115,7 +115,7 @@ public class Command {
         }
         String q = "";
 //        AppUtil.log(toString());
-        DB.db.insertIntoCommand(this);
+        DB.getAppDB().insertIntoCommand(this);
     }
 
 
