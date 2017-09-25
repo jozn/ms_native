@@ -35,6 +35,10 @@ public class Play_WSCallPresenter extends BasePresenter {
 
 		} ));
 
+		layout.addView(newTitle2("Offline call of rpc",()->{
+			callEchoOffline();
+		} ));
+
         return rootView;
     }
 
@@ -47,6 +51,28 @@ public class Play_WSCallPresenter extends BasePresenter {
 
 				throw new RuntimeException("YYYYYYYYYYYYYYYY");
 		}, (err) -> {
+				Helper.showDebugMessage("echo err:" + err);
+			});
+
+		/*Pipe_OLD.sendCall("echo","Hi From go",
+			()->{
+				Helper.showDebugMessage("Echo Call Success");
+			},
+			()->{
+				Helper.showDebugMessage("Echo Call Error");
+			}
+		);*/
+	}
+
+	private void callEchoOffline() {
+		PB_MsgParam_Echo paramEcho = PB_MsgParam_Echo.newBuilder().setText("hi therre i am hamid").build();
+		RPC.RPC_Msg.Echo_Offline(null,paramEcho,
+			(res)->{
+				Helper.showDebugMessage("echo resu:" + res.getText() + res.toString());
+				info.setText(res.getText());
+
+				throw new RuntimeException("YYYYYYYYYYYYYYYY");
+			}, (err) -> {
 				Helper.showDebugMessage("echo err:" + err);
 			});
 

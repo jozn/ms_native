@@ -15,6 +15,23 @@ public class RPC {
         PB_ReqLastChangesForTheRoom param,
         GetLastChnagesForRoom_ResultHandler resultHandler,
         ErrorCallback errorCallback) {
+      GetLastChnagesForRoomImpl(param, resultHandler, errorCallback, false, "");
+    }
+
+    public static void GetLastChnagesForRoom_Offline(
+        String offlineKey,
+        PB_ReqLastChangesForTheRoom param,
+        GetLastChnagesForRoom_ResultHandler resultHandler,
+        ErrorCallback errorCallback) {
+      GetLastChnagesForRoomImpl(param, resultHandler, errorCallback, true, offlineKey);
+    }
+
+    private static void GetLastChnagesForRoomImpl(
+        PB_ReqLastChangesForTheRoom param,
+        GetLastChnagesForRoom_ResultHandler resultHandler,
+        ErrorCallback errorCallback,
+        Boolean offline,
+        String offlineKey) {
       SuccessCallback callback = null;
       if (resultHandler != null) {
         callback =
@@ -37,7 +54,12 @@ public class RPC {
             };
       }
 
-      Pipe.send("RPC_MessageReq.GetLastChnagesForRoom", param, callback, errorCallback);
+      if (offline) {
+        Pipe.sendOffline(
+            offlineKey, "RPC_MessageReq.GetLastChnagesForRoom", param, callback, errorCallback);
+      } else {
+        Pipe.send("RPC_MessageReq.GetLastChnagesForRoom", param, callback, errorCallback);
+      }
     }
   }
 
@@ -51,6 +73,23 @@ public class RPC {
         PB_RequestSetLastSeenMessages param,
         SetLastSeen_ResultHandler resultHandler,
         ErrorCallback errorCallback) {
+      SetLastSeenImpl(param, resultHandler, errorCallback, false, "");
+    }
+
+    public static void SetLastSeen_Offline(
+        String offlineKey,
+        PB_RequestSetLastSeenMessages param,
+        SetLastSeen_ResultHandler resultHandler,
+        ErrorCallback errorCallback) {
+      SetLastSeenImpl(param, resultHandler, errorCallback, true, offlineKey);
+    }
+
+    private static void SetLastSeenImpl(
+        PB_RequestSetLastSeenMessages param,
+        SetLastSeen_ResultHandler resultHandler,
+        ErrorCallback errorCallback,
+        Boolean offline,
+        String offlineKey) {
       SuccessCallback callback = null;
       if (resultHandler != null) {
         callback =
@@ -71,7 +110,12 @@ public class RPC {
             };
       }
 
-      Pipe.send("RPC_MessageReqOffline.SetLastSeen", param, callback, errorCallback);
+      if (offline) {
+        Pipe.sendOffline(
+            offlineKey, "RPC_MessageReqOffline.SetLastSeen", param, callback, errorCallback);
+      } else {
+        Pipe.send("RPC_MessageReqOffline.SetLastSeen", param, callback, errorCallback);
+      }
     }
   }
 
@@ -83,6 +127,23 @@ public class RPC {
 
     public static void UploadNewMsg(
         PB_Message param, UploadNewMsg_ResultHandler resultHandler, ErrorCallback errorCallback) {
+      UploadNewMsgImpl(param, resultHandler, errorCallback, false, "");
+    }
+
+    public static void UploadNewMsg_Offline(
+        String offlineKey,
+        PB_Message param,
+        UploadNewMsg_ResultHandler resultHandler,
+        ErrorCallback errorCallback) {
+      UploadNewMsgImpl(param, resultHandler, errorCallback, true, offlineKey);
+    }
+
+    private static void UploadNewMsgImpl(
+        PB_Message param,
+        UploadNewMsg_ResultHandler resultHandler,
+        ErrorCallback errorCallback,
+        Boolean offline,
+        String offlineKey) {
       SuccessCallback callback = null;
       if (resultHandler != null) {
         callback =
@@ -102,7 +163,11 @@ public class RPC {
             };
       }
 
-      Pipe.send("RpcMsgs.UploadNewMsg", param, callback, errorCallback);
+      if (offline) {
+        Pipe.sendOffline(offlineKey, "RpcMsgs.UploadNewMsg", param, callback, errorCallback);
+      } else {
+        Pipe.send("RpcMsgs.UploadNewMsg", param, callback, errorCallback);
+      }
     }
   }
 
@@ -140,6 +205,23 @@ public class RPC {
         PB_UserParam_CheckUserName2 param,
         CheckPhone_ResultHandler resultHandler,
         ErrorCallback errorCallback) {
+      CheckPhoneImpl(param, resultHandler, errorCallback, false, "");
+    }
+
+    public static void CheckPhone_Offline(
+        String offlineKey,
+        PB_UserParam_CheckUserName2 param,
+        CheckPhone_ResultHandler resultHandler,
+        ErrorCallback errorCallback) {
+      CheckPhoneImpl(param, resultHandler, errorCallback, true, offlineKey);
+    }
+
+    private static void CheckPhoneImpl(
+        PB_UserParam_CheckUserName2 param,
+        CheckPhone_ResultHandler resultHandler,
+        ErrorCallback errorCallback,
+        Boolean offline,
+        String offlineKey) {
       SuccessCallback callback = null;
       if (resultHandler != null) {
         callback =
@@ -160,13 +242,34 @@ public class RPC {
             };
       }
 
-      Pipe.send("RPC_Auth.CheckPhone", param, callback, errorCallback);
+      if (offline) {
+        Pipe.sendOffline(offlineKey, "RPC_Auth.CheckPhone", param, callback, errorCallback);
+      } else {
+        Pipe.send("RPC_Auth.CheckPhone", param, callback, errorCallback);
+      }
     }
 
     public static void SendCode(
         PB_UserParam_CheckUserName2 param,
         SendCode_ResultHandler resultHandler,
         ErrorCallback errorCallback) {
+      SendCodeImpl(param, resultHandler, errorCallback, false, "");
+    }
+
+    public static void SendCode_Offline(
+        String offlineKey,
+        PB_UserParam_CheckUserName2 param,
+        SendCode_ResultHandler resultHandler,
+        ErrorCallback errorCallback) {
+      SendCodeImpl(param, resultHandler, errorCallback, true, offlineKey);
+    }
+
+    private static void SendCodeImpl(
+        PB_UserParam_CheckUserName2 param,
+        SendCode_ResultHandler resultHandler,
+        ErrorCallback errorCallback,
+        Boolean offline,
+        String offlineKey) {
       SuccessCallback callback = null;
       if (resultHandler != null) {
         callback =
@@ -187,13 +290,34 @@ public class RPC {
             };
       }
 
-      Pipe.send("RPC_Auth.SendCode", param, callback, errorCallback);
+      if (offline) {
+        Pipe.sendOffline(offlineKey, "RPC_Auth.SendCode", param, callback, errorCallback);
+      } else {
+        Pipe.send("RPC_Auth.SendCode", param, callback, errorCallback);
+      }
     }
 
     public static void SendCodeToSms(
         PB_UserParam_CheckUserName2 param,
         SendCodeToSms_ResultHandler resultHandler,
         ErrorCallback errorCallback) {
+      SendCodeToSmsImpl(param, resultHandler, errorCallback, false, "");
+    }
+
+    public static void SendCodeToSms_Offline(
+        String offlineKey,
+        PB_UserParam_CheckUserName2 param,
+        SendCodeToSms_ResultHandler resultHandler,
+        ErrorCallback errorCallback) {
+      SendCodeToSmsImpl(param, resultHandler, errorCallback, true, offlineKey);
+    }
+
+    private static void SendCodeToSmsImpl(
+        PB_UserParam_CheckUserName2 param,
+        SendCodeToSms_ResultHandler resultHandler,
+        ErrorCallback errorCallback,
+        Boolean offline,
+        String offlineKey) {
       SuccessCallback callback = null;
       if (resultHandler != null) {
         callback =
@@ -214,13 +338,34 @@ public class RPC {
             };
       }
 
-      Pipe.send("RPC_Auth.SendCodeToSms", param, callback, errorCallback);
+      if (offline) {
+        Pipe.sendOffline(offlineKey, "RPC_Auth.SendCodeToSms", param, callback, errorCallback);
+      } else {
+        Pipe.send("RPC_Auth.SendCodeToSms", param, callback, errorCallback);
+      }
     }
 
     public static void SendCodeToTelgram(
         PB_UserParam_CheckUserName2 param,
         SendCodeToTelgram_ResultHandler resultHandler,
         ErrorCallback errorCallback) {
+      SendCodeToTelgramImpl(param, resultHandler, errorCallback, false, "");
+    }
+
+    public static void SendCodeToTelgram_Offline(
+        String offlineKey,
+        PB_UserParam_CheckUserName2 param,
+        SendCodeToTelgram_ResultHandler resultHandler,
+        ErrorCallback errorCallback) {
+      SendCodeToTelgramImpl(param, resultHandler, errorCallback, true, offlineKey);
+    }
+
+    private static void SendCodeToTelgramImpl(
+        PB_UserParam_CheckUserName2 param,
+        SendCodeToTelgram_ResultHandler resultHandler,
+        ErrorCallback errorCallback,
+        Boolean offline,
+        String offlineKey) {
       SuccessCallback callback = null;
       if (resultHandler != null) {
         callback =
@@ -241,13 +386,34 @@ public class RPC {
             };
       }
 
-      Pipe.send("RPC_Auth.SendCodeToTelgram", param, callback, errorCallback);
+      if (offline) {
+        Pipe.sendOffline(offlineKey, "RPC_Auth.SendCodeToTelgram", param, callback, errorCallback);
+      } else {
+        Pipe.send("RPC_Auth.SendCodeToTelgram", param, callback, errorCallback);
+      }
     }
 
     public static void SingUp(
         PB_UserParam_CheckUserName2 param,
         SingUp_ResultHandler resultHandler,
         ErrorCallback errorCallback) {
+      SingUpImpl(param, resultHandler, errorCallback, false, "");
+    }
+
+    public static void SingUp_Offline(
+        String offlineKey,
+        PB_UserParam_CheckUserName2 param,
+        SingUp_ResultHandler resultHandler,
+        ErrorCallback errorCallback) {
+      SingUpImpl(param, resultHandler, errorCallback, true, offlineKey);
+    }
+
+    private static void SingUpImpl(
+        PB_UserParam_CheckUserName2 param,
+        SingUp_ResultHandler resultHandler,
+        ErrorCallback errorCallback,
+        Boolean offline,
+        String offlineKey) {
       SuccessCallback callback = null;
       if (resultHandler != null) {
         callback =
@@ -268,13 +434,34 @@ public class RPC {
             };
       }
 
-      Pipe.send("RPC_Auth.SingUp", param, callback, errorCallback);
+      if (offline) {
+        Pipe.sendOffline(offlineKey, "RPC_Auth.SingUp", param, callback, errorCallback);
+      } else {
+        Pipe.send("RPC_Auth.SingUp", param, callback, errorCallback);
+      }
     }
 
     public static void SingIn(
         PB_UserParam_CheckUserName2 param,
         SingIn_ResultHandler resultHandler,
         ErrorCallback errorCallback) {
+      SingInImpl(param, resultHandler, errorCallback, false, "");
+    }
+
+    public static void SingIn_Offline(
+        String offlineKey,
+        PB_UserParam_CheckUserName2 param,
+        SingIn_ResultHandler resultHandler,
+        ErrorCallback errorCallback) {
+      SingInImpl(param, resultHandler, errorCallback, true, offlineKey);
+    }
+
+    private static void SingInImpl(
+        PB_UserParam_CheckUserName2 param,
+        SingIn_ResultHandler resultHandler,
+        ErrorCallback errorCallback,
+        Boolean offline,
+        String offlineKey) {
       SuccessCallback callback = null;
       if (resultHandler != null) {
         callback =
@@ -295,13 +482,34 @@ public class RPC {
             };
       }
 
-      Pipe.send("RPC_Auth.SingIn", param, callback, errorCallback);
+      if (offline) {
+        Pipe.sendOffline(offlineKey, "RPC_Auth.SingIn", param, callback, errorCallback);
+      } else {
+        Pipe.send("RPC_Auth.SingIn", param, callback, errorCallback);
+      }
     }
 
     public static void LogOut(
         PB_UserParam_CheckUserName2 param,
         LogOut_ResultHandler resultHandler,
         ErrorCallback errorCallback) {
+      LogOutImpl(param, resultHandler, errorCallback, false, "");
+    }
+
+    public static void LogOut_Offline(
+        String offlineKey,
+        PB_UserParam_CheckUserName2 param,
+        LogOut_ResultHandler resultHandler,
+        ErrorCallback errorCallback) {
+      LogOutImpl(param, resultHandler, errorCallback, true, offlineKey);
+    }
+
+    private static void LogOutImpl(
+        PB_UserParam_CheckUserName2 param,
+        LogOut_ResultHandler resultHandler,
+        ErrorCallback errorCallback,
+        Boolean offline,
+        String offlineKey) {
       SuccessCallback callback = null;
       if (resultHandler != null) {
         callback =
@@ -322,7 +530,11 @@ public class RPC {
             };
       }
 
-      Pipe.send("RPC_Auth.LogOut", param, callback, errorCallback);
+      if (offline) {
+        Pipe.sendOffline(offlineKey, "RPC_Auth.LogOut", param, callback, errorCallback);
+      } else {
+        Pipe.send("RPC_Auth.LogOut", param, callback, errorCallback);
+      }
     }
   }
 
@@ -384,6 +596,23 @@ public class RPC {
         PB_MsgParam_AddNewTextMessage param,
         AddNewTextMessage_ResultHandler resultHandler,
         ErrorCallback errorCallback) {
+      AddNewTextMessageImpl(param, resultHandler, errorCallback, false, "");
+    }
+
+    public static void AddNewTextMessage_Offline(
+        String offlineKey,
+        PB_MsgParam_AddNewTextMessage param,
+        AddNewTextMessage_ResultHandler resultHandler,
+        ErrorCallback errorCallback) {
+      AddNewTextMessageImpl(param, resultHandler, errorCallback, true, offlineKey);
+    }
+
+    private static void AddNewTextMessageImpl(
+        PB_MsgParam_AddNewTextMessage param,
+        AddNewTextMessage_ResultHandler resultHandler,
+        ErrorCallback errorCallback,
+        Boolean offline,
+        String offlineKey) {
       SuccessCallback callback = null;
       if (resultHandler != null) {
         callback =
@@ -406,13 +635,34 @@ public class RPC {
             };
       }
 
-      Pipe.send("RPC_Msg.AddNewTextMessage", param, callback, errorCallback);
+      if (offline) {
+        Pipe.sendOffline(offlineKey, "RPC_Msg.AddNewTextMessage", param, callback, errorCallback);
+      } else {
+        Pipe.send("RPC_Msg.AddNewTextMessage", param, callback, errorCallback);
+      }
     }
 
     public static void AddNewMessage(
         PB_MsgParam_AddNewMessage param,
         AddNewMessage_ResultHandler resultHandler,
         ErrorCallback errorCallback) {
+      AddNewMessageImpl(param, resultHandler, errorCallback, false, "");
+    }
+
+    public static void AddNewMessage_Offline(
+        String offlineKey,
+        PB_MsgParam_AddNewMessage param,
+        AddNewMessage_ResultHandler resultHandler,
+        ErrorCallback errorCallback) {
+      AddNewMessageImpl(param, resultHandler, errorCallback, true, offlineKey);
+    }
+
+    private static void AddNewMessageImpl(
+        PB_MsgParam_AddNewMessage param,
+        AddNewMessage_ResultHandler resultHandler,
+        ErrorCallback errorCallback,
+        Boolean offline,
+        String offlineKey) {
       SuccessCallback callback = null;
       if (resultHandler != null) {
         callback =
@@ -432,13 +682,34 @@ public class RPC {
             };
       }
 
-      Pipe.send("RPC_Msg.AddNewMessage", param, callback, errorCallback);
+      if (offline) {
+        Pipe.sendOffline(offlineKey, "RPC_Msg.AddNewMessage", param, callback, errorCallback);
+      } else {
+        Pipe.send("RPC_Msg.AddNewMessage", param, callback, errorCallback);
+      }
     }
 
     public static void SetRoomActionDoing(
         PB_MsgParam_SetRoomActionDoing param,
         SetRoomActionDoing_ResultHandler resultHandler,
         ErrorCallback errorCallback) {
+      SetRoomActionDoingImpl(param, resultHandler, errorCallback, false, "");
+    }
+
+    public static void SetRoomActionDoing_Offline(
+        String offlineKey,
+        PB_MsgParam_SetRoomActionDoing param,
+        SetRoomActionDoing_ResultHandler resultHandler,
+        ErrorCallback errorCallback) {
+      SetRoomActionDoingImpl(param, resultHandler, errorCallback, true, offlineKey);
+    }
+
+    private static void SetRoomActionDoingImpl(
+        PB_MsgParam_SetRoomActionDoing param,
+        SetRoomActionDoing_ResultHandler resultHandler,
+        ErrorCallback errorCallback,
+        Boolean offline,
+        String offlineKey) {
       SuccessCallback callback = null;
       if (resultHandler != null) {
         callback =
@@ -461,13 +732,34 @@ public class RPC {
             };
       }
 
-      Pipe.send("RPC_Msg.SetRoomActionDoing", param, callback, errorCallback);
+      if (offline) {
+        Pipe.sendOffline(offlineKey, "RPC_Msg.SetRoomActionDoing", param, callback, errorCallback);
+      } else {
+        Pipe.send("RPC_Msg.SetRoomActionDoing", param, callback, errorCallback);
+      }
     }
 
     public static void GetMessagesByIds(
         PB_MsgParam_GetMessagesByIds param,
         GetMessagesByIds_ResultHandler resultHandler,
         ErrorCallback errorCallback) {
+      GetMessagesByIdsImpl(param, resultHandler, errorCallback, false, "");
+    }
+
+    public static void GetMessagesByIds_Offline(
+        String offlineKey,
+        PB_MsgParam_GetMessagesByIds param,
+        GetMessagesByIds_ResultHandler resultHandler,
+        ErrorCallback errorCallback) {
+      GetMessagesByIdsImpl(param, resultHandler, errorCallback, true, offlineKey);
+    }
+
+    private static void GetMessagesByIdsImpl(
+        PB_MsgParam_GetMessagesByIds param,
+        GetMessagesByIds_ResultHandler resultHandler,
+        ErrorCallback errorCallback,
+        Boolean offline,
+        String offlineKey) {
       SuccessCallback callback = null;
       if (resultHandler != null) {
         callback =
@@ -490,13 +782,34 @@ public class RPC {
             };
       }
 
-      Pipe.send("RPC_Msg.GetMessagesByIds", param, callback, errorCallback);
+      if (offline) {
+        Pipe.sendOffline(offlineKey, "RPC_Msg.GetMessagesByIds", param, callback, errorCallback);
+      } else {
+        Pipe.send("RPC_Msg.GetMessagesByIds", param, callback, errorCallback);
+      }
     }
 
     public static void GetMessagesHistory(
         PB_MsgParam_GetMessagesHistory param,
         GetMessagesHistory_ResultHandler resultHandler,
         ErrorCallback errorCallback) {
+      GetMessagesHistoryImpl(param, resultHandler, errorCallback, false, "");
+    }
+
+    public static void GetMessagesHistory_Offline(
+        String offlineKey,
+        PB_MsgParam_GetMessagesHistory param,
+        GetMessagesHistory_ResultHandler resultHandler,
+        ErrorCallback errorCallback) {
+      GetMessagesHistoryImpl(param, resultHandler, errorCallback, true, offlineKey);
+    }
+
+    private static void GetMessagesHistoryImpl(
+        PB_MsgParam_GetMessagesHistory param,
+        GetMessagesHistory_ResultHandler resultHandler,
+        ErrorCallback errorCallback,
+        Boolean offline,
+        String offlineKey) {
       SuccessCallback callback = null;
       if (resultHandler != null) {
         callback =
@@ -519,13 +832,34 @@ public class RPC {
             };
       }
 
-      Pipe.send("RPC_Msg.GetMessagesHistory", param, callback, errorCallback);
+      if (offline) {
+        Pipe.sendOffline(offlineKey, "RPC_Msg.GetMessagesHistory", param, callback, errorCallback);
+      } else {
+        Pipe.send("RPC_Msg.GetMessagesHistory", param, callback, errorCallback);
+      }
     }
 
     public static void SetMessagesRangeAsSeen(
         PB_MsgParam_SetChatMessagesRangeAsSeen param,
         SetMessagesRangeAsSeen_ResultHandler resultHandler,
         ErrorCallback errorCallback) {
+      SetMessagesRangeAsSeenImpl(param, resultHandler, errorCallback, false, "");
+    }
+
+    public static void SetMessagesRangeAsSeen_Offline(
+        String offlineKey,
+        PB_MsgParam_SetChatMessagesRangeAsSeen param,
+        SetMessagesRangeAsSeen_ResultHandler resultHandler,
+        ErrorCallback errorCallback) {
+      SetMessagesRangeAsSeenImpl(param, resultHandler, errorCallback, true, offlineKey);
+    }
+
+    private static void SetMessagesRangeAsSeenImpl(
+        PB_MsgParam_SetChatMessagesRangeAsSeen param,
+        SetMessagesRangeAsSeen_ResultHandler resultHandler,
+        ErrorCallback errorCallback,
+        Boolean offline,
+        String offlineKey) {
       SuccessCallback callback = null;
       if (resultHandler != null) {
         callback =
@@ -548,13 +882,35 @@ public class RPC {
             };
       }
 
-      Pipe.send("RPC_Msg.SetMessagesRangeAsSeen", param, callback, errorCallback);
+      if (offline) {
+        Pipe.sendOffline(
+            offlineKey, "RPC_Msg.SetMessagesRangeAsSeen", param, callback, errorCallback);
+      } else {
+        Pipe.send("RPC_Msg.SetMessagesRangeAsSeen", param, callback, errorCallback);
+      }
     }
 
     public static void DeleteChatHistory(
         PB_MsgParam_DeleteChatHistory param,
         DeleteChatHistory_ResultHandler resultHandler,
         ErrorCallback errorCallback) {
+      DeleteChatHistoryImpl(param, resultHandler, errorCallback, false, "");
+    }
+
+    public static void DeleteChatHistory_Offline(
+        String offlineKey,
+        PB_MsgParam_DeleteChatHistory param,
+        DeleteChatHistory_ResultHandler resultHandler,
+        ErrorCallback errorCallback) {
+      DeleteChatHistoryImpl(param, resultHandler, errorCallback, true, offlineKey);
+    }
+
+    private static void DeleteChatHistoryImpl(
+        PB_MsgParam_DeleteChatHistory param,
+        DeleteChatHistory_ResultHandler resultHandler,
+        ErrorCallback errorCallback,
+        Boolean offline,
+        String offlineKey) {
       SuccessCallback callback = null;
       if (resultHandler != null) {
         callback =
@@ -577,13 +933,34 @@ public class RPC {
             };
       }
 
-      Pipe.send("RPC_Msg.DeleteChatHistory", param, callback, errorCallback);
+      if (offline) {
+        Pipe.sendOffline(offlineKey, "RPC_Msg.DeleteChatHistory", param, callback, errorCallback);
+      } else {
+        Pipe.send("RPC_Msg.DeleteChatHistory", param, callback, errorCallback);
+      }
     }
 
     public static void DeleteMessagesByIds(
         PB_MsgParam_DeleteMessagesByIds param,
         DeleteMessagesByIds_ResultHandler resultHandler,
         ErrorCallback errorCallback) {
+      DeleteMessagesByIdsImpl(param, resultHandler, errorCallback, false, "");
+    }
+
+    public static void DeleteMessagesByIds_Offline(
+        String offlineKey,
+        PB_MsgParam_DeleteMessagesByIds param,
+        DeleteMessagesByIds_ResultHandler resultHandler,
+        ErrorCallback errorCallback) {
+      DeleteMessagesByIdsImpl(param, resultHandler, errorCallback, true, offlineKey);
+    }
+
+    private static void DeleteMessagesByIdsImpl(
+        PB_MsgParam_DeleteMessagesByIds param,
+        DeleteMessagesByIds_ResultHandler resultHandler,
+        ErrorCallback errorCallback,
+        Boolean offline,
+        String offlineKey) {
       SuccessCallback callback = null;
       if (resultHandler != null) {
         callback =
@@ -606,13 +983,34 @@ public class RPC {
             };
       }
 
-      Pipe.send("RPC_Msg.DeleteMessagesByIds", param, callback, errorCallback);
+      if (offline) {
+        Pipe.sendOffline(offlineKey, "RPC_Msg.DeleteMessagesByIds", param, callback, errorCallback);
+      } else {
+        Pipe.send("RPC_Msg.DeleteMessagesByIds", param, callback, errorCallback);
+      }
     }
 
     public static void SetMessagesAsReceived(
         PB_MsgParam_SetMessagesAsReceived param,
         SetMessagesAsReceived_ResultHandler resultHandler,
         ErrorCallback errorCallback) {
+      SetMessagesAsReceivedImpl(param, resultHandler, errorCallback, false, "");
+    }
+
+    public static void SetMessagesAsReceived_Offline(
+        String offlineKey,
+        PB_MsgParam_SetMessagesAsReceived param,
+        SetMessagesAsReceived_ResultHandler resultHandler,
+        ErrorCallback errorCallback) {
+      SetMessagesAsReceivedImpl(param, resultHandler, errorCallback, true, offlineKey);
+    }
+
+    private static void SetMessagesAsReceivedImpl(
+        PB_MsgParam_SetMessagesAsReceived param,
+        SetMessagesAsReceived_ResultHandler resultHandler,
+        ErrorCallback errorCallback,
+        Boolean offline,
+        String offlineKey) {
       SuccessCallback callback = null;
       if (resultHandler != null) {
         callback =
@@ -635,13 +1033,35 @@ public class RPC {
             };
       }
 
-      Pipe.send("RPC_Msg.SetMessagesAsReceived", param, callback, errorCallback);
+      if (offline) {
+        Pipe.sendOffline(
+            offlineKey, "RPC_Msg.SetMessagesAsReceived", param, callback, errorCallback);
+      } else {
+        Pipe.send("RPC_Msg.SetMessagesAsReceived", param, callback, errorCallback);
+      }
     }
 
     public static void ForwardMessages(
         PB_MsgParam_ForwardMessages param,
         ForwardMessages_ResultHandler resultHandler,
         ErrorCallback errorCallback) {
+      ForwardMessagesImpl(param, resultHandler, errorCallback, false, "");
+    }
+
+    public static void ForwardMessages_Offline(
+        String offlineKey,
+        PB_MsgParam_ForwardMessages param,
+        ForwardMessages_ResultHandler resultHandler,
+        ErrorCallback errorCallback) {
+      ForwardMessagesImpl(param, resultHandler, errorCallback, true, offlineKey);
+    }
+
+    private static void ForwardMessagesImpl(
+        PB_MsgParam_ForwardMessages param,
+        ForwardMessages_ResultHandler resultHandler,
+        ErrorCallback errorCallback,
+        Boolean offline,
+        String offlineKey) {
       SuccessCallback callback = null;
       if (resultHandler != null) {
         callback =
@@ -662,13 +1082,34 @@ public class RPC {
             };
       }
 
-      Pipe.send("RPC_Msg.ForwardMessages", param, callback, errorCallback);
+      if (offline) {
+        Pipe.sendOffline(offlineKey, "RPC_Msg.ForwardMessages", param, callback, errorCallback);
+      } else {
+        Pipe.send("RPC_Msg.ForwardMessages", param, callback, errorCallback);
+      }
     }
 
     public static void EditMessage(
         PB_MsgParam_EditMessage param,
         EditMessage_ResultHandler resultHandler,
         ErrorCallback errorCallback) {
+      EditMessageImpl(param, resultHandler, errorCallback, false, "");
+    }
+
+    public static void EditMessage_Offline(
+        String offlineKey,
+        PB_MsgParam_EditMessage param,
+        EditMessage_ResultHandler resultHandler,
+        ErrorCallback errorCallback) {
+      EditMessageImpl(param, resultHandler, errorCallback, true, offlineKey);
+    }
+
+    private static void EditMessageImpl(
+        PB_MsgParam_EditMessage param,
+        EditMessage_ResultHandler resultHandler,
+        ErrorCallback errorCallback,
+        Boolean offline,
+        String offlineKey) {
       SuccessCallback callback = null;
       if (resultHandler != null) {
         callback =
@@ -688,13 +1129,34 @@ public class RPC {
             };
       }
 
-      Pipe.send("RPC_Msg.EditMessage", param, callback, errorCallback);
+      if (offline) {
+        Pipe.sendOffline(offlineKey, "RPC_Msg.EditMessage", param, callback, errorCallback);
+      } else {
+        Pipe.send("RPC_Msg.EditMessage", param, callback, errorCallback);
+      }
     }
 
     public static void BroadcastNewMessage(
         PB_MsgParam_BroadcastNewMessage param,
         BroadcastNewMessage_ResultHandler resultHandler,
         ErrorCallback errorCallback) {
+      BroadcastNewMessageImpl(param, resultHandler, errorCallback, false, "");
+    }
+
+    public static void BroadcastNewMessage_Offline(
+        String offlineKey,
+        PB_MsgParam_BroadcastNewMessage param,
+        BroadcastNewMessage_ResultHandler resultHandler,
+        ErrorCallback errorCallback) {
+      BroadcastNewMessageImpl(param, resultHandler, errorCallback, true, offlineKey);
+    }
+
+    private static void BroadcastNewMessageImpl(
+        PB_MsgParam_BroadcastNewMessage param,
+        BroadcastNewMessage_ResultHandler resultHandler,
+        ErrorCallback errorCallback,
+        Boolean offline,
+        String offlineKey) {
       SuccessCallback callback = null;
       if (resultHandler != null) {
         callback =
@@ -717,11 +1179,32 @@ public class RPC {
             };
       }
 
-      Pipe.send("RPC_Msg.BroadcastNewMessage", param, callback, errorCallback);
+      if (offline) {
+        Pipe.sendOffline(offlineKey, "RPC_Msg.BroadcastNewMessage", param, callback, errorCallback);
+      } else {
+        Pipe.send("RPC_Msg.BroadcastNewMessage", param, callback, errorCallback);
+      }
     }
 
     public static void Echo(
         PB_MsgParam_Echo param, Echo_ResultHandler resultHandler, ErrorCallback errorCallback) {
+      EchoImpl(param, resultHandler, errorCallback, false, "");
+    }
+
+    public static void Echo_Offline(
+        String offlineKey,
+        PB_MsgParam_Echo param,
+        Echo_ResultHandler resultHandler,
+        ErrorCallback errorCallback) {
+      EchoImpl(param, resultHandler, errorCallback, true, offlineKey);
+    }
+
+    private static void EchoImpl(
+        PB_MsgParam_Echo param,
+        Echo_ResultHandler resultHandler,
+        ErrorCallback errorCallback,
+        Boolean offline,
+        String offlineKey) {
       SuccessCallback callback = null;
       if (resultHandler != null) {
         callback =
@@ -744,7 +1227,11 @@ public class RPC {
             };
       }
 
-      Pipe.send("RPC_Msg.Echo", param, callback, errorCallback);
+      if (offline) {
+        Pipe.sendOffline(offlineKey, "RPC_Msg.Echo", param, callback, errorCallback);
+      } else {
+        Pipe.send("RPC_Msg.Echo", param, callback, errorCallback);
+      }
     }
   }
 
@@ -778,6 +1265,23 @@ public class RPC {
         PB_UserParam_BlockUser param,
         BlockUser_ResultHandler resultHandler,
         ErrorCallback errorCallback) {
+      BlockUserImpl(param, resultHandler, errorCallback, false, "");
+    }
+
+    public static void BlockUser_Offline(
+        String offlineKey,
+        PB_UserParam_BlockUser param,
+        BlockUser_ResultHandler resultHandler,
+        ErrorCallback errorCallback) {
+      BlockUserImpl(param, resultHandler, errorCallback, true, offlineKey);
+    }
+
+    private static void BlockUserImpl(
+        PB_UserParam_BlockUser param,
+        BlockUser_ResultHandler resultHandler,
+        ErrorCallback errorCallback,
+        Boolean offline,
+        String offlineKey) {
       SuccessCallback callback = null;
       if (resultHandler != null) {
         callback =
@@ -800,13 +1304,34 @@ public class RPC {
             };
       }
 
-      Pipe.send("RPC_UserOffline.BlockUser", param, callback, errorCallback);
+      if (offline) {
+        Pipe.sendOffline(offlineKey, "RPC_UserOffline.BlockUser", param, callback, errorCallback);
+      } else {
+        Pipe.send("RPC_UserOffline.BlockUser", param, callback, errorCallback);
+      }
     }
 
     public static void UnBlockUser(
         PB_UserParam_UnBlockUser param,
         UnBlockUser_ResultHandler resultHandler,
         ErrorCallback errorCallback) {
+      UnBlockUserImpl(param, resultHandler, errorCallback, false, "");
+    }
+
+    public static void UnBlockUser_Offline(
+        String offlineKey,
+        PB_UserParam_UnBlockUser param,
+        UnBlockUser_ResultHandler resultHandler,
+        ErrorCallback errorCallback) {
+      UnBlockUserImpl(param, resultHandler, errorCallback, true, offlineKey);
+    }
+
+    private static void UnBlockUserImpl(
+        PB_UserParam_UnBlockUser param,
+        UnBlockUser_ResultHandler resultHandler,
+        ErrorCallback errorCallback,
+        Boolean offline,
+        String offlineKey) {
       SuccessCallback callback = null;
       if (resultHandler != null) {
         callback =
@@ -829,13 +1354,34 @@ public class RPC {
             };
       }
 
-      Pipe.send("RPC_UserOffline.UnBlockUser", param, callback, errorCallback);
+      if (offline) {
+        Pipe.sendOffline(offlineKey, "RPC_UserOffline.UnBlockUser", param, callback, errorCallback);
+      } else {
+        Pipe.send("RPC_UserOffline.UnBlockUser", param, callback, errorCallback);
+      }
     }
 
     public static void UpdateAbout(
         PB_UserParam_UpdateAbout param,
         UpdateAbout_ResultHandler resultHandler,
         ErrorCallback errorCallback) {
+      UpdateAboutImpl(param, resultHandler, errorCallback, false, "");
+    }
+
+    public static void UpdateAbout_Offline(
+        String offlineKey,
+        PB_UserParam_UpdateAbout param,
+        UpdateAbout_ResultHandler resultHandler,
+        ErrorCallback errorCallback) {
+      UpdateAboutImpl(param, resultHandler, errorCallback, true, offlineKey);
+    }
+
+    private static void UpdateAboutImpl(
+        PB_UserParam_UpdateAbout param,
+        UpdateAbout_ResultHandler resultHandler,
+        ErrorCallback errorCallback,
+        Boolean offline,
+        String offlineKey) {
       SuccessCallback callback = null;
       if (resultHandler != null) {
         callback =
@@ -858,13 +1404,34 @@ public class RPC {
             };
       }
 
-      Pipe.send("RPC_UserOffline.UpdateAbout", param, callback, errorCallback);
+      if (offline) {
+        Pipe.sendOffline(offlineKey, "RPC_UserOffline.UpdateAbout", param, callback, errorCallback);
+      } else {
+        Pipe.send("RPC_UserOffline.UpdateAbout", param, callback, errorCallback);
+      }
     }
 
     public static void UpdateUserName(
         PB_UserParam_UpdateUserName param,
         UpdateUserName_ResultHandler resultHandler,
         ErrorCallback errorCallback) {
+      UpdateUserNameImpl(param, resultHandler, errorCallback, false, "");
+    }
+
+    public static void UpdateUserName_Offline(
+        String offlineKey,
+        PB_UserParam_UpdateUserName param,
+        UpdateUserName_ResultHandler resultHandler,
+        ErrorCallback errorCallback) {
+      UpdateUserNameImpl(param, resultHandler, errorCallback, true, offlineKey);
+    }
+
+    private static void UpdateUserNameImpl(
+        PB_UserParam_UpdateUserName param,
+        UpdateUserName_ResultHandler resultHandler,
+        ErrorCallback errorCallback,
+        Boolean offline,
+        String offlineKey) {
       SuccessCallback callback = null;
       if (resultHandler != null) {
         callback =
@@ -887,13 +1454,35 @@ public class RPC {
             };
       }
 
-      Pipe.send("RPC_UserOffline.UpdateUserName", param, callback, errorCallback);
+      if (offline) {
+        Pipe.sendOffline(
+            offlineKey, "RPC_UserOffline.UpdateUserName", param, callback, errorCallback);
+      } else {
+        Pipe.send("RPC_UserOffline.UpdateUserName", param, callback, errorCallback);
+      }
     }
 
     public static void ChangePrivacy(
         PB_UserParam_ChangePrivacy param,
         ChangePrivacy_ResultHandler resultHandler,
         ErrorCallback errorCallback) {
+      ChangePrivacyImpl(param, resultHandler, errorCallback, false, "");
+    }
+
+    public static void ChangePrivacy_Offline(
+        String offlineKey,
+        PB_UserParam_ChangePrivacy param,
+        ChangePrivacy_ResultHandler resultHandler,
+        ErrorCallback errorCallback) {
+      ChangePrivacyImpl(param, resultHandler, errorCallback, true, offlineKey);
+    }
+
+    private static void ChangePrivacyImpl(
+        PB_UserParam_ChangePrivacy param,
+        ChangePrivacy_ResultHandler resultHandler,
+        ErrorCallback errorCallback,
+        Boolean offline,
+        String offlineKey) {
       SuccessCallback callback = null;
       if (resultHandler != null) {
         callback =
@@ -916,13 +1505,35 @@ public class RPC {
             };
       }
 
-      Pipe.send("RPC_UserOffline.ChangePrivacy", param, callback, errorCallback);
+      if (offline) {
+        Pipe.sendOffline(
+            offlineKey, "RPC_UserOffline.ChangePrivacy", param, callback, errorCallback);
+      } else {
+        Pipe.send("RPC_UserOffline.ChangePrivacy", param, callback, errorCallback);
+      }
     }
 
     public static void ChangeAvatar(
         PB_UserParam_ChangeAvatar param,
         ChangeAvatar_ResultHandler resultHandler,
         ErrorCallback errorCallback) {
+      ChangeAvatarImpl(param, resultHandler, errorCallback, false, "");
+    }
+
+    public static void ChangeAvatar_Offline(
+        String offlineKey,
+        PB_UserParam_ChangeAvatar param,
+        ChangeAvatar_ResultHandler resultHandler,
+        ErrorCallback errorCallback) {
+      ChangeAvatarImpl(param, resultHandler, errorCallback, true, offlineKey);
+    }
+
+    private static void ChangeAvatarImpl(
+        PB_UserParam_ChangeAvatar param,
+        ChangeAvatar_ResultHandler resultHandler,
+        ErrorCallback errorCallback,
+        Boolean offline,
+        String offlineKey) {
       SuccessCallback callback = null;
       if (resultHandler != null) {
         callback =
@@ -945,7 +1556,12 @@ public class RPC {
             };
       }
 
-      Pipe.send("RPC_UserOffline.ChangeAvatar", param, callback, errorCallback);
+      if (offline) {
+        Pipe.sendOffline(
+            offlineKey, "RPC_UserOffline.ChangeAvatar", param, callback, errorCallback);
+      } else {
+        Pipe.send("RPC_UserOffline.ChangeAvatar", param, callback, errorCallback);
+      }
     }
   }
 
@@ -963,6 +1579,23 @@ public class RPC {
         PB_UserParam_CheckUserName param,
         CheckUserName_ResultHandler resultHandler,
         ErrorCallback errorCallback) {
+      CheckUserNameImpl(param, resultHandler, errorCallback, false, "");
+    }
+
+    public static void CheckUserName_Offline(
+        String offlineKey,
+        PB_UserParam_CheckUserName param,
+        CheckUserName_ResultHandler resultHandler,
+        ErrorCallback errorCallback) {
+      CheckUserNameImpl(param, resultHandler, errorCallback, true, offlineKey);
+    }
+
+    private static void CheckUserNameImpl(
+        PB_UserParam_CheckUserName param,
+        CheckUserName_ResultHandler resultHandler,
+        ErrorCallback errorCallback,
+        Boolean offline,
+        String offlineKey) {
       SuccessCallback callback = null;
       if (resultHandler != null) {
         callback =
@@ -983,13 +1616,34 @@ public class RPC {
             };
       }
 
-      Pipe.send("RPC_User.CheckUserName", param, callback, errorCallback);
+      if (offline) {
+        Pipe.sendOffline(offlineKey, "RPC_User.CheckUserName", param, callback, errorCallback);
+      } else {
+        Pipe.send("RPC_User.CheckUserName", param, callback, errorCallback);
+      }
     }
 
     public static void GetBlockedList(
         PB_UserParam_BlockedList param,
         GetBlockedList_ResultHandler resultHandler,
         ErrorCallback errorCallback) {
+      GetBlockedListImpl(param, resultHandler, errorCallback, false, "");
+    }
+
+    public static void GetBlockedList_Offline(
+        String offlineKey,
+        PB_UserParam_BlockedList param,
+        GetBlockedList_ResultHandler resultHandler,
+        ErrorCallback errorCallback) {
+      GetBlockedListImpl(param, resultHandler, errorCallback, true, offlineKey);
+    }
+
+    private static void GetBlockedListImpl(
+        PB_UserParam_BlockedList param,
+        GetBlockedList_ResultHandler resultHandler,
+        ErrorCallback errorCallback,
+        Boolean offline,
+        String offlineKey) {
       SuccessCallback callback = null;
       if (resultHandler != null) {
         callback =
@@ -1009,7 +1663,11 @@ public class RPC {
             };
       }
 
-      Pipe.send("RPC_User.GetBlockedList", param, callback, errorCallback);
+      if (offline) {
+        Pipe.sendOffline(offlineKey, "RPC_User.GetBlockedList", param, callback, errorCallback);
+      } else {
+        Pipe.send("RPC_User.GetBlockedList", param, callback, errorCallback);
+      }
     }
   }
 }

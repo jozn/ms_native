@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import com.google.protobuf.AbstractMessageLite;
 import com.google.protobuf.ByteString;
 import com.mardomsara.social.app.DB;
+import com.mardomsara.social.helpers.LangUtil;
 import com.mardomsara.social.helpers.TimeUtil;
 import com.mardomsara.social.pipe.table.RpcOffline;
 
@@ -55,6 +56,9 @@ public class Pipe {
 			.build();
 
 		try {
+			if(CommandKey == null || CommandKey.equals("")){
+				CommandKey = LangUtil.getRandomString(40);
+			}
 			RpcOffline rpcOffline = new RpcOffline();
 			rpcOffline.CallId = callId;
 			rpcOffline.CommandKey = CommandKey;
