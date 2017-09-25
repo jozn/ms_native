@@ -119,9 +119,9 @@ public final class HelperMessageAdd {
 			Bitmap mBitmap = BitmapFactory.decodeFile(filePath);
 
 			r.MessageFileId = NanoTimestamp.getNano();//0
-			r.Name = "";//1
+			r.Name = file.getName();//1
 			r.Size = (int) file.length();//2
-			r.FileTypeEnumId = 0;//3
+			r.FileTypeEnumId = RoomMessageTypeEnum.IMAGE_VALUE ;//3
 //			r.MimeType = file.getName();//4
 			r.Width = mBitmap.getWidth();//5
 			r.Height = mBitmap.getHeight();//6
@@ -138,6 +138,30 @@ public final class HelperMessageAdd {
 
 			r.RemoteMessageFileId = 0;
 			r.HashMd5 = HashUtil.toMD5(FileUtils.readFileToByteArray(file));
+
+			/*r.MessageFileId = ;//0
+			r.OriginalUserId = ;//1
+			r.Name = ;//2
+			r.Size = ;//3
+			r.FileTypeEnumId = ;//4
+			r.Width = ;//5
+			r.Height = ;//6
+			r.Duration = ;//7
+			r.Extension = ;//8
+			r.HashMd5 = ;//9
+			r.HashAccess = ;//10
+			r.CreatedSe = ;//11
+			r.ServerSrc = ;//12
+			r.ServerPath = ;//13
+			r.ServerThumbPath = ;//14
+			r.BucketId = ;//15
+			r.ServerId = ;//16
+			r.CanDel = ;//17
+			r.ServerThumbLocalSrc = ;//18
+			r.RemoteMessageFileId = ;//19
+			r.LocalSrc = ;//20
+			r.ThumbLocalSrc = ;//21
+			r.MessageFileStatusId = ;//22*/
 
 			/*msgFile.Thumb64 = ImageUtil.blurThumbnailToBase64(mBitmap);
 			msgFile.ThumbData = ImageUtil.blurThumbnailToBytesArray(mBitmap);
