@@ -83,9 +83,15 @@ public final class HelperMessageAdd {
 
 		RealmMessageView messageView = getNewMessage(chatView);
 		if (messageView != null) {
-			String outputSentSrc = HelperMessageFilePather.getMessageFileOutputNameForSent(messageView.MessageFileView.MessageFileId, FileUtil.getFileExtensionWithDot(path));
+			messageView.MessageFileView = getNewRealmMessageFileView(messageView, path);
+			if (messageView.MessageFileView == null) return;
+			messageView.MessageFileId = messageView.MessageFileView.MessageFileId;
+
+			String outputSentSrc = HelperMessageFilePather.getMessageFileOutputNameForNewSentImage(messageView.MessageFileView.MessageFileId, FileUtil.getFileExtensionWithDot(path));
 			ImageUtil.resizeImage(path, outputSentSrc, 1080);
 			File resizedFile = new File(outputSentSrc);
+
+			messageView.MessageFileView.LocalSrc = outputSentSrc;
 
 			if (!resizedFile.exists()) {
 				_showToastFileAreNotExist();
@@ -100,15 +106,11 @@ public final class HelperMessageAdd {
 				messageView.Text = text;
 			}
 
-			messageView.MessageFileView = setPhotoParams_ME(messageView, path);
-			messageView.MessageFileView.LocalSrc = outputSentSrc;
-			messageView.MessageFileId = messageView.MessageFileView.MessageFileId;
-
 			saveNewMessageWithChatViewUpdate_Here(chatView.ChatKey, messageView);
 		}
 	}
 
-	private static RealmMessageFileView setPhotoParams_ME(RealmMessageView msg, String filePath) {
+	private static RealmMessageFileView getNewRealmMessageFileView(RealmMessageView msg, String filePath) {
 		RealmMessageFileView r = new RealmMessageFileView();
 		try {
 
