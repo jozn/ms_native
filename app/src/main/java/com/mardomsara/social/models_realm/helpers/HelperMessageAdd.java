@@ -1,28 +1,24 @@
-package com.mardomsara.social.ui.presenter.chat_realm.chat_room;
+package com.mardomsara.social.models_realm.helpers;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
-import com.mardomsara.social.app.AppFiles;
-import com.mardomsara.social.app.Constants;
 import com.mardomsara.social.app.MSRealm;
-import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.FileUtil;
-import com.mardomsara.social.helpers.FormaterUtil;
+import com.mardomsara.social.helpers.HashUtil;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.ImageUtil;
-import com.mardomsara.social.helpers.LangUtil;
+import com.mardomsara.social.helpers.UtilText;
 import com.mardomsara.social.lib.NanoTimestamp;
-import com.mardomsara.social.models.MessageModel;
-import com.mardomsara.social.models.tables.Message;
-import com.mardomsara.social.models.tables.MsgFile;
 import com.mardomsara.social.models_realm.RealmChatViewHelper;
 import com.mardomsara.social.models_realm.pb_realm.RealmChatView;
 import com.mardomsara.social.models_realm.pb_realm.RealmMessageFileView;
 import com.mardomsara.social.models_realm.pb_realm.RealmMessageView;
+
+import org.apache.commons.io.FileUtils;
 
 import java.io.File;
 
@@ -34,12 +30,11 @@ import ir.ms.pb.RoomMessageTypeEnum;
  * Created by Hamid on 9/11/2017.
  */
 
-public class ModelChatEntry {
+public final class HelperMessageAdd {
 
 	public static void addNewTextMessage(@NonNull RealmChatView chatView, @NonNull String text) {
 		Realm realm = MSRealm.getChatRealm();
 
-//		realm.executeTransaction();
 		RealmMessageView r = new RealmMessageView();
 
 		r.MessageId = NanoTimestamp.getNano();//0
@@ -51,22 +46,16 @@ public class ModelChatEntry {
 		r.Time = (int) AppUtil.getTime();//6
 		r.PeerReceivedTime = 0;//7
 		r.PeerSeenTime = 0;//8
-		r.DeliviryStatusEnumId = RoomMessageDeliviryStatusEnum.SENDING_VALUE;//9
+		r.DeliviryStatusEnumId = RoomMessageDeliviryStatusEnum.NEED_TO_SINK_VALUE;//9
 		r.ChatId = chatView.ChatId;//10
 		r.RoomTypeEnumId = chatView.RoomTypeEnumId;//11
 		r.IsByMe = true;//12
 
-//		chatView.LastMessage = r;
-//		r.File = ;//13
+		if (UtilText.isJustEmoji(text)) {
+			r.MessageTypeEnumId = RoomMessageTypeEnum.EMOJI_VALUE;//4
+		}
 
-//		realm.copyFromRealm()
-//		RealmChatView chatView2 = chatView;
 		String chatKey = chatView.ChatKey;
-		/*realm.executeTransactionAsync((trans)->{
-			trans.copyToRealmOrUpdate(r);
-			trans.copyToRealmOrUpdate(chatView);
-		});*/
-
 
 		RealmMessageView lastMsg;
 		realm.beginTransaction();
@@ -79,13 +68,12 @@ public class ModelChatEntry {
 			MSRealm.getChatRealm().executeTransaction((re) -> {
 				chatView2.UpdatedMs = AppUtil.getTimeMs();
 				chatView2.LastMessage = lastMsg;
-//				re.copyToRealmOrUpdate(chatView2);
 			});
 		}
 	}
 
 	public static void addSingleImageMessage(@NonNull RealmChatView chatView, @NonNull String text, String path, final boolean deleteOriginal) {
-		Log.i("MSG", "_sendMsgImage: " + path + " " + deleteOriginal);
+		Log.i("MSG", "addSingleImageMessage(): " + path + " " + deleteOriginal);
 		if (path == null || path.equals("")) return;
 		File fileOriginal = new File(path);
 		if (!fileOriginal.exists()) {
@@ -93,41 +81,34 @@ public class ModelChatEntry {
 			return;
 		}
 
-		String $resizedPath = AppFiles.PHOTO_SENT_DIR_PATH + "IMG_" + FormaterUtil.getFullyYearToSecondsSolarName() + "$.jpg";
-		String resizedPath = FileUtil.createNextName($resizedPath);
-		ImageUtil.resizeImage(path, resizedPath, 1080);
-		File resizedFile = new File(resizedPath);
-
-		if (!resizedFile.exists()) {
-			_showToastFileAreNotExist();
-			return;
-		}
 		RealmMessageView messageView = getNewMessage(chatView);
-		if(messageView != null){
-			messageView.MessageTypeEnumId = RoomMessageTypeEnum.IMAGE_TEXT_VALUE;
-			messageView.Text = text;
+		if (messageView != null) {
+			String outputSentSrc = HelperMessageFilePather.getMessageFileOutputNameForSent(messageView.MessageFileView.MessageFileId, FileUtil.getFileExtensionWithDot(path));
+			ImageUtil.resizeImage(path, outputSentSrc, 1080);
+			File resizedFile = new File(outputSentSrc);
 
-			messageView.MessageFileView = setPhotoParams_ME(messageView,path);
-			messageView.MessageFileView.LocalSrc = resizedPath;
+			if (!resizedFile.exists()) {
+				_showToastFileAreNotExist();
+				return;
+			}
+
+			if (text == null || text.equals("")) {
+				messageView.MessageTypeEnumId = RoomMessageTypeEnum.IMAGE_VALUE;
+				messageView.Text = "";
+			} else {
+				messageView.MessageTypeEnumId = RoomMessageTypeEnum.IMAGE_TEXT_VALUE;
+				messageView.Text = text;
+			}
+
+			messageView.MessageFileView = setPhotoParams_ME(messageView, path);
+			messageView.MessageFileView.LocalSrc = outputSentSrc;
 			messageView.MessageFileId = messageView.MessageFileView.MessageFileId;
 
-			saveNewMeMessage(chatView.ChatKey, messageView);
+			saveNewMessageWithChatViewUpdate_Here(chatView.ChatKey, messageView);
 		}
-
-
-		/*
-
-        Message msg =  MessageModel.newTextMsgForRoom_ByMe(room);
-        msg.setMsgFile_Status(Constants.Msg_Media_To_Push_And_Upload);
-        msg.MessageTypeId = Constants.MESSAGE_IMAGE;
-        MessageModel.setPhotoParams_ME(msg,resizedPath);
-        msg.saveWithRoom();
-
-		MsgsCallToServer.sendNewPhoto(msg,resizedFile,fileOriginal,deleteOriginal);
-		onHereAddedNewMsgEvent_UI(msg);*/
 	}
 
-	public static RealmMessageFileView setPhotoParams_ME(RealmMessageView msg, String filePath) {
+	private static RealmMessageFileView setPhotoParams_ME(RealmMessageView msg, String filePath) {
 		RealmMessageFileView r = new RealmMessageFileView();
 		try {
 
@@ -135,23 +116,26 @@ public class ModelChatEntry {
 
 			Bitmap mBitmap = BitmapFactory.decodeFile(filePath);
 
-			r.MessageFileId = NanoTimestamp.getNano() ;//0
+			r.MessageFileId = NanoTimestamp.getNano();//0
 			r.Name = "";//1
-			r.Size = (int)file.length();//2
+			r.Size = (int) file.length();//2
 			r.FileTypeEnumId = 0;//3
 //			r.MimeType = file.getName();//4
 			r.Width = mBitmap.getWidth();//5
 			r.Height = mBitmap.getHeight();//6
 			r.Duration = 0;//7
-			r.Extension = ".jpg";//8
+			r.Extension = FileUtil.getFileExtensionWithDot(filePath);//8
 //			r.ThumbData64 ="" ;//9
-			r.ServerSrc = "" ;//10
-			r.ServerPath = "" ;//11
+			r.ServerSrc = "";//10
+			r.ServerPath = "";//11
 			r.ServerThumbPath = "";//12
-			r.BucketId = "" ;//13
-			r.ServerId = 0 ;//14
-			r.CanDel = 1 ;//15
-			r.CreatedSe = (int)AppUtil.getTime();//16
+			r.BucketId = "";//13
+			r.ServerId = 0;//14
+			r.CanDel = 1;//15
+			r.CreatedSe = (int) AppUtil.getTime();//16
+
+			r.RemoteMessageFileId = 0;
+			r.HashMd5 = HashUtil.toMD5(FileUtils.readFileToByteArray(file));
 
 			/*msgFile.Thumb64 = ImageUtil.blurThumbnailToBase64(mBitmap);
 			msgFile.ThumbData = ImageUtil.blurThumbnailToBytesArray(mBitmap);
@@ -162,7 +146,7 @@ public class ModelChatEntry {
 			msgFile.Name = file.getName();
 			msgFile.Duration = 0;
 			msgFile.Origin = Constants.Msg_Media_Origin_Here;*/
-		}catch (Exception e){
+		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
 		}
@@ -170,12 +154,12 @@ public class ModelChatEntry {
 		return r;
 	}
 
-	private static void _showToastFileAreNotExist(){
+	private static void _showToastFileAreNotExist() {
 		Helper.showMessage("فایل موجود نیست");
 	}
 
 
-	static RealmMessageView getNewMessage(RealmChatView chatView) {
+	private static RealmMessageView getNewMessage(RealmChatView chatView) {
 		RealmMessageView r = new RealmMessageView();
 
 		r.MessageId = NanoTimestamp.getNano();//0
@@ -187,7 +171,7 @@ public class ModelChatEntry {
 		r.Time = (int) AppUtil.getTime();//6
 		r.PeerReceivedTime = 0;//7
 		r.PeerSeenTime = 0;//8
-		r.DeliviryStatusEnumId = RoomMessageDeliviryStatusEnum.SENDING_VALUE;//9
+		r.DeliviryStatusEnumId = RoomMessageDeliviryStatusEnum.NEED_TO_SINK_VALUE;//9
 		r.ChatId = chatView.ChatId;//10
 		r.RoomTypeEnumId = chatView.RoomTypeEnumId;//11
 		r.IsByMe = true;//12
@@ -195,7 +179,7 @@ public class ModelChatEntry {
 		return r;
 	}
 
-	static void saveNewMeMessage(String chatKey, RealmMessageView newMsg) {
+	private static void saveNewMessageWithChatViewUpdate_Here(String chatKey, RealmMessageView newMsg) {
 //		String chatKey = chatView.ChatKey;
 		Realm realm = MSRealm.getChatRealm();
 		RealmMessageView lastMsg;

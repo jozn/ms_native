@@ -116,6 +116,14 @@ public class FormaterUtil {
         return fileName;
     }
 
+	public static String getFullyYearToSecondsSolarNameFrom(long miliSecond){
+		Date d = new Date(miliSecond);//1424123123000l);
+		String rooz = Rooz.fromTimeMs(d.getTime()).getFormatedForFoldersName("-");
+		String houersFormat = new SimpleDateFormat("HH:mm:ss", Locale.getDefault()).format(d);
+		String fileName = rooz + "_" + houersFormat ;
+		return fileName;
+	}
+
 	public static String timeAgo(long seconds){
 		long diff = (AppModel.getRealGlobalTimestampMs()/1000) - seconds;
 //		AppUtil.log("Time diff sec:" +diff);

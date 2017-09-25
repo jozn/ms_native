@@ -18,6 +18,7 @@ import com.mardomsara.social.helpers.IntentHelper;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
 import com.mardomsara.social.models.tables.Message;
 import com.mardomsara.social.models_realm.RealmChatViewHelper;
+import com.mardomsara.social.models_realm.helpers.HelperMessageAdd;
 import com.mardomsara.social.models_realm.pb_realm.RealmChatView;
 import com.mardomsara.social.models_realm.pb_realm.RealmMessageView;
 import com.mardomsara.social.models_realm.pb_realm.RealmMessageViewFields;
@@ -38,7 +39,6 @@ import com.sw926.imagefileselector.ImageFileSelector;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import io.realm.Realm;
@@ -217,7 +217,7 @@ public class ChatRoomEntryPresenter extends BasePresenter implements
 
 	void addNewMsg() {
 
-		ModelChatEntry.addNewTextMessage(room, x.edit_field.getText().toString());
+		HelperMessageAdd.addNewTextMessage(room, x.edit_field.getText().toString());
 		x.edit_field.setText("");
 		adaptor2.notifyDataSetChanged();
 		mLayoutManager.scrollToPosition(0);
@@ -366,7 +366,7 @@ public class ChatRoomEntryPresenter extends BasePresenter implements
 	}
 
 	void _sendMsgImage(String path, final boolean deleteOriginal) {
-		ModelChatEntry.addSingleImageMessage(room, "new 2image !!!" + path, path, deleteOriginal);
+		HelperMessageAdd.addSingleImageMessage(room, "new 2image !!!" + path, path, deleteOriginal);
 //		scrollToBottom();
 
 
