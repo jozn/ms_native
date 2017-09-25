@@ -8,6 +8,7 @@ import com.github.gfx.android.orma.annotation.Column;
 import com.github.gfx.android.orma.annotation.PrimaryKey;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.models.AppDB;
+import com.mardomsara.social.pipe.table.RpcDB;
 //import com.mardomsara.social.models._migrate.tables.AppDB;
 //import com.mardomsara.social.models.tables.AppDB;
 
@@ -18,13 +19,32 @@ import java.lang.reflect.Field;
  */
 public class DB {
 
+    private static RpcDB rpcDB = null;
     public static AppDB db = null;
 
 	static {
 		init();
 	}
 
-    public static void init(){
+	public static RpcDB getRpcDB() {
+		if(rpcDB == null){
+			RpcDB.Builder builder = RpcDB.builder(AppUtil.getContext());
+
+			if(Config.IS_DEBUG){
+				builder.readOnMainThread(AccessThreadConstraint.WARNING)
+					.writeOnMainThread(AccessThreadConstraint.WARNING);
+			} else {
+
+			}
+
+			rpcDB = builder.name("rpc")
+				.trace(true)
+				.build();
+		}
+		return rpcDB;
+	}
+
+	public static void init(){
         if(db != null) return;
 //        if(true) return;
 
