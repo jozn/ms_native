@@ -22,11 +22,6 @@ public class DB {
     private static RpcDB rpcDB = null;
     private static AppDB db = null;
 
-	static {
-		init();
-	}
-
-
 	public static AppDB getAppDB() {
 		if(db != null) return db;
 
@@ -62,24 +57,6 @@ public class DB {
 		}
 		return rpcDB;
 	}
-
-	public static void init(){
-        if(getAppDB() != null) return;
-//        if(true) return;
-
-		AppDB.Builder builder = AppDB.builder(AppUtil.getContext());
-
-		if(Config.IS_DEBUG){
-			builder.readOnMainThread(AccessThreadConstraint.WARNING)
-				.writeOnMainThread(AccessThreadConstraint.WARNING);
-		} else {
-
-		}
-
-		setDb(builder.name("ms40")
-			.trace(true)
-			.build());
-    }
 
     public static void updateAuto(Object row, Schema tableSchema) {
         try {
