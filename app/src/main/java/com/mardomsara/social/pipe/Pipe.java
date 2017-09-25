@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import com.google.protobuf.AbstractMessageLite;
 import com.google.protobuf.ByteString;
 import com.mardomsara.social.app.DB;
+import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.LangUtil;
 import com.mardomsara.social.helpers.TimeUtil;
 import com.mardomsara.social.pipe.table.RpcOffline;
@@ -46,7 +47,7 @@ public class Pipe {
 
 	;
 
-	public static void sendOffline(String CommandKey, String rpcName, AbstractMessageLite dataMessage, @Nullable SuccessCallback successCallback, @Nullable ErrorCallback errorCallback) {
+	public static void sendOffline(final String CommandKey, String rpcName, AbstractMessageLite dataMessage, @Nullable SuccessCallback successCallback, @Nullable ErrorCallback errorCallback) {
 		if (dataMessage == null) return;
 		long callId = TimeUtil.getTimeNano();
 		PB_CommandToServer pb_commandToServer = PB_CommandToServer.newBuilder()
@@ -55,20 +56,24 @@ public class Pipe {
 			.setData(com.google.protobuf.ByteString.copyFrom(dataMessage.toByteArray()))
 			.build();
 
-		try {
-			if(CommandKey == null || CommandKey.equals("")){
-				CommandKey = LangUtil.getRandomString(40);
-			}
-			RpcOffline rpcOffline = new RpcOffline();
-			rpcOffline.CallId = callId;
-			rpcOffline.CommandKey = CommandKey;
-			rpcOffline.RpcMethod = rpcName;
-			rpcOffline.Blob = pb_commandToServer.toByteArray();
+		AndroidUtil.runInBackgroundNoPanic(()->{
+			try {
+				String CommandKey2 = CommandKey;
+				if(CommandKey == null || CommandKey.equals("")){
+					CommandKey2 = LangUtil.getRandomString(40);
+				}
+				RpcOffline rpcOffline = new RpcOffline();
+				rpcOffline.ClientCallId = callId;
+				rpcOffline.CommandKey = CommandKey2;
+				rpcOffline.RpcMethod = rpcName;
+				rpcOffline.Blob = pb_commandToServer.toByteArray();
+				rpcOffline.CreatedMs = TimeUtil.getTimeMs();
 
-			DB.getRpcDB().insertIntoRpcOffline(rpcOffline);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+				DB.getRpcDB().insertIntoRpcOffline(rpcOffline);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		});
 
 
 		if (PipeWS.getInstance().isOpen()) {

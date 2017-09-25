@@ -51,7 +51,7 @@ public class DB {
 
 			}
 
-			rpcDB = builder.name("rpc")
+			rpcDB = builder.name("rpc2")
 				.trace(true)
 				.build();
 		}

@@ -3,8 +3,12 @@ package com.mardomsara.social.play.presenters;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.mardomsara.social.app.DB;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.Helper;
+import com.mardomsara.social.helpers.LangUtil;
+import com.mardomsara.social.lib.NanoTimestamp;
+import com.mardomsara.social.pipe.table.RpcOffline;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.cells.Cells;
 
@@ -71,19 +75,20 @@ public class Play_WSCallPresenter extends BasePresenter {
 				Helper.showDebugMessage("echo resu:" + res.getText() + res.toString());
 				info.setText(res.getText());
 
-				throw new RuntimeException("YYYYYYYYYYYYYYYY");
+//				throw new RuntimeException("YYYYYYYYYYYYYYYY");
 			}, (err) -> {
 				Helper.showDebugMessage("echo err:" + err);
 			});
 
-		/*Pipe_OLD.sendCall("echo","Hi From go",
-			()->{
-				Helper.showDebugMessage("Echo Call Success");
-			},
-			()->{
-				Helper.showDebugMessage("Echo Call Error");
-			}
-		);*/
+		AndroidUtil.runInBackgroundNoPanic(()->{
+			RpcOffline rpcOffline = new RpcOffline();
+			rpcOffline.ClientCallId = NanoTimestamp.getNano();
+			rpcOffline.CommandKey = LangUtil.getRandomString(15);
+			rpcOffline.RpcMethod = "rpc_name.jjk(";
+//		rpcOffline.Blob = ;
+
+			DB.getRpcDB().insertIntoRpcOffline(rpcOffline);
+		});
 	}
 
 	View newTitle(String title, Runnable runnable){
