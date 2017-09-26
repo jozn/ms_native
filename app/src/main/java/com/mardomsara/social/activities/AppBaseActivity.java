@@ -20,7 +20,7 @@ import com.mardomsara.social.app.ConfigRealmBrowser;
 import com.mardomsara.social.app.memory.TrimMemory;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.Helper;
-import com.mardomsara.social.models.realm_play.RealmPlay;
+import com.mardomsara.social.models_old.realm_play.RealmPlay;
 import com.mardomsara.social.play.Play_TestsPresenter;
 
 import pl.tajchert.nammu.Nammu;

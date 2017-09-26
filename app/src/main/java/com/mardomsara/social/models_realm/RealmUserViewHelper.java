@@ -1,6 +1,6 @@
 package com.mardomsara.social.models_realm;
 
-import com.mardomsara.social.app.MSRealm;
+import com.mardomsara.social.app.AppRealm;
 import com.mardomsara.social.models_realm.pb_realm.RealmUserView;
 //import com.mardomsara.social.models_realm.realm_local.RealmUserViewFields;
 
@@ -13,7 +13,7 @@ import io.realm.Realm;
 public class RealmUserViewHelper {
 
 	public static RealmUserView getUserByUserId(int UserId){
-		Realm realm = MSRealm.getChatRealm();
+		Realm realm = AppRealm.getChatRealm();
 		RealmUserView r = realm.where(RealmUserView.class).equalTo("UserId", UserId).findFirst();
 		realm.close();
 

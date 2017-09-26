@@ -8,7 +8,7 @@ import com.mardomsara.social.base.Http.listener.DownloadProgressListener;
 import com.mardomsara.social.base.Http.listener.UploadProgressListener;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.Helper;
-import com.mardomsara.social.models.interfaces.MessageProgressListener;
+import com.mardomsara.social.models_old.interfaces.MessageProgressListener;
 import com.mardomsara.social.models_realm.helpers.HelperMessageFile;
 import com.mardomsara.social.models_realm.pb_realm.RealmMessageFileView;
 import com.mardomsara.social.models_realm.pb_realm.RealmMessageView;

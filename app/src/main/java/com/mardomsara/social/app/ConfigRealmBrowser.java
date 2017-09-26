@@ -15,7 +15,7 @@ import io.realm.Realm;
 
 public class ConfigRealmBrowser {
 	public static void init(Context context){
-		Realm realm = MSRealm.getChatRealm();
+		Realm realm = AppRealm.getChatRealm();
 		new RealmBrowser.Builder(context)
 			.add(realm, RealmChatView.class)
 			.add(realm, RealmMessageView.class)

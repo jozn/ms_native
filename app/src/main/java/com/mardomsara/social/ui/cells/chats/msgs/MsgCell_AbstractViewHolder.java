@@ -3,7 +3,7 @@ package com.mardomsara.social.ui.cells.chats.msgs;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-import com.mardomsara.social.models.tables.Message;
+import com.mardomsara.social.models_old.tables.Message;
 
 //import Message;
 

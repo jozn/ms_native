@@ -6,14 +6,12 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.mardomsara.social.R;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.FormaterUtil;
-import com.mardomsara.social.models.tables.Message;
-import com.mardomsara.social.models.tables.MsgFile;
+import com.mardomsara.social.models_old.tables.Message;
+import com.mardomsara.social.models_old.tables.MsgFile;
 import com.mardomsara.social.models_realm.pb_realm.RealmMessageView;
-import com.mardomsara.social.ui.views.FontCache;
 import com.mardomsara.social.ui.views.FullScreenImage_Fresco;
 import com.mardomsara.social.ui.views.helpers.ViewHelper;
 

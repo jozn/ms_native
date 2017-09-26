@@ -2,7 +2,7 @@ package com.mardomsara.social.pipe_pb;
 
 import com.google.protobuf.InvalidProtocolBufferException;
 import com.mardomsara.social.app.MonitorCraches;
-import com.mardomsara.social.models.MessageNetModel;
+import com.mardomsara.social.models_old.MessageNetModel;
 
 import ir.ms.pb.PB_PushMsgAddMany;
 import ir.ms.pb.PB_PushMsgEvents;

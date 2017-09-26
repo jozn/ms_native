@@ -2,7 +2,7 @@ package com.mardomsara.social.models_realm;
 
 import android.support.annotation.Nullable;
 
-import com.mardomsara.social.models.tables.Session;
+import com.mardomsara.social.models_old.tables.Session;
 import com.mardomsara.social.models_realm.pb_realm.RealmMessageView;
 //import com.mardomsara.social.models_realm.realm_local.RealmMessageViewFields;
 //import com.mardomsara.social.models_realm.realm_local.RealmMessageViewFields;

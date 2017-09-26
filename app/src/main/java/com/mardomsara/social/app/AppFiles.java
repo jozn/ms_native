@@ -4,7 +4,7 @@ import android.os.Environment;
 
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.FileUtil;
-import com.mardomsara.social.models.stores.SharedStore;
+import com.mardomsara.social.models_old.stores.SharedStore;
 
 import java.io.File;
 import java.io.IOException;

@@ -1,7 +1,7 @@
 package com.mardomsara.social.models_realm.android;
 
-import com.mardomsara.social.base.FNV;
-import com.mardomsara.social.models.tables.ContactsCopy;
+import com.mardomsara.social.base.LibFNV;
+import com.mardomsara.social.models_old.tables.ContactsCopy;
 import com.mardomsara.social.models_realm.realm_local.RealmContactsCopy;
 
 public class PhoneContact {
@@ -19,7 +19,7 @@ public class PhoneContact {
 	}
 
 	public void calculateHash() {
-		Hash = FNV.fnv1a_32(toStringForHash().getBytes()).toString();
+		Hash = LibFNV.fnv1a_32(toStringForHash().getBytes()).toString();
 	}
 
 	private void toContactsCopy(ContactsCopy copy) {

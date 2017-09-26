@@ -1,11 +1,8 @@
 package com.mardomsara.social.ui.presenter.chat_realm.chat_room.msgs;
 
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.mardomsara.base_rv.BaseViewHolder;
-import com.mardomsara.social.models.tables.Message;
-import com.mardomsara.social.models_realm.pb_realm.RealmMessageView;
 import com.mardomsara.social.ui.presenter.chat_realm.chat_room.RealmMessageViewWrapper;
 
 //import Message;

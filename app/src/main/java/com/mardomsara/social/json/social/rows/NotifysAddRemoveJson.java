@@ -1,6 +1,6 @@
 package com.mardomsara.social.json.social.rows;
 
-import com.mardomsara.social.models.tables.Notify;
+import com.mardomsara.social.models_old.tables.Notify;
 
 import java.util.List;
 

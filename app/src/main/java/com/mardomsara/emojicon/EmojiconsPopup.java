@@ -30,12 +30,11 @@ import android.view.WindowManager;
 import android.view.WindowManager.LayoutParams;
 import android.widget.PopupWindow;
 
-import com.mardomsara.social.R;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.Helper;
-import com.mardomsara.social.models.stores.Store;
-import com.mardomsara.social.models.stores.StoreConstants;
+import com.mardomsara.social.models_old.stores.Store;
+import com.mardomsara.social.models_old.stores.StoreConstants;
 
 
 /**

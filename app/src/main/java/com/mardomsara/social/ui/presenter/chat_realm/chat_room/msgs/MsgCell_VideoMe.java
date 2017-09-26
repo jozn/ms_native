@@ -7,7 +7,7 @@ import android.widget.TextView;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.mardomsara.social.R;
 import com.mardomsara.social.helpers.AppUtil;
-import com.mardomsara.social.models.tables.Message;
+import com.mardomsara.social.models_old.tables.Message;
 import com.mardomsara.social.models_realm.pb_realm.RealmMessageView;
 import com.mardomsara.social.ui.presenter.chat_realm.chat_room.RealmMessageViewWrapper;
 

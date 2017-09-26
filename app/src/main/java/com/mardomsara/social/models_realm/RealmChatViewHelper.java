@@ -3,7 +3,7 @@ package com.mardomsara.social.models_realm;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import com.mardomsara.social.app.MSRealm;
+import com.mardomsara.social.app.AppRealm;
 import com.mardomsara.social.models_realm.pb_realm.RealmChatView;
 import com.mardomsara.social.models_realm.pb_realm.RealmChatViewFields;
 import com.mardomsara.social.models_realm.pb_realm.RealmMessageView;
@@ -48,7 +48,7 @@ public class RealmChatViewHelper {
 	public static
 	@Nullable
 	RealmChatView getChatByChatId(long chatId) {
-		Realm realm = MSRealm.getChatRealm();
+		Realm realm = AppRealm.getChatRealm();
 		RealmChatView chatView = realm.where(RealmChatView.class).equalTo("ChatId", chatId).findFirst();
 		realm.close();
 
@@ -96,7 +96,7 @@ public class RealmChatViewHelper {
 	}
 
 	public static void insertOrUpdateNewChatsFromPipe(List<ir.ms.pb.PB_ChatView> chatViews) {
-		Realm realm = MSRealm.getChatRealm();
+		Realm realm = AppRealm.getChatRealm();
 		for (PB_ChatView m : chatViews) {
 			RealmChatView chatView = Database.getRealmChatView(realm, m.getChatId());
 			if (chatView == null) {//create new chat
@@ -121,7 +121,7 @@ public class RealmChatViewHelper {
 	}
 
 	public static void insertOrUpdateNewChatsFromPipe_bk(List<ir.ms.pb.PB_ChatView> chatViews) {
-		Realm realm = MSRealm.getChatRealm();
+		Realm realm = AppRealm.getChatRealm();
 		for (PB_ChatView m : chatViews) {
 			RealmChatView chatView = getChatByChatId(m.getChatId());
 			if (chatView == null) {//create new chat
@@ -134,7 +134,7 @@ public class RealmChatViewHelper {
 			}
 
 			RealmChatView chatView2 = chatView;
-			MSRealm.getChatRealm().executeTransactionAsync((r -> {
+			AppRealm.getChatRealm().executeTransactionAsync((r -> {
 				r.copyToRealmOrUpdate(chatView2);
 			}));
 		}

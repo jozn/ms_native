@@ -10,13 +10,13 @@ import android.view.View;
 
 import com.mardomsara.social.App;
 import com.mardomsara.social.Nav;
-import com.mardomsara.social.app.MSRealm;
+import com.mardomsara.social.app.AppRealm;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.IntentHelper;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
-import com.mardomsara.social.models.tables.Message;
+import com.mardomsara.social.models_old.tables.Message;
 import com.mardomsara.social.models_realm.RealmChatViewHelper;
 import com.mardomsara.social.models_realm.helpers.HelperMessageAdd;
 import com.mardomsara.social.models_realm.pb_realm.RealmChatView;
@@ -87,7 +87,7 @@ public class ChatRoomEntryPresenter extends BasePresenter implements
 			x.edit_field.requestFocus();
 
 
-			Realm realm = MSRealm.getChatRealm();
+			Realm realm = AppRealm.getChatRealm();
 			realmResults = realm.where(RealmMessageView.class).equalTo(RealmMessageViewFields.CHAT_ID, room.ChatId).findAllSorted(RealmMessageViewFields.MESSAGE_ID, Sort.DESCENDING);
 
 			/*List<RealmMessageViewWrapper> messageViewList = new ArrayList<>();

@@ -3,7 +3,7 @@ package com.mardomsara.social.enums;
 /**
  * Created by Hamid on 6/26/2017.
  */
-
+@Deprecated
 public enum  MessageEvent {
 	//This data is come from the pipe network
 	RECEIVED_TO_PEER(1),

@@ -1,6 +1,6 @@
 package com.mardomsara.social.pipe.push_handling;
 
-import com.mardomsara.social.app.MSRealm;
+import com.mardomsara.social.app.AppRealm;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.models_realm.RealmChatViewHelper;
 import com.mardomsara.social.models_realm.RealmMessageViewHelper;
@@ -25,7 +25,7 @@ final class PushHandlerNewMessages {
 	//first insert users > messages > chats
 	public static void handle(PB_PushHolderView push) {
 		AppUtil.log("push: handling - new messages count: " + push.getNewMessagesCount());
-		int c = MSRealm.getChatRealm().where(RealmMessageView.class).findAll().size();
+		int c = AppRealm.getChatRealm().where(RealmMessageView.class).findAll().size();
 		AppUtil.log("push: handling - realm messages count: " + c + " chat count " + push.getChatsCount());
 
 
@@ -48,7 +48,7 @@ final class PushHandlerNewMessages {
 			msgs.add(t);
 		}
 
-		MSRealm.getChatRealm().executeTransaction((trans) -> {
+		AppRealm.getChatRealm().executeTransaction((trans) -> {
 			trans.copyToRealmOrUpdate(msgs);
 		});
 
@@ -60,11 +60,11 @@ final class PushHandlerNewMessages {
 				AppUtil.log("push: handling - realm users: " + pb_chatView.getUserView().getUserName());
 				realmChatView.UserView = RealmUserView.fromPB(pb_chatView.getUserView());
 			}
-			realmChatView.LastMessage = RealmMessageViewHelper.getLastMessageForChat(MSRealm.getChatRealm(),realmChatView.ChatId);
+			realmChatView.LastMessage = RealmMessageViewHelper.getLastMessageForChat(AppRealm.getChatRealm(),realmChatView.ChatId);
 
 			chats.add(realmChatView);
 		}
-		MSRealm.getChatRealm().executeTransaction((trans) -> {
+		AppRealm.getChatRealm().executeTransaction((trans) -> {
 			trans.copyToRealmOrUpdate(chats);
 		});
 

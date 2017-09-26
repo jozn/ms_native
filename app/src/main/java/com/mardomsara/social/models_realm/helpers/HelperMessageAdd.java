@@ -5,7 +5,7 @@ import android.graphics.BitmapFactory;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
-import com.mardomsara.social.app.MSRealm;
+import com.mardomsara.social.app.AppRealm;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.FileUtil;
 import com.mardomsara.social.helpers.HashUtil;
@@ -33,7 +33,7 @@ import ir.ms.pb.RoomMessageTypeEnum;
 public final class HelperMessageAdd {
 
 	public static void addNewTextMessage(@NonNull RealmChatView chatView, @NonNull String text) {
-		Realm realm = MSRealm.getChatRealm();
+		Realm realm = AppRealm.getChatRealm();
 
 		RealmMessageView r = new RealmMessageView();
 
@@ -63,9 +63,9 @@ public final class HelperMessageAdd {
 		realm.commitTransaction();
 		Helper.showDebugMessage("lastMsg: " + lastMsg.Text);
 
-		RealmChatView chatView2 = RealmChatViewHelper.getChatByChatKey(MSRealm.getChatRealm(), chatKey);
+		RealmChatView chatView2 = RealmChatViewHelper.getChatByChatKey(AppRealm.getChatRealm(), chatKey);
 		if (chatView2 != null) {
-			MSRealm.getChatRealm().executeTransaction((re) -> {
+			AppRealm.getChatRealm().executeTransaction((re) -> {
 				chatView2.UpdatedMs = AppUtil.getTimeMs();
 				chatView2.LastMessage = lastMsg;
 			});
@@ -207,16 +207,16 @@ public final class HelperMessageAdd {
 
 	private static void saveNewMessageWithChatViewUpdate_Here(String chatKey, RealmMessageView newMsg) {
 //		String chatKey = chatView.ChatKey;
-		Realm realm = MSRealm.getChatRealm();
+		Realm realm = AppRealm.getChatRealm();
 		RealmMessageView lastMsg;
 		realm.beginTransaction();
 		lastMsg = realm.copyToRealmOrUpdate(newMsg);
 		realm.commitTransaction();
 		Helper.showDebugMessage("lastMsg: " + lastMsg.Text);
 
-		RealmChatView chatView2 = RealmChatViewHelper.getChatByChatKey(MSRealm.getChatRealm(), chatKey);
+		RealmChatView chatView2 = RealmChatViewHelper.getChatByChatKey(AppRealm.getChatRealm(), chatKey);
 		if (chatView2 != null) {
-			MSRealm.getChatRealm().executeTransaction((re) -> {
+			AppRealm.getChatRealm().executeTransaction((re) -> {
 				chatView2.UpdatedMs = AppUtil.getTimeMs();
 				chatView2.LastMessage = lastMsg;
 //				re.copyToRealmOrUpdate(chatView2);

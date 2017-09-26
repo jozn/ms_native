@@ -7,18 +7,9 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.mardomsara.social.R;
-import com.mardomsara.social.app.AppFiles;
-import com.mardomsara.social.app.Constants;
-import com.mardomsara.social.app.MSRealm;
-import com.mardomsara.social.base.Http.Http;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
-import com.mardomsara.social.helpers.FileUtil;
-import com.mardomsara.social.helpers.FormaterUtil;
-import com.mardomsara.social.helpers.LangUtil;
-import com.mardomsara.social.models.interfaces.MessageProgressListener;
-import com.mardomsara.social.models.tables.Message;
-import com.mardomsara.social.models.tables.MsgFile;
+import com.mardomsara.social.models_old.interfaces.MessageProgressListener;
 import com.mardomsara.social.models_realm.RealmMessageViewHelper;
 import com.mardomsara.social.models_realm.helpers.HelperMessageFile;
 import com.mardomsara.social.models_realm.pb_realm.RealmMessageFileView;
@@ -29,7 +20,6 @@ import com.mardomsara.social.ui.views.helpers.ViewHelper;
 import com.mardomsara.social.ui.views.wigets.ChatMediaNetworkLoader;
 
 import java.io.File;
-import java.util.Random;
 
 import ir.ms.pb.RoomMessageDeliviryStatusEnum;
 

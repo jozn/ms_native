@@ -14,7 +14,7 @@ import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.json.HttpJson;
 import com.mardomsara.social.json.JV;
 import com.mardomsara.social.json.social.rows.UserInfoJson;
-import com.mardomsara.social.models.UserModel;
+import com.mardomsara.social.models_old.UserModel;
 import com.mardomsara.social.ui.views.FontCache;
 
 /**

@@ -4,7 +4,6 @@ import android.util.Log;
 import android.view.ViewGroup;
 
 import com.mardomsara.emojicon.EmojiMaper;
-import com.mardomsara.social.models.tables.Message;
 import com.mardomsara.social.models_realm.pb_realm.RealmMessageView;
 import com.mardomsara.social.ui.X;
 import com.mardomsara.social.ui.presenter.chat_realm.chat_room.RealmMessageViewWrapper;

@@ -9,8 +9,8 @@ import android.widget.PopupWindow;
 
 import com.mardomsara.social.R;
 import com.mardomsara.social.helpers.AndroidUtil;
-import com.mardomsara.social.models.stores.Store;
-import com.mardomsara.social.models.stores.StoreConstants;
+import com.mardomsara.social.models_old.stores.Store;
+import com.mardomsara.social.models_old.stores.StoreConstants;
 import com.mardomsara.social.ui.X;
 
 import java.util.List;

@@ -2,7 +2,7 @@ package com.mardomsara.social.helpers;
 
 import com.mardomsara.social.app.Config;
 import com.mardomsara.social.lib.PersianDateTime;
-import com.mardomsara.social.models.AppModel;
+import com.mardomsara.social.models_old.AppModel;
 
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;

@@ -2,8 +2,8 @@ package com.mardomsara.social.play.presenters;
 
 import android.view.View;
 
-import com.mardomsara.social.app.MSRealm;
-import com.mardomsara.social.models.realm_play.Blog;
+import com.mardomsara.social.app.AppRealm;
+import com.mardomsara.social.models_old.realm_play.Blog;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.X;
 
@@ -19,7 +19,7 @@ public class Play_Realm extends BasePresenter {
 	public View buildView() {
 		X.PlayRealm x = new X.PlayRealm();
 
-		RealmResults<Blog> realmResults = MSRealm.getChatRealm()
+		RealmResults<Blog> realmResults = AppRealm.getChatRealm()
 			.where(Blog.class)
 			.findAll();
 
@@ -33,7 +33,7 @@ public class Play_Realm extends BasePresenter {
 		});
 
 
-		MSRealm.getChatRealm().addChangeListener(new RealmChangeListener<Realm>() {
+		AppRealm.getChatRealm().addChangeListener(new RealmChangeListener<Realm>() {
 			@Override
 			public void onChange(Realm realm) {
 

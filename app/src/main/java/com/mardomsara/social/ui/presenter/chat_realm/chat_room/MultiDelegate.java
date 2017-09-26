@@ -1,7 +1,7 @@
 package com.mardomsara.social.ui.presenter.chat_realm.chat_room;
 
 import com.mardomsara.base_rv.util.MultiTypeDelegate;
-import com.mardomsara.social.models.tables.Session;
+import com.mardomsara.social.models_old.tables.Session;
 import com.mardomsara.social.models_realm.pb_realm.RealmMessageView;
 import com.mardomsara.social.ui.X;
 

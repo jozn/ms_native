@@ -22,7 +22,7 @@ import com.mardomsara.social.json.JV;
 import com.mardomsara.social.lib.AppClickableSpan;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
 import com.mardomsara.social.lib.Spanny;
-import com.mardomsara.social.models.tables.Session;
+import com.mardomsara.social.models_old.tables.Session;
 import com.mardomsara.social.ui.X;
 import com.squareup.picasso.Picasso;
 

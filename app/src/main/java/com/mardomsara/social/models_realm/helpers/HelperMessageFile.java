@@ -4,15 +4,14 @@ import android.support.annotation.NonNull;
 
 import com.mardomsara.social.app.AppFiles;
 import com.mardomsara.social.app.Constants;
-import com.mardomsara.social.app.MSRealm;
+import com.mardomsara.social.app.AppRealm;
 import com.mardomsara.social.base.Http.Http;
 import com.mardomsara.social.base.Http.Req;
 import com.mardomsara.social.base.Http.listener.DownloadProgressListener;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.FileUtil;
-import com.mardomsara.social.helpers.FormaterUtil;
-import com.mardomsara.social.models.tables.Message;
-import com.mardomsara.social.models.tables.MsgFile;
+import com.mardomsara.social.models_old.tables.Message;
+import com.mardomsara.social.models_old.tables.MsgFile;
 import com.mardomsara.social.models_realm.pb_realm.RealmMessageFileView;
 
 import java.io.File;
@@ -45,7 +44,7 @@ public class HelperMessageFile {
 //			String $fileName = AppFiles.PHOTO_DIR_PATH + FormaterUtil.getFullyYearToSecondsSolarName() + "$" + msgFile.Extension;
 			String $fileName = AppFiles.PHOTO_DIR_PATH + msgFile.MessageFileId + msgFile.Extension;
 			String fileName = FileUtil.createNextName($fileName);
-			MSRealm.getChatRealm().executeTransaction((r) -> {
+			AppRealm.getChatRealm().executeTransaction((r) -> {
 				msgFile.LocalSrc = fileName;
 			});
 		}

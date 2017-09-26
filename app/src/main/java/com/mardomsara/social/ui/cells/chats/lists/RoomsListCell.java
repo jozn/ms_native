@@ -20,11 +20,11 @@ import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.LangUtil;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
 import com.mardomsara.social.lib.ms.ArrayListHashSetKey;
-import com.mardomsara.social.models.RoomModel;
-import com.mardomsara.social.models.memory_store.MemoryStore_LastMsgs;
-import com.mardomsara.social.models.memory_store.MemoryStore_Rooms;
-import com.mardomsara.social.models.tables.Message;
-import com.mardomsara.social.models.tables.Room;
+import com.mardomsara.social.models_old.RoomModel;
+import com.mardomsara.social.models_old.memory_store.MemoryStore_LastMsgs;
+import com.mardomsara.social.models_old.memory_store.MemoryStore_Rooms;
+import com.mardomsara.social.models_old.tables.Message;
+import com.mardomsara.social.models_old.tables.Room;
 import com.mardomsara.social.play.DividerItemDecoration;
 import com.mardomsara.social.ui.X;
 

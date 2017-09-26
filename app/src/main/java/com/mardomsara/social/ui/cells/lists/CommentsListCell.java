@@ -14,7 +14,7 @@ import com.mardomsara.social.json.HttpJson;
 import com.mardomsara.social.json.HttpJsonList;
 import com.mardomsara.social.json.JV;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
-import com.mardomsara.social.models.tables.Session;
+import com.mardomsara.social.models_old.tables.Session;
 import com.mardomsara.social.ui.cells.rows.CommentRowCell;
 import com.mardomsara.social.ui.views.helpers.ViewHelper;
 
