@@ -119,58 +119,6 @@ public class RPC {
     }
   }
 
-  public static class RpcMsgs {
-
-    public static interface UploadNewMsg_ResultHandler {
-      void onResult(PB_ResRpcAddMsg res);
-    }
-
-    public static void UploadNewMsg(
-        PB_Message param, UploadNewMsg_ResultHandler resultHandler, ErrorCallback errorCallback) {
-      UploadNewMsgImpl(param, resultHandler, errorCallback, false, "");
-    }
-
-    public static void UploadNewMsg_Offline(
-        String offlineKey,
-        PB_Message param,
-        UploadNewMsg_ResultHandler resultHandler,
-        ErrorCallback errorCallback) {
-      UploadNewMsgImpl(param, resultHandler, errorCallback, true, offlineKey);
-    }
-
-    private static void UploadNewMsgImpl(
-        PB_Message param,
-        UploadNewMsg_ResultHandler resultHandler,
-        ErrorCallback errorCallback,
-        Boolean offline,
-        String offlineKey) {
-      SuccessCallback callback = null;
-      if (resultHandler != null) {
-        callback =
-            new SuccessCallback() {
-              @Override
-              public void handle(byte[] data) {
-                Log.i(
-                    "RPC ws",
-                    "handling rpc respnse for: UploadNewMsg with respose class PB_ResRpcAddMsg");
-                try {
-                  PB_ResRpcAddMsg d = PB_ResRpcAddMsg.parseFrom(data);
-                  resultHandler.onResult(d);
-                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                  Log.d("RPC ws", "parsing protocol buffer is faild: PB_ResRpcAddMsg");
-                }
-              }
-            };
-      }
-
-      if (offline) {
-        Pipe.sendOffline(offlineKey, "RpcMsgs.UploadNewMsg", param, callback, errorCallback);
-      } else {
-        Pipe.send("RpcMsgs.UploadNewMsg", param, callback, errorCallback);
-      }
-    }
-  }
-
   public static class RPC_Auth {
 
     public static interface CheckPhone_ResultHandler {
@@ -586,6 +534,14 @@ public class RPC {
 
     public static interface BroadcastNewMessage_ResultHandler {
       void onResult(PB_MsgResponse_BroadcastNewMessage res);
+    }
+
+    public static interface GetFreshChatList_ResultHandler {
+      void onResult(PB_MsgResponse_GetFreshChatList res);
+    }
+
+    public static interface GetFreshRoomMessagesList_ResultHandler {
+      void onResult(PB_MsgResponse_GetFreshRoomMessagesList res);
     }
 
     public static interface Echo_ResultHandler {
@@ -1186,6 +1142,107 @@ public class RPC {
       }
     }
 
+    public static void GetFreshChatList(
+        PB_MsgParam_GetFreshChatList param,
+        GetFreshChatList_ResultHandler resultHandler,
+        ErrorCallback errorCallback) {
+      GetFreshChatListImpl(param, resultHandler, errorCallback, false, "");
+    }
+
+    public static void GetFreshChatList_Offline(
+        String offlineKey,
+        PB_MsgParam_GetFreshChatList param,
+        GetFreshChatList_ResultHandler resultHandler,
+        ErrorCallback errorCallback) {
+      GetFreshChatListImpl(param, resultHandler, errorCallback, true, offlineKey);
+    }
+
+    private static void GetFreshChatListImpl(
+        PB_MsgParam_GetFreshChatList param,
+        GetFreshChatList_ResultHandler resultHandler,
+        ErrorCallback errorCallback,
+        Boolean offline,
+        String offlineKey) {
+      SuccessCallback callback = null;
+      if (resultHandler != null) {
+        callback =
+            new SuccessCallback() {
+              @Override
+              public void handle(byte[] data) {
+                Log.i(
+                    "RPC ws",
+                    "handling rpc respnse for: GetFreshChatList with respose class PB_MsgResponse_GetFreshChatList");
+                try {
+                  PB_MsgResponse_GetFreshChatList d =
+                      PB_MsgResponse_GetFreshChatList.parseFrom(data);
+                  resultHandler.onResult(d);
+                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                  Log.d(
+                      "RPC ws",
+                      "parsing protocol buffer is faild: PB_MsgResponse_GetFreshChatList");
+                }
+              }
+            };
+      }
+
+      if (offline) {
+        Pipe.sendOffline(offlineKey, "RPC_Msg.GetFreshChatList", param, callback, errorCallback);
+      } else {
+        Pipe.send("RPC_Msg.GetFreshChatList", param, callback, errorCallback);
+      }
+    }
+
+    public static void GetFreshRoomMessagesList(
+        PB_MsgParam_GetFreshRoomMessagesList param,
+        GetFreshRoomMessagesList_ResultHandler resultHandler,
+        ErrorCallback errorCallback) {
+      GetFreshRoomMessagesListImpl(param, resultHandler, errorCallback, false, "");
+    }
+
+    public static void GetFreshRoomMessagesList_Offline(
+        String offlineKey,
+        PB_MsgParam_GetFreshRoomMessagesList param,
+        GetFreshRoomMessagesList_ResultHandler resultHandler,
+        ErrorCallback errorCallback) {
+      GetFreshRoomMessagesListImpl(param, resultHandler, errorCallback, true, offlineKey);
+    }
+
+    private static void GetFreshRoomMessagesListImpl(
+        PB_MsgParam_GetFreshRoomMessagesList param,
+        GetFreshRoomMessagesList_ResultHandler resultHandler,
+        ErrorCallback errorCallback,
+        Boolean offline,
+        String offlineKey) {
+      SuccessCallback callback = null;
+      if (resultHandler != null) {
+        callback =
+            new SuccessCallback() {
+              @Override
+              public void handle(byte[] data) {
+                Log.i(
+                    "RPC ws",
+                    "handling rpc respnse for: GetFreshRoomMessagesList with respose class PB_MsgResponse_GetFreshRoomMessagesList");
+                try {
+                  PB_MsgResponse_GetFreshRoomMessagesList d =
+                      PB_MsgResponse_GetFreshRoomMessagesList.parseFrom(data);
+                  resultHandler.onResult(d);
+                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                  Log.d(
+                      "RPC ws",
+                      "parsing protocol buffer is faild: PB_MsgResponse_GetFreshRoomMessagesList");
+                }
+              }
+            };
+      }
+
+      if (offline) {
+        Pipe.sendOffline(
+            offlineKey, "RPC_Msg.GetFreshRoomMessagesList", param, callback, errorCallback);
+      } else {
+        Pipe.send("RPC_Msg.GetFreshRoomMessagesList", param, callback, errorCallback);
+      }
+    }
+
     public static void Echo(
         PB_MsgParam_Echo param, Echo_ResultHandler resultHandler, ErrorCallback errorCallback) {
       EchoImpl(param, resultHandler, errorCallback, false, "");
@@ -1231,6 +1288,336 @@ public class RPC {
         Pipe.sendOffline(offlineKey, "RPC_Msg.Echo", param, callback, errorCallback);
       } else {
         Pipe.send("RPC_Msg.Echo", param, callback, errorCallback);
+      }
+    }
+  }
+
+  public static class RPC_Sync {
+
+    public static interface GetDirectUpdates_ResultHandler {
+      void onResult(PB_SyncResponse_GetDirectUpdates res);
+    }
+
+    public static interface GetGeneralUpdates_ResultHandler {
+      void onResult(PB_SyncResponse_GetGeneralUpdates res);
+    }
+
+    public static interface GetNotifyUpdates_ResultHandler {
+      void onResult(PB_SyncResponse_GetNotifyUpdates res);
+    }
+
+    public static interface SetLastSyncDirectUpdateId_ResultHandler {
+      void onResult(PB_SyncResponse_SetLastSyncDirectUpdateId res);
+    }
+
+    public static interface SetLastSyncGeneralUpdateId_ResultHandler {
+      void onResult(PB_SyncResponse_SetLastSyncGeneralUpdateId res);
+    }
+
+    public static interface SetLastSyncNotifyUpdateId_ResultHandler {
+      void onResult(PB_SyncResponse_SetLastSyncNotifyUpdateId res);
+    }
+
+    public static void GetDirectUpdates(
+        PB_SyncParam_GetDirectUpdates param,
+        GetDirectUpdates_ResultHandler resultHandler,
+        ErrorCallback errorCallback) {
+      GetDirectUpdatesImpl(param, resultHandler, errorCallback, false, "");
+    }
+
+    public static void GetDirectUpdates_Offline(
+        String offlineKey,
+        PB_SyncParam_GetDirectUpdates param,
+        GetDirectUpdates_ResultHandler resultHandler,
+        ErrorCallback errorCallback) {
+      GetDirectUpdatesImpl(param, resultHandler, errorCallback, true, offlineKey);
+    }
+
+    private static void GetDirectUpdatesImpl(
+        PB_SyncParam_GetDirectUpdates param,
+        GetDirectUpdates_ResultHandler resultHandler,
+        ErrorCallback errorCallback,
+        Boolean offline,
+        String offlineKey) {
+      SuccessCallback callback = null;
+      if (resultHandler != null) {
+        callback =
+            new SuccessCallback() {
+              @Override
+              public void handle(byte[] data) {
+                Log.i(
+                    "RPC ws",
+                    "handling rpc respnse for: GetDirectUpdates with respose class PB_SyncResponse_GetDirectUpdates");
+                try {
+                  PB_SyncResponse_GetDirectUpdates d =
+                      PB_SyncResponse_GetDirectUpdates.parseFrom(data);
+                  resultHandler.onResult(d);
+                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                  Log.d(
+                      "RPC ws",
+                      "parsing protocol buffer is faild: PB_SyncResponse_GetDirectUpdates");
+                }
+              }
+            };
+      }
+
+      if (offline) {
+        Pipe.sendOffline(offlineKey, "RPC_Sync.GetDirectUpdates", param, callback, errorCallback);
+      } else {
+        Pipe.send("RPC_Sync.GetDirectUpdates", param, callback, errorCallback);
+      }
+    }
+
+    public static void GetGeneralUpdates(
+        PB_SyncParam_GetGeneralUpdates param,
+        GetGeneralUpdates_ResultHandler resultHandler,
+        ErrorCallback errorCallback) {
+      GetGeneralUpdatesImpl(param, resultHandler, errorCallback, false, "");
+    }
+
+    public static void GetGeneralUpdates_Offline(
+        String offlineKey,
+        PB_SyncParam_GetGeneralUpdates param,
+        GetGeneralUpdates_ResultHandler resultHandler,
+        ErrorCallback errorCallback) {
+      GetGeneralUpdatesImpl(param, resultHandler, errorCallback, true, offlineKey);
+    }
+
+    private static void GetGeneralUpdatesImpl(
+        PB_SyncParam_GetGeneralUpdates param,
+        GetGeneralUpdates_ResultHandler resultHandler,
+        ErrorCallback errorCallback,
+        Boolean offline,
+        String offlineKey) {
+      SuccessCallback callback = null;
+      if (resultHandler != null) {
+        callback =
+            new SuccessCallback() {
+              @Override
+              public void handle(byte[] data) {
+                Log.i(
+                    "RPC ws",
+                    "handling rpc respnse for: GetGeneralUpdates with respose class PB_SyncResponse_GetGeneralUpdates");
+                try {
+                  PB_SyncResponse_GetGeneralUpdates d =
+                      PB_SyncResponse_GetGeneralUpdates.parseFrom(data);
+                  resultHandler.onResult(d);
+                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                  Log.d(
+                      "RPC ws",
+                      "parsing protocol buffer is faild: PB_SyncResponse_GetGeneralUpdates");
+                }
+              }
+            };
+      }
+
+      if (offline) {
+        Pipe.sendOffline(offlineKey, "RPC_Sync.GetGeneralUpdates", param, callback, errorCallback);
+      } else {
+        Pipe.send("RPC_Sync.GetGeneralUpdates", param, callback, errorCallback);
+      }
+    }
+
+    public static void GetNotifyUpdates(
+        PB_SyncParam_GetNotifyUpdates param,
+        GetNotifyUpdates_ResultHandler resultHandler,
+        ErrorCallback errorCallback) {
+      GetNotifyUpdatesImpl(param, resultHandler, errorCallback, false, "");
+    }
+
+    public static void GetNotifyUpdates_Offline(
+        String offlineKey,
+        PB_SyncParam_GetNotifyUpdates param,
+        GetNotifyUpdates_ResultHandler resultHandler,
+        ErrorCallback errorCallback) {
+      GetNotifyUpdatesImpl(param, resultHandler, errorCallback, true, offlineKey);
+    }
+
+    private static void GetNotifyUpdatesImpl(
+        PB_SyncParam_GetNotifyUpdates param,
+        GetNotifyUpdates_ResultHandler resultHandler,
+        ErrorCallback errorCallback,
+        Boolean offline,
+        String offlineKey) {
+      SuccessCallback callback = null;
+      if (resultHandler != null) {
+        callback =
+            new SuccessCallback() {
+              @Override
+              public void handle(byte[] data) {
+                Log.i(
+                    "RPC ws",
+                    "handling rpc respnse for: GetNotifyUpdates with respose class PB_SyncResponse_GetNotifyUpdates");
+                try {
+                  PB_SyncResponse_GetNotifyUpdates d =
+                      PB_SyncResponse_GetNotifyUpdates.parseFrom(data);
+                  resultHandler.onResult(d);
+                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                  Log.d(
+                      "RPC ws",
+                      "parsing protocol buffer is faild: PB_SyncResponse_GetNotifyUpdates");
+                }
+              }
+            };
+      }
+
+      if (offline) {
+        Pipe.sendOffline(offlineKey, "RPC_Sync.GetNotifyUpdates", param, callback, errorCallback);
+      } else {
+        Pipe.send("RPC_Sync.GetNotifyUpdates", param, callback, errorCallback);
+      }
+    }
+
+    public static void SetLastSyncDirectUpdateId(
+        PB_SyncParam_SetLastSyncDirectUpdateId param,
+        SetLastSyncDirectUpdateId_ResultHandler resultHandler,
+        ErrorCallback errorCallback) {
+      SetLastSyncDirectUpdateIdImpl(param, resultHandler, errorCallback, false, "");
+    }
+
+    public static void SetLastSyncDirectUpdateId_Offline(
+        String offlineKey,
+        PB_SyncParam_SetLastSyncDirectUpdateId param,
+        SetLastSyncDirectUpdateId_ResultHandler resultHandler,
+        ErrorCallback errorCallback) {
+      SetLastSyncDirectUpdateIdImpl(param, resultHandler, errorCallback, true, offlineKey);
+    }
+
+    private static void SetLastSyncDirectUpdateIdImpl(
+        PB_SyncParam_SetLastSyncDirectUpdateId param,
+        SetLastSyncDirectUpdateId_ResultHandler resultHandler,
+        ErrorCallback errorCallback,
+        Boolean offline,
+        String offlineKey) {
+      SuccessCallback callback = null;
+      if (resultHandler != null) {
+        callback =
+            new SuccessCallback() {
+              @Override
+              public void handle(byte[] data) {
+                Log.i(
+                    "RPC ws",
+                    "handling rpc respnse for: SetLastSyncDirectUpdateId with respose class PB_SyncResponse_SetLastSyncDirectUpdateId");
+                try {
+                  PB_SyncResponse_SetLastSyncDirectUpdateId d =
+                      PB_SyncResponse_SetLastSyncDirectUpdateId.parseFrom(data);
+                  resultHandler.onResult(d);
+                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                  Log.d(
+                      "RPC ws",
+                      "parsing protocol buffer is faild: PB_SyncResponse_SetLastSyncDirectUpdateId");
+                }
+              }
+            };
+      }
+
+      if (offline) {
+        Pipe.sendOffline(
+            offlineKey, "RPC_Sync.SetLastSyncDirectUpdateId", param, callback, errorCallback);
+      } else {
+        Pipe.send("RPC_Sync.SetLastSyncDirectUpdateId", param, callback, errorCallback);
+      }
+    }
+
+    public static void SetLastSyncGeneralUpdateId(
+        PB_SyncParam_SetLastSyncGeneralUpdateId param,
+        SetLastSyncGeneralUpdateId_ResultHandler resultHandler,
+        ErrorCallback errorCallback) {
+      SetLastSyncGeneralUpdateIdImpl(param, resultHandler, errorCallback, false, "");
+    }
+
+    public static void SetLastSyncGeneralUpdateId_Offline(
+        String offlineKey,
+        PB_SyncParam_SetLastSyncGeneralUpdateId param,
+        SetLastSyncGeneralUpdateId_ResultHandler resultHandler,
+        ErrorCallback errorCallback) {
+      SetLastSyncGeneralUpdateIdImpl(param, resultHandler, errorCallback, true, offlineKey);
+    }
+
+    private static void SetLastSyncGeneralUpdateIdImpl(
+        PB_SyncParam_SetLastSyncGeneralUpdateId param,
+        SetLastSyncGeneralUpdateId_ResultHandler resultHandler,
+        ErrorCallback errorCallback,
+        Boolean offline,
+        String offlineKey) {
+      SuccessCallback callback = null;
+      if (resultHandler != null) {
+        callback =
+            new SuccessCallback() {
+              @Override
+              public void handle(byte[] data) {
+                Log.i(
+                    "RPC ws",
+                    "handling rpc respnse for: SetLastSyncGeneralUpdateId with respose class PB_SyncResponse_SetLastSyncGeneralUpdateId");
+                try {
+                  PB_SyncResponse_SetLastSyncGeneralUpdateId d =
+                      PB_SyncResponse_SetLastSyncGeneralUpdateId.parseFrom(data);
+                  resultHandler.onResult(d);
+                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                  Log.d(
+                      "RPC ws",
+                      "parsing protocol buffer is faild: PB_SyncResponse_SetLastSyncGeneralUpdateId");
+                }
+              }
+            };
+      }
+
+      if (offline) {
+        Pipe.sendOffline(
+            offlineKey, "RPC_Sync.SetLastSyncGeneralUpdateId", param, callback, errorCallback);
+      } else {
+        Pipe.send("RPC_Sync.SetLastSyncGeneralUpdateId", param, callback, errorCallback);
+      }
+    }
+
+    public static void SetLastSyncNotifyUpdateId(
+        PB_SyncParam_SetLastSyncNotifyUpdateId param,
+        SetLastSyncNotifyUpdateId_ResultHandler resultHandler,
+        ErrorCallback errorCallback) {
+      SetLastSyncNotifyUpdateIdImpl(param, resultHandler, errorCallback, false, "");
+    }
+
+    public static void SetLastSyncNotifyUpdateId_Offline(
+        String offlineKey,
+        PB_SyncParam_SetLastSyncNotifyUpdateId param,
+        SetLastSyncNotifyUpdateId_ResultHandler resultHandler,
+        ErrorCallback errorCallback) {
+      SetLastSyncNotifyUpdateIdImpl(param, resultHandler, errorCallback, true, offlineKey);
+    }
+
+    private static void SetLastSyncNotifyUpdateIdImpl(
+        PB_SyncParam_SetLastSyncNotifyUpdateId param,
+        SetLastSyncNotifyUpdateId_ResultHandler resultHandler,
+        ErrorCallback errorCallback,
+        Boolean offline,
+        String offlineKey) {
+      SuccessCallback callback = null;
+      if (resultHandler != null) {
+        callback =
+            new SuccessCallback() {
+              @Override
+              public void handle(byte[] data) {
+                Log.i(
+                    "RPC ws",
+                    "handling rpc respnse for: SetLastSyncNotifyUpdateId with respose class PB_SyncResponse_SetLastSyncNotifyUpdateId");
+                try {
+                  PB_SyncResponse_SetLastSyncNotifyUpdateId d =
+                      PB_SyncResponse_SetLastSyncNotifyUpdateId.parseFrom(data);
+                  resultHandler.onResult(d);
+                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                  Log.d(
+                      "RPC ws",
+                      "parsing protocol buffer is faild: PB_SyncResponse_SetLastSyncNotifyUpdateId");
+                }
+              }
+            };
+      }
+
+      if (offline) {
+        Pipe.sendOffline(
+            offlineKey, "RPC_Sync.SetLastSyncNotifyUpdateId", param, callback, errorCallback);
+      } else {
+        Pipe.send("RPC_Sync.SetLastSyncNotifyUpdateId", param, callback, errorCallback);
       }
     }
   }
@@ -1675,9 +2062,9 @@ public class RPC {
 
 RPC_INTERFACES.RPC_MessageReq RPC_MessageReq_Handeler = null;
 RPC_INTERFACES.RPC_MessageReqOffline RPC_MessageReqOffline_Handeler = null;
-RPC_INTERFACES.RpcMsgs RpcMsgs_Handeler = null;
 RPC_INTERFACES.RPC_Auth RPC_Auth_Handeler = null;
 RPC_INTERFACES.RPC_Msg RPC_Msg_Handeler = null;
+RPC_INTERFACES.RPC_Sync RPC_Sync_Handeler = null;
 RPC_INTERFACES.RPC_UserOffline RPC_UserOffline_Handeler = null;
 RPC_INTERFACES.RPC_User RPC_User_Handeler = null;
 

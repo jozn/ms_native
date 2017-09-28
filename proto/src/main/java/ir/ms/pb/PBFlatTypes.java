@@ -1884,6 +1884,90 @@ public class PBFlatTypes {
 	PB_MsgResponse_BroadcastNewMessage t = new PB_MsgResponse_BroadcastNewMessage();
 	*/
 
+	public class PB_MsgParam_GetFreshChatList {
+	}
+	/*
+	folding
+	PBFlatTypes.PB_MsgParam_GetFreshChatList t = new PBFlatTypes.PB_MsgParam_GetFreshChatList();
+	*/
+
+	/*
+	PBFlatTypes.PB_MsgParam_GetFreshChatList t = new PBFlatTypes.PB_MsgParam_GetFreshChatList();
+	*/
+
+	/*
+	PB_MsgParam_GetFreshChatList t = new PB_MsgParam_GetFreshChatList();
+	*/
+
+	public class PB_MsgResponse_GetFreshChatList {
+	   public PB_ChatView Chats;
+	}
+	/*
+	folding
+	PBFlatTypes.PB_MsgResponse_GetFreshChatList t = new PBFlatTypes.PB_MsgResponse_GetFreshChatList();
+    t.setChats();
+	*/
+
+	/*
+	PBFlatTypes.PB_MsgResponse_GetFreshChatList t = new PBFlatTypes.PB_MsgResponse_GetFreshChatList();
+	t.Chats = ;
+	*/
+
+	/*
+	PB_MsgResponse_GetFreshChatList t = new PB_MsgResponse_GetFreshChatList();
+	t.Chats = m.getChats() ;
+	*/
+
+	public class PB_MsgParam_GetFreshRoomMessagesList {
+	   public long ChatId;
+	   public String RoomKey;
+	   public long Last;
+	}
+	/*
+	folding
+	PBFlatTypes.PB_MsgParam_GetFreshRoomMessagesList t = new PBFlatTypes.PB_MsgParam_GetFreshRoomMessagesList();
+    t.setChatId();
+    t.setRoomKey();
+    t.setLast();
+	*/
+
+	/*
+	PBFlatTypes.PB_MsgParam_GetFreshRoomMessagesList t = new PBFlatTypes.PB_MsgParam_GetFreshRoomMessagesList();
+	t.ChatId = ;
+	t.RoomKey = ;
+	t.Last = ;
+	*/
+
+	/*
+	PB_MsgParam_GetFreshRoomMessagesList t = new PB_MsgParam_GetFreshRoomMessagesList();
+	t.ChatId = m.getChatId() ;
+	t.RoomKey = m.getRoomKey() ;
+	t.Last = m.getLast() ;
+	*/
+
+	public class PB_MsgResponse_GetFreshRoomMessagesList {
+	   public PB_MessageView Messages;
+	   public boolean HasMore;
+	}
+	/*
+	folding
+	PBFlatTypes.PB_MsgResponse_GetFreshRoomMessagesList t = new PBFlatTypes.PB_MsgResponse_GetFreshRoomMessagesList();
+    t.setMessages();
+    t.setHasMore();
+	*/
+
+	/*
+	PBFlatTypes.PB_MsgResponse_GetFreshRoomMessagesList t = new PBFlatTypes.PB_MsgResponse_GetFreshRoomMessagesList();
+	t.Messages = ;
+	t.HasMore = ;
+	*/
+
+	/*
+	PB_MsgResponse_GetFreshRoomMessagesList t = new PB_MsgResponse_GetFreshRoomMessagesList();
+	t.Messages = m.getMessages() ;
+	t.HasMore = m.getHasMore() ;
+	*/
+
 	public class PB_MsgParam_Echo {
 	   public String Text;
 	}
@@ -1920,6 +2004,270 @@ public class PBFlatTypes {
 	/*
 	PB_MsgResponse_PB_MsgParam_Echo t = new PB_MsgResponse_PB_MsgParam_Echo();
 	t.Text = m.getText() ;
+	*/
+
+	public class PB_SyncParam_GetDirectUpdates {
+	   public long LastId;
+	}
+	/*
+	folding
+	PBFlatTypes.PB_SyncParam_GetDirectUpdates t = new PBFlatTypes.PB_SyncParam_GetDirectUpdates();
+    t.setLastId();
+	*/
+
+	/*
+	PBFlatTypes.PB_SyncParam_GetDirectUpdates t = new PBFlatTypes.PB_SyncParam_GetDirectUpdates();
+	t.LastId = ;
+	*/
+
+	/*
+	PB_SyncParam_GetDirectUpdates t = new PB_SyncParam_GetDirectUpdates();
+	t.LastId = m.getLastId() ;
+	*/
+
+	public class PB_SyncResponse_GetDirectUpdates {
+	   public PB_MessageView NewMessages;
+	   public PB_MessageFileView ChatFiles;
+	   public PB_ChatView Chats;
+	   public PB_UserView Users;
+	   public PB_UpdateMessageId MessagesChangeIds;
+	   public PB_UpdateMessageToEdit MessagesToUpdate;
+	   public PB_UpdateMessageToDelete MessagesToDelete;
+	   public PB_UpdateMessageMeta MessagesDelivierdToServer;
+	   public PB_UpdateMessageMeta MessagesDelivierdToPeer;
+	   public PB_UpdateMessageMeta MessagesSeenByPeer;
+	   public PB_UpdateMessageMeta MessagesDeletedFromServer;
+	   public PB_UpdateRoomActionDoing RoomActionDoing;
+	}
+	/*
+	folding
+	PBFlatTypes.PB_SyncResponse_GetDirectUpdates t = new PBFlatTypes.PB_SyncResponse_GetDirectUpdates();
+    t.setNewMessages();
+    t.setChatFiles();
+    t.setChats();
+    t.setUsers();
+    t.setMessagesChangeIds();
+    t.setMessagesToUpdate();
+    t.setMessagesToDelete();
+    t.setMessagesDelivierdToServer();
+    t.setMessagesDelivierdToPeer();
+    t.setMessagesSeenByPeer();
+    t.setMessagesDeletedFromServer();
+    t.setRoomActionDoing();
+	*/
+
+	/*
+	PBFlatTypes.PB_SyncResponse_GetDirectUpdates t = new PBFlatTypes.PB_SyncResponse_GetDirectUpdates();
+	t.NewMessages = ;
+	t.ChatFiles = ;
+	t.Chats = ;
+	t.Users = ;
+	t.MessagesChangeIds = ;
+	t.MessagesToUpdate = ;
+	t.MessagesToDelete = ;
+	t.MessagesDelivierdToServer = ;
+	t.MessagesDelivierdToPeer = ;
+	t.MessagesSeenByPeer = ;
+	t.MessagesDeletedFromServer = ;
+	t.RoomActionDoing = ;
+	*/
+
+	/*
+	PB_SyncResponse_GetDirectUpdates t = new PB_SyncResponse_GetDirectUpdates();
+	t.NewMessages = m.getNewMessages() ;
+	t.ChatFiles = m.getChatFiles() ;
+	t.Chats = m.getChats() ;
+	t.Users = m.getUsers() ;
+	t.MessagesChangeIds = m.getMessagesChangeIds() ;
+	t.MessagesToUpdate = m.getMessagesToUpdate() ;
+	t.MessagesToDelete = m.getMessagesToDelete() ;
+	t.MessagesDelivierdToServer = m.getMessagesDelivierdToServer() ;
+	t.MessagesDelivierdToPeer = m.getMessagesDelivierdToPeer() ;
+	t.MessagesSeenByPeer = m.getMessagesSeenByPeer() ;
+	t.MessagesDeletedFromServer = m.getMessagesDeletedFromServer() ;
+	t.RoomActionDoing = m.getRoomActionDoing() ;
+	*/
+
+	public class PB_SyncParam_GetGeneralUpdates {
+	   public long LastId;
+	}
+	/*
+	folding
+	PBFlatTypes.PB_SyncParam_GetGeneralUpdates t = new PBFlatTypes.PB_SyncParam_GetGeneralUpdates();
+    t.setLastId();
+	*/
+
+	/*
+	PBFlatTypes.PB_SyncParam_GetGeneralUpdates t = new PBFlatTypes.PB_SyncParam_GetGeneralUpdates();
+	t.LastId = ;
+	*/
+
+	/*
+	PB_SyncParam_GetGeneralUpdates t = new PB_SyncParam_GetGeneralUpdates();
+	t.LastId = m.getLastId() ;
+	*/
+
+	public class PB_SyncResponse_GetGeneralUpdates {
+	   public PB_UpdateUserBlocked UserBlockedByMe;
+	   public PB_UpdateUserBlocked UserBlockedMe;
+	}
+	/*
+	folding
+	PBFlatTypes.PB_SyncResponse_GetGeneralUpdates t = new PBFlatTypes.PB_SyncResponse_GetGeneralUpdates();
+    t.setUserBlockedByMe();
+    t.setUserBlockedMe();
+	*/
+
+	/*
+	PBFlatTypes.PB_SyncResponse_GetGeneralUpdates t = new PBFlatTypes.PB_SyncResponse_GetGeneralUpdates();
+	t.UserBlockedByMe = ;
+	t.UserBlockedMe = ;
+	*/
+
+	/*
+	PB_SyncResponse_GetGeneralUpdates t = new PB_SyncResponse_GetGeneralUpdates();
+	t.UserBlockedByMe = m.getUserBlockedByMe() ;
+	t.UserBlockedMe = m.getUserBlockedMe() ;
+	*/
+
+	public class PB_SyncParam_GetNotifyUpdates {
+	   public long LastId;
+	}
+	/*
+	folding
+	PBFlatTypes.PB_SyncParam_GetNotifyUpdates t = new PBFlatTypes.PB_SyncParam_GetNotifyUpdates();
+    t.setLastId();
+	*/
+
+	/*
+	PBFlatTypes.PB_SyncParam_GetNotifyUpdates t = new PBFlatTypes.PB_SyncParam_GetNotifyUpdates();
+	t.LastId = ;
+	*/
+
+	/*
+	PB_SyncParam_GetNotifyUpdates t = new PB_SyncParam_GetNotifyUpdates();
+	t.LastId = m.getLastId() ;
+	*/
+
+	public class PB_SyncResponse_GetNotifyUpdates {
+	   public PB_NotifyUpdatesView Updates;
+	}
+	/*
+	folding
+	PBFlatTypes.PB_SyncResponse_GetNotifyUpdates t = new PBFlatTypes.PB_SyncResponse_GetNotifyUpdates();
+    t.setUpdates();
+	*/
+
+	/*
+	PBFlatTypes.PB_SyncResponse_GetNotifyUpdates t = new PBFlatTypes.PB_SyncResponse_GetNotifyUpdates();
+	t.Updates = ;
+	*/
+
+	/*
+	PB_SyncResponse_GetNotifyUpdates t = new PB_SyncResponse_GetNotifyUpdates();
+	t.Updates = m.getUpdates() ;
+	*/
+
+	public class PB_SyncParam_SetLastSyncDirectUpdateId {
+	   public long LastId;
+	}
+	/*
+	folding
+	PBFlatTypes.PB_SyncParam_SetLastSyncDirectUpdateId t = new PBFlatTypes.PB_SyncParam_SetLastSyncDirectUpdateId();
+    t.setLastId();
+	*/
+
+	/*
+	PBFlatTypes.PB_SyncParam_SetLastSyncDirectUpdateId t = new PBFlatTypes.PB_SyncParam_SetLastSyncDirectUpdateId();
+	t.LastId = ;
+	*/
+
+	/*
+	PB_SyncParam_SetLastSyncDirectUpdateId t = new PB_SyncParam_SetLastSyncDirectUpdateId();
+	t.LastId = m.getLastId() ;
+	*/
+
+	public class PB_SyncResponse_SetLastSyncDirectUpdateId {
+	}
+	/*
+	folding
+	PBFlatTypes.PB_SyncResponse_SetLastSyncDirectUpdateId t = new PBFlatTypes.PB_SyncResponse_SetLastSyncDirectUpdateId();
+	*/
+
+	/*
+	PBFlatTypes.PB_SyncResponse_SetLastSyncDirectUpdateId t = new PBFlatTypes.PB_SyncResponse_SetLastSyncDirectUpdateId();
+	*/
+
+	/*
+	PB_SyncResponse_SetLastSyncDirectUpdateId t = new PB_SyncResponse_SetLastSyncDirectUpdateId();
+	*/
+
+	public class PB_SyncParam_SetLastSyncGeneralUpdateId {
+	   public long LastId;
+	}
+	/*
+	folding
+	PBFlatTypes.PB_SyncParam_SetLastSyncGeneralUpdateId t = new PBFlatTypes.PB_SyncParam_SetLastSyncGeneralUpdateId();
+    t.setLastId();
+	*/
+
+	/*
+	PBFlatTypes.PB_SyncParam_SetLastSyncGeneralUpdateId t = new PBFlatTypes.PB_SyncParam_SetLastSyncGeneralUpdateId();
+	t.LastId = ;
+	*/
+
+	/*
+	PB_SyncParam_SetLastSyncGeneralUpdateId t = new PB_SyncParam_SetLastSyncGeneralUpdateId();
+	t.LastId = m.getLastId() ;
+	*/
+
+	public class PB_SyncResponse_SetLastSyncGeneralUpdateId {
+	}
+	/*
+	folding
+	PBFlatTypes.PB_SyncResponse_SetLastSyncGeneralUpdateId t = new PBFlatTypes.PB_SyncResponse_SetLastSyncGeneralUpdateId();
+	*/
+
+	/*
+	PBFlatTypes.PB_SyncResponse_SetLastSyncGeneralUpdateId t = new PBFlatTypes.PB_SyncResponse_SetLastSyncGeneralUpdateId();
+	*/
+
+	/*
+	PB_SyncResponse_SetLastSyncGeneralUpdateId t = new PB_SyncResponse_SetLastSyncGeneralUpdateId();
+	*/
+
+	public class PB_SyncParam_SetLastSyncNotifyUpdateId {
+	   public long LastId;
+	}
+	/*
+	folding
+	PBFlatTypes.PB_SyncParam_SetLastSyncNotifyUpdateId t = new PBFlatTypes.PB_SyncParam_SetLastSyncNotifyUpdateId();
+    t.setLastId();
+	*/
+
+	/*
+	PBFlatTypes.PB_SyncParam_SetLastSyncNotifyUpdateId t = new PBFlatTypes.PB_SyncParam_SetLastSyncNotifyUpdateId();
+	t.LastId = ;
+	*/
+
+	/*
+	PB_SyncParam_SetLastSyncNotifyUpdateId t = new PB_SyncParam_SetLastSyncNotifyUpdateId();
+	t.LastId = m.getLastId() ;
+	*/
+
+	public class PB_SyncResponse_SetLastSyncNotifyUpdateId {
+	}
+	/*
+	folding
+	PBFlatTypes.PB_SyncResponse_SetLastSyncNotifyUpdateId t = new PBFlatTypes.PB_SyncResponse_SetLastSyncNotifyUpdateId();
+	*/
+
+	/*
+	PBFlatTypes.PB_SyncResponse_SetLastSyncNotifyUpdateId t = new PBFlatTypes.PB_SyncResponse_SetLastSyncNotifyUpdateId();
+	*/
+
+	/*
+	PB_SyncResponse_SetLastSyncNotifyUpdateId t = new PB_SyncResponse_SetLastSyncNotifyUpdateId();
 	*/
 
 	public class PB_UserParam_BlockUser {
@@ -2863,6 +3211,115 @@ public class PBFlatTypes {
 	t.UserBlockedMe = m.getUserBlockedMe() ;
 	*/
 
+	public class PB_DirectUpdatesView {
+	   public PB_MessageView NewMessages;
+	   public PB_MessageFileView ChatFiles;
+	   public PB_ChatView Chats;
+	   public PB_UserView Users;
+	   public PB_UpdateMessageId MessagesChangeIds;
+	   public PB_UpdateMessageToEdit MessagesToUpdate;
+	   public PB_UpdateMessageToDelete MessagesToDelete;
+	   public PB_UpdateMessageMeta MessagesDelivierdToServer;
+	   public PB_UpdateMessageMeta MessagesDelivierdToPeer;
+	   public PB_UpdateMessageMeta MessagesSeenByPeer;
+	   public PB_UpdateMessageMeta MessagesDeletedFromServer;
+	   public PB_UpdateRoomActionDoing RoomActionDoing;
+	}
+	/*
+	folding
+	PBFlatTypes.PB_DirectUpdatesView t = new PBFlatTypes.PB_DirectUpdatesView();
+    t.setNewMessages();
+    t.setChatFiles();
+    t.setChats();
+    t.setUsers();
+    t.setMessagesChangeIds();
+    t.setMessagesToUpdate();
+    t.setMessagesToDelete();
+    t.setMessagesDelivierdToServer();
+    t.setMessagesDelivierdToPeer();
+    t.setMessagesSeenByPeer();
+    t.setMessagesDeletedFromServer();
+    t.setRoomActionDoing();
+	*/
+
+	/*
+	PBFlatTypes.PB_DirectUpdatesView t = new PBFlatTypes.PB_DirectUpdatesView();
+	t.NewMessages = ;
+	t.ChatFiles = ;
+	t.Chats = ;
+	t.Users = ;
+	t.MessagesChangeIds = ;
+	t.MessagesToUpdate = ;
+	t.MessagesToDelete = ;
+	t.MessagesDelivierdToServer = ;
+	t.MessagesDelivierdToPeer = ;
+	t.MessagesSeenByPeer = ;
+	t.MessagesDeletedFromServer = ;
+	t.RoomActionDoing = ;
+	*/
+
+	/*
+	PB_DirectUpdatesView t = new PB_DirectUpdatesView();
+	t.NewMessages = m.getNewMessages() ;
+	t.ChatFiles = m.getChatFiles() ;
+	t.Chats = m.getChats() ;
+	t.Users = m.getUsers() ;
+	t.MessagesChangeIds = m.getMessagesChangeIds() ;
+	t.MessagesToUpdate = m.getMessagesToUpdate() ;
+	t.MessagesToDelete = m.getMessagesToDelete() ;
+	t.MessagesDelivierdToServer = m.getMessagesDelivierdToServer() ;
+	t.MessagesDelivierdToPeer = m.getMessagesDelivierdToPeer() ;
+	t.MessagesSeenByPeer = m.getMessagesSeenByPeer() ;
+	t.MessagesDeletedFromServer = m.getMessagesDeletedFromServer() ;
+	t.RoomActionDoing = m.getRoomActionDoing() ;
+	*/
+
+	public class PB_GeneralUpdatesView {
+	   public PB_UpdateUserBlocked UserBlockedByMe;
+	   public PB_UpdateUserBlocked UserBlockedMe;
+	}
+	/*
+	folding
+	PBFlatTypes.PB_GeneralUpdatesView t = new PBFlatTypes.PB_GeneralUpdatesView();
+    t.setUserBlockedByMe();
+    t.setUserBlockedMe();
+	*/
+
+	/*
+	PBFlatTypes.PB_GeneralUpdatesView t = new PBFlatTypes.PB_GeneralUpdatesView();
+	t.UserBlockedByMe = ;
+	t.UserBlockedMe = ;
+	*/
+
+	/*
+	PB_GeneralUpdatesView t = new PB_GeneralUpdatesView();
+	t.UserBlockedByMe = m.getUserBlockedByMe() ;
+	t.UserBlockedMe = m.getUserBlockedMe() ;
+	*/
+
+	public class PB_NotifyUpdatesView {
+	   public PB_UpdateUserBlocked UserBlockedByMe;
+	   public PB_UpdateUserBlocked UserBlockedMe;
+	}
+	/*
+	folding
+	PBFlatTypes.PB_NotifyUpdatesView t = new PBFlatTypes.PB_NotifyUpdatesView();
+    t.setUserBlockedByMe();
+    t.setUserBlockedMe();
+	*/
+
+	/*
+	PBFlatTypes.PB_NotifyUpdatesView t = new PBFlatTypes.PB_NotifyUpdatesView();
+	t.UserBlockedByMe = ;
+	t.UserBlockedMe = ;
+	*/
+
+	/*
+	PB_NotifyUpdatesView t = new PB_NotifyUpdatesView();
+	t.UserBlockedByMe = m.getUserBlockedByMe() ;
+	t.UserBlockedMe = m.getUserBlockedMe() ;
+	*/
+
 	public class PB_ChatView {
 	   public String ChatKey;
 	   public long ChatId;
@@ -3222,9 +3679,9 @@ public class PBFlatTypes {
 
 RPC_HANDLERS.RPC_MessageReq RPC_MessageReq_Handeler = null;
 RPC_HANDLERS.RPC_MessageReqOffline RPC_MessageReqOffline_Handeler = null;
-RPC_HANDLERS.RpcMsgs RpcMsgs_Handeler = null;
 RPC_HANDLERS.RPC_Auth RPC_Auth_Handeler = null;
 RPC_HANDLERS.RPC_Msg RPC_Msg_Handeler = null;
+RPC_HANDLERS.RPC_Sync RPC_Sync_Handeler = null;
 RPC_HANDLERS.RPC_UserOffline RPC_UserOffline_Handeler = null;
 RPC_HANDLERS.RPC_User RPC_User_Handeler = null;
 	

@@ -13,9 +13,6 @@ public interface RPC_MessageReq {
 public interface RPC_MessageReqOffline {
     void SetLastSeen( PB_ResponseSetLastSeenMessages pb, boolean handled);
 }
-public interface RpcMsgs {
-    void UploadNewMsg( PB_ResRpcAddMsg pb, boolean handled);
-}
 public interface RPC_Auth {
     void CheckPhone( PB_UserResponse_CheckUserName2 pb, boolean handled);
     void SendCode( PB_UserResponse_CheckUserName2 pb, boolean handled);
@@ -38,7 +35,17 @@ public interface RPC_Msg {
     void ForwardMessages( PB_MsgResponse_ForwardMessages pb, boolean handled);
     void EditMessage( PB_MsgResponse_EditMessage pb, boolean handled);
     void BroadcastNewMessage( PB_MsgResponse_BroadcastNewMessage pb, boolean handled);
+    void GetFreshChatList( PB_MsgResponse_GetFreshChatList pb, boolean handled);
+    void GetFreshRoomMessagesList( PB_MsgResponse_GetFreshRoomMessagesList pb, boolean handled);
     void Echo( PB_MsgResponse_PB_MsgParam_Echo pb, boolean handled);
+}
+public interface RPC_Sync {
+    void GetDirectUpdates( PB_SyncResponse_GetDirectUpdates pb, boolean handled);
+    void GetGeneralUpdates( PB_SyncResponse_GetGeneralUpdates pb, boolean handled);
+    void GetNotifyUpdates( PB_SyncResponse_GetNotifyUpdates pb, boolean handled);
+    void SetLastSyncDirectUpdateId( PB_SyncResponse_SetLastSyncDirectUpdateId pb, boolean handled);
+    void SetLastSyncGeneralUpdateId( PB_SyncResponse_SetLastSyncGeneralUpdateId pb, boolean handled);
+    void SetLastSyncNotifyUpdateId( PB_SyncResponse_SetLastSyncNotifyUpdateId pb, boolean handled);
 }
 public interface RPC_UserOffline {
     void BlockUser( PB_UserOfflineResponse_BlockUser pb, boolean handled);
@@ -66,13 +73,6 @@ public interface RPC_User {
   	@Override
     public void SetLastSeen( PB_ResponseSetLastSeenMessages pb, boolean handled){
     	Log.d("RPC", " default empty handler for RPC 'RPC_MessageReqOffline.SetLastSeen' ");
-    }
-  }
-  public static class RpcMsgs_Empty implements RpcMsgs{
-  
-  	@Override
-    public void UploadNewMsg( PB_ResRpcAddMsg pb, boolean handled){
-    	Log.d("RPC", " default empty handler for RPC 'RpcMsgs.UploadNewMsg' ");
     }
   }
   public static class RPC_Auth_Empty implements RPC_Auth{
@@ -157,8 +157,43 @@ public interface RPC_User {
     	Log.d("RPC", " default empty handler for RPC 'RPC_Msg.BroadcastNewMessage' ");
     }
   	@Override
+    public void GetFreshChatList( PB_MsgResponse_GetFreshChatList pb, boolean handled){
+    	Log.d("RPC", " default empty handler for RPC 'RPC_Msg.GetFreshChatList' ");
+    }
+  	@Override
+    public void GetFreshRoomMessagesList( PB_MsgResponse_GetFreshRoomMessagesList pb, boolean handled){
+    	Log.d("RPC", " default empty handler for RPC 'RPC_Msg.GetFreshRoomMessagesList' ");
+    }
+  	@Override
     public void Echo( PB_MsgResponse_PB_MsgParam_Echo pb, boolean handled){
     	Log.d("RPC", " default empty handler for RPC 'RPC_Msg.Echo' ");
+    }
+  }
+  public static class RPC_Sync_Empty implements RPC_Sync{
+  
+  	@Override
+    public void GetDirectUpdates( PB_SyncResponse_GetDirectUpdates pb, boolean handled){
+    	Log.d("RPC", " default empty handler for RPC 'RPC_Sync.GetDirectUpdates' ");
+    }
+  	@Override
+    public void GetGeneralUpdates( PB_SyncResponse_GetGeneralUpdates pb, boolean handled){
+    	Log.d("RPC", " default empty handler for RPC 'RPC_Sync.GetGeneralUpdates' ");
+    }
+  	@Override
+    public void GetNotifyUpdates( PB_SyncResponse_GetNotifyUpdates pb, boolean handled){
+    	Log.d("RPC", " default empty handler for RPC 'RPC_Sync.GetNotifyUpdates' ");
+    }
+  	@Override
+    public void SetLastSyncDirectUpdateId( PB_SyncResponse_SetLastSyncDirectUpdateId pb, boolean handled){
+    	Log.d("RPC", " default empty handler for RPC 'RPC_Sync.SetLastSyncDirectUpdateId' ");
+    }
+  	@Override
+    public void SetLastSyncGeneralUpdateId( PB_SyncResponse_SetLastSyncGeneralUpdateId pb, boolean handled){
+    	Log.d("RPC", " default empty handler for RPC 'RPC_Sync.SetLastSyncGeneralUpdateId' ");
+    }
+  	@Override
+    public void SetLastSyncNotifyUpdateId( PB_SyncResponse_SetLastSyncNotifyUpdateId pb, boolean handled){
+    	Log.d("RPC", " default empty handler for RPC 'RPC_Sync.SetLastSyncNotifyUpdateId' ");
     }
   }
   public static class RPC_UserOffline_Empty implements RPC_UserOffline{
@@ -209,9 +244,9 @@ public interface RPC_User {
 	
 	public static RPC_HANDLERS.RPC_MessageReq RPC_MessageReq_Default_Handler = new RPC_HANDLERS.RPC_MessageReq_Empty();
 	public static RPC_HANDLERS.RPC_MessageReqOffline RPC_MessageReqOffline_Default_Handler = new RPC_HANDLERS.RPC_MessageReqOffline_Empty();
-	public static RPC_HANDLERS.RpcMsgs RpcMsgs_Default_Handler = new RPC_HANDLERS.RpcMsgs_Empty();
 	public static RPC_HANDLERS.RPC_Auth RPC_Auth_Default_Handler = new RPC_HANDLERS.RPC_Auth_Empty();
 	public static RPC_HANDLERS.RPC_Msg RPC_Msg_Default_Handler = new RPC_HANDLERS.RPC_Msg_Empty();
+	public static RPC_HANDLERS.RPC_Sync RPC_Sync_Default_Handler = new RPC_HANDLERS.RPC_Sync_Empty();
 	public static RPC_HANDLERS.RPC_UserOffline RPC_UserOffline_Default_Handler = new RPC_HANDLERS.RPC_UserOffline_Empty();
 	public static RPC_HANDLERS.RPC_User RPC_User_Default_Handler = new RPC_HANDLERS.RPC_User_Empty();
 
@@ -235,15 +270,6 @@ public interface RPC_User {
                 		RPC_MessageReqOffline_Default_Handler.SetLastSeen((PB_ResponseSetLastSeenMessages) pb, handled);
                 	}else{
                 		Log.d("RPC", " can not convert response object to PB_ResponseSetLastSeenMessages in rpc: .SetLastSeen ");
-                	}
-                });
-              
-			
-              	maper.put("RpcMsgs.UploadNewMsg", (pb, handled)->{
-                	if(pb instanceof PB_ResRpcAddMsg){
-                		RpcMsgs_Default_Handler.UploadNewMsg((PB_ResRpcAddMsg) pb, handled);
-                	}else{
-                		Log.d("RPC", " can not convert response object to PB_ResRpcAddMsg in rpc: .UploadNewMsg ");
                 	}
                 });
               
@@ -401,11 +427,76 @@ public interface RPC_User {
                 	}
                 });
               
+              	maper.put("RPC_Msg.GetFreshChatList", (pb, handled)->{
+                	if(pb instanceof PB_MsgResponse_GetFreshChatList){
+                		RPC_Msg_Default_Handler.GetFreshChatList((PB_MsgResponse_GetFreshChatList) pb, handled);
+                	}else{
+                		Log.d("RPC", " can not convert response object to PB_MsgResponse_GetFreshChatList in rpc: .GetFreshChatList ");
+                	}
+                });
+              
+              	maper.put("RPC_Msg.GetFreshRoomMessagesList", (pb, handled)->{
+                	if(pb instanceof PB_MsgResponse_GetFreshRoomMessagesList){
+                		RPC_Msg_Default_Handler.GetFreshRoomMessagesList((PB_MsgResponse_GetFreshRoomMessagesList) pb, handled);
+                	}else{
+                		Log.d("RPC", " can not convert response object to PB_MsgResponse_GetFreshRoomMessagesList in rpc: .GetFreshRoomMessagesList ");
+                	}
+                });
+              
               	maper.put("RPC_Msg.Echo", (pb, handled)->{
                 	if(pb instanceof PB_MsgResponse_PB_MsgParam_Echo){
                 		RPC_Msg_Default_Handler.Echo((PB_MsgResponse_PB_MsgParam_Echo) pb, handled);
                 	}else{
                 		Log.d("RPC", " can not convert response object to PB_MsgResponse_PB_MsgParam_Echo in rpc: .Echo ");
+                	}
+                });
+              
+			
+              	maper.put("RPC_Sync.GetDirectUpdates", (pb, handled)->{
+                	if(pb instanceof PB_SyncResponse_GetDirectUpdates){
+                		RPC_Sync_Default_Handler.GetDirectUpdates((PB_SyncResponse_GetDirectUpdates) pb, handled);
+                	}else{
+                		Log.d("RPC", " can not convert response object to PB_SyncResponse_GetDirectUpdates in rpc: .GetDirectUpdates ");
+                	}
+                });
+              
+              	maper.put("RPC_Sync.GetGeneralUpdates", (pb, handled)->{
+                	if(pb instanceof PB_SyncResponse_GetGeneralUpdates){
+                		RPC_Sync_Default_Handler.GetGeneralUpdates((PB_SyncResponse_GetGeneralUpdates) pb, handled);
+                	}else{
+                		Log.d("RPC", " can not convert response object to PB_SyncResponse_GetGeneralUpdates in rpc: .GetGeneralUpdates ");
+                	}
+                });
+              
+              	maper.put("RPC_Sync.GetNotifyUpdates", (pb, handled)->{
+                	if(pb instanceof PB_SyncResponse_GetNotifyUpdates){
+                		RPC_Sync_Default_Handler.GetNotifyUpdates((PB_SyncResponse_GetNotifyUpdates) pb, handled);
+                	}else{
+                		Log.d("RPC", " can not convert response object to PB_SyncResponse_GetNotifyUpdates in rpc: .GetNotifyUpdates ");
+                	}
+                });
+              
+              	maper.put("RPC_Sync.SetLastSyncDirectUpdateId", (pb, handled)->{
+                	if(pb instanceof PB_SyncResponse_SetLastSyncDirectUpdateId){
+                		RPC_Sync_Default_Handler.SetLastSyncDirectUpdateId((PB_SyncResponse_SetLastSyncDirectUpdateId) pb, handled);
+                	}else{
+                		Log.d("RPC", " can not convert response object to PB_SyncResponse_SetLastSyncDirectUpdateId in rpc: .SetLastSyncDirectUpdateId ");
+                	}
+                });
+              
+              	maper.put("RPC_Sync.SetLastSyncGeneralUpdateId", (pb, handled)->{
+                	if(pb instanceof PB_SyncResponse_SetLastSyncGeneralUpdateId){
+                		RPC_Sync_Default_Handler.SetLastSyncGeneralUpdateId((PB_SyncResponse_SetLastSyncGeneralUpdateId) pb, handled);
+                	}else{
+                		Log.d("RPC", " can not convert response object to PB_SyncResponse_SetLastSyncGeneralUpdateId in rpc: .SetLastSyncGeneralUpdateId ");
+                	}
+                });
+              
+              	maper.put("RPC_Sync.SetLastSyncNotifyUpdateId", (pb, handled)->{
+                	if(pb instanceof PB_SyncResponse_SetLastSyncNotifyUpdateId){
+                		RPC_Sync_Default_Handler.SetLastSyncNotifyUpdateId((PB_SyncResponse_SetLastSyncNotifyUpdateId) pb, handled);
+                	}else{
+                		Log.d("RPC", " can not convert response object to PB_SyncResponse_SetLastSyncNotifyUpdateId in rpc: .SetLastSyncNotifyUpdateId ");
                 	}
                 });
               
@@ -482,9 +573,9 @@ public interface RPC_User {
 
 RPC_HANDLERS.RPC_MessageReq RPC_MessageReq_Default_Handler = new RPC_HANDLERS.RPC_MessageReq RPC_MessageReq_Empty();
 RPC_HANDLERS.RPC_MessageReqOffline RPC_MessageReqOffline_Default_Handler = new RPC_HANDLERS.RPC_MessageReqOffline RPC_MessageReqOffline_Empty();
-RPC_HANDLERS.RpcMsgs RpcMsgs_Default_Handler = new RPC_HANDLERS.RpcMsgs RpcMsgs_Empty();
 RPC_HANDLERS.RPC_Auth RPC_Auth_Default_Handler = new RPC_HANDLERS.RPC_Auth RPC_Auth_Empty();
 RPC_HANDLERS.RPC_Msg RPC_Msg_Default_Handler = new RPC_HANDLERS.RPC_Msg RPC_Msg_Empty();
+RPC_HANDLERS.RPC_Sync RPC_Sync_Default_Handler = new RPC_HANDLERS.RPC_Sync RPC_Sync_Empty();
 RPC_HANDLERS.RPC_UserOffline RPC_UserOffline_Default_Handler = new RPC_HANDLERS.RPC_UserOffline RPC_UserOffline_Empty();
 RPC_HANDLERS.RPC_User RPC_User_Default_Handler = new RPC_HANDLERS.RPC_User RPC_User_Empty();
 	

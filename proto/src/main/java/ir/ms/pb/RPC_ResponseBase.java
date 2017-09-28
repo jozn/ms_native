@@ -12,10 +12,6 @@ public class RPC_ResponseBase {/*
 		public void SetLastSeen( PB_ResponseSetLastSeenMessages pbOut){
 			Log.d("RPC:Response", "RPC_MessageReqOffline_Base.RPC_MessageReqOffline");
 		}}
-	public static class RpcMsgs_Base implements RPC_HANDLERS.RpcMsgs  {
-		public void UploadNewMsg( PB_ResRpcAddMsg pbOut){
-			Log.d("RPC:Response", "RpcMsgs_Base.RpcMsgs");
-		}}
 	public static class RPC_Auth_Base implements RPC_HANDLERS.RPC_Auth  {
 		public void CheckPhone( PB_UserResponse_CheckUserName2 pbOut){
 			Log.d("RPC:Response", "RPC_Auth_Base.RPC_Auth");
@@ -75,8 +71,33 @@ public class RPC_ResponseBase {/*
 		public void BroadcastNewMessage( PB_MsgResponse_BroadcastNewMessage pbOut){
 			Log.d("RPC:Response", "RPC_Msg_Base.RPC_Msg");
 		}
+		public void GetFreshChatList( PB_MsgResponse_GetFreshChatList pbOut){
+			Log.d("RPC:Response", "RPC_Msg_Base.RPC_Msg");
+		}
+		public void GetFreshRoomMessagesList( PB_MsgResponse_GetFreshRoomMessagesList pbOut){
+			Log.d("RPC:Response", "RPC_Msg_Base.RPC_Msg");
+		}
 		public void Echo( PB_MsgResponse_PB_MsgParam_Echo pbOut){
 			Log.d("RPC:Response", "RPC_Msg_Base.RPC_Msg");
+		}}
+	public static class RPC_Sync_Base implements RPC_HANDLERS.RPC_Sync  {
+		public void GetDirectUpdates( PB_SyncResponse_GetDirectUpdates pbOut){
+			Log.d("RPC:Response", "RPC_Sync_Base.RPC_Sync");
+		}
+		public void GetGeneralUpdates( PB_SyncResponse_GetGeneralUpdates pbOut){
+			Log.d("RPC:Response", "RPC_Sync_Base.RPC_Sync");
+		}
+		public void GetNotifyUpdates( PB_SyncResponse_GetNotifyUpdates pbOut){
+			Log.d("RPC:Response", "RPC_Sync_Base.RPC_Sync");
+		}
+		public void SetLastSyncDirectUpdateId( PB_SyncResponse_SetLastSyncDirectUpdateId pbOut){
+			Log.d("RPC:Response", "RPC_Sync_Base.RPC_Sync");
+		}
+		public void SetLastSyncGeneralUpdateId( PB_SyncResponse_SetLastSyncGeneralUpdateId pbOut){
+			Log.d("RPC:Response", "RPC_Sync_Base.RPC_Sync");
+		}
+		public void SetLastSyncNotifyUpdateId( PB_SyncResponse_SetLastSyncNotifyUpdateId pbOut){
+			Log.d("RPC:Response", "RPC_Sync_Base.RPC_Sync");
 		}}
 	public static class RPC_UserOffline_Base implements RPC_HANDLERS.RPC_UserOffline  {
 		public void BlockUser( PB_UserOfflineResponse_BlockUser pbOut){
@@ -110,9 +131,9 @@ public class RPC_ResponseBase {/*
 
 RPC_HANDLERS.RPC_MessageReq RPC_MessageReq_Handeler = null;
 RPC_HANDLERS.RPC_MessageReqOffline RPC_MessageReqOffline_Handeler = null;
-RPC_HANDLERS.RpcMsgs RpcMsgs_Handeler = null;
 RPC_HANDLERS.RPC_Auth RPC_Auth_Handeler = null;
 RPC_HANDLERS.RPC_Msg RPC_Msg_Handeler = null;
+RPC_HANDLERS.RPC_Sync RPC_Sync_Handeler = null;
 RPC_HANDLERS.RPC_UserOffline RPC_UserOffline_Handeler = null;
 RPC_HANDLERS.RPC_User RPC_User_Handeler = null;
 	
