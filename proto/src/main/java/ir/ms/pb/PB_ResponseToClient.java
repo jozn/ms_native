@@ -13,6 +13,7 @@ public  final class PB_ResponseToClient extends
     PB_ResponseToClientOrBuilder {
   private PB_ResponseToClient() {
     pBClass_ = "";
+    rpcFullName_ = "";
     data_ = com.google.protobuf.ByteString.EMPTY;
   }
   public static final int CLIENTCALLID_FIELD_NUMBER = 1;
@@ -84,16 +85,62 @@ public  final class PB_ResponseToClient extends
     pBClass_ = value.toStringUtf8();
   }
 
-  public static final int DATA_FIELD_NUMBER = 3;
+  public static final int RPCFULLNAME_FIELD_NUMBER = 3;
+  private java.lang.String rpcFullName_;
+  /**
+   * <code>string RpcFullName = 3;</code>
+   */
+  public java.lang.String getRpcFullName() {
+    return rpcFullName_;
+  }
+  /**
+   * <code>string RpcFullName = 3;</code>
+   */
+  public com.google.protobuf.ByteString
+      getRpcFullNameBytes() {
+    return com.google.protobuf.ByteString.copyFromUtf8(rpcFullName_);
+  }
+  /**
+   * <code>string RpcFullName = 3;</code>
+   */
+  private void setRpcFullName(
+      java.lang.String value) {
+    if (value == null) {
+    throw new NullPointerException();
+  }
+  
+    rpcFullName_ = value;
+  }
+  /**
+   * <code>string RpcFullName = 3;</code>
+   */
+  private void clearRpcFullName() {
+    
+    rpcFullName_ = getDefaultInstance().getRpcFullName();
+  }
+  /**
+   * <code>string RpcFullName = 3;</code>
+   */
+  private void setRpcFullNameBytes(
+      com.google.protobuf.ByteString value) {
+    if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+    
+    rpcFullName_ = value.toStringUtf8();
+  }
+
+  public static final int DATA_FIELD_NUMBER = 4;
   private com.google.protobuf.ByteString data_;
   /**
-   * <code>bytes Data = 3;</code>
+   * <code>bytes Data = 4;</code>
    */
   public com.google.protobuf.ByteString getData() {
     return data_;
   }
   /**
-   * <code>bytes Data = 3;</code>
+   * <code>bytes Data = 4;</code>
    */
   private void setData(com.google.protobuf.ByteString value) {
     if (value == null) {
@@ -103,7 +150,7 @@ public  final class PB_ResponseToClient extends
     data_ = value;
   }
   /**
-   * <code>bytes Data = 3;</code>
+   * <code>bytes Data = 4;</code>
    */
   private void clearData() {
     
@@ -118,8 +165,11 @@ public  final class PB_ResponseToClient extends
     if (!pBClass_.isEmpty()) {
       output.writeString(2, getPBClass());
     }
+    if (!rpcFullName_.isEmpty()) {
+      output.writeString(3, getRpcFullName());
+    }
     if (!data_.isEmpty()) {
-      output.writeBytes(3, data_);
+      output.writeBytes(4, data_);
     }
   }
 
@@ -136,9 +186,13 @@ public  final class PB_ResponseToClient extends
       size += com.google.protobuf.CodedOutputStream
         .computeStringSize(2, getPBClass());
     }
+    if (!rpcFullName_.isEmpty()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeStringSize(3, getRpcFullName());
+    }
     if (!data_.isEmpty()) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBytesSize(3, data_);
+        .computeBytesSize(4, data_);
     }
     memoizedSerializedSize = size;
     return size;
@@ -290,13 +344,53 @@ public  final class PB_ResponseToClient extends
     }
 
     /**
-     * <code>bytes Data = 3;</code>
+     * <code>string RpcFullName = 3;</code>
+     */
+    public java.lang.String getRpcFullName() {
+      return instance.getRpcFullName();
+    }
+    /**
+     * <code>string RpcFullName = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getRpcFullNameBytes() {
+      return instance.getRpcFullNameBytes();
+    }
+    /**
+     * <code>string RpcFullName = 3;</code>
+     */
+    public Builder setRpcFullName(
+        java.lang.String value) {
+      copyOnWrite();
+      instance.setRpcFullName(value);
+      return this;
+    }
+    /**
+     * <code>string RpcFullName = 3;</code>
+     */
+    public Builder clearRpcFullName() {
+      copyOnWrite();
+      instance.clearRpcFullName();
+      return this;
+    }
+    /**
+     * <code>string RpcFullName = 3;</code>
+     */
+    public Builder setRpcFullNameBytes(
+        com.google.protobuf.ByteString value) {
+      copyOnWrite();
+      instance.setRpcFullNameBytes(value);
+      return this;
+    }
+
+    /**
+     * <code>bytes Data = 4;</code>
      */
     public com.google.protobuf.ByteString getData() {
       return instance.getData();
     }
     /**
-     * <code>bytes Data = 3;</code>
+     * <code>bytes Data = 4;</code>
      */
     public Builder setData(com.google.protobuf.ByteString value) {
       copyOnWrite();
@@ -304,7 +398,7 @@ public  final class PB_ResponseToClient extends
       return this;
     }
     /**
-     * <code>bytes Data = 3;</code>
+     * <code>bytes Data = 4;</code>
      */
     public Builder clearData() {
       copyOnWrite();
@@ -337,6 +431,8 @@ public  final class PB_ResponseToClient extends
             other.clientCallId_ != 0L, other.clientCallId_);
         pBClass_ = visitor.visitString(!pBClass_.isEmpty(), pBClass_,
             !other.pBClass_.isEmpty(), other.pBClass_);
+        rpcFullName_ = visitor.visitString(!rpcFullName_.isEmpty(), rpcFullName_,
+            !other.rpcFullName_.isEmpty(), other.rpcFullName_);
         data_ = visitor.visitByteString(data_ != com.google.protobuf.ByteString.EMPTY, data_,
             other.data_ != com.google.protobuf.ByteString.EMPTY, other.data_);
         if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
@@ -375,6 +471,12 @@ public  final class PB_ResponseToClient extends
                 break;
               }
               case 26: {
+                String s = input.readStringRequireUtf8();
+
+                rpcFullName_ = s;
+                break;
+              }
+              case 34: {
 
                 data_ = input.readBytes();
                 break;

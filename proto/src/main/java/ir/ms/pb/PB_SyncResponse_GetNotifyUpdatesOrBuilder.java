@@ -15,4 +15,9 @@ public interface PB_SyncResponse_GetNotifyUpdatesOrBuilder extends
    * <code>.PB_NotifyUpdatesView Updates = 1;</code>
    */
   ir.ms.pb.PB_NotifyUpdatesView getUpdates();
+
+  /**
+   * <code>int64 LastId = 50;</code>
+   */
+  long getLastId();
 }

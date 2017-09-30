@@ -53,8 +53,8 @@ final class RouterForDataReceived {
 
 		register("PB_CommandReachedToServer", RouterLayerOneHandler.handle_PB_CommandReachedToServer);
 		register("PB_ResponseToClient", RouterLayerOneHandler.handle_PB_ResponseToClient);
-		register("PB_PushDirectLogViewsMany", RouterLayerOneHandler.handle_PB_PushDirectLogViewsMany);
-		register("PB_PushHolderView", RouterLayerOneHandler.handle_PB_PushDirectLogViewsMany);
+		register("PB_PushDirectLogViewsMany", RouterLayerOneHandler.handle_PB_PushDirectLogViewsMany);//dep
+		register("PB_PushHolderView", RouterLayerOneHandler.handle_PB_PushDirectLogViewsMany);//dep
 	}
 
 	static void handleNetWSMessage(ByteString body) {

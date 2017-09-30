@@ -65,10 +65,36 @@ public  final class PB_SyncResponse_GetNotifyUpdates extends
     
   }
 
+  public static final int LASTID_FIELD_NUMBER = 50;
+  private long lastId_;
+  /**
+   * <code>int64 LastId = 50;</code>
+   */
+  public long getLastId() {
+    return lastId_;
+  }
+  /**
+   * <code>int64 LastId = 50;</code>
+   */
+  private void setLastId(long value) {
+    
+    lastId_ = value;
+  }
+  /**
+   * <code>int64 LastId = 50;</code>
+   */
+  private void clearLastId() {
+    
+    lastId_ = 0L;
+  }
+
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
     if (updates_ != null) {
       output.writeMessage(1, getUpdates());
+    }
+    if (lastId_ != 0L) {
+      output.writeInt64(50, lastId_);
     }
   }
 
@@ -80,6 +106,10 @@ public  final class PB_SyncResponse_GetNotifyUpdates extends
     if (updates_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, getUpdates());
+    }
+    if (lastId_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(50, lastId_);
     }
     memoizedSerializedSize = size;
     return size;
@@ -212,6 +242,29 @@ public  final class PB_SyncResponse_GetNotifyUpdates extends
       return this;
     }
 
+    /**
+     * <code>int64 LastId = 50;</code>
+     */
+    public long getLastId() {
+      return instance.getLastId();
+    }
+    /**
+     * <code>int64 LastId = 50;</code>
+     */
+    public Builder setLastId(long value) {
+      copyOnWrite();
+      instance.setLastId(value);
+      return this;
+    }
+    /**
+     * <code>int64 LastId = 50;</code>
+     */
+    public Builder clearLastId() {
+      copyOnWrite();
+      instance.clearLastId();
+      return this;
+    }
+
     // @@protoc_insertion_point(builder_scope:PB_SyncResponse_GetNotifyUpdates)
   }
   protected final Object dynamicMethod(
@@ -234,6 +287,8 @@ public  final class PB_SyncResponse_GetNotifyUpdates extends
         Visitor visitor = (Visitor) arg0;
         ir.ms.pb.PB_SyncResponse_GetNotifyUpdates other = (ir.ms.pb.PB_SyncResponse_GetNotifyUpdates) arg1;
         updates_ = visitor.visitMessage(updates_, other.updates_);
+        lastId_ = visitor.visitLong(lastId_ != 0L, lastId_,
+            other.lastId_ != 0L, other.lastId_);
         if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
             .INSTANCE) {
         }
@@ -269,6 +324,11 @@ public  final class PB_SyncResponse_GetNotifyUpdates extends
                   updates_ = subBuilder.buildPartial();
                 }
 
+                break;
+              }
+              case 400: {
+
+                lastId_ = input.readInt64();
                 break;
               }
             }

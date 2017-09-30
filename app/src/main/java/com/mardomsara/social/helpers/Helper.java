@@ -23,7 +23,7 @@ public class Helper {
     }
 
     public static Uri PathToUserAvatarUri(String path, int sizeDp){
-//        return  Uri.parse("http://192.168.0.105:5000/"+path);
+//        return  Uri.parse("http://192.168.1.250:5000/"+path);
         int px = AndroidUtil.dpToPx(sizeDp);
         int t = 100;
         if (px <= 50 ){

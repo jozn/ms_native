@@ -25,6 +25,7 @@ public  final class PB_SyncResponse_GetDirectUpdates extends
     messagesDeletedFromServer_ = emptyProtobufList();
     roomActionDoing_ = emptyProtobufList();
   }
+  private int bitField0_;
   public static final int NEWMESSAGES_FIELD_NUMBER = 1;
   private com.google.protobuf.Internal.ProtobufList<ir.ms.pb.PB_MessageView> newMessages_;
   /**
@@ -1633,6 +1634,29 @@ public  final class PB_SyncResponse_GetDirectUpdates extends
     roomActionDoing_.remove(index);
   }
 
+  public static final int LASTID_FIELD_NUMBER = 50;
+  private long lastId_;
+  /**
+   * <code>int64 LastId = 50;</code>
+   */
+  public long getLastId() {
+    return lastId_;
+  }
+  /**
+   * <code>int64 LastId = 50;</code>
+   */
+  private void setLastId(long value) {
+    
+    lastId_ = value;
+  }
+  /**
+   * <code>int64 LastId = 50;</code>
+   */
+  private void clearLastId() {
+    
+    lastId_ = 0L;
+  }
+
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
     for (int i = 0; i < newMessages_.size(); i++) {
@@ -1670,6 +1694,9 @@ public  final class PB_SyncResponse_GetDirectUpdates extends
     }
     for (int i = 0; i < roomActionDoing_.size(); i++) {
       output.writeMessage(30, roomActionDoing_.get(i));
+    }
+    if (lastId_ != 0L) {
+      output.writeInt64(50, lastId_);
     }
   }
 
@@ -1725,6 +1752,10 @@ public  final class PB_SyncResponse_GetDirectUpdates extends
     for (int i = 0; i < roomActionDoing_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(30, roomActionDoing_.get(i));
+    }
+    if (lastId_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(50, lastId_);
     }
     memoizedSerializedSize = size;
     return size;
@@ -3120,6 +3151,29 @@ public  final class PB_SyncResponse_GetDirectUpdates extends
       return this;
     }
 
+    /**
+     * <code>int64 LastId = 50;</code>
+     */
+    public long getLastId() {
+      return instance.getLastId();
+    }
+    /**
+     * <code>int64 LastId = 50;</code>
+     */
+    public Builder setLastId(long value) {
+      copyOnWrite();
+      instance.setLastId(value);
+      return this;
+    }
+    /**
+     * <code>int64 LastId = 50;</code>
+     */
+    public Builder clearLastId() {
+      copyOnWrite();
+      instance.clearLastId();
+      return this;
+    }
+
     // @@protoc_insertion_point(builder_scope:PB_SyncResponse_GetDirectUpdates)
   }
   protected final Object dynamicMethod(
@@ -3165,8 +3219,11 @@ public  final class PB_SyncResponse_GetDirectUpdates extends
         messagesSeenByPeer_= visitor.visitList(messagesSeenByPeer_, other.messagesSeenByPeer_);
         messagesDeletedFromServer_= visitor.visitList(messagesDeletedFromServer_, other.messagesDeletedFromServer_);
         roomActionDoing_= visitor.visitList(roomActionDoing_, other.roomActionDoing_);
+        lastId_ = visitor.visitLong(lastId_ != 0L, lastId_,
+            other.lastId_ != 0L, other.lastId_);
         if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
             .INSTANCE) {
+          bitField0_ |= other.bitField0_;
         }
         return this;
       }
@@ -3295,6 +3352,11 @@ public  final class PB_SyncResponse_GetDirectUpdates extends
                 }
                 roomActionDoing_.add(
                     input.readMessage(ir.ms.pb.PB_UpdateRoomActionDoing.parser(), extensionRegistry));
+                break;
+              }
+              case 400: {
+
+                lastId_ = input.readInt64();
                 break;
               }
             }

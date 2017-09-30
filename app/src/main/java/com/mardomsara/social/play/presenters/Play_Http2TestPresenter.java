@@ -156,7 +156,7 @@ public class Play_Http2TestPresenter extends BasePresenter {
     }
 
     void upload(){
-        Http.upload("http://192.168.0.105:5000/upload2", new File("/storage/emulated/0/1.mp4"))
+        Http.upload("http://192.168.1.250:5000/upload2", new File("/storage/emulated/0/1.mp4"))
             .doAsync((r)->{
                 Helper.showDebugMessage(r.data);
             });
@@ -164,7 +164,7 @@ public class Play_Http2TestPresenter extends BasePresenter {
 
     void download(){
         String f= "/storage/emulated/0/1_"+ TimeUtil.getTimeSec() +".mp4";
-        Http.download("http://192.168.0.105:5000/upload/1.mp4", f)
+        Http.download("http://192.168.1.250:5000/upload/1.mp4", f)
                 .doAsyncDownload((r)->{
                     Helper.showDebugMessage(r.data);
                 });
@@ -172,7 +172,7 @@ public class Play_Http2TestPresenter extends BasePresenter {
 
     void downloadProgress(){
         String f= "/storage/emulated/0/1_"+ TimeUtil.getTimeSec() +".mp4";
-        Http.download("http://192.168.0.105:5000/upload/1.mp4", f)
+        Http.download("http://192.168.1.250:5000/upload/1.mp4", f)
             .setDownloadProgress((bytesRead,contentLength,done)->{
                 AppUtil.log(""+bytesRead+ " "+ contentLength+ " "+done);
             })
@@ -182,7 +182,7 @@ public class Play_Http2TestPresenter extends BasePresenter {
     }
 
 	void uploadProgrss(){
-		Http.upload("http://192.168.0.105:5000/upload2", new File("/storage/emulated/0/1.mp4"))
+		Http.upload("http://192.168.1.250:5000/upload2", new File("/storage/emulated/0/1.mp4"))
 			.setUploadProgress((bytesRead,contentLength,done)->{
 				AppUtil.log(""+bytesRead+ " "+ contentLength+ " "+done);
 			})

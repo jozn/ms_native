@@ -33,7 +33,7 @@ public class RealmChatViewHelper {
 		if(chatView.UserView != null){
 			return chatView.UserView.AvatarUrl;
 		}
-		return "http://192.168.0.105:5000/upload/avatar/1/21_mOId_200.jpg";
+		return "http://192.168.1.250:5000/upload/avatar/1/21_mOId_200.jpg";
 	}
 
 	public static int getUserId(RealmChatView chatView){

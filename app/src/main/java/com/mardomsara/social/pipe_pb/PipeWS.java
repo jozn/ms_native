@@ -37,7 +37,7 @@ import okio.ByteString;
  * Created by Hamid on 9/11/2016.
  */
 class PipeWS {
-    private static String wsUrl = "ws://192.168.0.105:5000/ws_pb_call_404?user_id="+ Session.getUserId();
+    private static String wsUrl = "ws://192.168.1.250:5000/ws_pb_call_404?user_id="+ Session.getUserId();
     private static String LOGTAG = "WS";
     private static PipeWS instance;
 

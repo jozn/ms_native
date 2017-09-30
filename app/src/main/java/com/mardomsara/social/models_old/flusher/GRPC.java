@@ -1,22 +1,12 @@
 package com.mardomsara.social.models_old.flusher;
 
-import com.mardomsara.social.App;
-import com.mardomsara.social.app.Config;
-
-import java.util.concurrent.TimeUnit;
-
-import io.grpc.ManagedChannel;
-import io.grpc.okhttp.NegotiationType;
-import io.grpc.okhttp.OkHttpChannelBuilder;
-import ir.ms.pb.RpcMsgsGrpc;
-
 /**
  * Created by Hamid on 6/20/2017.
  */
 
 public class GRPC {
 
-	public static RpcMsgsGrpc.RpcMsgsBlockingStub getNewBlockingMsgRpc() {
+	/*public static RpcMsgsGrpc.RpcMsgsBlockingStub getNewBlockingMsgRpc() {
 		ManagedChannel managedChannel = OkHttpChannelBuilder
 			.forAddress(Config.WEBSOCKET_SERVER_ADDRESS, Config.WEBSOCKET_SERVER_PORT)
 			.keepAliveTime(30, TimeUnit.MINUTES)
@@ -27,7 +17,7 @@ public class GRPC {
 			.build();
 
 		return RpcMsgsGrpc.newBlockingStub(managedChannel);
-	}
+	}*/
 
 	public static void play() {
 //		getNewBlockingMsgRpc().uploadNewMsg();

@@ -3,6 +3,7 @@ package ir.ms.pb;
 import android.util.Log;
 
 import java.util.HashMap;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.Map;
 
 public class RPC_HANDLERS {
@@ -251,321 +252,328 @@ public interface RPC_User {
 	public static RPC_HANDLERS.RPC_User RPC_User_Default_Handler = new RPC_HANDLERS.RPC_User_Empty();
 
 
-	public static Map<String,HandleRowRpcResponse > maper = new HashMap<>();
+	public static Map<String,HandleRowRpcResponse > router = new HashMap<>();
 
-	public static void initMap(){
-		
-			
-              	maper.put("RPC_MessageReq.GetLastChnagesForRoom", (pb, handled)->{
-                	if(pb instanceof PB_ResponseLastChangesForTheRoom){
-                		RPC_MessageReq_Default_Handler.GetLastChnagesForRoom((PB_ResponseLastChangesForTheRoom) pb, handled);
-                	}else{
-                		Log.d("RPC", " can not convert response object to PB_ResponseLastChangesForTheRoom in rpc: .GetLastChnagesForRoom ");
-                	}
-                });
-              
-			
-              	maper.put("RPC_MessageReqOffline.SetLastSeen", (pb, handled)->{
-                	if(pb instanceof PB_ResponseSetLastSeenMessages){
-                		RPC_MessageReqOffline_Default_Handler.SetLastSeen((PB_ResponseSetLastSeenMessages) pb, handled);
-                	}else{
-                		Log.d("RPC", " can not convert response object to PB_ResponseSetLastSeenMessages in rpc: .SetLastSeen ");
-                	}
-                });
-              
-			
-              	maper.put("RPC_Auth.CheckPhone", (pb, handled)->{
-                	if(pb instanceof PB_UserResponse_CheckUserName2){
-                		RPC_Auth_Default_Handler.CheckPhone((PB_UserResponse_CheckUserName2) pb, handled);
-                	}else{
-                		Log.d("RPC", " can not convert response object to PB_UserResponse_CheckUserName2 in rpc: .CheckPhone ");
-                	}
-                });
-              
-              	maper.put("RPC_Auth.SendCode", (pb, handled)->{
-                	if(pb instanceof PB_UserResponse_CheckUserName2){
-                		RPC_Auth_Default_Handler.SendCode((PB_UserResponse_CheckUserName2) pb, handled);
-                	}else{
-                		Log.d("RPC", " can not convert response object to PB_UserResponse_CheckUserName2 in rpc: .SendCode ");
-                	}
-                });
-              
-              	maper.put("RPC_Auth.SendCodeToSms", (pb, handled)->{
-                	if(pb instanceof PB_UserResponse_CheckUserName2){
-                		RPC_Auth_Default_Handler.SendCodeToSms((PB_UserResponse_CheckUserName2) pb, handled);
-                	}else{
-                		Log.d("RPC", " can not convert response object to PB_UserResponse_CheckUserName2 in rpc: .SendCodeToSms ");
-                	}
-                });
-              
-              	maper.put("RPC_Auth.SendCodeToTelgram", (pb, handled)->{
-                	if(pb instanceof PB_UserResponse_CheckUserName2){
-                		RPC_Auth_Default_Handler.SendCodeToTelgram((PB_UserResponse_CheckUserName2) pb, handled);
-                	}else{
-                		Log.d("RPC", " can not convert response object to PB_UserResponse_CheckUserName2 in rpc: .SendCodeToTelgram ");
-                	}
-                });
-              
-              	maper.put("RPC_Auth.SingUp", (pb, handled)->{
-                	if(pb instanceof PB_UserResponse_CheckUserName2){
-                		RPC_Auth_Default_Handler.SingUp((PB_UserResponse_CheckUserName2) pb, handled);
-                	}else{
-                		Log.d("RPC", " can not convert response object to PB_UserResponse_CheckUserName2 in rpc: .SingUp ");
-                	}
-                });
-              
-              	maper.put("RPC_Auth.SingIn", (pb, handled)->{
-                	if(pb instanceof PB_UserResponse_CheckUserName2){
-                		RPC_Auth_Default_Handler.SingIn((PB_UserResponse_CheckUserName2) pb, handled);
-                	}else{
-                		Log.d("RPC", " can not convert response object to PB_UserResponse_CheckUserName2 in rpc: .SingIn ");
-                	}
-                });
-              
-              	maper.put("RPC_Auth.LogOut", (pb, handled)->{
-                	if(pb instanceof PB_UserResponse_CheckUserName2){
-                		RPC_Auth_Default_Handler.LogOut((PB_UserResponse_CheckUserName2) pb, handled);
-                	}else{
-                		Log.d("RPC", " can not convert response object to PB_UserResponse_CheckUserName2 in rpc: .LogOut ");
-                	}
-                });
-              
-			
-              	maper.put("RPC_Msg.AddNewTextMessage", (pb, handled)->{
-                	if(pb instanceof PB_MsgResponse_AddNewTextMessage){
-                		RPC_Msg_Default_Handler.AddNewTextMessage((PB_MsgResponse_AddNewTextMessage) pb, handled);
-                	}else{
-                		Log.d("RPC", " can not convert response object to PB_MsgResponse_AddNewTextMessage in rpc: .AddNewTextMessage ");
-                	}
-                });
-              
-              	maper.put("RPC_Msg.AddNewMessage", (pb, handled)->{
-                	if(pb instanceof PB_MsgResponse_AddNewMessage){
-                		RPC_Msg_Default_Handler.AddNewMessage((PB_MsgResponse_AddNewMessage) pb, handled);
-                	}else{
-                		Log.d("RPC", " can not convert response object to PB_MsgResponse_AddNewMessage in rpc: .AddNewMessage ");
-                	}
-                });
-              
-              	maper.put("RPC_Msg.SetRoomActionDoing", (pb, handled)->{
-                	if(pb instanceof PB_MsgResponse_SetRoomActionDoing){
-                		RPC_Msg_Default_Handler.SetRoomActionDoing((PB_MsgResponse_SetRoomActionDoing) pb, handled);
-                	}else{
-                		Log.d("RPC", " can not convert response object to PB_MsgResponse_SetRoomActionDoing in rpc: .SetRoomActionDoing ");
-                	}
-                });
-              
-              	maper.put("RPC_Msg.GetMessagesByIds", (pb, handled)->{
-                	if(pb instanceof PB_MsgResponse_GetMessagesByIds){
-                		RPC_Msg_Default_Handler.GetMessagesByIds((PB_MsgResponse_GetMessagesByIds) pb, handled);
-                	}else{
-                		Log.d("RPC", " can not convert response object to PB_MsgResponse_GetMessagesByIds in rpc: .GetMessagesByIds ");
-                	}
-                });
-              
-              	maper.put("RPC_Msg.GetMessagesHistory", (pb, handled)->{
-                	if(pb instanceof PB_MsgResponse_GetMessagesHistory){
-                		RPC_Msg_Default_Handler.GetMessagesHistory((PB_MsgResponse_GetMessagesHistory) pb, handled);
-                	}else{
-                		Log.d("RPC", " can not convert response object to PB_MsgResponse_GetMessagesHistory in rpc: .GetMessagesHistory ");
-                	}
-                });
-              
-              	maper.put("RPC_Msg.SetMessagesRangeAsSeen", (pb, handled)->{
-                	if(pb instanceof PB_MsgResponse_SetChatMessagesRangeAsSeen){
-                		RPC_Msg_Default_Handler.SetMessagesRangeAsSeen((PB_MsgResponse_SetChatMessagesRangeAsSeen) pb, handled);
-                	}else{
-                		Log.d("RPC", " can not convert response object to PB_MsgResponse_SetChatMessagesRangeAsSeen in rpc: .SetMessagesRangeAsSeen ");
-                	}
-                });
-              
-              	maper.put("RPC_Msg.DeleteChatHistory", (pb, handled)->{
-                	if(pb instanceof PB_MsgResponse_DeleteChatHistory){
-                		RPC_Msg_Default_Handler.DeleteChatHistory((PB_MsgResponse_DeleteChatHistory) pb, handled);
-                	}else{
-                		Log.d("RPC", " can not convert response object to PB_MsgResponse_DeleteChatHistory in rpc: .DeleteChatHistory ");
-                	}
-                });
-              
-              	maper.put("RPC_Msg.DeleteMessagesByIds", (pb, handled)->{
-                	if(pb instanceof PB_MsgResponse_DeleteMessagesByIds){
-                		RPC_Msg_Default_Handler.DeleteMessagesByIds((PB_MsgResponse_DeleteMessagesByIds) pb, handled);
-                	}else{
-                		Log.d("RPC", " can not convert response object to PB_MsgResponse_DeleteMessagesByIds in rpc: .DeleteMessagesByIds ");
-                	}
-                });
-              
-              	maper.put("RPC_Msg.SetMessagesAsReceived", (pb, handled)->{
-                	if(pb instanceof PB_MsgResponse_SetMessagesAsReceived){
-                		RPC_Msg_Default_Handler.SetMessagesAsReceived((PB_MsgResponse_SetMessagesAsReceived) pb, handled);
-                	}else{
-                		Log.d("RPC", " can not convert response object to PB_MsgResponse_SetMessagesAsReceived in rpc: .SetMessagesAsReceived ");
-                	}
-                });
-              
-              	maper.put("RPC_Msg.ForwardMessages", (pb, handled)->{
-                	if(pb instanceof PB_MsgResponse_ForwardMessages){
-                		RPC_Msg_Default_Handler.ForwardMessages((PB_MsgResponse_ForwardMessages) pb, handled);
-                	}else{
-                		Log.d("RPC", " can not convert response object to PB_MsgResponse_ForwardMessages in rpc: .ForwardMessages ");
-                	}
-                });
-              
-              	maper.put("RPC_Msg.EditMessage", (pb, handled)->{
-                	if(pb instanceof PB_MsgResponse_EditMessage){
-                		RPC_Msg_Default_Handler.EditMessage((PB_MsgResponse_EditMessage) pb, handled);
-                	}else{
-                		Log.d("RPC", " can not convert response object to PB_MsgResponse_EditMessage in rpc: .EditMessage ");
-                	}
-                });
-              
-              	maper.put("RPC_Msg.BroadcastNewMessage", (pb, handled)->{
-                	if(pb instanceof PB_MsgResponse_BroadcastNewMessage){
-                		RPC_Msg_Default_Handler.BroadcastNewMessage((PB_MsgResponse_BroadcastNewMessage) pb, handled);
-                	}else{
-                		Log.d("RPC", " can not convert response object to PB_MsgResponse_BroadcastNewMessage in rpc: .BroadcastNewMessage ");
-                	}
-                });
-              
-              	maper.put("RPC_Msg.GetFreshChatList", (pb, handled)->{
-                	if(pb instanceof PB_MsgResponse_GetFreshChatList){
-                		RPC_Msg_Default_Handler.GetFreshChatList((PB_MsgResponse_GetFreshChatList) pb, handled);
-                	}else{
-                		Log.d("RPC", " can not convert response object to PB_MsgResponse_GetFreshChatList in rpc: .GetFreshChatList ");
-                	}
-                });
-              
-              	maper.put("RPC_Msg.GetFreshRoomMessagesList", (pb, handled)->{
-                	if(pb instanceof PB_MsgResponse_GetFreshRoomMessagesList){
-                		RPC_Msg_Default_Handler.GetFreshRoomMessagesList((PB_MsgResponse_GetFreshRoomMessagesList) pb, handled);
-                	}else{
-                		Log.d("RPC", " can not convert response object to PB_MsgResponse_GetFreshRoomMessagesList in rpc: .GetFreshRoomMessagesList ");
-                	}
-                });
-              
-              	maper.put("RPC_Msg.Echo", (pb, handled)->{
-                	if(pb instanceof PB_MsgResponse_PB_MsgParam_Echo){
-                		RPC_Msg_Default_Handler.Echo((PB_MsgResponse_PB_MsgParam_Echo) pb, handled);
-                	}else{
-                		Log.d("RPC", " can not convert response object to PB_MsgResponse_PB_MsgParam_Echo in rpc: .Echo ");
-                	}
-                });
-              
-			
-              	maper.put("RPC_Sync.GetDirectUpdates", (pb, handled)->{
-                	if(pb instanceof PB_SyncResponse_GetDirectUpdates){
-                		RPC_Sync_Default_Handler.GetDirectUpdates((PB_SyncResponse_GetDirectUpdates) pb, handled);
-                	}else{
-                		Log.d("RPC", " can not convert response object to PB_SyncResponse_GetDirectUpdates in rpc: .GetDirectUpdates ");
-                	}
-                });
-              
-              	maper.put("RPC_Sync.GetGeneralUpdates", (pb, handled)->{
-                	if(pb instanceof PB_SyncResponse_GetGeneralUpdates){
-                		RPC_Sync_Default_Handler.GetGeneralUpdates((PB_SyncResponse_GetGeneralUpdates) pb, handled);
-                	}else{
-                		Log.d("RPC", " can not convert response object to PB_SyncResponse_GetGeneralUpdates in rpc: .GetGeneralUpdates ");
-                	}
-                });
-              
-              	maper.put("RPC_Sync.GetNotifyUpdates", (pb, handled)->{
-                	if(pb instanceof PB_SyncResponse_GetNotifyUpdates){
-                		RPC_Sync_Default_Handler.GetNotifyUpdates((PB_SyncResponse_GetNotifyUpdates) pb, handled);
-                	}else{
-                		Log.d("RPC", " can not convert response object to PB_SyncResponse_GetNotifyUpdates in rpc: .GetNotifyUpdates ");
-                	}
-                });
-              
-              	maper.put("RPC_Sync.SetLastSyncDirectUpdateId", (pb, handled)->{
-                	if(pb instanceof PB_SyncResponse_SetLastSyncDirectUpdateId){
-                		RPC_Sync_Default_Handler.SetLastSyncDirectUpdateId((PB_SyncResponse_SetLastSyncDirectUpdateId) pb, handled);
-                	}else{
-                		Log.d("RPC", " can not convert response object to PB_SyncResponse_SetLastSyncDirectUpdateId in rpc: .SetLastSyncDirectUpdateId ");
-                	}
-                });
-              
-              	maper.put("RPC_Sync.SetLastSyncGeneralUpdateId", (pb, handled)->{
-                	if(pb instanceof PB_SyncResponse_SetLastSyncGeneralUpdateId){
-                		RPC_Sync_Default_Handler.SetLastSyncGeneralUpdateId((PB_SyncResponse_SetLastSyncGeneralUpdateId) pb, handled);
-                	}else{
-                		Log.d("RPC", " can not convert response object to PB_SyncResponse_SetLastSyncGeneralUpdateId in rpc: .SetLastSyncGeneralUpdateId ");
-                	}
-                });
-              
-              	maper.put("RPC_Sync.SetLastSyncNotifyUpdateId", (pb, handled)->{
-                	if(pb instanceof PB_SyncResponse_SetLastSyncNotifyUpdateId){
-                		RPC_Sync_Default_Handler.SetLastSyncNotifyUpdateId((PB_SyncResponse_SetLastSyncNotifyUpdateId) pb, handled);
-                	}else{
-                		Log.d("RPC", " can not convert response object to PB_SyncResponse_SetLastSyncNotifyUpdateId in rpc: .SetLastSyncNotifyUpdateId ");
-                	}
-                });
-              
-			
-              	maper.put("RPC_UserOffline.BlockUser", (pb, handled)->{
-                	if(pb instanceof PB_UserOfflineResponse_BlockUser){
-                		RPC_UserOffline_Default_Handler.BlockUser((PB_UserOfflineResponse_BlockUser) pb, handled);
-                	}else{
-                		Log.d("RPC", " can not convert response object to PB_UserOfflineResponse_BlockUser in rpc: .BlockUser ");
-                	}
-                });
-              
-              	maper.put("RPC_UserOffline.UnBlockUser", (pb, handled)->{
-                	if(pb instanceof PB_UserOfflineResponse_UnBlockUser){
-                		RPC_UserOffline_Default_Handler.UnBlockUser((PB_UserOfflineResponse_UnBlockUser) pb, handled);
-                	}else{
-                		Log.d("RPC", " can not convert response object to PB_UserOfflineResponse_UnBlockUser in rpc: .UnBlockUser ");
-                	}
-                });
-              
-              	maper.put("RPC_UserOffline.UpdateAbout", (pb, handled)->{
-                	if(pb instanceof PB_UserOfflineResponse_UpdateAbout){
-                		RPC_UserOffline_Default_Handler.UpdateAbout((PB_UserOfflineResponse_UpdateAbout) pb, handled);
-                	}else{
-                		Log.d("RPC", " can not convert response object to PB_UserOfflineResponse_UpdateAbout in rpc: .UpdateAbout ");
-                	}
-                });
-              
-              	maper.put("RPC_UserOffline.UpdateUserName", (pb, handled)->{
-                	if(pb instanceof PB_UserOfflineResponse_UpdateUserName){
-                		RPC_UserOffline_Default_Handler.UpdateUserName((PB_UserOfflineResponse_UpdateUserName) pb, handled);
-                	}else{
-                		Log.d("RPC", " can not convert response object to PB_UserOfflineResponse_UpdateUserName in rpc: .UpdateUserName ");
-                	}
-                });
-              
-              	maper.put("RPC_UserOffline.ChangePrivacy", (pb, handled)->{
-                	if(pb instanceof PB_UserResponseOffline_ChangePrivacy){
-                		RPC_UserOffline_Default_Handler.ChangePrivacy((PB_UserResponseOffline_ChangePrivacy) pb, handled);
-                	}else{
-                		Log.d("RPC", " can not convert response object to PB_UserResponseOffline_ChangePrivacy in rpc: .ChangePrivacy ");
-                	}
-                });
-              
-              	maper.put("RPC_UserOffline.ChangeAvatar", (pb, handled)->{
-                	if(pb instanceof PB_UserOfflineResponse_ChangeAvatar){
-                		RPC_UserOffline_Default_Handler.ChangeAvatar((PB_UserOfflineResponse_ChangeAvatar) pb, handled);
-                	}else{
-                		Log.d("RPC", " can not convert response object to PB_UserOfflineResponse_ChangeAvatar in rpc: .ChangeAvatar ");
-                	}
-                });
-              
-			
-              	maper.put("RPC_User.CheckUserName", (pb, handled)->{
-                	if(pb instanceof PB_UserResponse_CheckUserName){
-                		RPC_User_Default_Handler.CheckUserName((PB_UserResponse_CheckUserName) pb, handled);
-                	}else{
-                		Log.d("RPC", " can not convert response object to PB_UserResponse_CheckUserName in rpc: .CheckUserName ");
-                	}
-                });
-              
-              	maper.put("RPC_User.GetBlockedList", (pb, handled)->{
-                	if(pb instanceof PB_UserResponse_BlockedList){
-                		RPC_User_Default_Handler.GetBlockedList((PB_UserResponse_BlockedList) pb, handled);
-                	}else{
-                		Log.d("RPC", " can not convert response object to PB_UserResponse_BlockedList in rpc: .GetBlockedList ");
-                	}
-                });
-              
+	public static Map<String,HandleRowRpcResponse > getRouter(){
+		if(router.size() ==0 ){
+			initMap();
+		}
+		return router;
+	}
+
+	private synchronized static void initMap(){
+	
+	  
+			router.put("RPC_MessageReq.GetLastChnagesForRoom", (pb, handled)->{
+				if(pb instanceof PB_ResponseLastChangesForTheRoom){
+					RPC_MessageReq_Default_Handler.GetLastChnagesForRoom((PB_ResponseLastChangesForTheRoom) pb, handled);
+				}else{
+					Log.d("RPC", " can not convert response object to PB_ResponseLastChangesForTheRoom in rpc: .GetLastChnagesForRoom ");
+				}
+			});
+	  
+	  
+			router.put("RPC_MessageReqOffline.SetLastSeen", (pb, handled)->{
+				if(pb instanceof PB_ResponseSetLastSeenMessages){
+					RPC_MessageReqOffline_Default_Handler.SetLastSeen((PB_ResponseSetLastSeenMessages) pb, handled);
+				}else{
+					Log.d("RPC", " can not convert response object to PB_ResponseSetLastSeenMessages in rpc: .SetLastSeen ");
+				}
+			});
+	  
+	  
+			router.put("RPC_Auth.CheckPhone", (pb, handled)->{
+				if(pb instanceof PB_UserResponse_CheckUserName2){
+					RPC_Auth_Default_Handler.CheckPhone((PB_UserResponse_CheckUserName2) pb, handled);
+				}else{
+					Log.d("RPC", " can not convert response object to PB_UserResponse_CheckUserName2 in rpc: .CheckPhone ");
+				}
+			});
+	  
+			router.put("RPC_Auth.SendCode", (pb, handled)->{
+				if(pb instanceof PB_UserResponse_CheckUserName2){
+					RPC_Auth_Default_Handler.SendCode((PB_UserResponse_CheckUserName2) pb, handled);
+				}else{
+					Log.d("RPC", " can not convert response object to PB_UserResponse_CheckUserName2 in rpc: .SendCode ");
+				}
+			});
+	  
+			router.put("RPC_Auth.SendCodeToSms", (pb, handled)->{
+				if(pb instanceof PB_UserResponse_CheckUserName2){
+					RPC_Auth_Default_Handler.SendCodeToSms((PB_UserResponse_CheckUserName2) pb, handled);
+				}else{
+					Log.d("RPC", " can not convert response object to PB_UserResponse_CheckUserName2 in rpc: .SendCodeToSms ");
+				}
+			});
+	  
+			router.put("RPC_Auth.SendCodeToTelgram", (pb, handled)->{
+				if(pb instanceof PB_UserResponse_CheckUserName2){
+					RPC_Auth_Default_Handler.SendCodeToTelgram((PB_UserResponse_CheckUserName2) pb, handled);
+				}else{
+					Log.d("RPC", " can not convert response object to PB_UserResponse_CheckUserName2 in rpc: .SendCodeToTelgram ");
+				}
+			});
+	  
+			router.put("RPC_Auth.SingUp", (pb, handled)->{
+				if(pb instanceof PB_UserResponse_CheckUserName2){
+					RPC_Auth_Default_Handler.SingUp((PB_UserResponse_CheckUserName2) pb, handled);
+				}else{
+					Log.d("RPC", " can not convert response object to PB_UserResponse_CheckUserName2 in rpc: .SingUp ");
+				}
+			});
+	  
+			router.put("RPC_Auth.SingIn", (pb, handled)->{
+				if(pb instanceof PB_UserResponse_CheckUserName2){
+					RPC_Auth_Default_Handler.SingIn((PB_UserResponse_CheckUserName2) pb, handled);
+				}else{
+					Log.d("RPC", " can not convert response object to PB_UserResponse_CheckUserName2 in rpc: .SingIn ");
+				}
+			});
+	  
+			router.put("RPC_Auth.LogOut", (pb, handled)->{
+				if(pb instanceof PB_UserResponse_CheckUserName2){
+					RPC_Auth_Default_Handler.LogOut((PB_UserResponse_CheckUserName2) pb, handled);
+				}else{
+					Log.d("RPC", " can not convert response object to PB_UserResponse_CheckUserName2 in rpc: .LogOut ");
+				}
+			});
+	  
+	  
+			router.put("RPC_Msg.AddNewTextMessage", (pb, handled)->{
+				if(pb instanceof PB_MsgResponse_AddNewTextMessage){
+					RPC_Msg_Default_Handler.AddNewTextMessage((PB_MsgResponse_AddNewTextMessage) pb, handled);
+				}else{
+					Log.d("RPC", " can not convert response object to PB_MsgResponse_AddNewTextMessage in rpc: .AddNewTextMessage ");
+				}
+			});
+	  
+			router.put("RPC_Msg.AddNewMessage", (pb, handled)->{
+				if(pb instanceof PB_MsgResponse_AddNewMessage){
+					RPC_Msg_Default_Handler.AddNewMessage((PB_MsgResponse_AddNewMessage) pb, handled);
+				}else{
+					Log.d("RPC", " can not convert response object to PB_MsgResponse_AddNewMessage in rpc: .AddNewMessage ");
+				}
+			});
+	  
+			router.put("RPC_Msg.SetRoomActionDoing", (pb, handled)->{
+				if(pb instanceof PB_MsgResponse_SetRoomActionDoing){
+					RPC_Msg_Default_Handler.SetRoomActionDoing((PB_MsgResponse_SetRoomActionDoing) pb, handled);
+				}else{
+					Log.d("RPC", " can not convert response object to PB_MsgResponse_SetRoomActionDoing in rpc: .SetRoomActionDoing ");
+				}
+			});
+	  
+			router.put("RPC_Msg.GetMessagesByIds", (pb, handled)->{
+				if(pb instanceof PB_MsgResponse_GetMessagesByIds){
+					RPC_Msg_Default_Handler.GetMessagesByIds((PB_MsgResponse_GetMessagesByIds) pb, handled);
+				}else{
+					Log.d("RPC", " can not convert response object to PB_MsgResponse_GetMessagesByIds in rpc: .GetMessagesByIds ");
+				}
+			});
+	  
+			router.put("RPC_Msg.GetMessagesHistory", (pb, handled)->{
+				if(pb instanceof PB_MsgResponse_GetMessagesHistory){
+					RPC_Msg_Default_Handler.GetMessagesHistory((PB_MsgResponse_GetMessagesHistory) pb, handled);
+				}else{
+					Log.d("RPC", " can not convert response object to PB_MsgResponse_GetMessagesHistory in rpc: .GetMessagesHistory ");
+				}
+			});
+	  
+			router.put("RPC_Msg.SetMessagesRangeAsSeen", (pb, handled)->{
+				if(pb instanceof PB_MsgResponse_SetChatMessagesRangeAsSeen){
+					RPC_Msg_Default_Handler.SetMessagesRangeAsSeen((PB_MsgResponse_SetChatMessagesRangeAsSeen) pb, handled);
+				}else{
+					Log.d("RPC", " can not convert response object to PB_MsgResponse_SetChatMessagesRangeAsSeen in rpc: .SetMessagesRangeAsSeen ");
+				}
+			});
+	  
+			router.put("RPC_Msg.DeleteChatHistory", (pb, handled)->{
+				if(pb instanceof PB_MsgResponse_DeleteChatHistory){
+					RPC_Msg_Default_Handler.DeleteChatHistory((PB_MsgResponse_DeleteChatHistory) pb, handled);
+				}else{
+					Log.d("RPC", " can not convert response object to PB_MsgResponse_DeleteChatHistory in rpc: .DeleteChatHistory ");
+				}
+			});
+	  
+			router.put("RPC_Msg.DeleteMessagesByIds", (pb, handled)->{
+				if(pb instanceof PB_MsgResponse_DeleteMessagesByIds){
+					RPC_Msg_Default_Handler.DeleteMessagesByIds((PB_MsgResponse_DeleteMessagesByIds) pb, handled);
+				}else{
+					Log.d("RPC", " can not convert response object to PB_MsgResponse_DeleteMessagesByIds in rpc: .DeleteMessagesByIds ");
+				}
+			});
+	  
+			router.put("RPC_Msg.SetMessagesAsReceived", (pb, handled)->{
+				if(pb instanceof PB_MsgResponse_SetMessagesAsReceived){
+					RPC_Msg_Default_Handler.SetMessagesAsReceived((PB_MsgResponse_SetMessagesAsReceived) pb, handled);
+				}else{
+					Log.d("RPC", " can not convert response object to PB_MsgResponse_SetMessagesAsReceived in rpc: .SetMessagesAsReceived ");
+				}
+			});
+	  
+			router.put("RPC_Msg.ForwardMessages", (pb, handled)->{
+				if(pb instanceof PB_MsgResponse_ForwardMessages){
+					RPC_Msg_Default_Handler.ForwardMessages((PB_MsgResponse_ForwardMessages) pb, handled);
+				}else{
+					Log.d("RPC", " can not convert response object to PB_MsgResponse_ForwardMessages in rpc: .ForwardMessages ");
+				}
+			});
+	  
+			router.put("RPC_Msg.EditMessage", (pb, handled)->{
+				if(pb instanceof PB_MsgResponse_EditMessage){
+					RPC_Msg_Default_Handler.EditMessage((PB_MsgResponse_EditMessage) pb, handled);
+				}else{
+					Log.d("RPC", " can not convert response object to PB_MsgResponse_EditMessage in rpc: .EditMessage ");
+				}
+			});
+	  
+			router.put("RPC_Msg.BroadcastNewMessage", (pb, handled)->{
+				if(pb instanceof PB_MsgResponse_BroadcastNewMessage){
+					RPC_Msg_Default_Handler.BroadcastNewMessage((PB_MsgResponse_BroadcastNewMessage) pb, handled);
+				}else{
+					Log.d("RPC", " can not convert response object to PB_MsgResponse_BroadcastNewMessage in rpc: .BroadcastNewMessage ");
+				}
+			});
+	  
+			router.put("RPC_Msg.GetFreshChatList", (pb, handled)->{
+				if(pb instanceof PB_MsgResponse_GetFreshChatList){
+					RPC_Msg_Default_Handler.GetFreshChatList((PB_MsgResponse_GetFreshChatList) pb, handled);
+				}else{
+					Log.d("RPC", " can not convert response object to PB_MsgResponse_GetFreshChatList in rpc: .GetFreshChatList ");
+				}
+			});
+	  
+			router.put("RPC_Msg.GetFreshRoomMessagesList", (pb, handled)->{
+				if(pb instanceof PB_MsgResponse_GetFreshRoomMessagesList){
+					RPC_Msg_Default_Handler.GetFreshRoomMessagesList((PB_MsgResponse_GetFreshRoomMessagesList) pb, handled);
+				}else{
+					Log.d("RPC", " can not convert response object to PB_MsgResponse_GetFreshRoomMessagesList in rpc: .GetFreshRoomMessagesList ");
+				}
+			});
+	  
+			router.put("RPC_Msg.Echo", (pb, handled)->{
+				if(pb instanceof PB_MsgResponse_PB_MsgParam_Echo){
+					RPC_Msg_Default_Handler.Echo((PB_MsgResponse_PB_MsgParam_Echo) pb, handled);
+				}else{
+					Log.d("RPC", " can not convert response object to PB_MsgResponse_PB_MsgParam_Echo in rpc: .Echo ");
+				}
+			});
+	  
+	  
+			router.put("RPC_Sync.GetDirectUpdates", (pb, handled)->{
+				if(pb instanceof PB_SyncResponse_GetDirectUpdates){
+					RPC_Sync_Default_Handler.GetDirectUpdates((PB_SyncResponse_GetDirectUpdates) pb, handled);
+				}else{
+					Log.d("RPC", " can not convert response object to PB_SyncResponse_GetDirectUpdates in rpc: .GetDirectUpdates ");
+				}
+			});
+	  
+			router.put("RPC_Sync.GetGeneralUpdates", (pb, handled)->{
+				if(pb instanceof PB_SyncResponse_GetGeneralUpdates){
+					RPC_Sync_Default_Handler.GetGeneralUpdates((PB_SyncResponse_GetGeneralUpdates) pb, handled);
+				}else{
+					Log.d("RPC", " can not convert response object to PB_SyncResponse_GetGeneralUpdates in rpc: .GetGeneralUpdates ");
+				}
+			});
+	  
+			router.put("RPC_Sync.GetNotifyUpdates", (pb, handled)->{
+				if(pb instanceof PB_SyncResponse_GetNotifyUpdates){
+					RPC_Sync_Default_Handler.GetNotifyUpdates((PB_SyncResponse_GetNotifyUpdates) pb, handled);
+				}else{
+					Log.d("RPC", " can not convert response object to PB_SyncResponse_GetNotifyUpdates in rpc: .GetNotifyUpdates ");
+				}
+			});
+	  
+			router.put("RPC_Sync.SetLastSyncDirectUpdateId", (pb, handled)->{
+				if(pb instanceof PB_SyncResponse_SetLastSyncDirectUpdateId){
+					RPC_Sync_Default_Handler.SetLastSyncDirectUpdateId((PB_SyncResponse_SetLastSyncDirectUpdateId) pb, handled);
+				}else{
+					Log.d("RPC", " can not convert response object to PB_SyncResponse_SetLastSyncDirectUpdateId in rpc: .SetLastSyncDirectUpdateId ");
+				}
+			});
+	  
+			router.put("RPC_Sync.SetLastSyncGeneralUpdateId", (pb, handled)->{
+				if(pb instanceof PB_SyncResponse_SetLastSyncGeneralUpdateId){
+					RPC_Sync_Default_Handler.SetLastSyncGeneralUpdateId((PB_SyncResponse_SetLastSyncGeneralUpdateId) pb, handled);
+				}else{
+					Log.d("RPC", " can not convert response object to PB_SyncResponse_SetLastSyncGeneralUpdateId in rpc: .SetLastSyncGeneralUpdateId ");
+				}
+			});
+	  
+			router.put("RPC_Sync.SetLastSyncNotifyUpdateId", (pb, handled)->{
+				if(pb instanceof PB_SyncResponse_SetLastSyncNotifyUpdateId){
+					RPC_Sync_Default_Handler.SetLastSyncNotifyUpdateId((PB_SyncResponse_SetLastSyncNotifyUpdateId) pb, handled);
+				}else{
+					Log.d("RPC", " can not convert response object to PB_SyncResponse_SetLastSyncNotifyUpdateId in rpc: .SetLastSyncNotifyUpdateId ");
+				}
+			});
+	  
+	  
+			router.put("RPC_UserOffline.BlockUser", (pb, handled)->{
+				if(pb instanceof PB_UserOfflineResponse_BlockUser){
+					RPC_UserOffline_Default_Handler.BlockUser((PB_UserOfflineResponse_BlockUser) pb, handled);
+				}else{
+					Log.d("RPC", " can not convert response object to PB_UserOfflineResponse_BlockUser in rpc: .BlockUser ");
+				}
+			});
+	  
+			router.put("RPC_UserOffline.UnBlockUser", (pb, handled)->{
+				if(pb instanceof PB_UserOfflineResponse_UnBlockUser){
+					RPC_UserOffline_Default_Handler.UnBlockUser((PB_UserOfflineResponse_UnBlockUser) pb, handled);
+				}else{
+					Log.d("RPC", " can not convert response object to PB_UserOfflineResponse_UnBlockUser in rpc: .UnBlockUser ");
+				}
+			});
+	  
+			router.put("RPC_UserOffline.UpdateAbout", (pb, handled)->{
+				if(pb instanceof PB_UserOfflineResponse_UpdateAbout){
+					RPC_UserOffline_Default_Handler.UpdateAbout((PB_UserOfflineResponse_UpdateAbout) pb, handled);
+				}else{
+					Log.d("RPC", " can not convert response object to PB_UserOfflineResponse_UpdateAbout in rpc: .UpdateAbout ");
+				}
+			});
+	  
+			router.put("RPC_UserOffline.UpdateUserName", (pb, handled)->{
+				if(pb instanceof PB_UserOfflineResponse_UpdateUserName){
+					RPC_UserOffline_Default_Handler.UpdateUserName((PB_UserOfflineResponse_UpdateUserName) pb, handled);
+				}else{
+					Log.d("RPC", " can not convert response object to PB_UserOfflineResponse_UpdateUserName in rpc: .UpdateUserName ");
+				}
+			});
+	  
+			router.put("RPC_UserOffline.ChangePrivacy", (pb, handled)->{
+				if(pb instanceof PB_UserResponseOffline_ChangePrivacy){
+					RPC_UserOffline_Default_Handler.ChangePrivacy((PB_UserResponseOffline_ChangePrivacy) pb, handled);
+				}else{
+					Log.d("RPC", " can not convert response object to PB_UserResponseOffline_ChangePrivacy in rpc: .ChangePrivacy ");
+				}
+			});
+	  
+			router.put("RPC_UserOffline.ChangeAvatar", (pb, handled)->{
+				if(pb instanceof PB_UserOfflineResponse_ChangeAvatar){
+					RPC_UserOffline_Default_Handler.ChangeAvatar((PB_UserOfflineResponse_ChangeAvatar) pb, handled);
+				}else{
+					Log.d("RPC", " can not convert response object to PB_UserOfflineResponse_ChangeAvatar in rpc: .ChangeAvatar ");
+				}
+			});
+	  
+	  
+			router.put("RPC_User.CheckUserName", (pb, handled)->{
+				if(pb instanceof PB_UserResponse_CheckUserName){
+					RPC_User_Default_Handler.CheckUserName((PB_UserResponse_CheckUserName) pb, handled);
+				}else{
+					Log.d("RPC", " can not convert response object to PB_UserResponse_CheckUserName in rpc: .CheckUserName ");
+				}
+			});
+	  
+			router.put("RPC_User.GetBlockedList", (pb, handled)->{
+				if(pb instanceof PB_UserResponse_BlockedList){
+					RPC_User_Default_Handler.GetBlockedList((PB_UserResponse_BlockedList) pb, handled);
+				}else{
+					Log.d("RPC", " can not convert response object to PB_UserResponse_BlockedList in rpc: .GetBlockedList ");
+				}
+			});
+	  
 	}
 	
 }

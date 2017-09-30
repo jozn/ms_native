@@ -46,4 +46,9 @@ public interface PB_SyncResponse_GetGeneralUpdatesOrBuilder extends
    * <code>repeated .PB_UpdateUserBlocked UserBlockedMe = 51;</code>
    */
   int getUserBlockedMeCount();
+
+  /**
+   * <code>int64 LastId = 60;</code>
+   */
+  long getLastId();
 }

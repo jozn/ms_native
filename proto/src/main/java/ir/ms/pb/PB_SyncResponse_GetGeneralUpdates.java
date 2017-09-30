@@ -15,6 +15,7 @@ public  final class PB_SyncResponse_GetGeneralUpdates extends
     userBlockedByMe_ = emptyProtobufList();
     userBlockedMe_ = emptyProtobufList();
   }
+  private int bitField0_;
   public static final int USERBLOCKEDBYME_FIELD_NUMBER = 50;
   private com.google.protobuf.Internal.ProtobufList<ir.ms.pb.PB_UpdateUserBlocked> userBlockedByMe_;
   /**
@@ -311,6 +312,29 @@ public  final class PB_SyncResponse_GetGeneralUpdates extends
     userBlockedMe_.remove(index);
   }
 
+  public static final int LASTID_FIELD_NUMBER = 60;
+  private long lastId_;
+  /**
+   * <code>int64 LastId = 60;</code>
+   */
+  public long getLastId() {
+    return lastId_;
+  }
+  /**
+   * <code>int64 LastId = 60;</code>
+   */
+  private void setLastId(long value) {
+    
+    lastId_ = value;
+  }
+  /**
+   * <code>int64 LastId = 60;</code>
+   */
+  private void clearLastId() {
+    
+    lastId_ = 0L;
+  }
+
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
     for (int i = 0; i < userBlockedByMe_.size(); i++) {
@@ -318,6 +342,9 @@ public  final class PB_SyncResponse_GetGeneralUpdates extends
     }
     for (int i = 0; i < userBlockedMe_.size(); i++) {
       output.writeMessage(51, userBlockedMe_.get(i));
+    }
+    if (lastId_ != 0L) {
+      output.writeInt64(60, lastId_);
     }
   }
 
@@ -333,6 +360,10 @@ public  final class PB_SyncResponse_GetGeneralUpdates extends
     for (int i = 0; i < userBlockedMe_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(51, userBlockedMe_.get(i));
+    }
+    if (lastId_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(60, lastId_);
     }
     memoizedSerializedSize = size;
     return size;
@@ -662,6 +693,29 @@ public  final class PB_SyncResponse_GetGeneralUpdates extends
       return this;
     }
 
+    /**
+     * <code>int64 LastId = 60;</code>
+     */
+    public long getLastId() {
+      return instance.getLastId();
+    }
+    /**
+     * <code>int64 LastId = 60;</code>
+     */
+    public Builder setLastId(long value) {
+      copyOnWrite();
+      instance.setLastId(value);
+      return this;
+    }
+    /**
+     * <code>int64 LastId = 60;</code>
+     */
+    public Builder clearLastId() {
+      copyOnWrite();
+      instance.clearLastId();
+      return this;
+    }
+
     // @@protoc_insertion_point(builder_scope:PB_SyncResponse_GetGeneralUpdates)
   }
   protected final Object dynamicMethod(
@@ -687,8 +741,11 @@ public  final class PB_SyncResponse_GetGeneralUpdates extends
         ir.ms.pb.PB_SyncResponse_GetGeneralUpdates other = (ir.ms.pb.PB_SyncResponse_GetGeneralUpdates) arg1;
         userBlockedByMe_= visitor.visitList(userBlockedByMe_, other.userBlockedByMe_);
         userBlockedMe_= visitor.visitList(userBlockedMe_, other.userBlockedMe_);
+        lastId_ = visitor.visitLong(lastId_ != 0L, lastId_,
+            other.lastId_ != 0L, other.lastId_);
         if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
             .INSTANCE) {
+          bitField0_ |= other.bitField0_;
         }
         return this;
       }
@@ -727,6 +784,11 @@ public  final class PB_SyncResponse_GetGeneralUpdates extends
                 }
                 userBlockedMe_.add(
                     input.readMessage(ir.ms.pb.PB_UpdateUserBlocked.parser(), extensionRegistry));
+                break;
+              }
+              case 480: {
+
+                lastId_ = input.readInt64();
                 break;
               }
             }

@@ -1306,6 +1306,7 @@ public class PBFlatTypes {
 	public class PB_ResponseToClient {
 	   public long ClientCallId;
 	   public String PBClass;
+	   public String RpcFullName;
 	   public byte[] Data;
 	}
 	/*
@@ -1313,6 +1314,7 @@ public class PBFlatTypes {
 	PBFlatTypes.PB_ResponseToClient t = new PBFlatTypes.PB_ResponseToClient();
     t.setClientCallId();
     t.setPBClass();
+    t.setRpcFullName();
     t.setData();
 	*/
 
@@ -1320,6 +1322,7 @@ public class PBFlatTypes {
 	PBFlatTypes.PB_ResponseToClient t = new PBFlatTypes.PB_ResponseToClient();
 	t.ClientCallId = ;
 	t.PBClass = ;
+	t.RpcFullName = ;
 	t.Data = ;
 	*/
 
@@ -1327,6 +1330,7 @@ public class PBFlatTypes {
 	PB_ResponseToClient t = new PB_ResponseToClient();
 	t.ClientCallId = m.getClientCallId() ;
 	t.PBClass = m.getPBClass() ;
+	t.RpcFullName = m.getRpcFullName() ;
 	t.Data = m.getData() ;
 	*/
 
@@ -2038,6 +2042,7 @@ public class PBFlatTypes {
 	   public PB_UpdateMessageMeta MessagesSeenByPeer;
 	   public PB_UpdateMessageMeta MessagesDeletedFromServer;
 	   public PB_UpdateRoomActionDoing RoomActionDoing;
+	   public long LastId;
 	}
 	/*
 	folding
@@ -2054,6 +2059,7 @@ public class PBFlatTypes {
     t.setMessagesSeenByPeer();
     t.setMessagesDeletedFromServer();
     t.setRoomActionDoing();
+    t.setLastId();
 	*/
 
 	/*
@@ -2070,6 +2076,7 @@ public class PBFlatTypes {
 	t.MessagesSeenByPeer = ;
 	t.MessagesDeletedFromServer = ;
 	t.RoomActionDoing = ;
+	t.LastId = ;
 	*/
 
 	/*
@@ -2086,6 +2093,7 @@ public class PBFlatTypes {
 	t.MessagesSeenByPeer = m.getMessagesSeenByPeer() ;
 	t.MessagesDeletedFromServer = m.getMessagesDeletedFromServer() ;
 	t.RoomActionDoing = m.getRoomActionDoing() ;
+	t.LastId = m.getLastId() ;
 	*/
 
 	public class PB_SyncParam_GetGeneralUpdates {
@@ -2110,24 +2118,28 @@ public class PBFlatTypes {
 	public class PB_SyncResponse_GetGeneralUpdates {
 	   public PB_UpdateUserBlocked UserBlockedByMe;
 	   public PB_UpdateUserBlocked UserBlockedMe;
+	   public long LastId;
 	}
 	/*
 	folding
 	PBFlatTypes.PB_SyncResponse_GetGeneralUpdates t = new PBFlatTypes.PB_SyncResponse_GetGeneralUpdates();
     t.setUserBlockedByMe();
     t.setUserBlockedMe();
+    t.setLastId();
 	*/
 
 	/*
 	PBFlatTypes.PB_SyncResponse_GetGeneralUpdates t = new PBFlatTypes.PB_SyncResponse_GetGeneralUpdates();
 	t.UserBlockedByMe = ;
 	t.UserBlockedMe = ;
+	t.LastId = ;
 	*/
 
 	/*
 	PB_SyncResponse_GetGeneralUpdates t = new PB_SyncResponse_GetGeneralUpdates();
 	t.UserBlockedByMe = m.getUserBlockedByMe() ;
 	t.UserBlockedMe = m.getUserBlockedMe() ;
+	t.LastId = m.getLastId() ;
 	*/
 
 	public class PB_SyncParam_GetNotifyUpdates {
@@ -2151,21 +2163,25 @@ public class PBFlatTypes {
 
 	public class PB_SyncResponse_GetNotifyUpdates {
 	   public PB_NotifyUpdatesView Updates;
+	   public long LastId;
 	}
 	/*
 	folding
 	PBFlatTypes.PB_SyncResponse_GetNotifyUpdates t = new PBFlatTypes.PB_SyncResponse_GetNotifyUpdates();
     t.setUpdates();
+    t.setLastId();
 	*/
 
 	/*
 	PBFlatTypes.PB_SyncResponse_GetNotifyUpdates t = new PBFlatTypes.PB_SyncResponse_GetNotifyUpdates();
 	t.Updates = ;
+	t.LastId = ;
 	*/
 
 	/*
 	PB_SyncResponse_GetNotifyUpdates t = new PB_SyncResponse_GetNotifyUpdates();
 	t.Updates = m.getUpdates() ;
+	t.LastId = m.getLastId() ;
 	*/
 
 	public class PB_SyncParam_SetLastSyncDirectUpdateId {

@@ -89,7 +89,7 @@ public class MsgsCallToServer {
 		msg.setNetWorkTransferring(true);
 
 		AndroidUtil.runInBackgroundNoPanic(()->{
-			PB_ResRpcAddMsg resRpcAddMsg = GRPC.getNewBlockingMsgRpc().uploadNewMsg(PBConv.Message_toNew_PB_Message(msg));
+			/*PB_ResRpcAddMsg resRpcAddMsg = GRPC.getNewBlockingMsgRpc().uploadNewMsg(PBConv.Message_toNew_PB_Message(msg));
 			Helper.showDebugMessage("sendNewPhoto: "+resRpcAddMsg.hasResponse());
 			if(resRpcAddMsg != null){
 				msg.setNetWorkTransferring(false);
@@ -103,7 +103,7 @@ public class MsgsCallToServer {
 
 				MsgReceivedToServerEvent.publishNew(msg);
 				sendRecivedEvent(msg);
-			}
+			}*/
 
 
 		});

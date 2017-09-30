@@ -210,4 +210,9 @@ public interface PB_SyncResponse_GetDirectUpdatesOrBuilder extends
    * <code>repeated .PB_UpdateRoomActionDoing RoomActionDoing = 30;</code>
    */
   int getRoomActionDoingCount();
+
+  /**
+   * <code>int64 LastId = 50;</code>
+   */
+  long getLastId();
 }

@@ -23,7 +23,17 @@ public interface PB_ResponseToClientOrBuilder extends
       getPBClassBytes();
 
   /**
-   * <code>bytes Data = 3;</code>
+   * <code>string RpcFullName = 3;</code>
+   */
+  java.lang.String getRpcFullName();
+  /**
+   * <code>string RpcFullName = 3;</code>
+   */
+  com.google.protobuf.ByteString
+      getRpcFullNameBytes();
+
+  /**
+   * <code>bytes Data = 4;</code>
    */
   com.google.protobuf.ByteString getData();
 }

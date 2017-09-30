@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * Created by Hamid on 4/27/2017.
  */
-//copy from here:  http://192.168.0.105:5000/i/java
+//copy from here:  http://192.168.1.250:5000/i/java
 //needs manual changes
 
 public class JV {
