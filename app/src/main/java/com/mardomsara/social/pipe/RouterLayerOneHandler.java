@@ -56,7 +56,7 @@ class RouterLayerOneHandler {
 			if(x != null){
 				x.handle(parsedResultOfRpcResponse,handeledRpceByMe);
 			}else {
-				AppUtil.log("Rpc: no default hander for RPC responses :" + pb_responseToClient.getPBClass());
+				AppUtil.log("Rpc: no default handler for RPC responses :" + pb_responseToClient.getPBClass());
 			}
 		}catch (Exception e){
 			e.printStackTrace();

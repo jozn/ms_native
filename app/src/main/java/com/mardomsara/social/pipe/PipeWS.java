@@ -3,6 +3,7 @@ package com.mardomsara.social.pipe;
 import android.util.Log;
 
 import com.mardomsara.social.app.AppFiles;
+import com.mardomsara.social.app.AppSyncCycle;
 import com.mardomsara.social.app.Constants;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.models_old.tables.Session;
@@ -231,6 +232,7 @@ class PipeWS {
 
 		runSenderThread();
 
+		AppSyncCycle.onWsPipeOpened();
 		FlushStoredDataToServer.flushAllMessages();
 //        sendStoredCommands();
     }
@@ -239,6 +241,7 @@ class PipeWS {
         Log.i(LOGTAG, "onFailure: IOException - Response:" + e.toString() );
         status = STATUS.CLOSED;
         prepareForReqonecting();
+		AppSyncCycle.onWsFailure();
     }
 
     void onMessage(ByteString message) {
@@ -264,6 +267,8 @@ class PipeWS {
         logIt("onClose: code - reason: :" + code + " " + reason);
         status = STATUS.CLOSED;
         prepareForReqonecting();
+
+        AppSyncCycle.onWsClose();
     }
 
     static void logIt(String msg){

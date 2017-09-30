@@ -268,7 +268,7 @@ public interface RPC_User {
 				if(pb instanceof PB_ResponseLastChangesForTheRoom){
 					RPC_MessageReq_Default_Handler.GetLastChnagesForRoom((PB_ResponseLastChangesForTheRoom) pb, handled);
 				}else{
-					Log.d("RPC", " can not convert response object to PB_ResponseLastChangesForTheRoom in rpc: .GetLastChnagesForRoom ");
+					Log.d("RPC", " can not convert response object to PB_ResponseLastChangesForTheRoom in rpc: .GetLastChnagesForRoom -- class: " + pb );//.getClass().getName());
 				}
 			});
 	  
@@ -277,7 +277,7 @@ public interface RPC_User {
 				if(pb instanceof PB_ResponseSetLastSeenMessages){
 					RPC_MessageReqOffline_Default_Handler.SetLastSeen((PB_ResponseSetLastSeenMessages) pb, handled);
 				}else{
-					Log.d("RPC", " can not convert response object to PB_ResponseSetLastSeenMessages in rpc: .SetLastSeen ");
+					Log.d("RPC", " can not convert response object to PB_ResponseSetLastSeenMessages in rpc: .SetLastSeen -- class: " + pb );//.getClass().getName());
 				}
 			});
 	  
@@ -286,7 +286,7 @@ public interface RPC_User {
 				if(pb instanceof PB_UserResponse_CheckUserName2){
 					RPC_Auth_Default_Handler.CheckPhone((PB_UserResponse_CheckUserName2) pb, handled);
 				}else{
-					Log.d("RPC", " can not convert response object to PB_UserResponse_CheckUserName2 in rpc: .CheckPhone ");
+					Log.d("RPC", " can not convert response object to PB_UserResponse_CheckUserName2 in rpc: .CheckPhone -- class: " + pb );//.getClass().getName());
 				}
 			});
 	  
@@ -294,7 +294,7 @@ public interface RPC_User {
 				if(pb instanceof PB_UserResponse_CheckUserName2){
 					RPC_Auth_Default_Handler.SendCode((PB_UserResponse_CheckUserName2) pb, handled);
 				}else{
-					Log.d("RPC", " can not convert response object to PB_UserResponse_CheckUserName2 in rpc: .SendCode ");
+					Log.d("RPC", " can not convert response object to PB_UserResponse_CheckUserName2 in rpc: .SendCode -- class: " + pb );//.getClass().getName());
 				}
 			});
 	  
@@ -302,7 +302,7 @@ public interface RPC_User {
 				if(pb instanceof PB_UserResponse_CheckUserName2){
 					RPC_Auth_Default_Handler.SendCodeToSms((PB_UserResponse_CheckUserName2) pb, handled);
 				}else{
-					Log.d("RPC", " can not convert response object to PB_UserResponse_CheckUserName2 in rpc: .SendCodeToSms ");
+					Log.d("RPC", " can not convert response object to PB_UserResponse_CheckUserName2 in rpc: .SendCodeToSms -- class: " + pb );//.getClass().getName());
 				}
 			});
 	  
@@ -310,7 +310,7 @@ public interface RPC_User {
 				if(pb instanceof PB_UserResponse_CheckUserName2){
 					RPC_Auth_Default_Handler.SendCodeToTelgram((PB_UserResponse_CheckUserName2) pb, handled);
 				}else{
-					Log.d("RPC", " can not convert response object to PB_UserResponse_CheckUserName2 in rpc: .SendCodeToTelgram ");
+					Log.d("RPC", " can not convert response object to PB_UserResponse_CheckUserName2 in rpc: .SendCodeToTelgram -- class: " + pb );//.getClass().getName());
 				}
 			});
 	  
@@ -318,7 +318,7 @@ public interface RPC_User {
 				if(pb instanceof PB_UserResponse_CheckUserName2){
 					RPC_Auth_Default_Handler.SingUp((PB_UserResponse_CheckUserName2) pb, handled);
 				}else{
-					Log.d("RPC", " can not convert response object to PB_UserResponse_CheckUserName2 in rpc: .SingUp ");
+					Log.d("RPC", " can not convert response object to PB_UserResponse_CheckUserName2 in rpc: .SingUp -- class: " + pb );//.getClass().getName());
 				}
 			});
 	  
@@ -326,7 +326,7 @@ public interface RPC_User {
 				if(pb instanceof PB_UserResponse_CheckUserName2){
 					RPC_Auth_Default_Handler.SingIn((PB_UserResponse_CheckUserName2) pb, handled);
 				}else{
-					Log.d("RPC", " can not convert response object to PB_UserResponse_CheckUserName2 in rpc: .SingIn ");
+					Log.d("RPC", " can not convert response object to PB_UserResponse_CheckUserName2 in rpc: .SingIn -- class: " + pb );//.getClass().getName());
 				}
 			});
 	  
@@ -334,7 +334,7 @@ public interface RPC_User {
 				if(pb instanceof PB_UserResponse_CheckUserName2){
 					RPC_Auth_Default_Handler.LogOut((PB_UserResponse_CheckUserName2) pb, handled);
 				}else{
-					Log.d("RPC", " can not convert response object to PB_UserResponse_CheckUserName2 in rpc: .LogOut ");
+					Log.d("RPC", " can not convert response object to PB_UserResponse_CheckUserName2 in rpc: .LogOut -- class: " + pb );//.getClass().getName());
 				}
 			});
 	  
@@ -343,7 +343,7 @@ public interface RPC_User {
 				if(pb instanceof PB_MsgResponse_AddNewTextMessage){
 					RPC_Msg_Default_Handler.AddNewTextMessage((PB_MsgResponse_AddNewTextMessage) pb, handled);
 				}else{
-					Log.d("RPC", " can not convert response object to PB_MsgResponse_AddNewTextMessage in rpc: .AddNewTextMessage ");
+					Log.d("RPC", " can not convert response object to PB_MsgResponse_AddNewTextMessage in rpc: .AddNewTextMessage -- class: " + pb );//.getClass().getName());
 				}
 			});
 	  
@@ -351,7 +351,7 @@ public interface RPC_User {
 				if(pb instanceof PB_MsgResponse_AddNewMessage){
 					RPC_Msg_Default_Handler.AddNewMessage((PB_MsgResponse_AddNewMessage) pb, handled);
 				}else{
-					Log.d("RPC", " can not convert response object to PB_MsgResponse_AddNewMessage in rpc: .AddNewMessage ");
+					Log.d("RPC", " can not convert response object to PB_MsgResponse_AddNewMessage in rpc: .AddNewMessage -- class: " + pb );//.getClass().getName());
 				}
 			});
 	  
@@ -359,7 +359,7 @@ public interface RPC_User {
 				if(pb instanceof PB_MsgResponse_SetRoomActionDoing){
 					RPC_Msg_Default_Handler.SetRoomActionDoing((PB_MsgResponse_SetRoomActionDoing) pb, handled);
 				}else{
-					Log.d("RPC", " can not convert response object to PB_MsgResponse_SetRoomActionDoing in rpc: .SetRoomActionDoing ");
+					Log.d("RPC", " can not convert response object to PB_MsgResponse_SetRoomActionDoing in rpc: .SetRoomActionDoing -- class: " + pb );//.getClass().getName());
 				}
 			});
 	  
@@ -367,7 +367,7 @@ public interface RPC_User {
 				if(pb instanceof PB_MsgResponse_GetMessagesByIds){
 					RPC_Msg_Default_Handler.GetMessagesByIds((PB_MsgResponse_GetMessagesByIds) pb, handled);
 				}else{
-					Log.d("RPC", " can not convert response object to PB_MsgResponse_GetMessagesByIds in rpc: .GetMessagesByIds ");
+					Log.d("RPC", " can not convert response object to PB_MsgResponse_GetMessagesByIds in rpc: .GetMessagesByIds -- class: " + pb );//.getClass().getName());
 				}
 			});
 	  
@@ -375,7 +375,7 @@ public interface RPC_User {
 				if(pb instanceof PB_MsgResponse_GetMessagesHistory){
 					RPC_Msg_Default_Handler.GetMessagesHistory((PB_MsgResponse_GetMessagesHistory) pb, handled);
 				}else{
-					Log.d("RPC", " can not convert response object to PB_MsgResponse_GetMessagesHistory in rpc: .GetMessagesHistory ");
+					Log.d("RPC", " can not convert response object to PB_MsgResponse_GetMessagesHistory in rpc: .GetMessagesHistory -- class: " + pb );//.getClass().getName());
 				}
 			});
 	  
@@ -383,7 +383,7 @@ public interface RPC_User {
 				if(pb instanceof PB_MsgResponse_SetChatMessagesRangeAsSeen){
 					RPC_Msg_Default_Handler.SetMessagesRangeAsSeen((PB_MsgResponse_SetChatMessagesRangeAsSeen) pb, handled);
 				}else{
-					Log.d("RPC", " can not convert response object to PB_MsgResponse_SetChatMessagesRangeAsSeen in rpc: .SetMessagesRangeAsSeen ");
+					Log.d("RPC", " can not convert response object to PB_MsgResponse_SetChatMessagesRangeAsSeen in rpc: .SetMessagesRangeAsSeen -- class: " + pb );//.getClass().getName());
 				}
 			});
 	  
@@ -391,7 +391,7 @@ public interface RPC_User {
 				if(pb instanceof PB_MsgResponse_DeleteChatHistory){
 					RPC_Msg_Default_Handler.DeleteChatHistory((PB_MsgResponse_DeleteChatHistory) pb, handled);
 				}else{
-					Log.d("RPC", " can not convert response object to PB_MsgResponse_DeleteChatHistory in rpc: .DeleteChatHistory ");
+					Log.d("RPC", " can not convert response object to PB_MsgResponse_DeleteChatHistory in rpc: .DeleteChatHistory -- class: " + pb );//.getClass().getName());
 				}
 			});
 	  
@@ -399,7 +399,7 @@ public interface RPC_User {
 				if(pb instanceof PB_MsgResponse_DeleteMessagesByIds){
 					RPC_Msg_Default_Handler.DeleteMessagesByIds((PB_MsgResponse_DeleteMessagesByIds) pb, handled);
 				}else{
-					Log.d("RPC", " can not convert response object to PB_MsgResponse_DeleteMessagesByIds in rpc: .DeleteMessagesByIds ");
+					Log.d("RPC", " can not convert response object to PB_MsgResponse_DeleteMessagesByIds in rpc: .DeleteMessagesByIds -- class: " + pb );//.getClass().getName());
 				}
 			});
 	  
@@ -407,7 +407,7 @@ public interface RPC_User {
 				if(pb instanceof PB_MsgResponse_SetMessagesAsReceived){
 					RPC_Msg_Default_Handler.SetMessagesAsReceived((PB_MsgResponse_SetMessagesAsReceived) pb, handled);
 				}else{
-					Log.d("RPC", " can not convert response object to PB_MsgResponse_SetMessagesAsReceived in rpc: .SetMessagesAsReceived ");
+					Log.d("RPC", " can not convert response object to PB_MsgResponse_SetMessagesAsReceived in rpc: .SetMessagesAsReceived -- class: " + pb );//.getClass().getName());
 				}
 			});
 	  
@@ -415,7 +415,7 @@ public interface RPC_User {
 				if(pb instanceof PB_MsgResponse_ForwardMessages){
 					RPC_Msg_Default_Handler.ForwardMessages((PB_MsgResponse_ForwardMessages) pb, handled);
 				}else{
-					Log.d("RPC", " can not convert response object to PB_MsgResponse_ForwardMessages in rpc: .ForwardMessages ");
+					Log.d("RPC", " can not convert response object to PB_MsgResponse_ForwardMessages in rpc: .ForwardMessages -- class: " + pb );//.getClass().getName());
 				}
 			});
 	  
@@ -423,7 +423,7 @@ public interface RPC_User {
 				if(pb instanceof PB_MsgResponse_EditMessage){
 					RPC_Msg_Default_Handler.EditMessage((PB_MsgResponse_EditMessage) pb, handled);
 				}else{
-					Log.d("RPC", " can not convert response object to PB_MsgResponse_EditMessage in rpc: .EditMessage ");
+					Log.d("RPC", " can not convert response object to PB_MsgResponse_EditMessage in rpc: .EditMessage -- class: " + pb );//.getClass().getName());
 				}
 			});
 	  
@@ -431,7 +431,7 @@ public interface RPC_User {
 				if(pb instanceof PB_MsgResponse_BroadcastNewMessage){
 					RPC_Msg_Default_Handler.BroadcastNewMessage((PB_MsgResponse_BroadcastNewMessage) pb, handled);
 				}else{
-					Log.d("RPC", " can not convert response object to PB_MsgResponse_BroadcastNewMessage in rpc: .BroadcastNewMessage ");
+					Log.d("RPC", " can not convert response object to PB_MsgResponse_BroadcastNewMessage in rpc: .BroadcastNewMessage -- class: " + pb );//.getClass().getName());
 				}
 			});
 	  
@@ -439,7 +439,7 @@ public interface RPC_User {
 				if(pb instanceof PB_MsgResponse_GetFreshChatList){
 					RPC_Msg_Default_Handler.GetFreshChatList((PB_MsgResponse_GetFreshChatList) pb, handled);
 				}else{
-					Log.d("RPC", " can not convert response object to PB_MsgResponse_GetFreshChatList in rpc: .GetFreshChatList ");
+					Log.d("RPC", " can not convert response object to PB_MsgResponse_GetFreshChatList in rpc: .GetFreshChatList -- class: " + pb );//.getClass().getName());
 				}
 			});
 	  
@@ -447,7 +447,7 @@ public interface RPC_User {
 				if(pb instanceof PB_MsgResponse_GetFreshRoomMessagesList){
 					RPC_Msg_Default_Handler.GetFreshRoomMessagesList((PB_MsgResponse_GetFreshRoomMessagesList) pb, handled);
 				}else{
-					Log.d("RPC", " can not convert response object to PB_MsgResponse_GetFreshRoomMessagesList in rpc: .GetFreshRoomMessagesList ");
+					Log.d("RPC", " can not convert response object to PB_MsgResponse_GetFreshRoomMessagesList in rpc: .GetFreshRoomMessagesList -- class: " + pb );//.getClass().getName());
 				}
 			});
 	  
@@ -455,7 +455,7 @@ public interface RPC_User {
 				if(pb instanceof PB_MsgResponse_PB_MsgParam_Echo){
 					RPC_Msg_Default_Handler.Echo((PB_MsgResponse_PB_MsgParam_Echo) pb, handled);
 				}else{
-					Log.d("RPC", " can not convert response object to PB_MsgResponse_PB_MsgParam_Echo in rpc: .Echo ");
+					Log.d("RPC", " can not convert response object to PB_MsgResponse_PB_MsgParam_Echo in rpc: .Echo -- class: " + pb );//.getClass().getName());
 				}
 			});
 	  
@@ -464,7 +464,7 @@ public interface RPC_User {
 				if(pb instanceof PB_SyncResponse_GetDirectUpdates){
 					RPC_Sync_Default_Handler.GetDirectUpdates((PB_SyncResponse_GetDirectUpdates) pb, handled);
 				}else{
-					Log.d("RPC", " can not convert response object to PB_SyncResponse_GetDirectUpdates in rpc: .GetDirectUpdates ");
+					Log.d("RPC", " can not convert response object to PB_SyncResponse_GetDirectUpdates in rpc: .GetDirectUpdates -- class: " + pb );//.getClass().getName());
 				}
 			});
 	  
@@ -472,7 +472,7 @@ public interface RPC_User {
 				if(pb instanceof PB_SyncResponse_GetGeneralUpdates){
 					RPC_Sync_Default_Handler.GetGeneralUpdates((PB_SyncResponse_GetGeneralUpdates) pb, handled);
 				}else{
-					Log.d("RPC", " can not convert response object to PB_SyncResponse_GetGeneralUpdates in rpc: .GetGeneralUpdates ");
+					Log.d("RPC", " can not convert response object to PB_SyncResponse_GetGeneralUpdates in rpc: .GetGeneralUpdates -- class: " + pb );//.getClass().getName());
 				}
 			});
 	  
@@ -480,7 +480,7 @@ public interface RPC_User {
 				if(pb instanceof PB_SyncResponse_GetNotifyUpdates){
 					RPC_Sync_Default_Handler.GetNotifyUpdates((PB_SyncResponse_GetNotifyUpdates) pb, handled);
 				}else{
-					Log.d("RPC", " can not convert response object to PB_SyncResponse_GetNotifyUpdates in rpc: .GetNotifyUpdates ");
+					Log.d("RPC", " can not convert response object to PB_SyncResponse_GetNotifyUpdates in rpc: .GetNotifyUpdates -- class: " + pb );//.getClass().getName());
 				}
 			});
 	  
@@ -488,7 +488,7 @@ public interface RPC_User {
 				if(pb instanceof PB_SyncResponse_SetLastSyncDirectUpdateId){
 					RPC_Sync_Default_Handler.SetLastSyncDirectUpdateId((PB_SyncResponse_SetLastSyncDirectUpdateId) pb, handled);
 				}else{
-					Log.d("RPC", " can not convert response object to PB_SyncResponse_SetLastSyncDirectUpdateId in rpc: .SetLastSyncDirectUpdateId ");
+					Log.d("RPC", " can not convert response object to PB_SyncResponse_SetLastSyncDirectUpdateId in rpc: .SetLastSyncDirectUpdateId -- class: " + pb );//.getClass().getName());
 				}
 			});
 	  
@@ -496,7 +496,7 @@ public interface RPC_User {
 				if(pb instanceof PB_SyncResponse_SetLastSyncGeneralUpdateId){
 					RPC_Sync_Default_Handler.SetLastSyncGeneralUpdateId((PB_SyncResponse_SetLastSyncGeneralUpdateId) pb, handled);
 				}else{
-					Log.d("RPC", " can not convert response object to PB_SyncResponse_SetLastSyncGeneralUpdateId in rpc: .SetLastSyncGeneralUpdateId ");
+					Log.d("RPC", " can not convert response object to PB_SyncResponse_SetLastSyncGeneralUpdateId in rpc: .SetLastSyncGeneralUpdateId -- class: " + pb );//.getClass().getName());
 				}
 			});
 	  
@@ -504,7 +504,7 @@ public interface RPC_User {
 				if(pb instanceof PB_SyncResponse_SetLastSyncNotifyUpdateId){
 					RPC_Sync_Default_Handler.SetLastSyncNotifyUpdateId((PB_SyncResponse_SetLastSyncNotifyUpdateId) pb, handled);
 				}else{
-					Log.d("RPC", " can not convert response object to PB_SyncResponse_SetLastSyncNotifyUpdateId in rpc: .SetLastSyncNotifyUpdateId ");
+					Log.d("RPC", " can not convert response object to PB_SyncResponse_SetLastSyncNotifyUpdateId in rpc: .SetLastSyncNotifyUpdateId -- class: " + pb );//.getClass().getName());
 				}
 			});
 	  
@@ -513,7 +513,7 @@ public interface RPC_User {
 				if(pb instanceof PB_UserOfflineResponse_BlockUser){
 					RPC_UserOffline_Default_Handler.BlockUser((PB_UserOfflineResponse_BlockUser) pb, handled);
 				}else{
-					Log.d("RPC", " can not convert response object to PB_UserOfflineResponse_BlockUser in rpc: .BlockUser ");
+					Log.d("RPC", " can not convert response object to PB_UserOfflineResponse_BlockUser in rpc: .BlockUser -- class: " + pb );//.getClass().getName());
 				}
 			});
 	  
@@ -521,7 +521,7 @@ public interface RPC_User {
 				if(pb instanceof PB_UserOfflineResponse_UnBlockUser){
 					RPC_UserOffline_Default_Handler.UnBlockUser((PB_UserOfflineResponse_UnBlockUser) pb, handled);
 				}else{
-					Log.d("RPC", " can not convert response object to PB_UserOfflineResponse_UnBlockUser in rpc: .UnBlockUser ");
+					Log.d("RPC", " can not convert response object to PB_UserOfflineResponse_UnBlockUser in rpc: .UnBlockUser -- class: " + pb );//.getClass().getName());
 				}
 			});
 	  
@@ -529,7 +529,7 @@ public interface RPC_User {
 				if(pb instanceof PB_UserOfflineResponse_UpdateAbout){
 					RPC_UserOffline_Default_Handler.UpdateAbout((PB_UserOfflineResponse_UpdateAbout) pb, handled);
 				}else{
-					Log.d("RPC", " can not convert response object to PB_UserOfflineResponse_UpdateAbout in rpc: .UpdateAbout ");
+					Log.d("RPC", " can not convert response object to PB_UserOfflineResponse_UpdateAbout in rpc: .UpdateAbout -- class: " + pb );//.getClass().getName());
 				}
 			});
 	  
@@ -537,7 +537,7 @@ public interface RPC_User {
 				if(pb instanceof PB_UserOfflineResponse_UpdateUserName){
 					RPC_UserOffline_Default_Handler.UpdateUserName((PB_UserOfflineResponse_UpdateUserName) pb, handled);
 				}else{
-					Log.d("RPC", " can not convert response object to PB_UserOfflineResponse_UpdateUserName in rpc: .UpdateUserName ");
+					Log.d("RPC", " can not convert response object to PB_UserOfflineResponse_UpdateUserName in rpc: .UpdateUserName -- class: " + pb );//.getClass().getName());
 				}
 			});
 	  
@@ -545,7 +545,7 @@ public interface RPC_User {
 				if(pb instanceof PB_UserResponseOffline_ChangePrivacy){
 					RPC_UserOffline_Default_Handler.ChangePrivacy((PB_UserResponseOffline_ChangePrivacy) pb, handled);
 				}else{
-					Log.d("RPC", " can not convert response object to PB_UserResponseOffline_ChangePrivacy in rpc: .ChangePrivacy ");
+					Log.d("RPC", " can not convert response object to PB_UserResponseOffline_ChangePrivacy in rpc: .ChangePrivacy -- class: " + pb );//.getClass().getName());
 				}
 			});
 	  
@@ -553,7 +553,7 @@ public interface RPC_User {
 				if(pb instanceof PB_UserOfflineResponse_ChangeAvatar){
 					RPC_UserOffline_Default_Handler.ChangeAvatar((PB_UserOfflineResponse_ChangeAvatar) pb, handled);
 				}else{
-					Log.d("RPC", " can not convert response object to PB_UserOfflineResponse_ChangeAvatar in rpc: .ChangeAvatar ");
+					Log.d("RPC", " can not convert response object to PB_UserOfflineResponse_ChangeAvatar in rpc: .ChangeAvatar -- class: " + pb );//.getClass().getName());
 				}
 			});
 	  
@@ -562,7 +562,7 @@ public interface RPC_User {
 				if(pb instanceof PB_UserResponse_CheckUserName){
 					RPC_User_Default_Handler.CheckUserName((PB_UserResponse_CheckUserName) pb, handled);
 				}else{
-					Log.d("RPC", " can not convert response object to PB_UserResponse_CheckUserName in rpc: .CheckUserName ");
+					Log.d("RPC", " can not convert response object to PB_UserResponse_CheckUserName in rpc: .CheckUserName -- class: " + pb );//.getClass().getName());
 				}
 			});
 	  
@@ -570,7 +570,7 @@ public interface RPC_User {
 				if(pb instanceof PB_UserResponse_BlockedList){
 					RPC_User_Default_Handler.GetBlockedList((PB_UserResponse_BlockedList) pb, handled);
 				}else{
-					Log.d("RPC", " can not convert response object to PB_UserResponse_BlockedList in rpc: .GetBlockedList ");
+					Log.d("RPC", " can not convert response object to PB_UserResponse_BlockedList in rpc: .GetBlockedList -- class: " + pb );//.getClass().getName());
 				}
 			});
 	  

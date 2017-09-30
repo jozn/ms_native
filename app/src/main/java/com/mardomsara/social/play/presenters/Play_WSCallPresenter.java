@@ -13,6 +13,8 @@ import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.cells.Cells;
 
 import ir.ms.pb.PB_MsgParam_Echo;
+import ir.ms.pb.PB_MsgParam_GetFreshChatList;
+import ir.ms.pb.PB_MsgParam_GetFreshRoomMessagesList;
 import ir.ms.pb.RPC;
 
 /**
@@ -41,6 +43,15 @@ public class Play_WSCallPresenter extends BasePresenter {
 
 		layout.addView(newTitle2("Offline call of rpc",()->{
 			callEchoOffline();
+		} ));
+
+
+		layout.addView(newTitle2("RPC.RPC_Msg.GetFreshChatList",()->{
+			RPC.RPC_Msg.GetFreshChatList(PB_MsgParam_GetFreshChatList.newBuilder().build(),null,null);
+		} ));
+
+		layout.addView(newTitle2("RPC.RPC_Msg.GetFreshChatList",()->{
+			RPC.RPC_Msg.GetFreshRoomMessagesList(PB_MsgParam_GetFreshRoomMessagesList.newBuilder().setRoomKey("d6_2").build(),null,null);
 		} ));
 
         return rootView;

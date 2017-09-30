@@ -6,6 +6,8 @@ package com.mardomsara.social.app;
 public class Config {
     public static boolean IS_DEBUG =true;
 
+	public static int OFFLINE_RPC_FLUSH_TIMEOUT_MS = 7 * 24 * 36000 * 100;
+
     public static int KEYBOARD_HEIGHT_DEFAULT = 700;
     public static String KEYBOARD_HEIGHT = "KEYBOARD_HEIGHT";
 
