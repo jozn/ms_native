@@ -18,6 +18,16 @@ public interface PB_MsgParam_AddNewMessageOrBuilder extends
       getTextBytes();
 
   /**
+   * <code>string MessageKey = 2;</code>
+   */
+  java.lang.String getMessageKey();
+  /**
+   * <code>string MessageKey = 2;</code>
+   */
+  com.google.protobuf.ByteString
+      getMessageKeyBytes();
+
+  /**
    * <code>int32 PeerId = 5;</code>
    */
   int getPeerId();

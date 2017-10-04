@@ -20,4 +20,30 @@ public interface PB_MsgResponse_GetFreshChatListOrBuilder extends
    * <code>repeated .PB_ChatView Chats = 1;</code>
    */
   int getChatsCount();
+
+  /**
+   * <pre>
+   *dep
+   * </pre>
+   *
+   * <code>repeated .PB_UserView Users = 6;</code>
+   */
+  java.util.List<ir.ms.pb.PB_UserView> 
+      getUsersList();
+  /**
+   * <pre>
+   *dep
+   * </pre>
+   *
+   * <code>repeated .PB_UserView Users = 6;</code>
+   */
+  ir.ms.pb.PB_UserView getUsers(int index);
+  /**
+   * <pre>
+   *dep
+   * </pre>
+   *
+   * <code>repeated .PB_UserView Users = 6;</code>
+   */
+  int getUsersCount();
 }

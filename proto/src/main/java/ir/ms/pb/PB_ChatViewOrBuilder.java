@@ -9,26 +9,31 @@ public interface PB_ChatViewOrBuilder extends
 
   /**
    * <pre>
-   *use as RemoteId
+   *option realm = "1";
    * </pre>
    *
-   * <code>string ChatKey = 3;</code>
+   * <code>string ChatKey = 1;</code>
    */
   java.lang.String getChatKey();
   /**
    * <pre>
-   *use as RemoteId
+   *option realm = "1";
    * </pre>
    *
-   * <code>string ChatKey = 3;</code>
+   * <code>string ChatKey = 1;</code>
    */
   com.google.protobuf.ByteString
       getChatKeyBytes();
 
   /**
-   * <code>int64 ChatId = 1;</code>
+   * <code>string RoomKey = 3;</code>
    */
-  long getChatId();
+  java.lang.String getRoomKey();
+  /**
+   * <code>string RoomKey = 3;</code>
+   */
+  com.google.protobuf.ByteString
+      getRoomKeyBytes();
 
   /**
    * <code>int32 RoomTypeEnumId = 5;</code>
@@ -51,9 +56,9 @@ public interface PB_ChatViewOrBuilder extends
   long getGroupId();
 
   /**
-   * <code>int32 CreatedTime = 13;</code>
+   * <code>int32 CreatedSe = 13;</code>
    */
-  int getCreatedTime();
+  int getCreatedSe();
 
   /**
    * <code>int64 UpdatedMs = 15;</code>
@@ -66,27 +71,27 @@ public interface PB_ChatViewOrBuilder extends
   long getLastMessageId();
 
   /**
-   * <code>int64 LastDeletedMessageId = 18;</code>
+   * <code>int64 LastDeletedMessageId = 19;</code>
    */
   long getLastDeletedMessageId();
 
   /**
-   * <code>int64 LastSeenMessageId = 19;</code>
+   * <code>int64 LastSeenMessageId = 21;</code>
    */
   long getLastSeenMessageId();
 
   /**
-   * <code>int32 LastSeqSeen = 21;</code>
+   * <code>int32 LastSeqSeen = 23;</code>
    */
   int getLastSeqSeen();
 
   /**
-   * <code>int32 LastSeqDelete = 23;</code>
+   * <code>int32 LastSeqDelete = 25;</code>
    */
   int getLastSeqDelete();
 
   /**
-   * <code>int32 CurrentSeq = 25;</code>
+   * <code>int32 CurrentSeq = 27;</code>
    */
   int getCurrentSeq();
 

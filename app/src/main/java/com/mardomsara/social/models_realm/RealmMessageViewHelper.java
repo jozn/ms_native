@@ -16,8 +16,8 @@ import io.realm.Realm;
 public class RealmMessageViewHelper {
 
 	@Nullable
-	public static RealmMessageView getLastMessageForChat(Realm realm ,long chatId){
-		return realm.where(RealmMessageView.class).equalTo("ChatId",chatId)
+	public static RealmMessageView getLastMessageForChat(Realm realm ,String chatId){
+		return realm.where(RealmMessageView.class).equalTo("ChatKey",chatId)
 			.findFirst();
 	}
 

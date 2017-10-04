@@ -17,6 +17,7 @@ public  final class PB_MsgParam_AddNewMessage extends
     PB_MsgParam_AddNewMessageOrBuilder {
   private PB_MsgParam_AddNewMessage() {
     text_ = "";
+    messageKey_ = "";
     blob_ = com.google.protobuf.ByteString.EMPTY;
   }
   public static final int TEXT_FIELD_NUMBER = 1;
@@ -63,6 +64,52 @@ public  final class PB_MsgParam_AddNewMessage extends
   checkByteStringIsUtf8(value);
     
     text_ = value.toStringUtf8();
+  }
+
+  public static final int MESSAGEKEY_FIELD_NUMBER = 2;
+  private java.lang.String messageKey_;
+  /**
+   * <code>string MessageKey = 2;</code>
+   */
+  public java.lang.String getMessageKey() {
+    return messageKey_;
+  }
+  /**
+   * <code>string MessageKey = 2;</code>
+   */
+  public com.google.protobuf.ByteString
+      getMessageKeyBytes() {
+    return com.google.protobuf.ByteString.copyFromUtf8(messageKey_);
+  }
+  /**
+   * <code>string MessageKey = 2;</code>
+   */
+  private void setMessageKey(
+      java.lang.String value) {
+    if (value == null) {
+    throw new NullPointerException();
+  }
+  
+    messageKey_ = value;
+  }
+  /**
+   * <code>string MessageKey = 2;</code>
+   */
+  private void clearMessageKey() {
+    
+    messageKey_ = getDefaultInstance().getMessageKey();
+  }
+  /**
+   * <code>string MessageKey = 2;</code>
+   */
+  private void setMessageKeyBytes(
+      com.google.protobuf.ByteString value) {
+    if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+    
+    messageKey_ = value.toStringUtf8();
   }
 
   public static final int PEERID_FIELD_NUMBER = 5;
@@ -308,6 +355,9 @@ public  final class PB_MsgParam_AddNewMessage extends
     if (!text_.isEmpty()) {
       output.writeString(1, getText());
     }
+    if (!messageKey_.isEmpty()) {
+      output.writeString(2, getMessageKey());
+    }
     if (peerId_ != 0) {
       output.writeInt32(5, peerId_);
     }
@@ -339,6 +389,10 @@ public  final class PB_MsgParam_AddNewMessage extends
     if (!text_.isEmpty()) {
       size += com.google.protobuf.CodedOutputStream
         .computeStringSize(1, getText());
+    }
+    if (!messageKey_.isEmpty()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeStringSize(2, getMessageKey());
     }
     if (peerId_ != 0) {
       size += com.google.protobuf.CodedOutputStream
@@ -495,6 +549,46 @@ public  final class PB_MsgParam_AddNewMessage extends
         com.google.protobuf.ByteString value) {
       copyOnWrite();
       instance.setTextBytes(value);
+      return this;
+    }
+
+    /**
+     * <code>string MessageKey = 2;</code>
+     */
+    public java.lang.String getMessageKey() {
+      return instance.getMessageKey();
+    }
+    /**
+     * <code>string MessageKey = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getMessageKeyBytes() {
+      return instance.getMessageKeyBytes();
+    }
+    /**
+     * <code>string MessageKey = 2;</code>
+     */
+    public Builder setMessageKey(
+        java.lang.String value) {
+      copyOnWrite();
+      instance.setMessageKey(value);
+      return this;
+    }
+    /**
+     * <code>string MessageKey = 2;</code>
+     */
+    public Builder clearMessageKey() {
+      copyOnWrite();
+      instance.clearMessageKey();
+      return this;
+    }
+    /**
+     * <code>string MessageKey = 2;</code>
+     */
+    public Builder setMessageKeyBytes(
+        com.google.protobuf.ByteString value) {
+      copyOnWrite();
+      instance.setMessageKeyBytes(value);
       return this;
     }
 
@@ -740,6 +834,8 @@ public  final class PB_MsgParam_AddNewMessage extends
         ir.ms.pb.PB_MsgParam_AddNewMessage other = (ir.ms.pb.PB_MsgParam_AddNewMessage) arg1;
         text_ = visitor.visitString(!text_.isEmpty(), text_,
             !other.text_.isEmpty(), other.text_);
+        messageKey_ = visitor.visitString(!messageKey_.isEmpty(), messageKey_,
+            !other.messageKey_.isEmpty(), other.messageKey_);
         peerId_ = visitor.visitInt(peerId_ != 0, peerId_,
             other.peerId_ != 0, other.peerId_);
         time_ = visitor.visitInt(time_ != 0, time_,
@@ -779,6 +875,12 @@ public  final class PB_MsgParam_AddNewMessage extends
                 String s = input.readStringRequireUtf8();
 
                 text_ = s;
+                break;
+              }
+              case 18: {
+                String s = input.readStringRequireUtf8();
+
+                messageKey_ = s;
                 break;
               }
               case 40: {

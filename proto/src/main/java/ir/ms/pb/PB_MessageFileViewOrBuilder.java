@@ -17,6 +17,16 @@ public interface PB_MessageFileViewOrBuilder extends
   long getMessageFileId();
 
   /**
+   * <code>string MessageFileKey = 32;</code>
+   */
+  java.lang.String getMessageFileKey();
+  /**
+   * <code>string MessageFileKey = 32;</code>
+   */
+  com.google.protobuf.ByteString
+      getMessageFileKeyBytes();
+
+  /**
    * <code>int32 OriginalUserId = 2;</code>
    */
   int getOriginalUserId();

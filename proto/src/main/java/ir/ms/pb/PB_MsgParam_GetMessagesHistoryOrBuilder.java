@@ -8,9 +8,22 @@ public interface PB_MsgParam_GetMessagesHistoryOrBuilder extends
     com.google.protobuf.MessageLiteOrBuilder {
 
   /**
-   * <code>int64 ChatId = 1;</code>
+   * <pre>
+   *int64 ChatId = 1;
+   * </pre>
+   *
+   * <code>string ChatKey = 1;</code>
    */
-  long getChatId();
+  java.lang.String getChatKey();
+  /**
+   * <pre>
+   *int64 ChatId = 1;
+   * </pre>
+   *
+   * <code>string ChatKey = 1;</code>
+   */
+  com.google.protobuf.ByteString
+      getChatKeyBytes();
 
   /**
    * <code>sint32 FromSeq = 2;</code>

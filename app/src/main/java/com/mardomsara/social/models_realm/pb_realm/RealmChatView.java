@@ -7,20 +7,20 @@ import ir.ms.pb.*;
 
 public class RealmChatView extends RealmObject {
 		 @PrimaryKey 
-		public String ChatKey;//0 				 PB 3
-		public long ChatId;//1 				 PB 1
+		public String ChatKey;//0 				 PB 1
+		public String RoomKey;//1 				 PB 3
 		public int RoomTypeEnumId;//2 				 PB 5
 		public int UserId;//3 				 PB 7
 		public int PeerUserId;//4 				 PB 9
 		public long GroupId;//5 				 PB 11
-		public int CreatedTime;//6 				 PB 13
+		public int CreatedSe;//6 				 PB 13
 		public long UpdatedMs;//7 				 PB 15
 		public long LastMessageId;//8 				 PB 17
-		public long LastDeletedMessageId;//9 				 PB 18
-		public long LastSeenMessageId;//10 				 PB 19
-		public int LastSeqSeen;//11 				 PB 21
-		public int LastSeqDelete;//12 				 PB 23
-		public int CurrentSeq;//13 				 PB 25
+		public long LastDeletedMessageId;//9 				 PB 19
+		public long LastSeenMessageId;//10 				 PB 21
+		public int LastSeqSeen;//11 				 PB 23
+		public int LastSeqDelete;//12 				 PB 25
+		public int CurrentSeq;//13 				 PB 27
 		public RealmUserView UserView;//14 				 PB 100
 		public int SharedMediaCount;//15 				 PB 200
 		public int UnseenCount;//16 				 PB 205
@@ -32,12 +32,12 @@ public class RealmChatView extends RealmObject {
 		RealmChatView r = new RealmChatView();
 		
 		r.ChatKey = pb.getChatKey();//0
-		r.ChatId = pb.getChatId();//1
+		r.RoomKey = pb.getRoomKey();//1
 		r.RoomTypeEnumId = pb.getRoomTypeEnumId();//2
 		r.UserId = pb.getUserId();//3
 		r.PeerUserId = pb.getPeerUserId();//4
 		r.GroupId = pb.getGroupId();//5
-		r.CreatedTime = pb.getCreatedTime();//6
+		r.CreatedSe = pb.getCreatedSe();//6
 		r.UpdatedMs = pb.getUpdatedMs();//7
 		r.LastMessageId = pb.getLastMessageId();//8
 		r.LastDeletedMessageId = pb.getLastDeletedMessageId();//9
@@ -62,12 +62,12 @@ public class RealmChatView extends RealmObject {
 	RealmChatView r = new RealmChatView();
 	
 	r.ChatKey = ;//0
-	r.ChatId = ;//1
+	r.RoomKey = ;//1
 	r.RoomTypeEnumId = ;//2
 	r.UserId = ;//3
 	r.PeerUserId = ;//4
 	r.GroupId = ;//5
-	r.CreatedTime = ;//6
+	r.CreatedSe = ;//6
 	r.UpdatedMs = ;//7
 	r.LastMessageId = ;//8
 	r.LastDeletedMessageId = ;//9
@@ -85,12 +85,12 @@ public class RealmChatView extends RealmObject {
 	RealmChatView r = new RealmChatView();
 	
 	r.ChatKey = ;
-	r.ChatId = ;
+	r.RoomKey = ;
 	r.RoomTypeEnumId = ;
 	r.UserId = ;
 	r.PeerUserId = ;
 	r.GroupId = ;
-	r.CreatedTime = ;
+	r.CreatedSe = ;
 	r.UpdatedMs = ;
 	r.LastMessageId = ;
 	r.LastDeletedMessageId = ;
@@ -107,12 +107,12 @@ public class RealmChatView extends RealmObject {
 	//get
 	
 	m. = r.ChatKey ;//0
-	m. = r.ChatId ;//1
+	m. = r.RoomKey ;//1
 	m. = r.RoomTypeEnumId ;//2
 	m. = r.UserId ;//3
 	m. = r.PeerUserId ;//4
 	m. = r.GroupId ;//5
-	m. = r.CreatedTime ;//6
+	m. = r.CreatedSe ;//6
 	m. = r.UpdatedMs ;//7
 	m. = r.LastMessageId ;//8
 	m. = r.LastDeletedMessageId ;//9
@@ -129,12 +129,12 @@ public class RealmChatView extends RealmObject {
 	//get - no tag number
 	
 	m. = r.ChatKey ;
-	m. = r.ChatId ;
+	m. = r.RoomKey ;
 	m. = r.RoomTypeEnumId ;
 	m. = r.UserId ;
 	m. = r.PeerUserId ;
 	m. = r.GroupId ;
-	m. = r.CreatedTime ;
+	m. = r.CreatedSe ;
 	m. = r.UpdatedMs ;
 	m. = r.LastMessageId ;
 	m. = r.LastDeletedMessageId ;

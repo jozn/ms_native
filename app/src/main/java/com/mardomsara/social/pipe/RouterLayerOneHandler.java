@@ -1,5 +1,8 @@
 package com.mardomsara.social.pipe;
 
+import android.util.Log;
+
+import com.google.protobuf.ByteString;
 import com.mardomsara.social.app.DB;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
@@ -9,6 +12,7 @@ import ir.ms.pb.PB_CommandReachedToServer;
 import ir.ms.pb.PB_PushHolderView;
 import ir.ms.pb.PB_ResponseToClient;
 import ir.ms.pb.RPC_HANDLERS;
+import ir.ms.pb.RpcNameToResponseMapper;
 
 /**
  * Created by Hamid on 8/21/2017.
@@ -54,7 +58,19 @@ class RouterLayerOneHandler {
 		try {
 			RPC_HANDLERS.HandleRowRpcResponse x =  RPC_HANDLERS.getRouter().get(pb_responseToClient.getRpcFullName());
 			if(x != null){
-				x.handle(parsedResultOfRpcResponse,handeledRpceByMe);
+				//this happens for offlines RPC and those with no handelers registeried -- could upgrade RPCs to use just this way of decoding
+				if(parsedResultOfRpcResponse == null){
+					try {
+						com.google.protobuf.GeneratedMessageLite parseData= RpcNameToResponseMapper.getMap().get(pb_responseToClient.getRpcFullName()).parseData(pb_responseToClient.getData());
+						x.handle(parseData,handeledRpceByMe);
+					}catch (Exception e){
+						Log.e("Rpc", "Error in reflection in RPC_Router for rpc: " +pb_responseToClient.getRpcFullName() );
+						e.printStackTrace();
+					}
+					//x.handle(parsedResultOfRpcResponse,handeledRpceByMe);
+				}else {
+					x.handle(parsedResultOfRpcResponse,handeledRpceByMe);
+				}
 			}else {
 				AppUtil.log("Rpc: no default handler for RPC responses :" + pb_responseToClient.getPBClass());
 			}

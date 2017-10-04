@@ -13,6 +13,7 @@ public  final class PB_MsgResponse_GetFreshChatList extends
     PB_MsgResponse_GetFreshChatListOrBuilder {
   private PB_MsgResponse_GetFreshChatList() {
     chats_ = emptyProtobufList();
+    users_ = emptyProtobufList();
   }
   public static final int CHATS_FIELD_NUMBER = 1;
   private com.google.protobuf.Internal.ProtobufList<ir.ms.pb.PB_ChatView> chats_;
@@ -134,10 +135,189 @@ public  final class PB_MsgResponse_GetFreshChatList extends
     chats_.remove(index);
   }
 
+  public static final int USERS_FIELD_NUMBER = 6;
+  private com.google.protobuf.Internal.ProtobufList<ir.ms.pb.PB_UserView> users_;
+  /**
+   * <pre>
+   *dep
+   * </pre>
+   *
+   * <code>repeated .PB_UserView Users = 6;</code>
+   */
+  public java.util.List<ir.ms.pb.PB_UserView> getUsersList() {
+    return users_;
+  }
+  /**
+   * <pre>
+   *dep
+   * </pre>
+   *
+   * <code>repeated .PB_UserView Users = 6;</code>
+   */
+  public java.util.List<? extends ir.ms.pb.PB_UserViewOrBuilder> 
+      getUsersOrBuilderList() {
+    return users_;
+  }
+  /**
+   * <pre>
+   *dep
+   * </pre>
+   *
+   * <code>repeated .PB_UserView Users = 6;</code>
+   */
+  public int getUsersCount() {
+    return users_.size();
+  }
+  /**
+   * <pre>
+   *dep
+   * </pre>
+   *
+   * <code>repeated .PB_UserView Users = 6;</code>
+   */
+  public ir.ms.pb.PB_UserView getUsers(int index) {
+    return users_.get(index);
+  }
+  /**
+   * <pre>
+   *dep
+   * </pre>
+   *
+   * <code>repeated .PB_UserView Users = 6;</code>
+   */
+  public ir.ms.pb.PB_UserViewOrBuilder getUsersOrBuilder(
+      int index) {
+    return users_.get(index);
+  }
+  private void ensureUsersIsMutable() {
+    if (!users_.isModifiable()) {
+      users_ =
+          com.google.protobuf.GeneratedMessageLite.mutableCopy(users_);
+     }
+  }
+
+  /**
+   * <pre>
+   *dep
+   * </pre>
+   *
+   * <code>repeated .PB_UserView Users = 6;</code>
+   */
+  private void setUsers(
+      int index, ir.ms.pb.PB_UserView value) {
+    if (value == null) {
+      throw new NullPointerException();
+    }
+    ensureUsersIsMutable();
+    users_.set(index, value);
+  }
+  /**
+   * <pre>
+   *dep
+   * </pre>
+   *
+   * <code>repeated .PB_UserView Users = 6;</code>
+   */
+  private void setUsers(
+      int index, ir.ms.pb.PB_UserView.Builder builderForValue) {
+    ensureUsersIsMutable();
+    users_.set(index, builderForValue.build());
+  }
+  /**
+   * <pre>
+   *dep
+   * </pre>
+   *
+   * <code>repeated .PB_UserView Users = 6;</code>
+   */
+  private void addUsers(ir.ms.pb.PB_UserView value) {
+    if (value == null) {
+      throw new NullPointerException();
+    }
+    ensureUsersIsMutable();
+    users_.add(value);
+  }
+  /**
+   * <pre>
+   *dep
+   * </pre>
+   *
+   * <code>repeated .PB_UserView Users = 6;</code>
+   */
+  private void addUsers(
+      int index, ir.ms.pb.PB_UserView value) {
+    if (value == null) {
+      throw new NullPointerException();
+    }
+    ensureUsersIsMutable();
+    users_.add(index, value);
+  }
+  /**
+   * <pre>
+   *dep
+   * </pre>
+   *
+   * <code>repeated .PB_UserView Users = 6;</code>
+   */
+  private void addUsers(
+      ir.ms.pb.PB_UserView.Builder builderForValue) {
+    ensureUsersIsMutable();
+    users_.add(builderForValue.build());
+  }
+  /**
+   * <pre>
+   *dep
+   * </pre>
+   *
+   * <code>repeated .PB_UserView Users = 6;</code>
+   */
+  private void addUsers(
+      int index, ir.ms.pb.PB_UserView.Builder builderForValue) {
+    ensureUsersIsMutable();
+    users_.add(index, builderForValue.build());
+  }
+  /**
+   * <pre>
+   *dep
+   * </pre>
+   *
+   * <code>repeated .PB_UserView Users = 6;</code>
+   */
+  private void addAllUsers(
+      java.lang.Iterable<? extends ir.ms.pb.PB_UserView> values) {
+    ensureUsersIsMutable();
+    com.google.protobuf.AbstractMessageLite.addAll(
+        values, users_);
+  }
+  /**
+   * <pre>
+   *dep
+   * </pre>
+   *
+   * <code>repeated .PB_UserView Users = 6;</code>
+   */
+  private void clearUsers() {
+    users_ = emptyProtobufList();
+  }
+  /**
+   * <pre>
+   *dep
+   * </pre>
+   *
+   * <code>repeated .PB_UserView Users = 6;</code>
+   */
+  private void removeUsers(int index) {
+    ensureUsersIsMutable();
+    users_.remove(index);
+  }
+
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
     for (int i = 0; i < chats_.size(); i++) {
       output.writeMessage(1, chats_.get(i));
+    }
+    for (int i = 0; i < users_.size(); i++) {
+      output.writeMessage(6, users_.get(i));
     }
   }
 
@@ -149,6 +329,10 @@ public  final class PB_MsgResponse_GetFreshChatList extends
     for (int i = 0; i < chats_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, chats_.get(i));
+    }
+    for (int i = 0; i < users_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(6, users_.get(i));
     }
     memoizedSerializedSize = size;
     return size;
@@ -333,6 +517,151 @@ public  final class PB_MsgResponse_GetFreshChatList extends
       return this;
     }
 
+    /**
+     * <pre>
+     *dep
+     * </pre>
+     *
+     * <code>repeated .PB_UserView Users = 6;</code>
+     */
+    public java.util.List<ir.ms.pb.PB_UserView> getUsersList() {
+      return java.util.Collections.unmodifiableList(
+          instance.getUsersList());
+    }
+    /**
+     * <pre>
+     *dep
+     * </pre>
+     *
+     * <code>repeated .PB_UserView Users = 6;</code>
+     */
+    public int getUsersCount() {
+      return instance.getUsersCount();
+    }/**
+     * <pre>
+     *dep
+     * </pre>
+     *
+     * <code>repeated .PB_UserView Users = 6;</code>
+     */
+    public ir.ms.pb.PB_UserView getUsers(int index) {
+      return instance.getUsers(index);
+    }
+    /**
+     * <pre>
+     *dep
+     * </pre>
+     *
+     * <code>repeated .PB_UserView Users = 6;</code>
+     */
+    public Builder setUsers(
+        int index, ir.ms.pb.PB_UserView value) {
+      copyOnWrite();
+      instance.setUsers(index, value);
+      return this;
+    }
+    /**
+     * <pre>
+     *dep
+     * </pre>
+     *
+     * <code>repeated .PB_UserView Users = 6;</code>
+     */
+    public Builder setUsers(
+        int index, ir.ms.pb.PB_UserView.Builder builderForValue) {
+      copyOnWrite();
+      instance.setUsers(index, builderForValue);
+      return this;
+    }
+    /**
+     * <pre>
+     *dep
+     * </pre>
+     *
+     * <code>repeated .PB_UserView Users = 6;</code>
+     */
+    public Builder addUsers(ir.ms.pb.PB_UserView value) {
+      copyOnWrite();
+      instance.addUsers(value);
+      return this;
+    }
+    /**
+     * <pre>
+     *dep
+     * </pre>
+     *
+     * <code>repeated .PB_UserView Users = 6;</code>
+     */
+    public Builder addUsers(
+        int index, ir.ms.pb.PB_UserView value) {
+      copyOnWrite();
+      instance.addUsers(index, value);
+      return this;
+    }
+    /**
+     * <pre>
+     *dep
+     * </pre>
+     *
+     * <code>repeated .PB_UserView Users = 6;</code>
+     */
+    public Builder addUsers(
+        ir.ms.pb.PB_UserView.Builder builderForValue) {
+      copyOnWrite();
+      instance.addUsers(builderForValue);
+      return this;
+    }
+    /**
+     * <pre>
+     *dep
+     * </pre>
+     *
+     * <code>repeated .PB_UserView Users = 6;</code>
+     */
+    public Builder addUsers(
+        int index, ir.ms.pb.PB_UserView.Builder builderForValue) {
+      copyOnWrite();
+      instance.addUsers(index, builderForValue);
+      return this;
+    }
+    /**
+     * <pre>
+     *dep
+     * </pre>
+     *
+     * <code>repeated .PB_UserView Users = 6;</code>
+     */
+    public Builder addAllUsers(
+        java.lang.Iterable<? extends ir.ms.pb.PB_UserView> values) {
+      copyOnWrite();
+      instance.addAllUsers(values);
+      return this;
+    }
+    /**
+     * <pre>
+     *dep
+     * </pre>
+     *
+     * <code>repeated .PB_UserView Users = 6;</code>
+     */
+    public Builder clearUsers() {
+      copyOnWrite();
+      instance.clearUsers();
+      return this;
+    }
+    /**
+     * <pre>
+     *dep
+     * </pre>
+     *
+     * <code>repeated .PB_UserView Users = 6;</code>
+     */
+    public Builder removeUsers(int index) {
+      copyOnWrite();
+      instance.removeUsers(index);
+      return this;
+    }
+
     // @@protoc_insertion_point(builder_scope:PB_MsgResponse_GetFreshChatList)
   }
   protected final Object dynamicMethod(
@@ -347,6 +676,7 @@ public  final class PB_MsgResponse_GetFreshChatList extends
       }
       case MAKE_IMMUTABLE: {
         chats_.makeImmutable();
+        users_.makeImmutable();
         return null;
       }
       case NEW_BUILDER: {
@@ -356,6 +686,7 @@ public  final class PB_MsgResponse_GetFreshChatList extends
         Visitor visitor = (Visitor) arg0;
         ir.ms.pb.PB_MsgResponse_GetFreshChatList other = (ir.ms.pb.PB_MsgResponse_GetFreshChatList) arg1;
         chats_= visitor.visitList(chats_, other.chats_);
+        users_= visitor.visitList(users_, other.users_);
         if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
             .INSTANCE) {
         }
@@ -387,6 +718,15 @@ public  final class PB_MsgResponse_GetFreshChatList extends
                 }
                 chats_.add(
                     input.readMessage(ir.ms.pb.PB_ChatView.parser(), extensionRegistry));
+                break;
+              }
+              case 50: {
+                if (!users_.isModifiable()) {
+                  users_ =
+                      com.google.protobuf.GeneratedMessageLite.mutableCopy(users_);
+                }
+                users_.add(
+                    input.readMessage(ir.ms.pb.PB_UserView.parser(), extensionRegistry));
                 break;
               }
             }

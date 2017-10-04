@@ -43,11 +43,11 @@ public final class HelperMessageAdd {
 		r.MessageFileId = 0;//3
 		r.MessageTypeEnumId = RoomMessageTypeEnum.TEXT_VALUE;//4
 		r.Text = text;//5
-		r.Time = (int) AppUtil.getTime();//6
+		r.CreatedSe = (int) AppUtil.getTime();//6
 		r.PeerReceivedTime = 0;//7
 		r.PeerSeenTime = 0;//8
 		r.DeliviryStatusEnumId = RoomMessageDeliviryStatusEnum.NEED_TO_SINK_VALUE;//9
-		r.ChatId = chatView.ChatId;//10
+		r.ChatKey = chatView.ChatKey;//10
 		r.RoomTypeEnumId = chatView.RoomTypeEnumId;//11
 		r.IsByMe = true;//12
 
@@ -194,11 +194,11 @@ public final class HelperMessageAdd {
 		r.MessageFileId = 0;//3
 		r.MessageTypeEnumId = RoomMessageTypeEnum.TEXT_VALUE;//4
 		r.Text = "";//5
-		r.Time = (int) AppUtil.getTime();//6
+		r.CreatedSe = (int) AppUtil.getTime();//6
 		r.PeerReceivedTime = 0;//7
 		r.PeerSeenTime = 0;//8
 		r.DeliviryStatusEnumId = RoomMessageDeliviryStatusEnum.NEED_TO_SINK_VALUE;//9
-		r.ChatId = chatView.ChatId;//10
+		r.ChatKey = chatView.ChatKey;//10
 		r.RoomTypeEnumId = chatView.RoomTypeEnumId;//11
 		r.IsByMe = true;//12
 

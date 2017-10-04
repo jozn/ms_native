@@ -16,28 +16,72 @@ public  final class PB_MsgParam_GetMessagesHistory extends
     // @@protoc_insertion_point(message_implements:PB_MsgParam_GetMessagesHistory)
     PB_MsgParam_GetMessagesHistoryOrBuilder {
   private PB_MsgParam_GetMessagesHistory() {
+    chatKey_ = "";
   }
-  public static final int CHATID_FIELD_NUMBER = 1;
-  private long chatId_;
+  public static final int CHATKEY_FIELD_NUMBER = 1;
+  private java.lang.String chatKey_;
   /**
-   * <code>int64 ChatId = 1;</code>
+   * <pre>
+   *int64 ChatId = 1;
+   * </pre>
+   *
+   * <code>string ChatKey = 1;</code>
    */
-  public long getChatId() {
-    return chatId_;
+  public java.lang.String getChatKey() {
+    return chatKey_;
   }
   /**
-   * <code>int64 ChatId = 1;</code>
+   * <pre>
+   *int64 ChatId = 1;
+   * </pre>
+   *
+   * <code>string ChatKey = 1;</code>
    */
-  private void setChatId(long value) {
+  public com.google.protobuf.ByteString
+      getChatKeyBytes() {
+    return com.google.protobuf.ByteString.copyFromUtf8(chatKey_);
+  }
+  /**
+   * <pre>
+   *int64 ChatId = 1;
+   * </pre>
+   *
+   * <code>string ChatKey = 1;</code>
+   */
+  private void setChatKey(
+      java.lang.String value) {
+    if (value == null) {
+    throw new NullPointerException();
+  }
+  
+    chatKey_ = value;
+  }
+  /**
+   * <pre>
+   *int64 ChatId = 1;
+   * </pre>
+   *
+   * <code>string ChatKey = 1;</code>
+   */
+  private void clearChatKey() {
     
-    chatId_ = value;
+    chatKey_ = getDefaultInstance().getChatKey();
   }
   /**
-   * <code>int64 ChatId = 1;</code>
+   * <pre>
+   *int64 ChatId = 1;
+   * </pre>
+   *
+   * <code>string ChatKey = 1;</code>
    */
-  private void clearChatId() {
+  private void setChatKeyBytes(
+      com.google.protobuf.ByteString value) {
+    if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
     
-    chatId_ = 0L;
+    chatKey_ = value.toStringUtf8();
   }
 
   public static final int FROMSEQ_FIELD_NUMBER = 2;
@@ -88,8 +132,8 @@ public  final class PB_MsgParam_GetMessagesHistory extends
 
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (chatId_ != 0L) {
-      output.writeInt64(1, chatId_);
+    if (!chatKey_.isEmpty()) {
+      output.writeString(1, getChatKey());
     }
     if (fromSeq_ != 0) {
       output.writeSInt32(2, fromSeq_);
@@ -104,9 +148,9 @@ public  final class PB_MsgParam_GetMessagesHistory extends
     if (size != -1) return size;
 
     size = 0;
-    if (chatId_ != 0L) {
+    if (!chatKey_.isEmpty()) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(1, chatId_);
+        .computeStringSize(1, getChatKey());
     }
     if (fromSeq_ != 0) {
       size += com.google.protobuf.CodedOutputStream
@@ -207,25 +251,62 @@ public  final class PB_MsgParam_GetMessagesHistory extends
 
 
     /**
-     * <code>int64 ChatId = 1;</code>
+     * <pre>
+     *int64 ChatId = 1;
+     * </pre>
+     *
+     * <code>string ChatKey = 1;</code>
      */
-    public long getChatId() {
-      return instance.getChatId();
+    public java.lang.String getChatKey() {
+      return instance.getChatKey();
     }
     /**
-     * <code>int64 ChatId = 1;</code>
+     * <pre>
+     *int64 ChatId = 1;
+     * </pre>
+     *
+     * <code>string ChatKey = 1;</code>
      */
-    public Builder setChatId(long value) {
+    public com.google.protobuf.ByteString
+        getChatKeyBytes() {
+      return instance.getChatKeyBytes();
+    }
+    /**
+     * <pre>
+     *int64 ChatId = 1;
+     * </pre>
+     *
+     * <code>string ChatKey = 1;</code>
+     */
+    public Builder setChatKey(
+        java.lang.String value) {
       copyOnWrite();
-      instance.setChatId(value);
+      instance.setChatKey(value);
       return this;
     }
     /**
-     * <code>int64 ChatId = 1;</code>
+     * <pre>
+     *int64 ChatId = 1;
+     * </pre>
+     *
+     * <code>string ChatKey = 1;</code>
      */
-    public Builder clearChatId() {
+    public Builder clearChatKey() {
       copyOnWrite();
-      instance.clearChatId();
+      instance.clearChatKey();
+      return this;
+    }
+    /**
+     * <pre>
+     *int64 ChatId = 1;
+     * </pre>
+     *
+     * <code>string ChatKey = 1;</code>
+     */
+    public Builder setChatKeyBytes(
+        com.google.protobuf.ByteString value) {
+      copyOnWrite();
+      instance.setChatKeyBytes(value);
       return this;
     }
 
@@ -296,8 +377,8 @@ public  final class PB_MsgParam_GetMessagesHistory extends
       case VISIT: {
         Visitor visitor = (Visitor) arg0;
         ir.ms.pb.PB_MsgParam_GetMessagesHistory other = (ir.ms.pb.PB_MsgParam_GetMessagesHistory) arg1;
-        chatId_ = visitor.visitLong(chatId_ != 0L, chatId_,
-            other.chatId_ != 0L, other.chatId_);
+        chatKey_ = visitor.visitString(!chatKey_.isEmpty(), chatKey_,
+            !other.chatKey_.isEmpty(), other.chatKey_);
         fromSeq_ = visitor.visitInt(fromSeq_ != 0, fromSeq_,
             other.fromSeq_ != 0, other.fromSeq_);
         endSeq_ = visitor.visitInt(endSeq_ != 0, endSeq_,
@@ -326,9 +407,10 @@ public  final class PB_MsgParam_GetMessagesHistory extends
                 }
                 break;
               }
-              case 8: {
+              case 10: {
+                String s = input.readStringRequireUtf8();
 
-                chatId_ = input.readInt64();
+                chatKey_ = s;
                 break;
               }
               case 16: {

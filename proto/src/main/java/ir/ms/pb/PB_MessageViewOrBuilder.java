@@ -8,69 +8,84 @@ public interface PB_MessageViewOrBuilder extends
     com.google.protobuf.MessageLiteOrBuilder {
 
   /**
-   * <code>uint64 MessageId = 1;</code>
+   * <code>int64 MessageId = 1;</code>
    */
   long getMessageId();
 
   /**
-   * <code>string RoomKey = 3;</code>
+   * <code>string MessageKey = 3;</code>
+   */
+  java.lang.String getMessageKey();
+  /**
+   * <code>string MessageKey = 3;</code>
+   */
+  com.google.protobuf.ByteString
+      getMessageKeyBytes();
+
+  /**
+   * <code>string RoomKey = 5;</code>
    */
   java.lang.String getRoomKey();
   /**
-   * <code>string RoomKey = 3;</code>
+   * <code>string RoomKey = 5;</code>
    */
   com.google.protobuf.ByteString
       getRoomKeyBytes();
 
   /**
-   * <code>int32 UserId = 5;</code>
+   * <code>int32 UserId = 7;</code>
    */
   int getUserId();
 
   /**
-   * <code>int64 MessageFileId = 7;</code>
+   * <code>int64 MessageFileId = 9;</code>
    */
   long getMessageFileId();
 
   /**
-   * <code>int32 MessageTypeEnumId = 9;</code>
+   * <code>int32 MessageTypeEnumId = 11;</code>
    */
   int getMessageTypeEnumId();
 
   /**
-   * <code>string Text = 11;</code>
+   * <code>string Text = 13;</code>
    */
   java.lang.String getText();
   /**
-   * <code>string Text = 11;</code>
+   * <code>string Text = 13;</code>
    */
   com.google.protobuf.ByteString
       getTextBytes();
 
   /**
-   * <code>int32 Time = 13;</code>
+   * <code>int32 CreatedSe = 15;</code>
    */
-  int getTime();
+  int getCreatedSe();
 
   /**
-   * <code>int32 PeerReceivedTime = 15;</code>
+   * <code>int32 PeerReceivedTime = 17;</code>
    */
   int getPeerReceivedTime();
 
   /**
-   * <code>int32 PeerSeenTime = 17;</code>
+   * <code>int32 PeerSeenTime = 19;</code>
    */
   int getPeerSeenTime();
 
   /**
-   * <code>int32 DeliviryStatusEnumId = 19;</code>
+   * <code>int32 DeliviryStatusEnumId = 21;</code>
    */
   int getDeliviryStatusEnumId();
 
   /**
-   * <code>int64 ChatId = 30;</code>
+   * <code>string ChatKey = 30;</code>
    */
-  long getChatId();
+  java.lang.String getChatKey();
+  /**
+   * <code>string ChatKey = 30;</code>
+   */
+  com.google.protobuf.ByteString
+      getChatKeyBytes();
 
   /**
    * <code>int32 RoomTypeEnumId = 31;</code>

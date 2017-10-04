@@ -2,6 +2,7 @@ package com.mardomsara.social.ui.presenter.chat_realm.inbox;
 
 
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -15,6 +16,7 @@ import io.realm.OrderedRealmCollection;
 
 
 final class InboxChatsListAdaptor extends BaseRealmRecyclerViewAdapter<RealmChatView, InboxChatsListAdaptor.RV> {
+	final static String TAG = "layoutResId";
 
 	public InboxChatsListAdaptor(@Nullable OrderedRealmCollection<RealmChatView> data, boolean autoUpdate) {
 		super(data, autoUpdate);
@@ -38,6 +40,7 @@ final class InboxChatsListAdaptor extends BaseRealmRecyclerViewAdapter<RealmChat
 
 	@Override
 	protected RV createBaseViewHolder(ViewGroup parent, int layoutResId, int typeId) {
+		Log.d(TAG, " createBaseViewHolder layoutResId: " + layoutResId + " typeId: " + typeId);
 		return new RV(new InboxRowCell(parent, this));
 	}
 

@@ -16,7 +16,7 @@ public  final class PB_MsgParam_ForwardMessages extends
     // @@protoc_insertion_point(message_implements:PB_MsgParam_ForwardMessages)
     PB_MsgParam_ForwardMessagesOrBuilder {
   private PB_MsgParam_ForwardMessages() {
-    toDirectChatIds_ = emptyLongList();
+    toDirectChatKeys_ = com.google.protobuf.GeneratedMessageLite.emptyProtobufList();
     toGroupChatIds_ = emptyLongList();
   }
   private int bitField0_;
@@ -102,62 +102,124 @@ public  final class PB_MsgParam_ForwardMessages extends
     
   }
 
-  public static final int TODIRECTCHATIDS_FIELD_NUMBER = 3;
-  private com.google.protobuf.Internal.LongList toDirectChatIds_;
+  public static final int TODIRECTCHATKEYS_FIELD_NUMBER = 3;
+  private com.google.protobuf.Internal.ProtobufList<String> toDirectChatKeys_;
   /**
-   * <code>repeated int64 ToDirectChatIds = 3;</code>
+   * <pre>
+   *    repeated int64 ToDirectChatIds = 3;
+   * </pre>
+   *
+   * <code>repeated string ToDirectChatKeys = 3;</code>
    */
-  public java.util.List<java.lang.Long>
-      getToDirectChatIdsList() {
-    return toDirectChatIds_;
+  public java.util.List<String> getToDirectChatKeysList() {
+    return toDirectChatKeys_;
   }
   /**
-   * <code>repeated int64 ToDirectChatIds = 3;</code>
+   * <pre>
+   *    repeated int64 ToDirectChatIds = 3;
+   * </pre>
+   *
+   * <code>repeated string ToDirectChatKeys = 3;</code>
    */
-  public int getToDirectChatIdsCount() {
-    return toDirectChatIds_.size();
+  public int getToDirectChatKeysCount() {
+    return toDirectChatKeys_.size();
   }
   /**
-   * <code>repeated int64 ToDirectChatIds = 3;</code>
+   * <pre>
+   *    repeated int64 ToDirectChatIds = 3;
+   * </pre>
+   *
+   * <code>repeated string ToDirectChatKeys = 3;</code>
    */
-  public long getToDirectChatIds(int index) {
-    return toDirectChatIds_.getLong(index);
+  public java.lang.String getToDirectChatKeys(int index) {
+    return toDirectChatKeys_.get(index);
   }
-  private void ensureToDirectChatIdsIsMutable() {
-    if (!toDirectChatIds_.isModifiable()) {
-      toDirectChatIds_ =
-          com.google.protobuf.GeneratedMessageLite.mutableCopy(toDirectChatIds_);
+  /**
+   * <pre>
+   *    repeated int64 ToDirectChatIds = 3;
+   * </pre>
+   *
+   * <code>repeated string ToDirectChatKeys = 3;</code>
+   */
+  public com.google.protobuf.ByteString
+      getToDirectChatKeysBytes(int index) {
+    return com.google.protobuf.ByteString.copyFromUtf8(
+        toDirectChatKeys_.get(index));
+  }
+  private void ensureToDirectChatKeysIsMutable() {
+    if (!toDirectChatKeys_.isModifiable()) {
+      toDirectChatKeys_ =
+          com.google.protobuf.GeneratedMessageLite.mutableCopy(toDirectChatKeys_);
      }
   }
   /**
-   * <code>repeated int64 ToDirectChatIds = 3;</code>
+   * <pre>
+   *    repeated int64 ToDirectChatIds = 3;
+   * </pre>
+   *
+   * <code>repeated string ToDirectChatKeys = 3;</code>
    */
-  private void setToDirectChatIds(
-      int index, long value) {
-    ensureToDirectChatIdsIsMutable();
-    toDirectChatIds_.setLong(index, value);
+  private void setToDirectChatKeys(
+      int index, java.lang.String value) {
+    if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureToDirectChatKeysIsMutable();
+    toDirectChatKeys_.set(index, value);
   }
   /**
-   * <code>repeated int64 ToDirectChatIds = 3;</code>
+   * <pre>
+   *    repeated int64 ToDirectChatIds = 3;
+   * </pre>
+   *
+   * <code>repeated string ToDirectChatKeys = 3;</code>
    */
-  private void addToDirectChatIds(long value) {
-    ensureToDirectChatIdsIsMutable();
-    toDirectChatIds_.addLong(value);
+  private void addToDirectChatKeys(
+      java.lang.String value) {
+    if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureToDirectChatKeysIsMutable();
+    toDirectChatKeys_.add(value);
   }
   /**
-   * <code>repeated int64 ToDirectChatIds = 3;</code>
+   * <pre>
+   *    repeated int64 ToDirectChatIds = 3;
+   * </pre>
+   *
+   * <code>repeated string ToDirectChatKeys = 3;</code>
    */
-  private void addAllToDirectChatIds(
-      java.lang.Iterable<? extends java.lang.Long> values) {
-    ensureToDirectChatIdsIsMutable();
+  private void addAllToDirectChatKeys(
+      java.lang.Iterable<java.lang.String> values) {
+    ensureToDirectChatKeysIsMutable();
     com.google.protobuf.AbstractMessageLite.addAll(
-        values, toDirectChatIds_);
+        values, toDirectChatKeys_);
   }
   /**
-   * <code>repeated int64 ToDirectChatIds = 3;</code>
+   * <pre>
+   *    repeated int64 ToDirectChatIds = 3;
+   * </pre>
+   *
+   * <code>repeated string ToDirectChatKeys = 3;</code>
    */
-  private void clearToDirectChatIds() {
-    toDirectChatIds_ = emptyLongList();
+  private void clearToDirectChatKeys() {
+    toDirectChatKeys_ = com.google.protobuf.GeneratedMessageLite.emptyProtobufList();
+  }
+  /**
+   * <pre>
+   *    repeated int64 ToDirectChatIds = 3;
+   * </pre>
+   *
+   * <code>repeated string ToDirectChatKeys = 3;</code>
+   */
+  private void addToDirectChatKeysBytes(
+      com.google.protobuf.ByteString value) {
+    if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+    ensureToDirectChatKeysIsMutable();
+    toDirectChatKeys_.add(value.toStringUtf8());
   }
 
   public static final int TOGROUPCHATIDS_FIELD_NUMBER = 4;
@@ -224,8 +286,8 @@ public  final class PB_MsgParam_ForwardMessages extends
     if (messagesCollections_ != null) {
       output.writeMessage(1, getMessagesCollections());
     }
-    for (int i = 0; i < toDirectChatIds_.size(); i++) {
-      output.writeInt64(3, toDirectChatIds_.getLong(i));
+    for (int i = 0; i < toDirectChatKeys_.size(); i++) {
+      output.writeString(3, toDirectChatKeys_.get(i));
     }
     for (int i = 0; i < toGroupChatIds_.size(); i++) {
       output.writeInt64(4, toGroupChatIds_.getLong(i));
@@ -243,12 +305,12 @@ public  final class PB_MsgParam_ForwardMessages extends
     }
     {
       int dataSize = 0;
-      for (int i = 0; i < toDirectChatIds_.size(); i++) {
+      for (int i = 0; i < toDirectChatKeys_.size(); i++) {
         dataSize += com.google.protobuf.CodedOutputStream
-          .computeInt64SizeNoTag(toDirectChatIds_.getLong(i));
+          .computeStringSizeNoTag(toDirectChatKeys_.get(i));
       }
       size += dataSize;
-      size += 1 * getToDirectChatIdsList().size();
+      size += 1 * getToDirectChatKeysList().size();
     }
     {
       int dataSize = 0;
@@ -425,57 +487,110 @@ public  final class PB_MsgParam_ForwardMessages extends
     }
 
     /**
-     * <code>repeated int64 ToDirectChatIds = 3;</code>
+     * <pre>
+     *    repeated int64 ToDirectChatIds = 3;
+     * </pre>
+     *
+     * <code>repeated string ToDirectChatKeys = 3;</code>
      */
-    public java.util.List<java.lang.Long>
-        getToDirectChatIdsList() {
+    public java.util.List<String>
+        getToDirectChatKeysList() {
       return java.util.Collections.unmodifiableList(
-          instance.getToDirectChatIdsList());
+          instance.getToDirectChatKeysList());
     }
     /**
-     * <code>repeated int64 ToDirectChatIds = 3;</code>
+     * <pre>
+     *    repeated int64 ToDirectChatIds = 3;
+     * </pre>
+     *
+     * <code>repeated string ToDirectChatKeys = 3;</code>
      */
-    public int getToDirectChatIdsCount() {
-      return instance.getToDirectChatIdsCount();
+    public int getToDirectChatKeysCount() {
+      return instance.getToDirectChatKeysCount();
     }
     /**
-     * <code>repeated int64 ToDirectChatIds = 3;</code>
+     * <pre>
+     *    repeated int64 ToDirectChatIds = 3;
+     * </pre>
+     *
+     * <code>repeated string ToDirectChatKeys = 3;</code>
      */
-    public long getToDirectChatIds(int index) {
-      return instance.getToDirectChatIds(index);
+    public java.lang.String getToDirectChatKeys(int index) {
+      return instance.getToDirectChatKeys(index);
     }
     /**
-     * <code>repeated int64 ToDirectChatIds = 3;</code>
+     * <pre>
+     *    repeated int64 ToDirectChatIds = 3;
+     * </pre>
+     *
+     * <code>repeated string ToDirectChatKeys = 3;</code>
      */
-    public Builder setToDirectChatIds(
-        int index, long value) {
+    public com.google.protobuf.ByteString
+        getToDirectChatKeysBytes(int index) {
+      return instance.getToDirectChatKeysBytes(index);
+    }
+    /**
+     * <pre>
+     *    repeated int64 ToDirectChatIds = 3;
+     * </pre>
+     *
+     * <code>repeated string ToDirectChatKeys = 3;</code>
+     */
+    public Builder setToDirectChatKeys(
+        int index, java.lang.String value) {
       copyOnWrite();
-      instance.setToDirectChatIds(index, value);
+      instance.setToDirectChatKeys(index, value);
       return this;
     }
     /**
-     * <code>repeated int64 ToDirectChatIds = 3;</code>
+     * <pre>
+     *    repeated int64 ToDirectChatIds = 3;
+     * </pre>
+     *
+     * <code>repeated string ToDirectChatKeys = 3;</code>
      */
-    public Builder addToDirectChatIds(long value) {
+    public Builder addToDirectChatKeys(
+        java.lang.String value) {
       copyOnWrite();
-      instance.addToDirectChatIds(value);
+      instance.addToDirectChatKeys(value);
       return this;
     }
     /**
-     * <code>repeated int64 ToDirectChatIds = 3;</code>
+     * <pre>
+     *    repeated int64 ToDirectChatIds = 3;
+     * </pre>
+     *
+     * <code>repeated string ToDirectChatKeys = 3;</code>
      */
-    public Builder addAllToDirectChatIds(
-        java.lang.Iterable<? extends java.lang.Long> values) {
+    public Builder addAllToDirectChatKeys(
+        java.lang.Iterable<java.lang.String> values) {
       copyOnWrite();
-      instance.addAllToDirectChatIds(values);
+      instance.addAllToDirectChatKeys(values);
       return this;
     }
     /**
-     * <code>repeated int64 ToDirectChatIds = 3;</code>
+     * <pre>
+     *    repeated int64 ToDirectChatIds = 3;
+     * </pre>
+     *
+     * <code>repeated string ToDirectChatKeys = 3;</code>
      */
-    public Builder clearToDirectChatIds() {
+    public Builder clearToDirectChatKeys() {
       copyOnWrite();
-      instance.clearToDirectChatIds();
+      instance.clearToDirectChatKeys();
+      return this;
+    }
+    /**
+     * <pre>
+     *    repeated int64 ToDirectChatIds = 3;
+     * </pre>
+     *
+     * <code>repeated string ToDirectChatKeys = 3;</code>
+     */
+    public Builder addToDirectChatKeysBytes(
+        com.google.protobuf.ByteString value) {
+      copyOnWrite();
+      instance.addToDirectChatKeysBytes(value);
       return this;
     }
 
@@ -547,7 +662,7 @@ public  final class PB_MsgParam_ForwardMessages extends
         return DEFAULT_INSTANCE;
       }
       case MAKE_IMMUTABLE: {
-        toDirectChatIds_.makeImmutable();
+        toDirectChatKeys_.makeImmutable();
         toGroupChatIds_.makeImmutable();
         return null;
       }
@@ -558,7 +673,7 @@ public  final class PB_MsgParam_ForwardMessages extends
         Visitor visitor = (Visitor) arg0;
         ir.ms.pb.PB_MsgParam_ForwardMessages other = (ir.ms.pb.PB_MsgParam_ForwardMessages) arg1;
         messagesCollections_ = visitor.visitMessage(messagesCollections_, other.messagesCollections_);
-        toDirectChatIds_= visitor.visitLongList(toDirectChatIds_, other.toDirectChatIds_);
+        toDirectChatKeys_= visitor.visitList(toDirectChatKeys_, other.toDirectChatKeys_);
         toGroupChatIds_= visitor.visitLongList(toGroupChatIds_, other.toGroupChatIds_);
         if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
             .INSTANCE) {
@@ -598,25 +713,13 @@ public  final class PB_MsgParam_ForwardMessages extends
 
                 break;
               }
-              case 24: {
-                if (!toDirectChatIds_.isModifiable()) {
-                  toDirectChatIds_ =
-                      com.google.protobuf.GeneratedMessageLite.mutableCopy(toDirectChatIds_);
-                }
-                toDirectChatIds_.addLong(input.readInt64());
-                break;
-              }
               case 26: {
-                int length = input.readRawVarint32();
-                int limit = input.pushLimit(length);
-                if (!toDirectChatIds_.isModifiable() && input.getBytesUntilLimit() > 0) {
-                  toDirectChatIds_ =
-                      com.google.protobuf.GeneratedMessageLite.mutableCopy(toDirectChatIds_);
+                String s = input.readStringRequireUtf8();
+                if (!toDirectChatKeys_.isModifiable()) {
+                  toDirectChatKeys_ =
+                      com.google.protobuf.GeneratedMessageLite.mutableCopy(toDirectChatKeys_);
                 }
-                while (input.getBytesUntilLimit() > 0) {
-                  toDirectChatIds_.addLong(input.readInt64());
-                }
-                input.popLimit(limit);
+                toDirectChatKeys_.add(s);
                 break;
               }
               case 32: {

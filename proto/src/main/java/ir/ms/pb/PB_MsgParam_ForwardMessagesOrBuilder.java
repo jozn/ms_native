@@ -27,17 +27,39 @@ public interface PB_MsgParam_ForwardMessagesOrBuilder extends
   ir.ms.pb.PB_MessagesCollections getMessagesCollections();
 
   /**
-   * <code>repeated int64 ToDirectChatIds = 3;</code>
+   * <pre>
+   *    repeated int64 ToDirectChatIds = 3;
+   * </pre>
+   *
+   * <code>repeated string ToDirectChatKeys = 3;</code>
    */
-  java.util.List<java.lang.Long> getToDirectChatIdsList();
+  java.util.List<String>
+      getToDirectChatKeysList();
   /**
-   * <code>repeated int64 ToDirectChatIds = 3;</code>
+   * <pre>
+   *    repeated int64 ToDirectChatIds = 3;
+   * </pre>
+   *
+   * <code>repeated string ToDirectChatKeys = 3;</code>
    */
-  int getToDirectChatIdsCount();
+  int getToDirectChatKeysCount();
   /**
-   * <code>repeated int64 ToDirectChatIds = 3;</code>
+   * <pre>
+   *    repeated int64 ToDirectChatIds = 3;
+   * </pre>
+   *
+   * <code>repeated string ToDirectChatKeys = 3;</code>
    */
-  long getToDirectChatIds(int index);
+  java.lang.String getToDirectChatKeys(int index);
+  /**
+   * <pre>
+   *    repeated int64 ToDirectChatIds = 3;
+   * </pre>
+   *
+   * <code>repeated string ToDirectChatKeys = 3;</code>
+   */
+  com.google.protobuf.ByteString
+      getToDirectChatKeysBytes(int index);
 
   /**
    * <code>repeated int64 ToGroupChatIds = 4;</code>

@@ -16,49 +16,97 @@ public  final class PB_MessageView extends
     // @@protoc_insertion_point(message_implements:PB_MessageView)
     PB_MessageViewOrBuilder {
   private PB_MessageView() {
+    messageKey_ = "";
     roomKey_ = "";
     text_ = "";
+    chatKey_ = "";
   }
   public static final int MESSAGEID_FIELD_NUMBER = 1;
   private long messageId_;
   /**
-   * <code>uint64 MessageId = 1;</code>
+   * <code>int64 MessageId = 1;</code>
    */
   public long getMessageId() {
     return messageId_;
   }
   /**
-   * <code>uint64 MessageId = 1;</code>
+   * <code>int64 MessageId = 1;</code>
    */
   private void setMessageId(long value) {
     
     messageId_ = value;
   }
   /**
-   * <code>uint64 MessageId = 1;</code>
+   * <code>int64 MessageId = 1;</code>
    */
   private void clearMessageId() {
     
     messageId_ = 0L;
   }
 
-  public static final int ROOMKEY_FIELD_NUMBER = 3;
+  public static final int MESSAGEKEY_FIELD_NUMBER = 3;
+  private java.lang.String messageKey_;
+  /**
+   * <code>string MessageKey = 3;</code>
+   */
+  public java.lang.String getMessageKey() {
+    return messageKey_;
+  }
+  /**
+   * <code>string MessageKey = 3;</code>
+   */
+  public com.google.protobuf.ByteString
+      getMessageKeyBytes() {
+    return com.google.protobuf.ByteString.copyFromUtf8(messageKey_);
+  }
+  /**
+   * <code>string MessageKey = 3;</code>
+   */
+  private void setMessageKey(
+      java.lang.String value) {
+    if (value == null) {
+    throw new NullPointerException();
+  }
+  
+    messageKey_ = value;
+  }
+  /**
+   * <code>string MessageKey = 3;</code>
+   */
+  private void clearMessageKey() {
+    
+    messageKey_ = getDefaultInstance().getMessageKey();
+  }
+  /**
+   * <code>string MessageKey = 3;</code>
+   */
+  private void setMessageKeyBytes(
+      com.google.protobuf.ByteString value) {
+    if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+    
+    messageKey_ = value.toStringUtf8();
+  }
+
+  public static final int ROOMKEY_FIELD_NUMBER = 5;
   private java.lang.String roomKey_;
   /**
-   * <code>string RoomKey = 3;</code>
+   * <code>string RoomKey = 5;</code>
    */
   public java.lang.String getRoomKey() {
     return roomKey_;
   }
   /**
-   * <code>string RoomKey = 3;</code>
+   * <code>string RoomKey = 5;</code>
    */
   public com.google.protobuf.ByteString
       getRoomKeyBytes() {
     return com.google.protobuf.ByteString.copyFromUtf8(roomKey_);
   }
   /**
-   * <code>string RoomKey = 3;</code>
+   * <code>string RoomKey = 5;</code>
    */
   private void setRoomKey(
       java.lang.String value) {
@@ -69,14 +117,14 @@ public  final class PB_MessageView extends
     roomKey_ = value;
   }
   /**
-   * <code>string RoomKey = 3;</code>
+   * <code>string RoomKey = 5;</code>
    */
   private void clearRoomKey() {
     
     roomKey_ = getDefaultInstance().getRoomKey();
   }
   /**
-   * <code>string RoomKey = 3;</code>
+   * <code>string RoomKey = 5;</code>
    */
   private void setRoomKeyBytes(
       com.google.protobuf.ByteString value) {
@@ -88,92 +136,92 @@ public  final class PB_MessageView extends
     roomKey_ = value.toStringUtf8();
   }
 
-  public static final int USERID_FIELD_NUMBER = 5;
+  public static final int USERID_FIELD_NUMBER = 7;
   private int userId_;
   /**
-   * <code>int32 UserId = 5;</code>
+   * <code>int32 UserId = 7;</code>
    */
   public int getUserId() {
     return userId_;
   }
   /**
-   * <code>int32 UserId = 5;</code>
+   * <code>int32 UserId = 7;</code>
    */
   private void setUserId(int value) {
     
     userId_ = value;
   }
   /**
-   * <code>int32 UserId = 5;</code>
+   * <code>int32 UserId = 7;</code>
    */
   private void clearUserId() {
     
     userId_ = 0;
   }
 
-  public static final int MESSAGEFILEID_FIELD_NUMBER = 7;
+  public static final int MESSAGEFILEID_FIELD_NUMBER = 9;
   private long messageFileId_;
   /**
-   * <code>int64 MessageFileId = 7;</code>
+   * <code>int64 MessageFileId = 9;</code>
    */
   public long getMessageFileId() {
     return messageFileId_;
   }
   /**
-   * <code>int64 MessageFileId = 7;</code>
+   * <code>int64 MessageFileId = 9;</code>
    */
   private void setMessageFileId(long value) {
     
     messageFileId_ = value;
   }
   /**
-   * <code>int64 MessageFileId = 7;</code>
+   * <code>int64 MessageFileId = 9;</code>
    */
   private void clearMessageFileId() {
     
     messageFileId_ = 0L;
   }
 
-  public static final int MESSAGETYPEENUMID_FIELD_NUMBER = 9;
+  public static final int MESSAGETYPEENUMID_FIELD_NUMBER = 11;
   private int messageTypeEnumId_;
   /**
-   * <code>int32 MessageTypeEnumId = 9;</code>
+   * <code>int32 MessageTypeEnumId = 11;</code>
    */
   public int getMessageTypeEnumId() {
     return messageTypeEnumId_;
   }
   /**
-   * <code>int32 MessageTypeEnumId = 9;</code>
+   * <code>int32 MessageTypeEnumId = 11;</code>
    */
   private void setMessageTypeEnumId(int value) {
     
     messageTypeEnumId_ = value;
   }
   /**
-   * <code>int32 MessageTypeEnumId = 9;</code>
+   * <code>int32 MessageTypeEnumId = 11;</code>
    */
   private void clearMessageTypeEnumId() {
     
     messageTypeEnumId_ = 0;
   }
 
-  public static final int TEXT_FIELD_NUMBER = 11;
+  public static final int TEXT_FIELD_NUMBER = 13;
   private java.lang.String text_;
   /**
-   * <code>string Text = 11;</code>
+   * <code>string Text = 13;</code>
    */
   public java.lang.String getText() {
     return text_;
   }
   /**
-   * <code>string Text = 11;</code>
+   * <code>string Text = 13;</code>
    */
   public com.google.protobuf.ByteString
       getTextBytes() {
     return com.google.protobuf.ByteString.copyFromUtf8(text_);
   }
   /**
-   * <code>string Text = 11;</code>
+   * <code>string Text = 13;</code>
    */
   private void setText(
       java.lang.String value) {
@@ -184,14 +232,14 @@ public  final class PB_MessageView extends
     text_ = value;
   }
   /**
-   * <code>string Text = 11;</code>
+   * <code>string Text = 13;</code>
    */
   private void clearText() {
     
     text_ = getDefaultInstance().getText();
   }
   /**
-   * <code>string Text = 11;</code>
+   * <code>string Text = 13;</code>
    */
   private void setTextBytes(
       com.google.protobuf.ByteString value) {
@@ -203,119 +251,142 @@ public  final class PB_MessageView extends
     text_ = value.toStringUtf8();
   }
 
-  public static final int TIME_FIELD_NUMBER = 13;
-  private int time_;
+  public static final int CREATEDSE_FIELD_NUMBER = 15;
+  private int createdSe_;
   /**
-   * <code>int32 Time = 13;</code>
+   * <code>int32 CreatedSe = 15;</code>
    */
-  public int getTime() {
-    return time_;
+  public int getCreatedSe() {
+    return createdSe_;
   }
   /**
-   * <code>int32 Time = 13;</code>
+   * <code>int32 CreatedSe = 15;</code>
    */
-  private void setTime(int value) {
+  private void setCreatedSe(int value) {
     
-    time_ = value;
+    createdSe_ = value;
   }
   /**
-   * <code>int32 Time = 13;</code>
+   * <code>int32 CreatedSe = 15;</code>
    */
-  private void clearTime() {
+  private void clearCreatedSe() {
     
-    time_ = 0;
+    createdSe_ = 0;
   }
 
-  public static final int PEERRECEIVEDTIME_FIELD_NUMBER = 15;
+  public static final int PEERRECEIVEDTIME_FIELD_NUMBER = 17;
   private int peerReceivedTime_;
   /**
-   * <code>int32 PeerReceivedTime = 15;</code>
+   * <code>int32 PeerReceivedTime = 17;</code>
    */
   public int getPeerReceivedTime() {
     return peerReceivedTime_;
   }
   /**
-   * <code>int32 PeerReceivedTime = 15;</code>
+   * <code>int32 PeerReceivedTime = 17;</code>
    */
   private void setPeerReceivedTime(int value) {
     
     peerReceivedTime_ = value;
   }
   /**
-   * <code>int32 PeerReceivedTime = 15;</code>
+   * <code>int32 PeerReceivedTime = 17;</code>
    */
   private void clearPeerReceivedTime() {
     
     peerReceivedTime_ = 0;
   }
 
-  public static final int PEERSEENTIME_FIELD_NUMBER = 17;
+  public static final int PEERSEENTIME_FIELD_NUMBER = 19;
   private int peerSeenTime_;
   /**
-   * <code>int32 PeerSeenTime = 17;</code>
+   * <code>int32 PeerSeenTime = 19;</code>
    */
   public int getPeerSeenTime() {
     return peerSeenTime_;
   }
   /**
-   * <code>int32 PeerSeenTime = 17;</code>
+   * <code>int32 PeerSeenTime = 19;</code>
    */
   private void setPeerSeenTime(int value) {
     
     peerSeenTime_ = value;
   }
   /**
-   * <code>int32 PeerSeenTime = 17;</code>
+   * <code>int32 PeerSeenTime = 19;</code>
    */
   private void clearPeerSeenTime() {
     
     peerSeenTime_ = 0;
   }
 
-  public static final int DELIVIRYSTATUSENUMID_FIELD_NUMBER = 19;
+  public static final int DELIVIRYSTATUSENUMID_FIELD_NUMBER = 21;
   private int deliviryStatusEnumId_;
   /**
-   * <code>int32 DeliviryStatusEnumId = 19;</code>
+   * <code>int32 DeliviryStatusEnumId = 21;</code>
    */
   public int getDeliviryStatusEnumId() {
     return deliviryStatusEnumId_;
   }
   /**
-   * <code>int32 DeliviryStatusEnumId = 19;</code>
+   * <code>int32 DeliviryStatusEnumId = 21;</code>
    */
   private void setDeliviryStatusEnumId(int value) {
     
     deliviryStatusEnumId_ = value;
   }
   /**
-   * <code>int32 DeliviryStatusEnumId = 19;</code>
+   * <code>int32 DeliviryStatusEnumId = 21;</code>
    */
   private void clearDeliviryStatusEnumId() {
     
     deliviryStatusEnumId_ = 0;
   }
 
-  public static final int CHATID_FIELD_NUMBER = 30;
-  private long chatId_;
+  public static final int CHATKEY_FIELD_NUMBER = 30;
+  private java.lang.String chatKey_;
   /**
-   * <code>int64 ChatId = 30;</code>
+   * <code>string ChatKey = 30;</code>
    */
-  public long getChatId() {
-    return chatId_;
+  public java.lang.String getChatKey() {
+    return chatKey_;
   }
   /**
-   * <code>int64 ChatId = 30;</code>
+   * <code>string ChatKey = 30;</code>
    */
-  private void setChatId(long value) {
-    
-    chatId_ = value;
+  public com.google.protobuf.ByteString
+      getChatKeyBytes() {
+    return com.google.protobuf.ByteString.copyFromUtf8(chatKey_);
   }
   /**
-   * <code>int64 ChatId = 30;</code>
+   * <code>string ChatKey = 30;</code>
    */
-  private void clearChatId() {
+  private void setChatKey(
+      java.lang.String value) {
+    if (value == null) {
+    throw new NullPointerException();
+  }
+  
+    chatKey_ = value;
+  }
+  /**
+   * <code>string ChatKey = 30;</code>
+   */
+  private void clearChatKey() {
     
-    chatId_ = 0L;
+    chatKey_ = getDefaultInstance().getChatKey();
+  }
+  /**
+   * <code>string ChatKey = 30;</code>
+   */
+  private void setChatKeyBytes(
+      com.google.protobuf.ByteString value) {
+    if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+    
+    chatKey_ = value.toStringUtf8();
   }
 
   public static final int ROOMTYPEENUMID_FIELD_NUMBER = 31;
@@ -442,37 +513,40 @@ public  final class PB_MessageView extends
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
     if (messageId_ != 0L) {
-      output.writeUInt64(1, messageId_);
+      output.writeInt64(1, messageId_);
+    }
+    if (!messageKey_.isEmpty()) {
+      output.writeString(3, getMessageKey());
     }
     if (!roomKey_.isEmpty()) {
-      output.writeString(3, getRoomKey());
+      output.writeString(5, getRoomKey());
     }
     if (userId_ != 0) {
-      output.writeInt32(5, userId_);
+      output.writeInt32(7, userId_);
     }
     if (messageFileId_ != 0L) {
-      output.writeInt64(7, messageFileId_);
+      output.writeInt64(9, messageFileId_);
     }
     if (messageTypeEnumId_ != 0) {
-      output.writeInt32(9, messageTypeEnumId_);
+      output.writeInt32(11, messageTypeEnumId_);
     }
     if (!text_.isEmpty()) {
-      output.writeString(11, getText());
+      output.writeString(13, getText());
     }
-    if (time_ != 0) {
-      output.writeInt32(13, time_);
+    if (createdSe_ != 0) {
+      output.writeInt32(15, createdSe_);
     }
     if (peerReceivedTime_ != 0) {
-      output.writeInt32(15, peerReceivedTime_);
+      output.writeInt32(17, peerReceivedTime_);
     }
     if (peerSeenTime_ != 0) {
-      output.writeInt32(17, peerSeenTime_);
+      output.writeInt32(19, peerSeenTime_);
     }
     if (deliviryStatusEnumId_ != 0) {
-      output.writeInt32(19, deliviryStatusEnumId_);
+      output.writeInt32(21, deliviryStatusEnumId_);
     }
-    if (chatId_ != 0L) {
-      output.writeInt64(30, chatId_);
+    if (!chatKey_.isEmpty()) {
+      output.writeString(30, getChatKey());
     }
     if (roomTypeEnumId_ != 0) {
       output.writeInt32(31, roomTypeEnumId_);
@@ -495,47 +569,51 @@ public  final class PB_MessageView extends
     size = 0;
     if (messageId_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeUInt64Size(1, messageId_);
+        .computeInt64Size(1, messageId_);
+    }
+    if (!messageKey_.isEmpty()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeStringSize(3, getMessageKey());
     }
     if (!roomKey_.isEmpty()) {
       size += com.google.protobuf.CodedOutputStream
-        .computeStringSize(3, getRoomKey());
+        .computeStringSize(5, getRoomKey());
     }
     if (userId_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(5, userId_);
+        .computeInt32Size(7, userId_);
     }
     if (messageFileId_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(7, messageFileId_);
+        .computeInt64Size(9, messageFileId_);
     }
     if (messageTypeEnumId_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(9, messageTypeEnumId_);
+        .computeInt32Size(11, messageTypeEnumId_);
     }
     if (!text_.isEmpty()) {
       size += com.google.protobuf.CodedOutputStream
-        .computeStringSize(11, getText());
+        .computeStringSize(13, getText());
     }
-    if (time_ != 0) {
+    if (createdSe_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(13, time_);
+        .computeInt32Size(15, createdSe_);
     }
     if (peerReceivedTime_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(15, peerReceivedTime_);
+        .computeInt32Size(17, peerReceivedTime_);
     }
     if (peerSeenTime_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(17, peerSeenTime_);
+        .computeInt32Size(19, peerSeenTime_);
     }
     if (deliviryStatusEnumId_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(19, deliviryStatusEnumId_);
+        .computeInt32Size(21, deliviryStatusEnumId_);
     }
-    if (chatId_ != 0L) {
+    if (!chatKey_.isEmpty()) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(30, chatId_);
+        .computeStringSize(30, getChatKey());
     }
     if (roomTypeEnumId_ != 0) {
       size += com.google.protobuf.CodedOutputStream
@@ -644,13 +722,13 @@ public  final class PB_MessageView extends
 
 
     /**
-     * <code>uint64 MessageId = 1;</code>
+     * <code>int64 MessageId = 1;</code>
      */
     public long getMessageId() {
       return instance.getMessageId();
     }
     /**
-     * <code>uint64 MessageId = 1;</code>
+     * <code>int64 MessageId = 1;</code>
      */
     public Builder setMessageId(long value) {
       copyOnWrite();
@@ -658,7 +736,7 @@ public  final class PB_MessageView extends
       return this;
     }
     /**
-     * <code>uint64 MessageId = 1;</code>
+     * <code>int64 MessageId = 1;</code>
      */
     public Builder clearMessageId() {
       copyOnWrite();
@@ -667,20 +745,60 @@ public  final class PB_MessageView extends
     }
 
     /**
-     * <code>string RoomKey = 3;</code>
+     * <code>string MessageKey = 3;</code>
+     */
+    public java.lang.String getMessageKey() {
+      return instance.getMessageKey();
+    }
+    /**
+     * <code>string MessageKey = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getMessageKeyBytes() {
+      return instance.getMessageKeyBytes();
+    }
+    /**
+     * <code>string MessageKey = 3;</code>
+     */
+    public Builder setMessageKey(
+        java.lang.String value) {
+      copyOnWrite();
+      instance.setMessageKey(value);
+      return this;
+    }
+    /**
+     * <code>string MessageKey = 3;</code>
+     */
+    public Builder clearMessageKey() {
+      copyOnWrite();
+      instance.clearMessageKey();
+      return this;
+    }
+    /**
+     * <code>string MessageKey = 3;</code>
+     */
+    public Builder setMessageKeyBytes(
+        com.google.protobuf.ByteString value) {
+      copyOnWrite();
+      instance.setMessageKeyBytes(value);
+      return this;
+    }
+
+    /**
+     * <code>string RoomKey = 5;</code>
      */
     public java.lang.String getRoomKey() {
       return instance.getRoomKey();
     }
     /**
-     * <code>string RoomKey = 3;</code>
+     * <code>string RoomKey = 5;</code>
      */
     public com.google.protobuf.ByteString
         getRoomKeyBytes() {
       return instance.getRoomKeyBytes();
     }
     /**
-     * <code>string RoomKey = 3;</code>
+     * <code>string RoomKey = 5;</code>
      */
     public Builder setRoomKey(
         java.lang.String value) {
@@ -689,7 +807,7 @@ public  final class PB_MessageView extends
       return this;
     }
     /**
-     * <code>string RoomKey = 3;</code>
+     * <code>string RoomKey = 5;</code>
      */
     public Builder clearRoomKey() {
       copyOnWrite();
@@ -697,7 +815,7 @@ public  final class PB_MessageView extends
       return this;
     }
     /**
-     * <code>string RoomKey = 3;</code>
+     * <code>string RoomKey = 5;</code>
      */
     public Builder setRoomKeyBytes(
         com.google.protobuf.ByteString value) {
@@ -707,13 +825,13 @@ public  final class PB_MessageView extends
     }
 
     /**
-     * <code>int32 UserId = 5;</code>
+     * <code>int32 UserId = 7;</code>
      */
     public int getUserId() {
       return instance.getUserId();
     }
     /**
-     * <code>int32 UserId = 5;</code>
+     * <code>int32 UserId = 7;</code>
      */
     public Builder setUserId(int value) {
       copyOnWrite();
@@ -721,7 +839,7 @@ public  final class PB_MessageView extends
       return this;
     }
     /**
-     * <code>int32 UserId = 5;</code>
+     * <code>int32 UserId = 7;</code>
      */
     public Builder clearUserId() {
       copyOnWrite();
@@ -730,13 +848,13 @@ public  final class PB_MessageView extends
     }
 
     /**
-     * <code>int64 MessageFileId = 7;</code>
+     * <code>int64 MessageFileId = 9;</code>
      */
     public long getMessageFileId() {
       return instance.getMessageFileId();
     }
     /**
-     * <code>int64 MessageFileId = 7;</code>
+     * <code>int64 MessageFileId = 9;</code>
      */
     public Builder setMessageFileId(long value) {
       copyOnWrite();
@@ -744,7 +862,7 @@ public  final class PB_MessageView extends
       return this;
     }
     /**
-     * <code>int64 MessageFileId = 7;</code>
+     * <code>int64 MessageFileId = 9;</code>
      */
     public Builder clearMessageFileId() {
       copyOnWrite();
@@ -753,13 +871,13 @@ public  final class PB_MessageView extends
     }
 
     /**
-     * <code>int32 MessageTypeEnumId = 9;</code>
+     * <code>int32 MessageTypeEnumId = 11;</code>
      */
     public int getMessageTypeEnumId() {
       return instance.getMessageTypeEnumId();
     }
     /**
-     * <code>int32 MessageTypeEnumId = 9;</code>
+     * <code>int32 MessageTypeEnumId = 11;</code>
      */
     public Builder setMessageTypeEnumId(int value) {
       copyOnWrite();
@@ -767,7 +885,7 @@ public  final class PB_MessageView extends
       return this;
     }
     /**
-     * <code>int32 MessageTypeEnumId = 9;</code>
+     * <code>int32 MessageTypeEnumId = 11;</code>
      */
     public Builder clearMessageTypeEnumId() {
       copyOnWrite();
@@ -776,20 +894,20 @@ public  final class PB_MessageView extends
     }
 
     /**
-     * <code>string Text = 11;</code>
+     * <code>string Text = 13;</code>
      */
     public java.lang.String getText() {
       return instance.getText();
     }
     /**
-     * <code>string Text = 11;</code>
+     * <code>string Text = 13;</code>
      */
     public com.google.protobuf.ByteString
         getTextBytes() {
       return instance.getTextBytes();
     }
     /**
-     * <code>string Text = 11;</code>
+     * <code>string Text = 13;</code>
      */
     public Builder setText(
         java.lang.String value) {
@@ -798,7 +916,7 @@ public  final class PB_MessageView extends
       return this;
     }
     /**
-     * <code>string Text = 11;</code>
+     * <code>string Text = 13;</code>
      */
     public Builder clearText() {
       copyOnWrite();
@@ -806,7 +924,7 @@ public  final class PB_MessageView extends
       return this;
     }
     /**
-     * <code>string Text = 11;</code>
+     * <code>string Text = 13;</code>
      */
     public Builder setTextBytes(
         com.google.protobuf.ByteString value) {
@@ -816,36 +934,36 @@ public  final class PB_MessageView extends
     }
 
     /**
-     * <code>int32 Time = 13;</code>
+     * <code>int32 CreatedSe = 15;</code>
      */
-    public int getTime() {
-      return instance.getTime();
+    public int getCreatedSe() {
+      return instance.getCreatedSe();
     }
     /**
-     * <code>int32 Time = 13;</code>
+     * <code>int32 CreatedSe = 15;</code>
      */
-    public Builder setTime(int value) {
+    public Builder setCreatedSe(int value) {
       copyOnWrite();
-      instance.setTime(value);
+      instance.setCreatedSe(value);
       return this;
     }
     /**
-     * <code>int32 Time = 13;</code>
+     * <code>int32 CreatedSe = 15;</code>
      */
-    public Builder clearTime() {
+    public Builder clearCreatedSe() {
       copyOnWrite();
-      instance.clearTime();
+      instance.clearCreatedSe();
       return this;
     }
 
     /**
-     * <code>int32 PeerReceivedTime = 15;</code>
+     * <code>int32 PeerReceivedTime = 17;</code>
      */
     public int getPeerReceivedTime() {
       return instance.getPeerReceivedTime();
     }
     /**
-     * <code>int32 PeerReceivedTime = 15;</code>
+     * <code>int32 PeerReceivedTime = 17;</code>
      */
     public Builder setPeerReceivedTime(int value) {
       copyOnWrite();
@@ -853,7 +971,7 @@ public  final class PB_MessageView extends
       return this;
     }
     /**
-     * <code>int32 PeerReceivedTime = 15;</code>
+     * <code>int32 PeerReceivedTime = 17;</code>
      */
     public Builder clearPeerReceivedTime() {
       copyOnWrite();
@@ -862,13 +980,13 @@ public  final class PB_MessageView extends
     }
 
     /**
-     * <code>int32 PeerSeenTime = 17;</code>
+     * <code>int32 PeerSeenTime = 19;</code>
      */
     public int getPeerSeenTime() {
       return instance.getPeerSeenTime();
     }
     /**
-     * <code>int32 PeerSeenTime = 17;</code>
+     * <code>int32 PeerSeenTime = 19;</code>
      */
     public Builder setPeerSeenTime(int value) {
       copyOnWrite();
@@ -876,7 +994,7 @@ public  final class PB_MessageView extends
       return this;
     }
     /**
-     * <code>int32 PeerSeenTime = 17;</code>
+     * <code>int32 PeerSeenTime = 19;</code>
      */
     public Builder clearPeerSeenTime() {
       copyOnWrite();
@@ -885,13 +1003,13 @@ public  final class PB_MessageView extends
     }
 
     /**
-     * <code>int32 DeliviryStatusEnumId = 19;</code>
+     * <code>int32 DeliviryStatusEnumId = 21;</code>
      */
     public int getDeliviryStatusEnumId() {
       return instance.getDeliviryStatusEnumId();
     }
     /**
-     * <code>int32 DeliviryStatusEnumId = 19;</code>
+     * <code>int32 DeliviryStatusEnumId = 21;</code>
      */
     public Builder setDeliviryStatusEnumId(int value) {
       copyOnWrite();
@@ -899,7 +1017,7 @@ public  final class PB_MessageView extends
       return this;
     }
     /**
-     * <code>int32 DeliviryStatusEnumId = 19;</code>
+     * <code>int32 DeliviryStatusEnumId = 21;</code>
      */
     public Builder clearDeliviryStatusEnumId() {
       copyOnWrite();
@@ -908,25 +1026,42 @@ public  final class PB_MessageView extends
     }
 
     /**
-     * <code>int64 ChatId = 30;</code>
+     * <code>string ChatKey = 30;</code>
      */
-    public long getChatId() {
-      return instance.getChatId();
+    public java.lang.String getChatKey() {
+      return instance.getChatKey();
     }
     /**
-     * <code>int64 ChatId = 30;</code>
+     * <code>string ChatKey = 30;</code>
      */
-    public Builder setChatId(long value) {
+    public com.google.protobuf.ByteString
+        getChatKeyBytes() {
+      return instance.getChatKeyBytes();
+    }
+    /**
+     * <code>string ChatKey = 30;</code>
+     */
+    public Builder setChatKey(
+        java.lang.String value) {
       copyOnWrite();
-      instance.setChatId(value);
+      instance.setChatKey(value);
       return this;
     }
     /**
-     * <code>int64 ChatId = 30;</code>
+     * <code>string ChatKey = 30;</code>
      */
-    public Builder clearChatId() {
+    public Builder clearChatKey() {
       copyOnWrite();
-      instance.clearChatId();
+      instance.clearChatKey();
+      return this;
+    }
+    /**
+     * <code>string ChatKey = 30;</code>
+     */
+    public Builder setChatKeyBytes(
+        com.google.protobuf.ByteString value) {
+      copyOnWrite();
+      instance.setChatKeyBytes(value);
       return this;
     }
 
@@ -1067,6 +1202,8 @@ public  final class PB_MessageView extends
         ir.ms.pb.PB_MessageView other = (ir.ms.pb.PB_MessageView) arg1;
         messageId_ = visitor.visitLong(messageId_ != 0L, messageId_,
             other.messageId_ != 0L, other.messageId_);
+        messageKey_ = visitor.visitString(!messageKey_.isEmpty(), messageKey_,
+            !other.messageKey_.isEmpty(), other.messageKey_);
         roomKey_ = visitor.visitString(!roomKey_.isEmpty(), roomKey_,
             !other.roomKey_.isEmpty(), other.roomKey_);
         userId_ = visitor.visitInt(userId_ != 0, userId_,
@@ -1077,16 +1214,16 @@ public  final class PB_MessageView extends
             other.messageTypeEnumId_ != 0, other.messageTypeEnumId_);
         text_ = visitor.visitString(!text_.isEmpty(), text_,
             !other.text_.isEmpty(), other.text_);
-        time_ = visitor.visitInt(time_ != 0, time_,
-            other.time_ != 0, other.time_);
+        createdSe_ = visitor.visitInt(createdSe_ != 0, createdSe_,
+            other.createdSe_ != 0, other.createdSe_);
         peerReceivedTime_ = visitor.visitInt(peerReceivedTime_ != 0, peerReceivedTime_,
             other.peerReceivedTime_ != 0, other.peerReceivedTime_);
         peerSeenTime_ = visitor.visitInt(peerSeenTime_ != 0, peerSeenTime_,
             other.peerSeenTime_ != 0, other.peerSeenTime_);
         deliviryStatusEnumId_ = visitor.visitInt(deliviryStatusEnumId_ != 0, deliviryStatusEnumId_,
             other.deliviryStatusEnumId_ != 0, other.deliviryStatusEnumId_);
-        chatId_ = visitor.visitLong(chatId_ != 0L, chatId_,
-            other.chatId_ != 0L, other.chatId_);
+        chatKey_ = visitor.visitString(!chatKey_.isEmpty(), chatKey_,
+            !other.chatKey_.isEmpty(), other.chatKey_);
         roomTypeEnumId_ = visitor.visitInt(roomTypeEnumId_ != 0, roomTypeEnumId_,
             other.roomTypeEnumId_ != 0, other.roomTypeEnumId_);
         isByMe_ = visitor.visitBoolean(isByMe_ != false, isByMe_,
@@ -1120,59 +1257,66 @@ public  final class PB_MessageView extends
               }
               case 8: {
 
-                messageId_ = input.readUInt64();
+                messageId_ = input.readInt64();
                 break;
               }
               case 26: {
                 String s = input.readStringRequireUtf8();
 
-                roomKey_ = s;
+                messageKey_ = s;
                 break;
               }
-              case 40: {
+              case 42: {
+                String s = input.readStringRequireUtf8();
 
-                userId_ = input.readInt32();
+                roomKey_ = s;
                 break;
               }
               case 56: {
 
-                messageFileId_ = input.readInt64();
+                userId_ = input.readInt32();
                 break;
               }
               case 72: {
 
+                messageFileId_ = input.readInt64();
+                break;
+              }
+              case 88: {
+
                 messageTypeEnumId_ = input.readInt32();
                 break;
               }
-              case 90: {
+              case 106: {
                 String s = input.readStringRequireUtf8();
 
                 text_ = s;
                 break;
               }
-              case 104: {
-
-                time_ = input.readInt32();
-                break;
-              }
               case 120: {
 
-                peerReceivedTime_ = input.readInt32();
+                createdSe_ = input.readInt32();
                 break;
               }
               case 136: {
 
-                peerSeenTime_ = input.readInt32();
+                peerReceivedTime_ = input.readInt32();
                 break;
               }
               case 152: {
 
+                peerSeenTime_ = input.readInt32();
+                break;
+              }
+              case 168: {
+
                 deliviryStatusEnumId_ = input.readInt32();
                 break;
               }
-              case 240: {
+              case 242: {
+                String s = input.readStringRequireUtf8();
 
-                chatId_ = input.readInt64();
+                chatKey_ = s;
                 break;
               }
               case 248: {

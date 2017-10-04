@@ -60,7 +60,7 @@ final class PushHandlerNewMessages {
 				AppUtil.log("push: handling - realm users: " + pb_chatView.getUserView().getUserName());
 				realmChatView.UserView = RealmUserView.fromPB(pb_chatView.getUserView());
 			}
-			realmChatView.LastMessage = RealmMessageViewHelper.getLastMessageForChat(AppRealm.getChatRealm(),realmChatView.ChatId);
+			realmChatView.LastMessage = RealmMessageViewHelper.getLastMessageForChat(AppRealm.getChatRealm(),realmChatView.ChatKey);
 
 			chats.add(realmChatView);
 		}

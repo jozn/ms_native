@@ -8,40 +8,42 @@ import ir.ms.pb.*;
 public class RealmMessageView extends RealmObject {
 		 @PrimaryKey 
 		public long MessageId;//0 				 PB 1
-		public String RoomKey;//1 				 PB 3
-		public int UserId;//2 				 PB 5
-		public long MessageFileId;//3 				 PB 7
-		public int MessageTypeEnumId;//4 				 PB 9
-		public String Text;//5 				 PB 11
-		public int Time;//6 				 PB 13
-		public int PeerReceivedTime;//7 				 PB 15
-		public int PeerSeenTime;//8 				 PB 17
-		public int DeliviryStatusEnumId;//9 				 PB 19
-		public long ChatId;//10 				 PB 30
-		public int RoomTypeEnumId;//11 				 PB 31
-		public boolean IsByMe;//12 				 PB 33
-		public long RemoteId;//13 				 PB 50
-		public RealmMessageFileView MessageFileView;//14 				 PB 100
+		public String MessageKey;//1 				 PB 3
+		public String RoomKey;//2 				 PB 5
+		public int UserId;//3 				 PB 7
+		public long MessageFileId;//4 				 PB 9
+		public int MessageTypeEnumId;//5 				 PB 11
+		public String Text;//6 				 PB 13
+		public int CreatedSe;//7 				 PB 15
+		public int PeerReceivedTime;//8 				 PB 17
+		public int PeerSeenTime;//9 				 PB 19
+		public int DeliviryStatusEnumId;//10 				 PB 21
+		public String ChatKey;//11 				 PB 30
+		public int RoomTypeEnumId;//12 				 PB 31
+		public boolean IsByMe;//13 				 PB 33
+		public long RemoteId;//14 				 PB 50
+		public RealmMessageFileView MessageFileView;//15 				 PB 100
 	
 
 	public static RealmMessageView fromPB(PB_MessageView pb){
 		RealmMessageView r = new RealmMessageView();
 		
 		r.MessageId = pb.getMessageId();//0
-		r.RoomKey = pb.getRoomKey();//1
-		r.UserId = pb.getUserId();//2
-		r.MessageFileId = pb.getMessageFileId();//3
-		r.MessageTypeEnumId = pb.getMessageTypeEnumId();//4
-		r.Text = pb.getText();//5
-		r.Time = pb.getTime();//6
-		r.PeerReceivedTime = pb.getPeerReceivedTime();//7
-		r.PeerSeenTime = pb.getPeerSeenTime();//8
-		r.DeliviryStatusEnumId = pb.getDeliviryStatusEnumId();//9
-		r.ChatId = pb.getChatId();//10
-		r.RoomTypeEnumId = pb.getRoomTypeEnumId();//11
-		r.IsByMe = pb.getIsByMe();//12
-		r.RemoteId = pb.getRemoteId();//13
-		//r.MessageFileView = pb.getMessageFileView();//14
+		r.MessageKey = pb.getMessageKey();//1
+		r.RoomKey = pb.getRoomKey();//2
+		r.UserId = pb.getUserId();//3
+		r.MessageFileId = pb.getMessageFileId();//4
+		r.MessageTypeEnumId = pb.getMessageTypeEnumId();//5
+		r.Text = pb.getText();//6
+		r.CreatedSe = pb.getCreatedSe();//7
+		r.PeerReceivedTime = pb.getPeerReceivedTime();//8
+		r.PeerSeenTime = pb.getPeerSeenTime();//9
+		r.DeliviryStatusEnumId = pb.getDeliviryStatusEnumId();//10
+		r.ChatKey = pb.getChatKey();//11
+		r.RoomTypeEnumId = pb.getRoomTypeEnumId();//12
+		r.IsByMe = pb.getIsByMe();//13
+		r.RemoteId = pb.getRemoteId();//14
+		//r.MessageFileView = pb.getMessageFileView();//15
 
 	    return r;
 	}
@@ -54,35 +56,37 @@ public class RealmMessageView extends RealmObject {
 	RealmMessageView r = new RealmMessageView();
 	
 	r.MessageId = ;//0
-	r.RoomKey = ;//1
-	r.UserId = ;//2
-	r.MessageFileId = ;//3
-	r.MessageTypeEnumId = ;//4
-	r.Text = ;//5
-	r.Time = ;//6
-	r.PeerReceivedTime = ;//7
-	r.PeerSeenTime = ;//8
-	r.DeliviryStatusEnumId = ;//9
-	r.ChatId = ;//10
-	r.RoomTypeEnumId = ;//11
-	r.IsByMe = ;//12
-	r.RemoteId = ;//13
-	r.MessageFileView = ;//14
+	r.MessageKey = ;//1
+	r.RoomKey = ;//2
+	r.UserId = ;//3
+	r.MessageFileId = ;//4
+	r.MessageTypeEnumId = ;//5
+	r.Text = ;//6
+	r.CreatedSe = ;//7
+	r.PeerReceivedTime = ;//8
+	r.PeerSeenTime = ;//9
+	r.DeliviryStatusEnumId = ;//10
+	r.ChatKey = ;//11
+	r.RoomTypeEnumId = ;//12
+	r.IsByMe = ;//13
+	r.RemoteId = ;//14
+	r.MessageFileView = ;//15
 
 	//sett - no tag number 
 	RealmMessageView r = new RealmMessageView();
 	
 	r.MessageId = ;
+	r.MessageKey = ;
 	r.RoomKey = ;
 	r.UserId = ;
 	r.MessageFileId = ;
 	r.MessageTypeEnumId = ;
 	r.Text = ;
-	r.Time = ;
+	r.CreatedSe = ;
 	r.PeerReceivedTime = ;
 	r.PeerSeenTime = ;
 	r.DeliviryStatusEnumId = ;
-	r.ChatId = ;
+	r.ChatKey = ;
 	r.RoomTypeEnumId = ;
 	r.IsByMe = ;
 	r.RemoteId = ;
@@ -91,34 +95,36 @@ public class RealmMessageView extends RealmObject {
 	//get
 	
 	m. = r.MessageId ;//0
-	m. = r.RoomKey ;//1
-	m. = r.UserId ;//2
-	m. = r.MessageFileId ;//3
-	m. = r.MessageTypeEnumId ;//4
-	m. = r.Text ;//5
-	m. = r.Time ;//6
-	m. = r.PeerReceivedTime ;//7
-	m. = r.PeerSeenTime ;//8
-	m. = r.DeliviryStatusEnumId ;//9
-	m. = r.ChatId ;//10
-	m. = r.RoomTypeEnumId ;//11
-	m. = r.IsByMe ;//12
-	m. = r.RemoteId ;//13
-	m. = r.MessageFileView ;//14
+	m. = r.MessageKey ;//1
+	m. = r.RoomKey ;//2
+	m. = r.UserId ;//3
+	m. = r.MessageFileId ;//4
+	m. = r.MessageTypeEnumId ;//5
+	m. = r.Text ;//6
+	m. = r.CreatedSe ;//7
+	m. = r.PeerReceivedTime ;//8
+	m. = r.PeerSeenTime ;//9
+	m. = r.DeliviryStatusEnumId ;//10
+	m. = r.ChatKey ;//11
+	m. = r.RoomTypeEnumId ;//12
+	m. = r.IsByMe ;//13
+	m. = r.RemoteId ;//14
+	m. = r.MessageFileView ;//15
 
 	//get - no tag number
 	
 	m. = r.MessageId ;
+	m. = r.MessageKey ;
 	m. = r.RoomKey ;
 	m. = r.UserId ;
 	m. = r.MessageFileId ;
 	m. = r.MessageTypeEnumId ;
 	m. = r.Text ;
-	m. = r.Time ;
+	m. = r.CreatedSe ;
 	m. = r.PeerReceivedTime ;
 	m. = r.PeerSeenTime ;
 	m. = r.DeliviryStatusEnumId ;
-	m. = r.ChatId ;
+	m. = r.ChatKey ;
 	m. = r.RoomTypeEnumId ;
 	m. = r.IsByMe ;
 	m. = r.RemoteId ;

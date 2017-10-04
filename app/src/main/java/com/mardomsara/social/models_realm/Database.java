@@ -18,8 +18,8 @@ import io.realm.Realm;
 public class Database {
 
 	@Nullable
-	public static RealmChatView getRealmChatView(Realm realm, long chatId){
-		return realm.where(RealmChatView.class).equalTo("ChatId", chatId).findFirst();
+	public static RealmChatView getRealmChatView(Realm realm, String chatId){
+		return realm.where(RealmChatView.class).equalTo("ChatKey", chatId).findFirst();
 	}
 
 	@Nullable

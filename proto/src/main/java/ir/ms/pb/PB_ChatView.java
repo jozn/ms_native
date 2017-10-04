@@ -17,25 +17,26 @@ public  final class PB_ChatView extends
     PB_ChatViewOrBuilder {
   private PB_ChatView() {
     chatKey_ = "";
+    roomKey_ = "";
   }
-  public static final int CHATKEY_FIELD_NUMBER = 3;
+  public static final int CHATKEY_FIELD_NUMBER = 1;
   private java.lang.String chatKey_;
   /**
    * <pre>
-   *use as RemoteId
+   *option realm = "1";
    * </pre>
    *
-   * <code>string ChatKey = 3;</code>
+   * <code>string ChatKey = 1;</code>
    */
   public java.lang.String getChatKey() {
     return chatKey_;
   }
   /**
    * <pre>
-   *use as RemoteId
+   *option realm = "1";
    * </pre>
    *
-   * <code>string ChatKey = 3;</code>
+   * <code>string ChatKey = 1;</code>
    */
   public com.google.protobuf.ByteString
       getChatKeyBytes() {
@@ -43,10 +44,10 @@ public  final class PB_ChatView extends
   }
   /**
    * <pre>
-   *use as RemoteId
+   *option realm = "1";
    * </pre>
    *
-   * <code>string ChatKey = 3;</code>
+   * <code>string ChatKey = 1;</code>
    */
   private void setChatKey(
       java.lang.String value) {
@@ -58,10 +59,10 @@ public  final class PB_ChatView extends
   }
   /**
    * <pre>
-   *use as RemoteId
+   *option realm = "1";
    * </pre>
    *
-   * <code>string ChatKey = 3;</code>
+   * <code>string ChatKey = 1;</code>
    */
   private void clearChatKey() {
     
@@ -69,10 +70,10 @@ public  final class PB_ChatView extends
   }
   /**
    * <pre>
-   *use as RemoteId
+   *option realm = "1";
    * </pre>
    *
-   * <code>string ChatKey = 3;</code>
+   * <code>string ChatKey = 1;</code>
    */
   private void setChatKeyBytes(
       com.google.protobuf.ByteString value) {
@@ -84,27 +85,50 @@ public  final class PB_ChatView extends
     chatKey_ = value.toStringUtf8();
   }
 
-  public static final int CHATID_FIELD_NUMBER = 1;
-  private long chatId_;
+  public static final int ROOMKEY_FIELD_NUMBER = 3;
+  private java.lang.String roomKey_;
   /**
-   * <code>int64 ChatId = 1;</code>
+   * <code>string RoomKey = 3;</code>
    */
-  public long getChatId() {
-    return chatId_;
+  public java.lang.String getRoomKey() {
+    return roomKey_;
   }
   /**
-   * <code>int64 ChatId = 1;</code>
+   * <code>string RoomKey = 3;</code>
    */
-  private void setChatId(long value) {
-    
-    chatId_ = value;
+  public com.google.protobuf.ByteString
+      getRoomKeyBytes() {
+    return com.google.protobuf.ByteString.copyFromUtf8(roomKey_);
   }
   /**
-   * <code>int64 ChatId = 1;</code>
+   * <code>string RoomKey = 3;</code>
    */
-  private void clearChatId() {
+  private void setRoomKey(
+      java.lang.String value) {
+    if (value == null) {
+    throw new NullPointerException();
+  }
+  
+    roomKey_ = value;
+  }
+  /**
+   * <code>string RoomKey = 3;</code>
+   */
+  private void clearRoomKey() {
     
-    chatId_ = 0L;
+    roomKey_ = getDefaultInstance().getRoomKey();
+  }
+  /**
+   * <code>string RoomKey = 3;</code>
+   */
+  private void setRoomKeyBytes(
+      com.google.protobuf.ByteString value) {
+    if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+    
+    roomKey_ = value.toStringUtf8();
   }
 
   public static final int ROOMTYPEENUMID_FIELD_NUMBER = 5;
@@ -199,27 +223,27 @@ public  final class PB_ChatView extends
     groupId_ = 0L;
   }
 
-  public static final int CREATEDTIME_FIELD_NUMBER = 13;
-  private int createdTime_;
+  public static final int CREATEDSE_FIELD_NUMBER = 13;
+  private int createdSe_;
   /**
-   * <code>int32 CreatedTime = 13;</code>
+   * <code>int32 CreatedSe = 13;</code>
    */
-  public int getCreatedTime() {
-    return createdTime_;
+  public int getCreatedSe() {
+    return createdSe_;
   }
   /**
-   * <code>int32 CreatedTime = 13;</code>
+   * <code>int32 CreatedSe = 13;</code>
    */
-  private void setCreatedTime(int value) {
+  private void setCreatedSe(int value) {
     
-    createdTime_ = value;
+    createdSe_ = value;
   }
   /**
-   * <code>int32 CreatedTime = 13;</code>
+   * <code>int32 CreatedSe = 13;</code>
    */
-  private void clearCreatedTime() {
+  private void clearCreatedSe() {
     
-    createdTime_ = 0;
+    createdSe_ = 0;
   }
 
   public static final int UPDATEDMS_FIELD_NUMBER = 15;
@@ -268,115 +292,115 @@ public  final class PB_ChatView extends
     lastMessageId_ = 0L;
   }
 
-  public static final int LASTDELETEDMESSAGEID_FIELD_NUMBER = 18;
+  public static final int LASTDELETEDMESSAGEID_FIELD_NUMBER = 19;
   private long lastDeletedMessageId_;
   /**
-   * <code>int64 LastDeletedMessageId = 18;</code>
+   * <code>int64 LastDeletedMessageId = 19;</code>
    */
   public long getLastDeletedMessageId() {
     return lastDeletedMessageId_;
   }
   /**
-   * <code>int64 LastDeletedMessageId = 18;</code>
+   * <code>int64 LastDeletedMessageId = 19;</code>
    */
   private void setLastDeletedMessageId(long value) {
     
     lastDeletedMessageId_ = value;
   }
   /**
-   * <code>int64 LastDeletedMessageId = 18;</code>
+   * <code>int64 LastDeletedMessageId = 19;</code>
    */
   private void clearLastDeletedMessageId() {
     
     lastDeletedMessageId_ = 0L;
   }
 
-  public static final int LASTSEENMESSAGEID_FIELD_NUMBER = 19;
+  public static final int LASTSEENMESSAGEID_FIELD_NUMBER = 21;
   private long lastSeenMessageId_;
   /**
-   * <code>int64 LastSeenMessageId = 19;</code>
+   * <code>int64 LastSeenMessageId = 21;</code>
    */
   public long getLastSeenMessageId() {
     return lastSeenMessageId_;
   }
   /**
-   * <code>int64 LastSeenMessageId = 19;</code>
+   * <code>int64 LastSeenMessageId = 21;</code>
    */
   private void setLastSeenMessageId(long value) {
     
     lastSeenMessageId_ = value;
   }
   /**
-   * <code>int64 LastSeenMessageId = 19;</code>
+   * <code>int64 LastSeenMessageId = 21;</code>
    */
   private void clearLastSeenMessageId() {
     
     lastSeenMessageId_ = 0L;
   }
 
-  public static final int LASTSEQSEEN_FIELD_NUMBER = 21;
+  public static final int LASTSEQSEEN_FIELD_NUMBER = 23;
   private int lastSeqSeen_;
   /**
-   * <code>int32 LastSeqSeen = 21;</code>
+   * <code>int32 LastSeqSeen = 23;</code>
    */
   public int getLastSeqSeen() {
     return lastSeqSeen_;
   }
   /**
-   * <code>int32 LastSeqSeen = 21;</code>
+   * <code>int32 LastSeqSeen = 23;</code>
    */
   private void setLastSeqSeen(int value) {
     
     lastSeqSeen_ = value;
   }
   /**
-   * <code>int32 LastSeqSeen = 21;</code>
+   * <code>int32 LastSeqSeen = 23;</code>
    */
   private void clearLastSeqSeen() {
     
     lastSeqSeen_ = 0;
   }
 
-  public static final int LASTSEQDELETE_FIELD_NUMBER = 23;
+  public static final int LASTSEQDELETE_FIELD_NUMBER = 25;
   private int lastSeqDelete_;
   /**
-   * <code>int32 LastSeqDelete = 23;</code>
+   * <code>int32 LastSeqDelete = 25;</code>
    */
   public int getLastSeqDelete() {
     return lastSeqDelete_;
   }
   /**
-   * <code>int32 LastSeqDelete = 23;</code>
+   * <code>int32 LastSeqDelete = 25;</code>
    */
   private void setLastSeqDelete(int value) {
     
     lastSeqDelete_ = value;
   }
   /**
-   * <code>int32 LastSeqDelete = 23;</code>
+   * <code>int32 LastSeqDelete = 25;</code>
    */
   private void clearLastSeqDelete() {
     
     lastSeqDelete_ = 0;
   }
 
-  public static final int CURRENTSEQ_FIELD_NUMBER = 25;
+  public static final int CURRENTSEQ_FIELD_NUMBER = 27;
   private int currentSeq_;
   /**
-   * <code>int32 CurrentSeq = 25;</code>
+   * <code>int32 CurrentSeq = 27;</code>
    */
   public int getCurrentSeq() {
     return currentSeq_;
   }
   /**
-   * <code>int32 CurrentSeq = 25;</code>
+   * <code>int32 CurrentSeq = 27;</code>
    */
   private void setCurrentSeq(int value) {
     
     currentSeq_ = value;
   }
   /**
-   * <code>int32 CurrentSeq = 25;</code>
+   * <code>int32 CurrentSeq = 27;</code>
    */
   private void clearCurrentSeq() {
     
@@ -599,11 +623,11 @@ public  final class PB_ChatView extends
 
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (chatId_ != 0L) {
-      output.writeInt64(1, chatId_);
-    }
     if (!chatKey_.isEmpty()) {
-      output.writeString(3, getChatKey());
+      output.writeString(1, getChatKey());
+    }
+    if (!roomKey_.isEmpty()) {
+      output.writeString(3, getRoomKey());
     }
     if (roomTypeEnumId_ != 0) {
       output.writeInt32(5, roomTypeEnumId_);
@@ -617,8 +641,8 @@ public  final class PB_ChatView extends
     if (groupId_ != 0L) {
       output.writeInt64(11, groupId_);
     }
-    if (createdTime_ != 0) {
-      output.writeInt32(13, createdTime_);
+    if (createdSe_ != 0) {
+      output.writeInt32(13, createdSe_);
     }
     if (updatedMs_ != 0L) {
       output.writeInt64(15, updatedMs_);
@@ -627,19 +651,19 @@ public  final class PB_ChatView extends
       output.writeInt64(17, lastMessageId_);
     }
     if (lastDeletedMessageId_ != 0L) {
-      output.writeInt64(18, lastDeletedMessageId_);
+      output.writeInt64(19, lastDeletedMessageId_);
     }
     if (lastSeenMessageId_ != 0L) {
-      output.writeInt64(19, lastSeenMessageId_);
+      output.writeInt64(21, lastSeenMessageId_);
     }
     if (lastSeqSeen_ != 0) {
-      output.writeInt32(21, lastSeqSeen_);
+      output.writeInt32(23, lastSeqSeen_);
     }
     if (lastSeqDelete_ != 0) {
-      output.writeInt32(23, lastSeqDelete_);
+      output.writeInt32(25, lastSeqDelete_);
     }
     if (currentSeq_ != 0) {
-      output.writeInt32(25, currentSeq_);
+      output.writeInt32(27, currentSeq_);
     }
     if (userView_ != null) {
       output.writeMessage(100, getUserView());
@@ -663,13 +687,13 @@ public  final class PB_ChatView extends
     if (size != -1) return size;
 
     size = 0;
-    if (chatId_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(1, chatId_);
-    }
     if (!chatKey_.isEmpty()) {
       size += com.google.protobuf.CodedOutputStream
-        .computeStringSize(3, getChatKey());
+        .computeStringSize(1, getChatKey());
+    }
+    if (!roomKey_.isEmpty()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeStringSize(3, getRoomKey());
     }
     if (roomTypeEnumId_ != 0) {
       size += com.google.protobuf.CodedOutputStream
@@ -687,9 +711,9 @@ public  final class PB_ChatView extends
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(11, groupId_);
     }
-    if (createdTime_ != 0) {
+    if (createdSe_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(13, createdTime_);
+        .computeInt32Size(13, createdSe_);
     }
     if (updatedMs_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
@@ -701,23 +725,23 @@ public  final class PB_ChatView extends
     }
     if (lastDeletedMessageId_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(18, lastDeletedMessageId_);
+        .computeInt64Size(19, lastDeletedMessageId_);
     }
     if (lastSeenMessageId_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(19, lastSeenMessageId_);
+        .computeInt64Size(21, lastSeenMessageId_);
     }
     if (lastSeqSeen_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(21, lastSeqSeen_);
+        .computeInt32Size(23, lastSeqSeen_);
     }
     if (lastSeqDelete_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(23, lastSeqDelete_);
+        .computeInt32Size(25, lastSeqDelete_);
     }
     if (currentSeq_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(25, currentSeq_);
+        .computeInt32Size(27, currentSeq_);
     }
     if (userView_ != null) {
       size += com.google.protobuf.CodedOutputStream
@@ -831,20 +855,20 @@ public  final class PB_ChatView extends
 
     /**
      * <pre>
-     *use as RemoteId
+     *option realm = "1";
      * </pre>
      *
-     * <code>string ChatKey = 3;</code>
+     * <code>string ChatKey = 1;</code>
      */
     public java.lang.String getChatKey() {
       return instance.getChatKey();
     }
     /**
      * <pre>
-     *use as RemoteId
+     *option realm = "1";
      * </pre>
      *
-     * <code>string ChatKey = 3;</code>
+     * <code>string ChatKey = 1;</code>
      */
     public com.google.protobuf.ByteString
         getChatKeyBytes() {
@@ -852,10 +876,10 @@ public  final class PB_ChatView extends
     }
     /**
      * <pre>
-     *use as RemoteId
+     *option realm = "1";
      * </pre>
      *
-     * <code>string ChatKey = 3;</code>
+     * <code>string ChatKey = 1;</code>
      */
     public Builder setChatKey(
         java.lang.String value) {
@@ -865,10 +889,10 @@ public  final class PB_ChatView extends
     }
     /**
      * <pre>
-     *use as RemoteId
+     *option realm = "1";
      * </pre>
      *
-     * <code>string ChatKey = 3;</code>
+     * <code>string ChatKey = 1;</code>
      */
     public Builder clearChatKey() {
       copyOnWrite();
@@ -877,10 +901,10 @@ public  final class PB_ChatView extends
     }
     /**
      * <pre>
-     *use as RemoteId
+     *option realm = "1";
      * </pre>
      *
-     * <code>string ChatKey = 3;</code>
+     * <code>string ChatKey = 1;</code>
      */
     public Builder setChatKeyBytes(
         com.google.protobuf.ByteString value) {
@@ -890,25 +914,42 @@ public  final class PB_ChatView extends
     }
 
     /**
-     * <code>int64 ChatId = 1;</code>
+     * <code>string RoomKey = 3;</code>
      */
-    public long getChatId() {
-      return instance.getChatId();
+    public java.lang.String getRoomKey() {
+      return instance.getRoomKey();
     }
     /**
-     * <code>int64 ChatId = 1;</code>
+     * <code>string RoomKey = 3;</code>
      */
-    public Builder setChatId(long value) {
+    public com.google.protobuf.ByteString
+        getRoomKeyBytes() {
+      return instance.getRoomKeyBytes();
+    }
+    /**
+     * <code>string RoomKey = 3;</code>
+     */
+    public Builder setRoomKey(
+        java.lang.String value) {
       copyOnWrite();
-      instance.setChatId(value);
+      instance.setRoomKey(value);
       return this;
     }
     /**
-     * <code>int64 ChatId = 1;</code>
+     * <code>string RoomKey = 3;</code>
      */
-    public Builder clearChatId() {
+    public Builder clearRoomKey() {
       copyOnWrite();
-      instance.clearChatId();
+      instance.clearRoomKey();
+      return this;
+    }
+    /**
+     * <code>string RoomKey = 3;</code>
+     */
+    public Builder setRoomKeyBytes(
+        com.google.protobuf.ByteString value) {
+      copyOnWrite();
+      instance.setRoomKeyBytes(value);
       return this;
     }
 
@@ -1005,25 +1046,25 @@ public  final class PB_ChatView extends
     }
 
     /**
-     * <code>int32 CreatedTime = 13;</code>
+     * <code>int32 CreatedSe = 13;</code>
      */
-    public int getCreatedTime() {
-      return instance.getCreatedTime();
+    public int getCreatedSe() {
+      return instance.getCreatedSe();
     }
     /**
-     * <code>int32 CreatedTime = 13;</code>
+     * <code>int32 CreatedSe = 13;</code>
      */
-    public Builder setCreatedTime(int value) {
+    public Builder setCreatedSe(int value) {
       copyOnWrite();
-      instance.setCreatedTime(value);
+      instance.setCreatedSe(value);
       return this;
     }
     /**
-     * <code>int32 CreatedTime = 13;</code>
+     * <code>int32 CreatedSe = 13;</code>
      */
-    public Builder clearCreatedTime() {
+    public Builder clearCreatedSe() {
       copyOnWrite();
-      instance.clearCreatedTime();
+      instance.clearCreatedSe();
       return this;
     }
 
@@ -1074,13 +1115,13 @@ public  final class PB_ChatView extends
     }
 
     /**
-     * <code>int64 LastDeletedMessageId = 18;</code>
+     * <code>int64 LastDeletedMessageId = 19;</code>
      */
     public long getLastDeletedMessageId() {
       return instance.getLastDeletedMessageId();
     }
     /**
-     * <code>int64 LastDeletedMessageId = 18;</code>
+     * <code>int64 LastDeletedMessageId = 19;</code>
      */
     public Builder setLastDeletedMessageId(long value) {
       copyOnWrite();
@@ -1088,7 +1129,7 @@ public  final class PB_ChatView extends
       return this;
     }
     /**
-     * <code>int64 LastDeletedMessageId = 18;</code>
+     * <code>int64 LastDeletedMessageId = 19;</code>
      */
     public Builder clearLastDeletedMessageId() {
       copyOnWrite();
@@ -1097,13 +1138,13 @@ public  final class PB_ChatView extends
     }
 
     /**
-     * <code>int64 LastSeenMessageId = 19;</code>
+     * <code>int64 LastSeenMessageId = 21;</code>
      */
     public long getLastSeenMessageId() {
       return instance.getLastSeenMessageId();
     }
     /**
-     * <code>int64 LastSeenMessageId = 19;</code>
+     * <code>int64 LastSeenMessageId = 21;</code>
      */
     public Builder setLastSeenMessageId(long value) {
       copyOnWrite();
@@ -1111,7 +1152,7 @@ public  final class PB_ChatView extends
       return this;
     }
     /**
-     * <code>int64 LastSeenMessageId = 19;</code>
+     * <code>int64 LastSeenMessageId = 21;</code>
      */
     public Builder clearLastSeenMessageId() {
       copyOnWrite();
@@ -1120,13 +1161,13 @@ public  final class PB_ChatView extends
     }
 
     /**
-     * <code>int32 LastSeqSeen = 21;</code>
+     * <code>int32 LastSeqSeen = 23;</code>
      */
     public int getLastSeqSeen() {
       return instance.getLastSeqSeen();
     }
     /**
-     * <code>int32 LastSeqSeen = 21;</code>
+     * <code>int32 LastSeqSeen = 23;</code>
      */
     public Builder setLastSeqSeen(int value) {
       copyOnWrite();
@@ -1134,7 +1175,7 @@ public  final class PB_ChatView extends
       return this;
     }
     /**
-     * <code>int32 LastSeqSeen = 21;</code>
+     * <code>int32 LastSeqSeen = 23;</code>
      */
     public Builder clearLastSeqSeen() {
       copyOnWrite();
@@ -1143,13 +1184,13 @@ public  final class PB_ChatView extends
     }
 
     /**
-     * <code>int32 LastSeqDelete = 23;</code>
+     * <code>int32 LastSeqDelete = 25;</code>
      */
     public int getLastSeqDelete() {
       return instance.getLastSeqDelete();
     }
     /**
-     * <code>int32 LastSeqDelete = 23;</code>
+     * <code>int32 LastSeqDelete = 25;</code>
      */
     public Builder setLastSeqDelete(int value) {
       copyOnWrite();
@@ -1157,7 +1198,7 @@ public  final class PB_ChatView extends
       return this;
     }
     /**
-     * <code>int32 LastSeqDelete = 23;</code>
+     * <code>int32 LastSeqDelete = 25;</code>
      */
     public Builder clearLastSeqDelete() {
       copyOnWrite();
@@ -1166,13 +1207,13 @@ public  final class PB_ChatView extends
     }
 
     /**
-     * <code>int32 CurrentSeq = 25;</code>
+     * <code>int32 CurrentSeq = 27;</code>
      */
     public int getCurrentSeq() {
       return instance.getCurrentSeq();
     }
     /**
-     * <code>int32 CurrentSeq = 25;</code>
+     * <code>int32 CurrentSeq = 27;</code>
      */
     public Builder setCurrentSeq(int value) {
       copyOnWrite();
@@ -1180,7 +1221,7 @@ public  final class PB_ChatView extends
       return this;
     }
     /**
-     * <code>int32 CurrentSeq = 25;</code>
+     * <code>int32 CurrentSeq = 27;</code>
      */
     public Builder clearCurrentSeq() {
       copyOnWrite();
@@ -1404,8 +1445,8 @@ public  final class PB_ChatView extends
         ir.ms.pb.PB_ChatView other = (ir.ms.pb.PB_ChatView) arg1;
         chatKey_ = visitor.visitString(!chatKey_.isEmpty(), chatKey_,
             !other.chatKey_.isEmpty(), other.chatKey_);
-        chatId_ = visitor.visitLong(chatId_ != 0L, chatId_,
-            other.chatId_ != 0L, other.chatId_);
+        roomKey_ = visitor.visitString(!roomKey_.isEmpty(), roomKey_,
+            !other.roomKey_.isEmpty(), other.roomKey_);
         roomTypeEnumId_ = visitor.visitInt(roomTypeEnumId_ != 0, roomTypeEnumId_,
             other.roomTypeEnumId_ != 0, other.roomTypeEnumId_);
         userId_ = visitor.visitInt(userId_ != 0, userId_,
@@ -1414,8 +1455,8 @@ public  final class PB_ChatView extends
             other.peerUserId_ != 0, other.peerUserId_);
         groupId_ = visitor.visitLong(groupId_ != 0L, groupId_,
             other.groupId_ != 0L, other.groupId_);
-        createdTime_ = visitor.visitInt(createdTime_ != 0, createdTime_,
-            other.createdTime_ != 0, other.createdTime_);
+        createdSe_ = visitor.visitInt(createdSe_ != 0, createdSe_,
+            other.createdSe_ != 0, other.createdSe_);
         updatedMs_ = visitor.visitLong(updatedMs_ != 0L, updatedMs_,
             other.updatedMs_ != 0L, other.updatedMs_);
         lastMessageId_ = visitor.visitLong(lastMessageId_ != 0L, lastMessageId_,
@@ -1461,15 +1502,16 @@ public  final class PB_ChatView extends
                 }
                 break;
               }
-              case 8: {
+              case 10: {
+                String s = input.readStringRequireUtf8();
 
-                chatId_ = input.readInt64();
+                chatKey_ = s;
                 break;
               }
               case 26: {
                 String s = input.readStringRequireUtf8();
 
-                chatKey_ = s;
+                roomKey_ = s;
                 break;
               }
               case 40: {
@@ -1494,7 +1536,7 @@ public  final class PB_ChatView extends
               }
               case 104: {
 
-                createdTime_ = input.readInt32();
+                createdSe_ = input.readInt32();
                 break;
               }
               case 120: {
@@ -1507,27 +1549,27 @@ public  final class PB_ChatView extends
                 lastMessageId_ = input.readInt64();
                 break;
               }
-              case 144: {
+              case 152: {
 
                 lastDeletedMessageId_ = input.readInt64();
                 break;
               }
-              case 152: {
+              case 168: {
 
                 lastSeenMessageId_ = input.readInt64();
                 break;
               }
-              case 168: {
+              case 184: {
 
                 lastSeqSeen_ = input.readInt32();
                 break;
               }
-              case 184: {
+              case 200: {
 
                 lastSeqDelete_ = input.readInt32();
                 break;
               }
-              case 200: {
+              case 216: {
 
                 currentSeq_ = input.readInt32();
                 break;

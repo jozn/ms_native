@@ -62,7 +62,7 @@ public class Rpc_SyncResponseHandler extends RPC_HANDLERS.RPC_Sync_Empty{
 				AppUtil.log("pb: handling - realm users: " + pb_chatView.getUserView().getUserName());
 				realmChatView.UserView = RealmUserView.fromPB(pb_chatView.getUserView());
 			}
-			realmChatView.LastMessage = RealmMessageViewHelper.getLastMessageForChat(AppRealm.getChatRealm(),realmChatView.ChatId);
+			realmChatView.LastMessage = RealmMessageViewHelper.getLastMessageForChat(AppRealm.getChatRealm(),realmChatView.ChatKey);
 
 			chats.add(realmChatView);
 		}

@@ -22,11 +22,11 @@ import java.io.File;
  */
 public class MsgCommon {
     public static String msgRawTime2(RealmMessageView msg){
-        return FormaterUtil.timeToClockTimeSec(msg.Time);
+        return FormaterUtil.timeToClockTimeSec(msg.CreatedSe);
     }
 
     public static String msgRawTime(RealmMessageView msg){
-        return FormaterUtil.timeToClockTimeSec(msg.Time);
+        return FormaterUtil.timeToClockTimeSec(msg.CreatedSe);
     }
 
     public static void setTextForImages(RealmMessageView msg , TextView textView){

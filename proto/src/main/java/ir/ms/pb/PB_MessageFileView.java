@@ -16,6 +16,7 @@ public  final class PB_MessageFileView extends
     // @@protoc_insertion_point(message_implements:PB_MessageFileView)
     PB_MessageFileViewOrBuilder {
   private PB_MessageFileView() {
+    messageFileKey_ = "";
     name_ = "";
     extension_ = "";
     hashMd5_ = "";
@@ -61,6 +62,52 @@ public  final class PB_MessageFileView extends
   private void clearMessageFileId() {
     
     messageFileId_ = 0L;
+  }
+
+  public static final int MESSAGEFILEKEY_FIELD_NUMBER = 32;
+  private java.lang.String messageFileKey_;
+  /**
+   * <code>string MessageFileKey = 32;</code>
+   */
+  public java.lang.String getMessageFileKey() {
+    return messageFileKey_;
+  }
+  /**
+   * <code>string MessageFileKey = 32;</code>
+   */
+  public com.google.protobuf.ByteString
+      getMessageFileKeyBytes() {
+    return com.google.protobuf.ByteString.copyFromUtf8(messageFileKey_);
+  }
+  /**
+   * <code>string MessageFileKey = 32;</code>
+   */
+  private void setMessageFileKey(
+      java.lang.String value) {
+    if (value == null) {
+    throw new NullPointerException();
+  }
+  
+    messageFileKey_ = value;
+  }
+  /**
+   * <code>string MessageFileKey = 32;</code>
+   */
+  private void clearMessageFileKey() {
+    
+    messageFileKey_ = getDefaultInstance().getMessageFileKey();
+  }
+  /**
+   * <code>string MessageFileKey = 32;</code>
+   */
+  private void setMessageFileKeyBytes(
+      com.google.protobuf.ByteString value) {
+    if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+    
+    messageFileKey_ = value.toStringUtf8();
   }
 
   public static final int ORIGINALUSERID_FIELD_NUMBER = 2;
@@ -927,6 +974,9 @@ public  final class PB_MessageFileView extends
     if (serverId_ != 0) {
       output.writeInt32(31, serverId_);
     }
+    if (!messageFileKey_.isEmpty()) {
+      output.writeString(32, getMessageFileKey());
+    }
     if (canDel_ != 0) {
       output.writeInt32(33, canDel_);
     }
@@ -1019,6 +1069,10 @@ public  final class PB_MessageFileView extends
     if (serverId_ != 0) {
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(31, serverId_);
+    }
+    if (!messageFileKey_.isEmpty()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeStringSize(32, getMessageFileKey());
     }
     if (canDel_ != 0) {
       size += com.google.protobuf.CodedOutputStream
@@ -1166,6 +1220,46 @@ public  final class PB_MessageFileView extends
     public Builder clearMessageFileId() {
       copyOnWrite();
       instance.clearMessageFileId();
+      return this;
+    }
+
+    /**
+     * <code>string MessageFileKey = 32;</code>
+     */
+    public java.lang.String getMessageFileKey() {
+      return instance.getMessageFileKey();
+    }
+    /**
+     * <code>string MessageFileKey = 32;</code>
+     */
+    public com.google.protobuf.ByteString
+        getMessageFileKeyBytes() {
+      return instance.getMessageFileKeyBytes();
+    }
+    /**
+     * <code>string MessageFileKey = 32;</code>
+     */
+    public Builder setMessageFileKey(
+        java.lang.String value) {
+      copyOnWrite();
+      instance.setMessageFileKey(value);
+      return this;
+    }
+    /**
+     * <code>string MessageFileKey = 32;</code>
+     */
+    public Builder clearMessageFileKey() {
+      copyOnWrite();
+      instance.clearMessageFileKey();
+      return this;
+    }
+    /**
+     * <code>string MessageFileKey = 32;</code>
+     */
+    public Builder setMessageFileKeyBytes(
+        com.google.protobuf.ByteString value) {
+      copyOnWrite();
+      instance.setMessageFileKeyBytes(value);
       return this;
     }
 
@@ -1937,6 +2031,8 @@ public  final class PB_MessageFileView extends
         ir.ms.pb.PB_MessageFileView other = (ir.ms.pb.PB_MessageFileView) arg1;
         messageFileId_ = visitor.visitLong(messageFileId_ != 0L, messageFileId_,
             other.messageFileId_ != 0L, other.messageFileId_);
+        messageFileKey_ = visitor.visitString(!messageFileKey_.isEmpty(), messageFileKey_,
+            !other.messageFileKey_.isEmpty(), other.messageFileKey_);
         originalUserId_ = visitor.visitInt(originalUserId_ != 0, originalUserId_,
             other.originalUserId_ != 0, other.originalUserId_);
         name_ = visitor.visitString(!name_.isEmpty(), name_,
@@ -2095,6 +2191,12 @@ public  final class PB_MessageFileView extends
               case 248: {
 
                 serverId_ = input.readInt32();
+                break;
+              }
+              case 258: {
+                String s = input.readStringRequireUtf8();
+
+                messageFileKey_ = s;
                 break;
               }
               case 264: {

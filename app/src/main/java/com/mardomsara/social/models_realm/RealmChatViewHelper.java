@@ -98,10 +98,10 @@ public class RealmChatViewHelper {
 	public static void insertOrUpdateNewChatsFromPipe(List<ir.ms.pb.PB_ChatView> chatViews) {
 		Realm realm = AppRealm.getChatRealm();
 		for (PB_ChatView m : chatViews) {
-			RealmChatView chatView = Database.getRealmChatView(realm, m.getChatId());
+			RealmChatView chatView = Database.getRealmChatView(realm, m.getChatKey());
 			if (chatView == null) {//create new chat
 //				chatView = realm.createObject(RealmChatView.class);
-//				chatView = PBToRealm.from_chatView(m);
+				chatView = RealmChatView.fromPB(m);
 				//chatView.user = Database.getRealmUserView(realm, m.getUserId());
 //				if (chatView.user == null);// continue;//user must set
 
@@ -120,7 +120,7 @@ public class RealmChatViewHelper {
 
 	}
 
-	public static void insertOrUpdateNewChatsFromPipe_bk(List<ir.ms.pb.PB_ChatView> chatViews) {
+	/*public static void insertOrUpdateNewChatsFromPipe_bk(List<ir.ms.pb.PB_ChatView> chatViews) {
 		Realm realm = AppRealm.getChatRealm();
 		for (PB_ChatView m : chatViews) {
 			RealmChatView chatView = getChatByChatId(m.getChatId());
@@ -139,6 +139,6 @@ public class RealmChatViewHelper {
 			}));
 		}
 
-	}
+	}*/
 
 }
