@@ -19,7 +19,7 @@ import com.mardomsara.social.models_old.tables.Session;
 import com.mardomsara.social.models_old.stores.Store;
 import com.mardomsara.social.models_old.syncer.ContactsCopySyncer;
 import com.mardomsara.social.models_old.syncer.UserSyncer;
-import com.mardomsara.social.pipe_pb.PlayNewPipe;
+import com.mardomsara.social.del.pipe_pb.PlayNewPipe;
 import com.mardomsara.social.service.BackgroundService;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.x.iconify.XIconify;

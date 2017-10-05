@@ -120,6 +120,10 @@ public class AppLog {
 			writeToWs("e", logTxt);
 		}
 
+		public void json(Object object) {
+			writeToWs("d", AppUtil.toJson(object));
+		}
+
 		private void writeToWs(String severity, String text) {
 			tryConnect();
 			if (AppLog.webSocket != null) {

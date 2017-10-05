@@ -8,14 +8,13 @@ import com.mardomsara.social.base.Http.Http;
 import com.mardomsara.social.base.Http.Req;
 import com.mardomsara.social.enums.MessageEvent;
 import com.mardomsara.social.helpers.AndroidUtil;
-import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.JsonUtil;
 import com.mardomsara.social.helpers.TimeUtil;
 import com.mardomsara.social.models_old.tables.Message;
 import com.mardomsara.social.models_old.tables.MsgSeen;
-import com.mardomsara.social.pipe_pb.PBConv;
-import com.mardomsara.social.pipe_pb.Pipe;
-import com.mardomsara.social.pipe_pb.from_net_calls.events.MsgReceivedToServerEvent;
+import com.mardomsara.social.del.pipe_pb.PBConv;
+import com.mardomsara.social.del.pipe_pb.Pipe;
+import com.mardomsara.social.del.pipe_pb.from_net_calls.events.MsgReceivedToServerEvent;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -24,7 +23,6 @@ import java.util.List;
 import ir.ms.pb.PB_Message;
 import ir.ms.pb.PB_RequestMsgAddMany;
 import ir.ms.pb.PB_RequestMsgsSeen;
-import ir.ms.pb.PB_ResRpcAddMsg;
 
 import static com.mardomsara.social.base.Http.Http.upload;
 

@@ -14,12 +14,17 @@ import io.realm.Realm;
  */
 
 public class ConfigRealmBrowser {
-	public static void init(Context context){
-		Realm realm = AppRealm.getChatRealm();
-		new RealmBrowser.Builder(context)
-			.add(realm, RealmChatView.class)
-			.add(realm, RealmMessageView.class)
-			.add(realm, RealmUserView.class)
-			.show();
+	public static void init(Context context) {
+		try {
+			Realm realm = AppRealm.getChatRealm();
+			new RealmBrowser.Builder(context)
+				.add(realm, RealmChatView.class)
+				.add(realm, RealmMessageView.class)
+				.add(realm, RealmUserView.class)
+				.show();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
 	}
 }

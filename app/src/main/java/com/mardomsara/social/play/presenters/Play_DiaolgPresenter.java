@@ -12,7 +12,7 @@ import com.mardomsara.social.R;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.DialogHelper;
-import com.mardomsara.social.pipe_pb.PlayNewPipe;
+import com.mardomsara.social.del.pipe_pb.PlayNewPipe;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.cells.Cells;
 import com.orhanobut.dialogplus.DialogPlus;

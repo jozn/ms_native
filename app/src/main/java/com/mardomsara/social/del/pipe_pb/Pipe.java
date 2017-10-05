@@ -1,4 +1,4 @@
-package com.mardomsara.social.pipe_pb;
+package com.mardomsara.social.del.pipe_pb;
 
 import com.google.protobuf.AbstractMessageLite;
 import com.google.protobuf.ByteString;

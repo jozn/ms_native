@@ -196,6 +196,18 @@ public final class RPC_MsgGrpc {
               ir.ms.pb.PB_MsgResponse_GetFreshRoomMessagesList.getDefaultInstance()))
           .build();
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static final io.grpc.MethodDescriptor<ir.ms.pb.PB_MsgParam_GetFreshAllDirectMessagesList,
+      ir.ms.pb.PB_MsgResponse_GetFreshAllDirectMessagesList> METHOD_GET_FRESH_ALL_DIRECT_MESSAGES_LIST =
+      io.grpc.MethodDescriptor.<ir.ms.pb.PB_MsgParam_GetFreshAllDirectMessagesList, ir.ms.pb.PB_MsgResponse_GetFreshAllDirectMessagesList>newBuilder()
+          .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+          .setFullMethodName(generateFullMethodName(
+              "RPC_Msg", "GetFreshAllDirectMessagesList"))
+          .setRequestMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
+              ir.ms.pb.PB_MsgParam_GetFreshAllDirectMessagesList.getDefaultInstance()))
+          .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
+              ir.ms.pb.PB_MsgResponse_GetFreshAllDirectMessagesList.getDefaultInstance()))
+          .build();
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
   public static final io.grpc.MethodDescriptor<ir.ms.pb.PB_MsgParam_Echo,
       ir.ms.pb.PB_MsgResponse_PB_MsgParam_Echo> METHOD_ECHO =
       io.grpc.MethodDescriptor.<ir.ms.pb.PB_MsgParam_Echo, ir.ms.pb.PB_MsgResponse_PB_MsgParam_Echo>newBuilder()
@@ -335,6 +347,13 @@ public final class RPC_MsgGrpc {
 
     /**
      */
+    public void getFreshAllDirectMessagesList(ir.ms.pb.PB_MsgParam_GetFreshAllDirectMessagesList request,
+        io.grpc.stub.StreamObserver<ir.ms.pb.PB_MsgResponse_GetFreshAllDirectMessagesList> responseObserver) {
+      asyncUnimplementedUnaryCall(METHOD_GET_FRESH_ALL_DIRECT_MESSAGES_LIST, responseObserver);
+    }
+
+    /**
+     */
     public void echo(ir.ms.pb.PB_MsgParam_Echo request,
         io.grpc.stub.StreamObserver<ir.ms.pb.PB_MsgResponse_PB_MsgParam_Echo> responseObserver) {
       asyncUnimplementedUnaryCall(METHOD_ECHO, responseObserver);
@@ -440,6 +459,13 @@ public final class RPC_MsgGrpc {
                 ir.ms.pb.PB_MsgParam_GetFreshRoomMessagesList,
                 ir.ms.pb.PB_MsgResponse_GetFreshRoomMessagesList>(
                   this, METHODID_GET_FRESH_ROOM_MESSAGES_LIST)))
+          .addMethod(
+            METHOD_GET_FRESH_ALL_DIRECT_MESSAGES_LIST,
+            asyncUnaryCall(
+              new MethodHandlers<
+                ir.ms.pb.PB_MsgParam_GetFreshAllDirectMessagesList,
+                ir.ms.pb.PB_MsgResponse_GetFreshAllDirectMessagesList>(
+                  this, METHODID_GET_FRESH_ALL_DIRECT_MESSAGES_LIST)))
           .addMethod(
             METHOD_ECHO,
             asyncUnaryCall(
@@ -583,6 +609,14 @@ public final class RPC_MsgGrpc {
 
     /**
      */
+    public void getFreshAllDirectMessagesList(ir.ms.pb.PB_MsgParam_GetFreshAllDirectMessagesList request,
+        io.grpc.stub.StreamObserver<ir.ms.pb.PB_MsgResponse_GetFreshAllDirectMessagesList> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(METHOD_GET_FRESH_ALL_DIRECT_MESSAGES_LIST, getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
     public void echo(ir.ms.pb.PB_MsgParam_Echo request,
         io.grpc.stub.StreamObserver<ir.ms.pb.PB_MsgResponse_PB_MsgParam_Echo> responseObserver) {
       asyncUnaryCall(
@@ -704,6 +738,13 @@ public final class RPC_MsgGrpc {
     public ir.ms.pb.PB_MsgResponse_GetFreshRoomMessagesList getFreshRoomMessagesList(ir.ms.pb.PB_MsgParam_GetFreshRoomMessagesList request) {
       return blockingUnaryCall(
           getChannel(), METHOD_GET_FRESH_ROOM_MESSAGES_LIST, getCallOptions(), request);
+    }
+
+    /**
+     */
+    public ir.ms.pb.PB_MsgResponse_GetFreshAllDirectMessagesList getFreshAllDirectMessagesList(ir.ms.pb.PB_MsgParam_GetFreshAllDirectMessagesList request) {
+      return blockingUnaryCall(
+          getChannel(), METHOD_GET_FRESH_ALL_DIRECT_MESSAGES_LIST, getCallOptions(), request);
     }
 
     /**
@@ -846,6 +887,14 @@ public final class RPC_MsgGrpc {
 
     /**
      */
+    public com.google.common.util.concurrent.ListenableFuture<ir.ms.pb.PB_MsgResponse_GetFreshAllDirectMessagesList> getFreshAllDirectMessagesList(
+        ir.ms.pb.PB_MsgParam_GetFreshAllDirectMessagesList request) {
+      return futureUnaryCall(
+          getChannel().newCall(METHOD_GET_FRESH_ALL_DIRECT_MESSAGES_LIST, getCallOptions()), request);
+    }
+
+    /**
+     */
     public com.google.common.util.concurrent.ListenableFuture<ir.ms.pb.PB_MsgResponse_PB_MsgParam_Echo> echo(
         ir.ms.pb.PB_MsgParam_Echo request) {
       return futureUnaryCall(
@@ -867,7 +916,8 @@ public final class RPC_MsgGrpc {
   private static final int METHODID_BROADCAST_NEW_MESSAGE = 11;
   private static final int METHODID_GET_FRESH_CHAT_LIST = 12;
   private static final int METHODID_GET_FRESH_ROOM_MESSAGES_LIST = 13;
-  private static final int METHODID_ECHO = 14;
+  private static final int METHODID_GET_FRESH_ALL_DIRECT_MESSAGES_LIST = 14;
+  private static final int METHODID_ECHO = 15;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -942,6 +992,10 @@ public final class RPC_MsgGrpc {
           serviceImpl.getFreshRoomMessagesList((ir.ms.pb.PB_MsgParam_GetFreshRoomMessagesList) request,
               (io.grpc.stub.StreamObserver<ir.ms.pb.PB_MsgResponse_GetFreshRoomMessagesList>) responseObserver);
           break;
+        case METHODID_GET_FRESH_ALL_DIRECT_MESSAGES_LIST:
+          serviceImpl.getFreshAllDirectMessagesList((ir.ms.pb.PB_MsgParam_GetFreshAllDirectMessagesList) request,
+              (io.grpc.stub.StreamObserver<ir.ms.pb.PB_MsgResponse_GetFreshAllDirectMessagesList>) responseObserver);
+          break;
         case METHODID_ECHO:
           serviceImpl.echo((ir.ms.pb.PB_MsgParam_Echo) request,
               (io.grpc.stub.StreamObserver<ir.ms.pb.PB_MsgResponse_PB_MsgParam_Echo>) responseObserver);
@@ -985,6 +1039,7 @@ public final class RPC_MsgGrpc {
               .addMethod(METHOD_BROADCAST_NEW_MESSAGE)
               .addMethod(METHOD_GET_FRESH_CHAT_LIST)
               .addMethod(METHOD_GET_FRESH_ROOM_MESSAGES_LIST)
+              .addMethod(METHOD_GET_FRESH_ALL_DIRECT_MESSAGES_LIST)
               .addMethod(METHOD_ECHO)
               .build();
         }

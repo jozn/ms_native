@@ -20,7 +20,8 @@ buildscript {
         classpath 'io.fabric.tools:gradle:1.+'
         classpath 'com.google.gms:google-services:3.1.0'
 
-        classpath "io.realm:realm-gradle-plugin:3.7.2"
+        //latest realse of realm causes crashes in chrome dev tools: https://github.com/uPhyca/stetho-realm/issues/61
+        classpath "io.realm:realm-gradle-plugin:3.5.0"//3.7.2"
 
 
 

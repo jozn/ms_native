@@ -1,4 +1,4 @@
-package com.mardomsara.social.pipe_pb;
+package com.mardomsara.social.del.pipe_pb;
 
 import com.mardomsara.social.app.DB;
 import com.mardomsara.social.helpers.AndroidUtil;

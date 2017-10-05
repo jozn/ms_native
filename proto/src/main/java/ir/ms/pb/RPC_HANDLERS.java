@@ -38,6 +38,7 @@ public interface RPC_Msg {
     void BroadcastNewMessage( PB_MsgResponse_BroadcastNewMessage pb, boolean handled);
     void GetFreshChatList( PB_MsgResponse_GetFreshChatList pb, boolean handled);
     void GetFreshRoomMessagesList( PB_MsgResponse_GetFreshRoomMessagesList pb, boolean handled);
+    void GetFreshAllDirectMessagesList( PB_MsgResponse_GetFreshAllDirectMessagesList pb, boolean handled);
     void Echo( PB_MsgResponse_PB_MsgParam_Echo pb, boolean handled);
 }
 public interface RPC_Sync {
@@ -164,6 +165,10 @@ public interface RPC_User {
   	@Override
     public void GetFreshRoomMessagesList( PB_MsgResponse_GetFreshRoomMessagesList pb, boolean handled){
     	Log.d("RPC", " default empty handler for RPC 'RPC_Msg.GetFreshRoomMessagesList' ");
+    }
+  	@Override
+    public void GetFreshAllDirectMessagesList( PB_MsgResponse_GetFreshAllDirectMessagesList pb, boolean handled){
+    	Log.d("RPC", " default empty handler for RPC 'RPC_Msg.GetFreshAllDirectMessagesList' ");
     }
   	@Override
     public void Echo( PB_MsgResponse_PB_MsgParam_Echo pb, boolean handled){
@@ -448,6 +453,14 @@ public interface RPC_User {
 					RPC_Msg_Default_Handler.GetFreshRoomMessagesList((PB_MsgResponse_GetFreshRoomMessagesList) pb, handled);
 				}else{
 					Log.d("RPC", " can not convert response object to PB_MsgResponse_GetFreshRoomMessagesList in rpc: .GetFreshRoomMessagesList -- class: " + pb );//.getClass().getName());
+				}
+			});
+	  
+			router.put("RPC_Msg.GetFreshAllDirectMessagesList", (pb, handled)->{
+				if(pb instanceof PB_MsgResponse_GetFreshAllDirectMessagesList){
+					RPC_Msg_Default_Handler.GetFreshAllDirectMessagesList((PB_MsgResponse_GetFreshAllDirectMessagesList) pb, handled);
+				}else{
+					Log.d("RPC", " can not convert response object to PB_MsgResponse_GetFreshAllDirectMessagesList in rpc: .GetFreshAllDirectMessagesList -- class: " + pb );//.getClass().getName());
 				}
 			});
 	  

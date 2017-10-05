@@ -244,6 +244,15 @@ public class RpcNameToResponseMapper {
           }
         });
     mp.put(
+        "RPC_Msg.GetFreshAllDirectMessagesList",
+        new RpcHelper2() {
+          @Override
+          public com.google.protobuf.GeneratedMessageLite parseData(ByteString byteString)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return PB_MsgResponse_GetFreshAllDirectMessagesList.parseFrom(byteString);
+          }
+        });
+    mp.put(
         "RPC_Msg.Echo",
         new RpcHelper2() {
           @Override

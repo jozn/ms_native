@@ -14,6 +14,7 @@ import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.cells.Cells;
 
 import ir.ms.pb.PB_MsgParam_Echo;
+import ir.ms.pb.PB_MsgParam_GetFreshAllDirectMessagesList;
 import ir.ms.pb.PB_MsgParam_GetFreshChatList;
 import ir.ms.pb.PB_MsgParam_GetFreshRoomMessagesList;
 import ir.ms.pb.RPC;
@@ -51,8 +52,12 @@ public class Play_WSCallPresenter extends BasePresenter {
 			RPC.RPC_Msg.GetFreshChatList(PB_MsgParam_GetFreshChatList.newBuilder().build(),null,null);
 		} ));
 
-		layout.addView(newTitle2("RPC.RPC_Msg.GetFreshChatList",()->{
+		layout.addView(newTitle2("GetFreshRoomMessagesList 2",()->{
 			RPC.RPC_Msg.GetFreshRoomMessagesList(PB_MsgParam_GetFreshRoomMessagesList.newBuilder().setRoomKey("d6_2").build(),null,null);
+		} ));
+
+		layout.addView(newTitle2("GetFreshAllDirectMessagesList",()->{
+			RPC.RPC_Msg.GetFreshAllDirectMessagesList(PB_MsgParam_GetFreshAllDirectMessagesList.getDefaultInstance().newBuilder().build(),null,null);
 		} ));
 
 

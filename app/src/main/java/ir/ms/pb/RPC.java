@@ -561,6 +561,10 @@ public class RPC {
       void onResult(PB_MsgResponse_GetFreshRoomMessagesList res);
     }
 
+    public static interface GetFreshAllDirectMessagesList_ResultHandler {
+      void onResult(PB_MsgResponse_GetFreshAllDirectMessagesList res);
+    }
+
     public static interface Echo_ResultHandler {
       void onResult(PB_MsgResponse_PB_MsgParam_Echo res);
     }
@@ -1274,6 +1278,58 @@ public class RPC {
             offlineKey, "RPC_Msg.GetFreshRoomMessagesList", param, callback, errorCallback);
       } else {
         Pipe.send("RPC_Msg.GetFreshRoomMessagesList", param, callback, errorCallback);
+      }
+    }
+
+    public static void GetFreshAllDirectMessagesList(
+        PB_MsgParam_GetFreshAllDirectMessagesList param,
+        GetFreshAllDirectMessagesList_ResultHandler resultHandler,
+        ErrorCallback errorCallback) {
+      GetFreshAllDirectMessagesListImpl(param, resultHandler, errorCallback, false, "");
+    }
+
+    public static void GetFreshAllDirectMessagesList_Offline(
+        String offlineKey,
+        PB_MsgParam_GetFreshAllDirectMessagesList param,
+        GetFreshAllDirectMessagesList_ResultHandler resultHandler,
+        ErrorCallback errorCallback) {
+      GetFreshAllDirectMessagesListImpl(param, resultHandler, errorCallback, true, offlineKey);
+    }
+
+    private static void GetFreshAllDirectMessagesListImpl(
+        PB_MsgParam_GetFreshAllDirectMessagesList param,
+        GetFreshAllDirectMessagesList_ResultHandler resultHandler,
+        ErrorCallback errorCallback,
+        Boolean offline,
+        String offlineKey) {
+      SuccessCallback callback = null;
+      if (resultHandler != null) {
+        callback =
+            new SuccessCallback() {
+              @Override
+              public Object handle(byte[] data) {
+                Log.i(
+                    "RPC ws",
+                    "handling rpc respnse for: GetFreshAllDirectMessagesList with respose class PB_MsgResponse_GetFreshAllDirectMessagesList");
+                PB_MsgResponse_GetFreshAllDirectMessagesList d = null;
+                try {
+                  d = PB_MsgResponse_GetFreshAllDirectMessagesList.parseFrom(data);
+                  resultHandler.onResult(d);
+                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                  Log.d(
+                      "RPC ws",
+                      "parsing protocol buffer is faild: PB_MsgResponse_GetFreshAllDirectMessagesList");
+                }
+                return d;
+              }
+            };
+      }
+
+      if (offline) {
+        Pipe.sendOffline(
+            offlineKey, "RPC_Msg.GetFreshAllDirectMessagesList", param, callback, errorCallback);
+      } else {
+        Pipe.send("RPC_Msg.GetFreshAllDirectMessagesList", param, callback, errorCallback);
       }
     }
 

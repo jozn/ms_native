@@ -19,24 +19,29 @@ public class ConfigStetho {
 
 	public static void config(Context context){
 
-		RealmInspectorModulesProvider provider = RealmInspectorModulesProvider.builder(context)
-			.withFolder(context.getFilesDir())
+		try{
+			RealmInspectorModulesProvider provider = RealmInspectorModulesProvider.builder(context)
+				.withFolder(context.getFilesDir())
 //			.withEncryptionKey("encrypted.realm", key)
-			.withMetaTables()
-			.withDescendingOrder()
-			.withLimit(1000)
-			.databaseNamePattern(Pattern.compile(".+\\.realm"))
-			.build();
+				.withMetaTables()
+				.withDescendingOrder()
+				.withLimit(1000)
+				.databaseNamePattern(Pattern.compile(".+\\.realm"))
+				.build();
 
-		new OkHttpClient.Builder()
-			.addNetworkInterceptor(new StethoInterceptor())
-			.build();
+			new OkHttpClient.Builder()
+				.addNetworkInterceptor(new StethoInterceptor())
+				.build();
 
-		Stetho.initialize(
-			Stetho.newInitializerBuilder(context)
-				.enableDumpapp(Stetho.defaultDumperPluginsProvider(context))
+			Stetho.initialize(
+				Stetho.newInitializerBuilder(context)
+					.enableDumpapp(Stetho.defaultDumperPluginsProvider(context))
 //				.enableWebKitInspector(RealmInspectorModulesProvider.builder(context).build())
-				.enableWebKitInspector(provider)
-				.build());
+					.enableWebKitInspector(provider)
+					.build());
+		}catch (Exception e){
+			e.printStackTrace();
+		}
+
 	}
 }

@@ -4,6 +4,10 @@
 package ir.ms.pb;
 
 /**
+ * <pre>
+ *&#47;/////////////////////////////////////////////////////
+ * </pre>
+ *
  * Protobuf type {@code PB_MsgParam_GetFreshRoomMessagesList}
  */
 public  final class PB_MsgParam_GetFreshRoomMessagesList extends
@@ -273,6 +277,10 @@ public  final class PB_MsgParam_GetFreshRoomMessagesList extends
   }
 
   /**
+   * <pre>
+   *&#47;/////////////////////////////////////////////////////
+   * </pre>
+   *
    * Protobuf type {@code PB_MsgParam_GetFreshRoomMessagesList}
    */
   public static final class Builder extends

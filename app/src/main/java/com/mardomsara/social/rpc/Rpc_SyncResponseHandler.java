@@ -4,6 +4,7 @@ import com.mardomsara.social.app.AppRealm;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.models_realm.RealmChatViewHelper;
 import com.mardomsara.social.models_realm.RealmMessageViewHelper;
+import com.mardomsara.social.models_realm.helpers.HelperPushAndRefreshHandlerOfData;
 import com.mardomsara.social.models_realm.pb_realm.RealmChatView;
 import com.mardomsara.social.models_realm.pb_realm.RealmMessageFileView;
 import com.mardomsara.social.models_realm.pb_realm.RealmMessageView;
@@ -27,6 +28,10 @@ import ir.ms.pb.RPC_HANDLERS;
 public class Rpc_SyncResponseHandler extends RPC_HANDLERS.RPC_Sync_Empty{
 	@Override
 	public void GetDirectUpdates(PB_SyncResponse_GetDirectUpdates pb, boolean handled) {
+
+		HelperPushAndRefreshHandlerOfData.newChatViewList(pb.getChatsList());
+		HelperPushAndRefreshHandlerOfData.newMessageViewList(pb.getNewMessagesList());
+
 		AppUtil.log("pb: Rpc_SyncResponseHandler.GetDirectUpdates - new messages count: " + pb.getNewMessagesCount());
 		int c = AppRealm.getChatRealm().where(RealmMessageView.class).findAll().size();
 		AppUtil.log("pb:  Rpc_SyncResponseHandler.GetDirectUpdates - realm messages count: " + c + " chat count " + pb.getChatsCount());
@@ -41,36 +46,8 @@ public class Rpc_SyncResponseHandler extends RPC_HANDLERS.RPC_Sync_Empty{
 			trans.copyToRealmOrUpdate(users);
 		});*/
 
-		List<RealmMessageView> msgs = new ArrayList();
-		for (PB_MessageView pbMessageView : pb.getNewMessagesList()) {
-			RealmMessageView t = RealmMessageView.fromPB(pbMessageView);
-			if(pbMessageView.getMessageFileView() != null){
-				t.MessageFileView = RealmMessageFileView.fromPB(pbMessageView.getMessageFileView());
-			}
-			msgs.add(t);
-		}
 
-		AppRealm.getChatRealm().executeTransaction((trans) -> {
-			trans.copyToRealmOrUpdate(msgs);
-		});
-
-		List chats = new ArrayList();
-		for (PB_ChatView pb_chatView : pb.getChatsList()) {
-			RealmChatView realmChatView = RealmChatView.fromPB(pb_chatView);
-
-			if(pb_chatView.getUserView() != null){
-				AppUtil.log("pb: handling - realm users: " + pb_chatView.getUserView().getUserName());
-				realmChatView.UserView = RealmUserView.fromPB(pb_chatView.getUserView());
-			}
-			realmChatView.LastMessage = RealmMessageViewHelper.getLastMessageForChat(AppRealm.getChatRealm(),realmChatView.ChatKey);
-
-			chats.add(realmChatView);
-		}
-		AppRealm.getChatRealm().executeTransaction((trans) -> {
-			trans.copyToRealmOrUpdate(chats);
-		});
-
-		RealmChatViewHelper.insertOrUpdateNewChatsFromPipe(pb.getChatsList());
+//		RealmChatViewHelper.insertOrUpdateNewChatsFromPipe(pb.getChatsList());
 	}
 
 	@Override

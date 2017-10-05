@@ -24,11 +24,6 @@ final class PushHandlerNewMessages {
 
 	//first insert users > messages > chats
 	public static void handle(PB_PushHolderView push) {
-		AppUtil.log("push: handling - new messages count: " + push.getNewMessagesCount());
-		int c = AppRealm.getChatRealm().where(RealmMessageView.class).findAll().size();
-		AppUtil.log("push: handling - realm messages count: " + c + " chat count " + push.getChatsCount());
-
-
 		/*List<RealmUserView> users = new ArrayList();
 		for (PB_UserView m : push.getUsersList()) {
 			RealmUserView t = PBToRealm.from_userView(m);

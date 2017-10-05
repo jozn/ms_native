@@ -12,7 +12,7 @@ import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.models_old.tables.Message;
 import com.mardomsara.social.models_old.tables.MsgFile;
 import com.mardomsara.social.models_old.tables.User;
-import com.mardomsara.social.pipe_pb.PBConv;
+import com.mardomsara.social.del.pipe_pb.PBConv;
 
 import java.util.ArrayList;
 import java.util.HashMap;

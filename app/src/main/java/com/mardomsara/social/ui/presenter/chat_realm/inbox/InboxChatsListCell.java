@@ -32,9 +32,9 @@ public class InboxChatsListCell {
 		RealmResults<RealmChatView> realmResults = AppRealm.getChatRealm().where(RealmChatView.class).findAllSorted(RealmChatViewFields.UPDATED_MS, Sort.DESCENDING);
 
 //		adaptor = new InboxChatsListAdaptor(realmResults);
-		/*List<RealmChatView> chatViewList = new ArrayList<>();
+		/*List<RealmChatView> newChatViewList = new ArrayList<>();
 		for (RealmChatView r : realmResults){
-			chatViewList.add(r);
+			newChatViewList.add(r);
 		}*/
 
 		adaptor = new InboxChatsListAdaptor(realmResults, true);

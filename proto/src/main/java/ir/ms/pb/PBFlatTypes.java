@@ -1984,6 +1984,52 @@ public class PBFlatTypes {
 	t.HasMore = m.getHasMore() ;
 	*/
 
+	public class PB_MsgParam_GetFreshAllDirectMessagesList {
+	   public long LowMessageId;
+	   public long HighMessageId;
+	}
+	/*
+	folding
+	PBFlatTypes.PB_MsgParam_GetFreshAllDirectMessagesList t = new PBFlatTypes.PB_MsgParam_GetFreshAllDirectMessagesList();
+    t.setLowMessageId();
+    t.setHighMessageId();
+	*/
+
+	/*
+	PBFlatTypes.PB_MsgParam_GetFreshAllDirectMessagesList t = new PBFlatTypes.PB_MsgParam_GetFreshAllDirectMessagesList();
+	t.LowMessageId = ;
+	t.HighMessageId = ;
+	*/
+
+	/*
+	PB_MsgParam_GetFreshAllDirectMessagesList t = new PB_MsgParam_GetFreshAllDirectMessagesList();
+	t.LowMessageId = m.getLowMessageId() ;
+	t.HighMessageId = m.getHighMessageId() ;
+	*/
+
+	public class PB_MsgResponse_GetFreshAllDirectMessagesList {
+	   public PB_MessageView Messages;
+	   public boolean HasMore;
+	}
+	/*
+	folding
+	PBFlatTypes.PB_MsgResponse_GetFreshAllDirectMessagesList t = new PBFlatTypes.PB_MsgResponse_GetFreshAllDirectMessagesList();
+    t.setMessages();
+    t.setHasMore();
+	*/
+
+	/*
+	PBFlatTypes.PB_MsgResponse_GetFreshAllDirectMessagesList t = new PBFlatTypes.PB_MsgResponse_GetFreshAllDirectMessagesList();
+	t.Messages = ;
+	t.HasMore = ;
+	*/
+
+	/*
+	PB_MsgResponse_GetFreshAllDirectMessagesList t = new PB_MsgResponse_GetFreshAllDirectMessagesList();
+	t.Messages = m.getMessages() ;
+	t.HasMore = m.getHasMore() ;
+	*/
+
 	public class PB_MsgParam_Echo {
 	   public String Text;
 	}

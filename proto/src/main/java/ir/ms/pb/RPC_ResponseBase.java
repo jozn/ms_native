@@ -77,6 +77,9 @@ public class RPC_ResponseBase {/*
 		public void GetFreshRoomMessagesList( PB_MsgResponse_GetFreshRoomMessagesList pbOut){
 			Log.d("RPC:Response", "RPC_Msg_Base.RPC_Msg");
 		}
+		public void GetFreshAllDirectMessagesList( PB_MsgResponse_GetFreshAllDirectMessagesList pbOut){
+			Log.d("RPC:Response", "RPC_Msg_Base.RPC_Msg");
+		}
 		public void Echo( PB_MsgResponse_PB_MsgParam_Echo pbOut){
 			Log.d("RPC:Response", "RPC_Msg_Base.RPC_Msg");
 		}}

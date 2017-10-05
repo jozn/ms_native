@@ -1,10 +1,13 @@
 package com.mardomsara.social.app;
 
+import com.mardomsara.social.BuildConfig;
+
 /**
  * Created by Hamid on 5/9/2016.
  */
 public class Config {
     public static boolean IS_DEBUG =true;
+    public static boolean IS_DEBUG2 = BuildConfig.DEBUG;
 
 	public static int OFFLINE_RPC_FLUSH_TIMEOUT_MS = 7 * 24 * 36000 * 100;
 
