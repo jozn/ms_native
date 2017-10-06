@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.mardomsara.social.App;
 import com.mardomsara.social.app.Singletons;
 import com.mardomsara.social.lib.TinyDB;
@@ -76,6 +77,11 @@ public class AppUtil {
     public static String  toJson(Object obj){
       return gson.toJson(obj);
     }
+
+	public static String  toJsonPretty(Object obj){
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		return gson.toJson(obj);
+	}
 
     public static void log(String str){
         Log.d(Thread.currentThread().getName(),""+ str);

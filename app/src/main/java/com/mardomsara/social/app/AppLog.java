@@ -104,6 +104,11 @@ public class AppLog {
 			this.moudle = moudle;
 		}
 
+		public LogWriter line() {
+			writeToWs("v", "==================================================================================================================");
+			return this;
+		}
+
 		public void v(String logTxt) {
 			writeToWs("v", logTxt);
 		}
@@ -133,6 +138,8 @@ public class AppLog {
 				rowLog.Text = text;
 				rowLog.Time = AppUtil.getTime();
 				rowLog.Version = start.getTime()/1000;
+
+				rowLog.Text = rowLog.Text + "\n=========================================================================================================================================\n";
 
 				AndroidUtil.runInUiNoPanic(()->{
 					try {
