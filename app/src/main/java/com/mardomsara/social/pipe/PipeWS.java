@@ -152,7 +152,7 @@ class PipeWS {
     }
 
     void tryConnect() {
-        if(status == STATUS.CONNECTING || status == STATUS.OPEN ) return;//OPEN or CONNECTING return;
+//        if(status == STATUS.CONNECTING || status == STATUS.OPEN ) return;//OPEN or CONNECTING return;
 		wsConnectionListener = new WSConnectionListener(this);
         status = STATUS.CONNECTING;
         OkHttpClient client;// = new OkHttpClient.Builder();

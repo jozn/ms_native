@@ -61,12 +61,12 @@ public class HelperPushAndRefreshHandlerOfData {
 				AppUtil.log("pb: handling - realm users: " + pb_chatView.getUserView().getUserName());
 			}
 
-			realmChatView.LastMessage = RealmMessageViewHelper.getLastMessageForChat(AppRealm.getChatRealm(),realmChatView.ChatKey);
+			realmChatView.LastMessage = RealmMessageViewHelper.getLastMessageForChat(AppRealm.getChatRealm(),realmChatView.RoomKey);
 			realmChatView.UnseenCount = RealmMessageViewHelper.getUnseenCountForChat(AppRealm.getChatRealm(),realmChatView.ChatKey,realmChatView.LastSeenMessageId);
 
 			RealmChatView chatView2 = realmChatView;
 			realm.executeTransaction((r)->{
-				r.insertOrUpdate(chatView2);
+				r.copyToRealmOrUpdate(chatView2);
 			});
 
 

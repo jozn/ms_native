@@ -29,8 +29,8 @@ public class Rpc_SyncResponseHandler extends RPC_HANDLERS.RPC_Sync_Empty{
 	@Override
 	public void GetDirectUpdates(PB_SyncResponse_GetDirectUpdates pb, boolean handled) {
 
-		HelperPushAndRefreshHandlerOfData.newChatViewList(pb.getChatsList());
 		HelperPushAndRefreshHandlerOfData.newMessageViewList(pb.getNewMessagesList());
+		HelperPushAndRefreshHandlerOfData.newChatViewList(pb.getChatsList());
 
 		AppUtil.log("pb: Rpc_SyncResponseHandler.GetDirectUpdates - new messages count: " + pb.getNewMessagesCount());
 		int c = AppRealm.getChatRealm().where(RealmMessageView.class).findAll().size();

@@ -88,7 +88,7 @@ public class ChatRoomEntryPresenter extends BasePresenter implements
 
 
 			Realm realm = AppRealm.getChatRealm();
-			realmResults = realm.where(RealmMessageView.class).equalTo(RealmMessageViewFields.CHAT_KEY, room.ChatKey).findAllSorted(RealmMessageViewFields.MESSAGE_ID, Sort.DESCENDING);
+			realmResults = realm.where(RealmMessageView.class).equalTo(RealmMessageViewFields.ROOM_KEY, room.RoomKey).findAllSorted(RealmMessageViewFields.MESSAGE_ID, Sort.DESCENDING);
 
 			/*List<RealmMessageViewWrapper> newMessageViewList = new ArrayList<>();
 			for (RealmMessageView messageView: realmResults){
