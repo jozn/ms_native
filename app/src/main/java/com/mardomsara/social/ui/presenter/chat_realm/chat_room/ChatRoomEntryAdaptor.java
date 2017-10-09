@@ -75,8 +75,8 @@ public class ChatRoomEntryAdaptor extends BaseRealmRecyclerViewAdapter<RealmMess
 
 	@Override
 	protected void convert(MsgCell_AbstractViewHolder helper, RealmMessageView item) {
-		RealmMessageViewWrapper wrapper = new RealmMessageViewWrapper();
-		wrapper.messageView = item;
+		RealmMessageViewWrapper wrapper = new RealmMessageViewWrapper(item);
+//		wrapper.messageView = item;
 		helper.bindToView(wrapper);
 	}
 }

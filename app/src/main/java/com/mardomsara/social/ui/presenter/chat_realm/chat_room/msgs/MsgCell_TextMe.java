@@ -38,6 +38,11 @@ public class MsgCell_TextMe extends MsgCell_AbstractViewHolder {
         }else {
 			x.msg_text.restSizes();
         }
+
+        x.root.setOnClickListener((v)->{
+			wrapper.retryUploading();
+		});
+
         MsgCommon.msgDeliveryStatusText(msg,x.msg_delivery_status);
     }
 

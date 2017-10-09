@@ -2,13 +2,11 @@ package com.mardomsara.social.ui.presenter.chat_realm.chat_room;
 
 import android.content.Intent;
 import android.net.Uri;
-import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 
-import com.mardomsara.social.App;
 import com.mardomsara.social.Nav;
 import com.mardomsara.social.app.AppRealm;
 import com.mardomsara.social.helpers.AndroidUtil;
@@ -19,15 +17,10 @@ import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
 import com.mardomsara.social.models_old.tables.Message;
 import com.mardomsara.social.models_realm.RealmChatViewHelper;
 import com.mardomsara.social.models_realm.helpers.HelperMessageAdd;
+import com.mardomsara.social.models_realm.helpers.HelperMessagesLooper;
 import com.mardomsara.social.models_realm.pb_realm.RealmChatView;
 import com.mardomsara.social.models_realm.pb_realm.RealmMessageView;
 import com.mardomsara.social.models_realm.pb_realm.RealmMessageViewFields;
-import com.mardomsara.social.del.pipe_pb.from_net_calls.events.MsgReceivedToServerEvent;
-import com.mardomsara.social.del.pipe_pb.from_net_calls.json.MsgAddManyJson;
-import com.mardomsara.social.del.pipe_pb.from_net_calls.json.MsgAddOneJson;
-import com.mardomsara.social.del.pipe_pb.from_net_calls.json.MsgDeletedFromServerJson;
-import com.mardomsara.social.del.pipe_pb.from_net_calls.json.MsgReceivedToPeerJson;
-import com.mardomsara.social.del.pipe_pb.from_net_calls.json.MsgSeenByPeerJson;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.X;
 import com.mardomsara.social.ui.cells.chats.adaptors.ChatEntryAdaptor;
@@ -35,9 +28,6 @@ import com.mardomsara.social.ui.cells.general.KeyboardAttachmentCell;
 import com.mardomsara.social.ui.views.EmojiKeyboard;
 import com.squareup.picasso.Picasso;
 import com.sw926.imagefileselector.ImageFileSelector;
-
-import org.greenrobot.eventbus.Subscribe;
-import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.List;
 
@@ -78,14 +68,14 @@ public class ChatRoomEntryPresenter extends BasePresenter implements
 
 		AndroidUtil.runInUi(() -> {
 
+			HelperMessagesLooper.loopOnMainThread();
 
-			x.send_msg_btn.setOnClickListener((v) -> addNewMsg());
+			x.send_msg_btn.setOnClickListener((v) -> addNewTextMsg());
 
 			x.edit_field.setOnClickListener((v) -> {
 				AppUtil.log("Keyboard");
 			});
 			x.edit_field.requestFocus();
-
 
 			Realm realm = AppRealm.getChatRealm();
 			realmResults = realm.where(RealmMessageView.class).equalTo(RealmMessageViewFields.ROOM_KEY, room.RoomKey).findAllSorted(RealmMessageViewFields.MESSAGE_ID, Sort.DESCENDING);
@@ -134,7 +124,7 @@ public class ChatRoomEntryPresenter extends BasePresenter implements
 
 //        x.room_name.setText(room.getRoomName());
 			x.room_name.setText(RealmChatViewHelper.getRoomName(room));
-			App.getBus().register(this);
+//			App.getBus().register(this);
 
 			emojiKeyboard = new EmojiKeyboard(x.edit_field, x.emoji_opener_btn, AppUtil.global_window);
 
@@ -215,7 +205,7 @@ public class ChatRoomEntryPresenter extends BasePresenter implements
 		});
 	}
 
-	void addNewMsg() {
+	void addNewTextMsg() {
 
 		HelperMessageAdd.addNewTextMessage(room, x.edit_field.getText().toString());
 		x.edit_field.setText("");

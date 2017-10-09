@@ -25,11 +25,11 @@ public class AppLog {
 
 	static WebSocket webSocket;
 	static boolean connected = false;
-	static LogWriter wsLogger;
-	static LogWriter rpcLogger;
-	static LogWriter inboxLogger;
-	static LogWriter settingLogger;
-	static LogWriter homeLogger;
+	private static LogWriter wsLogger;
+	private static LogWriter rpcLogger;
+	private static LogWriter inboxLogger;
+	private static LogWriter settingLogger;
+	private static LogWriter homeLogger;
 	private static String wsUrl = "ws://192.168.1.250:5000/ws_log";
 
 	public static LogWriter getWsLogger() {
@@ -67,12 +67,12 @@ public class AppLog {
 		return homeLogger;
 	}
 
-	static LogWriter newLogger(String moudle) {
+	private static LogWriter newLogger(String moudle) {
 		tryConnect();
 		return new LogWriter(moudle);
 	}
 
-	static void tryConnect() {
+	private static void tryConnect() {
 		if (connected) return;
 		WSConnectionListener wsConnectionListener = new WSConnectionListener();
 		OkHttpClient client;// = new OkHttpClient.Builder();

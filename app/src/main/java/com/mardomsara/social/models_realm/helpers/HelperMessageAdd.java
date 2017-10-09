@@ -38,7 +38,8 @@ public final class HelperMessageAdd {
 		RealmMessageView r = new RealmMessageView();
 
 		r.MessageId = NanoTimestamp.getNano();//0
-		r.RoomKey = chatView.ChatKey;//1
+		r.MessageKey = HelperMessageUtil.getNewMessageKey();//0
+		r.RoomKey = chatView.RoomKey;//1
 		r.UserId = chatView.UserId;//2
 		r.MessageFileId = 0;//3
 		r.MessageTypeEnumId = RoomMessageTypeEnum.TEXT_VALUE;//4
@@ -119,6 +120,7 @@ public final class HelperMessageAdd {
 			Bitmap mBitmap = BitmapFactory.decodeFile(filePath);
 
 			r.MessageFileId = NanoTimestamp.getNano();//0
+			r.MessageFileKey = HelperMessageUtil.getNewMessageKey();
 			r.Name = file.getName();//1
 			r.Size = (int) file.length();//2
 			r.FileTypeEnumId = RoomMessageTypeEnum.IMAGE_VALUE ;//3
@@ -189,7 +191,8 @@ public final class HelperMessageAdd {
 		RealmMessageView r = new RealmMessageView();
 
 		r.MessageId = NanoTimestamp.getNano();//0
-		r.RoomKey = chatView.ChatKey;//1
+		r.MessageKey = HelperMessageUtil.getNewMessageKey();
+		r.RoomKey = chatView.RoomKey;//1
 		r.UserId = chatView.UserId;//2
 		r.MessageFileId = 0;//3
 		r.MessageTypeEnumId = RoomMessageTypeEnum.TEXT_VALUE;//4

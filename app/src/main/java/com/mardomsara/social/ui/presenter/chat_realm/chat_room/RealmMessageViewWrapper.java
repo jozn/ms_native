@@ -13,6 +13,11 @@ import com.mardomsara.social.models_realm.helpers.HelperMessageFile;
 import com.mardomsara.social.models_realm.pb_realm.RealmMessageFileView;
 import com.mardomsara.social.models_realm.pb_realm.RealmMessageView;
 
+import ir.ms.pb.PB_MsgParam_AddNewMessage;
+import ir.ms.pb.PB_MsgParam_AddNewTextMessage;
+import ir.ms.pb.RPC;
+import ir.ms.pb.RoomMessageTypeEnum;
+
 /**
  * Created by Hamid on 9/10/2017.
  */
@@ -20,9 +25,18 @@ import com.mardomsara.social.models_realm.pb_realm.RealmMessageView;
 public class RealmMessageViewWrapper implements MultiItemEntity, UploadProgressListener, DownloadProgressListener {
 	@NonNull
 	public RealmMessageView messageView;
+	public Long MessageBankKey;
 	public MessageProgressListener messageProgressListener;
 	public transient Req req;
 	private boolean isNetWorkTransferring = false;
+
+	private RealmMessageViewWrapper() {
+	}
+
+	public RealmMessageViewWrapper(@NonNull RealmMessageView messageView) {
+		this.messageView = messageView;
+		MessageBankKey = Long.valueOf(messageView.MessageId);
+	}
 
 	@Override
 	public int getItemType() {
@@ -79,6 +93,18 @@ public class RealmMessageViewWrapper implements MultiItemEntity, UploadProgressL
 			MsgsCallToServer.sendNewPhoto(this, file, null, false);*/
 //			}
 		});
+
+		switch (RoomMessageTypeEnum.forNumber(messageView.MessageTypeEnumId)){
+			case TEXT:
+			case EMOJI:
+				PB_MsgParam_AddNewTextMessage param = PB_MsgParam_AddNewTextMessage.newBuilder()
+					.setMessageKey(messageView.MessageKey)
+//					.setRoomMessageType(RoomMessageTypeEnum.forNumber(messageView.RoomTypeEnumId))
+					.setText(messageView.Text)
+					.setPeerId(25).build();
+				RPC.RPC_Msg.AddNewTextMessage(param,null,null);
+				break;
+		}
 	}
 
 	public void retryDownloading() {
