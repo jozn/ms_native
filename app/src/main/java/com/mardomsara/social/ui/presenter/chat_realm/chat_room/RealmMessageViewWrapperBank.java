@@ -1,9 +1,12 @@
 package com.mardomsara.social.ui.presenter.chat_realm.chat_room;
 
+import android.support.annotation.Nullable;
+
 import com.mardomsara.social.app.AppRealm;
 import com.mardomsara.social.models_realm.RealmMessageViewHelper;
 import com.mardomsara.social.models_realm.pb_realm.RealmMessageView;
 
+import java.util.List;
 import java.util.WeakHashMap;
 
 /**
@@ -31,7 +34,21 @@ public class RealmMessageViewWrapperBank {
 		map.put(messageViewWrapper.MessageBankKey, messageViewWrapper);
 	}
 
-//////////////////////////////////
+	public void register(List<RealmMessageView> messageViews) {
+		for (RealmMessageView msg : messageViews) {
+			RealmMessageViewWrapper wrapper = map.get(msg.MessageId);
+			if (wrapper == null) {
+				wrapper = new RealmMessageViewWrapper(msg);
+				register(wrapper);
+			}
+		}
+	}
+
+	@Nullable
+	public RealmMessageViewWrapper get(Long MessageId) {
+		RealmMessageViewWrapper msg = map.get(MessageId);
+		return msg;
+	}
 
 	public RealmMessageViewWrapper getOrLoad(Long MessageId) {
 		RealmMessageViewWrapper msg = map.get(MessageId);

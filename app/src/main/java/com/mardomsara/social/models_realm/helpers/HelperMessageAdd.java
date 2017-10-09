@@ -64,6 +64,8 @@ public final class HelperMessageAdd {
 		realm.commitTransaction();
 		Helper.showDebugMessage("lastMsg: " + lastMsg.Text);
 
+		HelperMessagesSinker.sinkAll();
+
 		RealmChatView chatView2 = RealmChatViewHelper.getChatByChatKey(AppRealm.getChatRealm(), chatKey);
 		if (chatView2 != null) {
 			AppRealm.getChatRealm().executeTransaction((re) -> {
@@ -71,6 +73,7 @@ public final class HelperMessageAdd {
 				chatView2.LastMessage = lastMsg;
 			});
 		}
+
 	}
 
 	public static void addSingleImageMessage(@NonNull RealmChatView chatView, @NonNull String text, String path, final boolean deleteOriginal) {
@@ -109,6 +112,8 @@ public final class HelperMessageAdd {
 
 			saveNewMessageWithChatViewUpdate_Here(chatView.ChatKey, messageView);
 		}
+
+		HelperMessagesSinker.sinkAll();
 	}
 
 	private static RealmMessageFileView getNewRealmMessageFileView(RealmMessageView msg, String filePath) {
