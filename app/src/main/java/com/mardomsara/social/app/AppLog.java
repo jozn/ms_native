@@ -5,7 +5,11 @@ import android.util.Log;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+import java.nio.charset.StandardCharsets;
 import java.util.Date;
+import java.lang.*;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
@@ -30,6 +34,8 @@ public class AppLog {
 	private static LogWriter inboxLogger;
 	private static LogWriter settingLogger;
 	private static LogWriter homeLogger;
+	private static LogWriter pushLogger;
+	private static LogWriter execptionsLogger;
 	private static String wsUrl = "ws://192.168.1.250:5000/ws_log";
 
 	public static LogWriter getWsLogger() {
@@ -65,6 +71,20 @@ public class AppLog {
 			homeLogger = newLogger("home");
 		}
 		return homeLogger;
+	}
+
+	public static LogWriter getPushLogger() {
+		if (pushLogger == null) {
+			pushLogger = newLogger("home");
+		}
+		return pushLogger;
+	}
+
+	public static LogWriter getExecptionsLogger() {
+		if (execptionsLogger == null) {
+			execptionsLogger = newLogger("execptions");
+		}
+		return execptionsLogger;
 	}
 
 	private static LogWriter newLogger(String moudle) {
@@ -106,6 +126,22 @@ public class AppLog {
 
 		public LogWriter line() {
 			writeToWs("v", "==================================================================================================================");
+			return this;
+		}
+
+		public LogWriter e(Exception e) {
+			try {
+				ByteArrayOutputStream baos = new ByteArrayOutputStream();
+				PrintStream ps = new PrintStream(baos, true, "utf-8");
+				e.printStackTrace(ps);
+//				String content = new String(baos.toByteArray(), StandardCharsets.UTF_8);
+				writeToWs("e", baos.toString(StandardCharsets.UTF_8.name()));
+				ps.close();
+				e.printStackTrace();
+			}catch (Exception e2){
+				e2.printStackTrace();
+			}
+
 			return this;
 		}
 

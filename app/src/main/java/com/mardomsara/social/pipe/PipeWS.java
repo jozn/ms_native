@@ -3,7 +3,9 @@ package com.mardomsara.social.pipe;
 import android.util.Log;
 
 import com.mardomsara.social.app.AppFiles;
+import com.mardomsara.social.app.AppLog;
 import com.mardomsara.social.app.AppSyncCycle;
+import com.mardomsara.social.app.Config;
 import com.mardomsara.social.app.Constants;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.models_old.tables.Session;
@@ -54,6 +56,7 @@ class PipeWS {
     private PipeWS() {
         instance = this;
         Log.i(LOGTAG, "WSService onCreate");
+		AppLog.getWsLogger().d("*********** new PipeWS() ****************");
 		AndroidUtil.runInBackgroundNoPanic(()->{
 			runSenderThread();
 			connectToServer();
@@ -65,7 +68,8 @@ class PipeWS {
         Runnable r = ()->{
             int t = 5;
             while (true){
-                try {
+				AppLog.getWsLogger().d("*********** WS.connectionChecker() **************** STATUS: "+ status.toString());
+				try {
                     if(status == STATUS.CLOSED){
                         Thread.sleep(t * 1000);
                         connectToServer();
@@ -153,6 +157,7 @@ class PipeWS {
 
     void tryConnect() {
 //        if(status == STATUS.CONNECTING || status == STATUS.OPEN ) return;//OPEN or CONNECTING return;
+		AppLog.getWsLogger().d("*********** WS tryConnect **************** STATUS: "+ status.toString());
 		wsConnectionListener = new WSConnectionListener(this);
         status = STATUS.CONNECTING;
         OkHttpClient client;// = new OkHttpClient.Builder();
@@ -165,6 +170,7 @@ class PipeWS {
                 .url(wsUrl)
                 .build();
 		client.newWebSocket(request,wsConnectionListener);
+
 //        WebSocketCall.create(client, request).enqueue(wsConnectionListener);
     }
 
@@ -181,6 +187,9 @@ class PipeWS {
 						if(call == null) continue;
 //						body = JsonUtil.toJson(call);
                         Log.i(LOGTAG, "sending PB_CommandToServer from WSchanel" + call.toString());
+                        if(Config.IS_DEBUG){
+							AppLog.getWsLogger().d("Sending PB_CommandToServer from WS Channel "+ call.toString());
+						}
 //                        req = RequestBody.create(TEXT, body);
 						byte[] data = call.toByteArray();
 //						Log.i("MSG_add: ", Base64.encodeBytes(data) );
@@ -225,7 +234,10 @@ class PipeWS {
     /////////////////////// Websocket Connection callbacks ////////////////////////////////////
     void onOpen(WebSocket webSocket, Response response) {
         Log.i(LOGTAG, "onOpen: Response:" + response.message());
-        this.webSocket = webSocket;
+
+		AppLog.getWsLogger().d("*********** WS onOpen **************** response: "+ response.toString());
+
+		this.webSocket = webSocket;
         status = STATUS.OPEN;
         isReconnectingRunning = false;
         delayReconnect = 5;
@@ -239,7 +251,10 @@ class PipeWS {
 
     void onFailure(Throwable e, Response response) {
         Log.i(LOGTAG, "onFailure: IOException - Response:" + e.toString() );
-        status = STATUS.CLOSED;
+
+		AppLog.getWsLogger().d("*********** WS onFailure ****************");
+
+		status = STATUS.CLOSED;
         prepareForReqonecting();
 		AppSyncCycle.onWsFailure();
     }
@@ -261,10 +276,12 @@ class PipeWS {
 
     void onPong(Buffer payload) {
         Log.i(LOGTAG, "onPong: payload:" + payload);
-    }
+		AppLog.getWsLogger().d("*********** WS onPong ****************");
+	}
 
     void onClose(int code, String reason) {
         logIt("onClose: code - reason: :" + code + " " + reason);
+		AppLog.getWsLogger().d("*********** WS onClose **************** reason: "+ reason + " code: "+code);
         status = STATUS.CLOSED;
         prepareForReqonecting();
 

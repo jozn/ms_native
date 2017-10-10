@@ -2,6 +2,7 @@ package com.mardomsara.social.del.pipe_pb;
 
 import android.util.Log;
 
+import com.mardomsara.social.app.AppLog;
 import com.mardomsara.social.app.Constants;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.del.pipe_pb.from_net_calls.del.NotifyCallsFromServer_DEP;
@@ -77,6 +78,8 @@ public class PipeReceivedCallRouter {
 			try {
 				ir.ms.pb.PB_CommandToClient pbCommandToClient = ir.ms.pb.PB_CommandToClient.parseFrom(body.toByteArray());
 				Log.i("WS: " ,"onMessage: message Command :" + pbCommandToClient.getCommand() + " " + pbCommandToClient.getServerCallId() + " size: " + pbCommandToClient.getData().size());
+
+				AppLog.getWsLogger().d("Pushed from server to WS :" + pbCommandToClient.getCommand() + " CallId: " + pbCommandToClient.getServerCallId());
 
 				if (pbCommandToClient.getCommand().equals(Constants.PB_CommandReachedToServer)) {
 					Long clientCallId =  PB_CommandReachedToServer.parseFrom(pbCommandToClient.getData()).getClientCallId();

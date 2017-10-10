@@ -2,6 +2,8 @@ package com.mardomsara.social.pipe;
 
 import android.util.Log;
 
+import com.mardomsara.social.app.AppLog;
+import com.mardomsara.social.app.Config;
 import com.mardomsara.social.app.DB;
 import com.mardomsara.social.helpers.AppUtil;
 
@@ -27,6 +29,10 @@ final class RouterForDataReceived {
 	private static void handlePushes(String command, byte[] data){
 		buildMapper();
 		try {
+			/*if(Config.IS_DEBUG){
+				AppLog.getWsLogger().d("=====> WS handlePushes" +clientCallId + " Status: "+status.toString());
+			}*/
+
 			PipeNetEventHandler handler =  mapper.get(command);
 			if(handler != null){
 				AppUtil.log(" ws NetEventRouter handled "+ command +" , size of map: " + mapper.size());
@@ -39,6 +45,9 @@ final class RouterForDataReceived {
 			}
 		}catch (Exception e){
 			AppUtil.error(" ws NetEventRouter crached for "+ command +" . mapper size: " + mapper.size());
+			if(Config.IS_DEBUG){
+				AppLog.getWsLogger().d("=====> WS crash in handlePushes: " + e.getMessage());
+			}
 			e.printStackTrace();
 		}
 	}
@@ -64,6 +73,8 @@ final class RouterForDataReceived {
 			try {
 				ir.ms.pb.PB_CommandToClient pbCommandToClient = ir.ms.pb.PB_CommandToClient.parseFrom(body.toByteArray());
 				Log.i("WS: " ,"onMessage: message Command :" + pbCommandToClient.getCommand() + " " + pbCommandToClient.getServerCallId() + " size: " + pbCommandToClient.getData().size());
+
+				AppLog.getWsLogger().d("Pushed from server to WS :" + pbCommandToClient.getCommand() + " CallId: " + pbCommandToClient.getServerCallId());
 
 				/*if (pbCommandToClient.getCommand().equals(Constants.PB_CommandReachedToServer)) {
 					Long clientCallId =  PB_CommandReachedToServer.parseFrom(pbCommandToClient.getData()).getClientCallId();

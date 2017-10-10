@@ -3,6 +3,8 @@ package com.mardomsara.social.pipe;
 import android.util.Log;
 
 import com.google.protobuf.ByteString;
+import com.mardomsara.social.app.AppLog;
+import com.mardomsara.social.app.Config;
 import com.mardomsara.social.app.DB;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
@@ -22,6 +24,9 @@ class RouterLayerOneHandler {
 	@Deprecated//we don't use reachToServer anymore just use response to client
 	static PipeNetEventHandler handle_PB_CommandReachedToServer = (data) -> {
 		Long clientCallId = PB_CommandReachedToServer.parseFrom(data).getClientCallId();
+		if(Config.IS_DEBUG){
+			AppLog.getPushLogger().d("- RouterLayerOneHandler.handle_PB_CommandReachedToServer() -ClientCallId: "+ clientCallId);
+		}
 		Pipe.tryReachedServer(clientCallId);
 		return;
 	};
@@ -40,15 +45,21 @@ class RouterLayerOneHandler {
 						handeledRpceByMe = true;
 					}
 				}catch (Exception e){
-					e.printStackTrace();
+//					e.printStackTrace();
+					AppLog.getExecptionsLogger().e(e);
 				}
 
 				Pipe.CommandFrameMap.remove(pb_responseToClient.getClientCallId());
 			} else {
-				AppUtil.error("ws pipe error in handling handle_PB_ResponseToClient for " + pb_responseToClient.getPBClass() + " " + pb_responseToClient.getClientCallId());
+				AppUtil.error("response  " + pb_responseToClient.getPBClass() + " " + pb_responseToClient.getClientCallId());
+			}
+
+			if(Config.IS_DEBUG){
+				AppLog.getPushLogger().d("--> Response To client Rpc: handeled: "+ handeledRpceByMe + " Data: "+ AppUtil.toJsonPretty(parsedResultOfRpcResponse));
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+//			e.printStackTrace();
+			AppLog.getExecptionsLogger().e(e);
 		}
 
 		AndroidUtil.runInBackgroundNoPanic(() -> {
@@ -65,7 +76,9 @@ class RouterLayerOneHandler {
 						x.handle(parseData,handeledRpceByMe);
 					}catch (Exception e){
 						Log.e("Rpc", "Error in reflection in RPC_Router for rpc: " +pb_responseToClient.getRpcFullName() );
-						e.printStackTrace();
+						AppLog.getPushLogger().e("Error in reflection in RPC_Router for rpc: " +pb_responseToClient.getRpcFullName() );
+//						e.printStackTrace();
+						AppLog.getExecptionsLogger().e(e);
 					}
 					//x.handle(parsedResultOfRpcResponse,handeledRpceByMe);
 				}else {
@@ -73,9 +86,11 @@ class RouterLayerOneHandler {
 				}
 			}else {
 				AppUtil.log("Rpc: no default handler for RPC responses :" + pb_responseToClient.getPBClass());
+				AppLog.getPushLogger().e("Rpc: no default handler for RPC responses :" + pb_responseToClient.getPBClass());
 			}
 		}catch (Exception e){
-			e.printStackTrace();
+			AppLog.getExecptionsLogger().e(e);
+//			e.printStackTrace();
 		}
 
 	};

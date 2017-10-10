@@ -4,6 +4,8 @@ import android.support.annotation.Nullable;
 
 import com.google.protobuf.AbstractMessageLite;
 import com.google.protobuf.ByteString;
+import com.mardomsara.social.app.AppLog;
+import com.mardomsara.social.app.Config;
 import com.mardomsara.social.app.DB;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.LangUtil;
@@ -42,6 +44,11 @@ public class Pipe {
 			.setData(com.google.protobuf.ByteString.copyFrom(dataMessage.toByteArray()))
 			.build();
 
+		if(Config.IS_DEBUG){
+			AppLog.getWsLogger().d("=> Pipe.send("+ rpcName + "dataMessage: "+ dataMessage.toString() + " pb_commandToServer: "+pb_commandToServer.toString());
+//			AppLog.getWsLogger().d("==> WS Pipe.send("+ rpcName + "dataMessage: "+ dataMessage.toString() + " pb_commandToServer: "+pb_commandToServer.toString());
+		}
+
 		if (PipeWS.getInstance().isOpen()) {
 			CommandFrame callRespondCallback = new CommandFrame(successCallback, errorCallback, callId);
 			callRespondCallback.setDelayer();
@@ -67,6 +74,10 @@ public class Pipe {
 			.setClientCallId(callId)
 			.setData(com.google.protobuf.ByteString.copyFrom(dataMessage.toByteArray()))
 			.build();
+
+		if(Config.IS_DEBUG){
+			AppLog.getWsLogger().d("=> Pipe.sendOffline("+ rpcName + "dataMessage: "+ dataMessage.toString() + " pb_commandToServer: "+pb_commandToServer.toString());
+		}
 
 		AndroidUtil.runInBackgroundNoPanic(()->{
 			try {

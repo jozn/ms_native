@@ -3,6 +3,7 @@ package com.mardomsara.social.pipe;
 import android.os.Handler;
 import android.os.Looper;
 
+import com.mardomsara.social.app.AppLog;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.TimeUtil;
 
@@ -30,6 +31,9 @@ class CommandFrame {
 			@Override
 			public void run() {
 				Helper.showDebugMessage("getHandler().postDelayed(()->{}");
+
+				AppLog.getWsLogger().d("===> Pipes CommandFrame Delayer:  clientCallId: " +clientCallId + " Status: "+status.toString());
+
 				if(status == Status.NOTHING){
 					if(error != null){
 						error.onError(null);
