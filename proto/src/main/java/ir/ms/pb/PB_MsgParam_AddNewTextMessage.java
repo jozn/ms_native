@@ -18,6 +18,7 @@ public  final class PB_MsgParam_AddNewTextMessage extends
   private PB_MsgParam_AddNewTextMessage() {
     text_ = "";
     messageKey_ = "";
+    toChatRoom_ = "";
   }
   public static final int TEXT_FIELD_NUMBER = 1;
   private java.lang.String text_;
@@ -111,23 +112,81 @@ public  final class PB_MsgParam_AddNewTextMessage extends
     messageKey_ = value.toStringUtf8();
   }
 
-  public static final int PEERID_FIELD_NUMBER = 5;
+  public static final int TOCHATROOM_FIELD_NUMBER = 5;
+  private java.lang.String toChatRoom_;
+  /**
+   * <code>string ToChatRoom = 5;</code>
+   */
+  public java.lang.String getToChatRoom() {
+    return toChatRoom_;
+  }
+  /**
+   * <code>string ToChatRoom = 5;</code>
+   */
+  public com.google.protobuf.ByteString
+      getToChatRoomBytes() {
+    return com.google.protobuf.ByteString.copyFromUtf8(toChatRoom_);
+  }
+  /**
+   * <code>string ToChatRoom = 5;</code>
+   */
+  private void setToChatRoom(
+      java.lang.String value) {
+    if (value == null) {
+    throw new NullPointerException();
+  }
+  
+    toChatRoom_ = value;
+  }
+  /**
+   * <code>string ToChatRoom = 5;</code>
+   */
+  private void clearToChatRoom() {
+    
+    toChatRoom_ = getDefaultInstance().getToChatRoom();
+  }
+  /**
+   * <code>string ToChatRoom = 5;</code>
+   */
+  private void setToChatRoomBytes(
+      com.google.protobuf.ByteString value) {
+    if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+    
+    toChatRoom_ = value.toStringUtf8();
+  }
+
+  public static final int PEERID_FIELD_NUMBER = 15;
   private int peerId_;
   /**
-   * <code>int32 PeerId = 5;</code>
+   * <pre>
+   *dep -remove
+   * </pre>
+   *
+   * <code>int32 PeerId = 15;</code>
    */
   public int getPeerId() {
     return peerId_;
   }
   /**
-   * <code>int32 PeerId = 5;</code>
+   * <pre>
+   *dep -remove
+   * </pre>
+   *
+   * <code>int32 PeerId = 15;</code>
    */
   private void setPeerId(int value) {
     
     peerId_ = value;
   }
   /**
-   * <code>int32 PeerId = 5;</code>
+   * <pre>
+   *dep -remove
+   * </pre>
+   *
+   * <code>int32 PeerId = 15;</code>
    */
   private void clearPeerId() {
     
@@ -240,8 +299,8 @@ public  final class PB_MsgParam_AddNewTextMessage extends
     if (!messageKey_.isEmpty()) {
       output.writeString(2, getMessageKey());
     }
-    if (peerId_ != 0) {
-      output.writeInt32(5, peerId_);
+    if (!toChatRoom_.isEmpty()) {
+      output.writeString(5, getToChatRoom());
     }
     if (time_ != 0) {
       output.writeInt32(6, time_);
@@ -251,6 +310,9 @@ public  final class PB_MsgParam_AddNewTextMessage extends
     }
     if (forward_ != null) {
       output.writeMessage(14, getForward());
+    }
+    if (peerId_ != 0) {
+      output.writeInt32(15, peerId_);
     }
   }
 
@@ -267,9 +329,9 @@ public  final class PB_MsgParam_AddNewTextMessage extends
       size += com.google.protobuf.CodedOutputStream
         .computeStringSize(2, getMessageKey());
     }
-    if (peerId_ != 0) {
+    if (!toChatRoom_.isEmpty()) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(5, peerId_);
+        .computeStringSize(5, getToChatRoom());
     }
     if (time_ != 0) {
       size += com.google.protobuf.CodedOutputStream
@@ -282,6 +344,10 @@ public  final class PB_MsgParam_AddNewTextMessage extends
     if (forward_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(14, getForward());
+    }
+    if (peerId_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(15, peerId_);
     }
     memoizedSerializedSize = size;
     return size;
@@ -454,13 +520,61 @@ public  final class PB_MsgParam_AddNewTextMessage extends
     }
 
     /**
-     * <code>int32 PeerId = 5;</code>
+     * <code>string ToChatRoom = 5;</code>
+     */
+    public java.lang.String getToChatRoom() {
+      return instance.getToChatRoom();
+    }
+    /**
+     * <code>string ToChatRoom = 5;</code>
+     */
+    public com.google.protobuf.ByteString
+        getToChatRoomBytes() {
+      return instance.getToChatRoomBytes();
+    }
+    /**
+     * <code>string ToChatRoom = 5;</code>
+     */
+    public Builder setToChatRoom(
+        java.lang.String value) {
+      copyOnWrite();
+      instance.setToChatRoom(value);
+      return this;
+    }
+    /**
+     * <code>string ToChatRoom = 5;</code>
+     */
+    public Builder clearToChatRoom() {
+      copyOnWrite();
+      instance.clearToChatRoom();
+      return this;
+    }
+    /**
+     * <code>string ToChatRoom = 5;</code>
+     */
+    public Builder setToChatRoomBytes(
+        com.google.protobuf.ByteString value) {
+      copyOnWrite();
+      instance.setToChatRoomBytes(value);
+      return this;
+    }
+
+    /**
+     * <pre>
+     *dep -remove
+     * </pre>
+     *
+     * <code>int32 PeerId = 15;</code>
      */
     public int getPeerId() {
       return instance.getPeerId();
     }
     /**
-     * <code>int32 PeerId = 5;</code>
+     * <pre>
+     *dep -remove
+     * </pre>
+     *
+     * <code>int32 PeerId = 15;</code>
      */
     public Builder setPeerId(int value) {
       copyOnWrite();
@@ -468,7 +582,11 @@ public  final class PB_MsgParam_AddNewTextMessage extends
       return this;
     }
     /**
-     * <code>int32 PeerId = 5;</code>
+     * <pre>
+     *dep -remove
+     * </pre>
+     *
+     * <code>int32 PeerId = 15;</code>
      */
     public Builder clearPeerId() {
       copyOnWrite();
@@ -592,6 +710,8 @@ public  final class PB_MsgParam_AddNewTextMessage extends
             !other.text_.isEmpty(), other.text_);
         messageKey_ = visitor.visitString(!messageKey_.isEmpty(), messageKey_,
             !other.messageKey_.isEmpty(), other.messageKey_);
+        toChatRoom_ = visitor.visitString(!toChatRoom_.isEmpty(), toChatRoom_,
+            !other.toChatRoom_.isEmpty(), other.toChatRoom_);
         peerId_ = visitor.visitInt(peerId_ != 0, peerId_,
             other.peerId_ != 0, other.peerId_);
         time_ = visitor.visitInt(time_ != 0, time_,
@@ -635,9 +755,10 @@ public  final class PB_MsgParam_AddNewTextMessage extends
                 messageKey_ = s;
                 break;
               }
-              case 40: {
+              case 42: {
+                String s = input.readStringRequireUtf8();
 
-                peerId_ = input.readInt32();
+                toChatRoom_ = s;
                 break;
               }
               case 48: {
@@ -661,6 +782,11 @@ public  final class PB_MsgParam_AddNewTextMessage extends
                   forward_ = subBuilder.buildPartial();
                 }
 
+                break;
+              }
+              case 120: {
+
+                peerId_ = input.readInt32();
                 break;
               }
             }

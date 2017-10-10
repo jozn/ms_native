@@ -28,7 +28,21 @@ public interface PB_MsgParam_AddNewMessageOrBuilder extends
       getMessageKeyBytes();
 
   /**
-   * <code>int32 PeerId = 5;</code>
+   * <code>string ToChatRoom = 5;</code>
+   */
+  java.lang.String getToChatRoom();
+  /**
+   * <code>string ToChatRoom = 5;</code>
+   */
+  com.google.protobuf.ByteString
+      getToChatRoomBytes();
+
+  /**
+   * <pre>
+   *dep -remove
+   * </pre>
+   *
+   * <code>int32 PeerId = 165;</code>
    */
   int getPeerId();
 

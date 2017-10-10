@@ -9,12 +9,16 @@ import com.mardomsara.social.app.DB;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.pipe.push_handling.PushRouter;
+import com.mardomsara.social.rpc.Rpc_SyncResponseHandler;
 
+import ir.ms.pb.PB_AllLivePushes;
 import ir.ms.pb.PB_CommandReachedToServer;
 import ir.ms.pb.PB_PushHolderView;
 import ir.ms.pb.PB_ResponseToClient;
 import ir.ms.pb.RPC_HANDLERS;
 import ir.ms.pb.RpcNameToResponseMapper;
+
+import static ir.ms.pb.RPC_HANDLERS.RPC_Msg_Default_Handler;
 
 /**
  * Created by Hamid on 8/21/2017.
@@ -93,6 +97,13 @@ class RouterLayerOneHandler {
 //			e.printStackTrace();
 		}
 
+	};
+
+	@SuppressWarnings("")
+	static PipeNetEventHandler handle_PB_AllLivePushes = (data) -> {
+		PB_AllLivePushes pb_allLivePushes = PB_AllLivePushes.parseFrom(data);
+		RPC_HANDLERS.RPC_Sync_Default_Handler.GetDirectUpdates(pb_allLivePushes.getDirectUpdates(),false);
+		RPC_HANDLERS.RPC_Sync_Default_Handler.GetGeneralUpdates(pb_allLivePushes.getGeneralUpdates(),false);
 	};
 
 	static PipeNetEventHandler handle_PB_PushDirectLogViewsMany = (data) -> {
