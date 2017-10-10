@@ -45,9 +45,9 @@ public class AppLog {
 		return wsLogger;
 	}
 
-	public static LogWriter getRpcLogger() {
+	public static LogWriter getRpcMsgLogger() {
 		if (rpcLogger == null) {
-			rpcLogger = newLogger("rpc");
+			rpcLogger = newLogger("msg-rpc");
 		}
 		return rpcLogger;
 	}

@@ -66,17 +66,19 @@ class PipeWS {
 
     void connectionChecker(){
         Runnable r = ()->{
-            int t = 5;
+            int t = 1;
             while (true){
 				AppLog.getWsLogger().d("*********** WS.connectionChecker() **************** STATUS: "+ status.toString());
 				try {
-                    if(status == STATUS.CLOSED){
-                        Thread.sleep(t * 1000);
+                    if(status == STATUS.CLOSED || webSocket == null){
                         connectToServer();
-                        t += t;
+                        if(t < 5*60){//5mins
+							t += t;
+						}
                     }else {
                         t = 5;
                     }
+					Thread.sleep(t * 1000);
                 }catch (Exception e){
 
                 }finally {

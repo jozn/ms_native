@@ -3,21 +3,10 @@ package com.mardomsara.social.rpc;
 import com.mardomsara.social.app.AppLog;
 import com.mardomsara.social.app.AppRealm;
 import com.mardomsara.social.app.Config;
-import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
-import com.mardomsara.social.models_realm.RealmChatViewHelper;
-import com.mardomsara.social.models_realm.RealmMessageViewHelper;
 import com.mardomsara.social.models_realm.helpers.HelperPushAndRefreshHandlerOfData;
-import com.mardomsara.social.models_realm.pb_realm.RealmChatView;
-import com.mardomsara.social.models_realm.pb_realm.RealmMessageFileView;
 import com.mardomsara.social.models_realm.pb_realm.RealmMessageView;
-import com.mardomsara.social.models_realm.pb_realm.RealmUserView;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import ir.ms.pb.PB_ChatView;
-import ir.ms.pb.PB_MessageView;
 import ir.ms.pb.PB_SyncResponse_GetDirectUpdates;
 import ir.ms.pb.PB_SyncResponse_GetGeneralUpdates;
 import ir.ms.pb.PB_SyncResponse_GetNotifyUpdates;
@@ -32,7 +21,7 @@ public class Rpc_SyncResponseHandler extends RPC_HANDLERS.RPC_Sync_Empty{
 	@Override
 	public void GetDirectUpdates(PB_SyncResponse_GetDirectUpdates pb, boolean handled) {
 		if(Config.IS_DEBUG){
-			AppLog.getRpcLogger().d("GetDirectUpdates: " + AppUtil.toJsonPretty(pb));
+			AppLog.getRpcMsgLogger().d("GetDirectUpdates: " + AppUtil.toJsonPretty(pb));
 		}
 
 		HelperPushAndRefreshHandlerOfData.newMessageViewList(pb.getNewMessagesList());
@@ -59,7 +48,7 @@ public class Rpc_SyncResponseHandler extends RPC_HANDLERS.RPC_Sync_Empty{
 	@Override
 	public void GetGeneralUpdates(PB_SyncResponse_GetGeneralUpdates pb, boolean handled) {
 		if(Config.IS_DEBUG){
-			AppLog.getRpcLogger().d("GetGeneralUpdates: " + AppUtil.toJsonPretty(pb));
+			AppLog.getRpcMsgLogger().d("GetGeneralUpdates: " + AppUtil.toJsonPretty(pb));
 		}
 	}
 
