@@ -2,6 +2,7 @@ package com.mardomsara.social.app;
 
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.TimeUtil;
+import com.mardomsara.social.models_realm.helpers.HelperMessagesSinker;
 import com.mardomsara.social.pipe.Pipe;
 import com.mardomsara.social.pipe.table.RpcOffline;
 
@@ -27,6 +28,8 @@ public class AppSyncCycle {
 
 		RPC.RPC_Sync.GetDirectUpdates(PB_SyncParam_GetDirectUpdates.newBuilder().build(), null, null);
 		RPC.RPC_Sync.GetGeneralUpdates(PB_SyncParam_GetGeneralUpdates.newBuilder().build(), null, null);
+
+		HelperMessagesSinker.sinkAll();
 
 	}
 

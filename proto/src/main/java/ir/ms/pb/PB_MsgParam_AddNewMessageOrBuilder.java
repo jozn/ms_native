@@ -28,14 +28,14 @@ public interface PB_MsgParam_AddNewMessageOrBuilder extends
       getMessageKeyBytes();
 
   /**
-   * <code>string ToChatRoom = 5;</code>
+   * <code>string ToRoomKey = 5;</code>
    */
-  java.lang.String getToChatRoom();
+  java.lang.String getToRoomKey();
   /**
-   * <code>string ToChatRoom = 5;</code>
+   * <code>string ToRoomKey = 5;</code>
    */
   com.google.protobuf.ByteString
-      getToChatRoomBytes();
+      getToRoomKeyBytes();
 
   /**
    * <pre>

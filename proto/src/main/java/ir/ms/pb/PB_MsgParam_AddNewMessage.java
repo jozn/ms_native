@@ -18,7 +18,7 @@ public  final class PB_MsgParam_AddNewMessage extends
   private PB_MsgParam_AddNewMessage() {
     text_ = "";
     messageKey_ = "";
-    toChatRoom_ = "";
+    toRoomKey_ = "";
     blob_ = com.google.protobuf.ByteString.EMPTY;
   }
   public static final int TEXT_FIELD_NUMBER = 1;
@@ -113,50 +113,50 @@ public  final class PB_MsgParam_AddNewMessage extends
     messageKey_ = value.toStringUtf8();
   }
 
-  public static final int TOCHATROOM_FIELD_NUMBER = 5;
-  private java.lang.String toChatRoom_;
+  public static final int TOROOMKEY_FIELD_NUMBER = 5;
+  private java.lang.String toRoomKey_;
   /**
-   * <code>string ToChatRoom = 5;</code>
+   * <code>string ToRoomKey = 5;</code>
    */
-  public java.lang.String getToChatRoom() {
-    return toChatRoom_;
+  public java.lang.String getToRoomKey() {
+    return toRoomKey_;
   }
   /**
-   * <code>string ToChatRoom = 5;</code>
+   * <code>string ToRoomKey = 5;</code>
    */
   public com.google.protobuf.ByteString
-      getToChatRoomBytes() {
-    return com.google.protobuf.ByteString.copyFromUtf8(toChatRoom_);
+      getToRoomKeyBytes() {
+    return com.google.protobuf.ByteString.copyFromUtf8(toRoomKey_);
   }
   /**
-   * <code>string ToChatRoom = 5;</code>
+   * <code>string ToRoomKey = 5;</code>
    */
-  private void setToChatRoom(
+  private void setToRoomKey(
       java.lang.String value) {
     if (value == null) {
     throw new NullPointerException();
   }
   
-    toChatRoom_ = value;
+    toRoomKey_ = value;
   }
   /**
-   * <code>string ToChatRoom = 5;</code>
+   * <code>string ToRoomKey = 5;</code>
    */
-  private void clearToChatRoom() {
+  private void clearToRoomKey() {
     
-    toChatRoom_ = getDefaultInstance().getToChatRoom();
+    toRoomKey_ = getDefaultInstance().getToRoomKey();
   }
   /**
-   * <code>string ToChatRoom = 5;</code>
+   * <code>string ToRoomKey = 5;</code>
    */
-  private void setToChatRoomBytes(
+  private void setToRoomKeyBytes(
       com.google.protobuf.ByteString value) {
     if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
     
-    toChatRoom_ = value.toStringUtf8();
+    toRoomKey_ = value.toStringUtf8();
   }
 
   public static final int PEERID_FIELD_NUMBER = 165;
@@ -417,8 +417,8 @@ public  final class PB_MsgParam_AddNewMessage extends
     if (!messageKey_.isEmpty()) {
       output.writeString(2, getMessageKey());
     }
-    if (!toChatRoom_.isEmpty()) {
-      output.writeString(5, getToChatRoom());
+    if (!toRoomKey_.isEmpty()) {
+      output.writeString(5, getToRoomKey());
     }
     if (time_ != 0) {
       output.writeInt32(6, time_);
@@ -456,9 +456,9 @@ public  final class PB_MsgParam_AddNewMessage extends
       size += com.google.protobuf.CodedOutputStream
         .computeStringSize(2, getMessageKey());
     }
-    if (!toChatRoom_.isEmpty()) {
+    if (!toRoomKey_.isEmpty()) {
       size += com.google.protobuf.CodedOutputStream
-        .computeStringSize(5, getToChatRoom());
+        .computeStringSize(5, getToRoomKey());
     }
     if (time_ != 0) {
       size += com.google.protobuf.CodedOutputStream
@@ -659,42 +659,42 @@ public  final class PB_MsgParam_AddNewMessage extends
     }
 
     /**
-     * <code>string ToChatRoom = 5;</code>
+     * <code>string ToRoomKey = 5;</code>
      */
-    public java.lang.String getToChatRoom() {
-      return instance.getToChatRoom();
+    public java.lang.String getToRoomKey() {
+      return instance.getToRoomKey();
     }
     /**
-     * <code>string ToChatRoom = 5;</code>
+     * <code>string ToRoomKey = 5;</code>
      */
     public com.google.protobuf.ByteString
-        getToChatRoomBytes() {
-      return instance.getToChatRoomBytes();
+        getToRoomKeyBytes() {
+      return instance.getToRoomKeyBytes();
     }
     /**
-     * <code>string ToChatRoom = 5;</code>
+     * <code>string ToRoomKey = 5;</code>
      */
-    public Builder setToChatRoom(
+    public Builder setToRoomKey(
         java.lang.String value) {
       copyOnWrite();
-      instance.setToChatRoom(value);
+      instance.setToRoomKey(value);
       return this;
     }
     /**
-     * <code>string ToChatRoom = 5;</code>
+     * <code>string ToRoomKey = 5;</code>
      */
-    public Builder clearToChatRoom() {
+    public Builder clearToRoomKey() {
       copyOnWrite();
-      instance.clearToChatRoom();
+      instance.clearToRoomKey();
       return this;
     }
     /**
-     * <code>string ToChatRoom = 5;</code>
+     * <code>string ToRoomKey = 5;</code>
      */
-    public Builder setToChatRoomBytes(
+    public Builder setToRoomKeyBytes(
         com.google.protobuf.ByteString value) {
       copyOnWrite();
-      instance.setToChatRoomBytes(value);
+      instance.setToRoomKeyBytes(value);
       return this;
     }
 
@@ -954,8 +954,8 @@ public  final class PB_MsgParam_AddNewMessage extends
             !other.text_.isEmpty(), other.text_);
         messageKey_ = visitor.visitString(!messageKey_.isEmpty(), messageKey_,
             !other.messageKey_.isEmpty(), other.messageKey_);
-        toChatRoom_ = visitor.visitString(!toChatRoom_.isEmpty(), toChatRoom_,
-            !other.toChatRoom_.isEmpty(), other.toChatRoom_);
+        toRoomKey_ = visitor.visitString(!toRoomKey_.isEmpty(), toRoomKey_,
+            !other.toRoomKey_.isEmpty(), other.toRoomKey_);
         peerId_ = visitor.visitInt(peerId_ != 0, peerId_,
             other.peerId_ != 0, other.peerId_);
         time_ = visitor.visitInt(time_ != 0, time_,
@@ -1006,7 +1006,7 @@ public  final class PB_MsgParam_AddNewMessage extends
               case 42: {
                 String s = input.readStringRequireUtf8();
 
-                toChatRoom_ = s;
+                toRoomKey_ = s;
                 break;
               }
               case 48: {

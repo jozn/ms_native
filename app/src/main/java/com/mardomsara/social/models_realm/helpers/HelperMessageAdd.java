@@ -13,6 +13,7 @@ import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.ImageUtil;
 import com.mardomsara.social.helpers.UtilText;
 import com.mardomsara.social.lib.NanoTimestamp;
+import com.mardomsara.social.models_old.tables.Session;
 import com.mardomsara.social.models_realm.RealmChatViewHelper;
 import com.mardomsara.social.models_realm.pb_realm.RealmChatView;
 import com.mardomsara.social.models_realm.pb_realm.RealmMessageFileView;
@@ -23,6 +24,7 @@ import org.apache.commons.io.FileUtils;
 import java.io.File;
 
 import io.realm.Realm;
+import ir.ms.pb.PB_MessageFileView;
 import ir.ms.pb.RoomMessageDeliviryStatusEnum;
 import ir.ms.pb.RoomMessageTypeEnum;
 
@@ -124,7 +126,36 @@ public final class HelperMessageAdd {
 
 			Bitmap mBitmap = BitmapFactory.decodeFile(filePath);
 
-			r.MessageFileId = NanoTimestamp.getNano();//0
+			PB_MessageFileView.Builder b = PB_MessageFileView.newBuilder();
+
+			b.setMessageFileId(NanoTimestamp.getNano());//0
+			b.setMessageFileKey(HelperMessageUtil.getNewMessageKey());//1
+			b.setOriginalUserId(Session.getUserId());//2
+			b.setName(file.getName());//3
+			b.setSize((int) file.length());//4
+			b.setFileTypeEnumId(RoomMessageTypeEnum.IMAGE_VALUE);//5
+			b.setWidth(mBitmap.getWidth());//6
+			b.setHeight(mBitmap.getHeight());//7
+			b.setDuration(0);//8
+			b.setExtension(FileUtil.getFileExtensionWithDot(filePath));//9
+			b.setHashMd5(HashUtil.toMD5(FileUtils.readFileToByteArray(file)));//10
+			b.setHashAccess(0);//11
+			b.setCreatedSe((int) AppUtil.getTime());//12
+			b.setServerSrc("");//13
+			b.setServerPath("");//14
+			b.setServerThumbPath("");//15
+			b.setBucketId("");//16
+			b.setServerId(0);//17
+			b.setCanDel(0);//18
+			b.setServerThumbLocalSrc("");//19
+			b.setRemoteMessageFileId(0);//20
+			b.setLocalSrc(filePath);//21
+			b.setThumbLocalSrc("");//22
+//			b.setMessageFileStatusId();//23
+
+			r = RealmMessageFileView.fromPB(b.build());
+
+			/*r.MessageFileId = NanoTimestamp.getNano();//0
 			r.MessageFileKey = HelperMessageUtil.getNewMessageKey();
 			r.Name = file.getName();//1
 			r.Size = (int) file.length();//2
@@ -144,7 +175,7 @@ public final class HelperMessageAdd {
 			r.CreatedSe = (int) AppUtil.getTime();//16
 
 			r.RemoteMessageFileId = 0;
-			r.HashMd5 = HashUtil.toMD5(FileUtils.readFileToByteArray(file));
+			r.HashMd5 = HashUtil.toMD5(FileUtils.readFileToByteArray(file));*/
 
 			/*r.MessageFileId = ;//0
 			r.OriginalUserId = ;//1

@@ -46,6 +46,12 @@ public class Http {
         return req;
     }
 
+	public static Req sendBlobPath(String path, byte[] bytes){
+		Req req = new Req(Action.SEND_BLOB, API.BASE_DOMAIN_URL_STR+ fixPath(path));
+		req.blob = bytes;
+		return req;
+	}
+
     public static Req download(String absUrl,String absFilePath){
         Req req = new Req(Action.DOWNLOAD, absUrl);
         req.fileDownloadDest = absFilePath;

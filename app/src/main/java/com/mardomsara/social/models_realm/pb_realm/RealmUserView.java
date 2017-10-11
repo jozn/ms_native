@@ -48,6 +48,54 @@ public class RealmUserView extends RealmObject {
 	    return r;
 	}
 
+	public static PB_UserView toPB(RealmUserView rV){//realmView
+		PB_UserView.Builder pbB = PB_UserView.newBuilder();
+		
+		pbB.setUserId(rV.UserId);//0
+		pbB.setUserName(rV.UserName);//1
+		pbB.setFirstName(rV.FirstName);//2
+		pbB.setLastName(rV.LastName);//3
+		pbB.setAbout(rV.About);//4
+		pbB.setFullName(rV.FullName);//5
+		pbB.setAvatarUrl(rV.AvatarUrl);//6
+		pbB.setPrivacyProfile(rV.PrivacyProfile);//7
+		pbB.setIsDeleted(rV.IsDeleted);//8
+		pbB.setFollowersCount(rV.FollowersCount);//9
+		pbB.setFollowingCount(rV.FollowingCount);//10
+		pbB.setPostsCount(rV.PostsCount);//11
+		pbB.setUpdatedTime(rV.UpdatedTime);//12
+		pbB.setAppVersion(rV.AppVersion);//13
+		pbB.setLastActivityTime(rV.LastActivityTime);//14
+		pbB.setFollowingType(rV.FollowingType);//15
+
+		return pbB.build();
+    	}
+
+	public static PB_UserView.Builder toPB_Builder(RealmUserView rV){//realmView
+		PB_UserView.Builder pbB = PB_UserView.newBuilder();
+		
+		pbB.setUserId(rV.UserId);//0
+		pbB.setUserName(rV.UserName);//1
+		pbB.setFirstName(rV.FirstName);//2
+		pbB.setLastName(rV.LastName);//3
+		pbB.setAbout(rV.About);//4
+		pbB.setFullName(rV.FullName);//5
+		pbB.setAvatarUrl(rV.AvatarUrl);//6
+		pbB.setPrivacyProfile(rV.PrivacyProfile);//7
+		pbB.setIsDeleted(rV.IsDeleted);//8
+		pbB.setFollowersCount(rV.FollowersCount);//9
+		pbB.setFollowingCount(rV.FollowingCount);//10
+		pbB.setPostsCount(rV.PostsCount);//11
+		pbB.setUpdatedTime(rV.UpdatedTime);//12
+		pbB.setAppVersion(rV.AppVersion);//13
+		pbB.setLastActivityTime(rV.LastActivityTime);//14
+		pbB.setFollowingType(rV.FollowingType);//15
+
+		return pbB;
+    	}
+
+
+
 }
 	/*
 	folding
@@ -129,5 +177,50 @@ public class RealmUserView extends RealmObject {
 	m. = r.AppVersion ;
 	m. = r.LastActivityTime ;
 	m. = r.FollowingType ;
+
+
+	//for PB.Builder
+	PB_UserView.Builder b = PB_UserView.newBuilder();
+	
+	b.setUserId(r.UserId);//0
+	b.setUserName(r.UserName);//1
+	b.setFirstName(r.FirstName);//2
+	b.setLastName(r.LastName);//3
+	b.setAbout(r.About);//4
+	b.setFullName(r.FullName);//5
+	b.setAvatarUrl(r.AvatarUrl);//6
+	b.setPrivacyProfile(r.PrivacyProfile);//7
+	b.setIsDeleted(r.IsDeleted);//8
+	b.setFollowersCount(r.FollowersCount);//9
+	b.setFollowingCount(r.FollowingCount);//10
+	b.setPostsCount(r.PostsCount);//11
+	b.setUpdatedTime(r.UpdatedTime);//12
+	b.setAppVersion(r.AppVersion);//13
+	b.setLastActivityTime(r.LastActivityTime);//14
+	b.setFollowingType(r.FollowingType);//15
+
+
+	//for PB.Builder - empty
+	PB_UserView.Builder b = PB_UserView.newBuilder();
+	
+	b.setUserId();//0
+	b.setUserName();//1
+	b.setFirstName();//2
+	b.setLastName();//3
+	b.setAbout();//4
+	b.setFullName();//5
+	b.setAvatarUrl();//6
+	b.setPrivacyProfile();//7
+	b.setIsDeleted();//8
+	b.setFollowersCount();//9
+	b.setFollowingCount();//10
+	b.setPostsCount();//11
+	b.setUpdatedTime();//12
+	b.setAppVersion();//13
+	b.setLastActivityTime();//14
+	b.setFollowingType();//15
+
+
+
 	
 */

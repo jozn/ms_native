@@ -54,6 +54,60 @@ public class RealmChatView extends RealmObject {
 	    return r;
 	}
 
+	public static PB_ChatView toPB(RealmChatView rV){//realmView
+		PB_ChatView.Builder pbB = PB_ChatView.newBuilder();
+		
+		pbB.setChatKey(rV.ChatKey);//0
+		pbB.setRoomKey(rV.RoomKey);//1
+		pbB.setRoomTypeEnumId(rV.RoomTypeEnumId);//2
+		pbB.setUserId(rV.UserId);//3
+		pbB.setPeerUserId(rV.PeerUserId);//4
+		pbB.setGroupId(rV.GroupId);//5
+		pbB.setCreatedSe(rV.CreatedSe);//6
+		pbB.setUpdatedMs(rV.UpdatedMs);//7
+		pbB.setLastMessageId(rV.LastMessageId);//8
+		pbB.setLastDeletedMessageId(rV.LastDeletedMessageId);//9
+		pbB.setLastSeenMessageId(rV.LastSeenMessageId);//10
+		pbB.setLastSeqSeen(rV.LastSeqSeen);//11
+		pbB.setLastSeqDelete(rV.LastSeqDelete);//12
+		pbB.setCurrentSeq(rV.CurrentSeq);//13
+		//r.UserView = pb.getUserView();//14
+		pbB.setSharedMediaCount(rV.SharedMediaCount);//15
+		pbB.setUnseenCount(rV.UnseenCount);//16
+		//r.FirstUnreadMessage = pb.getFirstUnreadMessage();//17
+		//r.LastMessage = pb.getLastMessage();//18
+
+		return pbB.build();
+    	}
+
+	public static PB_ChatView.Builder toPB_Builder(RealmChatView rV){//realmView
+		PB_ChatView.Builder pbB = PB_ChatView.newBuilder();
+		
+		pbB.setChatKey(rV.ChatKey);//0
+		pbB.setRoomKey(rV.RoomKey);//1
+		pbB.setRoomTypeEnumId(rV.RoomTypeEnumId);//2
+		pbB.setUserId(rV.UserId);//3
+		pbB.setPeerUserId(rV.PeerUserId);//4
+		pbB.setGroupId(rV.GroupId);//5
+		pbB.setCreatedSe(rV.CreatedSe);//6
+		pbB.setUpdatedMs(rV.UpdatedMs);//7
+		pbB.setLastMessageId(rV.LastMessageId);//8
+		pbB.setLastDeletedMessageId(rV.LastDeletedMessageId);//9
+		pbB.setLastSeenMessageId(rV.LastSeenMessageId);//10
+		pbB.setLastSeqSeen(rV.LastSeqSeen);//11
+		pbB.setLastSeqDelete(rV.LastSeqDelete);//12
+		pbB.setCurrentSeq(rV.CurrentSeq);//13
+		//r.UserView = pb.getUserView();//14
+		pbB.setSharedMediaCount(rV.SharedMediaCount);//15
+		pbB.setUnseenCount(rV.UnseenCount);//16
+		//r.FirstUnreadMessage = pb.getFirstUnreadMessage();//17
+		//r.LastMessage = pb.getLastMessage();//18
+
+		return pbB;
+    	}
+
+
+
 }
 	/*
 	folding
@@ -147,5 +201,56 @@ public class RealmChatView extends RealmObject {
 	m. = r.UnseenCount ;
 	m. = r.FirstUnreadMessage ;
 	m. = r.LastMessage ;
+
+
+	//for PB.Builder
+	PB_ChatView.Builder b = PB_ChatView.newBuilder();
+	
+	b.setChatKey(r.ChatKey);//0
+	b.setRoomKey(r.RoomKey);//1
+	b.setRoomTypeEnumId(r.RoomTypeEnumId);//2
+	b.setUserId(r.UserId);//3
+	b.setPeerUserId(r.PeerUserId);//4
+	b.setGroupId(r.GroupId);//5
+	b.setCreatedSe(r.CreatedSe);//6
+	b.setUpdatedMs(r.UpdatedMs);//7
+	b.setLastMessageId(r.LastMessageId);//8
+	b.setLastDeletedMessageId(r.LastDeletedMessageId);//9
+	b.setLastSeenMessageId(r.LastSeenMessageId);//10
+	b.setLastSeqSeen(r.LastSeqSeen);//11
+	b.setLastSeqDelete(r.LastSeqDelete);//12
+	b.setCurrentSeq(r.CurrentSeq);//13
+	//r.UserView = pb.getUserView();//14
+	b.setSharedMediaCount(r.SharedMediaCount);//15
+	b.setUnseenCount(r.UnseenCount);//16
+	//r.FirstUnreadMessage = pb.getFirstUnreadMessage();//17
+	//r.LastMessage = pb.getLastMessage();//18
+
+
+	//for PB.Builder - empty
+	PB_ChatView.Builder b = PB_ChatView.newBuilder();
+	
+	b.setChatKey();//0
+	b.setRoomKey();//1
+	b.setRoomTypeEnumId();//2
+	b.setUserId();//3
+	b.setPeerUserId();//4
+	b.setGroupId();//5
+	b.setCreatedSe();//6
+	b.setUpdatedMs();//7
+	b.setLastMessageId();//8
+	b.setLastDeletedMessageId();//9
+	b.setLastSeenMessageId();//10
+	b.setLastSeqSeen();//11
+	b.setLastSeqDelete();//12
+	b.setCurrentSeq();//13
+	//r.UserView = pb.getUserView();//14
+	b.setSharedMediaCount();//15
+	b.setUnseenCount();//16
+	//r.FirstUnreadMessage = pb.getFirstUnreadMessage();//17
+	//r.LastMessage = pb.getLastMessage();//18
+
+
+
 	
 */

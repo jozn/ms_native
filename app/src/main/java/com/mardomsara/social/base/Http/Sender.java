@@ -43,6 +43,21 @@ public class Sender<T> {
             rb.post(Util.formsToOkHttpFormParams(req.form));
         }
 
+		if(req.action == Action.SEND_BLOB) {
+			MultipartBody.Builder b = new MultipartBody.Builder();
+			rb.post(Util.buildOthersFormParamsForUpload(b,req.form));
+
+			RequestBody dataToSend = null;
+			dataToSend = RequestBody.create(OkhttpMimeTypes.MEDIA_TYPE_FILE_GENERAL, req.blob );
+			b.addFormDataPart("blob","blob",dataToSend);
+			b.setType(MultipartBody.FORM);
+			RequestBody body = b.build();
+			if(req.uploadProgress != null){
+				body = new ProgressRequestBody(body,req.uploadProgress);
+			}
+			rb.post(body);
+		}
+
         if(req.action == Action.UPLOAD) {
 			/*if(req.uploadProgress != null){
 				OkHttpClient.Builder upClientBuilder = defualtClient.newBuilder();

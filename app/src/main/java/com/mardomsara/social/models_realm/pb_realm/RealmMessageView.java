@@ -48,6 +48,54 @@ public class RealmMessageView extends RealmObject {
 	    return r;
 	}
 
+	public static PB_MessageView toPB(RealmMessageView rV){//realmView
+		PB_MessageView.Builder pbB = PB_MessageView.newBuilder();
+		
+		pbB.setMessageId(rV.MessageId);//0
+		pbB.setMessageKey(rV.MessageKey);//1
+		pbB.setRoomKey(rV.RoomKey);//2
+		pbB.setUserId(rV.UserId);//3
+		pbB.setMessageFileId(rV.MessageFileId);//4
+		pbB.setMessageTypeEnumId(rV.MessageTypeEnumId);//5
+		pbB.setText(rV.Text);//6
+		pbB.setCreatedSe(rV.CreatedSe);//7
+		pbB.setPeerReceivedTime(rV.PeerReceivedTime);//8
+		pbB.setPeerSeenTime(rV.PeerSeenTime);//9
+		pbB.setDeliviryStatusEnumId(rV.DeliviryStatusEnumId);//10
+		pbB.setChatKey(rV.ChatKey);//11
+		pbB.setRoomTypeEnumId(rV.RoomTypeEnumId);//12
+		pbB.setIsByMe(rV.IsByMe);//13
+		pbB.setRemoteId(rV.RemoteId);//14
+		//r.MessageFileView = pb.getMessageFileView();//15
+
+		return pbB.build();
+    	}
+
+	public static PB_MessageView.Builder toPB_Builder(RealmMessageView rV){//realmView
+		PB_MessageView.Builder pbB = PB_MessageView.newBuilder();
+		
+		pbB.setMessageId(rV.MessageId);//0
+		pbB.setMessageKey(rV.MessageKey);//1
+		pbB.setRoomKey(rV.RoomKey);//2
+		pbB.setUserId(rV.UserId);//3
+		pbB.setMessageFileId(rV.MessageFileId);//4
+		pbB.setMessageTypeEnumId(rV.MessageTypeEnumId);//5
+		pbB.setText(rV.Text);//6
+		pbB.setCreatedSe(rV.CreatedSe);//7
+		pbB.setPeerReceivedTime(rV.PeerReceivedTime);//8
+		pbB.setPeerSeenTime(rV.PeerSeenTime);//9
+		pbB.setDeliviryStatusEnumId(rV.DeliviryStatusEnumId);//10
+		pbB.setChatKey(rV.ChatKey);//11
+		pbB.setRoomTypeEnumId(rV.RoomTypeEnumId);//12
+		pbB.setIsByMe(rV.IsByMe);//13
+		pbB.setRemoteId(rV.RemoteId);//14
+		//r.MessageFileView = pb.getMessageFileView();//15
+
+		return pbB;
+    	}
+
+
+
 }
 	/*
 	folding
@@ -129,5 +177,50 @@ public class RealmMessageView extends RealmObject {
 	m. = r.IsByMe ;
 	m. = r.RemoteId ;
 	m. = r.MessageFileView ;
+
+
+	//for PB.Builder
+	PB_MessageView.Builder b = PB_MessageView.newBuilder();
+	
+	b.setMessageId(r.MessageId);//0
+	b.setMessageKey(r.MessageKey);//1
+	b.setRoomKey(r.RoomKey);//2
+	b.setUserId(r.UserId);//3
+	b.setMessageFileId(r.MessageFileId);//4
+	b.setMessageTypeEnumId(r.MessageTypeEnumId);//5
+	b.setText(r.Text);//6
+	b.setCreatedSe(r.CreatedSe);//7
+	b.setPeerReceivedTime(r.PeerReceivedTime);//8
+	b.setPeerSeenTime(r.PeerSeenTime);//9
+	b.setDeliviryStatusEnumId(r.DeliviryStatusEnumId);//10
+	b.setChatKey(r.ChatKey);//11
+	b.setRoomTypeEnumId(r.RoomTypeEnumId);//12
+	b.setIsByMe(r.IsByMe);//13
+	b.setRemoteId(r.RemoteId);//14
+	//r.MessageFileView = pb.getMessageFileView();//15
+
+
+	//for PB.Builder - empty
+	PB_MessageView.Builder b = PB_MessageView.newBuilder();
+	
+	b.setMessageId();//0
+	b.setMessageKey();//1
+	b.setRoomKey();//2
+	b.setUserId();//3
+	b.setMessageFileId();//4
+	b.setMessageTypeEnumId();//5
+	b.setText();//6
+	b.setCreatedSe();//7
+	b.setPeerReceivedTime();//8
+	b.setPeerSeenTime();//9
+	b.setDeliviryStatusEnumId();//10
+	b.setChatKey();//11
+	b.setRoomTypeEnumId();//12
+	b.setIsByMe();//13
+	b.setRemoteId();//14
+	//r.MessageFileView = pb.getMessageFileView();//15
+
+
+
 	
 */

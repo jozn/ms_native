@@ -64,6 +64,70 @@ public class RealmMessageFileView extends RealmObject {
 	    return r;
 	}
 
+	public static PB_MessageFileView toPB(RealmMessageFileView rV){//realmView
+		PB_MessageFileView.Builder pbB = PB_MessageFileView.newBuilder();
+		
+		pbB.setMessageFileId(rV.MessageFileId);//0
+		pbB.setMessageFileKey(rV.MessageFileKey);//1
+		pbB.setOriginalUserId(rV.OriginalUserId);//2
+		pbB.setName(rV.Name);//3
+		pbB.setSize(rV.Size);//4
+		pbB.setFileTypeEnumId(rV.FileTypeEnumId);//5
+		pbB.setWidth(rV.Width);//6
+		pbB.setHeight(rV.Height);//7
+		pbB.setDuration(rV.Duration);//8
+		pbB.setExtension(rV.Extension);//9
+		pbB.setHashMd5(rV.HashMd5);//10
+		pbB.setHashAccess(rV.HashAccess);//11
+		pbB.setCreatedSe(rV.CreatedSe);//12
+		pbB.setServerSrc(rV.ServerSrc);//13
+		pbB.setServerPath(rV.ServerPath);//14
+		pbB.setServerThumbPath(rV.ServerThumbPath);//15
+		pbB.setBucketId(rV.BucketId);//16
+		pbB.setServerId(rV.ServerId);//17
+		pbB.setCanDel(rV.CanDel);//18
+		pbB.setServerThumbLocalSrc(rV.ServerThumbLocalSrc);//19
+		pbB.setRemoteMessageFileId(rV.RemoteMessageFileId);//20
+		pbB.setLocalSrc(rV.LocalSrc);//21
+		pbB.setThumbLocalSrc(rV.ThumbLocalSrc);//22
+		pbB.setMessageFileStatusId(rV.MessageFileStatusId);//23
+
+		return pbB.build();
+    	}
+
+	public static PB_MessageFileView.Builder toPB_Builder(RealmMessageFileView rV){//realmView
+		PB_MessageFileView.Builder pbB = PB_MessageFileView.newBuilder();
+		
+		pbB.setMessageFileId(rV.MessageFileId);//0
+		pbB.setMessageFileKey(rV.MessageFileKey);//1
+		pbB.setOriginalUserId(rV.OriginalUserId);//2
+		pbB.setName(rV.Name);//3
+		pbB.setSize(rV.Size);//4
+		pbB.setFileTypeEnumId(rV.FileTypeEnumId);//5
+		pbB.setWidth(rV.Width);//6
+		pbB.setHeight(rV.Height);//7
+		pbB.setDuration(rV.Duration);//8
+		pbB.setExtension(rV.Extension);//9
+		pbB.setHashMd5(rV.HashMd5);//10
+		pbB.setHashAccess(rV.HashAccess);//11
+		pbB.setCreatedSe(rV.CreatedSe);//12
+		pbB.setServerSrc(rV.ServerSrc);//13
+		pbB.setServerPath(rV.ServerPath);//14
+		pbB.setServerThumbPath(rV.ServerThumbPath);//15
+		pbB.setBucketId(rV.BucketId);//16
+		pbB.setServerId(rV.ServerId);//17
+		pbB.setCanDel(rV.CanDel);//18
+		pbB.setServerThumbLocalSrc(rV.ServerThumbLocalSrc);//19
+		pbB.setRemoteMessageFileId(rV.RemoteMessageFileId);//20
+		pbB.setLocalSrc(rV.LocalSrc);//21
+		pbB.setThumbLocalSrc(rV.ThumbLocalSrc);//22
+		pbB.setMessageFileStatusId(rV.MessageFileStatusId);//23
+
+		return pbB;
+    	}
+
+
+
 }
 	/*
 	folding
@@ -177,5 +241,66 @@ public class RealmMessageFileView extends RealmObject {
 	m. = r.LocalSrc ;
 	m. = r.ThumbLocalSrc ;
 	m. = r.MessageFileStatusId ;
+
+
+	//for PB.Builder
+	PB_MessageFileView.Builder b = PB_MessageFileView.newBuilder();
+	
+	b.setMessageFileId(r.MessageFileId);//0
+	b.setMessageFileKey(r.MessageFileKey);//1
+	b.setOriginalUserId(r.OriginalUserId);//2
+	b.setName(r.Name);//3
+	b.setSize(r.Size);//4
+	b.setFileTypeEnumId(r.FileTypeEnumId);//5
+	b.setWidth(r.Width);//6
+	b.setHeight(r.Height);//7
+	b.setDuration(r.Duration);//8
+	b.setExtension(r.Extension);//9
+	b.setHashMd5(r.HashMd5);//10
+	b.setHashAccess(r.HashAccess);//11
+	b.setCreatedSe(r.CreatedSe);//12
+	b.setServerSrc(r.ServerSrc);//13
+	b.setServerPath(r.ServerPath);//14
+	b.setServerThumbPath(r.ServerThumbPath);//15
+	b.setBucketId(r.BucketId);//16
+	b.setServerId(r.ServerId);//17
+	b.setCanDel(r.CanDel);//18
+	b.setServerThumbLocalSrc(r.ServerThumbLocalSrc);//19
+	b.setRemoteMessageFileId(r.RemoteMessageFileId);//20
+	b.setLocalSrc(r.LocalSrc);//21
+	b.setThumbLocalSrc(r.ThumbLocalSrc);//22
+	b.setMessageFileStatusId(r.MessageFileStatusId);//23
+
+
+	//for PB.Builder - empty
+	PB_MessageFileView.Builder b = PB_MessageFileView.newBuilder();
+	
+	b.setMessageFileId();//0
+	b.setMessageFileKey();//1
+	b.setOriginalUserId();//2
+	b.setName();//3
+	b.setSize();//4
+	b.setFileTypeEnumId();//5
+	b.setWidth();//6
+	b.setHeight();//7
+	b.setDuration();//8
+	b.setExtension();//9
+	b.setHashMd5();//10
+	b.setHashAccess();//11
+	b.setCreatedSe();//12
+	b.setServerSrc();//13
+	b.setServerPath();//14
+	b.setServerThumbPath();//15
+	b.setBucketId();//16
+	b.setServerId();//17
+	b.setCanDel();//18
+	b.setServerThumbLocalSrc();//19
+	b.setRemoteMessageFileId();//20
+	b.setLocalSrc();//21
+	b.setThumbLocalSrc();//22
+	b.setMessageFileStatusId();//23
+
+
+
 	
 */

@@ -4,5 +4,6 @@ public enum Action {
     GET,
     POST,
     UPLOAD,
-    DOWNLOAD
+    DOWNLOAD,
+	SEND_BLOB
 }

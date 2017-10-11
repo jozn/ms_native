@@ -1367,7 +1367,7 @@ public class PBFlatTypes {
 	public class PB_MsgParam_AddNewTextMessage {
 	   public String Text;
 	   public String MessageKey;
-	   public String ToChatRoom;
+	   public String ToRoomKey;
 	   public int PeerId;
 	   public int Time;
 	   public long ReplyToMessageId;
@@ -1378,7 +1378,7 @@ public class PBFlatTypes {
 	PBFlatTypes.PB_MsgParam_AddNewTextMessage t = new PBFlatTypes.PB_MsgParam_AddNewTextMessage();
     t.setText();
     t.setMessageKey();
-    t.setToChatRoom();
+    t.setToRoomKey();
     t.setPeerId();
     t.setTime();
     t.setReplyToMessageId();
@@ -1389,7 +1389,7 @@ public class PBFlatTypes {
 	PBFlatTypes.PB_MsgParam_AddNewTextMessage t = new PBFlatTypes.PB_MsgParam_AddNewTextMessage();
 	t.Text = ;
 	t.MessageKey = ;
-	t.ToChatRoom = ;
+	t.ToRoomKey = ;
 	t.PeerId = ;
 	t.Time = ;
 	t.ReplyToMessageId = ;
@@ -1400,7 +1400,7 @@ public class PBFlatTypes {
 	PB_MsgParam_AddNewTextMessage t = new PB_MsgParam_AddNewTextMessage();
 	t.Text = m.getText() ;
 	t.MessageKey = m.getMessageKey() ;
-	t.ToChatRoom = m.getToChatRoom() ;
+	t.ToRoomKey = m.getToRoomKey() ;
 	t.PeerId = m.getPeerId() ;
 	t.Time = m.getTime() ;
 	t.ReplyToMessageId = m.getReplyToMessageId() ;
@@ -1425,7 +1425,7 @@ public class PBFlatTypes {
 	public class PB_MsgParam_AddNewMessage {
 	   public String Text;
 	   public String MessageKey;
-	   public String ToChatRoom;
+	   public String ToRoomKey;
 	   public int PeerId;
 	   public int Time;
 	   public long ReplyToMessageId;
@@ -1439,7 +1439,7 @@ public class PBFlatTypes {
 	PBFlatTypes.PB_MsgParam_AddNewMessage t = new PBFlatTypes.PB_MsgParam_AddNewMessage();
     t.setText();
     t.setMessageKey();
-    t.setToChatRoom();
+    t.setToRoomKey();
     t.setPeerId();
     t.setTime();
     t.setReplyToMessageId();
@@ -1453,7 +1453,7 @@ public class PBFlatTypes {
 	PBFlatTypes.PB_MsgParam_AddNewMessage t = new PBFlatTypes.PB_MsgParam_AddNewMessage();
 	t.Text = ;
 	t.MessageKey = ;
-	t.ToChatRoom = ;
+	t.ToRoomKey = ;
 	t.PeerId = ;
 	t.Time = ;
 	t.ReplyToMessageId = ;
@@ -1467,7 +1467,7 @@ public class PBFlatTypes {
 	PB_MsgParam_AddNewMessage t = new PB_MsgParam_AddNewMessage();
 	t.Text = m.getText() ;
 	t.MessageKey = m.getMessageKey() ;
-	t.ToChatRoom = m.getToChatRoom() ;
+	t.ToRoomKey = m.getToRoomKey() ;
 	t.PeerId = m.getPeerId() ;
 	t.Time = m.getTime() ;
 	t.ReplyToMessageId = m.getReplyToMessageId() ;

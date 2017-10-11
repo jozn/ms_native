@@ -34,6 +34,9 @@ public class Req<T> {
     File file;
     String fileDownloadDest;
 
+    //BLOBS
+	byte[] blob;
+
     /// For Progress
     DownloadProgressListener downloadProgress;
     UploadProgressListener uploadProgress;
