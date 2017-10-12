@@ -17,16 +17,7 @@ public class RealmMessageView extends RealmObject {
 		public int CreatedSe;//7 				 PB 15
 		public int PeerReceivedTime;//8 				 PB 17
 		public int PeerSeenTime;//9 				 PB 19
-
-	public int getDeliviryStatusEnumId() {
-		return DeliviryStatusEnumId;
-	}
-
-	public void setDeliviryStatusEnumId(int deliviryStatusEnumId) {
-		DeliviryStatusEnumId = deliviryStatusEnumId;
-	}
-
-	public int DeliviryStatusEnumId;//10 				 PB 21
+		public int DeliviryStatusEnumId;//10 				 PB 21
 		public String ChatKey;//11 				 PB 30
 		public int RoomTypeEnumId;//12 				 PB 31
 		public boolean IsByMe;//13 				 PB 33

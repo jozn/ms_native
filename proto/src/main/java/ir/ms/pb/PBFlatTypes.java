@@ -2101,6 +2101,7 @@ public class PBFlatTypes {
 	   public PB_ChatView Chats;
 	   public PB_UserView Users;
 	   public PB_UpdateMessageId MessagesChangeIds;
+	   public PB_UpdateMessageId MessagesFileChangeIds;
 	   public PB_UpdateMessageToEdit MessagesToUpdate;
 	   public PB_UpdateMessageToDelete MessagesToDelete;
 	   public PB_UpdateMessageMeta MessagesDelivierdToServer;
@@ -2118,6 +2119,7 @@ public class PBFlatTypes {
     t.setChats();
     t.setUsers();
     t.setMessagesChangeIds();
+    t.setMessagesFileChangeIds();
     t.setMessagesToUpdate();
     t.setMessagesToDelete();
     t.setMessagesDelivierdToServer();
@@ -2135,6 +2137,7 @@ public class PBFlatTypes {
 	t.Chats = ;
 	t.Users = ;
 	t.MessagesChangeIds = ;
+	t.MessagesFileChangeIds = ;
 	t.MessagesToUpdate = ;
 	t.MessagesToDelete = ;
 	t.MessagesDelivierdToServer = ;
@@ -2152,6 +2155,7 @@ public class PBFlatTypes {
 	t.Chats = m.getChats() ;
 	t.Users = m.getUsers() ;
 	t.MessagesChangeIds = m.getMessagesChangeIds() ;
+	t.MessagesFileChangeIds = m.getMessagesFileChangeIds() ;
 	t.MessagesToUpdate = m.getMessagesToUpdate() ;
 	t.MessagesToDelete = m.getMessagesToDelete() ;
 	t.MessagesDelivierdToServer = m.getMessagesDelivierdToServer() ;

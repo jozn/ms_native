@@ -6,7 +6,9 @@ import com.mardomsara.social.models_realm.Database;
 import com.mardomsara.social.models_realm.RealmMessageViewHelper;
 import com.mardomsara.social.models_realm.pb_realm.RealmChatView;
 import com.mardomsara.social.models_realm.pb_realm.RealmMessageFileView;
+import com.mardomsara.social.models_realm.pb_realm.RealmMessageFileViewFields;
 import com.mardomsara.social.models_realm.pb_realm.RealmMessageView;
+import com.mardomsara.social.models_realm.pb_realm.RealmMessageViewFields;
 import com.mardomsara.social.models_realm.pb_realm.RealmUserView;
 
 import java.util.ArrayList;
@@ -15,6 +17,7 @@ import java.util.List;
 import io.realm.Realm;
 import ir.ms.pb.PB_ChatView;
 import ir.ms.pb.PB_MessageView;
+import ir.ms.pb.PB_UpdateMessageId;
 import ir.ms.pb.PB_UpdateMessageMeta;
 import ir.ms.pb.PB_UserView;
 import ir.ms.pb.RoomMessageDeliviryStatusEnum;
@@ -118,7 +121,7 @@ public class HelperPushAndRefreshHandlerOfData {
 					realm.executeTransaction((t)->{
 
 					});
-					msg.setDeliviryStatusEnumId( RoomMessageDeliviryStatusEnum.SENT_VALUE);
+					msg.DeliviryStatusEnumId =( RoomMessageDeliviryStatusEnum.SENT_VALUE);
 				}
 //				msgs.add(msg);
 			}
@@ -195,6 +198,58 @@ public class HelperPushAndRefreshHandlerOfData {
 			AppRealm.getChatRealm().executeTransaction((trans) -> {
 				trans.copyToRealmOrUpdate(msgs);
 			});
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	/////////////// Messages Idss changes - must called before meta changes( they use ids /////////////////
+	public static void messagesChangeIdsList(List<PB_UpdateMessageId> changes) {
+		if (changes == null || changes.size() == 0) return;
+
+		try {
+			Realm realm = AppRealm.getChatRealm();
+//			List<RealmMessageView> msgs = new ArrayList();
+			for (PB_UpdateMessageId ch : changes) {
+				RealmMessageView msg = RealmMessageViewHelper.getMessageByMessageId(realm, ch.getOldMessageId());
+//				AppUtil.log("updating messagesDelivierdToServer : "+ ch.getMessageId());
+				if (msg != null) {
+					realm.executeTransaction((t)->{
+
+					});
+					msg.RemoteId = ch.getNewMessageId();
+				}
+//				msgs.add(msg);
+			}
+
+			/*AppRealm.getChatRealm().executeTransaction((trans) -> {
+				trans.insertOrUpdate(msgs);
+			});*/
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static void messagesFileChangeIdsList(List<PB_UpdateMessageId> changes) {
+		if (changes == null || changes.size() == 0) return;
+
+		try {
+			Realm realm = AppRealm.getChatRealm();
+//			List<RealmMessageView> msgs = new ArrayList();
+			for (PB_UpdateMessageId ch : changes) {
+				RealmMessageFileView msg = realm.where(RealmMessageFileView.class).equalTo(RealmMessageFileViewFields.MESSAGE_FILE_ID,ch.getOldMessageId())
+					.findFirst();
+//				AppUtil.log("updating messagesDelivierdToServer : "+ ch.getMessageId());
+				if (msg != null) {
+
+					msg.RemoteMessageFileId = ch.getNewMessageId();
+				}
+//				msgs.add(msg);
+			}
+
+			/*AppRealm.getChatRealm().executeTransaction((trans) -> {
+				trans.insertOrUpdate(msgs);
+			});*/
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

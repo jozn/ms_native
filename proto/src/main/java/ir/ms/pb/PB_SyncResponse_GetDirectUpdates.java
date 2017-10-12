@@ -17,6 +17,7 @@ public  final class PB_SyncResponse_GetDirectUpdates extends
     chats_ = emptyProtobufList();
     users_ = emptyProtobufList();
     messagesChangeIds_ = emptyProtobufList();
+    messagesFileChangeIds_ = emptyProtobufList();
     messagesToUpdate_ = emptyProtobufList();
     messagesToDelete_ = emptyProtobufList();
     messagesDelivierdToServer_ = emptyProtobufList();
@@ -680,6 +681,126 @@ public  final class PB_SyncResponse_GetDirectUpdates extends
   private void removeMessagesChangeIds(int index) {
     ensureMessagesChangeIdsIsMutable();
     messagesChangeIds_.remove(index);
+  }
+
+  public static final int MESSAGESFILECHANGEIDS_FIELD_NUMBER = 15;
+  private com.google.protobuf.Internal.ProtobufList<ir.ms.pb.PB_UpdateMessageId> messagesFileChangeIds_;
+  /**
+   * <code>repeated .PB_UpdateMessageId MessagesFileChangeIds = 15;</code>
+   */
+  public java.util.List<ir.ms.pb.PB_UpdateMessageId> getMessagesFileChangeIdsList() {
+    return messagesFileChangeIds_;
+  }
+  /**
+   * <code>repeated .PB_UpdateMessageId MessagesFileChangeIds = 15;</code>
+   */
+  public java.util.List<? extends ir.ms.pb.PB_UpdateMessageIdOrBuilder> 
+      getMessagesFileChangeIdsOrBuilderList() {
+    return messagesFileChangeIds_;
+  }
+  /**
+   * <code>repeated .PB_UpdateMessageId MessagesFileChangeIds = 15;</code>
+   */
+  public int getMessagesFileChangeIdsCount() {
+    return messagesFileChangeIds_.size();
+  }
+  /**
+   * <code>repeated .PB_UpdateMessageId MessagesFileChangeIds = 15;</code>
+   */
+  public ir.ms.pb.PB_UpdateMessageId getMessagesFileChangeIds(int index) {
+    return messagesFileChangeIds_.get(index);
+  }
+  /**
+   * <code>repeated .PB_UpdateMessageId MessagesFileChangeIds = 15;</code>
+   */
+  public ir.ms.pb.PB_UpdateMessageIdOrBuilder getMessagesFileChangeIdsOrBuilder(
+      int index) {
+    return messagesFileChangeIds_.get(index);
+  }
+  private void ensureMessagesFileChangeIdsIsMutable() {
+    if (!messagesFileChangeIds_.isModifiable()) {
+      messagesFileChangeIds_ =
+          com.google.protobuf.GeneratedMessageLite.mutableCopy(messagesFileChangeIds_);
+     }
+  }
+
+  /**
+   * <code>repeated .PB_UpdateMessageId MessagesFileChangeIds = 15;</code>
+   */
+  private void setMessagesFileChangeIds(
+      int index, ir.ms.pb.PB_UpdateMessageId value) {
+    if (value == null) {
+      throw new NullPointerException();
+    }
+    ensureMessagesFileChangeIdsIsMutable();
+    messagesFileChangeIds_.set(index, value);
+  }
+  /**
+   * <code>repeated .PB_UpdateMessageId MessagesFileChangeIds = 15;</code>
+   */
+  private void setMessagesFileChangeIds(
+      int index, ir.ms.pb.PB_UpdateMessageId.Builder builderForValue) {
+    ensureMessagesFileChangeIdsIsMutable();
+    messagesFileChangeIds_.set(index, builderForValue.build());
+  }
+  /**
+   * <code>repeated .PB_UpdateMessageId MessagesFileChangeIds = 15;</code>
+   */
+  private void addMessagesFileChangeIds(ir.ms.pb.PB_UpdateMessageId value) {
+    if (value == null) {
+      throw new NullPointerException();
+    }
+    ensureMessagesFileChangeIdsIsMutable();
+    messagesFileChangeIds_.add(value);
+  }
+  /**
+   * <code>repeated .PB_UpdateMessageId MessagesFileChangeIds = 15;</code>
+   */
+  private void addMessagesFileChangeIds(
+      int index, ir.ms.pb.PB_UpdateMessageId value) {
+    if (value == null) {
+      throw new NullPointerException();
+    }
+    ensureMessagesFileChangeIdsIsMutable();
+    messagesFileChangeIds_.add(index, value);
+  }
+  /**
+   * <code>repeated .PB_UpdateMessageId MessagesFileChangeIds = 15;</code>
+   */
+  private void addMessagesFileChangeIds(
+      ir.ms.pb.PB_UpdateMessageId.Builder builderForValue) {
+    ensureMessagesFileChangeIdsIsMutable();
+    messagesFileChangeIds_.add(builderForValue.build());
+  }
+  /**
+   * <code>repeated .PB_UpdateMessageId MessagesFileChangeIds = 15;</code>
+   */
+  private void addMessagesFileChangeIds(
+      int index, ir.ms.pb.PB_UpdateMessageId.Builder builderForValue) {
+    ensureMessagesFileChangeIdsIsMutable();
+    messagesFileChangeIds_.add(index, builderForValue.build());
+  }
+  /**
+   * <code>repeated .PB_UpdateMessageId MessagesFileChangeIds = 15;</code>
+   */
+  private void addAllMessagesFileChangeIds(
+      java.lang.Iterable<? extends ir.ms.pb.PB_UpdateMessageId> values) {
+    ensureMessagesFileChangeIdsIsMutable();
+    com.google.protobuf.AbstractMessageLite.addAll(
+        values, messagesFileChangeIds_);
+  }
+  /**
+   * <code>repeated .PB_UpdateMessageId MessagesFileChangeIds = 15;</code>
+   */
+  private void clearMessagesFileChangeIds() {
+    messagesFileChangeIds_ = emptyProtobufList();
+  }
+  /**
+   * <code>repeated .PB_UpdateMessageId MessagesFileChangeIds = 15;</code>
+   */
+  private void removeMessagesFileChangeIds(int index) {
+    ensureMessagesFileChangeIdsIsMutable();
+    messagesFileChangeIds_.remove(index);
   }
 
   public static final int MESSAGESTOUPDATE_FIELD_NUMBER = 11;
@@ -1680,6 +1801,9 @@ public  final class PB_SyncResponse_GetDirectUpdates extends
     for (int i = 0; i < messagesToDelete_.size(); i++) {
       output.writeMessage(12, messagesToDelete_.get(i));
     }
+    for (int i = 0; i < messagesFileChangeIds_.size(); i++) {
+      output.writeMessage(15, messagesFileChangeIds_.get(i));
+    }
     for (int i = 0; i < messagesDelivierdToServer_.size(); i++) {
       output.writeMessage(20, messagesDelivierdToServer_.get(i));
     }
@@ -1732,6 +1856,10 @@ public  final class PB_SyncResponse_GetDirectUpdates extends
     for (int i = 0; i < messagesToDelete_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(12, messagesToDelete_.get(i));
+    }
+    for (int i = 0; i < messagesFileChangeIds_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(15, messagesFileChangeIds_.get(i));
     }
     for (int i = 0; i < messagesDelivierdToServer_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
@@ -2373,6 +2501,103 @@ public  final class PB_SyncResponse_GetDirectUpdates extends
     public Builder removeMessagesChangeIds(int index) {
       copyOnWrite();
       instance.removeMessagesChangeIds(index);
+      return this;
+    }
+
+    /**
+     * <code>repeated .PB_UpdateMessageId MessagesFileChangeIds = 15;</code>
+     */
+    public java.util.List<ir.ms.pb.PB_UpdateMessageId> getMessagesFileChangeIdsList() {
+      return java.util.Collections.unmodifiableList(
+          instance.getMessagesFileChangeIdsList());
+    }
+    /**
+     * <code>repeated .PB_UpdateMessageId MessagesFileChangeIds = 15;</code>
+     */
+    public int getMessagesFileChangeIdsCount() {
+      return instance.getMessagesFileChangeIdsCount();
+    }/**
+     * <code>repeated .PB_UpdateMessageId MessagesFileChangeIds = 15;</code>
+     */
+    public ir.ms.pb.PB_UpdateMessageId getMessagesFileChangeIds(int index) {
+      return instance.getMessagesFileChangeIds(index);
+    }
+    /**
+     * <code>repeated .PB_UpdateMessageId MessagesFileChangeIds = 15;</code>
+     */
+    public Builder setMessagesFileChangeIds(
+        int index, ir.ms.pb.PB_UpdateMessageId value) {
+      copyOnWrite();
+      instance.setMessagesFileChangeIds(index, value);
+      return this;
+    }
+    /**
+     * <code>repeated .PB_UpdateMessageId MessagesFileChangeIds = 15;</code>
+     */
+    public Builder setMessagesFileChangeIds(
+        int index, ir.ms.pb.PB_UpdateMessageId.Builder builderForValue) {
+      copyOnWrite();
+      instance.setMessagesFileChangeIds(index, builderForValue);
+      return this;
+    }
+    /**
+     * <code>repeated .PB_UpdateMessageId MessagesFileChangeIds = 15;</code>
+     */
+    public Builder addMessagesFileChangeIds(ir.ms.pb.PB_UpdateMessageId value) {
+      copyOnWrite();
+      instance.addMessagesFileChangeIds(value);
+      return this;
+    }
+    /**
+     * <code>repeated .PB_UpdateMessageId MessagesFileChangeIds = 15;</code>
+     */
+    public Builder addMessagesFileChangeIds(
+        int index, ir.ms.pb.PB_UpdateMessageId value) {
+      copyOnWrite();
+      instance.addMessagesFileChangeIds(index, value);
+      return this;
+    }
+    /**
+     * <code>repeated .PB_UpdateMessageId MessagesFileChangeIds = 15;</code>
+     */
+    public Builder addMessagesFileChangeIds(
+        ir.ms.pb.PB_UpdateMessageId.Builder builderForValue) {
+      copyOnWrite();
+      instance.addMessagesFileChangeIds(builderForValue);
+      return this;
+    }
+    /**
+     * <code>repeated .PB_UpdateMessageId MessagesFileChangeIds = 15;</code>
+     */
+    public Builder addMessagesFileChangeIds(
+        int index, ir.ms.pb.PB_UpdateMessageId.Builder builderForValue) {
+      copyOnWrite();
+      instance.addMessagesFileChangeIds(index, builderForValue);
+      return this;
+    }
+    /**
+     * <code>repeated .PB_UpdateMessageId MessagesFileChangeIds = 15;</code>
+     */
+    public Builder addAllMessagesFileChangeIds(
+        java.lang.Iterable<? extends ir.ms.pb.PB_UpdateMessageId> values) {
+      copyOnWrite();
+      instance.addAllMessagesFileChangeIds(values);
+      return this;
+    }
+    /**
+     * <code>repeated .PB_UpdateMessageId MessagesFileChangeIds = 15;</code>
+     */
+    public Builder clearMessagesFileChangeIds() {
+      copyOnWrite();
+      instance.clearMessagesFileChangeIds();
+      return this;
+    }
+    /**
+     * <code>repeated .PB_UpdateMessageId MessagesFileChangeIds = 15;</code>
+     */
+    public Builder removeMessagesFileChangeIds(int index) {
+      copyOnWrite();
+      instance.removeMessagesFileChangeIds(index);
       return this;
     }
 
@@ -3192,6 +3417,7 @@ public  final class PB_SyncResponse_GetDirectUpdates extends
         chats_.makeImmutable();
         users_.makeImmutable();
         messagesChangeIds_.makeImmutable();
+        messagesFileChangeIds_.makeImmutable();
         messagesToUpdate_.makeImmutable();
         messagesToDelete_.makeImmutable();
         messagesDelivierdToServer_.makeImmutable();
@@ -3212,6 +3438,7 @@ public  final class PB_SyncResponse_GetDirectUpdates extends
         chats_= visitor.visitList(chats_, other.chats_);
         users_= visitor.visitList(users_, other.users_);
         messagesChangeIds_= visitor.visitList(messagesChangeIds_, other.messagesChangeIds_);
+        messagesFileChangeIds_= visitor.visitList(messagesFileChangeIds_, other.messagesFileChangeIds_);
         messagesToUpdate_= visitor.visitList(messagesToUpdate_, other.messagesToUpdate_);
         messagesToDelete_= visitor.visitList(messagesToDelete_, other.messagesToDelete_);
         messagesDelivierdToServer_= visitor.visitList(messagesDelivierdToServer_, other.messagesDelivierdToServer_);
@@ -3307,6 +3534,15 @@ public  final class PB_SyncResponse_GetDirectUpdates extends
                 }
                 messagesToDelete_.add(
                     input.readMessage(ir.ms.pb.PB_UpdateMessageToDelete.parser(), extensionRegistry));
+                break;
+              }
+              case 122: {
+                if (!messagesFileChangeIds_.isModifiable()) {
+                  messagesFileChangeIds_ =
+                      com.google.protobuf.GeneratedMessageLite.mutableCopy(messagesFileChangeIds_);
+                }
+                messagesFileChangeIds_.add(
+                    input.readMessage(ir.ms.pb.PB_UpdateMessageId.parser(), extensionRegistry));
                 break;
               }
               case 162: {

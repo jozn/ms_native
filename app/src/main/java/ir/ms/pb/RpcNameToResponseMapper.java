@@ -4,7 +4,6 @@ import com.google.protobuf.ByteString;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-
 /** Created by Hamid on 9/30/2017. */
 public class RpcNameToResponseMapper {
   public abstract static class RpcHelper2 {

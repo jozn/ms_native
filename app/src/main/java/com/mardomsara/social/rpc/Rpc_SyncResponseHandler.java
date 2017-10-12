@@ -27,6 +27,9 @@ public class Rpc_SyncResponseHandler extends RPC_HANDLERS.RPC_Sync_Empty{
 		HelperPushAndRefreshHandlerOfData.newMessageViewList(pb.getNewMessagesList());
 		HelperPushAndRefreshHandlerOfData.newChatViewList(pb.getChatsList());
 
+		HelperPushAndRefreshHandlerOfData.messagesChangeIdsList(pb.getMessagesChangeIdsList());
+		HelperPushAndRefreshHandlerOfData.messagesChangeIdsList(pb.getMessagesFileChangeIdsList());
+
 		HelperPushAndRefreshHandlerOfData.messagesDelivierdToServer(pb.getMessagesDelivierdToServerList());
 		HelperPushAndRefreshHandlerOfData.messagesDelivierdToPeerList(pb.getMessagesDelivierdToPeerList());
 		HelperPushAndRefreshHandlerOfData.messagesDeletedFromServerList(pb.getMessagesDeletedFromServerList());

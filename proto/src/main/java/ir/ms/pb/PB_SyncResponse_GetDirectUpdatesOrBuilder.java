@@ -90,6 +90,20 @@ public interface PB_SyncResponse_GetDirectUpdatesOrBuilder extends
   int getMessagesChangeIdsCount();
 
   /**
+   * <code>repeated .PB_UpdateMessageId MessagesFileChangeIds = 15;</code>
+   */
+  java.util.List<ir.ms.pb.PB_UpdateMessageId> 
+      getMessagesFileChangeIdsList();
+  /**
+   * <code>repeated .PB_UpdateMessageId MessagesFileChangeIds = 15;</code>
+   */
+  ir.ms.pb.PB_UpdateMessageId getMessagesFileChangeIds(int index);
+  /**
+   * <code>repeated .PB_UpdateMessageId MessagesFileChangeIds = 15;</code>
+   */
+  int getMessagesFileChangeIdsCount();
+
+  /**
    * <code>repeated .PB_UpdateMessageToEdit MessagesToUpdate = 11;</code>
    */
   java.util.List<ir.ms.pb.PB_UpdateMessageToEdit> 
