@@ -1,4 +1,4 @@
-package com.mardomsara.social.pipe.push_handling;
+package com.mardomsara.social.pipe.del;
 
 import ir.ms.pb.PB_PushHolderView;
 
@@ -6,8 +6,8 @@ import ir.ms.pb.PB_PushHolderView;
  * Created by Hamid on 8/30/2017.
  */
 
-public class PushRouter {
+final class PushHandlerMessagesChanges {
 	public static void handle(PB_PushHolderView push){
-		PushHandlerNewMessages.handle(push);
+
 	}
 }

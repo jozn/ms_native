@@ -1,4 +1,4 @@
-package com.mardomsara.social.pipe.push_handling;
+package com.mardomsara.social.pipe.del.push_handling;
 
 import com.mardomsara.social.app.AppRealm;
 import com.mardomsara.social.helpers.AppUtil;

@@ -165,7 +165,7 @@ public class MessageModel {
 
 	public static void setVideoExtraParams(MsgFile msgFile, String videoPath) {
 		String $thumbPath = AppFiles.VIDEO_THUMB_DIR_PATH + FormaterUtil.getFullyYearToSecondsSolarName() +"$" + msgFile.Extension;
-		String thumbPath = FileUtil.createNextName($thumbPath);
+		String thumbPath = FileUtil.createNextName_INFINATE_LOOP($thumbPath);
 
 		File fileThumb = new File(thumbPath);
 		Bitmap bitmap = ImageUtil.createVideoThumbnail(videoPath, 1024,360);

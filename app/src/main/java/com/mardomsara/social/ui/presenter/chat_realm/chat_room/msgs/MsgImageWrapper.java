@@ -150,7 +150,7 @@ class MsgImageWrapper implements MessageProgressListener {
 			wrapper.retryDownloading();
 			/*if( msgFile == null)return;
 			String $fileName = AppFiles.PHOTO_DIR_PATH + FormaterUtil.getFullyYearToSecondsSolarName() + "$" + msgFile.Extension;
-			String fileName = FileUtil.createNextName($fileName);
+			String fileName = FileUtil.createNextName_INFINATE_LOOP($fileName);
 			MSRealm.getChatRealm().executeTransaction((r)->{
 				msgFile.LocalSrc = fileName;
 			});

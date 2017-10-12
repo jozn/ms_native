@@ -30,7 +30,7 @@ public class RealmChatView extends RealmObject {
 
 	public static RealmChatView fromPB(PB_ChatView pb){
 		RealmChatView r = new RealmChatView();
-		
+		pb.newBuilderForType();
 		r.ChatKey = pb.getChatKey();//0
 		r.RoomKey = pb.getRoomKey();//1
 		r.RoomTypeEnumId = pb.getRoomTypeEnumId();//2

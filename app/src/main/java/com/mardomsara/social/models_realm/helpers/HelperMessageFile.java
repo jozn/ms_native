@@ -43,9 +43,9 @@ public class HelperMessageFile {
 		if (msgFile.LocalSrc == null || msgFile.LocalSrc.equals("")) {
 //			String $fileName = AppFiles.PHOTO_DIR_PATH + FormaterUtil.getFullyYearToSecondsSolarName() + "$" + msgFile.Extension;
 			String $fileName = AppFiles.PHOTO_DIR_PATH + msgFile.MessageFileId + msgFile.Extension;
-			String fileName = FileUtil.createNextName($fileName);
+//			String fileName = FileUtil.createNextName_INFINATE_LOOP($fileName);
 			AppRealm.getChatRealm().executeTransaction((r) -> {
-				msgFile.LocalSrc = fileName;
+				msgFile.LocalSrc = $fileName;
 			});
 		}
 	}

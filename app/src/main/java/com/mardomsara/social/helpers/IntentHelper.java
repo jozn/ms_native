@@ -129,7 +129,7 @@ public class IntentHelper {
         }else {return null;}
 
 //        mediaFile = FileUtil.createNextFile(mediaFile.getAbsolutePath());
-        mediaFile = new File(FileUtil.createNextName(mediaFile.getAbsolutePath()));
+        mediaFile = new File(FileUtil.createNextName_INFINATE_LOOP(mediaFile.getAbsolutePath()));
 //        int count = 1;
 //        while (mediaFile.exists()){
 //            mediaFile = _makeFile(fileName+"~"+count,type);

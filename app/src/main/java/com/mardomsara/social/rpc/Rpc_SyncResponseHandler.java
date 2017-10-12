@@ -27,6 +27,12 @@ public class Rpc_SyncResponseHandler extends RPC_HANDLERS.RPC_Sync_Empty{
 		HelperPushAndRefreshHandlerOfData.newMessageViewList(pb.getNewMessagesList());
 		HelperPushAndRefreshHandlerOfData.newChatViewList(pb.getChatsList());
 
+		HelperPushAndRefreshHandlerOfData.messagesDelivierdToServer(pb.getMessagesDelivierdToServerList());
+		HelperPushAndRefreshHandlerOfData.messagesDelivierdToPeerList(pb.getMessagesDelivierdToPeerList());
+		HelperPushAndRefreshHandlerOfData.messagesDeletedFromServerList(pb.getMessagesDeletedFromServerList());
+		HelperPushAndRefreshHandlerOfData.messagesSeenByPeerList(pb.getMessagesSeenByPeerList());
+
+
 		AppUtil.log("pb: Rpc_SyncResponseHandler.GetDirectUpdates - new messages count: " + pb.getNewMessagesCount());
 		int c = AppRealm.getChatRealm().where(RealmMessageView.class).findAll().size();
 		AppUtil.log("pb:  Rpc_SyncResponseHandler.GetDirectUpdates - realm messages count: " + c + " chat count " + pb.getChatsCount());

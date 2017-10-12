@@ -100,7 +100,7 @@ public class FileUtil {
 
     //"$" sign to be replaced with "~1"
     //filePath : "/emulated/Mardomsra Images/Img_1852$.jpg
-    //DEPRECATED use: createNextName(): its work better and dosn't have side effects of create empty files
+    //DEPRECATED use: createNextName_INFINATE_LOOP(): its work better and dosn't have side effects of create empty files
     public static File createNextFile(String $filePath) {
         String _filePath = $filePath.replace("$","");
         File file = new File(_filePath);
@@ -122,7 +122,11 @@ public class FileUtil {
     //__saved for many saveWithRoom at same time or reducing IO
     static Map<String,Boolean> __saved = new HashMap<>();
     //improved version createNextFile(file) -- its work better and dosn't have side effects of create empty files
-    public static String createNextName(String $filePath) {
+    public static String createNextName_INFINATE_LOOP(String $filePath) {
+    	//othersise will hang for over
+    	if(!$filePath.contains("$")){
+    		return $filePath;
+		}
         String _filePath = $filePath.replace("$","");
         int count = 1;
         while (__saved.containsKey(_filePath)){

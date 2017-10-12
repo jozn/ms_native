@@ -343,7 +343,7 @@ public class ChatRoomPresenter_OLD extends BasePresenter implements
     public void onVideoClick() {
         attachment_view.dismiss();
         String tempPath = AppFiles.APP_TEMP_DIR_PATH+"VID_"+ FormaterUtil.getFullyYearToSecondsSolarName()+"$.mp4";
-        String resizedPath = FileUtil.createNextName(tempPath);
+        String resizedPath = FileUtil.createNextName_INFINATE_LOOP(tempPath);
 
         intentHelper = new IntentHelper();
         file_uri = intentHelper.recordVideo(getActivity(),ATTACH_CAMERA_VIDEO,"back",resizedPath);
@@ -442,7 +442,7 @@ public class ChatRoomPresenter_OLD extends BasePresenter implements
 		}
 
         String $resizedPath = AppFiles.PHOTO_SENT_DIR_PATH+"IMG_"+ FormaterUtil.getFullyYearToSecondsSolarName()+"$.jpg";
-        String resizedPath = FileUtil.createNextName($resizedPath);
+        String resizedPath = FileUtil.createNextName_INFINATE_LOOP($resizedPath);
         ImageUtil.resizeImage(path,resizedPath,1080);
         File resizedFile = new File(resizedPath);
 
@@ -470,7 +470,7 @@ public class ChatRoomPresenter_OLD extends BasePresenter implements
         String $resizedPath = AppFiles.VIDEO_SENT_DIR_PATH+"VID_"+ FormaterUtil.getFullyYearToSecondsSolarName()+"$.mp4";
         String thumbPath = AppFiles.VIDEO_SENT_DIR_PATH+"THUMB_"+ FormaterUtil.getFullyYearToSecondsSolarName()+"$.jpg";
         String resizedPath = savedPath;
-        thumbPath = FileUtil.createNextName(thumbPath);
+        thumbPath = FileUtil.createNextName_INFINATE_LOOP(thumbPath);
         Bitmap bitmap = ImageUtil.createVideoThumbnail(savedPath, 1024,360);
         if(bitmap != null){
             ImageUtil.saveToFile(bitmap,thumbPath);

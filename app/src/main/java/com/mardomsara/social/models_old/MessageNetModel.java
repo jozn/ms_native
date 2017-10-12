@@ -130,7 +130,7 @@ public class MessageNetModel {
 				msgFile = msg.MsgFile;
 				if (msgFile != null) {
 					String $fileName = AppFiles.PHOTO_DIR_PATH + FormaterUtil.getFullyYearToSecondsSolarName() + "$" + msgFile.Extension;
-					String fileName = FileUtil.createNextName($fileName);
+					String fileName = FileUtil.createNextName_INFINATE_LOOP($fileName);
 					msgFile.LocalSrc = fileName;
 					msgFile.Origin = Constants.Msg_Media_Origin_Server;
 					msg.MsgFile_LocalSrc = fileName;
@@ -153,7 +153,7 @@ public class MessageNetModel {
 				msgFile = msg.MsgFile;
 				if (msgFile != null) {
 					String $fileName = AppFiles.VIDEO_DIR_PATH + FormaterUtil.getFullyYearToSecondsSolarName() + "$" + msgFile.Extension;
-					String fileName = FileUtil.createNextName($fileName);
+					String fileName = FileUtil.createNextName_INFINATE_LOOP($fileName);
 					msg.MsgFile_LocalSrc = fileName;
 					msgFile.LocalSrc = fileName;
 					msgFile.Origin = Constants.Msg_Media_Origin_Server;
