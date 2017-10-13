@@ -4,14 +4,6 @@ import android.util.Log;
 
 public class RPC_ResponseBase {/*
 
-	public static class RPC_MessageReq_Base implements RPC_HANDLERS.RPC_MessageReq  {
-		public void GetLastChnagesForRoom( PB_ResponseLastChangesForTheRoom pbOut){
-			Log.d("RPC:Response", "RPC_MessageReq_Base.RPC_MessageReq");
-		}}
-	public static class RPC_MessageReqOffline_Base implements RPC_HANDLERS.RPC_MessageReqOffline  {
-		public void SetLastSeen( PB_ResponseSetLastSeenMessages pbOut){
-			Log.d("RPC:Response", "RPC_MessageReqOffline_Base.RPC_MessageReqOffline");
-		}}
 	public static class RPC_Auth_Base implements RPC_HANDLERS.RPC_Auth  {
 		public void CheckPhone( PB_UserResponse_CheckUserName2 pbOut){
 			Log.d("RPC:Response", "RPC_Auth_Base.RPC_Auth");
@@ -132,8 +124,6 @@ public class RPC_ResponseBase {/*
 }
 /*
 
-RPC_HANDLERS.RPC_MessageReq RPC_MessageReq_Handeler = null;
-RPC_HANDLERS.RPC_MessageReqOffline RPC_MessageReqOffline_Handeler = null;
 RPC_HANDLERS.RPC_Auth RPC_Auth_Handeler = null;
 RPC_HANDLERS.RPC_Msg RPC_Msg_Handeler = null;
 RPC_HANDLERS.RPC_Sync RPC_Sync_Handeler = null;

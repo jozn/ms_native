@@ -7,11 +7,9 @@ import com.mardomsara.social.app.Config;
 import com.mardomsara.social.app.DB;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
-import com.mardomsara.social.pipe.del.push_handling.PushRouter;
 
 import ir.ms.pb.PB_AllLivePushes;
 import ir.ms.pb.PB_CommandReachedToServer;
-import ir.ms.pb.PB_PushHolderView;
 import ir.ms.pb.PB_ResponseToClient;
 import ir.ms.pb.RPC_HANDLERS;
 import ir.ms.pb.RpcNameToResponseMapper;
@@ -102,9 +100,9 @@ class RouterLayerOneHandler {
 		RPC_HANDLERS.RPC_Sync_Default_Handler.GetGeneralUpdates(pb_allLivePushes.getGeneralUpdates(),false);
 	};
 
-	@Deprecated
+	/*@Deprecated
 	static PipeNetEventHandler handle_PB_PushDirectLogViewsMany = (data) -> {
 		PB_PushHolderView pb_pushHolderView = PB_PushHolderView.parseFrom(data);
 		PushRouter.handle(pb_pushHolderView);
-	};
+	};*/
 }

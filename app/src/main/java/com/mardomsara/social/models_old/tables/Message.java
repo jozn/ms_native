@@ -16,12 +16,10 @@ import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.TimeUtil;
 import com.mardomsara.social.models_old.CacheBank;
-import com.mardomsara.social.models_old.MessageModel;
 import com.mardomsara.social.models_old.RoomModel;
 import com.mardomsara.social.models_old.interfaces.MessageProgressListener;
 import com.mardomsara.social.models_old.memory_store.MemoryStore_LastMsgs;
 import com.mardomsara.social.models_old.memory_store.MemoryStore_Rooms;
-import com.mardomsara.social.models_old.flusher.MsgsCallToServer;
 
 import java.io.File;
 
@@ -179,7 +177,7 @@ public class Message implements Comparable<Message>, UploadProgressListener, Dow
 		AndroidUtil.runInBackgroundNoPanic(() -> {
 //			if(MessageTypeId == Constants.MESSAGE_IMAGE){
 			File file = new File(MsgFile_LocalSrc);
-			MsgsCallToServer.sendNewPhoto(this, file, null, false);
+//			MsgsCallToServer.sendNewPhoto(this, file, null, false);
 //			}
 		});
 	}
@@ -200,7 +198,7 @@ public class Message implements Comparable<Message>, UploadProgressListener, Dow
 	public void retryDownloading() {
 		Helper.showDebugMessage("retryDownloading");
 		setNetWorkTransferring(true);
-		MessageModel.downloadForceMessageMediaFile(this);
+//		MessageModel.downloadForceMessageMediaFile(this);
 	}
 
 	public boolean isReceivedToPeer() {

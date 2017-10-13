@@ -25,30 +25,6 @@ public class RpcNameToResponseMapper {
 
   private static synchronized void fill() {
 
-    // Service RPC_MessageReq
-
-    mp.put(
-        "RPC_MessageReq.GetLastChnagesForRoom",
-        new RpcHelper2() {
-          @Override
-          public com.google.protobuf.GeneratedMessageLite parseData(ByteString byteString)
-              throws com.google.protobuf.InvalidProtocolBufferException {
-            return PB_ResponseLastChangesForTheRoom.parseFrom(byteString);
-          }
-        });
-
-    // Service RPC_MessageReqOffline
-
-    mp.put(
-        "RPC_MessageReqOffline.SetLastSeen",
-        new RpcHelper2() {
-          @Override
-          public com.google.protobuf.GeneratedMessageLite parseData(ByteString byteString)
-              throws com.google.protobuf.InvalidProtocolBufferException {
-            return PB_ResponseSetLastSeenMessages.parseFrom(byteString);
-          }
-        });
-
     // Service RPC_Auth
 
     mp.put(

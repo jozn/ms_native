@@ -4,12 +4,11 @@ import com.mardomsara.social.Nav;
 import com.mardomsara.social.PresenterPage;
 import com.mardomsara.social.json.JV;
 import com.mardomsara.social.models_old.RoomModel;
-import com.mardomsara.social.models_old.tables.Session;
 import com.mardomsara.social.models_old.tables.Room;
+import com.mardomsara.social.models_old.tables.Session;
 import com.mardomsara.social.models_realm.pb_realm.RealmChatView;
 import com.mardomsara.social.ui.presenter.HelloPresenter;
 import com.mardomsara.social.ui.presenter.chat_realm.chat_room.ChatRoomEntryPresenter;
-import com.mardomsara.social.ui.presenter.chats.ChatRoomPresenter_OLD;
 import com.mardomsara.social.ui.presenter.chats.GalleryChooserPresenter;
 import com.mardomsara.social.ui.presenter.pages.CommentsPage;
 import com.mardomsara.social.ui.presenter.pages.FollowsListAboutPage;
@@ -53,10 +52,12 @@ public class Router {
         return p;
     }*/
 
+    @Deprecated
     public static PresenterPage getRoomEntry(Room room) {
-        ChatRoomPresenter_OLD p = new ChatRoomPresenter_OLD();
+        /*ChatRoomPresenter_OLD p = new ChatRoomPresenter_OLD();
         p.room = room;
-        return p;
+        return p;*/
+        return new HelloPresenter();
     }
 
 	public static PresenterPage getRoomEntry(RealmChatView room) {

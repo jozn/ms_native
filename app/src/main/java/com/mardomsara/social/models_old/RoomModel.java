@@ -11,7 +11,6 @@ import com.mardomsara.social.helpers.LangUtil;
 import com.mardomsara.social.helpers.TimeUtil;
 import com.mardomsara.social.models_old.memory_store.MemoryStore_LastMsgs;
 import com.mardomsara.social.models_old.memory_store.MemoryStore_Rooms;
-import com.mardomsara.social.models_old.flusher.MsgsCallToServer;
 import com.mardomsara.social.models_old.tables.Message;
 import com.mardomsara.social.models_old.tables.MsgSeen;
 import com.mardomsara.social.models_old.tables.Room;
@@ -166,11 +165,11 @@ public class RoomModel {
             DB.getAppDB().deleteFromRoom().RoomKeyEq(room.RoomKey).execute();
         }
         //???for safety if room somehow doesn't exit
-        MessageModel.clearAllMessagesOfRoom_BG(roomKey);
+//        MessageModel.clearAllMessagesOfRoom_BG(roomKey);
     }
 
     public static void clearRoomMsgs(Room room){
-        MessageModel.clearAllMessagesOfRoom_BG(room.RoomKey);
+//        MessageModel.clearAllMessagesOfRoom_BG(room.RoomKey);
 		MemoryStore_LastMsgs.removeForRoom(room.RoomKey);
         room.UnseenMessageCount = 0;
         room.saveAndEmit();
@@ -218,7 +217,7 @@ public class RoomModel {
 				}
 			});
 
-			MsgsCallToServer.sendSeenMsgs(msgsSeen);
+//			MsgsCallToServer.sendSeenMsgs(msgsSeen);
 
 		});
 	}

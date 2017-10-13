@@ -25,6 +25,7 @@ import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.CursorRecyclerViewAdapter;
+import com.mardomsara.social.ui.presenter.chat_realm.chat_room.ChatRoomEntryPresenter;
 import com.mardomsara.social.ui.ui.AppTabPagerAdaptor;
 import com.mardomsara.social.ui.views.FontCache;
 
@@ -51,7 +52,8 @@ public class GalleryChooserPresenter extends BasePresenter {
     Map<String, Integer> folder_count_cache = new HashMap<>();;
     Map<String, Integer> folder_count_video_cache = new HashMap<>();;
 
-    public ChatRoomPresenter_OLD chatEntryPresenter;
+//    public ChatRoomPresenter_OLD chatEntryPresenter;
+    public ChatRoomEntryPresenter chatEntryPresenter;
 
     @Bind(R.id.view_pager)
     ViewPager view_pager;

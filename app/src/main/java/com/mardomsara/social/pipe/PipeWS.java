@@ -9,8 +9,6 @@ import com.mardomsara.social.app.Config;
 import com.mardomsara.social.app.Constants;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.models_old.tables.Session;
-import com.mardomsara.social.models_old.flusher.FlushStoredDataToServer;
-//import com.mardomsara.social.pipe.del.Pipe;
 
 import org.greenrobot.essentials.io.FileUtils;
 
@@ -31,6 +29,8 @@ import okhttp3.WebSocket;
 import okhttp3.WebSocketListener;
 import okio.Buffer;
 import okio.ByteString;
+
+//import com.mardomsara.social.pipe.del.Pipe;
 
 class PipeWS {
     private static String wsUrl = "ws://192.168.1.250:5000/ws_pb_call?user_id="+ Session.getUserId();
@@ -247,7 +247,7 @@ class PipeWS {
 		runSenderThread();
 
 		AppSyncCycle.onWsPipeOpened();
-		FlushStoredDataToServer.flushAllMessages();
+//		FlushStoredDataToServer.flushAllMessages();
 //        sendStoredCommands();
     }
 

@@ -15,11 +15,10 @@ import com.mardomsara.social.app.fresco.FrescoConfig;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.models_old.NotifyModel;
-import com.mardomsara.social.models_old.tables.Session;
 import com.mardomsara.social.models_old.stores.Store;
 import com.mardomsara.social.models_old.syncer.ContactsCopySyncer;
 import com.mardomsara.social.models_old.syncer.UserSyncer;
-import com.mardomsara.social.del.pipe_pb.PlayNewPipe;
+import com.mardomsara.social.models_old.tables.Session;
 import com.mardomsara.social.service.BackgroundService;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.x.iconify.XIconify;
@@ -146,7 +145,7 @@ public class LifeCycle {
 		//////////////
 //		Pipe_OLD.sendCall("Echo","",null,null);
 
-		PlayNewPipe.run1();
+//		PlayNewPipe.run1();
 
         /*Command cmd = new Command();
         cmd.Name = "Echo";

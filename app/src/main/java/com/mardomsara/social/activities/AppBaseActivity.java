@@ -15,12 +15,11 @@ import android.view.MenuItem;
 import com.mardomsara.social.App;
 import com.mardomsara.social.Nav;
 import com.mardomsara.social.app.Config;
-import com.mardomsara.social.app.LifeCycle;
 import com.mardomsara.social.app.ConfigRealmBrowser;
+import com.mardomsara.social.app.LifeCycle;
 import com.mardomsara.social.app.memory.TrimMemory;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.Helper;
-import com.mardomsara.social.models_old.realm_play.RealmPlay;
 import com.mardomsara.social.play.Play_TestsPresenter;
 
 import pl.tajchert.nammu.Nammu;
@@ -40,7 +39,7 @@ public abstract class AppBaseActivity extends AppCompatActivity {
 		App.init(getApplicationContext());
 		LifeCycle.initFromActivity(getApplicationContext());
 		//ConfigStetho.config(this);
-		RealmPlay.play();
+//		RealmPlay.play();
 	}
 
 	@Override

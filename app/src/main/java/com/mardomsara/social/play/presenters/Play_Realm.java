@@ -2,14 +2,8 @@ package com.mardomsara.social.play.presenters;
 
 import android.view.View;
 
-import com.mardomsara.social.app.AppRealm;
-import com.mardomsara.social.models_old.realm_play.Blog;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.X;
-
-import io.realm.Realm;
-import io.realm.RealmChangeListener;
-import io.realm.RealmResults;
 
 /**
  * Created by Hamid on 10/1/2016.
@@ -19,7 +13,7 @@ public class Play_Realm extends BasePresenter {
 	public View buildView() {
 		X.PlayRealm x = new X.PlayRealm();
 
-		RealmResults<Blog> realmResults = AppRealm.getChatRealm()
+		/*RealmResults<Blog> realmResults = AppRealm.getChatRealm()
 			.where(Blog.class)
 			.findAll();
 
@@ -39,7 +33,7 @@ public class Play_Realm extends BasePresenter {
 
 			}
 		});
-
+*/
 		return x.root;
 	}
 

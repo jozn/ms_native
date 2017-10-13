@@ -8,12 +8,6 @@ import java.util.Map;
 
 public class RPC_HANDLERS {
 
-public interface RPC_MessageReq {
-    void GetLastChnagesForRoom( PB_ResponseLastChangesForTheRoom pb, boolean handled);
-}
-public interface RPC_MessageReqOffline {
-    void SetLastSeen( PB_ResponseSetLastSeenMessages pb, boolean handled);
-}
 public interface RPC_Auth {
     void CheckPhone( PB_UserResponse_CheckUserName2 pb, boolean handled);
     void SendCode( PB_UserResponse_CheckUserName2 pb, boolean handled);
@@ -63,20 +57,6 @@ public interface RPC_User {
 }
 
 
-  public static class RPC_MessageReq_Empty implements RPC_MessageReq{
-  
-  	@Override
-    public void GetLastChnagesForRoom( PB_ResponseLastChangesForTheRoom pb, boolean handled){
-    	Log.d("RPC", " default empty handler for RPC 'RPC_MessageReq.GetLastChnagesForRoom' ");
-    }
-  }
-  public static class RPC_MessageReqOffline_Empty implements RPC_MessageReqOffline{
-  
-  	@Override
-    public void SetLastSeen( PB_ResponseSetLastSeenMessages pb, boolean handled){
-    	Log.d("RPC", " default empty handler for RPC 'RPC_MessageReqOffline.SetLastSeen' ");
-    }
-  }
   public static class RPC_Auth_Empty implements RPC_Auth{
   
   	@Override
@@ -248,8 +228,6 @@ public interface RPC_User {
 
 
 	
-	public static RPC_HANDLERS.RPC_MessageReq RPC_MessageReq_Default_Handler = new RPC_HANDLERS.RPC_MessageReq_Empty();
-	public static RPC_HANDLERS.RPC_MessageReqOffline RPC_MessageReqOffline_Default_Handler = new RPC_HANDLERS.RPC_MessageReqOffline_Empty();
 	public static RPC_HANDLERS.RPC_Auth RPC_Auth_Default_Handler = new RPC_HANDLERS.RPC_Auth_Empty();
 	public static RPC_HANDLERS.RPC_Msg RPC_Msg_Default_Handler = new RPC_HANDLERS.RPC_Msg_Empty();
 	public static RPC_HANDLERS.RPC_Sync RPC_Sync_Default_Handler = new RPC_HANDLERS.RPC_Sync_Empty();
@@ -268,24 +246,6 @@ public interface RPC_User {
 
 	private synchronized static void initMap(){
 	
-	  
-			router.put("RPC_MessageReq.GetLastChnagesForRoom", (pb, handled)->{
-				if(pb instanceof PB_ResponseLastChangesForTheRoom){
-					RPC_MessageReq_Default_Handler.GetLastChnagesForRoom((PB_ResponseLastChangesForTheRoom) pb, handled);
-				}else{
-					Log.d("RPC", " can not convert response object to PB_ResponseLastChangesForTheRoom in rpc: .GetLastChnagesForRoom -- class: " + pb );//.getClass().getName());
-				}
-			});
-	  
-	  
-			router.put("RPC_MessageReqOffline.SetLastSeen", (pb, handled)->{
-				if(pb instanceof PB_ResponseSetLastSeenMessages){
-					RPC_MessageReqOffline_Default_Handler.SetLastSeen((PB_ResponseSetLastSeenMessages) pb, handled);
-				}else{
-					Log.d("RPC", " can not convert response object to PB_ResponseSetLastSeenMessages in rpc: .SetLastSeen -- class: " + pb );//.getClass().getName());
-				}
-			});
-	  
 	  
 			router.put("RPC_Auth.CheckPhone", (pb, handled)->{
 				if(pb instanceof PB_UserResponse_CheckUserName2){
@@ -592,8 +552,6 @@ public interface RPC_User {
 }
 /*
 
-RPC_HANDLERS.RPC_MessageReq RPC_MessageReq_Default_Handler = new RPC_HANDLERS.RPC_MessageReq RPC_MessageReq_Empty();
-RPC_HANDLERS.RPC_MessageReqOffline RPC_MessageReqOffline_Default_Handler = new RPC_HANDLERS.RPC_MessageReqOffline RPC_MessageReqOffline_Empty();
 RPC_HANDLERS.RPC_Auth RPC_Auth_Default_Handler = new RPC_HANDLERS.RPC_Auth RPC_Auth_Empty();
 RPC_HANDLERS.RPC_Msg RPC_Msg_Default_Handler = new RPC_HANDLERS.RPC_Msg RPC_Msg_Empty();
 RPC_HANDLERS.RPC_Sync RPC_Sync_Default_Handler = new RPC_HANDLERS.RPC_Sync RPC_Sync_Empty();

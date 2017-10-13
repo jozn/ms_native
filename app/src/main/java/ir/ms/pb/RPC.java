@@ -5,123 +5,6 @@ import com.mardomsara.social.pipe.*;
 
 public class RPC {
 
-  public static class RPC_MessageReq {
-
-    public static interface GetLastChnagesForRoom_ResultHandler {
-      void onResult(PB_ResponseLastChangesForTheRoom res);
-    }
-
-    public static void GetLastChnagesForRoom(
-        PB_ReqLastChangesForTheRoom param,
-        GetLastChnagesForRoom_ResultHandler resultHandler,
-        ErrorCallback errorCallback) {
-      GetLastChnagesForRoomImpl(param, resultHandler, errorCallback, false, "");
-    }
-
-    public static void GetLastChnagesForRoom_Offline(
-        String offlineKey,
-        PB_ReqLastChangesForTheRoom param,
-        GetLastChnagesForRoom_ResultHandler resultHandler,
-        ErrorCallback errorCallback) {
-      GetLastChnagesForRoomImpl(param, resultHandler, errorCallback, true, offlineKey);
-    }
-
-    private static void GetLastChnagesForRoomImpl(
-        PB_ReqLastChangesForTheRoom param,
-        GetLastChnagesForRoom_ResultHandler resultHandler,
-        ErrorCallback errorCallback,
-        Boolean offline,
-        String offlineKey) {
-      SuccessCallback callback = null;
-      if (resultHandler != null) {
-        callback =
-            new SuccessCallback() {
-              @Override
-              public Object handle(byte[] data) {
-                Log.i(
-                    "RPC ws",
-                    "handling rpc respnse for: GetLastChnagesForRoom with respose class PB_ResponseLastChangesForTheRoom");
-                PB_ResponseLastChangesForTheRoom d = null;
-                try {
-                  d = PB_ResponseLastChangesForTheRoom.parseFrom(data);
-                  resultHandler.onResult(d);
-                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                  Log.d(
-                      "RPC ws",
-                      "parsing protocol buffer is faild: PB_ResponseLastChangesForTheRoom");
-                }
-                return d;
-              }
-            };
-      }
-
-      if (offline) {
-        Pipe.sendOffline(
-            offlineKey, "RPC_MessageReq.GetLastChnagesForRoom", param, callback, errorCallback);
-      } else {
-        Pipe.send("RPC_MessageReq.GetLastChnagesForRoom", param, callback, errorCallback);
-      }
-    }
-  }
-
-  public static class RPC_MessageReqOffline {
-
-    public static interface SetLastSeen_ResultHandler {
-      void onResult(PB_ResponseSetLastSeenMessages res);
-    }
-
-    public static void SetLastSeen(
-        PB_RequestSetLastSeenMessages param,
-        SetLastSeen_ResultHandler resultHandler,
-        ErrorCallback errorCallback) {
-      SetLastSeenImpl(param, resultHandler, errorCallback, false, "");
-    }
-
-    public static void SetLastSeen_Offline(
-        String offlineKey,
-        PB_RequestSetLastSeenMessages param,
-        SetLastSeen_ResultHandler resultHandler,
-        ErrorCallback errorCallback) {
-      SetLastSeenImpl(param, resultHandler, errorCallback, true, offlineKey);
-    }
-
-    private static void SetLastSeenImpl(
-        PB_RequestSetLastSeenMessages param,
-        SetLastSeen_ResultHandler resultHandler,
-        ErrorCallback errorCallback,
-        Boolean offline,
-        String offlineKey) {
-      SuccessCallback callback = null;
-      if (resultHandler != null) {
-        callback =
-            new SuccessCallback() {
-              @Override
-              public Object handle(byte[] data) {
-                Log.i(
-                    "RPC ws",
-                    "handling rpc respnse for: SetLastSeen with respose class PB_ResponseSetLastSeenMessages");
-                PB_ResponseSetLastSeenMessages d = null;
-                try {
-                  d = PB_ResponseSetLastSeenMessages.parseFrom(data);
-                  resultHandler.onResult(d);
-                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                  Log.d(
-                      "RPC ws", "parsing protocol buffer is faild: PB_ResponseSetLastSeenMessages");
-                }
-                return d;
-              }
-            };
-      }
-
-      if (offline) {
-        Pipe.sendOffline(
-            offlineKey, "RPC_MessageReqOffline.SetLastSeen", param, callback, errorCallback);
-      } else {
-        Pipe.send("RPC_MessageReqOffline.SetLastSeen", param, callback, errorCallback);
-      }
-    }
-  }
-
   public static class RPC_Auth {
 
     public static interface CheckPhone_ResultHandler {
@@ -2167,8 +2050,6 @@ public class RPC {
 }
 /*
 
-RPC_INTERFACES.RPC_MessageReq RPC_MessageReq_Handeler = null;
-RPC_INTERFACES.RPC_MessageReqOffline RPC_MessageReqOffline_Handeler = null;
 RPC_INTERFACES.RPC_Auth RPC_Auth_Handeler = null;
 RPC_INTERFACES.RPC_Msg RPC_Msg_Handeler = null;
 RPC_INTERFACES.RPC_Sync RPC_Sync_Handeler = null;
