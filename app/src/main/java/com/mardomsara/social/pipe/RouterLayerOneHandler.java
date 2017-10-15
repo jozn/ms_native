@@ -2,7 +2,7 @@ package com.mardomsara.social.pipe;
 
 import android.util.Log;
 
-import com.mardomsara.social.app.AppLog;
+import com.mardomsara.social.app.AppLogger;
 import com.mardomsara.social.app.Config;
 import com.mardomsara.social.app.DB;
 import com.mardomsara.social.helpers.AndroidUtil;
@@ -23,7 +23,7 @@ class RouterLayerOneHandler {
 	static PipeNetEventHandler handle_PB_CommandReachedToServer = (data) -> {
 		Long clientCallId = PB_CommandReachedToServer.parseFrom(data).getClientCallId();
 		if(Config.IS_DEBUG){
-			AppLog.getPushLogger().d("- RouterLayerOneHandler.handle_PB_CommandReachedToServer() -ClientCallId: "+ clientCallId);
+			AppLogger.getPushLogger().d("- RouterLayerOneHandler.handle_PB_CommandReachedToServer() -ClientCallId: "+ clientCallId);
 		}
 		Pipe.tryReachedServer(clientCallId);
 		return;
@@ -44,7 +44,7 @@ class RouterLayerOneHandler {
 					}
 				}catch (Exception e){
 //					e.printStackTrace();
-					AppLog.getExecptionsLogger().e(e);
+					AppLogger.getExecptionsLogger().e(e);
 				}
 
 				Pipe.CommandFrameMap.remove(pb_responseToClient.getClientCallId());
@@ -53,11 +53,11 @@ class RouterLayerOneHandler {
 			}
 
 			if(Config.IS_DEBUG){
-				AppLog.getPushLogger().d("--> Response To client Rpc: handeled: "+ handeledRpceByMe + " Data: "+ AppUtil.toJsonPretty(parsedResultOfRpcResponse));
+				AppLogger.getPushLogger().d("--> Response To client Rpc: handeled: "+ handeledRpceByMe + " Data: "+ AppUtil.toJsonPretty(parsedResultOfRpcResponse));
 			}
 		} catch (Exception e) {
 //			e.printStackTrace();
-			AppLog.getExecptionsLogger().e(e);
+			AppLogger.getExecptionsLogger().e(e);
 		}
 
 		AndroidUtil.runInBackgroundNoPanic(() -> {
@@ -74,9 +74,9 @@ class RouterLayerOneHandler {
 						x.handle(parseData,handeledRpceByMe);
 					}catch (Exception e){
 						Log.e("Rpc", "Error in reflection in RPC_Router for rpc: " +pb_responseToClient.getRpcFullName() );
-						AppLog.getPushLogger().e("Error in reflection in RPC_Router for rpc: " +pb_responseToClient.getRpcFullName() );
+						AppLogger.getPushLogger().e("Error in reflection in RPC_Router for rpc: " +pb_responseToClient.getRpcFullName() );
 //						e.printStackTrace();
-						AppLog.getExecptionsLogger().e(e);
+						AppLogger.getExecptionsLogger().e(e);
 					}
 					//x.handle(parsedResultOfRpcResponse,handeledRpceByMe);
 				}else {
@@ -84,10 +84,10 @@ class RouterLayerOneHandler {
 				}
 			}else {
 				AppUtil.log("Rpc: no default handler for RPC responses :" + pb_responseToClient.getPBClass());
-				AppLog.getPushLogger().e("Rpc: no default handler for RPC responses :" + pb_responseToClient.getPBClass());
+				AppLogger.getPushLogger().e("Rpc: no default handler for RPC responses :" + pb_responseToClient.getPBClass());
 			}
 		}catch (Exception e){
-			AppLog.getExecptionsLogger().e(e);
+			AppLogger.getExecptionsLogger().e(e);
 //			e.printStackTrace();
 		}
 
@@ -96,6 +96,9 @@ class RouterLayerOneHandler {
 	@SuppressWarnings("")
 	static PipeNetEventHandler handle_PB_AllLivePushes = (data) -> {
 		PB_AllLivePushes pb_allLivePushes = PB_AllLivePushes.parseFrom(data);
+		if(Config.IS_DEBUG){
+			AppLogger.getLivePushLogger().d(AppUtil.toJsonPretty(pb_allLivePushes));
+		}
 		RPC_HANDLERS.RPC_Sync_Default_Handler.GetDirectUpdates(pb_allLivePushes.getDirectUpdates(),false);
 		RPC_HANDLERS.RPC_Sync_Default_Handler.GetGeneralUpdates(pb_allLivePushes.getGeneralUpdates(),false);
 	};

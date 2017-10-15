@@ -2,6 +2,8 @@ package com.mardomsara.social.app;
 
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
+import io.realm.RealmMigration;
+import io.realm.exceptions.RealmMigrationNeededException;
 
 /**
  * Created by Hamid on 7/4/2017.
@@ -9,20 +11,26 @@ import io.realm.RealmConfiguration;
 
 public class AppRealm {
 
-	static RealmConfiguration realmChatConfiguration;
+	private static RealmConfiguration realmChatConfiguration;
 
 	private static RealmConfiguration getConfig() {
 		if (realmChatConfiguration == null) {
 			realmChatConfiguration = new RealmConfiguration.Builder()
 				.deleteRealmIfMigrationNeeded()
-				.name("app_chats7.realm")
+				.name("app_chats8.realm")
 				.build();
 		}
 		return realmChatConfiguration;
 	}
 
 	public static Realm getChatRealm() {
-		return Realm.getInstance(getConfig());
+		Realm realm = null;
+		try{
+			realm = Realm.getInstance(getConfig());
+		}catch (RealmMigrationNeededException e){
+			throw e;
+		}
+		return realm;
 	}
 
 	public static Realm getInstance2() {

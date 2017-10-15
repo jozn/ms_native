@@ -23,7 +23,7 @@ import okio.ByteString;
  * Created by Hamid on 10/4/2017.
  */
 
-public class AppLog {
+public class AppLogger {
 
 	static Date start = new Date();
 
@@ -36,6 +36,7 @@ public class AppLog {
 	private static LogWriter homeLogger;
 	private static LogWriter pushLogger;
 	private static LogWriter execptionsLogger;
+	private static LogWriter livePushLogger;
 	private static String wsUrl = "ws://192.168.1.250:5000/ws_log";
 
 	public static LogWriter getWsLogger() {
@@ -85,6 +86,13 @@ public class AppLog {
 			execptionsLogger = newLogger("execptions");
 		}
 		return execptionsLogger;
+	}
+
+	public static LogWriter getLivePushLogger() {
+		if (livePushLogger == null) {
+			livePushLogger = newLogger("push");
+		}
+		return livePushLogger;
 	}
 
 	private static LogWriter newLogger(String moudle) {
@@ -167,7 +175,7 @@ public class AppLog {
 
 		private void writeToWs(String severity, String text) {
 			tryConnect();
-			if (AppLog.webSocket != null) {
+			if (AppLogger.webSocket != null) {
 				RowLog rowLog = new RowLog();
 				rowLog.Module = moudle;
 				rowLog.Severity = severity;
@@ -183,12 +191,12 @@ public class AppLog {
 						webSocket.send(toSendStr);
 					} catch (Exception e) {
 						e.printStackTrace();
-						Log.d("AppLog", "websocket Exception: - isConnected: "+ AppLog.connected);
+						Log.d("AppLog", "websocket Exception: - isConnected: "+ AppLogger.connected);
 					}
 				});
 
 			}else {
-				Log.d("AppLog", "websocket is null - isConnected: "+ AppLog.connected);
+				Log.d("AppLog", "websocket is null - isConnected: "+ AppLogger.connected);
 			}
 
 		}
@@ -198,8 +206,8 @@ public class AppLog {
 
 		@Override
 		public void onOpen(WebSocket webSocket, Response response) {
-			AppLog.webSocket = webSocket;
-			AppLog.connected = true;
+			AppLogger.webSocket = webSocket;
+			AppLogger.connected = true;
 			Log.d("AppLog", " websocket is now open");
 		}
 
@@ -217,19 +225,19 @@ public class AppLog {
 		@Override
 		public void onClosing(WebSocket webSocket, int code, String reason) {
 			super.onClosing(webSocket, code, reason);
-			AppLog.connected = false;
+			AppLogger.connected = false;
 		}
 
 		@Override
 		public void onClosed(WebSocket webSocket, int code, String reason) {
 			super.onClosed(webSocket, code, reason);
-			AppLog.connected = false;
+			AppLogger.connected = false;
 		}
 
 		@Override
 		public void onFailure(WebSocket webSocket, Throwable t, Response response) {
 			super.onFailure(webSocket, t, response);
-			AppLog.connected = false;
+			AppLogger.connected = false;
 		}
 
 	}

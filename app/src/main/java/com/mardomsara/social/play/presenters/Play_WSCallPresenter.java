@@ -3,7 +3,7 @@ package com.mardomsara.social.play.presenters;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.mardomsara.social.app.AppLog;
+import com.mardomsara.social.app.AppLogger;
 import com.mardomsara.social.app.DB;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.Helper;
@@ -63,13 +63,13 @@ public class Play_WSCallPresenter extends BasePresenter {
 
 		layout.addView(newTitle2("Android Logger to Sun play",()->{
 
-			AppLog.getInboxLogger().v("verbose to inbox");
-			AppLog.getInboxLogger().e("error to inbox");
-			AppLog.getInboxLogger().d("debug to inbox");
+			AppLogger.getInboxLogger().v("verbose to inbox");
+			AppLogger.getInboxLogger().e("error to inbox");
+			AppLogger.getInboxLogger().d("debug to inbox");
 
-			AppLog.getSettingLogger().v("verbose to setting ");
-			AppLog.getSettingLogger().e("error to setting");
-			AppLog.getSettingLogger().d("debug to setting");
+			AppLogger.getSettingLogger().v("verbose to setting ");
+			AppLogger.getSettingLogger().e("error to setting");
+			AppLogger.getSettingLogger().d("debug to setting");
 
 		} ));
 

@@ -1,6 +1,6 @@
 package com.mardomsara.social.rpc;
 
-import com.mardomsara.social.app.AppLog;
+import com.mardomsara.social.app.AppLogger;
 import com.mardomsara.social.app.AppRealm;
 import com.mardomsara.social.app.Config;
 import com.mardomsara.social.helpers.AppUtil;
@@ -21,7 +21,7 @@ public class Rpc_SyncResponseHandler extends RPC_HANDLERS.RPC_Sync_Empty{
 	@Override
 	public void GetDirectUpdates(PB_SyncResponse_GetDirectUpdates pb, boolean handled) {
 		if(Config.IS_DEBUG){
-			AppLog.getRpcMsgLogger().d("GetDirectUpdates: " + AppUtil.toJsonPretty(pb));
+			AppLogger.getRpcMsgLogger().d("GetDirectUpdates: " + AppUtil.toJsonPretty(pb));
 		}
 
 		HelperPushAndRefreshHandlerOfData.newMessageViewList(pb.getNewMessagesList());
@@ -57,7 +57,7 @@ public class Rpc_SyncResponseHandler extends RPC_HANDLERS.RPC_Sync_Empty{
 	@Override
 	public void GetGeneralUpdates(PB_SyncResponse_GetGeneralUpdates pb, boolean handled) {
 		if(Config.IS_DEBUG){
-			AppLog.getRpcMsgLogger().d("GetGeneralUpdates: " + AppUtil.toJsonPretty(pb));
+			AppLogger.getRpcMsgLogger().d("GetGeneralUpdates: " + AppUtil.toJsonPretty(pb));
 		}
 	}
 

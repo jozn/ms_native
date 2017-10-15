@@ -1,6 +1,6 @@
 package com.mardomsara.social.rpc;
 
-import com.mardomsara.social.app.AppLog;
+import com.mardomsara.social.app.AppLogger;
 import com.mardomsara.social.app.Config;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.models_realm.helpers.HelperPushAndRefreshHandlerOfData;
@@ -20,7 +20,7 @@ public class Rpc_MsgResponseHandler extends RPC_HANDLERS.RPC_Msg_Empty{
 		super.GetFreshChatList(pb, handled);
 //		RealmChatViewHelper.insertOrUpdateNewChatsFromPipe(pb.getChatsList());
 		if(Config.IS_DEBUG){
-			AppLog.getRpcMsgLogger().d("GetFreshChatList(): " + AppUtil.toJsonPretty(pb));
+			AppLogger.getRpcMsgLogger().d("GetFreshChatList(): " + AppUtil.toJsonPretty(pb));
 		}
 		HelperPushAndRefreshHandlerOfData.newChatViewList(pb.getChatsList());
 	}
@@ -29,7 +29,7 @@ public class Rpc_MsgResponseHandler extends RPC_HANDLERS.RPC_Msg_Empty{
 	public void GetFreshRoomMessagesList(PB_MsgResponse_GetFreshRoomMessagesList pb, boolean handled) {
 		super.GetFreshRoomMessagesList(pb, handled);
 		if(Config.IS_DEBUG){
-			AppLog.getRpcMsgLogger().d("GetFreshRoomMessagesList(): " + AppUtil.toJsonPretty(pb));
+			AppLogger.getRpcMsgLogger().d("GetFreshRoomMessagesList(): " + AppUtil.toJsonPretty(pb));
 		}
 		HelperPushAndRefreshHandlerOfData.newMessageViewList(pb.getMessagesList());
 		/*List<RealmMessageView> msgs = new ArrayList();
@@ -50,7 +50,7 @@ public class Rpc_MsgResponseHandler extends RPC_HANDLERS.RPC_Msg_Empty{
 	public void GetFreshAllDirectMessagesList(PB_MsgResponse_GetFreshAllDirectMessagesList pb, boolean handled) {
 		super.GetFreshAllDirectMessagesList(pb, handled);
 		if(Config.IS_DEBUG){
-			AppLog.getRpcMsgLogger().d("GetFreshAllDirectMessagesList(): " + AppUtil.toJsonPretty(pb));
+			AppLogger.getRpcMsgLogger().d("GetFreshAllDirectMessagesList(): " + AppUtil.toJsonPretty(pb));
 		}
 		HelperPushAndRefreshHandlerOfData.newMessageViewList(pb.getMessagesList());
 	}

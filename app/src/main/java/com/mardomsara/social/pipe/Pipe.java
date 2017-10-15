@@ -4,7 +4,7 @@ import android.support.annotation.Nullable;
 
 import com.google.protobuf.AbstractMessageLite;
 import com.google.protobuf.ByteString;
-import com.mardomsara.social.app.AppLog;
+import com.mardomsara.social.app.AppLogger;
 import com.mardomsara.social.app.Config;
 import com.mardomsara.social.app.DB;
 import com.mardomsara.social.helpers.AndroidUtil;
@@ -45,7 +45,7 @@ public class Pipe {
 			.build();
 
 		if(Config.IS_DEBUG){
-			AppLog.getWsLogger().d("=> Pipe.send("+ rpcName + "dataMessage: "+ dataMessage.toString() + " pb_commandToServer: "+pb_commandToServer.toString());
+			AppLogger.getWsLogger().d("=> Pipe.send("+ rpcName + "dataMessage: "+ dataMessage.toString() + " pb_commandToServer: "+pb_commandToServer.toString());
 //			AppLog.getWsLogger().d("==> WS Pipe.send("+ rpcName + "dataMessage: "+ dataMessage.toString() + " pb_commandToServer: "+pb_commandToServer.toString());
 		}
 
@@ -76,7 +76,7 @@ public class Pipe {
 			.build();
 
 		if(Config.IS_DEBUG){
-			AppLog.getWsLogger().d("=> Pipe.sendOffline("+ rpcName + "dataMessage: "+ dataMessage.toString() + " pb_commandToServer: "+pb_commandToServer.toString());
+			AppLogger.getWsLogger().d("=> Pipe.sendOffline("+ rpcName + "dataMessage: "+ dataMessage.toString() + " pb_commandToServer: "+pb_commandToServer.toString());
 		}
 
 		AndroidUtil.runInBackgroundNoPanic(()->{
