@@ -18,73 +18,33 @@ public  final class PB_AllLivePushes extends
     PB_AllLivePushesOrBuilder {
   private PB_AllLivePushes() {
   }
-  public static final int DIRECTUPDATES_FIELD_NUMBER = 1;
-  private ir.ms.pb.PB_SyncResponse_GetDirectUpdates directUpdates_;
-  /**
-   * <code>.PB_SyncResponse_GetDirectUpdates DirectUpdates = 1;</code>
-   */
-  public boolean hasDirectUpdates() {
-    return directUpdates_ != null;
-  }
-  /**
-   * <code>.PB_SyncResponse_GetDirectUpdates DirectUpdates = 1;</code>
-   */
-  public ir.ms.pb.PB_SyncResponse_GetDirectUpdates getDirectUpdates() {
-    return directUpdates_ == null ? ir.ms.pb.PB_SyncResponse_GetDirectUpdates.getDefaultInstance() : directUpdates_;
-  }
-  /**
-   * <code>.PB_SyncResponse_GetDirectUpdates DirectUpdates = 1;</code>
-   */
-  private void setDirectUpdates(ir.ms.pb.PB_SyncResponse_GetDirectUpdates value) {
-    if (value == null) {
-      throw new NullPointerException();
-    }
-    directUpdates_ = value;
-    
-    }
-  /**
-   * <code>.PB_SyncResponse_GetDirectUpdates DirectUpdates = 1;</code>
-   */
-  private void setDirectUpdates(
-      ir.ms.pb.PB_SyncResponse_GetDirectUpdates.Builder builderForValue) {
-    directUpdates_ = builderForValue.build();
-    
-  }
-  /**
-   * <code>.PB_SyncResponse_GetDirectUpdates DirectUpdates = 1;</code>
-   */
-  private void mergeDirectUpdates(ir.ms.pb.PB_SyncResponse_GetDirectUpdates value) {
-    if (directUpdates_ != null &&
-        directUpdates_ != ir.ms.pb.PB_SyncResponse_GetDirectUpdates.getDefaultInstance()) {
-      directUpdates_ =
-        ir.ms.pb.PB_SyncResponse_GetDirectUpdates.newBuilder(directUpdates_).mergeFrom(value).buildPartial();
-    } else {
-      directUpdates_ = value;
-    }
-    
-  }
-  /**
-   * <code>.PB_SyncResponse_GetDirectUpdates DirectUpdates = 1;</code>
-   */
-  private void clearDirectUpdates() {  directUpdates_ = null;
-    
-  }
-
   public static final int GENERALUPDATES_FIELD_NUMBER = 2;
   private ir.ms.pb.PB_SyncResponse_GetGeneralUpdates generalUpdates_;
   /**
+   * <pre>
+   *    PB_SyncResponse_GetDirectUpdates DirectUpdates = 1;
+   * </pre>
+   *
    * <code>.PB_SyncResponse_GetGeneralUpdates GeneralUpdates = 2;</code>
    */
   public boolean hasGeneralUpdates() {
     return generalUpdates_ != null;
   }
   /**
+   * <pre>
+   *    PB_SyncResponse_GetDirectUpdates DirectUpdates = 1;
+   * </pre>
+   *
    * <code>.PB_SyncResponse_GetGeneralUpdates GeneralUpdates = 2;</code>
    */
   public ir.ms.pb.PB_SyncResponse_GetGeneralUpdates getGeneralUpdates() {
     return generalUpdates_ == null ? ir.ms.pb.PB_SyncResponse_GetGeneralUpdates.getDefaultInstance() : generalUpdates_;
   }
   /**
+   * <pre>
+   *    PB_SyncResponse_GetDirectUpdates DirectUpdates = 1;
+   * </pre>
+   *
    * <code>.PB_SyncResponse_GetGeneralUpdates GeneralUpdates = 2;</code>
    */
   private void setGeneralUpdates(ir.ms.pb.PB_SyncResponse_GetGeneralUpdates value) {
@@ -95,6 +55,10 @@ public  final class PB_AllLivePushes extends
     
     }
   /**
+   * <pre>
+   *    PB_SyncResponse_GetDirectUpdates DirectUpdates = 1;
+   * </pre>
+   *
    * <code>.PB_SyncResponse_GetGeneralUpdates GeneralUpdates = 2;</code>
    */
   private void setGeneralUpdates(
@@ -103,6 +67,10 @@ public  final class PB_AllLivePushes extends
     
   }
   /**
+   * <pre>
+   *    PB_SyncResponse_GetDirectUpdates DirectUpdates = 1;
+   * </pre>
+   *
    * <code>.PB_SyncResponse_GetGeneralUpdates GeneralUpdates = 2;</code>
    */
   private void mergeGeneralUpdates(ir.ms.pb.PB_SyncResponse_GetGeneralUpdates value) {
@@ -116,19 +84,75 @@ public  final class PB_AllLivePushes extends
     
   }
   /**
+   * <pre>
+   *    PB_SyncResponse_GetDirectUpdates DirectUpdates = 1;
+   * </pre>
+   *
    * <code>.PB_SyncResponse_GetGeneralUpdates GeneralUpdates = 2;</code>
    */
   private void clearGeneralUpdates() {  generalUpdates_ = null;
     
   }
 
+  public static final int OFFLINE_MESSAGINGS_FIELD_NUMBER = 3;
+  private ir.ms.pb.PB_Offline_Messagings offlineMessagings_;
+  /**
+   * <code>.PB_Offline_Messagings Offline_Messagings = 3;</code>
+   */
+  public boolean hasOfflineMessagings() {
+    return offlineMessagings_ != null;
+  }
+  /**
+   * <code>.PB_Offline_Messagings Offline_Messagings = 3;</code>
+   */
+  public ir.ms.pb.PB_Offline_Messagings getOfflineMessagings() {
+    return offlineMessagings_ == null ? ir.ms.pb.PB_Offline_Messagings.getDefaultInstance() : offlineMessagings_;
+  }
+  /**
+   * <code>.PB_Offline_Messagings Offline_Messagings = 3;</code>
+   */
+  private void setOfflineMessagings(ir.ms.pb.PB_Offline_Messagings value) {
+    if (value == null) {
+      throw new NullPointerException();
+    }
+    offlineMessagings_ = value;
+    
+    }
+  /**
+   * <code>.PB_Offline_Messagings Offline_Messagings = 3;</code>
+   */
+  private void setOfflineMessagings(
+      ir.ms.pb.PB_Offline_Messagings.Builder builderForValue) {
+    offlineMessagings_ = builderForValue.build();
+    
+  }
+  /**
+   * <code>.PB_Offline_Messagings Offline_Messagings = 3;</code>
+   */
+  private void mergeOfflineMessagings(ir.ms.pb.PB_Offline_Messagings value) {
+    if (offlineMessagings_ != null &&
+        offlineMessagings_ != ir.ms.pb.PB_Offline_Messagings.getDefaultInstance()) {
+      offlineMessagings_ =
+        ir.ms.pb.PB_Offline_Messagings.newBuilder(offlineMessagings_).mergeFrom(value).buildPartial();
+    } else {
+      offlineMessagings_ = value;
+    }
+    
+  }
+  /**
+   * <code>.PB_Offline_Messagings Offline_Messagings = 3;</code>
+   */
+  private void clearOfflineMessagings() {  offlineMessagings_ = null;
+    
+  }
+
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (directUpdates_ != null) {
-      output.writeMessage(1, getDirectUpdates());
-    }
     if (generalUpdates_ != null) {
       output.writeMessage(2, getGeneralUpdates());
+    }
+    if (offlineMessagings_ != null) {
+      output.writeMessage(3, getOfflineMessagings());
     }
   }
 
@@ -137,13 +161,13 @@ public  final class PB_AllLivePushes extends
     if (size != -1) return size;
 
     size = 0;
-    if (directUpdates_ != null) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(1, getDirectUpdates());
-    }
     if (generalUpdates_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getGeneralUpdates());
+    }
+    if (offlineMessagings_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(3, getOfflineMessagings());
     }
     memoizedSerializedSize = size;
     return size;
@@ -237,63 +261,30 @@ public  final class PB_AllLivePushes extends
 
 
     /**
-     * <code>.PB_SyncResponse_GetDirectUpdates DirectUpdates = 1;</code>
-     */
-    public boolean hasDirectUpdates() {
-      return instance.hasDirectUpdates();
-    }
-    /**
-     * <code>.PB_SyncResponse_GetDirectUpdates DirectUpdates = 1;</code>
-     */
-    public ir.ms.pb.PB_SyncResponse_GetDirectUpdates getDirectUpdates() {
-      return instance.getDirectUpdates();
-    }
-    /**
-     * <code>.PB_SyncResponse_GetDirectUpdates DirectUpdates = 1;</code>
-     */
-    public Builder setDirectUpdates(ir.ms.pb.PB_SyncResponse_GetDirectUpdates value) {
-      copyOnWrite();
-      instance.setDirectUpdates(value);
-      return this;
-      }
-    /**
-     * <code>.PB_SyncResponse_GetDirectUpdates DirectUpdates = 1;</code>
-     */
-    public Builder setDirectUpdates(
-        ir.ms.pb.PB_SyncResponse_GetDirectUpdates.Builder builderForValue) {
-      copyOnWrite();
-      instance.setDirectUpdates(builderForValue);
-      return this;
-    }
-    /**
-     * <code>.PB_SyncResponse_GetDirectUpdates DirectUpdates = 1;</code>
-     */
-    public Builder mergeDirectUpdates(ir.ms.pb.PB_SyncResponse_GetDirectUpdates value) {
-      copyOnWrite();
-      instance.mergeDirectUpdates(value);
-      return this;
-    }
-    /**
-     * <code>.PB_SyncResponse_GetDirectUpdates DirectUpdates = 1;</code>
-     */
-    public Builder clearDirectUpdates() {  copyOnWrite();
-      instance.clearDirectUpdates();
-      return this;
-    }
-
-    /**
+     * <pre>
+     *    PB_SyncResponse_GetDirectUpdates DirectUpdates = 1;
+     * </pre>
+     *
      * <code>.PB_SyncResponse_GetGeneralUpdates GeneralUpdates = 2;</code>
      */
     public boolean hasGeneralUpdates() {
       return instance.hasGeneralUpdates();
     }
     /**
+     * <pre>
+     *    PB_SyncResponse_GetDirectUpdates DirectUpdates = 1;
+     * </pre>
+     *
      * <code>.PB_SyncResponse_GetGeneralUpdates GeneralUpdates = 2;</code>
      */
     public ir.ms.pb.PB_SyncResponse_GetGeneralUpdates getGeneralUpdates() {
       return instance.getGeneralUpdates();
     }
     /**
+     * <pre>
+     *    PB_SyncResponse_GetDirectUpdates DirectUpdates = 1;
+     * </pre>
+     *
      * <code>.PB_SyncResponse_GetGeneralUpdates GeneralUpdates = 2;</code>
      */
     public Builder setGeneralUpdates(ir.ms.pb.PB_SyncResponse_GetGeneralUpdates value) {
@@ -302,6 +293,10 @@ public  final class PB_AllLivePushes extends
       return this;
       }
     /**
+     * <pre>
+     *    PB_SyncResponse_GetDirectUpdates DirectUpdates = 1;
+     * </pre>
+     *
      * <code>.PB_SyncResponse_GetGeneralUpdates GeneralUpdates = 2;</code>
      */
     public Builder setGeneralUpdates(
@@ -311,6 +306,10 @@ public  final class PB_AllLivePushes extends
       return this;
     }
     /**
+     * <pre>
+     *    PB_SyncResponse_GetDirectUpdates DirectUpdates = 1;
+     * </pre>
+     *
      * <code>.PB_SyncResponse_GetGeneralUpdates GeneralUpdates = 2;</code>
      */
     public Builder mergeGeneralUpdates(ir.ms.pb.PB_SyncResponse_GetGeneralUpdates value) {
@@ -319,10 +318,59 @@ public  final class PB_AllLivePushes extends
       return this;
     }
     /**
+     * <pre>
+     *    PB_SyncResponse_GetDirectUpdates DirectUpdates = 1;
+     * </pre>
+     *
      * <code>.PB_SyncResponse_GetGeneralUpdates GeneralUpdates = 2;</code>
      */
     public Builder clearGeneralUpdates() {  copyOnWrite();
       instance.clearGeneralUpdates();
+      return this;
+    }
+
+    /**
+     * <code>.PB_Offline_Messagings Offline_Messagings = 3;</code>
+     */
+    public boolean hasOfflineMessagings() {
+      return instance.hasOfflineMessagings();
+    }
+    /**
+     * <code>.PB_Offline_Messagings Offline_Messagings = 3;</code>
+     */
+    public ir.ms.pb.PB_Offline_Messagings getOfflineMessagings() {
+      return instance.getOfflineMessagings();
+    }
+    /**
+     * <code>.PB_Offline_Messagings Offline_Messagings = 3;</code>
+     */
+    public Builder setOfflineMessagings(ir.ms.pb.PB_Offline_Messagings value) {
+      copyOnWrite();
+      instance.setOfflineMessagings(value);
+      return this;
+      }
+    /**
+     * <code>.PB_Offline_Messagings Offline_Messagings = 3;</code>
+     */
+    public Builder setOfflineMessagings(
+        ir.ms.pb.PB_Offline_Messagings.Builder builderForValue) {
+      copyOnWrite();
+      instance.setOfflineMessagings(builderForValue);
+      return this;
+    }
+    /**
+     * <code>.PB_Offline_Messagings Offline_Messagings = 3;</code>
+     */
+    public Builder mergeOfflineMessagings(ir.ms.pb.PB_Offline_Messagings value) {
+      copyOnWrite();
+      instance.mergeOfflineMessagings(value);
+      return this;
+    }
+    /**
+     * <code>.PB_Offline_Messagings Offline_Messagings = 3;</code>
+     */
+    public Builder clearOfflineMessagings() {  copyOnWrite();
+      instance.clearOfflineMessagings();
       return this;
     }
 
@@ -347,8 +395,8 @@ public  final class PB_AllLivePushes extends
       case VISIT: {
         Visitor visitor = (Visitor) arg0;
         ir.ms.pb.PB_AllLivePushes other = (ir.ms.pb.PB_AllLivePushes) arg1;
-        directUpdates_ = visitor.visitMessage(directUpdates_, other.directUpdates_);
         generalUpdates_ = visitor.visitMessage(generalUpdates_, other.generalUpdates_);
+        offlineMessagings_ = visitor.visitMessage(offlineMessagings_, other.offlineMessagings_);
         if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
             .INSTANCE) {
         }
@@ -373,19 +421,6 @@ public  final class PB_AllLivePushes extends
                 }
                 break;
               }
-              case 10: {
-                ir.ms.pb.PB_SyncResponse_GetDirectUpdates.Builder subBuilder = null;
-                if (directUpdates_ != null) {
-                  subBuilder = directUpdates_.toBuilder();
-                }
-                directUpdates_ = input.readMessage(ir.ms.pb.PB_SyncResponse_GetDirectUpdates.parser(), extensionRegistry);
-                if (subBuilder != null) {
-                  subBuilder.mergeFrom(directUpdates_);
-                  directUpdates_ = subBuilder.buildPartial();
-                }
-
-                break;
-              }
               case 18: {
                 ir.ms.pb.PB_SyncResponse_GetGeneralUpdates.Builder subBuilder = null;
                 if (generalUpdates_ != null) {
@@ -395,6 +430,19 @@ public  final class PB_AllLivePushes extends
                 if (subBuilder != null) {
                   subBuilder.mergeFrom(generalUpdates_);
                   generalUpdates_ = subBuilder.buildPartial();
+                }
+
+                break;
+              }
+              case 26: {
+                ir.ms.pb.PB_Offline_Messagings.Builder subBuilder = null;
+                if (offlineMessagings_ != null) {
+                  subBuilder = offlineMessagings_.toBuilder();
+                }
+                offlineMessagings_ = input.readMessage(ir.ms.pb.PB_Offline_Messagings.parser(), extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(offlineMessagings_);
+                  offlineMessagings_ = subBuilder.buildPartial();
                 }
 
                 break;

@@ -9,8 +9,7 @@ import com.mardomsara.social.pipe.table.RpcOffline;
 import java.util.List;
 
 import ir.ms.pb.PB_CommandToServer;
-import ir.ms.pb.PB_MsgParam_Echo;
-import ir.ms.pb.PB_SyncParam_GetDirectUpdates;
+import ir.ms.pb.PB_OtherParam_Echo;
 import ir.ms.pb.PB_SyncParam_GetGeneralUpdates;
 import ir.ms.pb.RPC;
 
@@ -22,11 +21,11 @@ public class AppSyncCycle {
 
 	public static void onWsPipeOpened() {
 		//replace this with ping
-		RPC.RPC_Msg.Echo(PB_MsgParam_Echo.newBuilder().build(), null, null);
+		RPC.RPC_Other.Echo(PB_OtherParam_Echo.newBuilder().build(), null, null);
 
 		sendOfflineRpcs();
 
-		RPC.RPC_Sync.GetDirectUpdates(PB_SyncParam_GetDirectUpdates.newBuilder().build(), null, null);
+//		RPC.RPC_Sync.GetDirectUpdates(PB_SyncParam_GetDirectUpdates.newBuilder().build(), null, null);
 		RPC.RPC_Sync.GetGeneralUpdates(PB_SyncParam_GetGeneralUpdates.newBuilder().build(), null, null);
 
 		HelperMessagesSinker.sinkAll();

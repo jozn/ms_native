@@ -15,16 +15,13 @@ import com.mardomsara.social.models_realm.pb_realm.RealmMessageFileView;
 import com.mardomsara.social.models_realm.pb_realm.RealmMessageView;
 
 import org.greenrobot.essentials.io.FileUtils;
-import org.greenrobot.essentials.io.IoUtils;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 
+import ir.ms.pb.PB_ChatParam_AddNewMessage;
 import ir.ms.pb.PB_CommandToServer;
 import ir.ms.pb.PB_MessageView;
-import ir.ms.pb.PB_MsgParam_AddNewMessage;
-import ir.ms.pb.PB_MsgParam_AddNewTextMessage;
 import ir.ms.pb.RPC;
 import ir.ms.pb.RoomMessageTypeEnum;
 
@@ -108,12 +105,11 @@ public class RealmMessageViewWrapper implements MultiItemEntity, UploadProgressL
 			switch (RoomMessageTypeEnum.forNumber(messageView.MessageTypeEnumId)){
 				case TEXT:
 				case EMOJI:
-					PB_MsgParam_AddNewTextMessage param = PB_MsgParam_AddNewTextMessage.newBuilder()
-						.setMessageKey(messageView.MessageKey)
-//					.setRoomMessageType(RoomMessageTypeEnum.forNumber(messageView.RoomTypeEnumId))
-						.setText(messageView.Text)
-						.setPeerId(25).build();
-					RPC.RPC_Msg.AddNewTextMessage(param,null,null);
+					PB_MessageView.Builder pb_messageView_builder =RealmMessageView.toPB_Builder(messageView);
+					PB_ChatParam_AddNewMessage param = PB_ChatParam_AddNewMessage.newBuilder()
+						.setMessageView(pb_messageView_builder.build())
+						.build();
+					RPC.RPC_Chat.AddNewMessage(param,null,null);
 					break;
 				default:
 					uploadMsg();
@@ -153,13 +149,8 @@ public class RealmMessageViewWrapper implements MultiItemEntity, UploadProgressL
 				e.printStackTrace();
 			}
 		}
-		PB_MsgParam_AddNewMessage.Builder pb_msgParam_addNewMessageBuilder = PB_MsgParam_AddNewMessage.newBuilder()
-			.setMessageKey(messageView.MessageKey)
-			.setMessageView(pb_messageView_builder.build())
-			.setText(messageView.Text)
-			.setToRoomKey(messageView.RoomKey);
-
-
+		PB_ChatParam_AddNewMessage.Builder pb_msgParam_addNewMessageBuilder = PB_ChatParam_AddNewMessage.newBuilder()
+			.setMessageView(pb_messageView_builder.build());
 
 		if(fileBytes != null){
 			pb_msgParam_addNewMessageBuilder.setBlob(com.google.protobuf.ByteString.copyFrom(fileBytes));

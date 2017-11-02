@@ -19,6 +19,7 @@ import com.mardomsara.social.models_old.stores.Store;
 import com.mardomsara.social.models_old.syncer.ContactsCopySyncer;
 import com.mardomsara.social.models_old.syncer.UserSyncer;
 import com.mardomsara.social.models_old.tables.Session;
+import com.mardomsara.social.play.Play_RunOnStart;
 import com.mardomsara.social.service.BackgroundService;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.x.iconify.XIconify;
@@ -71,6 +72,8 @@ public class LifeCycle {
 		Crashlytics.getInstance().core.setUserEmail("aSa@gmail.com");
 		Crashlytics.getInstance().core.setUserIdentifier("158");
 		Crashlytics.getInstance().core.setUserName("AtashN");
+
+		Play_RunOnStart.run();
 
 
 	}

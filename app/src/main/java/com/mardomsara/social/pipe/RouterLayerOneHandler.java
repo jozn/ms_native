@@ -99,7 +99,7 @@ class RouterLayerOneHandler {
 		if(Config.IS_DEBUG){
 			AppLogger.getLivePushLogger().d(AppUtil.toJsonPretty(pb_allLivePushes));
 		}
-		RPC_HANDLERS.RPC_Sync_Default_Handler.GetDirectUpdates(pb_allLivePushes.getDirectUpdates(),false);
+//		RPC_HANDLERS.RPC_Sync_Default_Handler.GetDirectUpdates(pb_allLivePushes.getDirectUpdates(),false);
 		RPC_HANDLERS.RPC_Sync_Default_Handler.GetGeneralUpdates(pb_allLivePushes.getGeneralUpdates(),false);
 	};
 

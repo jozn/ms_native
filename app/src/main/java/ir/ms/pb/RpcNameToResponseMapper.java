@@ -91,164 +91,113 @@ public class RpcNameToResponseMapper {
           }
         });
 
-    // Service RPC_Msg
+    // Service RPC_Chat
 
     mp.put(
-        "RPC_Msg.AddNewTextMessage",
+        "RPC_Chat.AddNewMessage",
         new RpcHelper2() {
           @Override
           public com.google.protobuf.GeneratedMessageLite parseData(ByteString byteString)
               throws com.google.protobuf.InvalidProtocolBufferException {
-            return PB_MsgResponse_AddNewTextMessage.parseFrom(byteString);
+            return PB_ChatResponse_AddNewMessage.parseFrom(byteString);
           }
         });
     mp.put(
-        "RPC_Msg.AddNewMessage",
+        "RPC_Chat.SetRoomActionDoing",
         new RpcHelper2() {
           @Override
           public com.google.protobuf.GeneratedMessageLite parseData(ByteString byteString)
               throws com.google.protobuf.InvalidProtocolBufferException {
-            return PB_MsgResponse_AddNewMessage.parseFrom(byteString);
+            return PB_ChatResponse_SetRoomActionDoing.parseFrom(byteString);
           }
         });
     mp.put(
-        "RPC_Msg.SetRoomActionDoing",
+        "RPC_Chat.SetMessagesRangeAsSeen",
         new RpcHelper2() {
           @Override
           public com.google.protobuf.GeneratedMessageLite parseData(ByteString byteString)
               throws com.google.protobuf.InvalidProtocolBufferException {
-            return PB_MsgResponse_SetRoomActionDoing.parseFrom(byteString);
+            return PB_ChatResponse_SetChatMessagesRangeAsSeen.parseFrom(byteString);
           }
         });
     mp.put(
-        "RPC_Msg.GetMessagesByIds",
+        "RPC_Chat.DeleteChatHistory",
         new RpcHelper2() {
           @Override
           public com.google.protobuf.GeneratedMessageLite parseData(ByteString byteString)
               throws com.google.protobuf.InvalidProtocolBufferException {
-            return PB_MsgResponse_GetMessagesByIds.parseFrom(byteString);
+            return PB_ChatResponse_DeleteChatHistory.parseFrom(byteString);
           }
         });
     mp.put(
-        "RPC_Msg.GetMessagesHistory",
+        "RPC_Chat.DeleteMessagesByIds",
         new RpcHelper2() {
           @Override
           public com.google.protobuf.GeneratedMessageLite parseData(ByteString byteString)
               throws com.google.protobuf.InvalidProtocolBufferException {
-            return PB_MsgResponse_GetMessagesHistory.parseFrom(byteString);
+            return PB_ChatResponse_DeleteMessagesByIds.parseFrom(byteString);
           }
         });
     mp.put(
-        "RPC_Msg.SetMessagesRangeAsSeen",
+        "RPC_Chat.SetMessagesAsReceived",
         new RpcHelper2() {
           @Override
           public com.google.protobuf.GeneratedMessageLite parseData(ByteString byteString)
               throws com.google.protobuf.InvalidProtocolBufferException {
-            return PB_MsgResponse_SetChatMessagesRangeAsSeen.parseFrom(byteString);
+            return PB_ChatResponse_SetMessagesAsReceived.parseFrom(byteString);
           }
         });
     mp.put(
-        "RPC_Msg.DeleteChatHistory",
+        "RPC_Chat.EditMessage",
         new RpcHelper2() {
           @Override
           public com.google.protobuf.GeneratedMessageLite parseData(ByteString byteString)
               throws com.google.protobuf.InvalidProtocolBufferException {
-            return PB_MsgResponse_DeleteChatHistory.parseFrom(byteString);
+            return PB_ChatResponse_EditMessage.parseFrom(byteString);
           }
         });
     mp.put(
-        "RPC_Msg.DeleteMessagesByIds",
+        "RPC_Chat.GetChatList",
         new RpcHelper2() {
           @Override
           public com.google.protobuf.GeneratedMessageLite parseData(ByteString byteString)
               throws com.google.protobuf.InvalidProtocolBufferException {
-            return PB_MsgResponse_DeleteMessagesByIds.parseFrom(byteString);
+            return PB_ChatResponse_GetChatList.parseFrom(byteString);
           }
         });
     mp.put(
-        "RPC_Msg.SetMessagesAsReceived",
+        "RPC_Chat.GetChatHistoryToOlder",
         new RpcHelper2() {
           @Override
           public com.google.protobuf.GeneratedMessageLite parseData(ByteString byteString)
               throws com.google.protobuf.InvalidProtocolBufferException {
-            return PB_MsgResponse_SetMessagesAsReceived.parseFrom(byteString);
+            return PB_ChatResponse_GetChatHistoryToOlder.parseFrom(byteString);
           }
         });
     mp.put(
-        "RPC_Msg.ForwardMessages",
+        "RPC_Chat.GetFreshAllDirectMessagesList",
         new RpcHelper2() {
           @Override
           public com.google.protobuf.GeneratedMessageLite parseData(ByteString byteString)
               throws com.google.protobuf.InvalidProtocolBufferException {
-            return PB_MsgResponse_ForwardMessages.parseFrom(byteString);
+            return PB_ChatResponse_GetFreshAllDirectMessagesList.parseFrom(byteString);
           }
         });
+
+    // Service RPC_Other
+
     mp.put(
-        "RPC_Msg.EditMessage",
+        "RPC_Other.Echo",
         new RpcHelper2() {
           @Override
           public com.google.protobuf.GeneratedMessageLite parseData(ByteString byteString)
               throws com.google.protobuf.InvalidProtocolBufferException {
-            return PB_MsgResponse_EditMessage.parseFrom(byteString);
-          }
-        });
-    mp.put(
-        "RPC_Msg.BroadcastNewMessage",
-        new RpcHelper2() {
-          @Override
-          public com.google.protobuf.GeneratedMessageLite parseData(ByteString byteString)
-              throws com.google.protobuf.InvalidProtocolBufferException {
-            return PB_MsgResponse_BroadcastNewMessage.parseFrom(byteString);
-          }
-        });
-    mp.put(
-        "RPC_Msg.GetFreshChatList",
-        new RpcHelper2() {
-          @Override
-          public com.google.protobuf.GeneratedMessageLite parseData(ByteString byteString)
-              throws com.google.protobuf.InvalidProtocolBufferException {
-            return PB_MsgResponse_GetFreshChatList.parseFrom(byteString);
-          }
-        });
-    mp.put(
-        "RPC_Msg.GetFreshRoomMessagesList",
-        new RpcHelper2() {
-          @Override
-          public com.google.protobuf.GeneratedMessageLite parseData(ByteString byteString)
-              throws com.google.protobuf.InvalidProtocolBufferException {
-            return PB_MsgResponse_GetFreshRoomMessagesList.parseFrom(byteString);
-          }
-        });
-    mp.put(
-        "RPC_Msg.GetFreshAllDirectMessagesList",
-        new RpcHelper2() {
-          @Override
-          public com.google.protobuf.GeneratedMessageLite parseData(ByteString byteString)
-              throws com.google.protobuf.InvalidProtocolBufferException {
-            return PB_MsgResponse_GetFreshAllDirectMessagesList.parseFrom(byteString);
-          }
-        });
-    mp.put(
-        "RPC_Msg.Echo",
-        new RpcHelper2() {
-          @Override
-          public com.google.protobuf.GeneratedMessageLite parseData(ByteString byteString)
-              throws com.google.protobuf.InvalidProtocolBufferException {
-            return PB_MsgResponse_PB_MsgParam_Echo.parseFrom(byteString);
+            return PB_OtherResponse_Echo.parseFrom(byteString);
           }
         });
 
     // Service RPC_Sync
 
-    mp.put(
-        "RPC_Sync.GetDirectUpdates",
-        new RpcHelper2() {
-          @Override
-          public com.google.protobuf.GeneratedMessageLite parseData(ByteString byteString)
-              throws com.google.protobuf.InvalidProtocolBufferException {
-            return PB_SyncResponse_GetDirectUpdates.parseFrom(byteString);
-          }
-        });
     mp.put(
         "RPC_Sync.GetGeneralUpdates",
         new RpcHelper2() {

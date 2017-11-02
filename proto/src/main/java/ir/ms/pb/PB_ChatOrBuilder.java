@@ -58,14 +58,14 @@ public interface PB_ChatOrBuilder extends
   long getStartMessageIdFrom();
 
   /**
-   * <code>int64 LastSeenMessageId = 17;</code>
+   * <code>int64 LastDeletedMessageId = 17;</code>
    */
-  long getLastSeenMessageId();
+  long getLastDeletedMessageId();
 
   /**
-   * <code>int64 UpdatedMs = 19;</code>
+   * <code>int64 LastSeenMessageId = 19;</code>
    */
-  long getUpdatedMs();
+  long getLastSeenMessageId();
 
   /**
    * <code>int64 LastMessageId = 21;</code>
@@ -73,22 +73,7 @@ public interface PB_ChatOrBuilder extends
   long getLastMessageId();
 
   /**
-   * <code>int64 LastDeletedMessageId = 23;</code>
+   * <code>int64 UpdatedMs = 23;</code>
    */
-  long getLastDeletedMessageId();
-
-  /**
-   * <code>int32 LastSeqSeen = 25;</code>
-   */
-  int getLastSeqSeen();
-
-  /**
-   * <code>int32 LastSeqDelete = 27;</code>
-   */
-  int getLastSeqDelete();
-
-  /**
-   * <code>int32 CurrentSeq = 29;</code>
-   */
-  int getCurrentSeq();
+  long getUpdatedMs();
 }

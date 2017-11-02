@@ -386,125 +386,50 @@ public class RPC {
     }
   }
 
-  public static class RPC_Msg {
-
-    public static interface AddNewTextMessage_ResultHandler {
-      void onResult(PB_MsgResponse_AddNewTextMessage res);
-    }
+  public static class RPC_Chat {
 
     public static interface AddNewMessage_ResultHandler {
-      void onResult(PB_MsgResponse_AddNewMessage res);
+      void onResult(PB_ChatResponse_AddNewMessage res);
     }
 
     public static interface SetRoomActionDoing_ResultHandler {
-      void onResult(PB_MsgResponse_SetRoomActionDoing res);
-    }
-
-    public static interface GetMessagesByIds_ResultHandler {
-      void onResult(PB_MsgResponse_GetMessagesByIds res);
-    }
-
-    public static interface GetMessagesHistory_ResultHandler {
-      void onResult(PB_MsgResponse_GetMessagesHistory res);
+      void onResult(PB_ChatResponse_SetRoomActionDoing res);
     }
 
     public static interface SetMessagesRangeAsSeen_ResultHandler {
-      void onResult(PB_MsgResponse_SetChatMessagesRangeAsSeen res);
+      void onResult(PB_ChatResponse_SetChatMessagesRangeAsSeen res);
     }
 
     public static interface DeleteChatHistory_ResultHandler {
-      void onResult(PB_MsgResponse_DeleteChatHistory res);
+      void onResult(PB_ChatResponse_DeleteChatHistory res);
     }
 
     public static interface DeleteMessagesByIds_ResultHandler {
-      void onResult(PB_MsgResponse_DeleteMessagesByIds res);
+      void onResult(PB_ChatResponse_DeleteMessagesByIds res);
     }
 
     public static interface SetMessagesAsReceived_ResultHandler {
-      void onResult(PB_MsgResponse_SetMessagesAsReceived res);
-    }
-
-    public static interface ForwardMessages_ResultHandler {
-      void onResult(PB_MsgResponse_ForwardMessages res);
+      void onResult(PB_ChatResponse_SetMessagesAsReceived res);
     }
 
     public static interface EditMessage_ResultHandler {
-      void onResult(PB_MsgResponse_EditMessage res);
+      void onResult(PB_ChatResponse_EditMessage res);
     }
 
-    public static interface BroadcastNewMessage_ResultHandler {
-      void onResult(PB_MsgResponse_BroadcastNewMessage res);
+    public static interface GetChatList_ResultHandler {
+      void onResult(PB_ChatResponse_GetChatList res);
     }
 
-    public static interface GetFreshChatList_ResultHandler {
-      void onResult(PB_MsgResponse_GetFreshChatList res);
-    }
-
-    public static interface GetFreshRoomMessagesList_ResultHandler {
-      void onResult(PB_MsgResponse_GetFreshRoomMessagesList res);
+    public static interface GetChatHistoryToOlder_ResultHandler {
+      void onResult(PB_ChatResponse_GetChatHistoryToOlder res);
     }
 
     public static interface GetFreshAllDirectMessagesList_ResultHandler {
-      void onResult(PB_MsgResponse_GetFreshAllDirectMessagesList res);
-    }
-
-    public static interface Echo_ResultHandler {
-      void onResult(PB_MsgResponse_PB_MsgParam_Echo res);
-    }
-
-    public static void AddNewTextMessage(
-        PB_MsgParam_AddNewTextMessage param,
-        AddNewTextMessage_ResultHandler resultHandler,
-        ErrorCallback errorCallback) {
-      AddNewTextMessageImpl(param, resultHandler, errorCallback, false, "");
-    }
-
-    public static void AddNewTextMessage_Offline(
-        String offlineKey,
-        PB_MsgParam_AddNewTextMessage param,
-        AddNewTextMessage_ResultHandler resultHandler,
-        ErrorCallback errorCallback) {
-      AddNewTextMessageImpl(param, resultHandler, errorCallback, true, offlineKey);
-    }
-
-    private static void AddNewTextMessageImpl(
-        PB_MsgParam_AddNewTextMessage param,
-        AddNewTextMessage_ResultHandler resultHandler,
-        ErrorCallback errorCallback,
-        Boolean offline,
-        String offlineKey) {
-      SuccessCallback callback = null;
-      if (resultHandler != null) {
-        callback =
-            new SuccessCallback() {
-              @Override
-              public Object handle(byte[] data) {
-                Log.i(
-                    "RPC ws",
-                    "handling rpc respnse for: AddNewTextMessage with respose class PB_MsgResponse_AddNewTextMessage");
-                PB_MsgResponse_AddNewTextMessage d = null;
-                try {
-                  d = PB_MsgResponse_AddNewTextMessage.parseFrom(data);
-                  resultHandler.onResult(d);
-                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                  Log.d(
-                      "RPC ws",
-                      "parsing protocol buffer is faild: PB_MsgResponse_AddNewTextMessage");
-                }
-                return d;
-              }
-            };
-      }
-
-      if (offline) {
-        Pipe.sendOffline(offlineKey, "RPC_Msg.AddNewTextMessage", param, callback, errorCallback);
-      } else {
-        Pipe.send("RPC_Msg.AddNewTextMessage", param, callback, errorCallback);
-      }
+      void onResult(PB_ChatResponse_GetFreshAllDirectMessagesList res);
     }
 
     public static void AddNewMessage(
-        PB_MsgParam_AddNewMessage param,
+        PB_ChatParam_AddNewMessage param,
         AddNewMessage_ResultHandler resultHandler,
         ErrorCallback errorCallback) {
       AddNewMessageImpl(param, resultHandler, errorCallback, false, "");
@@ -512,14 +437,14 @@ public class RPC {
 
     public static void AddNewMessage_Offline(
         String offlineKey,
-        PB_MsgParam_AddNewMessage param,
+        PB_ChatParam_AddNewMessage param,
         AddNewMessage_ResultHandler resultHandler,
         ErrorCallback errorCallback) {
       AddNewMessageImpl(param, resultHandler, errorCallback, true, offlineKey);
     }
 
     private static void AddNewMessageImpl(
-        PB_MsgParam_AddNewMessage param,
+        PB_ChatParam_AddNewMessage param,
         AddNewMessage_ResultHandler resultHandler,
         ErrorCallback errorCallback,
         Boolean offline,
@@ -532,13 +457,14 @@ public class RPC {
               public Object handle(byte[] data) {
                 Log.i(
                     "RPC ws",
-                    "handling rpc respnse for: AddNewMessage with respose class PB_MsgResponse_AddNewMessage");
-                PB_MsgResponse_AddNewMessage d = null;
+                    "handling rpc respnse for: AddNewMessage with respose class PB_ChatResponse_AddNewMessage");
+                PB_ChatResponse_AddNewMessage d = null;
                 try {
-                  d = PB_MsgResponse_AddNewMessage.parseFrom(data);
+                  d = PB_ChatResponse_AddNewMessage.parseFrom(data);
                   resultHandler.onResult(d);
                 } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                  Log.d("RPC ws", "parsing protocol buffer is faild: PB_MsgResponse_AddNewMessage");
+                  Log.d(
+                      "RPC ws", "parsing protocol buffer is faild: PB_ChatResponse_AddNewMessage");
                 }
                 return d;
               }
@@ -546,14 +472,14 @@ public class RPC {
       }
 
       if (offline) {
-        Pipe.sendOffline(offlineKey, "RPC_Msg.AddNewMessage", param, callback, errorCallback);
+        Pipe.sendOffline(offlineKey, "RPC_Chat.AddNewMessage", param, callback, errorCallback);
       } else {
-        Pipe.send("RPC_Msg.AddNewMessage", param, callback, errorCallback);
+        Pipe.send("RPC_Chat.AddNewMessage", param, callback, errorCallback);
       }
     }
 
     public static void SetRoomActionDoing(
-        PB_MsgParam_SetRoomActionDoing param,
+        PB_ChatParam_SetRoomActionDoing param,
         SetRoomActionDoing_ResultHandler resultHandler,
         ErrorCallback errorCallback) {
       SetRoomActionDoingImpl(param, resultHandler, errorCallback, false, "");
@@ -561,14 +487,14 @@ public class RPC {
 
     public static void SetRoomActionDoing_Offline(
         String offlineKey,
-        PB_MsgParam_SetRoomActionDoing param,
+        PB_ChatParam_SetRoomActionDoing param,
         SetRoomActionDoing_ResultHandler resultHandler,
         ErrorCallback errorCallback) {
       SetRoomActionDoingImpl(param, resultHandler, errorCallback, true, offlineKey);
     }
 
     private static void SetRoomActionDoingImpl(
-        PB_MsgParam_SetRoomActionDoing param,
+        PB_ChatParam_SetRoomActionDoing param,
         SetRoomActionDoing_ResultHandler resultHandler,
         ErrorCallback errorCallback,
         Boolean offline,
@@ -581,15 +507,15 @@ public class RPC {
               public Object handle(byte[] data) {
                 Log.i(
                     "RPC ws",
-                    "handling rpc respnse for: SetRoomActionDoing with respose class PB_MsgResponse_SetRoomActionDoing");
-                PB_MsgResponse_SetRoomActionDoing d = null;
+                    "handling rpc respnse for: SetRoomActionDoing with respose class PB_ChatResponse_SetRoomActionDoing");
+                PB_ChatResponse_SetRoomActionDoing d = null;
                 try {
-                  d = PB_MsgResponse_SetRoomActionDoing.parseFrom(data);
+                  d = PB_ChatResponse_SetRoomActionDoing.parseFrom(data);
                   resultHandler.onResult(d);
                 } catch (com.google.protobuf.InvalidProtocolBufferException e) {
                   Log.d(
                       "RPC ws",
-                      "parsing protocol buffer is faild: PB_MsgResponse_SetRoomActionDoing");
+                      "parsing protocol buffer is faild: PB_ChatResponse_SetRoomActionDoing");
                 }
                 return d;
               }
@@ -597,116 +523,14 @@ public class RPC {
       }
 
       if (offline) {
-        Pipe.sendOffline(offlineKey, "RPC_Msg.SetRoomActionDoing", param, callback, errorCallback);
+        Pipe.sendOffline(offlineKey, "RPC_Chat.SetRoomActionDoing", param, callback, errorCallback);
       } else {
-        Pipe.send("RPC_Msg.SetRoomActionDoing", param, callback, errorCallback);
-      }
-    }
-
-    public static void GetMessagesByIds(
-        PB_MsgParam_GetMessagesByIds param,
-        GetMessagesByIds_ResultHandler resultHandler,
-        ErrorCallback errorCallback) {
-      GetMessagesByIdsImpl(param, resultHandler, errorCallback, false, "");
-    }
-
-    public static void GetMessagesByIds_Offline(
-        String offlineKey,
-        PB_MsgParam_GetMessagesByIds param,
-        GetMessagesByIds_ResultHandler resultHandler,
-        ErrorCallback errorCallback) {
-      GetMessagesByIdsImpl(param, resultHandler, errorCallback, true, offlineKey);
-    }
-
-    private static void GetMessagesByIdsImpl(
-        PB_MsgParam_GetMessagesByIds param,
-        GetMessagesByIds_ResultHandler resultHandler,
-        ErrorCallback errorCallback,
-        Boolean offline,
-        String offlineKey) {
-      SuccessCallback callback = null;
-      if (resultHandler != null) {
-        callback =
-            new SuccessCallback() {
-              @Override
-              public Object handle(byte[] data) {
-                Log.i(
-                    "RPC ws",
-                    "handling rpc respnse for: GetMessagesByIds with respose class PB_MsgResponse_GetMessagesByIds");
-                PB_MsgResponse_GetMessagesByIds d = null;
-                try {
-                  d = PB_MsgResponse_GetMessagesByIds.parseFrom(data);
-                  resultHandler.onResult(d);
-                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                  Log.d(
-                      "RPC ws",
-                      "parsing protocol buffer is faild: PB_MsgResponse_GetMessagesByIds");
-                }
-                return d;
-              }
-            };
-      }
-
-      if (offline) {
-        Pipe.sendOffline(offlineKey, "RPC_Msg.GetMessagesByIds", param, callback, errorCallback);
-      } else {
-        Pipe.send("RPC_Msg.GetMessagesByIds", param, callback, errorCallback);
-      }
-    }
-
-    public static void GetMessagesHistory(
-        PB_MsgParam_GetMessagesHistory param,
-        GetMessagesHistory_ResultHandler resultHandler,
-        ErrorCallback errorCallback) {
-      GetMessagesHistoryImpl(param, resultHandler, errorCallback, false, "");
-    }
-
-    public static void GetMessagesHistory_Offline(
-        String offlineKey,
-        PB_MsgParam_GetMessagesHistory param,
-        GetMessagesHistory_ResultHandler resultHandler,
-        ErrorCallback errorCallback) {
-      GetMessagesHistoryImpl(param, resultHandler, errorCallback, true, offlineKey);
-    }
-
-    private static void GetMessagesHistoryImpl(
-        PB_MsgParam_GetMessagesHistory param,
-        GetMessagesHistory_ResultHandler resultHandler,
-        ErrorCallback errorCallback,
-        Boolean offline,
-        String offlineKey) {
-      SuccessCallback callback = null;
-      if (resultHandler != null) {
-        callback =
-            new SuccessCallback() {
-              @Override
-              public Object handle(byte[] data) {
-                Log.i(
-                    "RPC ws",
-                    "handling rpc respnse for: GetMessagesHistory with respose class PB_MsgResponse_GetMessagesHistory");
-                PB_MsgResponse_GetMessagesHistory d = null;
-                try {
-                  d = PB_MsgResponse_GetMessagesHistory.parseFrom(data);
-                  resultHandler.onResult(d);
-                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                  Log.d(
-                      "RPC ws",
-                      "parsing protocol buffer is faild: PB_MsgResponse_GetMessagesHistory");
-                }
-                return d;
-              }
-            };
-      }
-
-      if (offline) {
-        Pipe.sendOffline(offlineKey, "RPC_Msg.GetMessagesHistory", param, callback, errorCallback);
-      } else {
-        Pipe.send("RPC_Msg.GetMessagesHistory", param, callback, errorCallback);
+        Pipe.send("RPC_Chat.SetRoomActionDoing", param, callback, errorCallback);
       }
     }
 
     public static void SetMessagesRangeAsSeen(
-        PB_MsgParam_SetChatMessagesRangeAsSeen param,
+        PB_ChatParam_SetChatMessagesRangeAsSeen param,
         SetMessagesRangeAsSeen_ResultHandler resultHandler,
         ErrorCallback errorCallback) {
       SetMessagesRangeAsSeenImpl(param, resultHandler, errorCallback, false, "");
@@ -714,14 +538,14 @@ public class RPC {
 
     public static void SetMessagesRangeAsSeen_Offline(
         String offlineKey,
-        PB_MsgParam_SetChatMessagesRangeAsSeen param,
+        PB_ChatParam_SetChatMessagesRangeAsSeen param,
         SetMessagesRangeAsSeen_ResultHandler resultHandler,
         ErrorCallback errorCallback) {
       SetMessagesRangeAsSeenImpl(param, resultHandler, errorCallback, true, offlineKey);
     }
 
     private static void SetMessagesRangeAsSeenImpl(
-        PB_MsgParam_SetChatMessagesRangeAsSeen param,
+        PB_ChatParam_SetChatMessagesRangeAsSeen param,
         SetMessagesRangeAsSeen_ResultHandler resultHandler,
         ErrorCallback errorCallback,
         Boolean offline,
@@ -734,15 +558,15 @@ public class RPC {
               public Object handle(byte[] data) {
                 Log.i(
                     "RPC ws",
-                    "handling rpc respnse for: SetMessagesRangeAsSeen with respose class PB_MsgResponse_SetChatMessagesRangeAsSeen");
-                PB_MsgResponse_SetChatMessagesRangeAsSeen d = null;
+                    "handling rpc respnse for: SetMessagesRangeAsSeen with respose class PB_ChatResponse_SetChatMessagesRangeAsSeen");
+                PB_ChatResponse_SetChatMessagesRangeAsSeen d = null;
                 try {
-                  d = PB_MsgResponse_SetChatMessagesRangeAsSeen.parseFrom(data);
+                  d = PB_ChatResponse_SetChatMessagesRangeAsSeen.parseFrom(data);
                   resultHandler.onResult(d);
                 } catch (com.google.protobuf.InvalidProtocolBufferException e) {
                   Log.d(
                       "RPC ws",
-                      "parsing protocol buffer is faild: PB_MsgResponse_SetChatMessagesRangeAsSeen");
+                      "parsing protocol buffer is faild: PB_ChatResponse_SetChatMessagesRangeAsSeen");
                 }
                 return d;
               }
@@ -751,14 +575,14 @@ public class RPC {
 
       if (offline) {
         Pipe.sendOffline(
-            offlineKey, "RPC_Msg.SetMessagesRangeAsSeen", param, callback, errorCallback);
+            offlineKey, "RPC_Chat.SetMessagesRangeAsSeen", param, callback, errorCallback);
       } else {
-        Pipe.send("RPC_Msg.SetMessagesRangeAsSeen", param, callback, errorCallback);
+        Pipe.send("RPC_Chat.SetMessagesRangeAsSeen", param, callback, errorCallback);
       }
     }
 
     public static void DeleteChatHistory(
-        PB_MsgParam_DeleteChatHistory param,
+        PB_ChatParam_DeleteChatHistory param,
         DeleteChatHistory_ResultHandler resultHandler,
         ErrorCallback errorCallback) {
       DeleteChatHistoryImpl(param, resultHandler, errorCallback, false, "");
@@ -766,14 +590,14 @@ public class RPC {
 
     public static void DeleteChatHistory_Offline(
         String offlineKey,
-        PB_MsgParam_DeleteChatHistory param,
+        PB_ChatParam_DeleteChatHistory param,
         DeleteChatHistory_ResultHandler resultHandler,
         ErrorCallback errorCallback) {
       DeleteChatHistoryImpl(param, resultHandler, errorCallback, true, offlineKey);
     }
 
     private static void DeleteChatHistoryImpl(
-        PB_MsgParam_DeleteChatHistory param,
+        PB_ChatParam_DeleteChatHistory param,
         DeleteChatHistory_ResultHandler resultHandler,
         ErrorCallback errorCallback,
         Boolean offline,
@@ -786,15 +610,15 @@ public class RPC {
               public Object handle(byte[] data) {
                 Log.i(
                     "RPC ws",
-                    "handling rpc respnse for: DeleteChatHistory with respose class PB_MsgResponse_DeleteChatHistory");
-                PB_MsgResponse_DeleteChatHistory d = null;
+                    "handling rpc respnse for: DeleteChatHistory with respose class PB_ChatResponse_DeleteChatHistory");
+                PB_ChatResponse_DeleteChatHistory d = null;
                 try {
-                  d = PB_MsgResponse_DeleteChatHistory.parseFrom(data);
+                  d = PB_ChatResponse_DeleteChatHistory.parseFrom(data);
                   resultHandler.onResult(d);
                 } catch (com.google.protobuf.InvalidProtocolBufferException e) {
                   Log.d(
                       "RPC ws",
-                      "parsing protocol buffer is faild: PB_MsgResponse_DeleteChatHistory");
+                      "parsing protocol buffer is faild: PB_ChatResponse_DeleteChatHistory");
                 }
                 return d;
               }
@@ -802,14 +626,14 @@ public class RPC {
       }
 
       if (offline) {
-        Pipe.sendOffline(offlineKey, "RPC_Msg.DeleteChatHistory", param, callback, errorCallback);
+        Pipe.sendOffline(offlineKey, "RPC_Chat.DeleteChatHistory", param, callback, errorCallback);
       } else {
-        Pipe.send("RPC_Msg.DeleteChatHistory", param, callback, errorCallback);
+        Pipe.send("RPC_Chat.DeleteChatHistory", param, callback, errorCallback);
       }
     }
 
     public static void DeleteMessagesByIds(
-        PB_MsgParam_DeleteMessagesByIds param,
+        PB_ChatParam_DeleteMessagesByIds param,
         DeleteMessagesByIds_ResultHandler resultHandler,
         ErrorCallback errorCallback) {
       DeleteMessagesByIdsImpl(param, resultHandler, errorCallback, false, "");
@@ -817,14 +641,14 @@ public class RPC {
 
     public static void DeleteMessagesByIds_Offline(
         String offlineKey,
-        PB_MsgParam_DeleteMessagesByIds param,
+        PB_ChatParam_DeleteMessagesByIds param,
         DeleteMessagesByIds_ResultHandler resultHandler,
         ErrorCallback errorCallback) {
       DeleteMessagesByIdsImpl(param, resultHandler, errorCallback, true, offlineKey);
     }
 
     private static void DeleteMessagesByIdsImpl(
-        PB_MsgParam_DeleteMessagesByIds param,
+        PB_ChatParam_DeleteMessagesByIds param,
         DeleteMessagesByIds_ResultHandler resultHandler,
         ErrorCallback errorCallback,
         Boolean offline,
@@ -837,15 +661,15 @@ public class RPC {
               public Object handle(byte[] data) {
                 Log.i(
                     "RPC ws",
-                    "handling rpc respnse for: DeleteMessagesByIds with respose class PB_MsgResponse_DeleteMessagesByIds");
-                PB_MsgResponse_DeleteMessagesByIds d = null;
+                    "handling rpc respnse for: DeleteMessagesByIds with respose class PB_ChatResponse_DeleteMessagesByIds");
+                PB_ChatResponse_DeleteMessagesByIds d = null;
                 try {
-                  d = PB_MsgResponse_DeleteMessagesByIds.parseFrom(data);
+                  d = PB_ChatResponse_DeleteMessagesByIds.parseFrom(data);
                   resultHandler.onResult(d);
                 } catch (com.google.protobuf.InvalidProtocolBufferException e) {
                   Log.d(
                       "RPC ws",
-                      "parsing protocol buffer is faild: PB_MsgResponse_DeleteMessagesByIds");
+                      "parsing protocol buffer is faild: PB_ChatResponse_DeleteMessagesByIds");
                 }
                 return d;
               }
@@ -853,14 +677,15 @@ public class RPC {
       }
 
       if (offline) {
-        Pipe.sendOffline(offlineKey, "RPC_Msg.DeleteMessagesByIds", param, callback, errorCallback);
+        Pipe.sendOffline(
+            offlineKey, "RPC_Chat.DeleteMessagesByIds", param, callback, errorCallback);
       } else {
-        Pipe.send("RPC_Msg.DeleteMessagesByIds", param, callback, errorCallback);
+        Pipe.send("RPC_Chat.DeleteMessagesByIds", param, callback, errorCallback);
       }
     }
 
     public static void SetMessagesAsReceived(
-        PB_MsgParam_SetMessagesAsReceived param,
+        PB_ChatParam_SetMessagesAsReceived param,
         SetMessagesAsReceived_ResultHandler resultHandler,
         ErrorCallback errorCallback) {
       SetMessagesAsReceivedImpl(param, resultHandler, errorCallback, false, "");
@@ -868,14 +693,14 @@ public class RPC {
 
     public static void SetMessagesAsReceived_Offline(
         String offlineKey,
-        PB_MsgParam_SetMessagesAsReceived param,
+        PB_ChatParam_SetMessagesAsReceived param,
         SetMessagesAsReceived_ResultHandler resultHandler,
         ErrorCallback errorCallback) {
       SetMessagesAsReceivedImpl(param, resultHandler, errorCallback, true, offlineKey);
     }
 
     private static void SetMessagesAsReceivedImpl(
-        PB_MsgParam_SetMessagesAsReceived param,
+        PB_ChatParam_SetMessagesAsReceived param,
         SetMessagesAsReceived_ResultHandler resultHandler,
         ErrorCallback errorCallback,
         Boolean offline,
@@ -888,15 +713,15 @@ public class RPC {
               public Object handle(byte[] data) {
                 Log.i(
                     "RPC ws",
-                    "handling rpc respnse for: SetMessagesAsReceived with respose class PB_MsgResponse_SetMessagesAsReceived");
-                PB_MsgResponse_SetMessagesAsReceived d = null;
+                    "handling rpc respnse for: SetMessagesAsReceived with respose class PB_ChatResponse_SetMessagesAsReceived");
+                PB_ChatResponse_SetMessagesAsReceived d = null;
                 try {
-                  d = PB_MsgResponse_SetMessagesAsReceived.parseFrom(data);
+                  d = PB_ChatResponse_SetMessagesAsReceived.parseFrom(data);
                   resultHandler.onResult(d);
                 } catch (com.google.protobuf.InvalidProtocolBufferException e) {
                   Log.d(
                       "RPC ws",
-                      "parsing protocol buffer is faild: PB_MsgResponse_SetMessagesAsReceived");
+                      "parsing protocol buffer is faild: PB_ChatResponse_SetMessagesAsReceived");
                 }
                 return d;
               }
@@ -905,64 +730,14 @@ public class RPC {
 
       if (offline) {
         Pipe.sendOffline(
-            offlineKey, "RPC_Msg.SetMessagesAsReceived", param, callback, errorCallback);
+            offlineKey, "RPC_Chat.SetMessagesAsReceived", param, callback, errorCallback);
       } else {
-        Pipe.send("RPC_Msg.SetMessagesAsReceived", param, callback, errorCallback);
-      }
-    }
-
-    public static void ForwardMessages(
-        PB_MsgParam_ForwardMessages param,
-        ForwardMessages_ResultHandler resultHandler,
-        ErrorCallback errorCallback) {
-      ForwardMessagesImpl(param, resultHandler, errorCallback, false, "");
-    }
-
-    public static void ForwardMessages_Offline(
-        String offlineKey,
-        PB_MsgParam_ForwardMessages param,
-        ForwardMessages_ResultHandler resultHandler,
-        ErrorCallback errorCallback) {
-      ForwardMessagesImpl(param, resultHandler, errorCallback, true, offlineKey);
-    }
-
-    private static void ForwardMessagesImpl(
-        PB_MsgParam_ForwardMessages param,
-        ForwardMessages_ResultHandler resultHandler,
-        ErrorCallback errorCallback,
-        Boolean offline,
-        String offlineKey) {
-      SuccessCallback callback = null;
-      if (resultHandler != null) {
-        callback =
-            new SuccessCallback() {
-              @Override
-              public Object handle(byte[] data) {
-                Log.i(
-                    "RPC ws",
-                    "handling rpc respnse for: ForwardMessages with respose class PB_MsgResponse_ForwardMessages");
-                PB_MsgResponse_ForwardMessages d = null;
-                try {
-                  d = PB_MsgResponse_ForwardMessages.parseFrom(data);
-                  resultHandler.onResult(d);
-                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                  Log.d(
-                      "RPC ws", "parsing protocol buffer is faild: PB_MsgResponse_ForwardMessages");
-                }
-                return d;
-              }
-            };
-      }
-
-      if (offline) {
-        Pipe.sendOffline(offlineKey, "RPC_Msg.ForwardMessages", param, callback, errorCallback);
-      } else {
-        Pipe.send("RPC_Msg.ForwardMessages", param, callback, errorCallback);
+        Pipe.send("RPC_Chat.SetMessagesAsReceived", param, callback, errorCallback);
       }
     }
 
     public static void EditMessage(
-        PB_MsgParam_EditMessage param,
+        PB_ChatParam_EditMessage param,
         EditMessage_ResultHandler resultHandler,
         ErrorCallback errorCallback) {
       EditMessageImpl(param, resultHandler, errorCallback, false, "");
@@ -970,14 +745,14 @@ public class RPC {
 
     public static void EditMessage_Offline(
         String offlineKey,
-        PB_MsgParam_EditMessage param,
+        PB_ChatParam_EditMessage param,
         EditMessage_ResultHandler resultHandler,
         ErrorCallback errorCallback) {
       EditMessageImpl(param, resultHandler, errorCallback, true, offlineKey);
     }
 
     private static void EditMessageImpl(
-        PB_MsgParam_EditMessage param,
+        PB_ChatParam_EditMessage param,
         EditMessage_ResultHandler resultHandler,
         ErrorCallback errorCallback,
         Boolean offline,
@@ -990,13 +765,13 @@ public class RPC {
               public Object handle(byte[] data) {
                 Log.i(
                     "RPC ws",
-                    "handling rpc respnse for: EditMessage with respose class PB_MsgResponse_EditMessage");
-                PB_MsgResponse_EditMessage d = null;
+                    "handling rpc respnse for: EditMessage with respose class PB_ChatResponse_EditMessage");
+                PB_ChatResponse_EditMessage d = null;
                 try {
-                  d = PB_MsgResponse_EditMessage.parseFrom(data);
+                  d = PB_ChatResponse_EditMessage.parseFrom(data);
                   resultHandler.onResult(d);
                 } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                  Log.d("RPC ws", "parsing protocol buffer is faild: PB_MsgResponse_EditMessage");
+                  Log.d("RPC ws", "parsing protocol buffer is faild: PB_ChatResponse_EditMessage");
                 }
                 return d;
               }
@@ -1004,30 +779,30 @@ public class RPC {
       }
 
       if (offline) {
-        Pipe.sendOffline(offlineKey, "RPC_Msg.EditMessage", param, callback, errorCallback);
+        Pipe.sendOffline(offlineKey, "RPC_Chat.EditMessage", param, callback, errorCallback);
       } else {
-        Pipe.send("RPC_Msg.EditMessage", param, callback, errorCallback);
+        Pipe.send("RPC_Chat.EditMessage", param, callback, errorCallback);
       }
     }
 
-    public static void BroadcastNewMessage(
-        PB_MsgParam_BroadcastNewMessage param,
-        BroadcastNewMessage_ResultHandler resultHandler,
+    public static void GetChatList(
+        PB_ChatParam_GetChatList param,
+        GetChatList_ResultHandler resultHandler,
         ErrorCallback errorCallback) {
-      BroadcastNewMessageImpl(param, resultHandler, errorCallback, false, "");
+      GetChatListImpl(param, resultHandler, errorCallback, false, "");
     }
 
-    public static void BroadcastNewMessage_Offline(
+    public static void GetChatList_Offline(
         String offlineKey,
-        PB_MsgParam_BroadcastNewMessage param,
-        BroadcastNewMessage_ResultHandler resultHandler,
+        PB_ChatParam_GetChatList param,
+        GetChatList_ResultHandler resultHandler,
         ErrorCallback errorCallback) {
-      BroadcastNewMessageImpl(param, resultHandler, errorCallback, true, offlineKey);
+      GetChatListImpl(param, resultHandler, errorCallback, true, offlineKey);
     }
 
-    private static void BroadcastNewMessageImpl(
-        PB_MsgParam_BroadcastNewMessage param,
-        BroadcastNewMessage_ResultHandler resultHandler,
+    private static void GetChatListImpl(
+        PB_ChatParam_GetChatList param,
+        GetChatList_ResultHandler resultHandler,
         ErrorCallback errorCallback,
         Boolean offline,
         String offlineKey) {
@@ -1039,15 +814,13 @@ public class RPC {
               public Object handle(byte[] data) {
                 Log.i(
                     "RPC ws",
-                    "handling rpc respnse for: BroadcastNewMessage with respose class PB_MsgResponse_BroadcastNewMessage");
-                PB_MsgResponse_BroadcastNewMessage d = null;
+                    "handling rpc respnse for: GetChatList with respose class PB_ChatResponse_GetChatList");
+                PB_ChatResponse_GetChatList d = null;
                 try {
-                  d = PB_MsgResponse_BroadcastNewMessage.parseFrom(data);
+                  d = PB_ChatResponse_GetChatList.parseFrom(data);
                   resultHandler.onResult(d);
                 } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                  Log.d(
-                      "RPC ws",
-                      "parsing protocol buffer is faild: PB_MsgResponse_BroadcastNewMessage");
+                  Log.d("RPC ws", "parsing protocol buffer is faild: PB_ChatResponse_GetChatList");
                 }
                 return d;
               }
@@ -1055,30 +828,30 @@ public class RPC {
       }
 
       if (offline) {
-        Pipe.sendOffline(offlineKey, "RPC_Msg.BroadcastNewMessage", param, callback, errorCallback);
+        Pipe.sendOffline(offlineKey, "RPC_Chat.GetChatList", param, callback, errorCallback);
       } else {
-        Pipe.send("RPC_Msg.BroadcastNewMessage", param, callback, errorCallback);
+        Pipe.send("RPC_Chat.GetChatList", param, callback, errorCallback);
       }
     }
 
-    public static void GetFreshChatList(
-        PB_MsgParam_GetFreshChatList param,
-        GetFreshChatList_ResultHandler resultHandler,
+    public static void GetChatHistoryToOlder(
+        PB_ChatParam_GetChatHistoryToOlder param,
+        GetChatHistoryToOlder_ResultHandler resultHandler,
         ErrorCallback errorCallback) {
-      GetFreshChatListImpl(param, resultHandler, errorCallback, false, "");
+      GetChatHistoryToOlderImpl(param, resultHandler, errorCallback, false, "");
     }
 
-    public static void GetFreshChatList_Offline(
+    public static void GetChatHistoryToOlder_Offline(
         String offlineKey,
-        PB_MsgParam_GetFreshChatList param,
-        GetFreshChatList_ResultHandler resultHandler,
+        PB_ChatParam_GetChatHistoryToOlder param,
+        GetChatHistoryToOlder_ResultHandler resultHandler,
         ErrorCallback errorCallback) {
-      GetFreshChatListImpl(param, resultHandler, errorCallback, true, offlineKey);
+      GetChatHistoryToOlderImpl(param, resultHandler, errorCallback, true, offlineKey);
     }
 
-    private static void GetFreshChatListImpl(
-        PB_MsgParam_GetFreshChatList param,
-        GetFreshChatList_ResultHandler resultHandler,
+    private static void GetChatHistoryToOlderImpl(
+        PB_ChatParam_GetChatHistoryToOlder param,
+        GetChatHistoryToOlder_ResultHandler resultHandler,
         ErrorCallback errorCallback,
         Boolean offline,
         String offlineKey) {
@@ -1090,66 +863,15 @@ public class RPC {
               public Object handle(byte[] data) {
                 Log.i(
                     "RPC ws",
-                    "handling rpc respnse for: GetFreshChatList with respose class PB_MsgResponse_GetFreshChatList");
-                PB_MsgResponse_GetFreshChatList d = null;
+                    "handling rpc respnse for: GetChatHistoryToOlder with respose class PB_ChatResponse_GetChatHistoryToOlder");
+                PB_ChatResponse_GetChatHistoryToOlder d = null;
                 try {
-                  d = PB_MsgResponse_GetFreshChatList.parseFrom(data);
+                  d = PB_ChatResponse_GetChatHistoryToOlder.parseFrom(data);
                   resultHandler.onResult(d);
                 } catch (com.google.protobuf.InvalidProtocolBufferException e) {
                   Log.d(
                       "RPC ws",
-                      "parsing protocol buffer is faild: PB_MsgResponse_GetFreshChatList");
-                }
-                return d;
-              }
-            };
-      }
-
-      if (offline) {
-        Pipe.sendOffline(offlineKey, "RPC_Msg.GetFreshChatList", param, callback, errorCallback);
-      } else {
-        Pipe.send("RPC_Msg.GetFreshChatList", param, callback, errorCallback);
-      }
-    }
-
-    public static void GetFreshRoomMessagesList(
-        PB_MsgParam_GetFreshRoomMessagesList param,
-        GetFreshRoomMessagesList_ResultHandler resultHandler,
-        ErrorCallback errorCallback) {
-      GetFreshRoomMessagesListImpl(param, resultHandler, errorCallback, false, "");
-    }
-
-    public static void GetFreshRoomMessagesList_Offline(
-        String offlineKey,
-        PB_MsgParam_GetFreshRoomMessagesList param,
-        GetFreshRoomMessagesList_ResultHandler resultHandler,
-        ErrorCallback errorCallback) {
-      GetFreshRoomMessagesListImpl(param, resultHandler, errorCallback, true, offlineKey);
-    }
-
-    private static void GetFreshRoomMessagesListImpl(
-        PB_MsgParam_GetFreshRoomMessagesList param,
-        GetFreshRoomMessagesList_ResultHandler resultHandler,
-        ErrorCallback errorCallback,
-        Boolean offline,
-        String offlineKey) {
-      SuccessCallback callback = null;
-      if (resultHandler != null) {
-        callback =
-            new SuccessCallback() {
-              @Override
-              public Object handle(byte[] data) {
-                Log.i(
-                    "RPC ws",
-                    "handling rpc respnse for: GetFreshRoomMessagesList with respose class PB_MsgResponse_GetFreshRoomMessagesList");
-                PB_MsgResponse_GetFreshRoomMessagesList d = null;
-                try {
-                  d = PB_MsgResponse_GetFreshRoomMessagesList.parseFrom(data);
-                  resultHandler.onResult(d);
-                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                  Log.d(
-                      "RPC ws",
-                      "parsing protocol buffer is faild: PB_MsgResponse_GetFreshRoomMessagesList");
+                      "parsing protocol buffer is faild: PB_ChatResponse_GetChatHistoryToOlder");
                 }
                 return d;
               }
@@ -1158,14 +880,14 @@ public class RPC {
 
       if (offline) {
         Pipe.sendOffline(
-            offlineKey, "RPC_Msg.GetFreshRoomMessagesList", param, callback, errorCallback);
+            offlineKey, "RPC_Chat.GetChatHistoryToOlder", param, callback, errorCallback);
       } else {
-        Pipe.send("RPC_Msg.GetFreshRoomMessagesList", param, callback, errorCallback);
+        Pipe.send("RPC_Chat.GetChatHistoryToOlder", param, callback, errorCallback);
       }
     }
 
     public static void GetFreshAllDirectMessagesList(
-        PB_MsgParam_GetFreshAllDirectMessagesList param,
+        PB_ChatParam_GetFreshAllDirectMessagesList param,
         GetFreshAllDirectMessagesList_ResultHandler resultHandler,
         ErrorCallback errorCallback) {
       GetFreshAllDirectMessagesListImpl(param, resultHandler, errorCallback, false, "");
@@ -1173,14 +895,14 @@ public class RPC {
 
     public static void GetFreshAllDirectMessagesList_Offline(
         String offlineKey,
-        PB_MsgParam_GetFreshAllDirectMessagesList param,
+        PB_ChatParam_GetFreshAllDirectMessagesList param,
         GetFreshAllDirectMessagesList_ResultHandler resultHandler,
         ErrorCallback errorCallback) {
       GetFreshAllDirectMessagesListImpl(param, resultHandler, errorCallback, true, offlineKey);
     }
 
     private static void GetFreshAllDirectMessagesListImpl(
-        PB_MsgParam_GetFreshAllDirectMessagesList param,
+        PB_ChatParam_GetFreshAllDirectMessagesList param,
         GetFreshAllDirectMessagesList_ResultHandler resultHandler,
         ErrorCallback errorCallback,
         Boolean offline,
@@ -1193,15 +915,15 @@ public class RPC {
               public Object handle(byte[] data) {
                 Log.i(
                     "RPC ws",
-                    "handling rpc respnse for: GetFreshAllDirectMessagesList with respose class PB_MsgResponse_GetFreshAllDirectMessagesList");
-                PB_MsgResponse_GetFreshAllDirectMessagesList d = null;
+                    "handling rpc respnse for: GetFreshAllDirectMessagesList with respose class PB_ChatResponse_GetFreshAllDirectMessagesList");
+                PB_ChatResponse_GetFreshAllDirectMessagesList d = null;
                 try {
-                  d = PB_MsgResponse_GetFreshAllDirectMessagesList.parseFrom(data);
+                  d = PB_ChatResponse_GetFreshAllDirectMessagesList.parseFrom(data);
                   resultHandler.onResult(d);
                 } catch (com.google.protobuf.InvalidProtocolBufferException e) {
                   Log.d(
                       "RPC ws",
-                      "parsing protocol buffer is faild: PB_MsgResponse_GetFreshAllDirectMessagesList");
+                      "parsing protocol buffer is faild: PB_ChatResponse_GetFreshAllDirectMessagesList");
                 }
                 return d;
               }
@@ -1210,27 +932,34 @@ public class RPC {
 
       if (offline) {
         Pipe.sendOffline(
-            offlineKey, "RPC_Msg.GetFreshAllDirectMessagesList", param, callback, errorCallback);
+            offlineKey, "RPC_Chat.GetFreshAllDirectMessagesList", param, callback, errorCallback);
       } else {
-        Pipe.send("RPC_Msg.GetFreshAllDirectMessagesList", param, callback, errorCallback);
+        Pipe.send("RPC_Chat.GetFreshAllDirectMessagesList", param, callback, errorCallback);
       }
+    }
+  }
+
+  public static class RPC_Other {
+
+    public static interface Echo_ResultHandler {
+      void onResult(PB_OtherResponse_Echo res);
     }
 
     public static void Echo(
-        PB_MsgParam_Echo param, Echo_ResultHandler resultHandler, ErrorCallback errorCallback) {
+        PB_OtherParam_Echo param, Echo_ResultHandler resultHandler, ErrorCallback errorCallback) {
       EchoImpl(param, resultHandler, errorCallback, false, "");
     }
 
     public static void Echo_Offline(
         String offlineKey,
-        PB_MsgParam_Echo param,
+        PB_OtherParam_Echo param,
         Echo_ResultHandler resultHandler,
         ErrorCallback errorCallback) {
       EchoImpl(param, resultHandler, errorCallback, true, offlineKey);
     }
 
     private static void EchoImpl(
-        PB_MsgParam_Echo param,
+        PB_OtherParam_Echo param,
         Echo_ResultHandler resultHandler,
         ErrorCallback errorCallback,
         Boolean offline,
@@ -1243,15 +972,13 @@ public class RPC {
               public Object handle(byte[] data) {
                 Log.i(
                     "RPC ws",
-                    "handling rpc respnse for: Echo with respose class PB_MsgResponse_PB_MsgParam_Echo");
-                PB_MsgResponse_PB_MsgParam_Echo d = null;
+                    "handling rpc respnse for: Echo with respose class PB_OtherResponse_Echo");
+                PB_OtherResponse_Echo d = null;
                 try {
-                  d = PB_MsgResponse_PB_MsgParam_Echo.parseFrom(data);
+                  d = PB_OtherResponse_Echo.parseFrom(data);
                   resultHandler.onResult(d);
                 } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                  Log.d(
-                      "RPC ws",
-                      "parsing protocol buffer is faild: PB_MsgResponse_PB_MsgParam_Echo");
+                  Log.d("RPC ws", "parsing protocol buffer is faild: PB_OtherResponse_Echo");
                 }
                 return d;
               }
@@ -1259,18 +986,14 @@ public class RPC {
       }
 
       if (offline) {
-        Pipe.sendOffline(offlineKey, "RPC_Msg.Echo", param, callback, errorCallback);
+        Pipe.sendOffline(offlineKey, "RPC_Other.Echo", param, callback, errorCallback);
       } else {
-        Pipe.send("RPC_Msg.Echo", param, callback, errorCallback);
+        Pipe.send("RPC_Other.Echo", param, callback, errorCallback);
       }
     }
   }
 
   public static class RPC_Sync {
-
-    public static interface GetDirectUpdates_ResultHandler {
-      void onResult(PB_SyncResponse_GetDirectUpdates res);
-    }
 
     public static interface GetGeneralUpdates_ResultHandler {
       void onResult(PB_SyncResponse_GetGeneralUpdates res);
@@ -1290,57 +1013,6 @@ public class RPC {
 
     public static interface SetLastSyncNotifyUpdateId_ResultHandler {
       void onResult(PB_SyncResponse_SetLastSyncNotifyUpdateId res);
-    }
-
-    public static void GetDirectUpdates(
-        PB_SyncParam_GetDirectUpdates param,
-        GetDirectUpdates_ResultHandler resultHandler,
-        ErrorCallback errorCallback) {
-      GetDirectUpdatesImpl(param, resultHandler, errorCallback, false, "");
-    }
-
-    public static void GetDirectUpdates_Offline(
-        String offlineKey,
-        PB_SyncParam_GetDirectUpdates param,
-        GetDirectUpdates_ResultHandler resultHandler,
-        ErrorCallback errorCallback) {
-      GetDirectUpdatesImpl(param, resultHandler, errorCallback, true, offlineKey);
-    }
-
-    private static void GetDirectUpdatesImpl(
-        PB_SyncParam_GetDirectUpdates param,
-        GetDirectUpdates_ResultHandler resultHandler,
-        ErrorCallback errorCallback,
-        Boolean offline,
-        String offlineKey) {
-      SuccessCallback callback = null;
-      if (resultHandler != null) {
-        callback =
-            new SuccessCallback() {
-              @Override
-              public Object handle(byte[] data) {
-                Log.i(
-                    "RPC ws",
-                    "handling rpc respnse for: GetDirectUpdates with respose class PB_SyncResponse_GetDirectUpdates");
-                PB_SyncResponse_GetDirectUpdates d = null;
-                try {
-                  d = PB_SyncResponse_GetDirectUpdates.parseFrom(data);
-                  resultHandler.onResult(d);
-                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                  Log.d(
-                      "RPC ws",
-                      "parsing protocol buffer is faild: PB_SyncResponse_GetDirectUpdates");
-                }
-                return d;
-              }
-            };
-      }
-
-      if (offline) {
-        Pipe.sendOffline(offlineKey, "RPC_Sync.GetDirectUpdates", param, callback, errorCallback);
-      } else {
-        Pipe.send("RPC_Sync.GetDirectUpdates", param, callback, errorCallback);
-      }
     }
 
     public static void GetGeneralUpdates(
@@ -2051,7 +1723,8 @@ public class RPC {
 /*
 
 RPC_INTERFACES.RPC_Auth RPC_Auth_Handeler = null;
-RPC_INTERFACES.RPC_Msg RPC_Msg_Handeler = null;
+RPC_INTERFACES.RPC_Chat RPC_Chat_Handeler = null;
+RPC_INTERFACES.RPC_Other RPC_Other_Handeler = null;
 RPC_INTERFACES.RPC_Sync RPC_Sync_Handeler = null;
 RPC_INTERFACES.RPC_UserOffline RPC_UserOffline_Handeler = null;
 RPC_INTERFACES.RPC_User RPC_User_Handeler = null;

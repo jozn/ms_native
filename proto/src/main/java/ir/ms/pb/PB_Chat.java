@@ -245,50 +245,50 @@ public  final class PB_Chat extends
     startMessageIdFrom_ = 0L;
   }
 
-  public static final int LASTSEENMESSAGEID_FIELD_NUMBER = 17;
+  public static final int LASTDELETEDMESSAGEID_FIELD_NUMBER = 17;
+  private long lastDeletedMessageId_;
+  /**
+   * <code>int64 LastDeletedMessageId = 17;</code>
+   */
+  public long getLastDeletedMessageId() {
+    return lastDeletedMessageId_;
+  }
+  /**
+   * <code>int64 LastDeletedMessageId = 17;</code>
+   */
+  private void setLastDeletedMessageId(long value) {
+    
+    lastDeletedMessageId_ = value;
+  }
+  /**
+   * <code>int64 LastDeletedMessageId = 17;</code>
+   */
+  private void clearLastDeletedMessageId() {
+    
+    lastDeletedMessageId_ = 0L;
+  }
+
+  public static final int LASTSEENMESSAGEID_FIELD_NUMBER = 19;
   private long lastSeenMessageId_;
   /**
-   * <code>int64 LastSeenMessageId = 17;</code>
+   * <code>int64 LastSeenMessageId = 19;</code>
    */
   public long getLastSeenMessageId() {
     return lastSeenMessageId_;
   }
   /**
-   * <code>int64 LastSeenMessageId = 17;</code>
+   * <code>int64 LastSeenMessageId = 19;</code>
    */
   private void setLastSeenMessageId(long value) {
     
     lastSeenMessageId_ = value;
   }
   /**
-   * <code>int64 LastSeenMessageId = 17;</code>
+   * <code>int64 LastSeenMessageId = 19;</code>
    */
   private void clearLastSeenMessageId() {
     
     lastSeenMessageId_ = 0L;
-  }
-
-  public static final int UPDATEDMS_FIELD_NUMBER = 19;
-  private long updatedMs_;
-  /**
-   * <code>int64 UpdatedMs = 19;</code>
-   */
-  public long getUpdatedMs() {
-    return updatedMs_;
-  }
-  /**
-   * <code>int64 UpdatedMs = 19;</code>
-   */
-  private void setUpdatedMs(long value) {
-    
-    updatedMs_ = value;
-  }
-  /**
-   * <code>int64 UpdatedMs = 19;</code>
-   */
-  private void clearUpdatedMs() {
-    
-    updatedMs_ = 0L;
   }
 
   public static final int LASTMESSAGEID_FIELD_NUMBER = 21;
@@ -314,96 +314,27 @@ public  final class PB_Chat extends
     lastMessageId_ = 0L;
   }
 
-  public static final int LASTDELETEDMESSAGEID_FIELD_NUMBER = 23;
-  private long lastDeletedMessageId_;
+  public static final int UPDATEDMS_FIELD_NUMBER = 23;
+  private long updatedMs_;
   /**
-   * <code>int64 LastDeletedMessageId = 23;</code>
+   * <code>int64 UpdatedMs = 23;</code>
    */
-  public long getLastDeletedMessageId() {
-    return lastDeletedMessageId_;
+  public long getUpdatedMs() {
+    return updatedMs_;
   }
   /**
-   * <code>int64 LastDeletedMessageId = 23;</code>
+   * <code>int64 UpdatedMs = 23;</code>
    */
-  private void setLastDeletedMessageId(long value) {
+  private void setUpdatedMs(long value) {
     
-    lastDeletedMessageId_ = value;
+    updatedMs_ = value;
   }
   /**
-   * <code>int64 LastDeletedMessageId = 23;</code>
+   * <code>int64 UpdatedMs = 23;</code>
    */
-  private void clearLastDeletedMessageId() {
+  private void clearUpdatedMs() {
     
-    lastDeletedMessageId_ = 0L;
-  }
-
-  public static final int LASTSEQSEEN_FIELD_NUMBER = 25;
-  private int lastSeqSeen_;
-  /**
-   * <code>int32 LastSeqSeen = 25;</code>
-   */
-  public int getLastSeqSeen() {
-    return lastSeqSeen_;
-  }
-  /**
-   * <code>int32 LastSeqSeen = 25;</code>
-   */
-  private void setLastSeqSeen(int value) {
-    
-    lastSeqSeen_ = value;
-  }
-  /**
-   * <code>int32 LastSeqSeen = 25;</code>
-   */
-  private void clearLastSeqSeen() {
-    
-    lastSeqSeen_ = 0;
-  }
-
-  public static final int LASTSEQDELETE_FIELD_NUMBER = 27;
-  private int lastSeqDelete_;
-  /**
-   * <code>int32 LastSeqDelete = 27;</code>
-   */
-  public int getLastSeqDelete() {
-    return lastSeqDelete_;
-  }
-  /**
-   * <code>int32 LastSeqDelete = 27;</code>
-   */
-  private void setLastSeqDelete(int value) {
-    
-    lastSeqDelete_ = value;
-  }
-  /**
-   * <code>int32 LastSeqDelete = 27;</code>
-   */
-  private void clearLastSeqDelete() {
-    
-    lastSeqDelete_ = 0;
-  }
-
-  public static final int CURRENTSEQ_FIELD_NUMBER = 29;
-  private int currentSeq_;
-  /**
-   * <code>int32 CurrentSeq = 29;</code>
-   */
-  public int getCurrentSeq() {
-    return currentSeq_;
-  }
-  /**
-   * <code>int32 CurrentSeq = 29;</code>
-   */
-  private void setCurrentSeq(int value) {
-    
-    currentSeq_ = value;
-  }
-  /**
-   * <code>int32 CurrentSeq = 29;</code>
-   */
-  private void clearCurrentSeq() {
-    
-    currentSeq_ = 0;
+    updatedMs_ = 0L;
   }
 
   public void writeTo(com.google.protobuf.CodedOutputStream output)
@@ -432,26 +363,17 @@ public  final class PB_Chat extends
     if (startMessageIdFrom_ != 0L) {
       output.writeInt64(15, startMessageIdFrom_);
     }
-    if (lastSeenMessageId_ != 0L) {
-      output.writeInt64(17, lastSeenMessageId_);
+    if (lastDeletedMessageId_ != 0L) {
+      output.writeInt64(17, lastDeletedMessageId_);
     }
-    if (updatedMs_ != 0L) {
-      output.writeInt64(19, updatedMs_);
+    if (lastSeenMessageId_ != 0L) {
+      output.writeInt64(19, lastSeenMessageId_);
     }
     if (lastMessageId_ != 0L) {
       output.writeInt64(21, lastMessageId_);
     }
-    if (lastDeletedMessageId_ != 0L) {
-      output.writeInt64(23, lastDeletedMessageId_);
-    }
-    if (lastSeqSeen_ != 0) {
-      output.writeInt32(25, lastSeqSeen_);
-    }
-    if (lastSeqDelete_ != 0) {
-      output.writeInt32(27, lastSeqDelete_);
-    }
-    if (currentSeq_ != 0) {
-      output.writeInt32(29, currentSeq_);
+    if (updatedMs_ != 0L) {
+      output.writeInt64(23, updatedMs_);
     }
   }
 
@@ -492,33 +414,21 @@ public  final class PB_Chat extends
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(15, startMessageIdFrom_);
     }
+    if (lastDeletedMessageId_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(17, lastDeletedMessageId_);
+    }
     if (lastSeenMessageId_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(17, lastSeenMessageId_);
-    }
-    if (updatedMs_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(19, updatedMs_);
+        .computeInt64Size(19, lastSeenMessageId_);
     }
     if (lastMessageId_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(21, lastMessageId_);
     }
-    if (lastDeletedMessageId_ != 0L) {
+    if (updatedMs_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(23, lastDeletedMessageId_);
-    }
-    if (lastSeqSeen_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(25, lastSeqSeen_);
-    }
-    if (lastSeqDelete_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(27, lastSeqDelete_);
-    }
-    if (currentSeq_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(29, currentSeq_);
+        .computeInt64Size(23, updatedMs_);
     }
     memoizedSerializedSize = size;
     return size;
@@ -825,13 +735,36 @@ public  final class PB_Chat extends
     }
 
     /**
-     * <code>int64 LastSeenMessageId = 17;</code>
+     * <code>int64 LastDeletedMessageId = 17;</code>
+     */
+    public long getLastDeletedMessageId() {
+      return instance.getLastDeletedMessageId();
+    }
+    /**
+     * <code>int64 LastDeletedMessageId = 17;</code>
+     */
+    public Builder setLastDeletedMessageId(long value) {
+      copyOnWrite();
+      instance.setLastDeletedMessageId(value);
+      return this;
+    }
+    /**
+     * <code>int64 LastDeletedMessageId = 17;</code>
+     */
+    public Builder clearLastDeletedMessageId() {
+      copyOnWrite();
+      instance.clearLastDeletedMessageId();
+      return this;
+    }
+
+    /**
+     * <code>int64 LastSeenMessageId = 19;</code>
      */
     public long getLastSeenMessageId() {
       return instance.getLastSeenMessageId();
     }
     /**
-     * <code>int64 LastSeenMessageId = 17;</code>
+     * <code>int64 LastSeenMessageId = 19;</code>
      */
     public Builder setLastSeenMessageId(long value) {
       copyOnWrite();
@@ -839,34 +772,11 @@ public  final class PB_Chat extends
       return this;
     }
     /**
-     * <code>int64 LastSeenMessageId = 17;</code>
+     * <code>int64 LastSeenMessageId = 19;</code>
      */
     public Builder clearLastSeenMessageId() {
       copyOnWrite();
       instance.clearLastSeenMessageId();
-      return this;
-    }
-
-    /**
-     * <code>int64 UpdatedMs = 19;</code>
-     */
-    public long getUpdatedMs() {
-      return instance.getUpdatedMs();
-    }
-    /**
-     * <code>int64 UpdatedMs = 19;</code>
-     */
-    public Builder setUpdatedMs(long value) {
-      copyOnWrite();
-      instance.setUpdatedMs(value);
-      return this;
-    }
-    /**
-     * <code>int64 UpdatedMs = 19;</code>
-     */
-    public Builder clearUpdatedMs() {
-      copyOnWrite();
-      instance.clearUpdatedMs();
       return this;
     }
 
@@ -894,94 +804,25 @@ public  final class PB_Chat extends
     }
 
     /**
-     * <code>int64 LastDeletedMessageId = 23;</code>
+     * <code>int64 UpdatedMs = 23;</code>
      */
-    public long getLastDeletedMessageId() {
-      return instance.getLastDeletedMessageId();
+    public long getUpdatedMs() {
+      return instance.getUpdatedMs();
     }
     /**
-     * <code>int64 LastDeletedMessageId = 23;</code>
+     * <code>int64 UpdatedMs = 23;</code>
      */
-    public Builder setLastDeletedMessageId(long value) {
+    public Builder setUpdatedMs(long value) {
       copyOnWrite();
-      instance.setLastDeletedMessageId(value);
+      instance.setUpdatedMs(value);
       return this;
     }
     /**
-     * <code>int64 LastDeletedMessageId = 23;</code>
+     * <code>int64 UpdatedMs = 23;</code>
      */
-    public Builder clearLastDeletedMessageId() {
+    public Builder clearUpdatedMs() {
       copyOnWrite();
-      instance.clearLastDeletedMessageId();
-      return this;
-    }
-
-    /**
-     * <code>int32 LastSeqSeen = 25;</code>
-     */
-    public int getLastSeqSeen() {
-      return instance.getLastSeqSeen();
-    }
-    /**
-     * <code>int32 LastSeqSeen = 25;</code>
-     */
-    public Builder setLastSeqSeen(int value) {
-      copyOnWrite();
-      instance.setLastSeqSeen(value);
-      return this;
-    }
-    /**
-     * <code>int32 LastSeqSeen = 25;</code>
-     */
-    public Builder clearLastSeqSeen() {
-      copyOnWrite();
-      instance.clearLastSeqSeen();
-      return this;
-    }
-
-    /**
-     * <code>int32 LastSeqDelete = 27;</code>
-     */
-    public int getLastSeqDelete() {
-      return instance.getLastSeqDelete();
-    }
-    /**
-     * <code>int32 LastSeqDelete = 27;</code>
-     */
-    public Builder setLastSeqDelete(int value) {
-      copyOnWrite();
-      instance.setLastSeqDelete(value);
-      return this;
-    }
-    /**
-     * <code>int32 LastSeqDelete = 27;</code>
-     */
-    public Builder clearLastSeqDelete() {
-      copyOnWrite();
-      instance.clearLastSeqDelete();
-      return this;
-    }
-
-    /**
-     * <code>int32 CurrentSeq = 29;</code>
-     */
-    public int getCurrentSeq() {
-      return instance.getCurrentSeq();
-    }
-    /**
-     * <code>int32 CurrentSeq = 29;</code>
-     */
-    public Builder setCurrentSeq(int value) {
-      copyOnWrite();
-      instance.setCurrentSeq(value);
-      return this;
-    }
-    /**
-     * <code>int32 CurrentSeq = 29;</code>
-     */
-    public Builder clearCurrentSeq() {
-      copyOnWrite();
-      instance.clearCurrentSeq();
+      instance.clearUpdatedMs();
       return this;
     }
 
@@ -1022,20 +863,14 @@ public  final class PB_Chat extends
             other.createdSe_ != 0, other.createdSe_);
         startMessageIdFrom_ = visitor.visitLong(startMessageIdFrom_ != 0L, startMessageIdFrom_,
             other.startMessageIdFrom_ != 0L, other.startMessageIdFrom_);
-        lastSeenMessageId_ = visitor.visitLong(lastSeenMessageId_ != 0L, lastSeenMessageId_,
-            other.lastSeenMessageId_ != 0L, other.lastSeenMessageId_);
-        updatedMs_ = visitor.visitLong(updatedMs_ != 0L, updatedMs_,
-            other.updatedMs_ != 0L, other.updatedMs_);
-        lastMessageId_ = visitor.visitLong(lastMessageId_ != 0L, lastMessageId_,
-            other.lastMessageId_ != 0L, other.lastMessageId_);
         lastDeletedMessageId_ = visitor.visitLong(lastDeletedMessageId_ != 0L, lastDeletedMessageId_,
             other.lastDeletedMessageId_ != 0L, other.lastDeletedMessageId_);
-        lastSeqSeen_ = visitor.visitInt(lastSeqSeen_ != 0, lastSeqSeen_,
-            other.lastSeqSeen_ != 0, other.lastSeqSeen_);
-        lastSeqDelete_ = visitor.visitInt(lastSeqDelete_ != 0, lastSeqDelete_,
-            other.lastSeqDelete_ != 0, other.lastSeqDelete_);
-        currentSeq_ = visitor.visitInt(currentSeq_ != 0, currentSeq_,
-            other.currentSeq_ != 0, other.currentSeq_);
+        lastSeenMessageId_ = visitor.visitLong(lastSeenMessageId_ != 0L, lastSeenMessageId_,
+            other.lastSeenMessageId_ != 0L, other.lastSeenMessageId_);
+        lastMessageId_ = visitor.visitLong(lastMessageId_ != 0L, lastMessageId_,
+            other.lastMessageId_ != 0L, other.lastMessageId_);
+        updatedMs_ = visitor.visitLong(updatedMs_ != 0L, updatedMs_,
+            other.updatedMs_ != 0L, other.updatedMs_);
         if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
             .INSTANCE) {
         }
@@ -1104,12 +939,12 @@ public  final class PB_Chat extends
               }
               case 136: {
 
-                lastSeenMessageId_ = input.readInt64();
+                lastDeletedMessageId_ = input.readInt64();
                 break;
               }
               case 152: {
 
-                updatedMs_ = input.readInt64();
+                lastSeenMessageId_ = input.readInt64();
                 break;
               }
               case 168: {
@@ -1119,22 +954,7 @@ public  final class PB_Chat extends
               }
               case 184: {
 
-                lastDeletedMessageId_ = input.readInt64();
-                break;
-              }
-              case 200: {
-
-                lastSeqSeen_ = input.readInt32();
-                break;
-              }
-              case 216: {
-
-                lastSeqDelete_ = input.readInt32();
-                break;
-              }
-              case 232: {
-
-                currentSeq_ = input.readInt32();
+                updatedMs_ = input.readInt64();
                 break;
               }
             }

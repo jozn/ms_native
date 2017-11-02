@@ -8,6 +8,7 @@ import com.google.protobuf.InvalidProtocolBufferException;
 import com.mardomsara.social.app.AppLogger;
 import com.mardomsara.social.app.Config;
 import com.mardomsara.social.helpers.AppUtil;
+import com.mardomsara.social.helpers.Helper;
 
 import ir.ms.pb.PB_Session;
 import ir.ms.pb.PB_SettingClient;
@@ -18,10 +19,13 @@ import ir.ms.pb.PB_SettingNotification;
  */
 
 public class AppState {
+	private static UserStates def;
 
 	public static UserStates getDefault() {
-
-		return new UserStates(0);
+		if (def == null) {
+			def = new UserStates(0);
+		}
+		return def;
 	}
 
 	public static class UserStates {
@@ -34,13 +38,13 @@ public class AppState {
 
 		int userId = 0;
 
-		private PB_SettingClient pb_settingClient;
-		private PB_SettingClient.Builder pb_settingClientBuilder;
+		private PB_SettingClient pb_settingClient = null;
+		private PB_SettingClient.Builder pb_settingClientBuilder = null;
 
-		private PB_SettingNotification pb_settingNotification;
-		private PB_SettingNotification.Builder pb_settingNotificationBuilder;
+		private PB_SettingNotification pb_settingNotification = null;
+		private PB_SettingNotification.Builder pb_settingNotificationBuilder = null;
 
-		private PB_Session pb_session;
+		private PB_Session pb_session = null;
 
 		UserStates(int userId) {
 			this.userId = userId;
@@ -77,6 +81,9 @@ public class AppState {
 				pb_settingClient = pb_settingClientBuilder.build();
 			}
 			getSharedPrefrence(FILE_SETTINGS).edit().putString(KEY_CLIENT_SETTINGS, Base64.encodeToString(pb_settingClient.toByteArray(), Base64.DEFAULT)).apply();
+			if(Config.IS_DEBUG){
+				getSharedPrefrence(FILE_SETTINGS).edit().putString(KEY_CLIENT_SETTINGS+"_JSON",AppUtil.toJsonPretty(pb_settingClient)).apply();
+			}
 		}
 
 		/////////////////////////////////////////// Push Notifications /////////////////////////////////
@@ -110,6 +117,9 @@ public class AppState {
 				pb_settingNotification = pb_settingNotificationBuilder.build();
 			}
 			getSharedPrefrence(FILE_SETTINGS).edit().putString(KEY_NOTIFICATIONS, Base64.encodeToString(pb_settingNotification.toByteArray(), Base64.DEFAULT)).apply();
+			if(Config.IS_DEBUG){
+				getSharedPrefrence(FILE_SETTINGS).edit().putString(KEY_NOTIFICATIONS+"_json",AppUtil.toJsonPretty(pb_settingNotification)).apply();
+			}
 		}
 
 		/////////////////////////////////////////// Session /////////////////////////////////
@@ -138,6 +148,10 @@ public class AppState {
 		public synchronized void saveSession(PB_Session pb_session1) {
 			pb_session = pb_session1;
 			getSharedPrefrence(FILE_SESSION).edit().putString(KEY_SESSION, Base64.encodeToString(pb_session1.toByteArray(), Base64.DEFAULT)).apply();
+			if(Config.IS_DEBUG){
+				getSharedPrefrence(FILE_SESSION).edit().putString(KEY_SESSION+"_Json", AppUtil.toJsonPretty(pb_session1)).apply();
+
+			}
 		}
 
 		public synchronized void saveState() {

@@ -271,6 +271,327 @@ public class PBFlatTypes {
 	t.Data = m.getData() ;
 	*/
 
+	public class PB_Offline_NewDirectMessage {
+	   public String ChatKey;
+	   public long FromMessageId;
+	   public long AtTime;
+	}
+	/*
+	folding
+	PBFlatTypes.PB_Offline_NewDirectMessage t = new PBFlatTypes.PB_Offline_NewDirectMessage();
+    t.setChatKey();
+    t.setFromMessageId();
+    t.setAtTime();
+	*/
+
+	/*
+	PBFlatTypes.PB_Offline_NewDirectMessage t = new PBFlatTypes.PB_Offline_NewDirectMessage();
+	t.ChatKey = ;
+	t.FromMessageId = ;
+	t.AtTime = ;
+	*/
+
+	/*
+	PB_Offline_NewDirectMessage t = new PB_Offline_NewDirectMessage();
+	t.ChatKey = m.getChatKey() ;
+	t.FromMessageId = m.getFromMessageId() ;
+	t.AtTime = m.getAtTime() ;
+	*/
+
+	public class PB_Offline_MessagesReachedServer {
+	   public String MessageKeys;
+	   public long AtTime;
+	}
+	/*
+	folding
+	PBFlatTypes.PB_Offline_MessagesReachedServer t = new PBFlatTypes.PB_Offline_MessagesReachedServer();
+    t.setMessageKeys();
+    t.setAtTime();
+	*/
+
+	/*
+	PBFlatTypes.PB_Offline_MessagesReachedServer t = new PBFlatTypes.PB_Offline_MessagesReachedServer();
+	t.MessageKeys = ;
+	t.AtTime = ;
+	*/
+
+	/*
+	PB_Offline_MessagesReachedServer t = new PB_Offline_MessagesReachedServer();
+	t.MessageKeys = m.getMessageKeys() ;
+	t.AtTime = m.getAtTime() ;
+	*/
+
+	public class PB_Offline_MessagesDeliveredToUser {
+	   public String MessageKeys;
+	   public long MessageIds;
+	   public String RoomKey;
+	   public long AtTime;
+	}
+	/*
+	folding
+	PBFlatTypes.PB_Offline_MessagesDeliveredToUser t = new PBFlatTypes.PB_Offline_MessagesDeliveredToUser();
+    t.setMessageKeys();
+    t.setMessageIds();
+    t.setRoomKey();
+    t.setAtTime();
+	*/
+
+	/*
+	PBFlatTypes.PB_Offline_MessagesDeliveredToUser t = new PBFlatTypes.PB_Offline_MessagesDeliveredToUser();
+	t.MessageKeys = ;
+	t.MessageIds = ;
+	t.RoomKey = ;
+	t.AtTime = ;
+	*/
+
+	/*
+	PB_Offline_MessagesDeliveredToUser t = new PB_Offline_MessagesDeliveredToUser();
+	t.MessageKeys = m.getMessageKeys() ;
+	t.MessageIds = m.getMessageIds() ;
+	t.RoomKey = m.getRoomKey() ;
+	t.AtTime = m.getAtTime() ;
+	*/
+
+	public class PB_Offline_MessagesSeenByPeer {
+	   public String MessageKeys;
+	   public long MessageIds;
+	   public String RoomKey;
+	   public long AtTime;
+	}
+	/*
+	folding
+	PBFlatTypes.PB_Offline_MessagesSeenByPeer t = new PBFlatTypes.PB_Offline_MessagesSeenByPeer();
+    t.setMessageKeys();
+    t.setMessageIds();
+    t.setRoomKey();
+    t.setAtTime();
+	*/
+
+	/*
+	PBFlatTypes.PB_Offline_MessagesSeenByPeer t = new PBFlatTypes.PB_Offline_MessagesSeenByPeer();
+	t.MessageKeys = ;
+	t.MessageIds = ;
+	t.RoomKey = ;
+	t.AtTime = ;
+	*/
+
+	/*
+	PB_Offline_MessagesSeenByPeer t = new PB_Offline_MessagesSeenByPeer();
+	t.MessageKeys = m.getMessageKeys() ;
+	t.MessageIds = m.getMessageIds() ;
+	t.RoomKey = m.getRoomKey() ;
+	t.AtTime = m.getAtTime() ;
+	*/
+
+	public class PB_Offline_MessagesDeletedFromServer {
+	   public String MessageKeys;
+	   public long MessageIds;
+	   public long AtTime;
+	}
+	/*
+	folding
+	PBFlatTypes.PB_Offline_MessagesDeletedFromServer t = new PBFlatTypes.PB_Offline_MessagesDeletedFromServer();
+    t.setMessageKeys();
+    t.setMessageIds();
+    t.setAtTime();
+	*/
+
+	/*
+	PBFlatTypes.PB_Offline_MessagesDeletedFromServer t = new PBFlatTypes.PB_Offline_MessagesDeletedFromServer();
+	t.MessageKeys = ;
+	t.MessageIds = ;
+	t.AtTime = ;
+	*/
+
+	/*
+	PB_Offline_MessagesDeletedFromServer t = new PB_Offline_MessagesDeletedFromServer();
+	t.MessageKeys = m.getMessageKeys() ;
+	t.MessageIds = m.getMessageIds() ;
+	t.AtTime = m.getAtTime() ;
+	*/
+
+	public class PB_Offline_ChangeMessageId {
+	   public String MessageKey;
+	   public long NewMessageId;
+	}
+	/*
+	folding
+	PBFlatTypes.PB_Offline_ChangeMessageId t = new PBFlatTypes.PB_Offline_ChangeMessageId();
+    t.setMessageKey();
+    t.setNewMessageId();
+	*/
+
+	/*
+	PBFlatTypes.PB_Offline_ChangeMessageId t = new PBFlatTypes.PB_Offline_ChangeMessageId();
+	t.MessageKey = ;
+	t.NewMessageId = ;
+	*/
+
+	/*
+	PB_Offline_ChangeMessageId t = new PB_Offline_ChangeMessageId();
+	t.MessageKey = m.getMessageKey() ;
+	t.NewMessageId = m.getNewMessageId() ;
+	*/
+
+	public class PB_Offline_ChangeMessageFileId {
+	   public String MessageFileKey;
+	   public long NewMessageFileId;
+	}
+	/*
+	folding
+	PBFlatTypes.PB_Offline_ChangeMessageFileId t = new PBFlatTypes.PB_Offline_ChangeMessageFileId();
+    t.setMessageFileKey();
+    t.setNewMessageFileId();
+	*/
+
+	/*
+	PBFlatTypes.PB_Offline_ChangeMessageFileId t = new PBFlatTypes.PB_Offline_ChangeMessageFileId();
+	t.MessageFileKey = ;
+	t.NewMessageFileId = ;
+	*/
+
+	/*
+	PB_Offline_ChangeMessageFileId t = new PB_Offline_ChangeMessageFileId();
+	t.MessageFileKey = m.getMessageFileKey() ;
+	t.NewMessageFileId = m.getNewMessageFileId() ;
+	*/
+
+	public class PB_Offline_MessageToEdit {
+	   public long MessageKey;
+	   public String NewText;
+	}
+	/*
+	folding
+	PBFlatTypes.PB_Offline_MessageToEdit t = new PBFlatTypes.PB_Offline_MessageToEdit();
+    t.setMessageKey();
+    t.setNewText();
+	*/
+
+	/*
+	PBFlatTypes.PB_Offline_MessageToEdit t = new PBFlatTypes.PB_Offline_MessageToEdit();
+	t.MessageKey = ;
+	t.NewText = ;
+	*/
+
+	/*
+	PB_Offline_MessageToEdit t = new PB_Offline_MessageToEdit();
+	t.MessageKey = m.getMessageKey() ;
+	t.NewText = m.getNewText() ;
+	*/
+
+	public class PB_Offline_MessageToDelete {
+	   public long MessageKey;
+	}
+	/*
+	folding
+	PBFlatTypes.PB_Offline_MessageToDelete t = new PBFlatTypes.PB_Offline_MessageToDelete();
+    t.setMessageKey();
+	*/
+
+	/*
+	PBFlatTypes.PB_Offline_MessageToDelete t = new PBFlatTypes.PB_Offline_MessageToDelete();
+	t.MessageKey = ;
+	*/
+
+	/*
+	PB_Offline_MessageToDelete t = new PB_Offline_MessageToDelete();
+	t.MessageKey = m.getMessageKey() ;
+	*/
+
+	public class PB_Online_RoomActionDoing {
+	   public String RoomKey;
+	   public RoomActionDoingEnum ActionType;
+	}
+	/*
+	folding
+	PBFlatTypes.PB_Online_RoomActionDoing t = new PBFlatTypes.PB_Online_RoomActionDoing();
+    t.setRoomKey();
+    t.setActionType();
+	*/
+
+	/*
+	PBFlatTypes.PB_Online_RoomActionDoing t = new PBFlatTypes.PB_Online_RoomActionDoing();
+	t.RoomKey = ;
+	t.ActionType = ;
+	*/
+
+	/*
+	PB_Online_RoomActionDoing t = new PB_Online_RoomActionDoing();
+	t.RoomKey = m.getRoomKey() ;
+	t.ActionType = m.getActionType() ;
+	*/
+
+	public class PB_Offline_Messagings {
+	   public PB_MessageView NewMessages;
+	   public PB_MessageFileView ChatFiles;
+	   public PB_ChatView Chats;
+	   public PB_UserView Users;
+	   public PB_Offline_ChangeMessageId ChangeMessageIds;
+	   public PB_Offline_ChangeMessageFileId ChangeMessageFileIds;
+	   public PB_Offline_MessageToEdit MessagesToEdit;
+	   public PB_Offline_MessageToDelete MessagesToDelete;
+	   public PB_Offline_MessagesReachedServer MessagesReachedServer;
+	   public PB_Offline_MessagesDeliveredToUser MessagesDeliveredToUser;
+	   public PB_Offline_MessagesSeenByPeer MessagesSeenByPeer;
+	   public PB_Offline_MessagesDeletedFromServer MessagesDeletedFromServer;
+	   public PB_Online_RoomActionDoing RoomActionDoing;
+	   public long LastId;
+	}
+	/*
+	folding
+	PBFlatTypes.PB_Offline_Messagings t = new PBFlatTypes.PB_Offline_Messagings();
+    t.setNewMessages();
+    t.setChatFiles();
+    t.setChats();
+    t.setUsers();
+    t.setChangeMessageIds();
+    t.setChangeMessageFileIds();
+    t.setMessagesToEdit();
+    t.setMessagesToDelete();
+    t.setMessagesReachedServer();
+    t.setMessagesDeliveredToUser();
+    t.setMessagesSeenByPeer();
+    t.setMessagesDeletedFromServer();
+    t.setRoomActionDoing();
+    t.setLastId();
+	*/
+
+	/*
+	PBFlatTypes.PB_Offline_Messagings t = new PBFlatTypes.PB_Offline_Messagings();
+	t.NewMessages = ;
+	t.ChatFiles = ;
+	t.Chats = ;
+	t.Users = ;
+	t.ChangeMessageIds = ;
+	t.ChangeMessageFileIds = ;
+	t.MessagesToEdit = ;
+	t.MessagesToDelete = ;
+	t.MessagesReachedServer = ;
+	t.MessagesDeliveredToUser = ;
+	t.MessagesSeenByPeer = ;
+	t.MessagesDeletedFromServer = ;
+	t.RoomActionDoing = ;
+	t.LastId = ;
+	*/
+
+	/*
+	PB_Offline_Messagings t = new PB_Offline_Messagings();
+	t.NewMessages = m.getNewMessages() ;
+	t.ChatFiles = m.getChatFiles() ;
+	t.Chats = m.getChats() ;
+	t.Users = m.getUsers() ;
+	t.ChangeMessageIds = m.getChangeMessageIds() ;
+	t.ChangeMessageFileIds = m.getChangeMessageFileIds() ;
+	t.MessagesToEdit = m.getMessagesToEdit() ;
+	t.MessagesToDelete = m.getMessagesToDelete() ;
+	t.MessagesReachedServer = m.getMessagesReachedServer() ;
+	t.MessagesDeliveredToUser = m.getMessagesDeliveredToUser() ;
+	t.MessagesSeenByPeer = m.getMessagesSeenByPeer() ;
+	t.MessagesDeletedFromServer = m.getMessagesDeletedFromServer() ;
+	t.RoomActionDoing = m.getRoomActionDoing() ;
+	t.LastId = m.getLastId() ;
+	*/
+
 	public class PB_UserParam_CheckUserName2 {
 	}
 	/*
@@ -301,773 +622,465 @@ public class PBFlatTypes {
 	PB_UserResponse_CheckUserName2 t = new PB_UserResponse_CheckUserName2();
 	*/
 
-	public class PB_MsgParam_AddNewTextMessage {
-	   public String Text;
-	   public String MessageKey;
-	   public String ToRoomKey;
-	   public int PeerId;
-	   public int Time;
+	public class PB_ChatParam_AddNewMessage {
 	   public long ReplyToMessageId;
-	   public PB_MessageForwardedFrom Forward;
-	}
-	/*
-	folding
-	PBFlatTypes.PB_MsgParam_AddNewTextMessage t = new PBFlatTypes.PB_MsgParam_AddNewTextMessage();
-    t.setText();
-    t.setMessageKey();
-    t.setToRoomKey();
-    t.setPeerId();
-    t.setTime();
-    t.setReplyToMessageId();
-    t.setForward();
-	*/
-
-	/*
-	PBFlatTypes.PB_MsgParam_AddNewTextMessage t = new PBFlatTypes.PB_MsgParam_AddNewTextMessage();
-	t.Text = ;
-	t.MessageKey = ;
-	t.ToRoomKey = ;
-	t.PeerId = ;
-	t.Time = ;
-	t.ReplyToMessageId = ;
-	t.Forward = ;
-	*/
-
-	/*
-	PB_MsgParam_AddNewTextMessage t = new PB_MsgParam_AddNewTextMessage();
-	t.Text = m.getText() ;
-	t.MessageKey = m.getMessageKey() ;
-	t.ToRoomKey = m.getToRoomKey() ;
-	t.PeerId = m.getPeerId() ;
-	t.Time = m.getTime() ;
-	t.ReplyToMessageId = m.getReplyToMessageId() ;
-	t.Forward = m.getForward() ;
-	*/
-
-	public class PB_MsgResponse_AddNewTextMessage {
-	}
-	/*
-	folding
-	PBFlatTypes.PB_MsgResponse_AddNewTextMessage t = new PBFlatTypes.PB_MsgResponse_AddNewTextMessage();
-	*/
-
-	/*
-	PBFlatTypes.PB_MsgResponse_AddNewTextMessage t = new PBFlatTypes.PB_MsgResponse_AddNewTextMessage();
-	*/
-
-	/*
-	PB_MsgResponse_AddNewTextMessage t = new PB_MsgResponse_AddNewTextMessage();
-	*/
-
-	public class PB_MsgParam_AddNewMessage {
-	   public String Text;
-	   public String MessageKey;
-	   public String ToRoomKey;
-	   public int PeerId;
-	   public int Time;
-	   public long ReplyToMessageId;
-	   public PB_MessageForwardedFrom Forward;
-	   public RoomMessageTypeEnum RoomMessageType;
 	   public byte[] Blob;
 	   public PB_MessageView MessageView;
 	}
 	/*
 	folding
-	PBFlatTypes.PB_MsgParam_AddNewMessage t = new PBFlatTypes.PB_MsgParam_AddNewMessage();
-    t.setText();
-    t.setMessageKey();
-    t.setToRoomKey();
-    t.setPeerId();
-    t.setTime();
+	PBFlatTypes.PB_ChatParam_AddNewMessage t = new PBFlatTypes.PB_ChatParam_AddNewMessage();
     t.setReplyToMessageId();
-    t.setForward();
-    t.setRoomMessageType();
     t.setBlob();
     t.setMessageView();
 	*/
 
 	/*
-	PBFlatTypes.PB_MsgParam_AddNewMessage t = new PBFlatTypes.PB_MsgParam_AddNewMessage();
-	t.Text = ;
-	t.MessageKey = ;
-	t.ToRoomKey = ;
-	t.PeerId = ;
-	t.Time = ;
+	PBFlatTypes.PB_ChatParam_AddNewMessage t = new PBFlatTypes.PB_ChatParam_AddNewMessage();
 	t.ReplyToMessageId = ;
-	t.Forward = ;
-	t.RoomMessageType = ;
 	t.Blob = ;
 	t.MessageView = ;
 	*/
 
 	/*
-	PB_MsgParam_AddNewMessage t = new PB_MsgParam_AddNewMessage();
-	t.Text = m.getText() ;
-	t.MessageKey = m.getMessageKey() ;
-	t.ToRoomKey = m.getToRoomKey() ;
-	t.PeerId = m.getPeerId() ;
-	t.Time = m.getTime() ;
+	PB_ChatParam_AddNewMessage t = new PB_ChatParam_AddNewMessage();
 	t.ReplyToMessageId = m.getReplyToMessageId() ;
-	t.Forward = m.getForward() ;
-	t.RoomMessageType = m.getRoomMessageType() ;
 	t.Blob = m.getBlob() ;
 	t.MessageView = m.getMessageView() ;
 	*/
 
-	public class PB_MsgResponse_AddNewMessage {
+	public class PB_ChatResponse_AddNewMessage {
 	}
 	/*
 	folding
-	PBFlatTypes.PB_MsgResponse_AddNewMessage t = new PBFlatTypes.PB_MsgResponse_AddNewMessage();
+	PBFlatTypes.PB_ChatResponse_AddNewMessage t = new PBFlatTypes.PB_ChatResponse_AddNewMessage();
 	*/
 
 	/*
-	PBFlatTypes.PB_MsgResponse_AddNewMessage t = new PBFlatTypes.PB_MsgResponse_AddNewMessage();
+	PBFlatTypes.PB_ChatResponse_AddNewMessage t = new PBFlatTypes.PB_ChatResponse_AddNewMessage();
 	*/
 
 	/*
-	PB_MsgResponse_AddNewMessage t = new PB_MsgResponse_AddNewMessage();
+	PB_ChatResponse_AddNewMessage t = new PB_ChatResponse_AddNewMessage();
 	*/
 
-	public class PB_MsgParam_SetRoomActionDoing {
+	public class PB_ChatParam_SetRoomActionDoing {
 	   public long GroupId;
 	   public String DirectRoomKey;
 	   public RoomActionDoingEnum ActionType;
 	}
 	/*
 	folding
-	PBFlatTypes.PB_MsgParam_SetRoomActionDoing t = new PBFlatTypes.PB_MsgParam_SetRoomActionDoing();
+	PBFlatTypes.PB_ChatParam_SetRoomActionDoing t = new PBFlatTypes.PB_ChatParam_SetRoomActionDoing();
     t.setGroupId();
     t.setDirectRoomKey();
     t.setActionType();
 	*/
 
 	/*
-	PBFlatTypes.PB_MsgParam_SetRoomActionDoing t = new PBFlatTypes.PB_MsgParam_SetRoomActionDoing();
+	PBFlatTypes.PB_ChatParam_SetRoomActionDoing t = new PBFlatTypes.PB_ChatParam_SetRoomActionDoing();
 	t.GroupId = ;
 	t.DirectRoomKey = ;
 	t.ActionType = ;
 	*/
 
 	/*
-	PB_MsgParam_SetRoomActionDoing t = new PB_MsgParam_SetRoomActionDoing();
+	PB_ChatParam_SetRoomActionDoing t = new PB_ChatParam_SetRoomActionDoing();
 	t.GroupId = m.getGroupId() ;
 	t.DirectRoomKey = m.getDirectRoomKey() ;
 	t.ActionType = m.getActionType() ;
 	*/
 
-	public class PB_MsgResponse_SetRoomActionDoing {
+	public class PB_ChatResponse_SetRoomActionDoing {
 	}
 	/*
 	folding
-	PBFlatTypes.PB_MsgResponse_SetRoomActionDoing t = new PBFlatTypes.PB_MsgResponse_SetRoomActionDoing();
+	PBFlatTypes.PB_ChatResponse_SetRoomActionDoing t = new PBFlatTypes.PB_ChatResponse_SetRoomActionDoing();
 	*/
 
 	/*
-	PBFlatTypes.PB_MsgResponse_SetRoomActionDoing t = new PBFlatTypes.PB_MsgResponse_SetRoomActionDoing();
+	PBFlatTypes.PB_ChatResponse_SetRoomActionDoing t = new PBFlatTypes.PB_ChatResponse_SetRoomActionDoing();
 	*/
 
 	/*
-	PB_MsgResponse_SetRoomActionDoing t = new PB_MsgResponse_SetRoomActionDoing();
+	PB_ChatResponse_SetRoomActionDoing t = new PB_ChatResponse_SetRoomActionDoing();
 	*/
 
-	public class PB_MsgParam_GetMessagesByIds {
-	   public PB_MessagesCollections MessagesCollections;
-	}
-	/*
-	folding
-	PBFlatTypes.PB_MsgParam_GetMessagesByIds t = new PBFlatTypes.PB_MsgParam_GetMessagesByIds();
-    t.setMessagesCollections();
-	*/
-
-	/*
-	PBFlatTypes.PB_MsgParam_GetMessagesByIds t = new PBFlatTypes.PB_MsgParam_GetMessagesByIds();
-	t.MessagesCollections = ;
-	*/
-
-	/*
-	PB_MsgParam_GetMessagesByIds t = new PB_MsgParam_GetMessagesByIds();
-	t.MessagesCollections = m.getMessagesCollections() ;
-	*/
-
-	public class PB_MsgResponse_GetMessagesByIds {
-	   public PB_MessageView MessagesViews;
-	}
-	/*
-	folding
-	PBFlatTypes.PB_MsgResponse_GetMessagesByIds t = new PBFlatTypes.PB_MsgResponse_GetMessagesByIds();
-    t.setMessagesViews();
-	*/
-
-	/*
-	PBFlatTypes.PB_MsgResponse_GetMessagesByIds t = new PBFlatTypes.PB_MsgResponse_GetMessagesByIds();
-	t.MessagesViews = ;
-	*/
-
-	/*
-	PB_MsgResponse_GetMessagesByIds t = new PB_MsgResponse_GetMessagesByIds();
-	t.MessagesViews = m.getMessagesViews() ;
-	*/
-
-	public class PB_MsgParam_GetMessagesHistory {
+	public class PB_ChatParam_SetChatMessagesRangeAsSeen {
 	   public String ChatKey;
-	   public int FromSeq;
-	   public int EndSeq;
-	}
-	/*
-	folding
-	PBFlatTypes.PB_MsgParam_GetMessagesHistory t = new PBFlatTypes.PB_MsgParam_GetMessagesHistory();
-    t.setChatKey();
-    t.setFromSeq();
-    t.setEndSeq();
-	*/
-
-	/*
-	PBFlatTypes.PB_MsgParam_GetMessagesHistory t = new PBFlatTypes.PB_MsgParam_GetMessagesHistory();
-	t.ChatKey = ;
-	t.FromSeq = ;
-	t.EndSeq = ;
-	*/
-
-	/*
-	PB_MsgParam_GetMessagesHistory t = new PB_MsgParam_GetMessagesHistory();
-	t.ChatKey = m.getChatKey() ;
-	t.FromSeq = m.getFromSeq() ;
-	t.EndSeq = m.getEndSeq() ;
-	*/
-
-	public class PB_MsgResponse_GetMessagesHistory {
-	   public PB_MessageView MessagesViews;
-	}
-	/*
-	folding
-	PBFlatTypes.PB_MsgResponse_GetMessagesHistory t = new PBFlatTypes.PB_MsgResponse_GetMessagesHistory();
-    t.setMessagesViews();
-	*/
-
-	/*
-	PBFlatTypes.PB_MsgResponse_GetMessagesHistory t = new PBFlatTypes.PB_MsgResponse_GetMessagesHistory();
-	t.MessagesViews = ;
-	*/
-
-	/*
-	PB_MsgResponse_GetMessagesHistory t = new PB_MsgResponse_GetMessagesHistory();
-	t.MessagesViews = m.getMessagesViews() ;
-	*/
-
-	public class PB_MsgParam_SetChatMessagesRangeAsSeen {
-	   public String ChatKey;
-	   public int FromSeq;
-	   public int EndSeq;
+	   public long BottomMessageId;
+	   public long TopMessageId;
 	   public long SeenTimeMs;
 	}
 	/*
 	folding
-	PBFlatTypes.PB_MsgParam_SetChatMessagesRangeAsSeen t = new PBFlatTypes.PB_MsgParam_SetChatMessagesRangeAsSeen();
+	PBFlatTypes.PB_ChatParam_SetChatMessagesRangeAsSeen t = new PBFlatTypes.PB_ChatParam_SetChatMessagesRangeAsSeen();
     t.setChatKey();
-    t.setFromSeq();
-    t.setEndSeq();
+    t.setBottomMessageId();
+    t.setTopMessageId();
     t.setSeenTimeMs();
 	*/
 
 	/*
-	PBFlatTypes.PB_MsgParam_SetChatMessagesRangeAsSeen t = new PBFlatTypes.PB_MsgParam_SetChatMessagesRangeAsSeen();
+	PBFlatTypes.PB_ChatParam_SetChatMessagesRangeAsSeen t = new PBFlatTypes.PB_ChatParam_SetChatMessagesRangeAsSeen();
 	t.ChatKey = ;
-	t.FromSeq = ;
-	t.EndSeq = ;
+	t.BottomMessageId = ;
+	t.TopMessageId = ;
 	t.SeenTimeMs = ;
 	*/
 
 	/*
-	PB_MsgParam_SetChatMessagesRangeAsSeen t = new PB_MsgParam_SetChatMessagesRangeAsSeen();
+	PB_ChatParam_SetChatMessagesRangeAsSeen t = new PB_ChatParam_SetChatMessagesRangeAsSeen();
 	t.ChatKey = m.getChatKey() ;
-	t.FromSeq = m.getFromSeq() ;
-	t.EndSeq = m.getEndSeq() ;
+	t.BottomMessageId = m.getBottomMessageId() ;
+	t.TopMessageId = m.getTopMessageId() ;
 	t.SeenTimeMs = m.getSeenTimeMs() ;
 	*/
 
-	public class PB_MsgResponse_SetChatMessagesRangeAsSeen {
+	public class PB_ChatResponse_SetChatMessagesRangeAsSeen {
 	}
 	/*
 	folding
-	PBFlatTypes.PB_MsgResponse_SetChatMessagesRangeAsSeen t = new PBFlatTypes.PB_MsgResponse_SetChatMessagesRangeAsSeen();
+	PBFlatTypes.PB_ChatResponse_SetChatMessagesRangeAsSeen t = new PBFlatTypes.PB_ChatResponse_SetChatMessagesRangeAsSeen();
 	*/
 
 	/*
-	PBFlatTypes.PB_MsgResponse_SetChatMessagesRangeAsSeen t = new PBFlatTypes.PB_MsgResponse_SetChatMessagesRangeAsSeen();
+	PBFlatTypes.PB_ChatResponse_SetChatMessagesRangeAsSeen t = new PBFlatTypes.PB_ChatResponse_SetChatMessagesRangeAsSeen();
 	*/
 
 	/*
-	PB_MsgResponse_SetChatMessagesRangeAsSeen t = new PB_MsgResponse_SetChatMessagesRangeAsSeen();
+	PB_ChatResponse_SetChatMessagesRangeAsSeen t = new PB_ChatResponse_SetChatMessagesRangeAsSeen();
 	*/
 
-	public class PB_MsgParam_DeleteChatHistory {
+	public class PB_ChatParam_DeleteChatHistory {
 	   public String ChatKey;
-	   public int ToSeq;
+	   public long FromMessageId;
 	}
 	/*
 	folding
-	PBFlatTypes.PB_MsgParam_DeleteChatHistory t = new PBFlatTypes.PB_MsgParam_DeleteChatHistory();
+	PBFlatTypes.PB_ChatParam_DeleteChatHistory t = new PBFlatTypes.PB_ChatParam_DeleteChatHistory();
     t.setChatKey();
-    t.setToSeq();
+    t.setFromMessageId();
 	*/
 
 	/*
-	PBFlatTypes.PB_MsgParam_DeleteChatHistory t = new PBFlatTypes.PB_MsgParam_DeleteChatHistory();
+	PBFlatTypes.PB_ChatParam_DeleteChatHistory t = new PBFlatTypes.PB_ChatParam_DeleteChatHistory();
 	t.ChatKey = ;
-	t.ToSeq = ;
+	t.FromMessageId = ;
 	*/
 
 	/*
-	PB_MsgParam_DeleteChatHistory t = new PB_MsgParam_DeleteChatHistory();
+	PB_ChatParam_DeleteChatHistory t = new PB_ChatParam_DeleteChatHistory();
 	t.ChatKey = m.getChatKey() ;
-	t.ToSeq = m.getToSeq() ;
+	t.FromMessageId = m.getFromMessageId() ;
 	*/
 
-	public class PB_MsgResponse_DeleteChatHistory {
+	public class PB_ChatResponse_DeleteChatHistory {
 	}
 	/*
 	folding
-	PBFlatTypes.PB_MsgResponse_DeleteChatHistory t = new PBFlatTypes.PB_MsgResponse_DeleteChatHistory();
+	PBFlatTypes.PB_ChatResponse_DeleteChatHistory t = new PBFlatTypes.PB_ChatResponse_DeleteChatHistory();
 	*/
 
 	/*
-	PBFlatTypes.PB_MsgResponse_DeleteChatHistory t = new PBFlatTypes.PB_MsgResponse_DeleteChatHistory();
+	PBFlatTypes.PB_ChatResponse_DeleteChatHistory t = new PBFlatTypes.PB_ChatResponse_DeleteChatHistory();
 	*/
 
 	/*
-	PB_MsgResponse_DeleteChatHistory t = new PB_MsgResponse_DeleteChatHistory();
+	PB_ChatResponse_DeleteChatHistory t = new PB_ChatResponse_DeleteChatHistory();
 	*/
 
-	public class PB_MsgParam_DeleteMessagesByIds {
-	   public PB_MessagesCollections MessagesCollections;
-	}
-	/*
-	folding
-	PBFlatTypes.PB_MsgParam_DeleteMessagesByIds t = new PBFlatTypes.PB_MsgParam_DeleteMessagesByIds();
-    t.setMessagesCollections();
-	*/
-
-	/*
-	PBFlatTypes.PB_MsgParam_DeleteMessagesByIds t = new PBFlatTypes.PB_MsgParam_DeleteMessagesByIds();
-	t.MessagesCollections = ;
-	*/
-
-	/*
-	PB_MsgParam_DeleteMessagesByIds t = new PB_MsgParam_DeleteMessagesByIds();
-	t.MessagesCollections = m.getMessagesCollections() ;
-	*/
-
-	public class PB_MsgResponse_DeleteMessagesByIds {
-	}
-	/*
-	folding
-	PBFlatTypes.PB_MsgResponse_DeleteMessagesByIds t = new PBFlatTypes.PB_MsgResponse_DeleteMessagesByIds();
-	*/
-
-	/*
-	PBFlatTypes.PB_MsgResponse_DeleteMessagesByIds t = new PBFlatTypes.PB_MsgResponse_DeleteMessagesByIds();
-	*/
-
-	/*
-	PB_MsgResponse_DeleteMessagesByIds t = new PB_MsgResponse_DeleteMessagesByIds();
-	*/
-
-	public class PB_MsgParam_SetMessagesAsReceived {
-	   public PB_MessagesCollections MessagesCollections;
-	}
-	/*
-	folding
-	PBFlatTypes.PB_MsgParam_SetMessagesAsReceived t = new PBFlatTypes.PB_MsgParam_SetMessagesAsReceived();
-    t.setMessagesCollections();
-	*/
-
-	/*
-	PBFlatTypes.PB_MsgParam_SetMessagesAsReceived t = new PBFlatTypes.PB_MsgParam_SetMessagesAsReceived();
-	t.MessagesCollections = ;
-	*/
-
-	/*
-	PB_MsgParam_SetMessagesAsReceived t = new PB_MsgParam_SetMessagesAsReceived();
-	t.MessagesCollections = m.getMessagesCollections() ;
-	*/
-
-	public class PB_MsgResponse_SetMessagesAsReceived {
-	}
-	/*
-	folding
-	PBFlatTypes.PB_MsgResponse_SetMessagesAsReceived t = new PBFlatTypes.PB_MsgResponse_SetMessagesAsReceived();
-	*/
-
-	/*
-	PBFlatTypes.PB_MsgResponse_SetMessagesAsReceived t = new PBFlatTypes.PB_MsgResponse_SetMessagesAsReceived();
-	*/
-
-	/*
-	PB_MsgResponse_SetMessagesAsReceived t = new PB_MsgResponse_SetMessagesAsReceived();
-	*/
-
-	public class PB_MsgParam_ForwardMessages {
-	   public PB_MessagesCollections MessagesCollections;
-	   public String ToDirectChatKeys;
-	   public long ToGroupChatIds;
-	}
-	/*
-	folding
-	PBFlatTypes.PB_MsgParam_ForwardMessages t = new PBFlatTypes.PB_MsgParam_ForwardMessages();
-    t.setMessagesCollections();
-    t.setToDirectChatKeys();
-    t.setToGroupChatIds();
-	*/
-
-	/*
-	PBFlatTypes.PB_MsgParam_ForwardMessages t = new PBFlatTypes.PB_MsgParam_ForwardMessages();
-	t.MessagesCollections = ;
-	t.ToDirectChatKeys = ;
-	t.ToGroupChatIds = ;
-	*/
-
-	/*
-	PB_MsgParam_ForwardMessages t = new PB_MsgParam_ForwardMessages();
-	t.MessagesCollections = m.getMessagesCollections() ;
-	t.ToDirectChatKeys = m.getToDirectChatKeys() ;
-	t.ToGroupChatIds = m.getToGroupChatIds() ;
-	*/
-
-	public class PB_MsgResponse_ForwardMessages {
-	}
-	/*
-	folding
-	PBFlatTypes.PB_MsgResponse_ForwardMessages t = new PBFlatTypes.PB_MsgResponse_ForwardMessages();
-	*/
-
-	/*
-	PBFlatTypes.PB_MsgResponse_ForwardMessages t = new PBFlatTypes.PB_MsgResponse_ForwardMessages();
-	*/
-
-	/*
-	PB_MsgResponse_ForwardMessages t = new PB_MsgResponse_ForwardMessages();
-	*/
-
-	public class PB_MsgParam_EditMessage {
+	public class PB_ChatParam_DeleteMessagesByIds {
 	   public String ChatKey;
-	   public RoomTypeEnum RoomType;
+	   public boolean Both;
+	   public long MessagesIds;
+	}
+	/*
+	folding
+	PBFlatTypes.PB_ChatParam_DeleteMessagesByIds t = new PBFlatTypes.PB_ChatParam_DeleteMessagesByIds();
+    t.setChatKey();
+    t.setBoth();
+    t.setMessagesIds();
+	*/
+
+	/*
+	PBFlatTypes.PB_ChatParam_DeleteMessagesByIds t = new PBFlatTypes.PB_ChatParam_DeleteMessagesByIds();
+	t.ChatKey = ;
+	t.Both = ;
+	t.MessagesIds = ;
+	*/
+
+	/*
+	PB_ChatParam_DeleteMessagesByIds t = new PB_ChatParam_DeleteMessagesByIds();
+	t.ChatKey = m.getChatKey() ;
+	t.Both = m.getBoth() ;
+	t.MessagesIds = m.getMessagesIds() ;
+	*/
+
+	public class PB_ChatResponse_DeleteMessagesByIds {
+	}
+	/*
+	folding
+	PBFlatTypes.PB_ChatResponse_DeleteMessagesByIds t = new PBFlatTypes.PB_ChatResponse_DeleteMessagesByIds();
+	*/
+
+	/*
+	PBFlatTypes.PB_ChatResponse_DeleteMessagesByIds t = new PBFlatTypes.PB_ChatResponse_DeleteMessagesByIds();
+	*/
+
+	/*
+	PB_ChatResponse_DeleteMessagesByIds t = new PB_ChatResponse_DeleteMessagesByIds();
+	*/
+
+	public class PB_ChatParam_SetMessagesAsReceived {
+	   public String ChatRoom;
+	   public long MessageIds;
+	}
+	/*
+	folding
+	PBFlatTypes.PB_ChatParam_SetMessagesAsReceived t = new PBFlatTypes.PB_ChatParam_SetMessagesAsReceived();
+    t.setChatRoom();
+    t.setMessageIds();
+	*/
+
+	/*
+	PBFlatTypes.PB_ChatParam_SetMessagesAsReceived t = new PBFlatTypes.PB_ChatParam_SetMessagesAsReceived();
+	t.ChatRoom = ;
+	t.MessageIds = ;
+	*/
+
+	/*
+	PB_ChatParam_SetMessagesAsReceived t = new PB_ChatParam_SetMessagesAsReceived();
+	t.ChatRoom = m.getChatRoom() ;
+	t.MessageIds = m.getMessageIds() ;
+	*/
+
+	public class PB_ChatResponse_SetMessagesAsReceived {
+	}
+	/*
+	folding
+	PBFlatTypes.PB_ChatResponse_SetMessagesAsReceived t = new PBFlatTypes.PB_ChatResponse_SetMessagesAsReceived();
+	*/
+
+	/*
+	PBFlatTypes.PB_ChatResponse_SetMessagesAsReceived t = new PBFlatTypes.PB_ChatResponse_SetMessagesAsReceived();
+	*/
+
+	/*
+	PB_ChatResponse_SetMessagesAsReceived t = new PB_ChatResponse_SetMessagesAsReceived();
+	*/
+
+	public class PB_ChatParam_EditMessage {
+	   public String RoomKey;
 	   public long MessageId;
 	   public String NewText;
 	}
 	/*
 	folding
-	PBFlatTypes.PB_MsgParam_EditMessage t = new PBFlatTypes.PB_MsgParam_EditMessage();
-    t.setChatKey();
-    t.setRoomType();
+	PBFlatTypes.PB_ChatParam_EditMessage t = new PBFlatTypes.PB_ChatParam_EditMessage();
+    t.setRoomKey();
     t.setMessageId();
     t.setNewText();
 	*/
 
 	/*
-	PBFlatTypes.PB_MsgParam_EditMessage t = new PBFlatTypes.PB_MsgParam_EditMessage();
-	t.ChatKey = ;
-	t.RoomType = ;
+	PBFlatTypes.PB_ChatParam_EditMessage t = new PBFlatTypes.PB_ChatParam_EditMessage();
+	t.RoomKey = ;
 	t.MessageId = ;
 	t.NewText = ;
 	*/
 
 	/*
-	PB_MsgParam_EditMessage t = new PB_MsgParam_EditMessage();
-	t.ChatKey = m.getChatKey() ;
-	t.RoomType = m.getRoomType() ;
+	PB_ChatParam_EditMessage t = new PB_ChatParam_EditMessage();
+	t.RoomKey = m.getRoomKey() ;
 	t.MessageId = m.getMessageId() ;
 	t.NewText = m.getNewText() ;
 	*/
 
-	public class PB_MsgResponse_EditMessage {
+	public class PB_ChatResponse_EditMessage {
 	}
 	/*
 	folding
-	PBFlatTypes.PB_MsgResponse_EditMessage t = new PBFlatTypes.PB_MsgResponse_EditMessage();
+	PBFlatTypes.PB_ChatResponse_EditMessage t = new PBFlatTypes.PB_ChatResponse_EditMessage();
 	*/
 
 	/*
-	PBFlatTypes.PB_MsgResponse_EditMessage t = new PBFlatTypes.PB_MsgResponse_EditMessage();
+	PBFlatTypes.PB_ChatResponse_EditMessage t = new PBFlatTypes.PB_ChatResponse_EditMessage();
 	*/
 
 	/*
-	PB_MsgResponse_EditMessage t = new PB_MsgResponse_EditMessage();
+	PB_ChatResponse_EditMessage t = new PB_ChatResponse_EditMessage();
 	*/
 
-	public class PB_MsgParam_BroadcastNewMessage {
-	   public String Text;
-	   public int PeerId;
-	   public int Time;
-	   public PB_MessageForwardedFrom Forward;
+	public class PB_ChatParam_GetChatList {
 	}
 	/*
 	folding
-	PBFlatTypes.PB_MsgParam_BroadcastNewMessage t = new PBFlatTypes.PB_MsgParam_BroadcastNewMessage();
-    t.setText();
-    t.setPeerId();
-    t.setTime();
-    t.setForward();
+	PBFlatTypes.PB_ChatParam_GetChatList t = new PBFlatTypes.PB_ChatParam_GetChatList();
 	*/
 
 	/*
-	PBFlatTypes.PB_MsgParam_BroadcastNewMessage t = new PBFlatTypes.PB_MsgParam_BroadcastNewMessage();
-	t.Text = ;
-	t.PeerId = ;
-	t.Time = ;
-	t.Forward = ;
+	PBFlatTypes.PB_ChatParam_GetChatList t = new PBFlatTypes.PB_ChatParam_GetChatList();
 	*/
 
 	/*
-	PB_MsgParam_BroadcastNewMessage t = new PB_MsgParam_BroadcastNewMessage();
-	t.Text = m.getText() ;
-	t.PeerId = m.getPeerId() ;
-	t.Time = m.getTime() ;
-	t.Forward = m.getForward() ;
+	PB_ChatParam_GetChatList t = new PB_ChatParam_GetChatList();
 	*/
 
-	public class PB_MsgResponse_BroadcastNewMessage {
-	}
-	/*
-	folding
-	PBFlatTypes.PB_MsgResponse_BroadcastNewMessage t = new PBFlatTypes.PB_MsgResponse_BroadcastNewMessage();
-	*/
-
-	/*
-	PBFlatTypes.PB_MsgResponse_BroadcastNewMessage t = new PBFlatTypes.PB_MsgResponse_BroadcastNewMessage();
-	*/
-
-	/*
-	PB_MsgResponse_BroadcastNewMessage t = new PB_MsgResponse_BroadcastNewMessage();
-	*/
-
-	public class PB_MsgParam_GetFreshChatList {
-	}
-	/*
-	folding
-	PBFlatTypes.PB_MsgParam_GetFreshChatList t = new PBFlatTypes.PB_MsgParam_GetFreshChatList();
-	*/
-
-	/*
-	PBFlatTypes.PB_MsgParam_GetFreshChatList t = new PBFlatTypes.PB_MsgParam_GetFreshChatList();
-	*/
-
-	/*
-	PB_MsgParam_GetFreshChatList t = new PB_MsgParam_GetFreshChatList();
-	*/
-
-	public class PB_MsgResponse_GetFreshChatList {
+	public class PB_ChatResponse_GetChatList {
 	   public PB_ChatView Chats;
 	   public PB_UserView Users;
 	}
 	/*
 	folding
-	PBFlatTypes.PB_MsgResponse_GetFreshChatList t = new PBFlatTypes.PB_MsgResponse_GetFreshChatList();
+	PBFlatTypes.PB_ChatResponse_GetChatList t = new PBFlatTypes.PB_ChatResponse_GetChatList();
     t.setChats();
     t.setUsers();
 	*/
 
 	/*
-	PBFlatTypes.PB_MsgResponse_GetFreshChatList t = new PBFlatTypes.PB_MsgResponse_GetFreshChatList();
+	PBFlatTypes.PB_ChatResponse_GetChatList t = new PBFlatTypes.PB_ChatResponse_GetChatList();
 	t.Chats = ;
 	t.Users = ;
 	*/
 
 	/*
-	PB_MsgResponse_GetFreshChatList t = new PB_MsgResponse_GetFreshChatList();
+	PB_ChatResponse_GetChatList t = new PB_ChatResponse_GetChatList();
 	t.Chats = m.getChats() ;
 	t.Users = m.getUsers() ;
 	*/
 
-	public class PB_MsgParam_GetFreshRoomMessagesList {
+	public class PB_ChatParam_GetChatHistoryToOlder {
 	   public String ChatKey;
-	   public String RoomKey;
-	   public long Last;
+	   public int Limit;
+	   public long FromTopMessageId;
 	}
 	/*
 	folding
-	PBFlatTypes.PB_MsgParam_GetFreshRoomMessagesList t = new PBFlatTypes.PB_MsgParam_GetFreshRoomMessagesList();
+	PBFlatTypes.PB_ChatParam_GetChatHistoryToOlder t = new PBFlatTypes.PB_ChatParam_GetChatHistoryToOlder();
     t.setChatKey();
-    t.setRoomKey();
-    t.setLast();
+    t.setLimit();
+    t.setFromTopMessageId();
 	*/
 
 	/*
-	PBFlatTypes.PB_MsgParam_GetFreshRoomMessagesList t = new PBFlatTypes.PB_MsgParam_GetFreshRoomMessagesList();
+	PBFlatTypes.PB_ChatParam_GetChatHistoryToOlder t = new PBFlatTypes.PB_ChatParam_GetChatHistoryToOlder();
 	t.ChatKey = ;
-	t.RoomKey = ;
-	t.Last = ;
+	t.Limit = ;
+	t.FromTopMessageId = ;
 	*/
 
 	/*
-	PB_MsgParam_GetFreshRoomMessagesList t = new PB_MsgParam_GetFreshRoomMessagesList();
+	PB_ChatParam_GetChatHistoryToOlder t = new PB_ChatParam_GetChatHistoryToOlder();
 	t.ChatKey = m.getChatKey() ;
-	t.RoomKey = m.getRoomKey() ;
-	t.Last = m.getLast() ;
+	t.Limit = m.getLimit() ;
+	t.FromTopMessageId = m.getFromTopMessageId() ;
 	*/
 
-	public class PB_MsgResponse_GetFreshRoomMessagesList {
-	   public PB_MessageView Messages;
+	public class PB_ChatResponse_GetChatHistoryToOlder {
+	   public PB_MessageView MessagesViews;
 	   public boolean HasMore;
 	}
 	/*
 	folding
-	PBFlatTypes.PB_MsgResponse_GetFreshRoomMessagesList t = new PBFlatTypes.PB_MsgResponse_GetFreshRoomMessagesList();
-    t.setMessages();
+	PBFlatTypes.PB_ChatResponse_GetChatHistoryToOlder t = new PBFlatTypes.PB_ChatResponse_GetChatHistoryToOlder();
+    t.setMessagesViews();
     t.setHasMore();
 	*/
 
 	/*
-	PBFlatTypes.PB_MsgResponse_GetFreshRoomMessagesList t = new PBFlatTypes.PB_MsgResponse_GetFreshRoomMessagesList();
-	t.Messages = ;
+	PBFlatTypes.PB_ChatResponse_GetChatHistoryToOlder t = new PBFlatTypes.PB_ChatResponse_GetChatHistoryToOlder();
+	t.MessagesViews = ;
 	t.HasMore = ;
 	*/
 
 	/*
-	PB_MsgResponse_GetFreshRoomMessagesList t = new PB_MsgResponse_GetFreshRoomMessagesList();
-	t.Messages = m.getMessages() ;
+	PB_ChatResponse_GetChatHistoryToOlder t = new PB_ChatResponse_GetChatHistoryToOlder();
+	t.MessagesViews = m.getMessagesViews() ;
 	t.HasMore = m.getHasMore() ;
 	*/
 
-	public class PB_MsgParam_GetFreshAllDirectMessagesList {
+	public class PB_ChatParam_GetFreshAllDirectMessagesList {
 	   public long LowMessageId;
 	   public long HighMessageId;
 	}
 	/*
 	folding
-	PBFlatTypes.PB_MsgParam_GetFreshAllDirectMessagesList t = new PBFlatTypes.PB_MsgParam_GetFreshAllDirectMessagesList();
+	PBFlatTypes.PB_ChatParam_GetFreshAllDirectMessagesList t = new PBFlatTypes.PB_ChatParam_GetFreshAllDirectMessagesList();
     t.setLowMessageId();
     t.setHighMessageId();
 	*/
 
 	/*
-	PBFlatTypes.PB_MsgParam_GetFreshAllDirectMessagesList t = new PBFlatTypes.PB_MsgParam_GetFreshAllDirectMessagesList();
+	PBFlatTypes.PB_ChatParam_GetFreshAllDirectMessagesList t = new PBFlatTypes.PB_ChatParam_GetFreshAllDirectMessagesList();
 	t.LowMessageId = ;
 	t.HighMessageId = ;
 	*/
 
 	/*
-	PB_MsgParam_GetFreshAllDirectMessagesList t = new PB_MsgParam_GetFreshAllDirectMessagesList();
+	PB_ChatParam_GetFreshAllDirectMessagesList t = new PB_ChatParam_GetFreshAllDirectMessagesList();
 	t.LowMessageId = m.getLowMessageId() ;
 	t.HighMessageId = m.getHighMessageId() ;
 	*/
 
-	public class PB_MsgResponse_GetFreshAllDirectMessagesList {
+	public class PB_ChatResponse_GetFreshAllDirectMessagesList {
 	   public PB_MessageView Messages;
 	   public boolean HasMore;
 	}
 	/*
 	folding
-	PBFlatTypes.PB_MsgResponse_GetFreshAllDirectMessagesList t = new PBFlatTypes.PB_MsgResponse_GetFreshAllDirectMessagesList();
+	PBFlatTypes.PB_ChatResponse_GetFreshAllDirectMessagesList t = new PBFlatTypes.PB_ChatResponse_GetFreshAllDirectMessagesList();
     t.setMessages();
     t.setHasMore();
 	*/
 
 	/*
-	PBFlatTypes.PB_MsgResponse_GetFreshAllDirectMessagesList t = new PBFlatTypes.PB_MsgResponse_GetFreshAllDirectMessagesList();
+	PBFlatTypes.PB_ChatResponse_GetFreshAllDirectMessagesList t = new PBFlatTypes.PB_ChatResponse_GetFreshAllDirectMessagesList();
 	t.Messages = ;
 	t.HasMore = ;
 	*/
 
 	/*
-	PB_MsgResponse_GetFreshAllDirectMessagesList t = new PB_MsgResponse_GetFreshAllDirectMessagesList();
+	PB_ChatResponse_GetFreshAllDirectMessagesList t = new PB_ChatResponse_GetFreshAllDirectMessagesList();
 	t.Messages = m.getMessages() ;
 	t.HasMore = m.getHasMore() ;
 	*/
 
-	public class PB_MessageForwardedFrom {
-	   public long RoomId;
-	   public RoomTypeEnum RoomTypeEnum;
-	   public long MessageId;
-	   public int MessageSeq;
-	}
-	/*
-	folding
-	PBFlatTypes.PB_MessageForwardedFrom t = new PBFlatTypes.PB_MessageForwardedFrom();
-    t.setRoomId();
-    t.setRoomTypeEnum();
-    t.setMessageId();
-    t.setMessageSeq();
-	*/
-
-	/*
-	PBFlatTypes.PB_MessageForwardedFrom t = new PBFlatTypes.PB_MessageForwardedFrom();
-	t.RoomId = ;
-	t.RoomTypeEnum = ;
-	t.MessageId = ;
-	t.MessageSeq = ;
-	*/
-
-	/*
-	PB_MessageForwardedFrom t = new PB_MessageForwardedFrom();
-	t.RoomId = m.getRoomId() ;
-	t.RoomTypeEnum = m.getRoomTypeEnum() ;
-	t.MessageId = m.getMessageId() ;
-	t.MessageSeq = m.getMessageSeq() ;
-	*/
-
-	public class PB_MessagesCollections {
-	   public long DirectMessagesIds;
-	   public long GroupMessagesIds;
-	   public long BroadCatMessagesIds;
-	}
-	/*
-	folding
-	PBFlatTypes.PB_MessagesCollections t = new PBFlatTypes.PB_MessagesCollections();
-    t.setDirectMessagesIds();
-    t.setGroupMessagesIds();
-    t.setBroadCatMessagesIds();
-	*/
-
-	/*
-	PBFlatTypes.PB_MessagesCollections t = new PBFlatTypes.PB_MessagesCollections();
-	t.DirectMessagesIds = ;
-	t.GroupMessagesIds = ;
-	t.BroadCatMessagesIds = ;
-	*/
-
-	/*
-	PB_MessagesCollections t = new PB_MessagesCollections();
-	t.DirectMessagesIds = m.getDirectMessagesIds() ;
-	t.GroupMessagesIds = m.getGroupMessagesIds() ;
-	t.BroadCatMessagesIds = m.getBroadCatMessagesIds() ;
-	*/
-
-	public class PB_MsgParam_Echo {
+	public class PB_OtherParam_Echo {
 	   public String Text;
 	}
 	/*
 	folding
-	PBFlatTypes.PB_MsgParam_Echo t = new PBFlatTypes.PB_MsgParam_Echo();
+	PBFlatTypes.PB_OtherParam_Echo t = new PBFlatTypes.PB_OtherParam_Echo();
     t.setText();
 	*/
 
 	/*
-	PBFlatTypes.PB_MsgParam_Echo t = new PBFlatTypes.PB_MsgParam_Echo();
+	PBFlatTypes.PB_OtherParam_Echo t = new PBFlatTypes.PB_OtherParam_Echo();
 	t.Text = ;
 	*/
 
 	/*
-	PB_MsgParam_Echo t = new PB_MsgParam_Echo();
+	PB_OtherParam_Echo t = new PB_OtherParam_Echo();
 	t.Text = m.getText() ;
 	*/
 
-	public class PB_MsgResponse_PB_MsgParam_Echo {
+	public class PB_OtherResponse_Echo {
 	   public String Text;
 	}
 	/*
 	folding
-	PBFlatTypes.PB_MsgResponse_PB_MsgParam_Echo t = new PBFlatTypes.PB_MsgResponse_PB_MsgParam_Echo();
+	PBFlatTypes.PB_OtherResponse_Echo t = new PBFlatTypes.PB_OtherResponse_Echo();
     t.setText();
 	*/
 
 	/*
-	PBFlatTypes.PB_MsgResponse_PB_MsgParam_Echo t = new PBFlatTypes.PB_MsgResponse_PB_MsgParam_Echo();
+	PBFlatTypes.PB_OtherResponse_Echo t = new PBFlatTypes.PB_OtherResponse_Echo();
 	t.Text = ;
 	*/
 
 	/*
-	PB_MsgResponse_PB_MsgParam_Echo t = new PB_MsgResponse_PB_MsgParam_Echo();
+	PB_OtherResponse_Echo t = new PB_OtherResponse_Echo();
 	t.Text = m.getText() ;
 	*/
 
@@ -1087,77 +1100,6 @@ public class PBFlatTypes {
 
 	/*
 	PB_SyncParam_GetDirectUpdates t = new PB_SyncParam_GetDirectUpdates();
-	t.LastId = m.getLastId() ;
-	*/
-
-	public class PB_SyncResponse_GetDirectUpdates {
-	   public PB_MessageView NewMessages;
-	   public PB_MessageFileView ChatFiles;
-	   public PB_ChatView Chats;
-	   public PB_UserView Users;
-	   public PB_UpdateMessageId MessagesChangeIds;
-	   public PB_UpdateMessageId MessagesFileChangeIds;
-	   public PB_UpdateMessageToEdit MessagesToUpdate;
-	   public PB_UpdateMessageToDelete MessagesToDelete;
-	   public PB_UpdateMessageMeta MessagesDelivierdToServer;
-	   public PB_UpdateMessageMeta MessagesDelivierdToPeer;
-	   public PB_UpdateMessageMeta MessagesSeenByPeer;
-	   public PB_UpdateMessageMeta MessagesDeletedFromServer;
-	   public PB_UpdateRoomActionDoing RoomActionDoing;
-	   public long LastId;
-	}
-	/*
-	folding
-	PBFlatTypes.PB_SyncResponse_GetDirectUpdates t = new PBFlatTypes.PB_SyncResponse_GetDirectUpdates();
-    t.setNewMessages();
-    t.setChatFiles();
-    t.setChats();
-    t.setUsers();
-    t.setMessagesChangeIds();
-    t.setMessagesFileChangeIds();
-    t.setMessagesToUpdate();
-    t.setMessagesToDelete();
-    t.setMessagesDelivierdToServer();
-    t.setMessagesDelivierdToPeer();
-    t.setMessagesSeenByPeer();
-    t.setMessagesDeletedFromServer();
-    t.setRoomActionDoing();
-    t.setLastId();
-	*/
-
-	/*
-	PBFlatTypes.PB_SyncResponse_GetDirectUpdates t = new PBFlatTypes.PB_SyncResponse_GetDirectUpdates();
-	t.NewMessages = ;
-	t.ChatFiles = ;
-	t.Chats = ;
-	t.Users = ;
-	t.MessagesChangeIds = ;
-	t.MessagesFileChangeIds = ;
-	t.MessagesToUpdate = ;
-	t.MessagesToDelete = ;
-	t.MessagesDelivierdToServer = ;
-	t.MessagesDelivierdToPeer = ;
-	t.MessagesSeenByPeer = ;
-	t.MessagesDeletedFromServer = ;
-	t.RoomActionDoing = ;
-	t.LastId = ;
-	*/
-
-	/*
-	PB_SyncResponse_GetDirectUpdates t = new PB_SyncResponse_GetDirectUpdates();
-	t.NewMessages = m.getNewMessages() ;
-	t.ChatFiles = m.getChatFiles() ;
-	t.Chats = m.getChats() ;
-	t.Users = m.getUsers() ;
-	t.MessagesChangeIds = m.getMessagesChangeIds() ;
-	t.MessagesFileChangeIds = m.getMessagesFileChangeIds() ;
-	t.MessagesToUpdate = m.getMessagesToUpdate() ;
-	t.MessagesToDelete = m.getMessagesToDelete() ;
-	t.MessagesDelivierdToServer = m.getMessagesDelivierdToServer() ;
-	t.MessagesDelivierdToPeer = m.getMessagesDelivierdToPeer() ;
-	t.MessagesSeenByPeer = m.getMessagesSeenByPeer() ;
-	t.MessagesDeletedFromServer = m.getMessagesDeletedFromServer() ;
-	t.RoomActionDoing = m.getRoomActionDoing() ;
 	t.LastId = m.getLastId() ;
 	*/
 
@@ -1375,26 +1317,26 @@ public class PBFlatTypes {
 	*/
 
 	public class PB_AllLivePushes {
-	   public PB_SyncResponse_GetDirectUpdates DirectUpdates;
 	   public PB_SyncResponse_GetGeneralUpdates GeneralUpdates;
+	   public PB_Offline_Messagings Offline_Messagings;
 	}
 	/*
 	folding
 	PBFlatTypes.PB_AllLivePushes t = new PBFlatTypes.PB_AllLivePushes();
-    t.setDirectUpdates();
     t.setGeneralUpdates();
+    t.setOffline_Messagings();
 	*/
 
 	/*
 	PBFlatTypes.PB_AllLivePushes t = new PBFlatTypes.PB_AllLivePushes();
-	t.DirectUpdates = ;
 	t.GeneralUpdates = ;
+	t.Offline_Messagings = ;
 	*/
 
 	/*
 	PB_AllLivePushes t = new PB_AllLivePushes();
-	t.DirectUpdates = m.getDirectUpdates() ;
 	t.GeneralUpdates = m.getGeneralUpdates() ;
+	t.Offline_Messagings = m.getOffline_Messagings() ;
 	*/
 
 	public class PB_UserParam_BlockUser {
@@ -1843,13 +1785,10 @@ public class PBFlatTypes {
 	   public long GroupId;
 	   public int CreatedSe;
 	   public long StartMessageIdFrom;
-	   public long LastSeenMessageId;
-	   public long UpdatedMs;
-	   public long LastMessageId;
 	   public long LastDeletedMessageId;
-	   public int LastSeqSeen;
-	   public int LastSeqDelete;
-	   public int CurrentSeq;
+	   public long LastSeenMessageId;
+	   public long LastMessageId;
+	   public long UpdatedMs;
 	}
 	/*
 	folding
@@ -1862,13 +1801,10 @@ public class PBFlatTypes {
     t.setGroupId();
     t.setCreatedSe();
     t.setStartMessageIdFrom();
-    t.setLastSeenMessageId();
-    t.setUpdatedMs();
-    t.setLastMessageId();
     t.setLastDeletedMessageId();
-    t.setLastSeqSeen();
-    t.setLastSeqDelete();
-    t.setCurrentSeq();
+    t.setLastSeenMessageId();
+    t.setLastMessageId();
+    t.setUpdatedMs();
 	*/
 
 	/*
@@ -1881,13 +1817,10 @@ public class PBFlatTypes {
 	t.GroupId = ;
 	t.CreatedSe = ;
 	t.StartMessageIdFrom = ;
-	t.LastSeenMessageId = ;
-	t.UpdatedMs = ;
-	t.LastMessageId = ;
 	t.LastDeletedMessageId = ;
-	t.LastSeqSeen = ;
-	t.LastSeqDelete = ;
-	t.CurrentSeq = ;
+	t.LastSeenMessageId = ;
+	t.LastMessageId = ;
+	t.UpdatedMs = ;
 	*/
 
 	/*
@@ -1900,13 +1833,10 @@ public class PBFlatTypes {
 	t.GroupId = m.getGroupId() ;
 	t.CreatedSe = m.getCreatedSe() ;
 	t.StartMessageIdFrom = m.getStartMessageIdFrom() ;
-	t.LastSeenMessageId = m.getLastSeenMessageId() ;
-	t.UpdatedMs = m.getUpdatedMs() ;
-	t.LastMessageId = m.getLastMessageId() ;
 	t.LastDeletedMessageId = m.getLastDeletedMessageId() ;
-	t.LastSeqSeen = m.getLastSeqSeen() ;
-	t.LastSeqDelete = m.getLastSeqDelete() ;
-	t.CurrentSeq = m.getCurrentSeq() ;
+	t.LastSeenMessageId = m.getLastSeenMessageId() ;
+	t.LastMessageId = m.getLastMessageId() ;
+	t.UpdatedMs = m.getUpdatedMs() ;
 	*/
 
 	public class PB_Comment {
@@ -2003,6 +1933,61 @@ public class PBFlatTypes {
 	t.DeliviryStatusEnumId = m.getDeliviryStatusEnumId() ;
 	*/
 
+	public class PB_DirectOffline {
+	   public long DirectOfflineId;
+	   public int ToUserId;
+	   public String ChatKey;
+	   public long MessageId;
+	   public long MessageFileId;
+	   public String PBClass;
+	   public byte[] DataPB;
+	   public String DataJson;
+	   public String DataTemp;
+	   public long AtTimeMs;
+	}
+	/*
+	folding
+	PBFlatTypes.PB_DirectOffline t = new PBFlatTypes.PB_DirectOffline();
+    t.setDirectOfflineId();
+    t.setToUserId();
+    t.setChatKey();
+    t.setMessageId();
+    t.setMessageFileId();
+    t.setPBClass();
+    t.setDataPB();
+    t.setDataJson();
+    t.setDataTemp();
+    t.setAtTimeMs();
+	*/
+
+	/*
+	PBFlatTypes.PB_DirectOffline t = new PBFlatTypes.PB_DirectOffline();
+	t.DirectOfflineId = ;
+	t.ToUserId = ;
+	t.ChatKey = ;
+	t.MessageId = ;
+	t.MessageFileId = ;
+	t.PBClass = ;
+	t.DataPB = ;
+	t.DataJson = ;
+	t.DataTemp = ;
+	t.AtTimeMs = ;
+	*/
+
+	/*
+	PB_DirectOffline t = new PB_DirectOffline();
+	t.DirectOfflineId = m.getDirectOfflineId() ;
+	t.ToUserId = m.getToUserId() ;
+	t.ChatKey = m.getChatKey() ;
+	t.MessageId = m.getMessageId() ;
+	t.MessageFileId = m.getMessageFileId() ;
+	t.PBClass = m.getPBClass() ;
+	t.DataPB = m.getDataPB() ;
+	t.DataJson = m.getDataJson() ;
+	t.DataTemp = m.getDataTemp() ;
+	t.AtTimeMs = m.getAtTimeMs() ;
+	*/
+
 	public class PB_DirectToMessage {
 	   public long Id;
 	   public String ChatKey;
@@ -2032,77 +2017,6 @@ public class PBFlatTypes {
 	t.ChatKey = m.getChatKey() ;
 	t.MessageId = m.getMessageId() ;
 	t.SourceEnumId = m.getSourceEnumId() ;
-	*/
-
-	public class PB_DirectUpdate {
-	   public long DirectUpdateId;
-	   public int ToUserId;
-	   public long MessageId;
-	   public long MessageFileId;
-	   public long OtherId;
-	   public String ChatKey;
-	   public int PeerUserId;
-	   public int EventType;
-	   public int RoomLogTypeId;
-	   public int FromSeq;
-	   public int ToSeq;
-	   public byte[] ExtraPB;
-	   public String ExtraJson;
-	   public long AtTimeMs;
-	}
-	/*
-	folding
-	PBFlatTypes.PB_DirectUpdate t = new PBFlatTypes.PB_DirectUpdate();
-    t.setDirectUpdateId();
-    t.setToUserId();
-    t.setMessageId();
-    t.setMessageFileId();
-    t.setOtherId();
-    t.setChatKey();
-    t.setPeerUserId();
-    t.setEventType();
-    t.setRoomLogTypeId();
-    t.setFromSeq();
-    t.setToSeq();
-    t.setExtraPB();
-    t.setExtraJson();
-    t.setAtTimeMs();
-	*/
-
-	/*
-	PBFlatTypes.PB_DirectUpdate t = new PBFlatTypes.PB_DirectUpdate();
-	t.DirectUpdateId = ;
-	t.ToUserId = ;
-	t.MessageId = ;
-	t.MessageFileId = ;
-	t.OtherId = ;
-	t.ChatKey = ;
-	t.PeerUserId = ;
-	t.EventType = ;
-	t.RoomLogTypeId = ;
-	t.FromSeq = ;
-	t.ToSeq = ;
-	t.ExtraPB = ;
-	t.ExtraJson = ;
-	t.AtTimeMs = ;
-	*/
-
-	/*
-	PB_DirectUpdate t = new PB_DirectUpdate();
-	t.DirectUpdateId = m.getDirectUpdateId() ;
-	t.ToUserId = m.getToUserId() ;
-	t.MessageId = m.getMessageId() ;
-	t.MessageFileId = m.getMessageFileId() ;
-	t.OtherId = m.getOtherId() ;
-	t.ChatKey = m.getChatKey() ;
-	t.PeerUserId = m.getPeerUserId() ;
-	t.EventType = m.getEventType() ;
-	t.RoomLogTypeId = m.getRoomLogTypeId() ;
-	t.FromSeq = m.getFromSeq() ;
-	t.ToSeq = m.getToSeq() ;
-	t.ExtraPB = m.getExtraPB() ;
-	t.ExtraJson = m.getExtraJson() ;
-	t.AtTimeMs = m.getAtTimeMs() ;
 	*/
 
 	public class PB_FollowingList {
@@ -2723,228 +2637,59 @@ public class PBFlatTypes {
 	t.ForUserId = m.getForUserId() ;
 	*/
 
-	public class PB_OldMessage {
+	public class PB_Offline {
 	   public long Id;
-	   public long Uid;
-	   public long UserId;
-	   public String MessageKey;
-	   public String RoomKey;
-	   public int MessageType;
-	   public int RoomType;
-	   public long MsgFileId;
-	   public byte[] DataPB;
-	   public String Data64;
-	   public String DataJson;
-	   public long CreatedTimeMs;
-	}
-	/*
-	folding
-	PBFlatTypes.PB_OldMessage t = new PBFlatTypes.PB_OldMessage();
-    t.setId();
-    t.setUid();
-    t.setUserId();
-    t.setMessageKey();
-    t.setRoomKey();
-    t.setMessageType();
-    t.setRoomType();
-    t.setMsgFileId();
-    t.setDataPB();
-    t.setData64();
-    t.setDataJson();
-    t.setCreatedTimeMs();
-	*/
-
-	/*
-	PBFlatTypes.PB_OldMessage t = new PBFlatTypes.PB_OldMessage();
-	t.Id = ;
-	t.Uid = ;
-	t.UserId = ;
-	t.MessageKey = ;
-	t.RoomKey = ;
-	t.MessageType = ;
-	t.RoomType = ;
-	t.MsgFileId = ;
-	t.DataPB = ;
-	t.Data64 = ;
-	t.DataJson = ;
-	t.CreatedTimeMs = ;
-	*/
-
-	/*
-	PB_OldMessage t = new PB_OldMessage();
-	t.Id = m.getId() ;
-	t.Uid = m.getUid() ;
-	t.UserId = m.getUserId() ;
-	t.MessageKey = m.getMessageKey() ;
-	t.RoomKey = m.getRoomKey() ;
-	t.MessageType = m.getMessageType() ;
-	t.RoomType = m.getRoomType() ;
-	t.MsgFileId = m.getMsgFileId() ;
-	t.DataPB = m.getDataPB() ;
-	t.Data64 = m.getData64() ;
-	t.DataJson = m.getDataJson() ;
-	t.CreatedTimeMs = m.getCreatedTimeMs() ;
-	*/
-
-	public class PB_OldMsgFile {
-	   public long Id;
-	   public String Name;
-	   public int Size;
-	   public int FileType;
-	   public String MimeType;
-	   public int Width;
-	   public int Height;
-	   public int Duration;
-	   public String Extension;
-	   public byte[] ThumbData;
-	   public String ThumbData64;
-	   public String ServerSrc;
-	   public String ServerPath;
-	   public int ServerId;
-	   public int CanDel;
-	}
-	/*
-	folding
-	PBFlatTypes.PB_OldMsgFile t = new PBFlatTypes.PB_OldMsgFile();
-    t.setId();
-    t.setName();
-    t.setSize();
-    t.setFileType();
-    t.setMimeType();
-    t.setWidth();
-    t.setHeight();
-    t.setDuration();
-    t.setExtension();
-    t.setThumbData();
-    t.setThumbData64();
-    t.setServerSrc();
-    t.setServerPath();
-    t.setServerId();
-    t.setCanDel();
-	*/
-
-	/*
-	PBFlatTypes.PB_OldMsgFile t = new PBFlatTypes.PB_OldMsgFile();
-	t.Id = ;
-	t.Name = ;
-	t.Size = ;
-	t.FileType = ;
-	t.MimeType = ;
-	t.Width = ;
-	t.Height = ;
-	t.Duration = ;
-	t.Extension = ;
-	t.ThumbData = ;
-	t.ThumbData64 = ;
-	t.ServerSrc = ;
-	t.ServerPath = ;
-	t.ServerId = ;
-	t.CanDel = ;
-	*/
-
-	/*
-	PB_OldMsgFile t = new PB_OldMsgFile();
-	t.Id = m.getId() ;
-	t.Name = m.getName() ;
-	t.Size = m.getSize() ;
-	t.FileType = m.getFileType() ;
-	t.MimeType = m.getMimeType() ;
-	t.Width = m.getWidth() ;
-	t.Height = m.getHeight() ;
-	t.Duration = m.getDuration() ;
-	t.Extension = m.getExtension() ;
-	t.ThumbData = m.getThumbData() ;
-	t.ThumbData64 = m.getThumbData64() ;
-	t.ServerSrc = m.getServerSrc() ;
-	t.ServerPath = m.getServerPath() ;
-	t.ServerId = m.getServerId() ;
-	t.CanDel = m.getCanDel() ;
-	*/
-
-	public class PB_OldMsgPush {
-	   public long Id;
-	   public long Uid;
-	   public long ToUser;
-	   public long MsgUid;
-	   public long CreatedTimeMs;
-	}
-	/*
-	folding
-	PBFlatTypes.PB_OldMsgPush t = new PBFlatTypes.PB_OldMsgPush();
-    t.setId();
-    t.setUid();
-    t.setToUser();
-    t.setMsgUid();
-    t.setCreatedTimeMs();
-	*/
-
-	/*
-	PBFlatTypes.PB_OldMsgPush t = new PBFlatTypes.PB_OldMsgPush();
-	t.Id = ;
-	t.Uid = ;
-	t.ToUser = ;
-	t.MsgUid = ;
-	t.CreatedTimeMs = ;
-	*/
-
-	/*
-	PB_OldMsgPush t = new PB_OldMsgPush();
-	t.Id = m.getId() ;
-	t.Uid = m.getUid() ;
-	t.ToUser = m.getToUser() ;
-	t.MsgUid = m.getMsgUid() ;
-	t.CreatedTimeMs = m.getCreatedTimeMs() ;
-	*/
-
-	public class PB_OldMsgPushEvent {
-	   public long Id;
-	   public long Uid;
+	   public int FromUserId;
 	   public int ToUserId;
-	   public long MsgUid;
-	   public String MsgKey;
-	   public String RoomKey;
-	   public int PeerUserId;
-	   public int EventType;
-	   public int AtTime;
+	   public String RpcName;
+	   public String PBClassName;
+	   public String Key;
+	   public String DataJson;
+	   public byte[] DataBlob;
+	   public int DataLength;
+	   public long CreatedMs;
 	}
 	/*
 	folding
-	PBFlatTypes.PB_OldMsgPushEvent t = new PBFlatTypes.PB_OldMsgPushEvent();
+	PBFlatTypes.PB_Offline t = new PBFlatTypes.PB_Offline();
     t.setId();
-    t.setUid();
+    t.setFromUserId();
     t.setToUserId();
-    t.setMsgUid();
-    t.setMsgKey();
-    t.setRoomKey();
-    t.setPeerUserId();
-    t.setEventType();
-    t.setAtTime();
+    t.setRpcName();
+    t.setPBClassName();
+    t.setKey();
+    t.setDataJson();
+    t.setDataBlob();
+    t.setDataLength();
+    t.setCreatedMs();
 	*/
 
 	/*
-	PBFlatTypes.PB_OldMsgPushEvent t = new PBFlatTypes.PB_OldMsgPushEvent();
+	PBFlatTypes.PB_Offline t = new PBFlatTypes.PB_Offline();
 	t.Id = ;
-	t.Uid = ;
+	t.FromUserId = ;
 	t.ToUserId = ;
-	t.MsgUid = ;
-	t.MsgKey = ;
-	t.RoomKey = ;
-	t.PeerUserId = ;
-	t.EventType = ;
-	t.AtTime = ;
+	t.RpcName = ;
+	t.PBClassName = ;
+	t.Key = ;
+	t.DataJson = ;
+	t.DataBlob = ;
+	t.DataLength = ;
+	t.CreatedMs = ;
 	*/
 
 	/*
-	PB_OldMsgPushEvent t = new PB_OldMsgPushEvent();
+	PB_Offline t = new PB_Offline();
 	t.Id = m.getId() ;
-	t.Uid = m.getUid() ;
+	t.FromUserId = m.getFromUserId() ;
 	t.ToUserId = m.getToUserId() ;
-	t.MsgUid = m.getMsgUid() ;
-	t.MsgKey = m.getMsgKey() ;
-	t.RoomKey = m.getRoomKey() ;
-	t.PeerUserId = m.getPeerUserId() ;
-	t.EventType = m.getEventType() ;
-	t.AtTime = m.getAtTime() ;
+	t.RpcName = m.getRpcName() ;
+	t.PBClassName = m.getPBClassName() ;
+	t.Key = m.getKey() ;
+	t.DataJson = m.getDataJson() ;
+	t.DataBlob = m.getDataBlob() ;
+	t.DataLength = m.getDataLength() ;
+	t.CreatedMs = m.getCreatedMs() ;
 	*/
 
 	public class PB_PhoneContact {
@@ -3781,6 +3526,45 @@ public class PBFlatTypes {
 	t.C5 = m.getC5() ;
 	*/
 
+	public class PB_TriggerLog {
+	   public long Id;
+	   public String ModelName;
+	   public String ChangeType;
+	   public long TargetId;
+	   public String TargetStr;
+	   public int CreatedSe;
+	}
+	/*
+	folding
+	PBFlatTypes.PB_TriggerLog t = new PBFlatTypes.PB_TriggerLog();
+    t.setId();
+    t.setModelName();
+    t.setChangeType();
+    t.setTargetId();
+    t.setTargetStr();
+    t.setCreatedSe();
+	*/
+
+	/*
+	PBFlatTypes.PB_TriggerLog t = new PBFlatTypes.PB_TriggerLog();
+	t.Id = ;
+	t.ModelName = ;
+	t.ChangeType = ;
+	t.TargetId = ;
+	t.TargetStr = ;
+	t.CreatedSe = ;
+	*/
+
+	/*
+	PB_TriggerLog t = new PB_TriggerLog();
+	t.Id = m.getId() ;
+	t.ModelName = m.getModelName() ;
+	t.ChangeType = m.getChangeType() ;
+	t.TargetId = m.getTargetId() ;
+	t.TargetStr = m.getTargetStr() ;
+	t.CreatedSe = m.getCreatedSe() ;
+	*/
+
 	public class PB_User {
 	   public int Id;
 	   public String UserName;
@@ -4531,7 +4315,8 @@ public class PBFlatTypes {
 /*
 
 RPC_HANDLERS.RPC_Auth RPC_Auth_Handeler = null;
-RPC_HANDLERS.RPC_Msg RPC_Msg_Handeler = null;
+RPC_HANDLERS.RPC_Chat RPC_Chat_Handeler = null;
+RPC_HANDLERS.RPC_Other RPC_Other_Handeler = null;
 RPC_HANDLERS.RPC_Sync RPC_Sync_Handeler = null;
 RPC_HANDLERS.RPC_UserOffline RPC_UserOffline_Handeler = null;
 RPC_HANDLERS.RPC_User RPC_User_Handeler = null;

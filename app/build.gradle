@@ -331,7 +331,7 @@ dependencies {
     compile 'com.scand:realm-browser:0.1.13'
 
     //for sqlite debugin
-    //debugCompile 'com.amitshekhar.android:debug-db:1.0.1'
+    debugCompile 'com.amitshekhar.android:debug-db:1.0.1'
 
 }
 

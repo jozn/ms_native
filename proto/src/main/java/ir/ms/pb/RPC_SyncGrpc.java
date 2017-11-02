@@ -28,18 +28,6 @@ public final class RPC_SyncGrpc {
 
   // Static method descriptors that strictly reflect the proto.
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  public static final io.grpc.MethodDescriptor<ir.ms.pb.PB_SyncParam_GetDirectUpdates,
-      ir.ms.pb.PB_SyncResponse_GetDirectUpdates> METHOD_GET_DIRECT_UPDATES =
-      io.grpc.MethodDescriptor.<ir.ms.pb.PB_SyncParam_GetDirectUpdates, ir.ms.pb.PB_SyncResponse_GetDirectUpdates>newBuilder()
-          .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-          .setFullMethodName(generateFullMethodName(
-              "RPC_Sync", "GetDirectUpdates"))
-          .setRequestMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
-              ir.ms.pb.PB_SyncParam_GetDirectUpdates.getDefaultInstance()))
-          .setResponseMarshaller(io.grpc.protobuf.lite.ProtoLiteUtils.marshaller(
-              ir.ms.pb.PB_SyncResponse_GetDirectUpdates.getDefaultInstance()))
-          .build();
-  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
   public static final io.grpc.MethodDescriptor<ir.ms.pb.PB_SyncParam_GetGeneralUpdates,
       ir.ms.pb.PB_SyncResponse_GetGeneralUpdates> METHOD_GET_GENERAL_UPDATES =
       io.grpc.MethodDescriptor.<ir.ms.pb.PB_SyncParam_GetGeneralUpdates, ir.ms.pb.PB_SyncResponse_GetGeneralUpdates>newBuilder()
@@ -128,13 +116,9 @@ public final class RPC_SyncGrpc {
   public static abstract class RPC_SyncImplBase implements io.grpc.BindableService {
 
     /**
-     */
-    public void getDirectUpdates(ir.ms.pb.PB_SyncParam_GetDirectUpdates request,
-        io.grpc.stub.StreamObserver<ir.ms.pb.PB_SyncResponse_GetDirectUpdates> responseObserver) {
-      asyncUnimplementedUnaryCall(METHOD_GET_DIRECT_UPDATES, responseObserver);
-    }
-
-    /**
+     * <pre>
+     *    rpc GetDirectUpdates (PB_SyncParam_GetDirectUpdates) returns (PB_SyncResponse_GetDirectUpdates);
+     * </pre>
      */
     public void getGeneralUpdates(ir.ms.pb.PB_SyncParam_GetGeneralUpdates request,
         io.grpc.stub.StreamObserver<ir.ms.pb.PB_SyncResponse_GetGeneralUpdates> responseObserver) {
@@ -171,13 +155,6 @@ public final class RPC_SyncGrpc {
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
-          .addMethod(
-            METHOD_GET_DIRECT_UPDATES,
-            asyncUnaryCall(
-              new MethodHandlers<
-                ir.ms.pb.PB_SyncParam_GetDirectUpdates,
-                ir.ms.pb.PB_SyncResponse_GetDirectUpdates>(
-                  this, METHODID_GET_DIRECT_UPDATES)))
           .addMethod(
             METHOD_GET_GENERAL_UPDATES,
             asyncUnaryCall(
@@ -236,14 +213,9 @@ public final class RPC_SyncGrpc {
     }
 
     /**
-     */
-    public void getDirectUpdates(ir.ms.pb.PB_SyncParam_GetDirectUpdates request,
-        io.grpc.stub.StreamObserver<ir.ms.pb.PB_SyncResponse_GetDirectUpdates> responseObserver) {
-      asyncUnaryCall(
-          getChannel().newCall(METHOD_GET_DIRECT_UPDATES, getCallOptions()), request, responseObserver);
-    }
-
-    /**
+     * <pre>
+     *    rpc GetDirectUpdates (PB_SyncParam_GetDirectUpdates) returns (PB_SyncResponse_GetDirectUpdates);
+     * </pre>
      */
     public void getGeneralUpdates(ir.ms.pb.PB_SyncParam_GetGeneralUpdates request,
         io.grpc.stub.StreamObserver<ir.ms.pb.PB_SyncResponse_GetGeneralUpdates> responseObserver) {
@@ -303,13 +275,9 @@ public final class RPC_SyncGrpc {
     }
 
     /**
-     */
-    public ir.ms.pb.PB_SyncResponse_GetDirectUpdates getDirectUpdates(ir.ms.pb.PB_SyncParam_GetDirectUpdates request) {
-      return blockingUnaryCall(
-          getChannel(), METHOD_GET_DIRECT_UPDATES, getCallOptions(), request);
-    }
-
-    /**
+     * <pre>
+     *    rpc GetDirectUpdates (PB_SyncParam_GetDirectUpdates) returns (PB_SyncResponse_GetDirectUpdates);
+     * </pre>
      */
     public ir.ms.pb.PB_SyncResponse_GetGeneralUpdates getGeneralUpdates(ir.ms.pb.PB_SyncParam_GetGeneralUpdates request) {
       return blockingUnaryCall(
@@ -364,14 +332,9 @@ public final class RPC_SyncGrpc {
     }
 
     /**
-     */
-    public com.google.common.util.concurrent.ListenableFuture<ir.ms.pb.PB_SyncResponse_GetDirectUpdates> getDirectUpdates(
-        ir.ms.pb.PB_SyncParam_GetDirectUpdates request) {
-      return futureUnaryCall(
-          getChannel().newCall(METHOD_GET_DIRECT_UPDATES, getCallOptions()), request);
-    }
-
-    /**
+     * <pre>
+     *    rpc GetDirectUpdates (PB_SyncParam_GetDirectUpdates) returns (PB_SyncResponse_GetDirectUpdates);
+     * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<ir.ms.pb.PB_SyncResponse_GetGeneralUpdates> getGeneralUpdates(
         ir.ms.pb.PB_SyncParam_GetGeneralUpdates request) {
@@ -412,12 +375,11 @@ public final class RPC_SyncGrpc {
     }
   }
 
-  private static final int METHODID_GET_DIRECT_UPDATES = 0;
-  private static final int METHODID_GET_GENERAL_UPDATES = 1;
-  private static final int METHODID_GET_NOTIFY_UPDATES = 2;
-  private static final int METHODID_SET_LAST_SYNC_DIRECT_UPDATE_ID = 3;
-  private static final int METHODID_SET_LAST_SYNC_GENERAL_UPDATE_ID = 4;
-  private static final int METHODID_SET_LAST_SYNC_NOTIFY_UPDATE_ID = 5;
+  private static final int METHODID_GET_GENERAL_UPDATES = 0;
+  private static final int METHODID_GET_NOTIFY_UPDATES = 1;
+  private static final int METHODID_SET_LAST_SYNC_DIRECT_UPDATE_ID = 2;
+  private static final int METHODID_SET_LAST_SYNC_GENERAL_UPDATE_ID = 3;
+  private static final int METHODID_SET_LAST_SYNC_NOTIFY_UPDATE_ID = 4;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -436,10 +398,6 @@ public final class RPC_SyncGrpc {
     @java.lang.SuppressWarnings("unchecked")
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
-        case METHODID_GET_DIRECT_UPDATES:
-          serviceImpl.getDirectUpdates((ir.ms.pb.PB_SyncParam_GetDirectUpdates) request,
-              (io.grpc.stub.StreamObserver<ir.ms.pb.PB_SyncResponse_GetDirectUpdates>) responseObserver);
-          break;
         case METHODID_GET_GENERAL_UPDATES:
           serviceImpl.getGeneralUpdates((ir.ms.pb.PB_SyncParam_GetGeneralUpdates) request,
               (io.grpc.stub.StreamObserver<ir.ms.pb.PB_SyncResponse_GetGeneralUpdates>) responseObserver);
@@ -485,7 +443,6 @@ public final class RPC_SyncGrpc {
         result = serviceDescriptor;
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
-              .addMethod(METHOD_GET_DIRECT_UPDATES)
               .addMethod(METHOD_GET_GENERAL_UPDATES)
               .addMethod(METHOD_GET_NOTIFY_UPDATES)
               .addMethod(METHOD_SET_LAST_SYNC_DIRECT_UPDATE_ID)

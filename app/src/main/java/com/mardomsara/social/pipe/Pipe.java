@@ -11,7 +11,7 @@ import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.LangUtil;
 import com.mardomsara.social.helpers.TimeUtil;
 import com.mardomsara.social.pipe.table.RpcOffline;
-import com.mardomsara.social.rpc.Rpc_MsgResponseHandler;
+import com.mardomsara.social.rpc.Rpc_ChatResponseHandler;
 import com.mardomsara.social.rpc.Rpc_SyncResponseHandler;
 
 import java.util.Collections;
@@ -20,6 +20,8 @@ import java.util.Map;
 
 import ir.ms.pb.PB_CommandToServer;
 import ir.ms.pb.RPC_HANDLERS;
+
+import static ir.ms.pb.RPC_HANDLERS.RPC_Chat_Default_Handler;
 
 /**
  * Created by Hamid on 8/22/2017.
@@ -30,7 +32,7 @@ public class Pipe {
 	//todo extrac this to some where else
 	static {
 		RPC_HANDLERS.RPC_Sync_Default_Handler= new Rpc_SyncResponseHandler();
-		RPC_HANDLERS.RPC_Msg_Default_Handler= new Rpc_MsgResponseHandler();
+		RPC_Chat_Default_Handler= new Rpc_ChatResponseHandler();
 	}
 
 	static Map<Long, CommandFrame> CommandFrameMap = Collections.synchronizedMap(new HashMap<>());

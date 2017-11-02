@@ -8,20 +8,28 @@ public interface PB_AllLivePushesOrBuilder extends
     com.google.protobuf.MessageLiteOrBuilder {
 
   /**
-   * <code>.PB_SyncResponse_GetDirectUpdates DirectUpdates = 1;</code>
-   */
-  boolean hasDirectUpdates();
-  /**
-   * <code>.PB_SyncResponse_GetDirectUpdates DirectUpdates = 1;</code>
-   */
-  ir.ms.pb.PB_SyncResponse_GetDirectUpdates getDirectUpdates();
-
-  /**
+   * <pre>
+   *    PB_SyncResponse_GetDirectUpdates DirectUpdates = 1;
+   * </pre>
+   *
    * <code>.PB_SyncResponse_GetGeneralUpdates GeneralUpdates = 2;</code>
    */
   boolean hasGeneralUpdates();
   /**
+   * <pre>
+   *    PB_SyncResponse_GetDirectUpdates DirectUpdates = 1;
+   * </pre>
+   *
    * <code>.PB_SyncResponse_GetGeneralUpdates GeneralUpdates = 2;</code>
    */
   ir.ms.pb.PB_SyncResponse_GetGeneralUpdates getGeneralUpdates();
+
+  /**
+   * <code>.PB_Offline_Messagings Offline_Messagings = 3;</code>
+   */
+  boolean hasOfflineMessagings();
+  /**
+   * <code>.PB_Offline_Messagings Offline_Messagings = 3;</code>
+   */
+  ir.ms.pb.PB_Offline_Messagings getOfflineMessagings();
 }

@@ -26,59 +26,42 @@ public class RPC_ResponseBase {/*
 		public void LogOut( PB_UserResponse_CheckUserName2 pbOut){
 			Log.d("RPC:Response", "RPC_Auth_Base.RPC_Auth");
 		}}
-	public static class RPC_Msg_Base implements RPC_HANDLERS.RPC_Msg  {
-		public void AddNewTextMessage( PB_MsgResponse_AddNewTextMessage pbOut){
-			Log.d("RPC:Response", "RPC_Msg_Base.RPC_Msg");
+	public static class RPC_Chat_Base implements RPC_HANDLERS.RPC_Chat  {
+		public void AddNewMessage( PB_ChatResponse_AddNewMessage pbOut){
+			Log.d("RPC:Response", "RPC_Chat_Base.RPC_Chat");
 		}
-		public void AddNewMessage( PB_MsgResponse_AddNewMessage pbOut){
-			Log.d("RPC:Response", "RPC_Msg_Base.RPC_Msg");
+		public void SetRoomActionDoing( PB_ChatResponse_SetRoomActionDoing pbOut){
+			Log.d("RPC:Response", "RPC_Chat_Base.RPC_Chat");
 		}
-		public void SetRoomActionDoing( PB_MsgResponse_SetRoomActionDoing pbOut){
-			Log.d("RPC:Response", "RPC_Msg_Base.RPC_Msg");
+		public void SetMessagesRangeAsSeen( PB_ChatResponse_SetChatMessagesRangeAsSeen pbOut){
+			Log.d("RPC:Response", "RPC_Chat_Base.RPC_Chat");
 		}
-		public void GetMessagesByIds( PB_MsgResponse_GetMessagesByIds pbOut){
-			Log.d("RPC:Response", "RPC_Msg_Base.RPC_Msg");
+		public void DeleteChatHistory( PB_ChatResponse_DeleteChatHistory pbOut){
+			Log.d("RPC:Response", "RPC_Chat_Base.RPC_Chat");
 		}
-		public void GetMessagesHistory( PB_MsgResponse_GetMessagesHistory pbOut){
-			Log.d("RPC:Response", "RPC_Msg_Base.RPC_Msg");
+		public void DeleteMessagesByIds( PB_ChatResponse_DeleteMessagesByIds pbOut){
+			Log.d("RPC:Response", "RPC_Chat_Base.RPC_Chat");
 		}
-		public void SetMessagesRangeAsSeen( PB_MsgResponse_SetChatMessagesRangeAsSeen pbOut){
-			Log.d("RPC:Response", "RPC_Msg_Base.RPC_Msg");
+		public void SetMessagesAsReceived( PB_ChatResponse_SetMessagesAsReceived pbOut){
+			Log.d("RPC:Response", "RPC_Chat_Base.RPC_Chat");
 		}
-		public void DeleteChatHistory( PB_MsgResponse_DeleteChatHistory pbOut){
-			Log.d("RPC:Response", "RPC_Msg_Base.RPC_Msg");
+		public void EditMessage( PB_ChatResponse_EditMessage pbOut){
+			Log.d("RPC:Response", "RPC_Chat_Base.RPC_Chat");
 		}
-		public void DeleteMessagesByIds( PB_MsgResponse_DeleteMessagesByIds pbOut){
-			Log.d("RPC:Response", "RPC_Msg_Base.RPC_Msg");
+		public void GetChatList( PB_ChatResponse_GetChatList pbOut){
+			Log.d("RPC:Response", "RPC_Chat_Base.RPC_Chat");
 		}
-		public void SetMessagesAsReceived( PB_MsgResponse_SetMessagesAsReceived pbOut){
-			Log.d("RPC:Response", "RPC_Msg_Base.RPC_Msg");
+		public void GetChatHistoryToOlder( PB_ChatResponse_GetChatHistoryToOlder pbOut){
+			Log.d("RPC:Response", "RPC_Chat_Base.RPC_Chat");
 		}
-		public void ForwardMessages( PB_MsgResponse_ForwardMessages pbOut){
-			Log.d("RPC:Response", "RPC_Msg_Base.RPC_Msg");
-		}
-		public void EditMessage( PB_MsgResponse_EditMessage pbOut){
-			Log.d("RPC:Response", "RPC_Msg_Base.RPC_Msg");
-		}
-		public void BroadcastNewMessage( PB_MsgResponse_BroadcastNewMessage pbOut){
-			Log.d("RPC:Response", "RPC_Msg_Base.RPC_Msg");
-		}
-		public void GetFreshChatList( PB_MsgResponse_GetFreshChatList pbOut){
-			Log.d("RPC:Response", "RPC_Msg_Base.RPC_Msg");
-		}
-		public void GetFreshRoomMessagesList( PB_MsgResponse_GetFreshRoomMessagesList pbOut){
-			Log.d("RPC:Response", "RPC_Msg_Base.RPC_Msg");
-		}
-		public void GetFreshAllDirectMessagesList( PB_MsgResponse_GetFreshAllDirectMessagesList pbOut){
-			Log.d("RPC:Response", "RPC_Msg_Base.RPC_Msg");
-		}
-		public void Echo( PB_MsgResponse_PB_MsgParam_Echo pbOut){
-			Log.d("RPC:Response", "RPC_Msg_Base.RPC_Msg");
+		public void GetFreshAllDirectMessagesList( PB_ChatResponse_GetFreshAllDirectMessagesList pbOut){
+			Log.d("RPC:Response", "RPC_Chat_Base.RPC_Chat");
+		}}
+	public static class RPC_Other_Base implements RPC_HANDLERS.RPC_Other  {
+		public void Echo( PB_OtherResponse_Echo pbOut){
+			Log.d("RPC:Response", "RPC_Other_Base.RPC_Other");
 		}}
 	public static class RPC_Sync_Base implements RPC_HANDLERS.RPC_Sync  {
-		public void GetDirectUpdates( PB_SyncResponse_GetDirectUpdates pbOut){
-			Log.d("RPC:Response", "RPC_Sync_Base.RPC_Sync");
-		}
 		public void GetGeneralUpdates( PB_SyncResponse_GetGeneralUpdates pbOut){
 			Log.d("RPC:Response", "RPC_Sync_Base.RPC_Sync");
 		}
@@ -125,7 +108,8 @@ public class RPC_ResponseBase {/*
 /*
 
 RPC_HANDLERS.RPC_Auth RPC_Auth_Handeler = null;
-RPC_HANDLERS.RPC_Msg RPC_Msg_Handeler = null;
+RPC_HANDLERS.RPC_Chat RPC_Chat_Handeler = null;
+RPC_HANDLERS.RPC_Other RPC_Other_Handeler = null;
 RPC_HANDLERS.RPC_Sync RPC_Sync_Handeler = null;
 RPC_HANDLERS.RPC_UserOffline RPC_UserOffline_Handeler = null;
 RPC_HANDLERS.RPC_User RPC_User_Handeler = null;
