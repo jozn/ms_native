@@ -45,10 +45,7 @@ public class ChatRoomEntryPresenter extends BasePresenter implements
 	final int ATTACH_CAMERA_VIDEO = 1002;
 	final int ATTACH_FILE = 1003;
 	public RealmChatView room;
-	//	ArrayListHashSetKey<Message,String> messages;
 	ChatEntryAdaptor messagesAdaptor_DEP;
-	//    com.mardomsara.social.ui.presenter.chat_realm.chat_room.del.ChatRoomEntryAdaptor adaptor;
-//	RealmChatAdaptor_DEP adaptor_depp;
 	ChatRoomEntryAdaptor adaptor2;
 	KeyboardAttachmentCell attachment_view;
 	LinearLayoutManager mLayoutManager;
@@ -80,23 +77,10 @@ public class ChatRoomEntryPresenter extends BasePresenter implements
 			Realm realm = AppRealm.getChatRealm();
 			realmResults = realm.where(RealmMessageView.class).equalTo(RealmMessageViewFields.ROOM_KEY, room.RoomKey).findAllSorted(RealmMessageViewFields.MESSAGE_ID, Sort.DESCENDING);
 
-			/*List<RealmMessageViewWrapper> newMessageViewList = new ArrayList<>();
-			for (RealmMessageView messageView: realmResults){
-				RealmMessageViewWrapper viewWrapper = new RealmMessageViewWrapper();
-				viewWrapper.messageView = messageView;
-				newMessageViewList.add(viewWrapper);
-			}*/
-
 			messagesAdaptor_DEP = new ChatEntryAdaptor();
-//        adaptor = new com.mardomsara.social.ui.presenter.chat_realm.chat_room.del.ChatRoomEntryAdaptor();
-//        adaptor_depp = new RealmChatAdaptor_DEP(realmResults,true);
 			RealmViewWrapperHolder wrapper = new RealmViewWrapperHolder();
-//		wrapper.newMessageViewList = newMessageViewList;
 			wrapper.realmResults = realmResults;
 			adaptor2 = new ChatRoomEntryAdaptor(wrapper);
-
-
-//		messages = messagesAdaptor_DEP.msgs;
 
 			mLayoutManager = new LinearLayoutManager(AppUtil.getContext());
 
@@ -105,24 +89,15 @@ public class ChatRoomEntryPresenter extends BasePresenter implements
 			mLayoutManager.setStackFromEnd(true);
 			mLayoutManager.scrollToPositionWithOffset(0, 10000);
 
-//        x.recycler_view.setAdapter(messagesAdaptor_DEP);
-//        x.recycler_view.setAdapter(adaptor_depp);
 			x.recycler_view.setAdapter(adaptor2);
 			x.recycler_view.setLayoutManager(mLayoutManager);
 			x.recycler_view.setHasFixedSize(false);
-
-//        messagesAdaptor_DEP.setUpForPaginationWith(x.recycler_view,mLayoutManager,this);
-//		messagesAdaptor_DEP.setRecyclerView(x.recycler_view);
-
-//		adaptor.setUpForPaginationWith(x.recycler_view,mLayoutManager,this);
-//		adaptor.setRecyclerView(x.recycler_view);
 
 			x.back.setOnClickListener((v) -> {
 				onBack();
 				Nav.pop();
 			});
 
-//        x.room_name.setText(room.getRoomName());
 			x.room_name.setText(RealmChatViewHelper.getRoomName(room));
 //			App.getBus().register(this);
 
@@ -141,22 +116,18 @@ public class ChatRoomEntryPresenter extends BasePresenter implements
 			Picasso.with(AppUtil.getContext())
 				.load(imageUri)
 				.into(x.avatar);
-
-//		RoomModel.updateRoomSeenMsgsToNow_BG(room);
-
-
 		});
-
 
 		return x.root;
 	}
 
 	@Override
 	public void onDestroy() {
+		super.onDestroy();
 		if (realmResults != null) {
 			realmResults.removeAllChangeListeners();
 		}
-		/*super.onDestroy();
+		/*
 		App.getBus().unregister(this);
         AppUtil.unRegisterKeywoardlistaner(view);
 
@@ -206,33 +177,10 @@ public class ChatRoomEntryPresenter extends BasePresenter implements
 	}
 
 	void addNewTextMsg() {
-
 		HelperMessageAdd.addNewTextMessage(room, x.edit_field.getText().toString());
 		x.edit_field.setText("");
 		adaptor2.notifyDataSetChanged();
 		mLayoutManager.scrollToPosition(0);
-
-        /*Message msg =  MessageModel.newTextMsgForRoom_ByMe(room);
-        msg.MessageTypeId = Constants.MESSAGE_TEXT;
-        msg.Text = x.edit_field.getText().toString();
-        msg.insertInBackground();
-
-        x.edit_field.setText("");
-        MessageModel.syncTextMsgToServer(msg);
-
-        onHereAddedNewMsgEvent_UI(msg);*/
-	}
-
-	void onHereAddedNewMsgEvent_UI(Message msg) {
-		/*AndroidUtil.runInUiNoPanic(()->{
-			messages.addStart(msg);
-			messagesAdaptor_DEP.notifyContentItemInserted(0);
-			mLayoutManager.scrollToPosition(0);
-
-			MessageModel.didMsgAddedByMe(msg);
-//			App.getBus().post(new RoomOrderChanged());
-			Events.publish(new Events.RoomOrderChanged());
-		});*/
 	}
 
 	public void showAttachmentWindow() {
@@ -281,7 +229,6 @@ public class ChatRoomEntryPresenter extends BasePresenter implements
 	public void onFileClick() {
 		comingSoon();
 		//keep this
-
 	}
 
 	void comingSoon() {
@@ -303,16 +250,7 @@ public class ChatRoomEntryPresenter extends BasePresenter implements
 				scrollToBottom();
 			});
 		}
-
-		/*AndroidUtil.runInUiNoPanic(()->{//Async
-			for(String image : imagesPath){
-				_sendMsgImage(image,false);
-			}
-		});*/
 	}
-
-	;
-
 
 	public void onGalleryChooserVideoClicked(List<String> videoPaths) {
         /*attachment_view.dismiss();
@@ -322,8 +260,6 @@ public class ChatRoomEntryPresenter extends BasePresenter implements
 			}
 		});*/
 	}
-
-	;
 
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -358,34 +294,6 @@ public class ChatRoomEntryPresenter extends BasePresenter implements
 	void _sendMsgImage(String path, final boolean deleteOriginal) {
 		HelperMessageAdd.addSingleImageMessage(room, "new 2image !!!" + path, path, deleteOriginal);
 //		scrollToBottom();
-
-
-        /*logIt("_sendMsgImage: "+ path + " "+deleteOriginal);
-        if(path== null || path.equals("")) return;
-        File fileOriginal = new File(path);
-		if( ! fileOriginal.exists() ){
-			_showToastFileAreNotExist();
-			return;
-		}
-
-        String $resizedPath = AppFiles.PHOTO_SENT_DIR_PATH+"IMG_"+ FormaterUtil.getFullyYearToSecondsSolarName()+"$.jpg";
-        String resizedPath = FileUtil.createNextName_INFINATE_LOOP($resizedPath);
-        ImageUtil.resizeImage(path,resizedPath,1080);
-        File resizedFile = new File(resizedPath);
-
-        if(!resizedFile.exists()){
-			_showToastFileAreNotExist();
-            return;
-        }
-        Message msg =  MessageModel.newTextMsgForRoom_ByMe(room);
-        msg.setMsgFile_Status(Constants.Msg_Media_To_Push_And_Upload);
-        msg.MessageTypeId = Constants.MESSAGE_IMAGE;
-        MessageModel.setPhotoParams_ME(msg,resizedPath);
-        msg.saveWithRoom();
-
-		MsgsCallToServer.sendNewPhoto(msg,resizedFile,fileOriginal,deleteOriginal);
-		onHereAddedNewMsgEvent_UI(msg);*/
-
 	}
 
 	private void _showToastFileAreNotExist() {
@@ -425,33 +333,7 @@ public class ChatRoomEntryPresenter extends BasePresenter implements
 	//pageNum is actuly is alaways >= 1
 	@Override
 	public void loadNextPage(int pageNum) {
-		/*messagesAdaptor_DEP.nextPageIsLoaded();
 
-        int size = messagesAdaptor_DEP.msgs.size();
-        List<Message> msgs = null;
-		long lastSortId = 0;
-        if(size > 0){
-            lastSortId = messagesAdaptor_DEP.msgs.get(size -1).SortId;
-        }
-		msgs = MessageModel.getRoomMessagesTimeOffset(room.RoomKey,lastSortId);
-		if(msgs.size() >0){
-			messagesAdaptor_DEP.msgs.addAllEnd(msgs);
-//                messagesAdaptor_DEP.notifyDataChanged();
-		}else if (pageNum == 1){
-			messagesAdaptor_DEP.setEmptyNoteView(new X.Msg_FullPageEmptyNote(x.recycler_view).root);
-			messagesAdaptor_DEP.showEmptyView();
-		}else {
-			messagesAdaptor_DEP.setHasMorePage(false);
-		}
-
-		//fix for no jumping for first few msgs
-        if(msgs.size() < MessageModel.MSGS_PER_PAGE){
-            messagesAdaptor_DEP.setHasMorePage(false);
-        }
-
-		messagesAdaptor_DEP.notifyDataChanged();
-
-        Helper.showDebugMessage("page : "+pageNum);*/
 	}
 
 	void scrollToBottom() {
