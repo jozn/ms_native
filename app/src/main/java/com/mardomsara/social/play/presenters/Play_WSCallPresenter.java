@@ -6,11 +6,17 @@ import android.view.ViewGroup;
 import com.mardomsara.social.app.AppLogger;
 import com.mardomsara.social.app.DB;
 import com.mardomsara.social.helpers.AndroidUtil;
+import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.LangUtil;
 import com.mardomsara.social.lib.NanoTimestamp;
 import com.mardomsara.social.pipe.table.RpcOffline;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.cells.Cells;
+
+import ir.ms.pb.PB_ChatParam_GetChatList;
+import ir.ms.pb.PB_ChatParam_GetFreshAllDirectMessagesList;
+import ir.ms.pb.PB_OtherParam_Echo;
+import ir.ms.pb.RPC;
 
 /**
  * Created by Hamid on 10/1/2016.
@@ -41,7 +47,9 @@ public class Play_WSCallPresenter extends BasePresenter {
 		} ));
 
 
-		layout.addView(newTitle2("RPC.RPC_Msg.GetFreshChatList",()->{
+		layout.addView(newTitle2("RPC.RPC_Chat full chat and direct refresh",()->{
+			RPC.RPC_Chat.GetFreshAllDirectMessagesList(PB_ChatParam_GetFreshAllDirectMessagesList.newBuilder().build(),null,null);
+			RPC.RPC_Chat.GetChatList(PB_ChatParam_GetChatList.newBuilder().build(),null,null);
 //			RPC.RPC_Msg.GetFreshChatList(PB_MsgParam_GetFreshChatList.newBuilder().build(),null,null);
 		} ));
 
@@ -70,8 +78,8 @@ public class Play_WSCallPresenter extends BasePresenter {
     }
 
 	private void callEcho() {
-		/*PB_MsgParam_Echo paramEcho = PB_MsgParam_Echo.newBuilder().setText("hi therre i am hamid").build();
-		RPC.RPC_Msg.Echo(paramEcho,
+		PB_OtherParam_Echo paramEcho = PB_OtherParam_Echo.newBuilder().setText("hi therre i am hamid").build();
+		RPC.RPC_Other.Echo(paramEcho,
 			(res)->{
 			Helper.showDebugMessage("echo resu:" + res.getText() + res.toString());
 				info.setText(res.getText());
@@ -79,7 +87,7 @@ public class Play_WSCallPresenter extends BasePresenter {
 				throw new RuntimeException("YYYYYYYYYYYYYYYY");
 		}, (err) -> {
 				Helper.showDebugMessage("echo err:" + err);
-			});*/
+			});
 
 		/*Pipe_OLD.sendCall("echo","Hi From go",
 			()->{

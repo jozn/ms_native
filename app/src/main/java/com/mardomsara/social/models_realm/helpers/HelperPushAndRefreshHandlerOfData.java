@@ -61,18 +61,23 @@ public class HelperPushAndRefreshHandlerOfData {
 
 				}
 
+				final RealmUserView realmUserView = RealmUserView.fromPB(pb_chatView.getUserView());
 				if (pb_chatView.getUserView() != null) {//must alwase be true
-					realmChatView.UserView = RealmUserView.fromPB(pb_chatView.getUserView());
+//					realmUserView = RealmUserView.fromPB(pb_chatView.getUserView());
 				} else {
 					AppUtil.log("pb: handling - realm users: " + pb_chatView.getUserView().getUserName());
 				}
 
-				realmChatView.LastMessage = RealmMessageViewHelper.getLastMessageForChat(AppRealm.getChatRealm(), realmChatView.RoomKey);
-				realmChatView.UnseenCount = RealmMessageViewHelper.getUnseenCountForChat(AppRealm.getChatRealm(), realmChatView.ChatKey, realmChatView.LastSeenMessageId);
 
 				RealmChatView chatView2 = realmChatView;
 				realm.executeTransaction((r) -> {
+					chatView2.UserView = r.copyToRealmOrUpdate(realmUserView);
+
+					chatView2.LastMessage = RealmMessageViewHelper.getLastMessageForChat(r, chatView2.RoomKey);
+					chatView2.UnseenCount = RealmMessageViewHelper.getUnseenCountForChat(r, chatView2.ChatKey, chatView2.LastSeenMessageId);
+
 					r.copyToRealmOrUpdate(chatView2);
+
 				});
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -116,12 +121,12 @@ public class HelperPushAndRefreshHandlerOfData {
 //			List<RealmMessageView> msgs = new ArrayList();
 			for (PB_UpdateMessageMeta meta : metas) {
 				RealmMessageView msg = RealmMessageViewHelper.getMessageByMessageId(realm, meta.getMessageId());
-				AppUtil.log("updating messagesDelivierdToServer : "+ meta.getMessageId());
+				AppUtil.log("updating messagesDelivierdToServer : " + meta.getMessageId());
 				if (msg != null) {
-					realm.executeTransaction((t)->{
+					realm.executeTransaction((t) -> {
 
 					});
-					msg.DeliviryStatusEnumId =( RoomMessageDeliviryStatusEnum.SENT_VALUE);
+					msg.DeliviryStatusEnumId = (RoomMessageDeliviryStatusEnum.SENT_VALUE);
 				}
 //				msgs.add(msg);
 			}
@@ -144,7 +149,7 @@ public class HelperPushAndRefreshHandlerOfData {
 				RealmMessageView msg = RealmMessageViewHelper.getMessageByMessageId(realm, meta.getMessageId());
 				if (msg != null) {
 					msg.DeliviryStatusEnumId = RoomMessageDeliviryStatusEnum.DELIVERED_VALUE;
-					msg.PeerReceivedTime = (int)meta.getAtTime();
+					msg.PeerReceivedTime = (int) meta.getAtTime();
 				}
 				msgs.add(msg);
 			}
@@ -190,7 +195,7 @@ public class HelperPushAndRefreshHandlerOfData {
 				RealmMessageView msg = RealmMessageViewHelper.getMessageByMessageId(realm, meta.getMessageId());
 				if (msg != null) {
 					msg.DeliviryStatusEnumId = RoomMessageDeliviryStatusEnum.SEEN2_VALUE;
-					msg.PeerSeenTime= (int)meta.getAtTime();
+					msg.PeerSeenTime = (int) meta.getAtTime();
 				}
 				msgs.add(msg);
 			}
@@ -214,7 +219,7 @@ public class HelperPushAndRefreshHandlerOfData {
 				RealmMessageView msg = RealmMessageViewHelper.getMessageByMessageId(realm, ch.getOldMessageId());
 //				AppUtil.log("updating messagesDelivierdToServer : "+ ch.getMessageId());
 				if (msg != null) {
-					realm.executeTransaction((t)->{
+					realm.executeTransaction((t) -> {
 
 					});
 					msg.RemoteId = ch.getNewMessageId();
@@ -237,7 +242,7 @@ public class HelperPushAndRefreshHandlerOfData {
 			Realm realm = AppRealm.getChatRealm();
 //			List<RealmMessageView> msgs = new ArrayList();
 			for (PB_UpdateMessageId ch : changes) {
-				RealmMessageFileView msg = realm.where(RealmMessageFileView.class).equalTo(RealmMessageFileViewFields.MESSAGE_FILE_ID,ch.getOldMessageId())
+				RealmMessageFileView msg = realm.where(RealmMessageFileView.class).equalTo(RealmMessageFileViewFields.MESSAGE_FILE_ID, ch.getOldMessageId())
 					.findFirst();
 //				AppUtil.log("updating messagesDelivierdToServer : "+ ch.getMessageId());
 				if (msg != null) {
