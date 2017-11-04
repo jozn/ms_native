@@ -11,9 +11,6 @@ import com.mardomsara.social.helpers.ImageUtil;
 
 public class HelperMessageFilePather {
 	public static String getMessageFileOutputNameForNewSentImage(long messageFileId, String extiontion){
-		return AppFiles.PHOTO_SENT_DIR_PATH + "IMG_" + FormaterUtil.getFullyYearToSecondsSolarNameFrom(messageFileId/1000_000) + messageFileId + extiontion ;//"$.jpg";
-/*//		String resizedPath = FileUtil.createNextName($resizedPath);
-		ImageUtil.resizeImage(path, resizedPath, 1080);*/
-
+		return AppFiles.PHOTO_SENT_DIR_PATH + "IMG_" + FormaterUtil.getFullyYearToSecondsSolarNameFrom(messageFileId/1000_000) +"("+ messageFileId +")"+ extiontion ;//"$.jpg";
 	}
 }

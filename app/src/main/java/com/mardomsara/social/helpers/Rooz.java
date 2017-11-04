@@ -273,7 +273,7 @@ public class Rooz {
     }
 
     public int getMonth() {
-        return month+1;
+        return month;
     }
 
     public int getYear() {
@@ -289,7 +289,7 @@ public class Rooz {
     }
 
     public String getFormatedForFoldersName(String sep){
-        return ""+getYear()+sep+(month+1)+sep+getDay();
+        return ""+getYear()+sep+(month)+sep+getDay();
     }
 
     public String getFormatedWithMonthName(String sep){
@@ -297,7 +297,7 @@ public class Rooz {
     }
 
     public String getMonthName(){
-        switch (month){
+        switch (month-1){
             case 0:
                 return "فرودین";
             case 1:

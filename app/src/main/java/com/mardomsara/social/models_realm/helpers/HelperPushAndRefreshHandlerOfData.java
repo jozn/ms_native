@@ -51,7 +51,6 @@ public class HelperPushAndRefreshHandlerOfData {
 					chatView2.UnseenCount = RealmMessageViewHelper.getUnseenCountForChat(r, chatView2.ChatKey, chatView2.LastSeenMessageId);
 
 					r.copyToRealmOrUpdate(chatView2);
-
 				});
 			} catch (Exception e) {
 				e.printStackTrace();

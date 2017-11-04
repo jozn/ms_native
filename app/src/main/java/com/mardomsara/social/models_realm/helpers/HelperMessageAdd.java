@@ -121,11 +121,8 @@ public final class HelperMessageAdd {
 	private static RealmMessageFileView getNewRealmMessageFileView(RealmMessageView msg, String filePath) {
 		RealmMessageFileView r = new RealmMessageFileView();
 		try {
-
 			File file = new File(filePath);
-
 			Bitmap mBitmap = BitmapFactory.decodeFile(filePath);
-
 			PB_MessageFileView.Builder b = PB_MessageFileView.newBuilder();
 
 			b.setMessageFileId(NanoTimestamp.getNano());//0
@@ -154,7 +151,6 @@ public final class HelperMessageAdd {
 //			b.setMessageFileStatusId();//23
 
 			r = RealmMessageFileView.fromPB(b.build());
-			
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
