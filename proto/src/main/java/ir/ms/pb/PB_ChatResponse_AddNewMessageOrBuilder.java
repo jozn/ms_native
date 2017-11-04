@@ -6,4 +6,39 @@ package ir.ms.pb;
 public interface PB_ChatResponse_AddNewMessageOrBuilder extends
     // @@protoc_insertion_point(interface_extends:PB_ChatResponse_AddNewMessage)
     com.google.protobuf.MessageLiteOrBuilder {
+
+  /**
+   * <code>string MessageKey = 1;</code>
+   */
+  java.lang.String getMessageKey();
+  /**
+   * <code>string MessageKey = 1;</code>
+   */
+  com.google.protobuf.ByteString
+      getMessageKeyBytes();
+
+  /**
+   * <code>int64 NewMessageId = 2;</code>
+   */
+  long getNewMessageId();
+
+  /**
+   * <code>string MessageFileKey = 3;</code>
+   */
+  java.lang.String getMessageFileKey();
+  /**
+   * <code>string MessageFileKey = 3;</code>
+   */
+  com.google.protobuf.ByteString
+      getMessageFileKeyBytes();
+
+  /**
+   * <code>int64 NewMessageFileId = 4;</code>
+   */
+  long getNewMessageFileId();
+
+  /**
+   * <code>int64 AtTime = 5;</code>
+   */
+  long getAtTime();
 }

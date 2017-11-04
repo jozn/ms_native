@@ -29,6 +29,12 @@ public class RealmMessageViewHelper {
 			.findFirst();
 	}
 
+	@Nullable
+	public static RealmMessageView getMessageByMessagKey(Realm realm ,String msgKey){
+		return realm.where(RealmMessageView.class).equalTo(RealmMessageViewFields.MESSAGE_KEY,msgKey)
+			.findFirst();
+	}
+
 	public static int getUnseenCountForChat(Realm realm ,String chatId, long lastSeen){
 		RealmResults<RealmMessageView> results = realm.where(RealmMessageView.class)
 			 .equalTo("ChatKey",chatId)

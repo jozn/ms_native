@@ -650,18 +650,38 @@ public class PBFlatTypes {
 	*/
 
 	public class PB_ChatResponse_AddNewMessage {
+	   public String MessageKey;
+	   public long NewMessageId;
+	   public String MessageFileKey;
+	   public long NewMessageFileId;
+	   public long AtTime;
 	}
 	/*
 	folding
 	PBFlatTypes.PB_ChatResponse_AddNewMessage t = new PBFlatTypes.PB_ChatResponse_AddNewMessage();
+    t.setMessageKey();
+    t.setNewMessageId();
+    t.setMessageFileKey();
+    t.setNewMessageFileId();
+    t.setAtTime();
 	*/
 
 	/*
 	PBFlatTypes.PB_ChatResponse_AddNewMessage t = new PBFlatTypes.PB_ChatResponse_AddNewMessage();
+	t.MessageKey = ;
+	t.NewMessageId = ;
+	t.MessageFileKey = ;
+	t.NewMessageFileId = ;
+	t.AtTime = ;
 	*/
 
 	/*
 	PB_ChatResponse_AddNewMessage t = new PB_ChatResponse_AddNewMessage();
+	t.MessageKey = m.getMessageKey() ;
+	t.NewMessageId = m.getNewMessageId() ;
+	t.MessageFileKey = m.getMessageFileKey() ;
+	t.NewMessageFileId = m.getNewMessageFileId() ;
+	t.AtTime = m.getAtTime() ;
 	*/
 
 	public class PB_ChatParam_SetRoomActionDoing {
