@@ -157,7 +157,7 @@ public class RealmMessageViewWrapper implements MultiItemEntity, UploadProgressL
 		}
 
 		PB_CommandToServer pb_commandToServer = PB_CommandToServer.newBuilder()
-			.setCommand("RPC_Msg.AddNewMessage")
+			.setCommand("RPC_Chat.AddNewMessage")
 			.setData(pb_msgParam_addNewMessageBuilder.build().toByteString())
 			.build();
 
