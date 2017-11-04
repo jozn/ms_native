@@ -14,7 +14,6 @@ import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.IntentHelper;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
-import com.mardomsara.social.models_old.tables.Message;
 import com.mardomsara.social.models_realm.RealmChatViewHelper;
 import com.mardomsara.social.models_realm.helpers.HelperMessageAdd;
 import com.mardomsara.social.models_realm.helpers.HelperMessagesLooper;
@@ -23,7 +22,6 @@ import com.mardomsara.social.models_realm.pb_realm.RealmMessageView;
 import com.mardomsara.social.models_realm.pb_realm.RealmMessageViewFields;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.X;
-import com.mardomsara.social.ui.cells.chats.adaptors.ChatEntryAdaptor;
 import com.mardomsara.social.ui.cells.general.KeyboardAttachmentCell;
 import com.mardomsara.social.ui.views.EmojiKeyboard;
 import com.squareup.picasso.Picasso;
@@ -45,7 +43,6 @@ public class ChatRoomEntryPresenter extends BasePresenter implements
 	final int ATTACH_CAMERA_VIDEO = 1002;
 	final int ATTACH_FILE = 1003;
 	public RealmChatView room;
-	ChatEntryAdaptor messagesAdaptor_DEP;
 	ChatRoomEntryAdaptor adaptor2;
 	KeyboardAttachmentCell attachment_view;
 	LinearLayoutManager mLayoutManager;
@@ -77,7 +74,6 @@ public class ChatRoomEntryPresenter extends BasePresenter implements
 			Realm realm = AppRealm.getChatRealm();
 			realmResults = realm.where(RealmMessageView.class).equalTo(RealmMessageViewFields.ROOM_KEY, room.RoomKey).findAllSorted(RealmMessageViewFields.MESSAGE_ID, Sort.DESCENDING);
 
-			messagesAdaptor_DEP = new ChatEntryAdaptor();
 			RealmViewWrapperHolder wrapper = new RealmViewWrapperHolder();
 			wrapper.realmResults = realmResults;
 			adaptor2 = new ChatRoomEntryAdaptor(wrapper);

@@ -23,6 +23,7 @@ import ir.ms.pb.PB_ChatParam_AddNewMessage;
 import ir.ms.pb.PB_CommandToServer;
 import ir.ms.pb.PB_MessageView;
 import ir.ms.pb.RPC;
+import ir.ms.pb.RPC_API;
 import ir.ms.pb.RoomMessageTypeEnum;
 
 /**
@@ -157,7 +158,7 @@ public class RealmMessageViewWrapper implements MultiItemEntity, UploadProgressL
 		}
 
 		PB_CommandToServer pb_commandToServer = PB_CommandToServer.newBuilder()
-			.setCommand("RPC_Chat.AddNewMessage")
+			.setCommand(RPC_API.RPC_Chat.AddNewMessage)
 			.setData(pb_msgParam_addNewMessageBuilder.build().toByteString())
 			.build();
 
