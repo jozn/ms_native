@@ -46,14 +46,14 @@ public abstract class AppBaseActivity extends AppCompatActivity {
 	protected void onPostCreate(@Nullable Bundle savedInstanceState) {
 		super.onPostCreate(savedInstanceState);
 		logIt("onPostCreate");
-		AppUtil.setContext(getApplicationContext());
+		AppUtil.setContext(this);
 	}
 
 	@Override
 	protected void onPostResume() {
 		super.onPostResume();
 		logIt("onPostResume");
-		AppUtil.setContext(getApplicationContext());
+		AppUtil.setContext(this);
 
 	}
 
@@ -91,7 +91,7 @@ public abstract class AppBaseActivity extends AppCompatActivity {
 	protected void onRestart() {
 		super.onRestart();
 		logIt("onRestart");
-		AppUtil.setContext(getApplicationContext());
+		AppUtil.setContext(this);
 
 	}
 
@@ -125,7 +125,7 @@ public abstract class AppBaseActivity extends AppCompatActivity {
 			isFirstInited = true;// rash onCreate()
 		}
 
-		AppUtil.setContext(getApplicationContext());
+		AppUtil.setContext(this);
 
 		LifeCycle.onAfterAppActivityStarted();
 	}
@@ -135,7 +135,7 @@ public abstract class AppBaseActivity extends AppCompatActivity {
 		super.onPause();
 
 		logIt("onPause");
-		AppUtil.setContext(getApplicationContext());
+		AppUtil.setContext(this);
 
 	}
 
@@ -155,7 +155,7 @@ public abstract class AppBaseActivity extends AppCompatActivity {
 	@Override
 	protected void onResume() {
 		super.onResume();
-		AppUtil.setContext(getApplicationContext());
+		AppUtil.setContext(this);
 
 		logIt("onResume");
 	}

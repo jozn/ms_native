@@ -40,9 +40,11 @@ public class ChatRoomEntryAdaptor extends BaseRealmRecyclerViewAdapter<RealmMess
 		MsgCell_AbstractViewHolder cell = MsgCell_Empty.makeNew();
 		switch (viewType) {
 			case RoomMessageTypeEnum.TEXT_VALUE:
+			case RoomMessageTypeEnum.EMOJI_VALUE:
 				cell = MsgCell_TextPeer.makeNew(parent);
 				break;
 			case RoomMessageTypeEnum.TEXT_VALUE + ME_SHIFT:
+			case RoomMessageTypeEnum.EMOJI_VALUE + ME_SHIFT:
 				cell = MsgCell_TextMe.makeNew(parent);
 				break;
 
