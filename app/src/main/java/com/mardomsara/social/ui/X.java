@@ -2427,7 +2427,7 @@ public class X {
     }
 
     public static class Msg_RowImageMe {
-        public LinearLayout root;
+        public MsgRowParentLinearLayout root;
         public LinearLayout msg_content_holder;
         public ChatMediaNetworkLoader image_holder;
         public XTextView msg_text;
@@ -2435,7 +2435,7 @@ public class X {
         public XRawIcon msg_delivery_status;
 
         public Msg_RowImageMe(Context context,ViewGroup parent) {
-            root = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.msg__row_image_me,parent ,false);
+            root = (MsgRowParentLinearLayout) LayoutInflater.from(context).inflate(R.layout.msg__row_image_me,parent ,false);
             msg_content_holder = (LinearLayout) root.findViewById( R.id.msg_content_holder);
             image_holder = (ChatMediaNetworkLoader) root.findViewById( R.id.image_holder);
             msg_text = (XTextView) root.findViewById( R.id.msg_text);
@@ -2465,14 +2465,14 @@ public class X {
     }
 
     public static class Msg_RowImageOnlyMe {
-        public LinearLayout root;
+        public MsgRowParentLinearLayout root;
         public RelativeLayout msg_content_holder;
         public ChatMediaNetworkLoader image_holder;
         public XTextView msg_time;
         public XRawIcon msg_delivery_status;
 
         public Msg_RowImageOnlyMe(Context context,ViewGroup parent) {
-            root = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.msg__row_image_only_me,parent ,false);
+            root = (MsgRowParentLinearLayout) LayoutInflater.from(context).inflate(R.layout.msg__row_image_only_me,parent ,false);
             msg_content_holder = (RelativeLayout) root.findViewById( R.id.msg_content_holder);
             image_holder = (ChatMediaNetworkLoader) root.findViewById( R.id.image_holder);
             msg_time = (XTextView) root.findViewById( R.id.msg_time);
@@ -2500,13 +2500,13 @@ public class X {
     }
 
     public static class Msg_RowImageOnlyPeer {
-        public LinearLayout root;
+        public MsgRowParentLinearLayout root;
         public RelativeLayout msg_content_holder;
         public ChatMediaNetworkLoader image_holder;
         public XTextView msg_time;
 
         public Msg_RowImageOnlyPeer(Context context,ViewGroup parent) {
-            root = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.msg__row_image_only_peer,parent ,false);
+            root = (MsgRowParentLinearLayout) LayoutInflater.from(context).inflate(R.layout.msg__row_image_only_peer,parent ,false);
             msg_content_holder = (RelativeLayout) root.findViewById( R.id.msg_content_holder);
             image_holder = (ChatMediaNetworkLoader) root.findViewById( R.id.image_holder);
             msg_time = (XTextView) root.findViewById( R.id.msg_time);
@@ -2532,14 +2532,14 @@ public class X {
     }
 
     public static class Msg_RowImagePeer {
-        public LinearLayout root;
+        public MsgRowParentLinearLayout root;
         public LinearLayout msg_content_holder;
         public ChatMediaNetworkLoader image_holder;
         public XTextView msg_text;
         public TextView msg_time;
 
         public Msg_RowImagePeer(Context context,ViewGroup parent) {
-            root = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.msg__row_image_peer,parent ,false);
+            root = (MsgRowParentLinearLayout) LayoutInflater.from(context).inflate(R.layout.msg__row_image_peer,parent ,false);
             msg_content_holder = (LinearLayout) root.findViewById( R.id.msg_content_holder);
             image_holder = (ChatMediaNetworkLoader) root.findViewById( R.id.image_holder);
             msg_text = (XTextView) root.findViewById( R.id.msg_text);
@@ -2613,12 +2613,12 @@ public class X {
     }
 
     public static class Msg_RowNotSupportedPeer {
-        public LinearLayout root;
+        public MsgRowParentLinearLayout root;
         public LinearLayout msg_content_holder;
         public XTextView msg_text;
 
         public Msg_RowNotSupportedPeer(Context context,ViewGroup parent) {
-            root = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.msg__row_not_supported_peer,parent ,false);
+            root = (MsgRowParentLinearLayout) LayoutInflater.from(context).inflate(R.layout.msg__row_not_supported_peer,parent ,false);
             msg_content_holder = (LinearLayout) root.findViewById( R.id.msg_content_holder);
             msg_text = (XTextView) root.findViewById( R.id.msg_text);
         }
@@ -2824,7 +2824,7 @@ public class X {
     }
 
     public static class Msg_RowVideoMe {
-        public LinearLayout root;
+        public MsgRowParentLinearLayout root;
         public RelativeLayout msg_content_holder;
         public SimpleDraweeView msg_image;
         public XTextView msg_text;
@@ -2832,7 +2832,7 @@ public class X {
         public XRawIcon msg_delivery_status;
 
         public Msg_RowVideoMe(Context context,ViewGroup parent) {
-            root = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.msg__row_video_me,parent ,false);
+            root = (MsgRowParentLinearLayout) LayoutInflater.from(context).inflate(R.layout.msg__row_video_me,parent ,false);
             msg_content_holder = (RelativeLayout) root.findViewById( R.id.msg_content_holder);
             msg_image = (SimpleDraweeView) root.findViewById( R.id.msg_image);
             msg_text = (XTextView) root.findViewById( R.id.msg_text);

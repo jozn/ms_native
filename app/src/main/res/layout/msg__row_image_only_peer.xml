@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.mardomsara.social.ui.presenter.chat_realm.chat_room.views.MsgRowParentLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:fresco="http://schemas.android.com/apk/res-auto"
     style="@style/msg_row">
     <RelativeLayout
@@ -43,4 +43,4 @@
 
     </RelativeLayout>
 
-</LinearLayout>
+</com.mardomsara.social.ui.presenter.chat_realm.chat_room.views.MsgRowParentLinearLayout>

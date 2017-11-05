@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.mardomsara.social.ui.presenter.chat_realm.chat_room.views.MsgRowParentLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               style="@style/msg_row"
     >
 
@@ -33,4 +33,4 @@
 
     </LinearLayout>
 
-</LinearLayout>
+</com.mardomsara.social.ui.presenter.chat_realm.chat_room.views.MsgRowParentLinearLayout>
