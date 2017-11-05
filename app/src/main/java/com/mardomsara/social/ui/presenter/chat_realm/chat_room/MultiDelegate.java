@@ -10,13 +10,13 @@ import ir.ms.pb.RoomMessageTypeEnum;
 /**
  * Created by Hamid on 9/10/2017.
  */
-
+//todo this is unnessory class: just e overide getItemViewType(int position) in the ChatRoomEntryAdaptor based on this getItemType()
 public class MultiDelegate  extends MultiTypeDelegate<RealmMessageView>{
 	final int ME_SHIFT = 100;
 	public MultiDelegate() {
 		//peers default - me id + 100
 		addItemType(RoomMessageTypeEnum.TEXT_VALUE, X.Msg_RowTextPeer.IDS.LAYOUT);
-		addItemType(RoomMessageTypeEnum.IMAGE_VALUE, X.Msg_RowImagePeer.IDS.LAYOUT);
+		addItemType(RoomMessageTypeEnum.IMAGE_VALUE, X.Msg_RowImageOnlyPeer.IDS.LAYOUT);
 		addItemType(RoomMessageTypeEnum.IMAGE_TEXT_VALUE, X.Msg_RowImagePeer.IDS.LAYOUT);
 		addItemType(RoomMessageTypeEnum.VIDEO_VALUE, X.Msg_RowVideoMe.IDS.LAYOUT);//// TODO: 9/10/2017 fix me
 		addItemType(RoomMessageTypeEnum.VIDEO_TEXT_VALUE, X.Msg_RowVideoMe.IDS.LAYOUT);//TODO: 9/10/2017 fix me
@@ -25,7 +25,7 @@ public class MultiDelegate  extends MultiTypeDelegate<RealmMessageView>{
 		//me
 
 		addItemType(RoomMessageTypeEnum.TEXT_VALUE + ME_SHIFT, X.Msg_RowTextMe.IDS.LAYOUT);
-		addItemType(RoomMessageTypeEnum.IMAGE_VALUE + ME_SHIFT, X.Msg_RowImageMe.IDS.LAYOUT);
+		addItemType(RoomMessageTypeEnum.IMAGE_VALUE + ME_SHIFT, X.Msg_RowImageOnlyMe.IDS.LAYOUT);
 		addItemType(RoomMessageTypeEnum.IMAGE_TEXT_VALUE + ME_SHIFT, X.Msg_RowImageMe.IDS.LAYOUT);
 		addItemType(RoomMessageTypeEnum.VIDEO_VALUE + ME_SHIFT, X.Msg_RowVideoMe.IDS.LAYOUT);
 		addItemType(RoomMessageTypeEnum.VIDEO_TEXT_VALUE + ME_SHIFT, X.Msg_RowVideoMe.IDS.LAYOUT);

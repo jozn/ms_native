@@ -3,15 +3,19 @@ package com.mardomsara.social.ui.presenter.chat_realm.chat_room;
 import android.view.ViewGroup;
 
 import com.mardomsara.base_rv.BaseRealmRecyclerViewAdapter;
+import com.mardomsara.social.app.AppLogger;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.models_realm.pb_realm.RealmMessageView;
 import com.mardomsara.social.ui.presenter.chat_realm.chat_room.msgs.MsgCell_AbstractViewHolder;
 import com.mardomsara.social.ui.presenter.chat_realm.chat_room.msgs.MsgCell_Empty;
 import com.mardomsara.social.ui.presenter.chat_realm.chat_room.msgs.MsgCell_PhotoMe;
+import com.mardomsara.social.ui.presenter.chat_realm.chat_room.msgs.MsgCell_PhotoOnlyMe;
+import com.mardomsara.social.ui.presenter.chat_realm.chat_room.msgs.MsgCell_PhotoOnlyPeer;
 import com.mardomsara.social.ui.presenter.chat_realm.chat_room.msgs.MsgCell_PhotoPeer;
 import com.mardomsara.social.ui.presenter.chat_realm.chat_room.msgs.MsgCell_TextMe;
 import com.mardomsara.social.ui.presenter.chat_realm.chat_room.msgs.MsgCell_TextPeer;
 import com.mardomsara.social.ui.presenter.chat_realm.chat_room.msgs.MsgCell_VideoMe;
+import com.mardomsara.social.ui.presenter.chat_realm.chat_room.views.MsgRowParentLinearLayout;
 
 import ir.ms.pb.RoomMessageTypeEnum;
 
@@ -43,11 +47,11 @@ public class ChatRoomEntryAdaptor extends BaseRealmRecyclerViewAdapter<RealmMess
 				break;
 
 			case RoomMessageTypeEnum.IMAGE_VALUE:
-				cell = MsgCell_PhotoPeer.makeNew(parent);
+				cell = MsgCell_PhotoOnlyPeer.makeNew(parent);
 				break;
 
 			case RoomMessageTypeEnum.IMAGE_VALUE + ME_SHIFT:
-				cell = MsgCell_PhotoMe.makeNew(parent);
+				cell = MsgCell_PhotoOnlyMe.makeNew(parent);
 				break;
 
 			case RoomMessageTypeEnum.IMAGE_TEXT_VALUE:
@@ -67,9 +71,9 @@ public class ChatRoomEntryAdaptor extends BaseRealmRecyclerViewAdapter<RealmMess
 				break;
 
 			default:
-				cell = MsgCell_TextMe.makeNew(parent);
+				cell = MsgCell_Empty.makeNew();// MsgCell_TextMe.makeNew(parent);
 		}
-		AppUtil.log("MSG: type of message " + viewType + " layout: " + layoutResId);
+		AppLogger.getChatLogger().d("MSG: type of message " + viewType + " layout: " + layoutResId);
 		return cell;
 	}
 
@@ -78,5 +82,8 @@ public class ChatRoomEntryAdaptor extends BaseRealmRecyclerViewAdapter<RealmMess
 		RealmMessageViewWrapper wrapper = new RealmMessageViewWrapper(item);
 //		wrapper.messageView = item;
 		helper.bindToView(wrapper);
+		if(helper.getGrandView() instanceof MsgRowParentLinearLayout){
+			((MsgRowParentLinearLayout) helper.getGrandView()).setTime("8 مهر");
+		}
 	}
 }

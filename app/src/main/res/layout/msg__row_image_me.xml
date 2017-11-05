@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    style="@style/msg_row"
+              style="@style/msg_row"
     >
+
     <LinearLayout
         android:id="@+id/msg_content_holder"
         style="@style/msg.content_holder.me"
         >
 
         <com.mardomsara.social.ui.views.wigets.ChatMediaNetworkLoader
+            android:id="@+id/image_holder"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/transparent_0"
-            android:id="@+id/image_holder"
             >
 
             <!--<com.facebook.drawee.view.SimpleDraweeView
@@ -23,8 +24,8 @@
         </com.mardomsara.social.ui.views.wigets.ChatMediaNetworkLoader>
 
         <com.mardomsara.social.ui.views.x.XTextView
-            style="@style/msg_text.peer"
             android:id="@+id/msg_text"
+            style="@style/msg_text.peer"
             />
 
         <include layout="@layout/msg__shared_time_status"/>

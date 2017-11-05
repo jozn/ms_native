@@ -9,7 +9,7 @@ import com.mardomsara.social.models_old.tables.Session;
  */
 
 public class HelperMessageUtil {
-	public static String getNewMessageKey() {
-		return "" + Session.getUserId() + "_" + AppUtil.getTimeMs() + "_" + LangUtil.getRandomString(4);
+	public static String getNewMessageKey(String RoomKey) {
+		return "" + RoomKey + "|" + AppUtil.getTimeMs() + "|" + LangUtil.getRandomString(3) + "|" + Session.getUserId() ;
 	}
 }

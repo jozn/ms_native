@@ -40,7 +40,7 @@ public final class HelperMessageAdd {
 		RealmMessageView r = new RealmMessageView();
 
 		r.MessageId = NanoTimestamp.getNano();//0
-		r.MessageKey = HelperMessageUtil.getNewMessageKey();//0
+		r.MessageKey = HelperMessageUtil.getNewMessageKey(chatView.RoomKey);//0
 		r.RoomKey = chatView.RoomKey;//1
 		r.UserId = chatView.UserId;//2
 		r.MessageFileId = 0;//3
@@ -89,7 +89,7 @@ public final class HelperMessageAdd {
 
 		RealmMessageView messageView = getNewMessage(chatView);
 		if (messageView != null) {
-			messageView.MessageFileView = getNewRealmMessageFileView(messageView, path);
+			messageView.MessageFileView = getNewRealmMessageFileView(chatView, path);
 			if (messageView.MessageFileView == null) return;
 			messageView.MessageFileId = messageView.MessageFileView.MessageFileId;
 
@@ -118,7 +118,7 @@ public final class HelperMessageAdd {
 		HelperMessagesSinker.sinkAll();
 	}
 
-	private static RealmMessageFileView getNewRealmMessageFileView(RealmMessageView msg, String filePath) {
+	private static RealmMessageFileView getNewRealmMessageFileView(RealmChatView chatView, String filePath) {
 		RealmMessageFileView r = new RealmMessageFileView();
 		try {
 			File file = new File(filePath);
@@ -126,7 +126,7 @@ public final class HelperMessageAdd {
 			PB_MessageFileView.Builder b = PB_MessageFileView.newBuilder();
 
 			b.setMessageFileId(NanoTimestamp.getNano());//0
-			b.setMessageFileKey(HelperMessageUtil.getNewMessageKey());//1
+			b.setMessageFileKey(HelperMessageUtil.getNewMessageKey(chatView.RoomKey));//1
 			b.setOriginalUserId(Session.getUserId());//2
 			b.setName(file.getName());//3
 			b.setSize((int) file.length());//4
@@ -168,7 +168,7 @@ public final class HelperMessageAdd {
 		RealmMessageView r = new RealmMessageView();
 
 		r.MessageId = NanoTimestamp.getNano();//0
-		r.MessageKey = HelperMessageUtil.getNewMessageKey();
+		r.MessageKey = HelperMessageUtil.getNewMessageKey(chatView.RoomKey);
 		r.RoomKey = chatView.RoomKey;//1
 		r.UserId = chatView.UserId;//2
 		r.MessageFileId = 0;//3

@@ -32,6 +32,7 @@ public class AppLogger {
 	private static LogWriter wsLogger;
 	private static LogWriter rpcLogger;
 	private static LogWriter inboxLogger;
+	private static LogWriter chatLogger;
 	private static LogWriter settingLogger;
 	private static LogWriter homeLogger;
 	private static LogWriter pushLogger;
@@ -58,6 +59,13 @@ public class AppLogger {
 			inboxLogger = newLogger("inbox");
 		}
 		return inboxLogger;
+	}
+
+	public static LogWriter getChatLogger() {
+		if (chatLogger == null) {
+			chatLogger = newLogger("chat");
+		}
+		return chatLogger;
 	}
 
 	public static LogWriter getSettingLogger() {

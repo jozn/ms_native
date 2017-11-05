@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    style="@style/msg_row">
+    <RelativeLayout
+        android:id="@+id/msg_content_holder"
+        style="@style/msg.content_holder.peer"
+        android:layout_alignBottom="@id/image_holder"
+        android:layout_alignRight="@id/image_holder"
+        android:layout_margin="4dp"
+        android:gravity="center"
+        >
+
+        <com.mardomsara.social.ui.views.wigets.ChatMediaNetworkLoader
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent_0"
+            android:id="@+id/image_holder"
+            android:layout_centerInParent="true"
+            >
+        </com.mardomsara.social.ui.views.wigets.ChatMediaNetworkLoader>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_margin="8dp"
+            android:padding="8dp"
+            android:background="@color/text_black_3"
+            >
+
+            <com.mardomsara.social.ui.views.x.XTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/msg_time"
+                android:textSize="12dp"
+                android:layout_marginLeft="4dp"
+                android:textColor="@color/white"
+                fresco:xFont="IranLight"
+                />
+        </FrameLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

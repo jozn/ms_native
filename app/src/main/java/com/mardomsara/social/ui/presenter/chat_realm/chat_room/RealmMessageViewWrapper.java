@@ -3,6 +3,7 @@ package com.mardomsara.social.ui.presenter.chat_realm.chat_room;
 import android.support.annotation.NonNull;
 
 import com.mardomsara.base_rv.entity.MultiItemEntity;
+import com.mardomsara.social.app.AppLogger;
 import com.mardomsara.social.base.Http.Http;
 import com.mardomsara.social.base.Http.Req;
 import com.mardomsara.social.base.Http.listener.DownloadProgressListener;
@@ -24,6 +25,7 @@ import ir.ms.pb.PB_CommandToServer;
 import ir.ms.pb.PB_MessageView;
 import ir.ms.pb.RPC;
 import ir.ms.pb.RPC_API;
+import ir.ms.pb.RoomMessageDeliviryStatusEnum;
 import ir.ms.pb.RoomMessageTypeEnum;
 
 /**
@@ -96,12 +98,13 @@ public class RealmMessageViewWrapper implements MultiItemEntity, UploadProgressL
 		AndroidUtil.runInUiNoPanic(()->{
 			Helper.showDebugMessage("upload ");
 			setNetWorkTransferring(true);
-			AndroidUtil.runInBackgroundNoPanic(() -> {
-//			if(MessageTypeId == Constants.MESSAGE_IMAGE){
-			/*File file = new File(MsgFile_LocalSrc);
-			MsgsCallToServer.sendNewPhoto(this, file, null, false);*/
-//			}
-			});
+
+			AppLogger.getChatLogger().d("retryUploading() "+ messageView.MessageKey);
+
+			if(messageView.DeliviryStatusEnumId >= RoomMessageDeliviryStatusEnum.SENT_VALUE || isNetWorkTransferring() ){
+				AppLogger.getChatLogger().d("retryUploading() - skipping to reUpload message has already been sent or is sending not trying : "+ messageView.MessageKey + " "+isNetWorkTransferring);
+				return;
+			}
 
 			switch (RoomMessageTypeEnum.forNumber(messageView.MessageTypeEnumId)){
 				case TEXT:
@@ -140,6 +143,9 @@ public class RealmMessageViewWrapper implements MultiItemEntity, UploadProgressL
 	private void uploadMsg(){
 		PB_MessageView.Builder pb_messageView_builder =RealmMessageView.toPB_Builder(messageView);
 		byte[] fileBytes = null;
+
+		AppLogger.getChatLogger().d("uploadMsg() "+ messageView.MessageKey);
+
 		if(messageView.MessageFileView != null){
 			pb_messageView_builder.setMessageFileView(RealmMessageFileView.toPB(messageView.MessageFileView));
 			/////////////////

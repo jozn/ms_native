@@ -18,7 +18,7 @@ public class RealmMessageViewWrapperBank {
 
 	private WeakHashMap<Long, RealmMessageViewWrapper> map = new WeakHashMap<>();
 
-	public RealmMessageViewWrapperBank() {
+	private RealmMessageViewWrapperBank() {
 
 	}
 

@@ -17,7 +17,11 @@ import com.mardomsara.social.ui.presenter.chat_realm.chat_room.RealmMessageViewW
 // this approche gives us flexblites;
 //public abstract class MsgCell_AbstractViewHolder extends RecyclerView.ViewHolder {
 public abstract class MsgCell_AbstractViewHolder extends BaseViewHolder {
-    View grandView;
+	public View getGrandView() {
+		return grandView;
+	}
+
+	View grandView;
     public MsgCell_AbstractViewHolder(View itemView) {
         super(itemView);
         grandView = itemView;

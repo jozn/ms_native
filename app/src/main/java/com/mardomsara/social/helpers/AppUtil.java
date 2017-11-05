@@ -12,6 +12,7 @@ import android.view.ViewTreeObserver;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.mardomsara.social.App;
+import com.mardomsara.social.app.ContextHolder;
 import com.mardomsara.social.app.Singletons;
 import com.mardomsara.social.lib.TinyDB;
 
@@ -25,7 +26,8 @@ import java.util.Date;
  * Created by Hamid on 3/18/2016.
  */
 public class AppUtil {
-    public static Context _context;
+//    public static Context _context;
+    private static ContextHolder contextHolder;
     private static SharedPreferences store;
     private static Gson gson = new Gson();
 
@@ -67,9 +69,13 @@ public class AppUtil {
     }
 
     public static Context getContext(){
-        return _context;
+        return contextHolder.getContext();
 //		LayoutInflater.from(_context).
     }
+
+	public static void setContext(Context context){
+		contextHolder = new ContextHolder(context);
+	}
 
     public static<T> T  fromJson(String str,  Class<T> cls){
       return new Gson().fromJson(str,cls);
@@ -107,15 +113,15 @@ public class AppUtil {
     }
 
     public static View inflate(int id){
-        return LayoutInflater.from(_context).inflate(id,null,false);
+        return LayoutInflater.from(getContext()).inflate(id,null,false);
     }
 
     public static View inflate(int id, ViewGroup parent){
-        return LayoutInflater.from(_context).inflate(id,parent,false);
+        return LayoutInflater.from(getContext()).inflate(id,parent,false);
     }
 
 	public static View inflate(int id, ViewGroup parent,boolean attach){
-		return LayoutInflater.from(_context).inflate(id,parent,attach);
+		return LayoutInflater.from(getContext()).inflate(id,parent,attach);
 	}
 
 	@Deprecated

@@ -43,7 +43,7 @@ public class ChatRoomEntryPresenter extends BasePresenter implements
 	final int ATTACH_CAMERA_VIDEO = 1002;
 	final int ATTACH_FILE = 1003;
 	public RealmChatView room;
-	ChatRoomEntryAdaptor adaptor2;
+	ChatRoomEntryAdaptor adaptor;
 	KeyboardAttachmentCell attachment_view;
 	LinearLayoutManager mLayoutManager;
 	ChatRoomEntryPresenter that;
@@ -76,7 +76,7 @@ public class ChatRoomEntryPresenter extends BasePresenter implements
 
 			RealmViewWrapperHolder wrapper = new RealmViewWrapperHolder();
 			wrapper.realmResults = realmResults;
-			adaptor2 = new ChatRoomEntryAdaptor(wrapper);
+			adaptor = new ChatRoomEntryAdaptor(wrapper);
 
 			mLayoutManager = new LinearLayoutManager(AppUtil.getContext());
 
@@ -85,7 +85,7 @@ public class ChatRoomEntryPresenter extends BasePresenter implements
 			mLayoutManager.setStackFromEnd(true);
 			mLayoutManager.scrollToPositionWithOffset(0, 10000);
 
-			x.recycler_view.setAdapter(adaptor2);
+			x.recycler_view.setAdapter(adaptor);
 			x.recycler_view.setLayoutManager(mLayoutManager);
 			x.recycler_view.setHasFixedSize(false);
 
@@ -123,10 +123,10 @@ public class ChatRoomEntryPresenter extends BasePresenter implements
 		if (realmResults != null) {
 			realmResults.removeAllChangeListeners();
 		}
+
+		AppUtil.unRegisterKeywoardlistaner(x.root);
 		/*
 		App.getBus().unregister(this);
-        AppUtil.unRegisterKeywoardlistaner(view);
-
         if(emojiKeyboard != null) emojiKeyboard.destroy();*/
 	}
 
@@ -175,7 +175,7 @@ public class ChatRoomEntryPresenter extends BasePresenter implements
 	void addNewTextMsg() {
 		HelperMessageAdd.addNewTextMessage(room, x.edit_field.getText().toString());
 		x.edit_field.setText("");
-		adaptor2.notifyDataSetChanged();
+		adaptor.notifyDataSetChanged();
 		mLayoutManager.scrollToPosition(0);
 	}
 
@@ -288,8 +288,10 @@ public class ChatRoomEntryPresenter extends BasePresenter implements
 	}
 
 	void _sendMsgImage(String path, final boolean deleteOriginal) {
-		HelperMessageAdd.addSingleImageMessage(room, "new 2image !!!" + path, path, deleteOriginal);
-//		scrollToBottom();
+//		HelperMessageAdd.addSingleImageMessage(room, "new 2image !!!" + path, path, deleteOriginal);
+		HelperMessageAdd.addSingleImageMessage(room, "", path, deleteOriginal);
+		adaptor.notifyDataSetChanged();
+		scrollToBottom();
 	}
 
 	private void _showToastFileAreNotExist() {

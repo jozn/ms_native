@@ -24,6 +24,7 @@ import com.github.rahatarmanahmed.cpv.CircularProgressView;
 import com.joanzapata.iconify.widget.IconTextView;
 import com.mardomsara.emojicon.EmojiconEditText;
 import com.mardomsara.emojicon.EmojiconTextView;
+import com.mardomsara.social.ui.presenter.chat_realm.chat_room.views.MsgRowParentLinearLayout;
 import com.mardomsara.social.ui.views.XRawIcon;
 import com.mardomsara.social.ui.views.buttons.ButtonPostMultiWayView;
 import com.mardomsara.social.ui.views.wigets.BadgeCount;
@@ -2209,6 +2210,32 @@ public class X {
         }
     }
 
+    public static class Msg_ParentDateSepration {
+        public FrameLayout root;
+        public XTextView date_text;
+
+        public Msg_ParentDateSepration(Context context,ViewGroup parent) {
+            root = (FrameLayout) LayoutInflater.from(context).inflate(R.layout.msg__parent_date_sepration,parent ,false);
+            date_text = (XTextView) root.findViewById( R.id.date_text);
+        }
+        public Msg_ParentDateSepration() {
+            this(AppUtil.getContext(),null);
+        }
+
+        public Msg_ParentDateSepration(Context context) {
+            this(context ,null);
+        }
+
+        public Msg_ParentDateSepration(ViewGroup parent) {
+            this(AppUtil.getContext() ,parent);
+        }
+
+        public static class IDS {
+            public static int LAYOUT = R.layout.msg__parent_date_sepration;
+            public static int date_text = R.id.date_text;
+        }
+    }
+
     public static class Msg_RowAllMe {
         public LinearLayout root;
         public XTextView txt;
@@ -2434,6 +2461,73 @@ public class X {
             public static int msg_text = R.id.msg_text;
             public static int msg_time = R.id.msg_time;
             public static int msg_delivery_status = R.id.msg_delivery_status;
+        }
+    }
+
+    public static class Msg_RowImageOnlyMe {
+        public LinearLayout root;
+        public RelativeLayout msg_content_holder;
+        public ChatMediaNetworkLoader image_holder;
+        public XTextView msg_time;
+        public XRawIcon msg_delivery_status;
+
+        public Msg_RowImageOnlyMe(Context context,ViewGroup parent) {
+            root = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.msg__row_image_only_me,parent ,false);
+            msg_content_holder = (RelativeLayout) root.findViewById( R.id.msg_content_holder);
+            image_holder = (ChatMediaNetworkLoader) root.findViewById( R.id.image_holder);
+            msg_time = (XTextView) root.findViewById( R.id.msg_time);
+            msg_delivery_status = (XRawIcon) root.findViewById( R.id.msg_delivery_status);
+        }
+        public Msg_RowImageOnlyMe() {
+            this(AppUtil.getContext(),null);
+        }
+
+        public Msg_RowImageOnlyMe(Context context) {
+            this(context ,null);
+        }
+
+        public Msg_RowImageOnlyMe(ViewGroup parent) {
+            this(AppUtil.getContext() ,parent);
+        }
+
+        public static class IDS {
+            public static int LAYOUT = R.layout.msg__row_image_only_me;
+            public static int msg_content_holder = R.id.msg_content_holder;
+            public static int image_holder = R.id.image_holder;
+            public static int msg_time = R.id.msg_time;
+            public static int msg_delivery_status = R.id.msg_delivery_status;
+        }
+    }
+
+    public static class Msg_RowImageOnlyPeer {
+        public LinearLayout root;
+        public RelativeLayout msg_content_holder;
+        public ChatMediaNetworkLoader image_holder;
+        public XTextView msg_time;
+
+        public Msg_RowImageOnlyPeer(Context context,ViewGroup parent) {
+            root = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.msg__row_image_only_peer,parent ,false);
+            msg_content_holder = (RelativeLayout) root.findViewById( R.id.msg_content_holder);
+            image_holder = (ChatMediaNetworkLoader) root.findViewById( R.id.image_holder);
+            msg_time = (XTextView) root.findViewById( R.id.msg_time);
+        }
+        public Msg_RowImageOnlyPeer() {
+            this(AppUtil.getContext(),null);
+        }
+
+        public Msg_RowImageOnlyPeer(Context context) {
+            this(context ,null);
+        }
+
+        public Msg_RowImageOnlyPeer(ViewGroup parent) {
+            this(AppUtil.getContext() ,parent);
+        }
+
+        public static class IDS {
+            public static int LAYOUT = R.layout.msg__row_image_only_peer;
+            public static int msg_content_holder = R.id.msg_content_holder;
+            public static int image_holder = R.id.image_holder;
+            public static int msg_time = R.id.msg_time;
         }
     }
 
@@ -2663,14 +2757,14 @@ public class X {
     }
 
     public static class Msg_RowTextMe {
-        public LinearLayout root;
+        public MsgRowParentLinearLayout root;
         public LinearLayout msg_content_holder;
         public XTextView msg_text;
         public TextView msg_time;
         public TextView msg_delivery_status;
 
         public Msg_RowTextMe(Context context,ViewGroup parent) {
-            root = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.msg__row_text_me,parent ,false);
+            root = (MsgRowParentLinearLayout) LayoutInflater.from(context).inflate(R.layout.msg__row_text_me,parent ,false);
             msg_content_holder = (LinearLayout) root.findViewById( R.id.msg_content_holder);
             msg_text = (XTextView) root.findViewById( R.id.msg_text);
             msg_time = (TextView) root.findViewById( R.id.msg_time);
@@ -2698,13 +2792,13 @@ public class X {
     }
 
     public static class Msg_RowTextPeer {
-        public LinearLayout root;
+        public MsgRowParentLinearLayout root;
         public LinearLayout msg_content_holder;
         public XTextView msg_text;
         public TextView msg_time;
 
         public Msg_RowTextPeer(Context context,ViewGroup parent) {
-            root = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.msg__row_text_peer,parent ,false);
+            root = (MsgRowParentLinearLayout) LayoutInflater.from(context).inflate(R.layout.msg__row_text_peer,parent ,false);
             msg_content_holder = (LinearLayout) root.findViewById( R.id.msg_content_holder);
             msg_text = (XTextView) root.findViewById( R.id.msg_text);
             msg_time = (TextView) root.findViewById( R.id.msg_time);

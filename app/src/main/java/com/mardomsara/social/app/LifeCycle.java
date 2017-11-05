@@ -71,7 +71,7 @@ public class LifeCycle {
 		Crashlytics.log("Higgs-Boson detected! Bailing out...");
 		Crashlytics.getInstance().core.setUserEmail("aSa@gmail.com");
 		Crashlytics.getInstance().core.setUserIdentifier("158");
-		Crashlytics.getInstance().core.setUserName("AtashN");
+		Crashlytics.getInstance().core.setUserName("AtashN 25k s");
 
 		Play_RunOnStart.run();
 
@@ -80,11 +80,12 @@ public class LifeCycle {
 
 	public static void initFromBackground(Context ctx) {
 		initCommon(ctx);
+		AppUtil.setContext(ctx);
 		onAfterAppStartedCommon();
 	}
 
 	public static void initCommon(Context ctx) {
-		AppUtil._context = ctx;
+		AppUtil.setContext(ctx);
 		App.context = ctx;
 
 		//init SHared Prefrences
