@@ -18,7 +18,7 @@ import java.util.Arrays;
  */
 public class Play_FormsPresenter extends BasePresenter {
 
-//    @Bind(R.id.fullname) TextView fullname;
+//    @BindView(R.id.fullname) TextView fullname;
 
     ViewGroup viewRoot;
 

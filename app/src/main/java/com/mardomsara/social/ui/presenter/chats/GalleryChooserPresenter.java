@@ -35,7 +35,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import pl.tajchert.nammu.Nammu;
@@ -55,9 +55,9 @@ public class GalleryChooserPresenter extends BasePresenter {
 //    public ChatRoomPresenter_OLD chatEntryPresenter;
     public ChatRoomEntryPresenter chatEntryPresenter;
 
-    @Bind(R.id.view_pager)
+    @BindView(R.id.view_pager)
     ViewPager view_pager;
-    @Bind(R.id.tab_layout)
+    @BindView(R.id.tab_layout)
     TabLayout tab_layout;
 
     View v;
@@ -135,7 +135,7 @@ public class GalleryChooserPresenter extends BasePresenter {
 
     /////////////////////////////////////////////////////////////////////////
     class MediaExplorer extends BasePresenter {
-        @Bind(R.id.recycler_view) RecyclerView recycler_view;
+        @BindView(R.id.recycler_view) RecyclerView recycler_view;
         Map<Long,Bitmap> _cache= new HashMap();
 //        Map<Integer, String> thumbs_paths_map= null;
         MediaType type;
@@ -182,10 +182,10 @@ public class GalleryChooserPresenter extends BasePresenter {
 
             class ViewHolder extends RecyclerView.ViewHolder{
                 View v;
-                @Bind(R.id.image_view) SimpleDraweeView image_view;
-                @Bind(R.id.folder_name) TextView folder_name;
-                @Bind(R.id.folder_count) TextView folder_count;
-                @Bind(R.id.icon_video) TextView icon_video;
+                @BindView(R.id.image_view) SimpleDraweeView image_view;
+                @BindView(R.id.folder_name) TextView folder_name;
+                @BindView(R.id.folder_count) TextView folder_count;
+                @BindView(R.id.icon_video) TextView icon_video;
                 public ViewHolder(View itemView) {
 
                     super(itemView);
@@ -236,12 +236,12 @@ public class GalleryChooserPresenter extends BasePresenter {
 
     class MediaBrowserFolderInsidePresenter extends BasePresenter {
         MediaType type;
-        @Bind(R.id.recycler_view) RecyclerView recycler_view;
-        @Bind(R.id.left_side) View left_side;
-        @Bind(R.id.text_icon) TextView text_icon;
-        @Bind(R.id.send_btn) TextView send_btn;
-        @Bind(R.id.back_btn) TextView back_btn;
-        @Bind(R.id.title) TextView title;
+        @BindView(R.id.recycler_view) RecyclerView recycler_view;
+        @BindView(R.id.left_side) View left_side;
+        @BindView(R.id.text_icon) TextView text_icon;
+        @BindView(R.id.send_btn) TextView send_btn;
+        @BindView(R.id.back_btn) TextView back_btn;
+        @BindView(R.id.title) TextView title;
 
         List<String> selectedReal = new ArrayList<>();
         List<String> selectedThumbs = new ArrayList<>();
@@ -332,8 +332,8 @@ public class GalleryChooserPresenter extends BasePresenter {
 
             class ViewHolder extends RecyclerView.ViewHolder {
                 View v;
-                @Bind(R.id.image) SimpleDraweeView image_view;
-                @Bind(R.id.text_holder) View text_holder;
+                @BindView(R.id.image) SimpleDraweeView image_view;
+                @BindView(R.id.text_holder) View text_holder;
                 String thumbsSignatuer;// for images: thumb_path for video: path+id
                 MediaCursor _curser;
                 long mediaId;

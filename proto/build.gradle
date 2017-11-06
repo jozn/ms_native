@@ -1,9 +1,12 @@
 apply plugin: 'com.android.library'
-apply plugin: 'me.tatarka.retrolambda'
+apply plugin: 'me.tatarka.retrolambda' //keep retrolambda for this module other wise will face build problems
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion '25.0.3'
+   /* compileSdkVersion 25
+    buildToolsVersion '26.0.2'*/
+
+    compileSdkVersion  rootProject.ext.compileSdkVersion
+    buildToolsVersion  rootProject.ext.buildToolsVersion
 
     //for retrolambda
     compileOptions {
@@ -12,10 +15,11 @@ android {
     }
 
     defaultConfig {
-        minSdkVersion 16
-        targetSdkVersion 25
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+        multiDexEnabled rootProject.ext.multiDexEnabled
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 

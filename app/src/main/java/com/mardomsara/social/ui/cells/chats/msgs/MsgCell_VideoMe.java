@@ -9,18 +9,18 @@ import com.mardomsara.social.R;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.models_old.tables.Message;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
  * Created by Hamid on 6/13/2016.
  */
 public class MsgCell_VideoMe extends MsgCell_AbstractViewHolder {
-    @Bind(R.id.msg_time) TextView time_txt;
-    @Bind(R.id.msg_delivery_status) TextView msg_delivery_status;
-    @Bind(R.id.msg_text) TextView msg_text;
-    @Bind(R.id.msg_image) SimpleDraweeView msg_image;
-    @Bind(R.id.msg_content_holder) ViewGroup msg_content_holder;
+    @BindView(R.id.msg_time) TextView time_txt;
+    @BindView(R.id.msg_delivery_status) TextView msg_delivery_status;
+    @BindView(R.id.msg_text) TextView msg_text;
+    @BindView(R.id.msg_image) SimpleDraweeView msg_image;
+    @BindView(R.id.msg_content_holder) ViewGroup msg_content_holder;
 //    LinkerText msg_text;
     Message msg;
 

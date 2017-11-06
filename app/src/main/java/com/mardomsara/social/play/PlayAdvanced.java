@@ -10,11 +10,11 @@ import android.widget.TextView;
 
 import com.mardomsara.social.R;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class PlayAdvanced extends AppCompatActivity {
-    @Bind(R.id.output) TextView output_text;
+    @BindView(R.id.output) TextView output_text;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

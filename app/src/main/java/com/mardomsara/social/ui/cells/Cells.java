@@ -18,7 +18,7 @@ import com.mardomsara.social.lib.Spanny;
 import com.mardomsara.social.ui.X;
 import com.mardomsara.social.ui.views.wigets.SimpleTopNav;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -31,9 +31,9 @@ public class Cells {
 
     public static class NavAndRecylerView {
         public ViewGroup rootView;
-        @Bind(R.id.simpleTopNav)
+        @BindView(R.id.simpleTopNav)
         public SimpleTopNav simpleTopNav;
-        @Bind(R.id.recycler_view)
+        @BindView(R.id.recycler_view)
         public RecyclerView recyclerView;
 
 
@@ -45,7 +45,7 @@ public class Cells {
 
     public static class NavAndEmptyView {
         public ViewGroup rootView;
-        @Bind(R.id.simpleTopNav)
+        @BindView(R.id.simpleTopNav)
         public SimpleTopNav simpleTopNav;
 
         public NavAndEmptyView() {
@@ -56,10 +56,10 @@ public class Cells {
 
 	public static class NavAndScrollContainer {
 		public ViewGroup rootView;
-		@Bind(R.id.simpleTopNav)
+		@BindView(R.id.simpleTopNav)
 		public SimpleTopNav simpleTopNav;
 
-		@Bind(R.id.container)
+		@BindView(R.id.container)
 		public ViewGroup container;
 
 		public NavAndScrollContainer() {
