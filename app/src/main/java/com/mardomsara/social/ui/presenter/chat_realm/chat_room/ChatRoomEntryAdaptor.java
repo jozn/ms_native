@@ -90,7 +90,7 @@ public class ChatRoomEntryAdaptor extends BaseRealmRecyclerViewAdapter<RealmMess
 		helper.bindToView(wrapper);
 		if (helper.getGrandView() instanceof MsgRowParentLinearLayout) {
 			try {
-				if (wrapperHolder.realmResults.size() >= position + 1) {
+				if (wrapperHolder.realmResults.size() > position + 1) {
 					String sep = FormaterUtil.friendlyMsgSeprationTime(item.CreatedSe, wrapperHolder.realmResults.get(position + 1).CreatedSe);
 					((MsgRowParentLinearLayout) helper.getGrandView()).setTime(sep);
 				} else {
@@ -99,6 +99,7 @@ public class ChatRoomEntryAdaptor extends BaseRealmRecyclerViewAdapter<RealmMess
 				}
 			} catch (Exception e) {
 				((MsgRowParentLinearLayout) helper.getGrandView()).hide();
+				e.printStackTrace();
 			}
 		}
 	}
