@@ -11,6 +11,8 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Locale;
 
+import javax.annotation.Nullable;
+
 /**
  * Created by Hamid on 5/9/2016.
  */
@@ -86,6 +88,30 @@ public class FormaterUtil {
 		PersianDateTime pd  = PersianDateTime.valueOf(milisconds);
         return ""+pd.getDay()+ halfSpace + pd.getMonthName();
     }
+
+    @Nullable
+	public static String friendlyMsgSeprationTime(long sec , long befoer) {
+    	Date old = new Date(befoer);
+		if((old.getTime() - sec) > 86400 ){
+			return justDayAndMonth(sec);
+		}
+		Date d = new Date(sec);
+		Calendar calendar = GregorianCalendar.getInstance();
+		calendar.setTimeInMillis(sec*1000);
+		int dayMsg = calendar.get(Calendar.DAY_OF_MONTH);
+
+		calendar.setTimeInMillis(old.getTime()*1000);
+		int dayOlder = calendar.get(Calendar.DAY_OF_MONTH);
+		if(dayOlder !=  dayMsg){
+			return justDayAndMonth(sec);
+		}
+
+		return null;
+	}
+    static String justDayAndMonth(long sec){
+		PersianDateTime pd  = PersianDateTime.valueOf(((long)sec)*1000);
+		return ""+pd.getDay()+ halfSpace + pd.getMonthName();
+	}
 
     public static String fullyDayMonthYear(long milisconds){
        PersianDateTime pd  = PersianDateTime.valueOf(milisconds);

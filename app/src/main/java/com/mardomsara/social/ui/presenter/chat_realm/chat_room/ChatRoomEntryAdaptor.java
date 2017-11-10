@@ -5,6 +5,8 @@ import android.view.ViewGroup;
 import com.mardomsara.base_rv.BaseRealmRecyclerViewAdapter;
 import com.mardomsara.social.app.AppLogger;
 import com.mardomsara.social.helpers.AppUtil;
+import com.mardomsara.social.helpers.FormaterUtil;
+import com.mardomsara.social.helpers.TimeUtil;
 import com.mardomsara.social.models_realm.pb_realm.RealmMessageView;
 import com.mardomsara.social.ui.presenter.chat_realm.chat_room.msgs.MsgCell_AbstractViewHolder;
 import com.mardomsara.social.ui.presenter.chat_realm.chat_room.msgs.MsgCell_Empty;
@@ -17,6 +19,8 @@ import com.mardomsara.social.ui.presenter.chat_realm.chat_room.msgs.MsgCell_Text
 import com.mardomsara.social.ui.presenter.chat_realm.chat_room.msgs.MsgCell_VideoMe;
 import com.mardomsara.social.ui.presenter.chat_realm.chat_room.views.MsgRowParentLinearLayout;
 
+import java.util.Date;
+
 import ir.ms.pb.RoomMessageTypeEnum;
 
 /**
@@ -28,7 +32,7 @@ public class ChatRoomEntryAdaptor extends BaseRealmRecyclerViewAdapter<RealmMess
 	RealmViewWrapperHolder wrapperHolder;
 
 	public ChatRoomEntryAdaptor(RealmViewWrapperHolder data) {
-		super(data.realmResults,true);
+		super(data.realmResults, true);
 		this.wrapperHolder = data;
 
 		setMultiTypeDelegate(new MultiDelegate());
@@ -80,12 +84,22 @@ public class ChatRoomEntryAdaptor extends BaseRealmRecyclerViewAdapter<RealmMess
 	}
 
 	@Override
-	protected void convert(MsgCell_AbstractViewHolder helper, RealmMessageView item) {
+	protected void convert(MsgCell_AbstractViewHolder helper, RealmMessageView item, int position) {
 		RealmMessageViewWrapper wrapper = new RealmMessageViewWrapper(item);
 //		wrapper.messageView = item;
 		helper.bindToView(wrapper);
-		if(helper.getGrandView() instanceof MsgRowParentLinearLayout){
-			((MsgRowParentLinearLayout) helper.getGrandView()).setTime("8 مهر");
+		if (helper.getGrandView() instanceof MsgRowParentLinearLayout) {
+			try {
+				if (wrapperHolder.realmResults.size() >= position + 1) {
+					String sep = FormaterUtil.friendlyMsgSeprationTime(item.CreatedSe, wrapperHolder.realmResults.get(position + 1).CreatedSe);
+					((MsgRowParentLinearLayout) helper.getGrandView()).setTime(sep);
+				} else {
+					String sep = FormaterUtil.friendlyMsgSeprationTime(item.CreatedSe, TimeUtil.getTimeSecInt());
+					((MsgRowParentLinearLayout) helper.getGrandView()).setTime(sep);
+				}
+			} catch (Exception e) {
+				((MsgRowParentLinearLayout) helper.getGrandView()).hide();
+			}
 		}
 	}
 }

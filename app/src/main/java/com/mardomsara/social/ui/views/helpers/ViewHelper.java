@@ -91,15 +91,23 @@ public class ViewHelper {
 
     public static void setViewSizesPrecentaion(View view, float percent){
         int width = (int) (AndroidUtil.getScreenWidth() * percent);
-        ViewGroup.LayoutParams sizes;
+        ViewGroup.LayoutParams sizes = view.getLayoutParams();
         if(view.getParent() instanceof LinearLayout){
-            sizes = new LinearLayout.LayoutParams(width, LinearLayout.LayoutParams.WRAP_CONTENT);
+//            sizes = new LinearLayout.LayoutParams(width, LinearLayout.LayoutParams.WRAP_CONTENT);
+           sizes.width = width;
+           sizes.height = LinearLayout.LayoutParams.WRAP_CONTENT;
         }else if(view.getParent() instanceof FrameLayout){
-            sizes = new FrameLayout.LayoutParams(width,FrameLayout.LayoutParams.WRAP_CONTENT);
+//            sizes = new FrameLayout.LayoutParams(width,FrameLayout.LayoutParams.WRAP_CONTENT);
+			sizes.width = width;
+			sizes.height = FrameLayout.LayoutParams.WRAP_CONTENT;
         }else if(view.getParent() instanceof RelativeLayout){
-            sizes = new RelativeLayout.LayoutParams(width,-2);
+//            sizes = new RelativeLayout.LayoutParams(width,-2);
+			sizes.width = width;
+			sizes.height = RelativeLayout.LayoutParams.WRAP_CONTENT;
         }else{
-            sizes = new ViewGroup.LayoutParams(width,-2);
+//            sizes = new ViewGroup.LayoutParams(width,-2);
+			sizes.width = width;
+			sizes.height = RelativeLayout.LayoutParams.WRAP_CONTENT;
         }
 //        Log.d("Image","setImageSizesWithMaxPx() imageView Sizes: "+width +" "+ height);
 

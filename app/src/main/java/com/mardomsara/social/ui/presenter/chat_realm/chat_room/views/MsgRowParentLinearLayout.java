@@ -34,6 +34,15 @@ public class MsgRowParentLinearLayout extends LinearLayout {
 	}
 
 	public void setTime(String time){
-		dateSepration.date_text.setText(time);
+		if(time == null){
+			dateSepration.root.setVisibility(GONE);
+		}else {
+			dateSepration.root.setVisibility(VISIBLE);
+			dateSepration.date_text.setText(time);
+		}
+	}
+
+	public void hide(){
+		dateSepration.root.setVisibility(GONE);
 	}
 }

@@ -45,7 +45,7 @@ final class InboxChatsListAdaptor extends BaseRealmRecyclerViewAdapter<RealmChat
 	}
 
 	@Override
-	protected void convert(RV helper, RealmChatView item) {
+	protected void convert(RV helper, RealmChatView item,int postion) {
 //		super.convert();
 		helper.bind(item);
 	}

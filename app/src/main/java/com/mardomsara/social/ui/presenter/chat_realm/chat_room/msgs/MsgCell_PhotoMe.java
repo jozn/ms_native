@@ -23,14 +23,14 @@ public class MsgCell_PhotoMe extends MsgCell_AbstractViewHolder {
 	RealmMessageView msg;
 	RealmMessageViewWrapper wrapper;
 
-    public MsgCell_PhotoMe(X.Msg_RowImageMe xv) {
+    private MsgCell_PhotoMe(X.Msg_RowImageMe xv) {
         super(xv.root);
 		x = xv;
 		imageWrapper = new MsgImageWrapper(xv.image_holder);
     }
 
     public static MsgCell_PhotoMe makeNew(ViewGroup parent){
-        return new MsgCell_PhotoMe(new X.Msg_RowImageMe(parent));
+        return new MsgCell_PhotoMe(new X.Msg_RowImageMe(parent.getContext(), parent));
     }
 
     @Override
