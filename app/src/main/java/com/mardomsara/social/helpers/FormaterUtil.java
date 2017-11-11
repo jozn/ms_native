@@ -90,24 +90,39 @@ public class FormaterUtil {
     }
 
     @Nullable
-	public static String friendlyMsgSeprationTime(long sec , long befoer) {
-    	Date old = new Date(befoer);
-		if((old.getTime() - sec) > 86400 ){
-			return justDayAndMonth(sec);
+	public static String friendlyMsgSeprationTime(long thisMsgSec , long befoerSec) {
+//    	Date old = new Date(befoerSec);
+		if(Math.abs(thisMsgSec - befoerSec) > 86400 ){
+			//return justDayAndMonth(thisMsgSec);
 		}
-		Date d = new Date(sec);
+//		Date d = new Date(thisMsgSec);
 		Calendar calendar = GregorianCalendar.getInstance();
-		calendar.setTimeInMillis(sec*1000);
-		int dayMsg = calendar.get(Calendar.DAY_OF_MONTH);
+		calendar.setTimeInMillis(thisMsgSec*1000);
+		int dayMsg = calendar.get(Calendar.DAY_OF_YEAR);
 
-		calendar.setTimeInMillis(old.getTime()*1000);
-		int dayOlder = calendar.get(Calendar.DAY_OF_MONTH);
+		calendar.setTimeInMillis(befoerSec*1000);
+		int dayOlder = calendar.get(Calendar.DAY_OF_YEAR);
+
+		/*if(dayOlder ==  dayMsg){
+			return "" + dayOlder + " " +dayMsg + "امروز";
+		}*/
+
 		if(dayOlder !=  dayMsg){
-			return justDayAndMonth(sec);
+//			return justDayAndMonth(thisMsgSec);
+			Date now = new Date();
+			calendar.setTime(now);
+			int dayToday = calendar.get(Calendar.DAY_OF_YEAR);
+			if(Math.abs((now.getTime()/1000) - thisMsgSec) < 86400){
+				if(dayToday ==  dayMsg){
+					return "امروز";
+				}
+				return "دیروز";
+			}
+			return justDayAndMonth(thisMsgSec);
 		}
-
 		return null;
 	}
+
     static String justDayAndMonth(long sec){
 		PersianDateTime pd  = PersianDateTime.valueOf(((long)sec)*1000);
 		return ""+pd.getDay()+ halfSpace + pd.getMonthName();
