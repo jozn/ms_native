@@ -91,11 +91,6 @@ public class FormaterUtil {
 
     @Nullable
 	public static String friendlyMsgSeprationTime(long thisMsgSec , long befoerSec) {
-//    	Date old = new Date(befoerSec);
-		if(Math.abs(thisMsgSec - befoerSec) > 86400 ){
-			//return justDayAndMonth(thisMsgSec);
-		}
-//		Date d = new Date(thisMsgSec);
 		Calendar calendar = GregorianCalendar.getInstance();
 		calendar.setTimeInMillis(thisMsgSec*1000);
 		int dayMsg = calendar.get(Calendar.DAY_OF_YEAR);
@@ -103,12 +98,7 @@ public class FormaterUtil {
 		calendar.setTimeInMillis(befoerSec*1000);
 		int dayOlder = calendar.get(Calendar.DAY_OF_YEAR);
 
-		/*if(dayOlder ==  dayMsg){
-			return "" + dayOlder + " " +dayMsg + "امروز";
-		}*/
-
 		if(dayOlder !=  dayMsg){
-//			return justDayAndMonth(thisMsgSec);
 			Date now = new Date();
 			calendar.setTime(now);
 			int dayToday = calendar.get(Calendar.DAY_OF_YEAR);
