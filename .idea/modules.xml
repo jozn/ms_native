@@ -4,9 +4,9 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/MS_Native.iml" filepath="$PROJECT_DIR$/MS_Native.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/demo/demo.iml" filepath="$PROJECT_DIR$/demo/demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/proto/proto.iml" filepath="$PROJECT_DIR$/proto/proto.iml" />
-      <module fileurl="file://$PROJECT_DIR$/subutil/subutil.iml" filepath="$PROJECT_DIR$/subutil/subutil.iml" />
-      <module fileurl="file://$PROJECT_DIR$/utilcode/utilcode.iml" filepath="$PROJECT_DIR$/utilcode/utilcode.iml" />
+      <module fileurl="file://$PROJECT_DIR$/simpleplay/simpleplay.iml" filepath="$PROJECT_DIR$/simpleplay/simpleplay.iml" />
       <module fileurl="file://D:\dev_working2\MS_Native\utils\utils.iml" filepath="D:\dev_working2\MS_Native\utils\utils.iml" />
     </modules>
   </component>

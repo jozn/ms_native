@@ -23,6 +23,7 @@ import com.mardomsara.social.models_realm.pb_realm.RealmMessageViewFields;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.X;
 import com.mardomsara.social.ui.cells.general.KeyboardAttachmentCell;
+import com.mardomsara.social.ui.presenter.chats.GalleryChooserPresenter;
 import com.mardomsara.social.ui.views.EmojiKeyboard;
 import com.squareup.picasso.Picasso;
 import com.sw926.imagefileselector.ImageFileSelector;
@@ -194,11 +195,11 @@ public class ChatRoomEntryPresenter extends BasePresenter implements
 
 	@Override
 	public void onGalleryClick() {
-        /*attachment_view.dismiss();
+        attachment_view.dismiss();
         GalleryChooserPresenter gallery =new GalleryChooserPresenter();
-        FIxme: gallery.chatEntryPresenter to interface
-//        gallery.chatEntryPresenter = this;
-        Nav.push(gallery);*/
+       // FIxme: gallery.chatEntryPresenter to interface
+        gallery.chatEntryPresenter = this;
+        Nav.push(gallery);
 	}
 
 	@Override

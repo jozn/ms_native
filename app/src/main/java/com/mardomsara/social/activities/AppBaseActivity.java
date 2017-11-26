@@ -79,6 +79,7 @@ public abstract class AppBaseActivity extends AppCompatActivity {
 	protected void onRestoreInstanceState(Bundle savedInstanceState) {
 		super.onRestoreInstanceState(savedInstanceState);
 		logIt("onRestoreInstanceState");
+		Helper.showDebugMessage("onRestoreInstanceState");
 	}
 
 	@Override
@@ -112,6 +113,7 @@ public abstract class AppBaseActivity extends AppCompatActivity {
 	public void onSaveInstanceState(Bundle outState) {
 		super.onSaveInstanceState(outState);
 		logIt("onSaveInstanceState");
+		Helper.showDebugMessage("onSaveInstanceState");
 	}
 
 

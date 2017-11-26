@@ -30,6 +30,20 @@ public class Play_WSCallPresenter extends BasePresenter {
         ViewGroup rootView =cell.rootView;
         ViewGroup layout =cell.layout;
 
+		layout.addView(newTitle("Matisse ",()->{
+			/*Matisse.from(getActivity())
+				.choose(MimeType.ofAll())
+				.countable(true)
+				.maxSelectable(9)
+				.gridExpectedSize(4)
+				//.addFilter(new GifSizeFilter(320, 320, 5 * Filter.K * Filter.K))
+				.gridExpectedSize(layout.getContext().getResources().getDimensionPixelSize(R.dimen.app_bar_height))
+				.restrictOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED)
+				.thumbnailScale(0.85f)
+				.imageEngine(new PicassoEngine())
+				.forResult(26);*/
+		}));
+
         layout.addView(newTitle("Call Echo ",()->{
             callEcho();
         }));

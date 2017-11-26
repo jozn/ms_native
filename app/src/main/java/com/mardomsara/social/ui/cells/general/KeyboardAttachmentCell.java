@@ -41,7 +41,8 @@ public class KeyboardAttachmentCell implements RecentImagesCell.onRecentImageCli
 
         //view containg icons
         View main_content = x.root.findViewById(R.id.attachment_main);
-        main_content.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, keyboardSize));
+        main_content.setLayoutParams(
+                        new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, keyboardSize));
 
         setRecentImages();
         _updateCloseBtn();

@@ -17,6 +17,7 @@ public class J {
 		public Integer Server1Id;
 		public Integer Server2Id;
 		public Integer BackupServerId;
+		public Integer Ba52ckupServerId;
 		public Integer ContentObjectTypeId;
 		public Integer ContentObjectCount;
 		public Integer CreatedTime;

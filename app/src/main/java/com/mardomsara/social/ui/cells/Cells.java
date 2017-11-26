@@ -221,7 +221,8 @@ public class Cells {
 		public X.Pager_RecyclerviewWithRefresher wrapView;
 		LinearLayoutManager layoutManager;
 
-		public Pager_RecyclerView(AppHeaderFooterRecyclerViewAdapter adaptor, AppHeaderFooterRecyclerViewAdapter.LoadNextPage pager) {
+		public Pager_RecyclerView(AppHeaderFooterRecyclerViewAdapter adaptor,
+		 AppHeaderFooterRecyclerViewAdapter.LoadNextPage pager) {
 			wrapView = new X.Pager_RecyclerviewWithRefresher();
 			layoutManager = new LinearLayoutManager(AppUtil.getContext());
 			wrapView.recycler_view.setLayoutManager(layoutManager);
