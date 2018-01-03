@@ -7,13 +7,10 @@ import android.text.Spanned;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
 import android.text.style.StyleSpan;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.mardomsara.social.Nav;
-import com.mardomsara.social.helpers.AppUtil;
+import com.mardomsara.social.Nav_DEP;
 import com.mardomsara.social.lib.AppClickableSpan;
 import com.mardomsara.social.ui.presenter.pages.ProfilePage;
 import com.mardomsara.social.ui.presenter.pages.TagsPage;
@@ -33,7 +30,7 @@ public class XTextViewUtils {
 			@Override
 			public void onClick(View view) {
 //				Toast.makeText(AppUtil.getContext(), s, Toast.LENGTH_LONG).show();
-				Nav.push(new ProfilePage(s.toString()));
+				Nav_DEP.push(new ProfilePage(s.toString()));
 			}
 		};
 		return clickableSpan;
@@ -45,7 +42,7 @@ public class XTextViewUtils {
 			@Override
 			public void onClick(View view) {
 //                Toast.makeText(AppUtil.getContext(), s, Toast.LENGTH_LONG).show();
-				Nav.push(new TagsPage(s.toString()));
+				Nav_DEP.push(new TagsPage(s.toString()));
 			}
 		};
 		return clickableSpan;

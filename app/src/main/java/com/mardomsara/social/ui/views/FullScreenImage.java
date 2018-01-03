@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.PopupWindow;
 
-import com.mardomsara.social.Nav;
+import com.mardomsara.social.Nav_DEP;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.ui.X;
@@ -26,7 +26,7 @@ public class FullScreenImage {
     public String imageUrlPath;
     public File imageFile;
 
-    Nav.OnBackPressHandler backHandler = ()->{
+    Nav_DEP.OnBackPressHandler backHandler = ()->{
         close();
         return true;
     };
@@ -39,7 +39,7 @@ public class FullScreenImage {
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT);
 
-        Nav.addCustomOnBackPressHandler(backHandler);
+        Nav_DEP.addCustomOnBackPressHandler(backHandler);
 
         x.back_btn.setOnClickListener((v)->{
             close();
@@ -77,7 +77,7 @@ public class FullScreenImage {
     }
 
     private void close() {
-        Nav.removeCustomOnBackPressHandler(backHandler);
+        Nav_DEP.removeCustomOnBackPressHandler(backHandler);
 		AppUtil.unDimStatusBar();
         attachWindow.dismiss();
     }

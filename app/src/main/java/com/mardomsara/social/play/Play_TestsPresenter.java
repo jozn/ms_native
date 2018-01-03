@@ -3,7 +3,7 @@ package com.mardomsara.social.play;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.mardomsara.social.Nav;
+import com.mardomsara.social.Nav_DEP;
 import com.mardomsara.social.play.presenters.Play_DiaolgPresenter;
 import com.mardomsara.social.play.presenters.Play_FormsPresenter;
 import com.mardomsara.social.play.presenters.Play_Http2TestPresenter;
@@ -29,45 +29,45 @@ public class Play_TestsPresenter extends BasePresenter {
         ViewGroup layout =cell.layout;
 
         layout.addView(newTitle("همه حذف",()->{
-            Nav.push(new HelloPresenter());
+            Nav_DEP.push(new HelloPresenter());
         }));
 
         layout.addView(newTitle("Http2 play test",()->{
-            Nav.push(new Play_Http2TestPresenter());
+            Nav_DEP.push(new Play_Http2TestPresenter());
         }));
 
 		layout.addView(newTitle("Ws Call tsest",()->{
-			Nav.push(new Play_WSCallPresenter());
+			Nav_DEP.push(new Play_WSCallPresenter());
 		}));
 
 		layout.addView(newTitle("Dialogs ",()->{
-			Nav.push(new Play_DiaolgPresenter());
+			Nav_DEP.push(new Play_DiaolgPresenter());
 		}));
 
 		layout.addView(newTitle("Edits ",()->{
-			Nav.push(new Play_FormsPresenter());
+			Nav_DEP.push(new Play_FormsPresenter());
 		}));
 
 		layout.addView(newTitle("Recipies ",()->{
-			Nav.push(new Play_RecipiesPresenter());
+			Nav_DEP.push(new Play_RecipiesPresenter());
 		}));
 
 		layout.addView(newTitle("XIcons ",()->{
-			Nav.push(new Play_XIconPresneter());
+			Nav_DEP.push(new Play_XIconPresneter());
 		}));
 
 		layout.addView(newTitle("XLinkerTextView ",()->{
-			Nav.push(new Play_XTextViews());
+			Nav_DEP.push(new Play_XTextViews());
 		}));
 
 
 		layout.addView(newTitle("Colores ",()->{
-			Nav.push(new Play_XTextColorsViews());
+			Nav_DEP.push(new Play_XTextColorsViews());
 		}));
 
 
 		layout.addView(newTitle("Realm",()->{
-			Nav.push(new Play_Realm());
+			Nav_DEP.push(new Play_Realm());
 		}));
 
 /*

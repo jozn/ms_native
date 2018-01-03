@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.mardomsara.social.Nav;
+import com.mardomsara.social.Nav_DEP;
 import com.mardomsara.social.base.Http.Http;
 import com.mardomsara.social.base.Http.Result;
 import com.mardomsara.social.helpers.AndroidUtil;
@@ -138,7 +138,7 @@ public class SuggestionsTagsPresenter extends BasePresenter implements AppHeader
             x.text.setText("#"+tagJson.Tag.Name);
 
 			x.see_more.setOnClickListener((v)->{
-				Nav.push(new TagsPage(tagJson.Tag.Name));
+				Nav_DEP.push(new TagsPage(tagJson.Tag.Name));
 			});
 			x.see_more.setTypeface(FontCache.getIranLight());
 			x.see_more.setText("همه {ion-ios-arrow-left 12dp}");
@@ -180,7 +180,7 @@ public class SuggestionsTagsPresenter extends BasePresenter implements AppHeader
                     .into(image);
 
             View.OnClickListener onClick = (v)->{
-                Nav.push(new PostEntryPage(post));
+                Nav_DEP.push(new PostEntryPage(post));
             };
 
             image.setOnClickListener(onClick);

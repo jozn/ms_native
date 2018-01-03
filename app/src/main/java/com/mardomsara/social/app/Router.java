@@ -1,6 +1,6 @@
 package com.mardomsara.social.app;
 
-import com.mardomsara.social.Nav;
+import com.mardomsara.social.Nav_DEP;
 import com.mardomsara.social.PresenterPage;
 import com.mardomsara.social.json.JV;
 import com.mardomsara.social.models_old.RoomModel;
@@ -75,20 +75,20 @@ public class Router {
     }
 
     public static void goToProfile(int userId) {
-        Nav.push(new ProfilePage(userId));
+        Nav_DEP.push(new ProfilePage(userId));
     }
 
 	public static void goToPost(JV.PostView postView) {
-		Nav.push(new PostEntryPage(postView));
+		Nav_DEP.push(new PostEntryPage(postView));
 	}
 
     public static void goToTag(String tag) {
-        Nav.push(new TagsPage(tag));
+        Nav_DEP.push(new TagsPage(tag));
     }
 
     public static void goToUserChatEntry(int UserId){
         Room room = RoomModel.getRoomByForUserAndLoadUser(UserId);
-        Nav.push(Router.getRoomEntry(room));
+        Nav_DEP.push(Router.getRoomEntry(room));
     }
 
     public static ProfilePage getMyProfile() {
@@ -100,7 +100,7 @@ public class Router {
 	}
 
     public static void goToMyProfile() {
-        Nav.push(new ProfilePage(Session.getUserId()));
+        Nav_DEP.push(new ProfilePage(Session.getUserId()));
     }
 
 

@@ -10,18 +10,24 @@ import com.mardomsara.social.Nav_DEP;
 import com.mardomsara.social.R;
 import com.mardomsara.social.app.LifeCycle;
 import com.mardomsara.social.helpers.AppUtil;
+import com.mardomsara.social.nav.AppState;
+import com.mardomsara.social.nav.Nav;
 
 /**
  * Created by Hamid on 1/31/2016.
  */
-public class MainAppActivity extends AppBaseActivity {
-	public static MainAppActivity instance;
+public class MainNewAppActivity extends AppBaseActivity {
+	public static MainNewAppActivity instance;
 
 	@Override
 	public void onBackPressed() {
-		if (!Nav_DEP.onBackPress()) {
-			super.onBackPressed();
+		if(!Nav.onBackPressed()){
+			finishAfterTransition();
+//			super.onBackPressed();
 		}
+		/*if (!Nav_DEP.onBackPress()) {
+			super.onBackPressed();
+		}*/
 	}
 
 	@Override
@@ -29,7 +35,7 @@ public class MainAppActivity extends AppBaseActivity {
 		super.onCreate(savedInstanceState);
 		instance = this;
 
-		setContentView(R.layout.activity_main_app);
+		setContentView(R.layout.activity_main_new_app);
 		ViewGroup global_window = (ViewGroup) findViewById(R.id.global_window);
 		AppUtil.global_window = global_window;
 
@@ -44,21 +50,26 @@ public class MainAppActivity extends AppBaseActivity {
 		App.mFragmentManager = getSupportFragmentManager();
 
 		///////// Nav ////////////
-		ViewGroup container = (ViewGroup) findViewById(R.id.frag1);
+		ViewGroup container = (ViewGroup) findViewById(R.id.fg1);
 		ViewGroup foooter = (ViewGroup) findViewById(R.id.footerbar_holder);
-		Nav_DEP.setUpDefault(container, foooter);
-		Nav_DEP.setUpFooterBar();
+//		Nav_DEP.setUpDefault(container, foooter);
+//		Nav_DEP.setUpFooterBar();
 		/////////////////////////
 
 		LifeCycle.onAppActivityStarted();
 
 		EmojiconsPopup.setUpLayoutListnr(global_window);
+
+		///////////// new Nav setup ///////
+		AppState.getInstance().mainActivity = this;
+		AppState.getInstance().rootView = global_window;
+		Nav.setUpDef();
 	}
 
 	@Override
 	public void onDestroy() {
 		super.onDestroy();
-		Nav_DEP.reset();
+//		Nav_DEP.reset();
 	}
 
 	//Fixme Nav.onActivityResult() must be called getDefulat
@@ -66,7 +77,13 @@ public class MainAppActivity extends AppBaseActivity {
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
 		logIt("onActivityResult :" + requestCode + " " + resultCode + " " + data);
-		Nav_DEP.onActivityResult(requestCode, resultCode, data);
+//		Nav_DEP.onActivityResult(requestCode, resultCode, data);
+	}
+
+	@Override
+	public void onSaveInstanceState(Bundle outState) {
+		super.onSaveInstanceState(outState);
+		outState.putString("K", "klkiopkjh " );
 	}
 
 

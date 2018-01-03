@@ -2,7 +2,7 @@ package com.mardomsara.social.ui.presenter.pages.add_post;
 
 import android.view.View;
 
-import com.mardomsara.social.Nav;
+import com.mardomsara.social.Nav_DEP;
 import com.mardomsara.social.base.Http.Http;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.Helper;
@@ -24,10 +24,10 @@ public class AddPostPage extends BasePresenter {
 		x = new X.AddPost_Container();
 
 		x.gallery_btn.setOnClickListener((v) -> {
-			Nav.push(new PostAddGalleryChooserPresenter(new PostAddGalleryChooserPresenter.onImageClicked() {
+			Nav_DEP.push(new PostAddGalleryChooserPresenter(new PostAddGalleryChooserPresenter.onImageClicked() {
 				@Override
 				public void onRecentImageAdded(String filePath) {
-					Nav.pop();
+					Nav_DEP.pop();
 					setImageFromOutside(filePath);
 				}
 
@@ -88,14 +88,14 @@ public class AddPostPage extends BasePresenter {
 			Http.postPath("/v1/post/add")
 				.setFormParam("text", x.post_field.getText().toString())
 				.doAsyncUi((result -> {
-					Nav.pop();
+					Nav_DEP.pop();
 				}));
 		}else {
 			File file = new File(toShareFilePath);
 			Http.uploadPath("/v1/post/add",file)
 				.setFormParam("text", x.post_field.getText().toString())
 				.doAsyncUi((result -> {
-					Nav.pop();
+					Nav_DEP.pop();
 				}));
 		}
 	}

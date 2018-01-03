@@ -4,19 +4,15 @@ import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
-import com.mardomsara.social.Nav;
-import com.mardomsara.social.R;
+import com.mardomsara.social.Nav_DEP;
 import com.mardomsara.social.helpers.AndroidUtil;
-import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.json.JV;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
 import com.mardomsara.social.ui.X;
 import com.mardomsara.social.ui.presenter.pages.PostEntryPage;
 import com.mardomsara.social.ui.views.FullScreenImage_Fresco;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -73,7 +69,7 @@ public class PostsGridAdaptor extends AppHeaderFooterRecyclerViewAdapter<PostsGr
         Uri imageUri2;
 
         View.OnClickListener gotoPost = (v) -> {
-            Nav.push(new PostEntryPage(post));
+            Nav_DEP.push(new PostEntryPage(post));
         };
 
         View.OnClickListener imagePopup = (v) -> {

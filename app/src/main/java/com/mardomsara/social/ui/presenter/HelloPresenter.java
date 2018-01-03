@@ -4,7 +4,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.mardomsara.social.Nav;
+import com.mardomsara.social.Nav_DEP;
 import com.mardomsara.social.R;
 import com.mardomsara.social.app.Router;
 import com.mardomsara.social.helpers.AppUtil;
@@ -29,11 +29,11 @@ public class HelloPresenter extends BasePresenter {
         View anvil_view2 = v.findViewById(R.id.anvil2);
         txt.setText("Hello Wold + id:" + LangUtil.getRandomString(5));
         btn.setOnClickListener((vv)->{
-            Nav.push(Router.getHelloWolrdPage());
+            Nav_DEP.push(Router.getHelloWolrdPage());
         });
 
         btn2.setOnClickListener((vv)->{
-            Nav.push(Router.getGalleryChooserPage());
+            Nav_DEP.push(Router.getGalleryChooserPage());
         });
 
         btn3.setOnClickListener((vv)->{

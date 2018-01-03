@@ -6,13 +6,11 @@ import android.support.annotation.NonNull;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.mardomsara.social.Nav;
+import com.mardomsara.social.Nav_DEP;
 import com.mardomsara.social.R;
-import com.mardomsara.social.app.API;
 import com.mardomsara.social.app.Router;
 import com.mardomsara.social.base.Http.Http;
 import com.mardomsara.social.helpers.AndroidUtil;
-import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.FormaterUtil;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.LangUtil;
@@ -20,11 +18,6 @@ import com.mardomsara.social.json.JV;
 import com.mardomsara.social.ui.X;
 import com.mardomsara.social.ui.presenter.pages.ProfilePage;
 import com.mardomsara.social.ui.views.FullScreenImage_Fresco;
-import com.mardomsara.social.ui.views.helpers.ViewHelper;
-import com.squareup.picasso.Picasso;
-
-import jp.wasabeef.picasso.transformations.CropTransformation;
-import jp.wasabeef.picasso.transformations.RoundedCornersTransformation;
 
 /**
  * Created by Hamid on 8/26/2016.
@@ -36,13 +29,13 @@ public class PostRowCompactWrapper {
 	Uri imageUri2;
 	View.OnClickListener gotoLikes = (v) -> {
 //        Nav.push(Router.getLikesPage(post.Id));
-		Nav.push(Router.getLikesPage(post.Id));
+		Nav_DEP.push(Router.getLikesPage(post.Id));
 	};
 	View.OnClickListener gotoComments = (v) -> {
-		Nav.push(Router.getCommontsPage(post.Id));
+		Nav_DEP.push(Router.getCommontsPage(post.Id));
 	};
 	View.OnClickListener gotoProfile = (v) -> {
-		Nav.push(new ProfilePage(post.UserId));
+		Nav_DEP.push(new ProfilePage(post.UserId));
 	};
 	View.OnClickListener imagePopup = (v) -> {
 		FullScreenImage_Fresco window = new FullScreenImage_Fresco();

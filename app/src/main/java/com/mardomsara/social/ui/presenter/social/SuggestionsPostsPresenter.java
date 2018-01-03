@@ -5,7 +5,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-import com.mardomsara.social.Nav;
+import com.mardomsara.social.Nav_DEP;
 import com.mardomsara.social.base.Http.Http;
 import com.mardomsara.social.base.Http.Result;
 import com.mardomsara.social.helpers.AndroidUtil;
@@ -56,7 +56,7 @@ public class SuggestionsPostsPresenter extends BasePresenter
         topTitle.setText("پست های داغ");
 
         recent.rootView.setOnClickListener((v)->{
-            Nav.push(new LastPostsPage());
+            Nav_DEP.push(new LastPostsPage());
         });
         adaptor.appendViewToHeader(recent.rootView);
         adaptor.appendViewToHeader(topTitle.rootView);

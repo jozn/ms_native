@@ -2,7 +2,7 @@ package com.mardomsara.social.ui.presenter.settings;
 
 import android.view.View;
 
-import com.mardomsara.social.Nav;
+import com.mardomsara.social.Nav_DEP;
 import com.mardomsara.social.app.AppFiles;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.DialogHelper;
@@ -35,15 +35,15 @@ public class SettingsPresenter extends BasePresenter {
 
 			///////////// General Settings ///////////
 			bGeneralSettings.addRow(new Settings.RowPage("ویرایش پروفایل" , ()-> {
-				Nav.push(new EditProfilePresenter());
+				Nav_DEP.push(new EditProfilePresenter());
 			} ));
 
 			bGeneralSettings.addRow(new Settings.RowPage("ایمیل" , ()-> {
-				Nav.push(new EditEmailPresenter());
+				Nav_DEP.push(new EditEmailPresenter());
 			} ));
 
 			bGeneralSettings.addRow(new Settings.RowPage("شماره تلفن همراه" , ()-> {
-				Nav.push(new EditPhonePresenter());
+				Nav_DEP.push(new EditPhonePresenter());
 			} ));
 
 
@@ -65,7 +65,7 @@ public class SettingsPresenter extends BasePresenter {
 
 			///////////// Mardomsara Settings ///////////
 			bMardomsara.addRow(new Settings.RowPage("درباره" , ()-> {
-				Nav.push(new AboutMardomsaraPresenter());
+				Nav_DEP.push(new AboutMardomsaraPresenter());
 			} ));
 
 

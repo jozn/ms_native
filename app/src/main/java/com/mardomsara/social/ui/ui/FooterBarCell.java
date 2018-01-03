@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.mardomsara.social.BranchEnum;
-import com.mardomsara.social.Nav;
+import com.mardomsara.social.Nav_DEP;
 import com.mardomsara.social.R;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
@@ -55,14 +55,14 @@ public class FooterBarCell {
             cellsMap.get(k).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Nav.goToBranch(k);
+                    Nav_DEP.goToBranch(k);
                 }});
             cellsMap.get(k).setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
                 public boolean onLongClick(View v) {
 //                    Nav.goToBranch(k);
-                    Nav.resetBranch(k);
-					Nav.goToBranch(k);
+                    Nav_DEP.resetBranch(k);
+					Nav_DEP.goToBranch(k);
                     return true;
                 }
             });

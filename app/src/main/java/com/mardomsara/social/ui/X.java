@@ -162,6 +162,59 @@ public class X {
         }
     }
 
+    public static class ActivityNew {
+        public LinearLayout root;
+        public Button button;
+        public Button button2;
+        public FrameLayout fg1;
+        public LinearLayout fg2;
+        public FrameLayout holder_chat;
+        public FrameLayout holder_home;
+        public FrameLayout holder_search;
+        public FrameLayout holder_activity;
+        public FrameLayout holder_profile;
+        public FrameLayout footerbar_holder;
+
+        public ActivityNew(Context context,ViewGroup parent) {
+            root = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.activity_new,parent ,false);
+            button = (Button) root.findViewById( R.id.button);
+            button2 = (Button) root.findViewById( R.id.button2);
+            fg1 = (FrameLayout) root.findViewById( R.id.fg1);
+            fg2 = (LinearLayout) root.findViewById( R.id.fg2);
+            holder_chat = (FrameLayout) root.findViewById( R.id.holder_chat);
+            holder_home = (FrameLayout) root.findViewById( R.id.holder_home);
+            holder_search = (FrameLayout) root.findViewById( R.id.holder_search);
+            holder_activity = (FrameLayout) root.findViewById( R.id.holder_activity);
+            holder_profile = (FrameLayout) root.findViewById( R.id.holder_profile);
+            footerbar_holder = (FrameLayout) root.findViewById( R.id.footerbar_holder);
+        }
+        public ActivityNew() {
+            this(AppUtil.getContext(),null);
+        }
+
+        public ActivityNew(Context context) {
+            this(context ,null);
+        }
+
+        public ActivityNew(ViewGroup parent) {
+            this(AppUtil.getContext() ,parent);
+        }
+
+        public static class IDS {
+            public static int LAYOUT = R.layout.activity_new;
+            public static int button = R.id.button;
+            public static int button2 = R.id.button2;
+            public static int fg1 = R.id.fg1;
+            public static int fg2 = R.id.fg2;
+            public static int holder_chat = R.id.holder_chat;
+            public static int holder_home = R.id.holder_home;
+            public static int holder_search = R.id.holder_search;
+            public static int holder_activity = R.id.holder_activity;
+            public static int holder_profile = R.id.holder_profile;
+            public static int footerbar_holder = R.id.footerbar_holder;
+        }
+    }
+
     public static class ActivityPlayAdvanced {
         public ScrollView root;
         public TextView output;
@@ -299,6 +352,35 @@ public class X {
         public static class IDS {
             public static int LAYOUT = R.layout.add_post_gallery__image;
             public static int image = R.id.image;
+        }
+    }
+
+    public static class BranchHolder {
+        public ConstraintLayout root;
+        public FrameLayout child_frame_deep;
+        public TextView button3;
+
+        public BranchHolder(Context context,ViewGroup parent) {
+            root = (ConstraintLayout) LayoutInflater.from(context).inflate(R.layout.branch_holder,parent ,false);
+            child_frame_deep = (FrameLayout) root.findViewById( R.id.child_frame_deep);
+            button3 = (TextView) root.findViewById( R.id.button3);
+        }
+        public BranchHolder() {
+            this(AppUtil.getContext(),null);
+        }
+
+        public BranchHolder(Context context) {
+            this(context ,null);
+        }
+
+        public BranchHolder(ViewGroup parent) {
+            this(AppUtil.getContext() ,parent);
+        }
+
+        public static class IDS {
+            public static int LAYOUT = R.layout.branch_holder;
+            public static int child_frame_deep = R.id.child_frame_deep;
+            public static int button3 = R.id.button3;
         }
     }
 
@@ -4697,6 +4779,47 @@ public class X {
             public static int left_text = R.id.left_text;
             public static int title_text = R.id.title_text;
             public static int back_btn = R.id.back_btn;
+        }
+    }
+
+    public static class ZzzNothingNavIds {
+        public ConstraintLayout root;
+        public LinearLayout fg2;
+        public FrameLayout holder_chat;
+        public FrameLayout holder_home;
+        public FrameLayout holder_search;
+        public FrameLayout holder_activity;
+        public FrameLayout holder_profile;
+
+        public ZzzNothingNavIds(Context context,ViewGroup parent) {
+            root = (ConstraintLayout) LayoutInflater.from(context).inflate(R.layout.zzz_nothing_nav_ids,parent ,false);
+            fg2 = (LinearLayout) root.findViewById( R.id.fg2);
+            holder_chat = (FrameLayout) root.findViewById( R.id.holder_chat);
+            holder_home = (FrameLayout) root.findViewById( R.id.holder_home);
+            holder_search = (FrameLayout) root.findViewById( R.id.holder_search);
+            holder_activity = (FrameLayout) root.findViewById( R.id.holder_activity);
+            holder_profile = (FrameLayout) root.findViewById( R.id.holder_profile);
+        }
+        public ZzzNothingNavIds() {
+            this(AppUtil.getContext(),null);
+        }
+
+        public ZzzNothingNavIds(Context context) {
+            this(context ,null);
+        }
+
+        public ZzzNothingNavIds(ViewGroup parent) {
+            this(AppUtil.getContext() ,parent);
+        }
+
+        public static class IDS {
+            public static int LAYOUT = R.layout.zzz_nothing_nav_ids;
+            public static int fg2 = R.id.fg2;
+            public static int holder_chat = R.id.holder_chat;
+            public static int holder_home = R.id.holder_home;
+            public static int holder_search = R.id.holder_search;
+            public static int holder_activity = R.id.holder_activity;
+            public static int holder_profile = R.id.holder_profile;
         }
     }
 

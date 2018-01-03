@@ -7,7 +7,7 @@ import android.util.AttributeSet;
 import android.view.Gravity;
 
 import com.joanzapata.iconify.widget.IconTextView;
-import com.mardomsara.social.Nav;
+import com.mardomsara.social.Nav_DEP;
 import com.mardomsara.social.R;
 import com.mardomsara.social.app.Router;
 import com.mardomsara.social.helpers.AndroidUtil;
@@ -77,7 +77,7 @@ public class ChatButtonView extends IconTextView {
 		User u = UserModel.UserMeViewJsonToUserTable(userAndMe);
 		u.save();
 		Room room = RoomModel.getRoomByForUserAndLoadUser(u.UserId);
-		Nav.push(Router.getRoomEntry(room));
+		Nav_DEP.push(Router.getRoomEntry(room));
 	}
 
 

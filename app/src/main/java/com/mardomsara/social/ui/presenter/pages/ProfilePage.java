@@ -2,7 +2,7 @@ package com.mardomsara.social.ui.presenter.pages;
 
 import android.view.View;
 
-import com.mardomsara.social.Nav;
+import com.mardomsara.social.Nav_DEP;
 import com.mardomsara.social.app.Router;
 import com.mardomsara.social.base.Http.Http;
 import com.mardomsara.social.base.Http.Result;
@@ -105,13 +105,13 @@ public class ProfilePage extends BasePresenter {
 
     public static View.OnClickListener getFollowings_click(int Userid) {
         return (v)->{
-            Nav.push(Router.getFollowingsPage(Userid));
+            Nav_DEP.push(Router.getFollowingsPage(Userid));
         };
     }
 
     public static View.OnClickListener getFollowers_click(int Userid) {
         return (v)->{
-            Nav.push(Router.getFollowersPage(Userid));
+            Nav_DEP.push(Router.getFollowersPage(Userid));
         };
     }
 

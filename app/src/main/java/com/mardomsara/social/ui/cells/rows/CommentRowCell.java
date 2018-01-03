@@ -3,7 +3,7 @@ package com.mardomsara.social.ui.cells.rows;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.mardomsara.social.Nav;
+import com.mardomsara.social.Nav_DEP;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.DialogHelper;
 import com.mardomsara.social.helpers.FormaterUtil;
@@ -36,7 +36,7 @@ public class CommentRowCell {
     };
 
     View.OnClickListener gotoProfile = (v)->{
-        Nav.push(new ProfilePage(comment.UserId));
+        Nav_DEP.push(new ProfilePage(comment.UserId));
     };
 
     int i =0;

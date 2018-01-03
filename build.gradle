@@ -74,7 +74,7 @@ ext {
 
     //BY ME
     buildToolsVersion = '26.0.2'
-    multiDexEnabled = false
+    multiDexEnabled = true
 
     versionCode = 100900600
     versionName = '1.9.6'

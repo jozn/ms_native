@@ -6,7 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.mardomsara.social.Nav;
+import com.mardomsara.social.Nav_DEP;
 import com.mardomsara.social.R;
 import com.mardomsara.social.app.Constants;
 import com.mardomsara.social.app.Events;
@@ -145,7 +145,7 @@ public class RoomsListCell {
             this.adaptor = adaptor;
 
             x.root.setOnClickListener((vv)->{
-                if (room!= null) Nav.push(Router.getRoomEntry(room));
+                if (room!= null) Nav_DEP.push(Router.getRoomEntry(room));
             });
 
             x.root.setOnLongClickListener((vv)->{

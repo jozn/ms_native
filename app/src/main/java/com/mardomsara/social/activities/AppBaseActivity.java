@@ -13,7 +13,7 @@ import android.view.KeyEvent;
 import android.view.MenuItem;
 
 import com.mardomsara.social.App;
-import com.mardomsara.social.Nav;
+
 import com.mardomsara.social.app.Config;
 import com.mardomsara.social.app.ConfigRealmBrowser;
 import com.mardomsara.social.app.LifeCycle;
@@ -123,7 +123,7 @@ public abstract class AppBaseActivity extends AppCompatActivity {
 		logIt("onStart");
 
 		if (isFirstInited == false) {//just onCreaate
-			Nav.goToBranch("chat");// must be here will c
+//			Nav_DEP.goToBranch("chat");// must be here will c
 			isFirstInited = true;// rash onCreate()
 		}
 
@@ -201,7 +201,7 @@ public abstract class AppBaseActivity extends AppCompatActivity {
 		AppUtil.log("called onKeyDown: " + keyCode);
 		if (Config.IS_DEBUG) {
 			if (keyCode == KeyEvent.KEYCODE_VOLUME_DOWN) {
-				Nav.push(new Play_TestsPresenter());
+//				Nav_DEP.push(new Play_TestsPresenter());
 				return true;
 			}
 

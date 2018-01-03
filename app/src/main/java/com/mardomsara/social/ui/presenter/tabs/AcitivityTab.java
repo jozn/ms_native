@@ -4,7 +4,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 
-import com.mardomsara.social.Nav;
+import com.mardomsara.social.Nav_DEP;
 import com.mardomsara.social.R;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.ui.BasePresenter;
@@ -36,7 +36,7 @@ public class AcitivityTab extends BasePresenter {
 
         //////TEMP/////////////
         View searchBtn = l.findViewById(R.id.search);
-        searchBtn.setOnClickListener((v)-> Nav.push(new SearchUserAndTagPage()));
+        searchBtn.setOnClickListener((v)-> Nav_DEP.push(new SearchUserAndTagPage()));
         /////////////////
 
         return l;

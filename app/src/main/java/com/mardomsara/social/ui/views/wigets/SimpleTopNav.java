@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.RelativeLayout;
 
-import com.mardomsara.social.Nav;
+import com.mardomsara.social.Nav_DEP;
 import com.mardomsara.social.R;
 import com.mardomsara.social.ui.X;
 
@@ -40,7 +40,7 @@ public class SimpleTopNav extends RelativeLayout {
 
 
     void goBack(){
-        Nav.pop();
+        Nav_DEP.pop();
     }
 
 

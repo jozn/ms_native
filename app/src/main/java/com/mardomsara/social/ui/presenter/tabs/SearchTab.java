@@ -2,11 +2,10 @@ package com.mardomsara.social.ui.presenter.tabs;
 
 import android.view.View;
 
-import com.mardomsara.social.Nav;
+import com.mardomsara.social.Nav_DEP;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.cells.Cells;
 import com.mardomsara.social.ui.presenter.chat_realm.inbox.InboxChatsListCell;
-import com.mardomsara.social.ui.presenter.chat_realm.inbox.InboxPresenter;
 import com.mardomsara.social.ui.presenter.social.SuggestionsPostsPresenter;
 import com.mardomsara.social.ui.presenter.social.SuggestionsTagsPresenter;
 import com.mardomsara.social.ui.presenter.social.SuggestionsUsersPresenter;
@@ -26,7 +25,7 @@ public class SearchTab extends BasePresenter {
 
 		Cells.NavAndPagerSwipe navAndPager = new Cells.NavAndPagerSwipe(tabs);
 
-		navAndPager.addIcon("{ion-ios-search-strong 26dp}",()->{ Nav.push(new SearchUserAndTagPage());});
+		navAndPager.addIcon("{ion-ios-search-strong 26dp}",()->{ Nav_DEP.push(new SearchUserAndTagPage());});
 
 //        return navAndPager.rootView;
 

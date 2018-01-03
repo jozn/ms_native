@@ -2,11 +2,9 @@ package com.mardomsara.social.ui.presenter.tabs;
 
 import android.view.View;
 
-import com.mardomsara.social.Nav;
 import com.mardomsara.social.app.Router;
 import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.cells.Cells;
-import com.mardomsara.social.ui.presenter.social.search.SearchUserAndTagPage;
 import com.mardomsara.social.ui.ui.AppTabPagerAdaptor;
 
 /**

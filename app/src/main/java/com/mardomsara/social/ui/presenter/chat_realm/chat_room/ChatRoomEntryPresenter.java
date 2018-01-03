@@ -7,7 +7,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 
-import com.mardomsara.social.Nav;
+import com.mardomsara.social.Nav_DEP;
 import com.mardomsara.social.app.AppRealm;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
@@ -59,7 +59,7 @@ public class ChatRoomEntryPresenter extends BasePresenter implements
 	public View buildView() {
 		x = new X.ChatRoom_ScreenParent();
 
-		Nav.hideFooter();
+		Nav_DEP.hideFooter();
 
 		AndroidUtil.runInUi(() -> {
 
@@ -92,7 +92,7 @@ public class ChatRoomEntryPresenter extends BasePresenter implements
 
 			x.back.setOnClickListener((v) -> {
 				onBack();
-				Nav.pop();
+				Nav_DEP.pop();
 			});
 
 			x.room_name.setText(RealmChatViewHelper.getRoomName(room));
@@ -144,7 +144,7 @@ public class ChatRoomEntryPresenter extends BasePresenter implements
 			emojiKeyboard.destroy();
 		}
 
-		Nav.showFooter();
+		Nav_DEP.showFooter();
 	}
 
 	void setUpInputOnTextTextChanged() {
@@ -199,7 +199,7 @@ public class ChatRoomEntryPresenter extends BasePresenter implements
         GalleryChooserPresenter gallery =new GalleryChooserPresenter();
        // FIxme: gallery.chatEntryPresenter to interface
         gallery.chatEntryPresenter = this;
-        Nav.push(gallery);
+        Nav_DEP.push(gallery);
 	}
 
 	@Override

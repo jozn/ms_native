@@ -22,7 +22,7 @@ import hugo.weaving.DebugLog;
 /**
  * Created by Hamid on 1/30/2016.
  */
-public class Nav {
+public class Nav_DEP {
 
 	static NavTree defaultTree;
 	public static void setUpDefault(ViewGroup containerFrame, ViewGroup footerFrame) {
@@ -196,7 +196,7 @@ public class Nav {
 		FooterBarCell footerCell;
 
 		public NavTree(ViewGroup containerFrame,ViewGroup footerFrame) {
-			Nav.setDefultBranc(branchMapHolder);
+			Nav_DEP.setDefultBranc(branchMapHolder);
 			this.containerFrame = containerFrame;
 			this.footerFrame = footerFrame;
 		}
@@ -346,7 +346,7 @@ public class Nav {
 			customOnBackPressHandler.remove(handler);
 		}
 
-		private Nav.BranchCell _getActiveBranchCell(){
+		private Nav_DEP.BranchCell _getActiveBranchCell(){
 			return branchMapHolder.get(activeBranch);
 		}
 

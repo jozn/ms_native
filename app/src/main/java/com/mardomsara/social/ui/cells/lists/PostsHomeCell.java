@@ -6,7 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.mardomsara.social.Nav;
+import com.mardomsara.social.Nav_DEP;
 import com.mardomsara.social.base.Http.Http;
 import com.mardomsara.social.base.Http.Result;
 import com.mardomsara.social.helpers.AndroidUtil;
@@ -149,15 +149,15 @@ public class PostsHomeCell
 		X.Home_AddPostBox addPostBox = new X.Home_AddPostBox(x.recycler_view);
 		adaptor.appendViewToHeader(addPostBox.root);
 
-		addPostBox.top_holder.setOnClickListener((v)-> Nav.push(new AddPostPage()));
+		addPostBox.top_holder.setOnClickListener((v)-> Nav_DEP.push(new AddPostPage()));
 		addPostBox.camera_btn.setOnClickListener((v) -> Helper.showCommingSoonMessage());
 		addPostBox.gallery_btn.setOnClickListener((v) -> {
-			Nav.push(new PostAddGalleryChooserPresenter(new PostAddGalleryChooserPresenter.onImageClicked() {
+			Nav_DEP.push(new PostAddGalleryChooserPresenter(new PostAddGalleryChooserPresenter.onImageClicked() {
 				@Override
 				public void onRecentImageAdded(String filePath) {
 					AddPostPage addPostPage = new AddPostPage();
 					addPostPage.setToShareFilePath(filePath);
-					Nav.replace(addPostPage);
+					Nav_DEP.replace(addPostPage);
 				}
 
 				@Override
@@ -179,7 +179,7 @@ public class PostsHomeCell
 				AddPostPage addPostPage = new AddPostPage();
 				addPostPage.setToShareFilePath(recentImagesCell.getSelectedOne());
 				recentImagesCell.selectNone();
-				Nav.push(addPostPage);
+				Nav_DEP.push(addPostPage);
 			}
 
 			@Override

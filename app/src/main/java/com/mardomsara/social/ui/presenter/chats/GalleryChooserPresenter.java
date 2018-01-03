@@ -19,7 +19,7 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import com.mardomsara.MediaFacade.media.MediaCursor;
 import com.mardomsara.MediaFacade.media.image.ImageCursor;
 import com.mardomsara.MediaFacade.media.image.ImageProviderHelper;
-import com.mardomsara.social.Nav;
+import com.mardomsara.social.Nav_DEP;
 import com.mardomsara.social.R;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
@@ -225,7 +225,7 @@ public class GalleryChooserPresenter extends BasePresenter {
                     String bucketId = cursor.bucketId();
 //                    ImageProviderHelper.tryClose(folder);
                     v.setOnClickListener((v)->{
-                        Nav.push(new MediaBrowserFolderInsidePresenter(type, bucketId));
+                        Nav_DEP.push(new MediaBrowserFolderInsidePresenter(type, bucketId));
                     });
                 }
 
@@ -280,12 +280,12 @@ public class GalleryChooserPresenter extends BasePresenter {
 
         @OnClick(R.id.back_btn)
         void goBack(){
-            Nav.pop();
+            Nav_DEP.pop();
         }
 
         @OnClick(R.id.left_side)
         void sendResult(){
-            Nav.pop(2);
+            Nav_DEP.pop(2);
             if(selectedReal.size()>0){
                 if(type==MediaType.IMAGE){
                     AndroidUtil.runInUi(()->{//async
