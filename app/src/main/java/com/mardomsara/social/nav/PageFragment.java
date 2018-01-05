@@ -17,6 +17,7 @@ public abstract class PageFragment extends Fragment {
 	static int counter = 0;
 
 	X.Framelayout xFramelayout;
+	ViewGroup rootHolder;
 	View genView;
 	String tagId = "";
 
@@ -40,11 +41,12 @@ public abstract class PageFragment extends Fragment {
 	}
 
 	public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-//		return new X.FragmentPages_DefaultParent(getActivity(),null).root;
+//		return new X.FragmentPages_DefaultParent(getActivity(),null).rootHolder;
 		if(xFramelayout == null){
 			xFramelayout = new X.Framelayout();
+			rootHolder = xFramelayout.root;
 		}
-		return xFramelayout.root;
+		return rootHolder;
 	}
 
 	@Override
@@ -54,7 +56,7 @@ public abstract class PageFragment extends Fragment {
 		if(genView == null){
 			genView = getView(savedInstanceState);
 			if(genView!= null){
-				xFramelayout.frame_layout.addView(genView);
+				rootHolder.addView(genView);
 			}
 		}
 	}

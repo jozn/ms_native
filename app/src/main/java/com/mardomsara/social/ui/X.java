@@ -356,14 +356,12 @@ public class X {
     }
 
     public static class BranchHolder {
-        public ConstraintLayout root;
+        public FrameLayout root;
         public FrameLayout child_frame_deep;
-        public TextView button3;
 
         public BranchHolder(Context context,ViewGroup parent) {
-            root = (ConstraintLayout) LayoutInflater.from(context).inflate(R.layout.branch_holder,parent ,false);
+            root = (FrameLayout) LayoutInflater.from(context).inflate(R.layout.branch_holder,parent ,false);
             child_frame_deep = (FrameLayout) root.findViewById( R.id.child_frame_deep);
-            button3 = (TextView) root.findViewById( R.id.button3);
         }
         public BranchHolder() {
             this(AppUtil.getContext(),null);
@@ -380,7 +378,6 @@ public class X {
         public static class IDS {
             public static int LAYOUT = R.layout.branch_holder;
             public static int child_frame_deep = R.id.child_frame_deep;
-            public static int button3 = R.id.button3;
         }
     }
 

@@ -150,7 +150,7 @@ public class NavFooterBar extends Fragment {
 
 	//todo instead of replacing just attach and detach
 	public void goToBranch(BranchEnum branchEnum) {
-
+		getFooterBarCell().activateBranch(branchEnum);
 		activeBranchEnum = branchEnum;
 		branchOrderStacks.push(branchEnum);
 		Fragment fragment = getActivity().getSupportFragmentManager().findFragmentByTag(branchEnum.fragmentBranchTagId);
@@ -170,7 +170,6 @@ public class NavFooterBar extends Fragment {
 				.commit();
 		}
 
-		getFooterBarCell().activateBranch(branchEnum);
 	}
 
 	//Fixme: .pop() events + bug: get longcliked branced not active
