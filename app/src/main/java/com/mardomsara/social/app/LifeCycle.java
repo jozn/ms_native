@@ -74,8 +74,6 @@ public class LifeCycle {
 		Crashlytics.getInstance().core.setUserName("AtashN 25k s");
 
 		Play_RunOnStart.run();
-
-
 	}
 
 	public static void initFromBackground(Context ctx) {

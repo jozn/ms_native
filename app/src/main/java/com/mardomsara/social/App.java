@@ -5,6 +5,7 @@ import android.content.Context;
 import android.support.v4.app.FragmentManager;
 
 import com.mardomsara.social.activities.MainAppActivity;
+import com.mardomsara.social.activities.MainNewAppActivity;
 import com.mardomsara.social.app.LifeCycle;
 
 import org.greenrobot.eventbus.EventBus;
@@ -35,8 +36,9 @@ public class App {
       _activity = activity;
    }
 
+   @Deprecated
    public static Activity getActivity(){
-     return MainAppActivity.instance;
+     return MainNewAppActivity.instance;
    }
    public static void init(Context ctx){
       context = ctx;

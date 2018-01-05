@@ -35,10 +35,6 @@ public class MainNewAppActivity extends AppBaseActivity {
 		super.onCreate(savedInstanceState);
 		instance = this;
 
-		setContentView(R.layout.activity_main_new_app);
-		ViewGroup global_window = (ViewGroup) findViewById(R.id.global_window);
-		AppUtil.global_window = global_window;
-
 		//Important: set context to this activity not getContext(), beacuse some
 		//libs like:Calligraphy and android TabLayout seems to use Acticity stuffs based on
 		//context for their work
@@ -48,6 +44,10 @@ public class MainNewAppActivity extends AppBaseActivity {
 		LifeCycle.initFromActivity(this);
 
 		App.mFragmentManager = getSupportFragmentManager();
+
+		setContentView(R.layout.activity_main_new_app);
+		ViewGroup global_window = (ViewGroup) findViewById(R.id.global_window);
+		AppUtil.global_window = global_window;
 
 		///////// Nav ////////////
 		ViewGroup container = (ViewGroup) findViewById(R.id.fg1);

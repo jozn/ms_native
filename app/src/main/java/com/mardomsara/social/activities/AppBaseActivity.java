@@ -34,7 +34,7 @@ public abstract class AppBaseActivity extends AppCompatActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-//        App.context = getApplicationContext();
+        App.context = getApplicationContext();
 		logIt("onCreate");
 		App.init(getApplicationContext());
 		LifeCycle.initFromActivity(getApplicationContext());

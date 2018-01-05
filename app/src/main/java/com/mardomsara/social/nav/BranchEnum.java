@@ -2,6 +2,8 @@ package com.mardomsara.social.nav;
 
 
 import com.mardomsara.social.R;
+import com.mardomsara.social.ui.pages.tabs.HomeTabPageFragment;
+import com.mardomsara.social.ui.pages.tabs.SampleTabPageFragment;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -26,17 +28,22 @@ public enum BranchEnum {
 	}
 
 	BranchHolderFragment getNewBrangch() {
-		BranchHolderFragment holerFragment;
+		BranchHolderFragment holerFragment = null;
 		switch (this) {
 			case Chat:
 				holerFragment = new HomeBranch();
+				break;
 			case Home:
 				holerFragment = new HomeBranch();
+				break;
 			case Search:
-				holerFragment = new HomeBranch();
+//				holerFragment = new HomeBranch();
+				holerFragment = new SampleTabPageFragment();
+				break;
 			case Activity:
-				holerFragment = new HomeBranch();
-			default:
+				holerFragment = new HomeTabPageFragment();
+				break;
+			case Profile:
 				holerFragment = new HomeBranch();
 		}
 

@@ -1,5 +1,6 @@
 package com.mardomsara.social.ui.cells.lists;
 
+import android.content.Context;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -34,16 +35,18 @@ public class PostsHomeCell
 
 	X.Home_Parent x;
 	public PostsAdaptor adaptor;
+	Context context;
 
-    public PostsHomeCell() {
+    public PostsHomeCell(Context context) {
         init();
+        this.context = context;
     }
 
     private void init() {
 		x = new X.Home_Parent();
 
         adaptor = new PostsAdaptor(x.button_post_way.getPostWayToShow());
-        LinearLayoutManager layoutManager = new LinearLayoutManager(AppUtil.getContext());
+        LinearLayoutManager layoutManager = new LinearLayoutManager(context);
         x.recycler_view.setLayoutManager(layoutManager);
         x.recycler_view.setAdapter(adaptor);
         adaptor.setUpForPaginationWith(x.recycler_view,layoutManager,this);

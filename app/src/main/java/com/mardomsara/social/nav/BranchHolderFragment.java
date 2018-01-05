@@ -19,6 +19,7 @@ public class BranchHolderFragment extends PageFragment {
 			.addToBackStack(null)
 			.commit();
 		Nav.alert("chil" + getChildFragmentManager().getFragments().size());
+
 	}
 
 	public void replace(PageFragment page) {
@@ -35,6 +36,7 @@ public class BranchHolderFragment extends PageFragment {
 				return getChildFragmentManager().popBackStackImmediate();
 			}
 		}
+
 		return getChildFragmentManager().popBackStackImmediate();
 	}
 

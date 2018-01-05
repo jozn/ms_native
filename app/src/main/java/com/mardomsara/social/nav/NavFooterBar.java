@@ -17,7 +17,7 @@ import com.mardomsara.social.R;
  */
 
 public class NavFooterBar extends Fragment {
-	static String TAG = "TAG";
+	static String TAG = "NAV";
 
 	static String FOOTER_BAR_ACTIVE_TAB ="FOOTER_BAR_ACTIVE_TAB";
 	static String FOOTER_BAR_VISIBILITY ="FOOTER_BAR_VISIBILITY";
@@ -148,7 +148,9 @@ public class NavFooterBar extends Fragment {
 		}
 	}
 
+	//todo instead of replacing just attach and detach
 	public void goToBranch(BranchEnum branchEnum) {
+
 		activeBranchEnum = branchEnum;
 		branchOrderStacks.push(branchEnum);
 		Fragment fragment = getActivity().getSupportFragmentManager().findFragmentByTag(branchEnum.fragmentBranchTagId);

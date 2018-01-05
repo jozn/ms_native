@@ -1379,6 +1379,58 @@ public class X {
         }
     }
 
+    public static class FragmentPages_DefaultParent {
+        public FrameLayout root;
+        public FrameLayout page_content_container;
+
+        public FragmentPages_DefaultParent(Context context,ViewGroup parent) {
+            root = (FrameLayout) LayoutInflater.from(context).inflate(R.layout.fragment_pages___default_parent,parent ,false);
+            page_content_container = (FrameLayout) root.findViewById( R.id.page_content_container);
+        }
+        public FragmentPages_DefaultParent() {
+            this(AppUtil.getContext(),null);
+        }
+
+        public FragmentPages_DefaultParent(Context context) {
+            this(context ,null);
+        }
+
+        public FragmentPages_DefaultParent(ViewGroup parent) {
+            this(AppUtil.getContext() ,parent);
+        }
+
+        public static class IDS {
+            public static int LAYOUT = R.layout.fragment_pages___default_parent;
+            public static int page_content_container = R.id.page_content_container;
+        }
+    }
+
+    public static class Framelayout {
+        public FrameLayout root;
+        public FrameLayout frame_layout;
+
+        public Framelayout(Context context,ViewGroup parent) {
+            root = (FrameLayout) LayoutInflater.from(context).inflate(R.layout.framelayout,parent ,false);
+            frame_layout = (FrameLayout) root.findViewById( R.id.frame_layout);
+        }
+        public Framelayout() {
+            this(AppUtil.getContext(),null);
+        }
+
+        public Framelayout(Context context) {
+            this(context ,null);
+        }
+
+        public Framelayout(ViewGroup parent) {
+            this(AppUtil.getContext() ,parent);
+        }
+
+        public static class IDS {
+            public static int LAYOUT = R.layout.framelayout;
+            public static int frame_layout = R.id.frame_layout;
+        }
+    }
+
     public static class FramelayoutMatch {
         public FrameLayout root;
 
@@ -1588,6 +1640,11 @@ public class X {
     public static class HelloWorldRow {
         public LinearLayout root;
         public CircularProgressView loadingView;
+        public XRawIcon profile;
+        public XRawIcon activity;
+        public XRawIcon search;
+        public XRawIcon home;
+        public XRawIcon chat;
         public TextView txt;
         public Button btn;
         public Button btn2;
@@ -1598,6 +1655,11 @@ public class X {
         public HelloWorldRow(Context context,ViewGroup parent) {
             root = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.hello_world_row,parent ,false);
             loadingView = (CircularProgressView) root.findViewById( R.id.loadingView);
+            profile = (XRawIcon) root.findViewById( R.id.profile);
+            activity = (XRawIcon) root.findViewById( R.id.activity);
+            search = (XRawIcon) root.findViewById( R.id.search);
+            home = (XRawIcon) root.findViewById( R.id.home);
+            chat = (XRawIcon) root.findViewById( R.id.chat);
             txt = (TextView) root.findViewById( R.id.txt);
             btn = (Button) root.findViewById( R.id.btn);
             btn2 = (Button) root.findViewById( R.id.btn2);
@@ -1620,6 +1682,11 @@ public class X {
         public static class IDS {
             public static int LAYOUT = R.layout.hello_world_row;
             public static int loadingView = R.id.loadingView;
+            public static int profile = R.id.profile;
+            public static int activity = R.id.activity;
+            public static int search = R.id.search;
+            public static int home = R.id.home;
+            public static int chat = R.id.chat;
             public static int txt = R.id.txt;
             public static int btn = R.id.btn;
             public static int btn2 = R.id.btn2;

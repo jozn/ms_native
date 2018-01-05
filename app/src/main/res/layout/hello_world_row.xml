@@ -27,6 +27,11 @@
 
     </com.mardomsara.social.ui.views.wigets.SimpleTopNav>
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+        <include layout="@layout/fragment_footer_bar"/>
+    </FrameLayout>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
