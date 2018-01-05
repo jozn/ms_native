@@ -7,6 +7,7 @@ import com.mardomsara.social.ui.BasePresenter;
 /**
  * Created by Hamid on 7/13/2016.
  */
+@Deprecated
 public class HomeTab extends BasePresenter {
 
 	@Override

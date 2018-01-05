@@ -1,4 +1,4 @@
-package com.mardomsara.social.ui.presenter.social.search;
+package com.mardomsara.social.ui.pages.tabs.pages.search;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;

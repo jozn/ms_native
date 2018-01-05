@@ -16,7 +16,11 @@ public abstract class PageFragment extends Fragment {
 	private static final String TAG = "PageFragment";
 	static int counter = 0;
 
+	X.Framelayout xFramelayout;
+	View genView;
 	String tagId = "";
+
+	public abstract View getView(Bundle savedInstanceState);
 
 	public PageFragment() {
 		tagId = "tagId_" + counter;
@@ -36,8 +40,25 @@ public abstract class PageFragment extends Fragment {
 	}
 
 	public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-		return new X.FragmentPages_DefaultParent(getActivity(),null).root;
+//		return new X.FragmentPages_DefaultParent(getActivity(),null).root;
+		if(xFramelayout == null){
+			xFramelayout = new X.Framelayout();
+		}
+		return xFramelayout.root;
 	}
+
+	@Override
+	public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+		super.onActivityCreated(savedInstanceState);
+		Log.d(TAG, "onActivityCreated:");
+		if(genView == null){
+			genView = getView(savedInstanceState);
+			if(genView!= null){
+				xFramelayout.frame_layout.addView(genView);
+			}
+		}
+	}
+
 
 	boolean onBackPressed(){
 		Log.d(TAG, "onBackPressed");
@@ -94,12 +115,6 @@ public abstract class PageFragment extends Fragment {
 	public void onAttachFragment(Fragment childFragment) {
 		super.onAttachFragment(childFragment);
 		Log.d(TAG, "onAttachFragment:");
-	}
-
-	@Override
-	public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-		super.onActivityCreated(savedInstanceState);
-		Log.d(TAG, "onActivityCreated:");
 	}
 
 	@Override

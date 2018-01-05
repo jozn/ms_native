@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 import com.mardomsara.social.R;
 import com.mardomsara.social.app.Constants;
-import com.mardomsara.social.app.Router;
+import com.mardomsara.social.app.Router_DEP;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.FormaterUtil;
@@ -159,7 +159,7 @@ public class ActivityListCell {
 				spanny.append(tp);
 
 				x.text_main.setText(spanny);
-				x.root.setOnClickListener((v)->Router.goToPost(nf.Load.Post));
+				x.root.setOnClickListener((v)-> Router_DEP.goToPost(nf.Load.Post));
 
 			}else {//others
 				spanny.append(" بر روی پست ");
@@ -174,7 +174,7 @@ public class ActivityListCell {
 				spanny.append(tp);
 
 				x.text_main.setText(spanny);
-				x.root.setOnClickListener((v)->Router.goToPost(nf.Load.Post));
+				x.root.setOnClickListener((v)-> Router_DEP.goToPost(nf.Load.Post));
 			}
 
         }
@@ -198,7 +198,7 @@ public class ActivityListCell {
 				spanny.append(tp);
 
 				x.text_main.setText(spanny);
-				x.root.setOnClickListener((v)->Router.goToPost(nf.Load.Post));
+				x.root.setOnClickListener((v)-> Router_DEP.goToPost(nf.Load.Post));
 				return;
 
 			}else {//others
@@ -213,7 +213,7 @@ public class ActivityListCell {
 				spanny.append(tp);
 
 				x.text_main.setText(spanny);
-				x.root.setOnClickListener((v)->Router.goToPost(nf.Load.Post));
+				x.root.setOnClickListener((v)-> Router_DEP.goToPost(nf.Load.Post));
 			}
 
         }
@@ -236,7 +236,7 @@ public class ActivityListCell {
 
 			_showExtraFollowing(nf.Load.Followed);
 
-            x.root.setOnClickListener((v)->Router.goToProfile(nf.Load.Followed.UserId));
+            x.root.setOnClickListener((v)-> Router_DEP.goToProfile(nf.Load.Followed.UserId));
 			x.text_main.setText(spanny);
         }
 
@@ -267,9 +267,9 @@ public class ActivityListCell {
         }
 
         void _setAvatar(JV.UserInlineWithMeView Actor){
-			x.avatar_image.setOnClickListener((v)-> Router.goToProfile(Actor.UserId));
+			x.avatar_image.setOnClickListener((v)-> Router_DEP.goToProfile(Actor.UserId));
             Helper.SetAvatar(x.avatar_image, Actor.AvatarUrl);
-			x.avatar_image.setOnClickListener((v)-> Router.goToProfile(Actor.UserId));
+			x.avatar_image.setOnClickListener((v)-> Router_DEP.goToProfile(Actor.UserId));
         }
 
         void _hideExtra(){
@@ -319,7 +319,7 @@ public class ActivityListCell {
             AppClickableSpan clickableSpan = new AppClickableSpan() {
                 @Override
                 public void onClick(View view) {
-                    Router.goToProfile(s);
+                    Router_DEP.goToProfile(s);
                 }
             };
             return clickableSpan;
@@ -361,7 +361,7 @@ public class ActivityListCell {
 			AppClickableSpan clickableSpan = new AppClickableSpan() {
 				@Override
 				public void onClick(View view) {
-					Router.goToProfile(s);
+					Router_DEP.goToProfile(s);
 				}
 			};
 			return clickableSpan;

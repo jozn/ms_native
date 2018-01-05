@@ -1,6 +1,7 @@
 package com.mardomsara.social.ui.presenter.chat_realm.inbox;
 
 import android.support.v7.widget.LinearLayoutManager;
+import android.view.View;
 
 import com.mardomsara.social.app.AppRealm;
 import com.mardomsara.social.helpers.AndroidUtil;
@@ -42,6 +43,10 @@ public class InboxChatsListCell {
 		xChatList.recycler_view.setAdapter(adaptor);
 		xChatList.recycler_view.setHasFixedSize(true);
 		xChatList.recycler_view.setLayoutManager(layoutManager);
+	}
+
+	public View getView(){
+		return xChatList.root;
 	}
 
 }

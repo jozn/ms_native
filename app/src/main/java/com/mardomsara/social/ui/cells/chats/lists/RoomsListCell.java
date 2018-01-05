@@ -11,7 +11,7 @@ import com.mardomsara.social.Nav_DEP;
 import com.mardomsara.social.R;
 import com.mardomsara.social.app.Constants;
 import com.mardomsara.social.app.Events;
-import com.mardomsara.social.app.Router;
+import com.mardomsara.social.app.Router_DEP;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.DialogHelper;
@@ -148,7 +148,7 @@ public class RoomsListCell {
             this.adaptor = adaptor;
 
             x.root.setOnClickListener((vv)->{
-                if (room!= null) Nav_DEP.push(Router.getRoomEntry(room));
+                if (room!= null) Nav_DEP.push(Router_DEP.getRoomEntry(room));
             });
 
             x.root.setOnLongClickListener((vv)->{
@@ -232,7 +232,7 @@ public class RoomsListCell {
             }));
 
             items.add(new DialogHelper.MenuItem("رفتن به پروفایل",(v)->{
-                Router.goToProfile(room.getUserId());
+                Router_DEP.goToProfile(room.getUserId());
             }));
 
             DialogHelper.simpleMenu(items);

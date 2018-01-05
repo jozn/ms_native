@@ -1,4 +1,4 @@
-package com.mardomsara.social.ui.presenter.social;
+package com.mardomsara.social.ui.pages.tabs.pages;
 
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
@@ -23,10 +23,8 @@ import com.mardomsara.social.ui.views.helpers.ViewHelper;
 /**
  * Created by Hamid on 8/23/2016.
  */
-@Deprecated
-public class SuggestionsPostsPresenter extends BasePresenter
-        implements AppHeaderFooterRecyclerViewAdapter.LoadNextPage {
-    @Override
+public class SuggestionsPostsCell implements AppHeaderFooterRecyclerViewAdapter.LoadNextPage {
+
     public View buildView() {
         refreshLayout = ViewHelper.newSwipeRefreshLayout(ViewHelper.MATCH_PARENT,ViewHelper.MATCH_PARENT);
         load();

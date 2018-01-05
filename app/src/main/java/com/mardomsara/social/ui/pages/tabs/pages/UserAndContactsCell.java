@@ -1,4 +1,4 @@
-package com.mardomsara.social.ui.presenter.chats;
+package com.mardomsara.social.ui.pages.tabs.pages;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -18,7 +18,6 @@ import com.mardomsara.social.models_old.syncer.UserSyncer;
 import com.mardomsara.social.models_old.tables.ContactsCopy;
 import com.mardomsara.social.models_old.tables.User;
 import com.mardomsara.social.play.DividerItemDecoration;
-import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.X;
 
 import java.util.ArrayList;
@@ -27,8 +26,7 @@ import java.util.List;
 /**
  * Created by Hamid on 5/2/2016.
  */
-@Deprecated
-public class UserAndContactsPresenter extends BasePresenter {
+public class UserAndContactsCell {
 	private enum TAB_TYPE {
 		CONTACTS,
 		FOLLOWINGS
@@ -37,11 +35,11 @@ public class UserAndContactsPresenter extends BasePresenter {
 	X.ContactsFollowingsList_Screen x;
 	UserFollowingSavedAdaptor adp_contacts;
 	UserFollowingSavedAdaptor adp_followings;
-	@Override
+
     public View buildView() {
 
 		x = new X.ContactsFollowingsList_Screen();
-        adp_contacts = new UserFollowingSavedAdaptor(null ,TAB_TYPE.CONTACTS);
+        adp_contacts = new UserFollowingSavedAdaptor(null , TAB_TYPE.CONTACTS);
         adp_followings = new UserFollowingSavedAdaptor(null, TAB_TYPE.FOLLOWINGS);
 
         LinearLayoutManager layoutManager1 = new LinearLayoutManager(AppUtil.getContext());

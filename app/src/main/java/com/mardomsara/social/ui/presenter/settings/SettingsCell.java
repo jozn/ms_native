@@ -19,9 +19,9 @@ import java.util.List;
 /**
  * Created by Hamid on 2/20/2017.
  */
-@Deprecated
-public class SettingsPresenter extends BasePresenter {
-	@Override
+
+public class SettingsCell{
+
 	public View buildView() {
 		X.LinearlayoutMatch x = new X.LinearlayoutMatch();
 		Cells.Scroller scroller =new Cells.Scroller();

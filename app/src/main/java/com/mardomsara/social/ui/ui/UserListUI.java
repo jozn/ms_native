@@ -3,7 +3,7 @@ package com.mardomsara.social.ui.ui;
 import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
 
-import com.mardomsara.social.app.Router;
+import com.mardomsara.social.app.Router_DEP;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.json.social.rows.UserInfoJson;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
@@ -50,7 +50,7 @@ public class UserListUI {
         public UserRowViewHolder(X.UserList_TypeFollowRow x) {
             super(x.root);
             x.root.setOnClickListener((v)->{
-                Router.goToProfile(row.UserId);
+                Router_DEP.goToProfile(row.UserId);
             });
             ButterKnife.bind(this,itemView);
         }

@@ -14,6 +14,7 @@ import com.mardomsara.social.ui.ui.AppTabPagerAdaptor;
 /**
  * Created by Hamid on 5/2/2016.
  */
+@Deprecated
 public class ChatTab extends BasePresenter {
     @Override
     public View buildView() {

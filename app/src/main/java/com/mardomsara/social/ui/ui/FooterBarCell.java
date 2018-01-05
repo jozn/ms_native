@@ -14,6 +14,7 @@ import com.mardomsara.social.helpers.AppUtil;
 import java.util.HashMap;
 import java.util.Map;
 
+@Deprecated
 public class FooterBarCell {
 	View root;
     TextView profile;

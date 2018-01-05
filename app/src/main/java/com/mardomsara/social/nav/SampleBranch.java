@@ -17,16 +17,32 @@ import java.util.Random;
  * Created by Hamid on 1/1/2018.
  */
 
-public class HomeBranch extends BranchHolderFragment {
+public class SampleBranch extends BranchHolderFragment {
 	static int C = 0;
 	int col = new Random().nextInt();
 	int i = 0;
 
-	public HomeBranch() {
+	public SampleBranch() {
 		Log.d("NAV", "HomeBranch on instance");
 	}
 
-	@Nullable
+	@Override
+	public View getView(Bundle savedInstanceState) {
+		View view = LayoutInflater.from(getActivity()).inflate(R.layout.branch_holder, null);
+
+		if (savedInstanceState != null) {
+			col = savedInstanceState.getInt("c");
+			i = savedInstanceState.getInt("i");
+		}
+		if (i == 0) i = C++;
+		Log.d("NAV", "HomeBranch on create");
+		((TextView) view.findViewById(R.id.button3)).setText("" + i);
+		view.setBackgroundColor(col);
+		Log.d("NAV", "home oncreat " + savedInstanceState);
+		return view;
+	}
+
+	/*@Nullable
 	@Override
 	public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.branch_holder, null);
@@ -41,7 +57,7 @@ public class HomeBranch extends BranchHolderFragment {
 		view.setBackgroundColor(col);
 		Log.d("NAV", "home oncreat " + savedInstanceState);
 		return view;
-	}
+	}*/
 
 	@Override
 	public void onSaveInstanceState(Bundle outState) {

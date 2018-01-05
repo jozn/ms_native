@@ -5,7 +5,7 @@ import android.support.annotation.Nullable;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.mardomsara.social.app.Router;
+import com.mardomsara.social.app.Router_DEP;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.ui.ui.FooterBarCell;
 
@@ -163,19 +163,19 @@ public class Nav_DEP {
 			cell.name = b;
 			switch (b){
 				case Chat:
-					cell.setDefaultPage(Router.getChatTab());
+					cell.setDefaultPage(Router_DEP.getChatTab());
 					break;
 				case Home:
-					cell.setDefaultPage(Router.getHomeTab());
+					cell.setDefaultPage(Router_DEP.getHomeTab());
 					break;
 				case Search:
-					cell.setDefaultPage(Router.getSearchTab());
+					cell.setDefaultPage(Router_DEP.getSearchTab());
 					break;
 				case Activity:
-					cell.setDefaultPage(Router.getActivityTab());
+					cell.setDefaultPage(Router_DEP.getActivityTab());
 					break;
 				case Profile:
-					cell.setDefaultPage(Router.getProfileTab());
+					cell.setDefaultPage(Router_DEP.getProfileTab());
 					break;
 			}
 			branchMapHolder.put(b,cell);

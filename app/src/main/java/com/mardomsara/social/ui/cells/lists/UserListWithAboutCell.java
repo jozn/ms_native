@@ -3,7 +3,7 @@ package com.mardomsara.social.ui.cells.lists;
 import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
 
-import com.mardomsara.social.app.Router;
+import com.mardomsara.social.app.Router_DEP;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.json.social.rows.UserInfoJson;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
@@ -52,7 +52,7 @@ public class UserListWithAboutCell {
             super(x.root);
            	this.x = x;
             x.root.setOnClickListener((v)->{
-                Router.goToProfile(row.UserId);
+                Router_DEP.goToProfile(row.UserId);
             });
             ButterKnife.bind(this,itemView);
         }

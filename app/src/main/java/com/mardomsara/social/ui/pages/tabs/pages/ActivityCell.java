@@ -1,4 +1,4 @@
-package com.mardomsara.social.ui.presenter.social;
+package com.mardomsara.social.ui.pages.tabs.pages;
 
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
@@ -12,7 +12,6 @@ import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.json.HttpJsonList;
 import com.mardomsara.social.json.JV;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
-import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.cells.Cells;
 import com.mardomsara.social.ui.cells.lists.ActivityListCell;
 import com.mardomsara.social.ui.views.helpers.ViewHelper;
@@ -22,8 +21,7 @@ import java.util.List;
 /**
  * Created by Hamid on 7/13/2016.
  */
-@Deprecated
-public class ActivityPresenter implements AppHeaderFooterRecyclerViewAdapter.LoadNextPage {
+public class ActivityCell implements AppHeaderFooterRecyclerViewAdapter.LoadNextPage {
 	ViewGroup viewRoot;
 	ActivityListCell.ActivitiesAdaptor adaptor;
 	SwipeRefreshLayout refreshLayout;

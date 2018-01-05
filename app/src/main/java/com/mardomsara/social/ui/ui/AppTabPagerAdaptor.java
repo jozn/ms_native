@@ -18,6 +18,7 @@ import java.util.List;
  * Created by Hamid on 1/9/2017.
  */
 
+//todo - here we simply just use getView() interface, this is from old presenter architeres, in futerue we can use and problebly is better to use fragment insetead of directyly getiting view
 public class AppTabPagerAdaptor extends PagerAdapter {
 	List<Tab> tabList=new ArrayList<>();
 
@@ -89,6 +90,7 @@ public class AppTabPagerAdaptor extends PagerAdapter {
 			this.getViewRunner = getViewRunner;
 		}
 
+		@Deprecated
 		public Tab(@NonNull String title, @NonNull BasePresenter presenter) {
 			this.title = title;
 			this.getViewRunner = () -> presenter.buildView();

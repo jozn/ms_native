@@ -16,6 +16,7 @@ import com.mardomsara.social.ui.ui.AppTabPagerAdaptor;
 /**
  * Created by Hamid on 8/23/2016.
  */
+@Deprecated
 public class AcitivityTab extends BasePresenter {
     @Override
     public View buildView() {

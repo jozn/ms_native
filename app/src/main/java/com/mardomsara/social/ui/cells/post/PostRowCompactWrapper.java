@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 
 import com.mardomsara.social.Nav_DEP;
 import com.mardomsara.social.R;
-import com.mardomsara.social.app.Router;
+import com.mardomsara.social.app.Router_DEP;
 import com.mardomsara.social.base.Http.Http;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.FormaterUtil;
@@ -29,10 +29,10 @@ public class PostRowCompactWrapper {
 	Uri imageUri2;
 	View.OnClickListener gotoLikes = (v) -> {
 //        Nav.push(Router.getLikesPage(post.Id));
-		Nav_DEP.push(Router.getLikesPage(post.Id));
+		Nav_DEP.push(Router_DEP.getLikesPage(post.Id));
 	};
 	View.OnClickListener gotoComments = (v) -> {
-		Nav_DEP.push(Router.getCommontsPage(post.Id));
+		Nav_DEP.push(Router_DEP.getCommontsPage(post.Id));
 	};
 	View.OnClickListener gotoProfile = (v) -> {
 		Nav_DEP.push(new ProfilePage(post.UserId));

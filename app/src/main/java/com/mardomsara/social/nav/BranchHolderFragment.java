@@ -10,7 +10,7 @@ import java.util.List;
  * Created by Hamid on 1/1/2018.
  */
 
-public class BranchHolderFragment extends PageFragment {
+public abstract class BranchHolderFragment extends PageFragment {
 
 	public void push(PageFragment page) {
 		getChildFragmentManager()

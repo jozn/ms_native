@@ -2,8 +2,12 @@ package com.mardomsara.social.nav;
 
 
 import com.mardomsara.social.R;
-import com.mardomsara.social.ui.pages.tabs.HomeTabPageFragment;
-import com.mardomsara.social.ui.pages.tabs.SampleTabPageFragment;
+import com.mardomsara.social.ui.pages.tabs.ActivityTabFragment;
+import com.mardomsara.social.ui.pages.tabs.ChatTabFragment;
+import com.mardomsara.social.ui.pages.tabs.HomeTabFragment;
+import com.mardomsara.social.ui.pages.tabs.SampleTabFragment;
+import com.mardomsara.social.ui.pages.tabs.ProfileTabFragment;
+import com.mardomsara.social.ui.pages.tabs.SearchTabFragment;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -19,32 +23,32 @@ public enum BranchEnum {
 	Activity(R.id.holder_activity),
 	Profile(R.id.holder_profile);
 
+	static Map<Integer, BranchEnum> map = new HashMap<>();
 	int layoutId;
 	String fragmentBranchTagId;
-	static Map<Integer,BranchEnum> map = new HashMap<>();
+
 	BranchEnum(int layoutId) {
 		this.layoutId = layoutId;
-		fragmentBranchTagId = "branch_tag_"+layoutId;
+		fragmentBranchTagId = "branch_tag_" + layoutId;
 	}
 
 	BranchHolderFragment getNewBrangch() {
 		BranchHolderFragment holerFragment = null;
 		switch (this) {
 			case Chat:
-				holerFragment = new HomeBranch();
+				holerFragment = new ChatTabFragment();
 				break;
 			case Home:
-				holerFragment = new HomeBranch();
+				holerFragment = new HomeTabFragment();
 				break;
 			case Search:
-//				holerFragment = new HomeBranch();
-				holerFragment = new SampleTabPageFragment();
+				holerFragment = new SearchTabFragment();
 				break;
 			case Activity:
-				holerFragment = new HomeTabPageFragment();
+				holerFragment = new ActivityTabFragment();
 				break;
 			case Profile:
-				holerFragment = new HomeBranch();
+				holerFragment = new ProfileTabFragment();
 		}
 
 		return holerFragment;

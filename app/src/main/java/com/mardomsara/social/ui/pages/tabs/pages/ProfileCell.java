@@ -1,4 +1,4 @@
-package com.mardomsara.social.ui.presenter.pages;
+package com.mardomsara.social.ui.pages.tabs.pages;
 
 import android.view.View;
 
@@ -17,25 +17,25 @@ import com.mardomsara.social.ui.adaptors.PostGeneralListCell;
 /**
  * Created by Hamid on 8/14/2016.
  */
-public class ProfilePage extends BasePresenter {
+public class ProfileCell {
 
 	X.Profile_Parent x;
     int UserId;
 	String userName ="";
     boolean isMyProfile =false;
-    public ProfilePage(int userId) {
+    public ProfileCell(int userId) {
         UserId = userId;
     }
 
-	public ProfilePage(int userId,boolean isMyProfile) {
+	public ProfileCell(int userId, boolean isMyProfile) {
 		UserId = userId;
 		this.isMyProfile = isMyProfile;
 	}
 
-	public ProfilePage(String userName) {
+	public ProfileCell(String userName) {
 		this.userName = userName;
 	}
-    @Override
+
     public View buildView() {
 		x = new X.Profile_Parent();
         x.top_nav.setTitle("پروفایل");

@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 import com.mardomsara.social.App;
 import com.mardomsara.social.app.Constants;
-import com.mardomsara.social.app.Router;
+import com.mardomsara.social.app.Router_DEP;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.FormaterUtil;
@@ -254,7 +254,7 @@ public class NotifyListCell
                 }
                 spanny.append(tp);
 				x.text_main.setText(spanny);
-                x.root.setOnClickListener((v)->Router.goToPost(nf.Load.Post));
+                x.root.setOnClickListener((v)-> Router_DEP.goToPost(nf.Load.Post));
             }
         }
 
@@ -278,7 +278,7 @@ public class NotifyListCell
                 }
                 spanny.append(tp);
                 x.text_main.setText(spanny);
-                x.root.setOnClickListener((v)->Router.goToPost(nf.Load.Post));
+                x.root.setOnClickListener((v)-> Router_DEP.goToPost(nf.Load.Post));
             }
         }
         void _bindFollowing(Notify nf){
@@ -288,7 +288,7 @@ public class NotifyListCell
             tp = " شما را دنبال می کند.";
             spanny.append(tp);
             _showExtraFollowing(actor);
-            x.root.setOnClickListener((v)->Router.goToProfile(actor.UserId));
+            x.root.setOnClickListener((v)-> Router_DEP.goToProfile(actor.UserId));
 			x.text_main.setText(spanny);
         }
 
@@ -314,9 +314,9 @@ public class NotifyListCell
         }
 
         void _setAvatar(JV.UserInlineWithMeView Actor){
-            x.avatar_image.setOnClickListener((v)-> Router.goToProfile(Actor.UserId));
+            x.avatar_image.setOnClickListener((v)-> Router_DEP.goToProfile(Actor.UserId));
             Helper.SetAvatar(x.avatar_image, Actor.AvatarUrl);
-            x.avatar_image.setOnClickListener((v)-> Router.goToProfile(Actor.UserId));
+            x.avatar_image.setOnClickListener((v)-> Router_DEP.goToProfile(Actor.UserId));
         }
 
         void _hideExtra(){
@@ -362,7 +362,7 @@ public class NotifyListCell
             AppClickableSpan clickableSpan = new AppClickableSpan() {
                 @Override
                 public void onClick(View view) {
-                    Router.goToProfile(s);
+                    Router_DEP.goToProfile(s);
                 }
             };
             return clickableSpan;

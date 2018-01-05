@@ -13,15 +13,21 @@ import com.mardomsara.social.ui.X;
  * Created by Hamid on 1/4/2018.
  */
 
-public class SampleTabPageFragment extends BranchHolderFragment {
+public class SampleTabFragment extends BranchHolderFragment {
 	X.HelloWorldRow x;
-	@Nullable
+
 	@Override
-	public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-//		return super.onCreateView(inflater, container, savedInstanceState);
+	public View getView(Bundle savedInstanceState) {
 		x = new X.HelloWorldRow(getActivity(),null);
 		return x.root;
 	}
+
+
+//	public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+////		return super.onCreateView(inflater, container, savedInstanceState);
+//		x = new X.HelloWorldRow(getActivity(),null);
+//		return x.root;
+//	}
 
 	@Override
 	public void onActivityCreated(@Nullable Bundle savedInstanceState) {

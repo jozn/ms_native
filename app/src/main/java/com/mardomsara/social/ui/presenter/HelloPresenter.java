@@ -6,7 +6,7 @@ import android.widget.TextView;
 
 import com.mardomsara.social.Nav_DEP;
 import com.mardomsara.social.R;
-import com.mardomsara.social.app.Router;
+import com.mardomsara.social.app.Router_DEP;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.LangUtil;
 import com.mardomsara.social.ui.BasePresenter;
@@ -29,11 +29,11 @@ public class HelloPresenter extends BasePresenter {
         View anvil_view2 = v.findViewById(R.id.anvil2);
         txt.setText("Hello Wold + id:" + LangUtil.getRandomString(5));
         btn.setOnClickListener((vv)->{
-            Nav_DEP.push(Router.getHelloWolrdPage());
+            Nav_DEP.push(Router_DEP.getHelloWolrdPage());
         });
 
         btn2.setOnClickListener((vv)->{
-            Nav_DEP.push(Router.getGalleryChooserPage());
+            Nav_DEP.push(Router_DEP.getGalleryChooserPage());
         });
 
         btn3.setOnClickListener((vv)->{

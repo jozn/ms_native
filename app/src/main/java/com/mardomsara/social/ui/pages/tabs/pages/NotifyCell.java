@@ -1,17 +1,15 @@
-package com.mardomsara.social.ui.presenter.social;
+package com.mardomsara.social.ui.pages.tabs.pages;
 
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.cells.Cells;
 import com.mardomsara.social.ui.cells.lists.NotifyListCell;
 
 /**
  * Created by Hamid on 7/13/2016.
  */
-@Deprecated
-public class NotifyPresenter {
+public class NotifyCell {
     ViewGroup viewRoot;
 
 	NotifyListCell listCell;
