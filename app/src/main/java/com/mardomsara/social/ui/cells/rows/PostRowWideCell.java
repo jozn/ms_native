@@ -6,9 +6,8 @@ import android.support.annotation.NonNull;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.mardomsara.social.Nav_DEP;
 import com.mardomsara.social.R;
-import com.mardomsara.social.app.Router_DEP;
+import com.mardomsara.social.app.Router;
 import com.mardomsara.social.base.Http.Http;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.FormaterUtil;
@@ -17,7 +16,6 @@ import com.mardomsara.social.helpers.LangUtil;
 import com.mardomsara.social.json.JV;
 import com.mardomsara.social.ui.X;
 import com.mardomsara.social.ui.cells.post.PostRowUtils;
-import com.mardomsara.social.ui.presenter.pages.ProfilePage;
 import com.mardomsara.social.ui.views.FullScreenImage_Fresco;
 import com.mardomsara.social.ui.views.helpers.ViewHelper;
 
@@ -33,17 +31,17 @@ public class PostRowWideCell {
     View.OnClickListener gotoLikes = (v) -> {
 //        Nav.push(Router.getLikesPage(post.Id));
 		Helper.showDebugMessage("gotoLikes");
-        Nav_DEP.push(Router_DEP.getLikesPage(post.Id));
+		Router.goToLikesPage(post.Id);
     };
 
     View.OnClickListener gotoComments = (v) -> {
 		Helper.showDebugMessage("gotoComments");
-		Nav_DEP.push(Router_DEP.getCommontsPage(post.Id));
+		Router.goToCommontsPage(post.Id);
     };
 
     View.OnClickListener gotoProfile = (v) -> {
 		Helper.showDebugMessage("gotoProfile");
-        Nav_DEP.push(new ProfilePage(post.UserId));
+		Router.goToProfile(post.UserId);
     };
 
     View.OnClickListener imagePopup = (v) -> {

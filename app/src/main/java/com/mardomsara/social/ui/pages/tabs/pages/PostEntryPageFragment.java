@@ -1,13 +1,16 @@
-package com.mardomsara.social.ui.presenter.pages;
+package com.mardomsara.social.ui.pages.tabs.pages;
 
+import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.mardomsara.social.base.Http.Http;
 import com.mardomsara.social.base.Http.Result;
+import com.mardomsara.social.helpers.JsonUtil;
 import com.mardomsara.social.json.HttpJson;
 import com.mardomsara.social.json.JV;
-import com.mardomsara.social.ui.BasePresenter;
+import com.mardomsara.social.nav.FragmentPage;
 import com.mardomsara.social.ui.X;
 import com.mardomsara.social.ui.cells.Cells;
 import com.mardomsara.social.ui.cells.lists.CommentsListCell;
@@ -17,24 +20,34 @@ import com.mardomsara.social.ui.cells.rows.PostRowWideCell;
 /**
  * Created by Hamid on 8/26/2016.
  */
-public class PostEntryPage extends BasePresenter {
+public class PostEntryPageFragment extends FragmentPage {
+	static final String POST_JSON = "POST_JSON";
+	static final String ENUM_TYPE_ID = "POST_JSON";
+
     ViewGroup viewRoot;
     JV.PostView postRowJson;
 
 	boolean havePostJson = true;
 	X.Post_SingleEntryHolder postHolder;
 
-	public PostEntryPage(JV.PostView postJson) {
-        postRowJson = postJson;
-    }
-
-	public PostEntryPage(JV.PostView postJson, boolean has) {
-		postRowJson = postJson;
-		havePostJson = has;
+	public static PostEntryPageFragment newInstance(JV.PostView postJson, boolean has){
+		Bundle bundle = new Bundle();
+		bundle.putString(POST_JSON, JsonUtil.toJson(postJson));
+		PostEntryPageFragment fragment = new PostEntryPageFragment();
+		fragment.setArguments(bundle);
+		return fragment;
 	}
 
-    @Override
-    public View buildView() {
+	@Override
+	public void onCreate(@Nullable Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		if(getArguments() != null){
+			postRowJson = JsonUtil.fromJson(getArguments().getString(POST_JSON),JV.PostView.class);
+		}
+	}
+
+	@Override
+    public View getView(Bundle savedInstanceState) {
 		Cells.NavAndEmptyView page = new Cells.NavAndEmptyView();
         viewRoot = page.rootView;
 		page.simpleTopNav.setTitle("پست");

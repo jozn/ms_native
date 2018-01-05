@@ -1,4 +1,4 @@
-package com.mardomsara.social.ui.cells.lists;
+package com.mardomsara.social.ui.pages.tabs.pages;
 
 import android.content.Context;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -7,25 +7,25 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.mardomsara.social.Nav_DEP;
 import com.mardomsara.social.base.Http.Http;
 import com.mardomsara.social.base.Http.Result;
 import com.mardomsara.social.helpers.AndroidUtil;
-import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.json.HttpJsonList;
 import com.mardomsara.social.json.JV;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
+import com.mardomsara.social.nav.Nav;
 import com.mardomsara.social.ui.X;
 import com.mardomsara.social.ui.cells.post.PostRowCompactWrapper;
 import com.mardomsara.social.ui.cells.rows.PostRowWideCell;
-import com.mardomsara.social.ui.presenter.pages.add_post.AddPostPage;
-import com.mardomsara.social.ui.presenter.pages.add_post.PostAddGalleryChooserPresenter;
-import com.mardomsara.social.ui.presenter.pages.add_post.RecentImagesAddPostBoxCell;
+import com.mardomsara.social.ui.pages.tabs.pages.add_post.AddPostPage;
+import com.mardomsara.social.ui.pages.tabs.pages.add_post.PostAddGalleryChooserPresenter;
+import com.mardomsara.social.ui.pages.tabs.pages.add_post.RecentImagesAddPostBoxCell;
 import com.mardomsara.social.ui.views.buttons.PostWayToShow;
 
 import java.util.ArrayList;
 import java.util.List;
+
 
 /**
  * Created by Hamid on 8/26/2016.
@@ -152,15 +152,15 @@ public class PostsHomeCell
 		X.Home_AddPostBox addPostBox = new X.Home_AddPostBox(x.recycler_view);
 		adaptor.appendViewToHeader(addPostBox.root);
 
-		addPostBox.top_holder.setOnClickListener((v)-> Nav_DEP.push(new AddPostPage()));
+		addPostBox.top_holder.setOnClickListener((v)-> Nav.push(new AddPostPage()));
 		addPostBox.camera_btn.setOnClickListener((v) -> Helper.showCommingSoonMessage());
 		addPostBox.gallery_btn.setOnClickListener((v) -> {
-			Nav_DEP.push(new PostAddGalleryChooserPresenter(new PostAddGalleryChooserPresenter.onImageClicked() {
+			Nav.push(new PostAddGalleryChooserPresenter(new PostAddGalleryChooserPresenter.onImageClicked() {
 				@Override
 				public void onRecentImageAdded(String filePath) {
 					AddPostPage addPostPage = new AddPostPage();
 					addPostPage.setToShareFilePath(filePath);
-					Nav_DEP.replace(addPostPage);
+					Nav.replace(addPostPage);
 				}
 
 				@Override
@@ -182,7 +182,7 @@ public class PostsHomeCell
 				AddPostPage addPostPage = new AddPostPage();
 				addPostPage.setToShareFilePath(recentImagesCell.getSelectedOne());
 				recentImagesCell.selectNone();
-				Nav_DEP.push(addPostPage);
+				Nav.push(addPostPage);
 			}
 
 			@Override

@@ -1,33 +1,38 @@
-package com.mardomsara.social.ui.presenter.pages.add_post;
+package com.mardomsara.social.ui.pages.tabs.pages.add_post;
 
+import android.os.Bundle;
 import android.view.View;
 
-import com.mardomsara.social.Nav_DEP;
 import com.mardomsara.social.base.Http.Http;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.Helper;
-import com.mardomsara.social.ui.BasePresenter;
+import com.mardomsara.social.nav.Nav;
+import com.mardomsara.social.nav.FragmentPage;
 import com.mardomsara.social.ui.X;
 import com.mardomsara.social.ui.views.EmojiKeyboard;
 import com.squareup.picasso.Picasso;
 
 import java.io.File;
 
-public class AddPostPage extends BasePresenter {
+//import com.mardomsara.social.ui.presenter.pages.add_post.PostAddGalleryChooserPresenter;
+//import com.mardomsara.social.ui.presenter.pages.add_post.RecentImagesAddPostBoxCell;
+
+public class AddPostPage extends FragmentPage {
 
 	String toShareFilePath = null;
 	X.AddPost_Container x;
 	RecentImagesAddPostBoxCell recentImagesCell;
 
+
 	@Override
-    public View buildView() {
+    public View getView(Bundle savedInstanceState) {
 		x = new X.AddPost_Container();
 
 		x.gallery_btn.setOnClickListener((v) -> {
-			Nav_DEP.push(new PostAddGalleryChooserPresenter(new PostAddGalleryChooserPresenter.onImageClicked() {
+			Nav.push(new PostAddGalleryChooserPresenter(new PostAddGalleryChooserPresenter.onImageClicked() {
 				@Override
 				public void onRecentImageAdded(String filePath) {
-					Nav_DEP.pop();
+					Nav.pop();
 					setImageFromOutside(filePath);
 				}
 
@@ -74,7 +79,9 @@ public class AddPostPage extends BasePresenter {
 		EmojiKeyboard emojiKeybord= new EmojiKeyboard(x.post_field ,x.emoji_opener_btn, AppUtil.global_window);
 
 //		getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
-		keyboard_noResize();
+
+		//todo from midration to nave got commneted
+//		keyboard_noResize();
 
 		setImageFromOutside(toShareFilePath);
 
@@ -88,28 +95,18 @@ public class AddPostPage extends BasePresenter {
 			Http.postPath("/v1/post/add")
 				.setFormParam("text", x.post_field.getText().toString())
 				.doAsyncUi((result -> {
-					Nav_DEP.pop();
+					Nav.pop();
 				}));
 		}else {
 			File file = new File(toShareFilePath);
 			Http.uploadPath("/v1/post/add",file)
 				.setFormParam("text", x.post_field.getText().toString())
 				.doAsyncUi((result -> {
-					Nav_DEP.pop();
+					Nav.pop();
 				}));
 		}
 	}
 
-	@Override
-	public void onFocus() {
-		super.onFocus();
-		
-	}
-
-	@Override
-	public void onBlur() {
-		super.onBlur();
-	}
 
 	public void setImage(String path){
 		toShareFilePath = path;

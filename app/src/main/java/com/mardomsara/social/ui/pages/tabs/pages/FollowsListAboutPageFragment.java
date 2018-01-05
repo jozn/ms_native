@@ -1,5 +1,6 @@
-package com.mardomsara.social.ui.presenter.pages;
+package com.mardomsara.social.ui.pages.tabs.pages;
 
+import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -14,7 +15,7 @@ import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.json.HttpJsonList;
 import com.mardomsara.social.json.social.rows.UserInfoJson;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
-import com.mardomsara.social.ui.BasePresenter;
+import com.mardomsara.social.nav.FragmentPage;
 import com.mardomsara.social.ui.cells.Cells;
 import com.mardomsara.social.ui.cells.lists.UserListWithAboutCell;
 import com.mardomsara.social.ui.views.helpers.ViewHelper;
@@ -22,8 +23,10 @@ import com.mardomsara.social.ui.views.helpers.ViewHelper;
 /**
  * Created by Hamid on 8/6/2016.
  */
-public class FollowsListAboutPage extends BasePresenter implements AppHeaderFooterRecyclerViewAdapter.LoadNextPage {
+public class FollowsListAboutPageFragment extends FragmentPage implements AppHeaderFooterRecyclerViewAdapter.LoadNextPage {
 
+	static final String OBJECT_ID = "POST_JSON";
+	static final String ENUM_TYPE_ID = "POST_JSON";
     public enum Type {
         FOLLOWING,
         FOLLOWERS,
@@ -37,13 +40,20 @@ public class FollowsListAboutPage extends BasePresenter implements AppHeaderFoot
     Type listType;
     String urlEndpoint;
 
-    public FollowsListAboutPage(int objectId, Type type) {
-        ObjectId = objectId;
-        this.listType = type;
-    }
+	public FollowsListAboutPageFragment() {
+	}
 
-    @Override
-    public View buildView() {
+	public static FollowsListAboutPageFragment newInstance(int objectId, Type type){
+		Bundle bundle = new Bundle();
+		bundle.putInt(OBJECT_ID,objectId);
+		bundle.putString(ENUM_TYPE_ID,type.name());
+		FollowsListAboutPageFragment fragment = new FollowsListAboutPageFragment();
+		fragment.setArguments(bundle);
+		return fragment;
+	}
+
+	@Override
+	public View getView(Bundle savedInstanceState) {
         pageCell = new Cells.NavAndRecylerView();
         init();
         return pageCell.rootView;

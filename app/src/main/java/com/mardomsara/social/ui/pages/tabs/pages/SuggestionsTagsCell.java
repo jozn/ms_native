@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.mardomsara.social.Nav_DEP;
+import com.mardomsara.social.app.Router;
 import com.mardomsara.social.base.Http.Http;
 import com.mardomsara.social.base.Http.Result;
 import com.mardomsara.social.helpers.AndroidUtil;
@@ -16,11 +16,8 @@ import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.json.HttpJsonList;
 import com.mardomsara.social.json.JV;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
-import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.X;
 import com.mardomsara.social.ui.cells.Cells;
-import com.mardomsara.social.ui.presenter.pages.PostEntryPage;
-import com.mardomsara.social.ui.presenter.pages.TagsPage;
 import com.mardomsara.social.ui.views.FontCache;
 import com.mardomsara.social.ui.views.helpers.ViewHelper;
 import com.squareup.picasso.Picasso;
@@ -138,7 +135,7 @@ public class SuggestionsTagsCell  implements AppHeaderFooterRecyclerViewAdapter.
             x.text.setText("#"+tagJson.Tag.Name);
 
 			x.see_more.setOnClickListener((v)->{
-				Nav_DEP.push(new TagsPage(tagJson.Tag.Name));
+				Router.goToTagPage(tagJson.Tag.Name);
 			});
 			x.see_more.setTypeface(FontCache.getIranLight());
 			x.see_more.setText("همه {ion-ios-arrow-left 12dp}");
@@ -180,7 +177,7 @@ public class SuggestionsTagsCell  implements AppHeaderFooterRecyclerViewAdapter.
                     .into(image);
 
             View.OnClickListener onClick = (v)->{
-                Nav_DEP.push(new PostEntryPage(post));
+				Router.goToPostEntryPage(post);
             };
 
             image.setOnClickListener(onClick);

@@ -13,12 +13,10 @@ import android.text.style.ForegroundColorSpan;
 import android.text.style.StyleSpan;
 import android.util.AttributeSet;
 import android.util.TypedValue;
-import android.view.KeyEvent;
 import android.view.View;
 
 import com.mardomsara.emojicon.EmojiMaper;
 import com.mardomsara.social.R;
-import com.mardomsara.social.activities.MainAppActivity;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.LangUtil;

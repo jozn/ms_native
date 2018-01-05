@@ -8,11 +8,8 @@ import android.view.View;
 import com.mardomsara.social.R;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.nav.BranchHolderFragment;
-import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.pages.tabs.pages.UserAndContactsCell;
 import com.mardomsara.social.ui.presenter.chat_realm.inbox.InboxChatsListCell;
-import com.mardomsara.social.ui.presenter.chats.RoomsListPresenter;
-import com.mardomsara.social.ui.presenter.chats.UserAndContactsPresenter;
 import com.mardomsara.social.ui.ui.AppTabPagerAdaptor;
 
 /**

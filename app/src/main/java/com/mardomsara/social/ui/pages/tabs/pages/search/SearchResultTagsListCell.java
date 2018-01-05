@@ -3,7 +3,8 @@ package com.mardomsara.social.ui.pages.tabs.pages.search;
 import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
 
-import com.mardomsara.social.app.Router_DEP;
+//import com.mardomsara.social.app.Router_DEP;
+import com.mardomsara.social.app.Router;
 import com.mardomsara.social.json.social.rows.TagRowJson;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
 import com.mardomsara.social.ui.X;
@@ -54,7 +55,7 @@ public class SearchResultTagsListCell {
 
 		public TagRowCell(ViewGroup parent) {
 			x = new X.RowTagSimple(parent);
-			x.root.setOnClickListener((v)-> Router_DEP.goToTag(tag.Name));
+			x.root.setOnClickListener((v)-> Router.goToTagPage(tag.Name));
 		}
 
 		public void bind(TagRowJson tagRowJson){

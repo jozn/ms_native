@@ -2,12 +2,12 @@ package com.mardomsara.social.ui.presenter.chat_realm.chat_room;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 
-import com.mardomsara.social.Nav_DEP;
 import com.mardomsara.social.app.AppRealm;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
@@ -20,10 +20,11 @@ import com.mardomsara.social.models_realm.helpers.HelperMessagesLooper;
 import com.mardomsara.social.models_realm.pb_realm.RealmChatView;
 import com.mardomsara.social.models_realm.pb_realm.RealmMessageView;
 import com.mardomsara.social.models_realm.pb_realm.RealmMessageViewFields;
-import com.mardomsara.social.ui.BasePresenter;
+import com.mardomsara.social.nav.Nav;
+import com.mardomsara.social.nav.FragmentPage;
 import com.mardomsara.social.ui.X;
 import com.mardomsara.social.ui.cells.general.KeyboardAttachmentCell;
-import com.mardomsara.social.ui.presenter.chats.GalleryChooserPresenter;
+import com.mardomsara.social.ui.presenter.chats.GalleryChooserFragmentPage;
 import com.mardomsara.social.ui.views.EmojiKeyboard;
 import com.squareup.picasso.Picasso;
 import com.sw926.imagefileselector.ImageFileSelector;
@@ -37,7 +38,7 @@ import io.realm.Sort;
 /**
  * Created by Hamid on 5/4/2016.
  */
-public class ChatRoomEntryPresenter extends BasePresenter implements
+public class ChatRoomEntryFragmentPage extends FragmentPage implements
 	KeyboardAttachmentCell.KeyboardAttachmentListener, AppHeaderFooterRecyclerViewAdapter.LoadNextPage {
 	//constants
 	final int ATTACH_CAMERA_IMAGE = 1001;
@@ -47,7 +48,7 @@ public class ChatRoomEntryPresenter extends BasePresenter implements
 	ChatRoomEntryAdaptor adaptor;
 	KeyboardAttachmentCell attachment_view;
 	LinearLayoutManager mLayoutManager;
-	ChatRoomEntryPresenter that;
+	ChatRoomEntryFragmentPage that;
 	IntentHelper intentHelper;
 	Uri file_uri;
 	EmojiKeyboard emojiKeyboard;
@@ -56,10 +57,10 @@ public class ChatRoomEntryPresenter extends BasePresenter implements
 	private ImageFileSelector mImageFileSelector;
 
 	@Override
-	public View buildView() {
+	public View getView(Bundle savedInstanceState) {
 		x = new X.ChatRoom_ScreenParent();
 
-		Nav_DEP.hideFooter();
+		Nav.hideFooter();
 
 		AndroidUtil.runInUi(() -> {
 
@@ -91,8 +92,8 @@ public class ChatRoomEntryPresenter extends BasePresenter implements
 			x.recycler_view.setHasFixedSize(false);
 
 			x.back.setOnClickListener((v) -> {
-				onBack();
-				Nav_DEP.pop();
+				onBackPressed();
+				Nav.pop();
 			});
 
 			x.room_name.setText(RealmChatViewHelper.getRoomName(room));
@@ -137,14 +138,15 @@ public class ChatRoomEntryPresenter extends BasePresenter implements
         RoomModel.onRoomOpened_InBackground(room);*/
 	}
 
-	@Override
-	public void onBack() {
-		super.onBack();
+	//todo fixme
+	//@Override
+	public void onBackPressed() {
+//		super.onBack();
 		if (emojiKeyboard != null) {
 			emojiKeyboard.destroy();
 		}
 
-		Nav_DEP.showFooter();
+		Nav.showFooter();
 	}
 
 	void setUpInputOnTextTextChanged() {
@@ -196,10 +198,10 @@ public class ChatRoomEntryPresenter extends BasePresenter implements
 	@Override
 	public void onGalleryClick() {
         attachment_view.dismiss();
-        GalleryChooserPresenter gallery =new GalleryChooserPresenter();
+		GalleryChooserFragmentPage gallery =new GalleryChooserFragmentPage();
        // FIxme: gallery.chatEntryPresenter to interface
         gallery.chatEntryPresenter = this;
-        Nav_DEP.push(gallery);
+        Nav.push(gallery);
 	}
 
 	@Override

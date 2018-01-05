@@ -1,5 +1,6 @@
 package com.mardomsara.social.play.presenters;
 
+import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -9,8 +10,8 @@ import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.LangUtil;
 import com.mardomsara.social.lib.NanoTimestamp;
+import com.mardomsara.social.nav.FragmentPage;
 import com.mardomsara.social.pipe.table.RpcOffline;
-import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.cells.Cells;
 
 import ir.ms.pb.PB_ChatParam_GetChatList;
@@ -21,11 +22,11 @@ import ir.ms.pb.RPC;
 /**
  * Created by Hamid on 10/1/2016.
  */
-public class Play_WSCallPresenter extends BasePresenter {
+public class Play_WSCallPresenter extends FragmentPage {
 
 	Cells.Title_BigClickAble info = null;
     @Override
-    public View buildView() {
+    public View getView(Bundle savedInstanceState) {
         Cells.Scroller cell =new Cells.Scroller();
         ViewGroup rootView =cell.rootView;
         ViewGroup layout =cell.layout;

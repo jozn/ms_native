@@ -1,18 +1,18 @@
 package com.mardomsara.social.ui.presenter.settings;
 
+import android.os.Bundle;
 import android.view.View;
 
-import com.mardomsara.social.ui.BasePresenter;
+import com.mardomsara.social.nav.FragmentPage;
 import com.mardomsara.social.ui.X;
-import com.mardomsara.social.ui.cells.Cells;
 
 /**
  * Created by Hamid on 2/20/2017.
  */
 
-public class EditPhonePresenter extends BasePresenter {
+public class EditPhonePage extends FragmentPage {
 	@Override
-	public View buildView() {
+	public View getView(Bundle savedInstanceState) {
 		/*Cells.NavAndEmptyView x = new Cells.NavAndEmptyView();
 		x.simpleTopNav.setTitle("شماره تلفن");*/
 

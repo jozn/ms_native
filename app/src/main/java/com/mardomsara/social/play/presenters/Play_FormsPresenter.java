@@ -1,6 +1,7 @@
 package com.mardomsara.social.play.presenters;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -8,7 +9,7 @@ import com.mardomsara.nexusdialog.FormController;
 import com.mardomsara.nexusdialog.controllers.EditTextController;
 import com.mardomsara.nexusdialog.controllers.FormSectionController;
 import com.mardomsara.nexusdialog.controllers.SelectionController;
-import com.mardomsara.social.ui.BasePresenter;
+import com.mardomsara.social.nav.FragmentPage;
 import com.mardomsara.social.ui.cells.Cells;
 
 import java.util.Arrays;
@@ -16,14 +17,14 @@ import java.util.Arrays;
 /**
  * Created by Hamid on 8/14/2016.
  */
-public class Play_FormsPresenter extends BasePresenter {
+public class Play_FormsPresenter extends FragmentPage {
 
 //    @BindView(R.id.fullname) TextView fullname;
 
     ViewGroup viewRoot;
 
     @Override
-    public View buildView() {
+    public View getView(Bundle savedInstanceState) {
 		Cells.NavAndEmptyView page = new Cells.NavAndEmptyView();
 		page.simpleTopNav.setTitle("فرم");
         viewRoot = page.rootView;

@@ -9,7 +9,6 @@ import android.widget.TextView;
 
 import com.mardomsara.social.R;
 import com.mardomsara.social.helpers.AppUtil;
-import com.mardomsara.social.ui.BasePresenter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -90,11 +89,6 @@ public class AppTabPagerAdaptor extends PagerAdapter {
 			this.getViewRunner = getViewRunner;
 		}
 
-		@Deprecated
-		public Tab(@NonNull String title, @NonNull BasePresenter presenter) {
-			this.title = title;
-			this.getViewRunner = () -> presenter.buildView();
-		}
 
 		public View getView(){
 			if(view==null){

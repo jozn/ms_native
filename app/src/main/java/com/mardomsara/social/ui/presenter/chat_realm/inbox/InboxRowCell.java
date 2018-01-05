@@ -4,8 +4,6 @@ package com.mardomsara.social.ui.presenter.chat_realm.inbox;
 import android.net.Uri;
 import android.view.ViewGroup;
 
-import com.mardomsara.social.Nav_DEP;
-import com.mardomsara.social.app.Router_DEP;
 import com.mardomsara.social.helpers.FormaterUtil;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.models_realm.RealmChatViewHelper;
@@ -23,7 +21,9 @@ class InboxRowCell {
 		this.adaptor = adaptor;
 
 		x.root.setOnClickListener((vv) -> {
-			if (room != null) Nav_DEP.push(Router_DEP.getRoomEntry(room));
+			if (room != null) {
+//				Nav_DEP.push(Router_DEP.getRoomEntry(room));
+			}
 		});
 
 		x.root.setOnLongClickListener((vv) -> {

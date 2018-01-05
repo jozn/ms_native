@@ -1,6 +1,7 @@
 package com.mardomsara.social.play.presenters;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,7 +13,7 @@ import com.mardomsara.social.R;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.DialogHelper;
-import com.mardomsara.social.ui.BasePresenter;
+import com.mardomsara.social.nav.FragmentPage;
 import com.mardomsara.social.ui.cells.Cells;
 import com.orhanobut.dialogplus.DialogPlus;
 import com.orhanobut.dialogplus.ViewHolder;
@@ -20,9 +21,9 @@ import com.orhanobut.dialogplus.ViewHolder;
 /**
  * Created by Hamid on 10/1/2016.
  */
-public class Play_DiaolgPresenter extends BasePresenter {
-    @Override
-	public View buildView() {
+public class Play_DiaolgPresenter extends FragmentPage {
+	@Override
+	public View getView(Bundle savedInstanceState) {
 		Cells.Scroller cell =new Cells.Scroller();
 		ViewGroup rootView =cell.rootView;
 		ViewGroup layout =cell.layout;

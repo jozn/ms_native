@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.GridLayoutManager;
@@ -19,13 +20,13 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import com.mardomsara.MediaFacade.media.MediaCursor;
 import com.mardomsara.MediaFacade.media.image.ImageCursor;
 import com.mardomsara.MediaFacade.media.image.ImageProviderHelper;
-import com.mardomsara.social.Nav_DEP;
 import com.mardomsara.social.R;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
-import com.mardomsara.social.ui.BasePresenter;
+import com.mardomsara.social.nav.FragmentPage;
+import com.mardomsara.social.nav.Nav;
 import com.mardomsara.social.ui.CursorRecyclerViewAdapter;
-import com.mardomsara.social.ui.presenter.chat_realm.chat_room.ChatRoomEntryPresenter;
+import com.mardomsara.social.ui.presenter.chat_realm.chat_room.ChatRoomEntryFragmentPage;
 import com.mardomsara.social.ui.ui.AppTabPagerAdaptor;
 import com.mardomsara.social.ui.views.FontCache;
 
@@ -41,10 +42,12 @@ import butterknife.OnClick;
 import pl.tajchert.nammu.Nammu;
 import pl.tajchert.nammu.PermissionCallback;
 
+//import com.mardomsara.social.Nav_DEP;
+
 /**
  * Created by Hamid on 6/17/2016.
  */
-public class GalleryChooserPresenter extends BasePresenter {
+public class GalleryChooserFragmentPage extends FragmentPage {
     //Must permision be granted
     Map<Long, String> thumbs_paths_map;//= ImageProviderHelper.loadAllTumbsPaths();;
     Map<Long, String> thumbs_video_paths_map;//= ImageProviderHelper.loadAllMoviesTumbsPaths();;
@@ -53,7 +56,8 @@ public class GalleryChooserPresenter extends BasePresenter {
     Map<String, Integer> folder_count_video_cache = new HashMap<>();;
 
 //    public ChatRoomPresenter_OLD chatEntryPresenter;
-    public ChatRoomEntryPresenter chatEntryPresenter;
+//    public ChatRoomEntryPresenter chatEntryPresenter;
+    public ChatRoomEntryFragmentPage chatEntryPresenter;
 
     @BindView(R.id.view_pager)
     ViewPager view_pager;
@@ -62,7 +66,7 @@ public class GalleryChooserPresenter extends BasePresenter {
 
     View v;
     @Override
-    public View buildView() {
+    public View getView(Bundle savedInstanceState) {
         v = AppUtil.inflate(R.layout.presenter_gallery_chooser);
         askPermissions();
 
@@ -77,8 +81,8 @@ public class GalleryChooserPresenter extends BasePresenter {
         ButterKnife.bind(this, v);
 
         AppTabPagerAdaptor tabsPager = new AppTabPagerAdaptor();
-		tabsPager.addTab( new AppTabPagerAdaptor.Tab("ویدیو", new MediaExplorer(MediaType.VIDEO)) );
-		tabsPager.addTab( new AppTabPagerAdaptor.Tab("عکس", new MediaExplorer(MediaType.IMAGE)) );
+		tabsPager.addTab( new AppTabPagerAdaptor.Tab("ویدیو", () -> new MediaExplorer(MediaType.VIDEO).buildView()) );
+		tabsPager.addTab( new AppTabPagerAdaptor.Tab("عکس", ()-> new MediaExplorer(MediaType.IMAGE).buildView()) );
 
         view_pager.setAdapter(tabsPager);
         tab_layout.setupWithViewPager(view_pager);
@@ -133,8 +137,8 @@ public class GalleryChooserPresenter extends BasePresenter {
         return cnt;
     }
 
-    /////////////////////////////////////////////////////////////////////////
-    class MediaExplorer extends BasePresenter {
+	/////////////////////////////////////////////////////////////////////////
+    class MediaExplorer {
         @BindView(R.id.recycler_view) RecyclerView recycler_view;
         Map<Long,Bitmap> _cache= new HashMap();
 //        Map<Integer, String> thumbs_paths_map= null;
@@ -143,9 +147,8 @@ public class GalleryChooserPresenter extends BasePresenter {
             this.type = type;
         }
 
-        @Override
         public View buildView() {
-            View v = LayoutInflater.from(context).inflate(R.layout.gallery_chooser_folders_recyicler_view, null);
+            View v = LayoutInflater.from(AppUtil.getContext()).inflate(R.layout.gallery_chooser_folders_recyicler_view, null);
             ButterKnife.bind(this,v);
             FolderAdaptor folderAdaptor;
             if(type == MediaType.IMAGE){
@@ -225,7 +228,7 @@ public class GalleryChooserPresenter extends BasePresenter {
                     String bucketId = cursor.bucketId();
 //                    ImageProviderHelper.tryClose(folder);
                     v.setOnClickListener((v)->{
-                        Nav_DEP.push(new MediaBrowserFolderInsidePresenter(type, bucketId));
+//                        Nav.push(new MediaBrowserFolderInsidePresenter(type, bucketId));
                     });
                 }
 
@@ -234,7 +237,8 @@ public class GalleryChooserPresenter extends BasePresenter {
 //        MediaStore.Images.Thumbnails
     }
 
-    class MediaBrowserFolderInsidePresenter extends BasePresenter {
+//    public class MediaBrowserFolderInsidePresenter extends PageFragment {
+    public class MediaBrowserFolderInsidePresenter  {
         MediaType type;
         @BindView(R.id.recycler_view) RecyclerView recycler_view;
         @BindView(R.id.left_side) View left_side;
@@ -251,13 +255,16 @@ public class GalleryChooserPresenter extends BasePresenter {
         Map<Long,Bitmap> _cache= new HashMap();
         String buketId;
 
-        public MediaBrowserFolderInsidePresenter(MediaType type, String buketId) {
+		public MediaBrowserFolderInsidePresenter() {
+		}
+
+		public MediaBrowserFolderInsidePresenter(MediaType type, String buketId) {
             this.type = type;
             this.buketId = buketId;
         }
 
-        @Override
-        public View buildView() {
+
+        public View getView(Bundle savedInstanceState) {
             View v = AppUtil.inflate(R.layout.gallery_chooser_media_list, null);
             ButterKnife.bind(this, v);
 //            send_btn.setTypeface(FontCache.getIonic());
@@ -280,14 +287,14 @@ public class GalleryChooserPresenter extends BasePresenter {
 
         @OnClick(R.id.back_btn)
         void goBack(){
-            Nav_DEP.pop();
+            Nav.pop();
         }
 
         @OnClick(R.id.left_side)
         void sendResult(){
-            Nav_DEP.pop(2);
+            Nav.pop(2);
             if(selectedReal.size()>0){
-                if(type==MediaType.IMAGE){
+                if(type== MediaType.IMAGE){
                     AndroidUtil.runInUi(()->{//async
                         chatEntryPresenter.onRecentImagesSendClicked(selectedReal);
                     });
@@ -341,7 +348,7 @@ public class GalleryChooserPresenter extends BasePresenter {
                 View.OnClickListener onSelect = (v)->{
                     if(selectedThumbs.contains(thumbsSignatuer)){
                         selectedThumbs.remove(thumbsSignatuer);
-                        if(type==MediaType.IMAGE){
+                        if(type== MediaType.IMAGE){
                             selectedReal.remove(ImageProviderHelper.getImagePathByImaheId(mediaId));
                         }else {
                             selectedReal.remove(ImageProviderHelper.getVideoPathByImaheId(mediaId));
@@ -349,7 +356,7 @@ public class GalleryChooserPresenter extends BasePresenter {
                     }else {
                         if(selectedThumbs.size() < maxSelection){
                             selectedThumbs.add(thumbsSignatuer);
-                            if(type==MediaType.IMAGE){
+                            if(type== MediaType.IMAGE){
                                 selectedReal.add(ImageProviderHelper.getImagePathByImaheId(mediaId));
                             }else {
                                 selectedReal.add(ImageProviderHelper.getVideoPathByImaheId(mediaId));

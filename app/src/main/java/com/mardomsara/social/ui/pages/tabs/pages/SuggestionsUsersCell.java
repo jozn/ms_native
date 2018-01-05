@@ -4,19 +4,20 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.mardomsara.social.app.Router_DEP;
+import com.mardomsara.social.app.Router;
 import com.mardomsara.social.base.Http.Http;
 import com.mardomsara.social.base.Http.Result;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.json.HttpJsonList;
 import com.mardomsara.social.json.social.rows.UserInfoJson;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
-import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.X;
 import com.mardomsara.social.ui.cells.Cells;
 
 import java.util.ArrayList;
 import java.util.List;
+
+//import com.mardomsara.social.app.Router_DEP;
 
 /**
  * Created by Hamid on 8/23/2016.
@@ -102,7 +103,7 @@ public class SuggestionsUsersCell implements AppHeaderFooterRecyclerViewAdapter.
 		}
 
 		private void goToProfile() {
-			Router_DEP.goToProfile(row.getUserId());
+			Router.goToProfile(row.getUserId());
 		}
 
 		public void bind(UserInfoJson row){

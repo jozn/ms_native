@@ -2,14 +2,13 @@ package com.mardomsara.social.ui.presenter.settings;
 
 import android.view.View;
 
-import com.mardomsara.social.Nav_DEP;
 import com.mardomsara.social.app.AppFiles;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.DialogHelper;
 import com.mardomsara.social.helpers.FormaterUtil;
 import com.mardomsara.social.helpers.TimeUtil;
 import com.mardomsara.social.models_old.stores.SharedStore;
-import com.mardomsara.social.ui.BasePresenter;
+import com.mardomsara.social.nav.Nav;
 import com.mardomsara.social.ui.X;
 import com.mardomsara.social.ui.cells.Cells;
 
@@ -35,15 +34,15 @@ public class SettingsCell{
 
 			///////////// General Settings ///////////
 			bGeneralSettings.addRow(new Settings.RowPage("ویرایش پروفایل" , ()-> {
-				Nav_DEP.push(new EditProfilePresenter());
+				Nav.push(new EditProfilePage());
 			} ));
 
 			bGeneralSettings.addRow(new Settings.RowPage("ایمیل" , ()-> {
-				Nav_DEP.push(new EditEmailPresenter());
+				Nav.push(new EditEmailPage());
 			} ));
 
 			bGeneralSettings.addRow(new Settings.RowPage("شماره تلفن همراه" , ()-> {
-				Nav_DEP.push(new EditPhonePresenter());
+				Nav.push(new EditPhonePage());
 			} ));
 
 
@@ -65,7 +64,7 @@ public class SettingsCell{
 
 			///////////// Mardomsara Settings ///////////
 			bMardomsara.addRow(new Settings.RowPage("درباره" , ()-> {
-				Nav_DEP.push(new AboutMardomsaraPresenter());
+				Nav.push(new AboutMardomsaraPage());
 			} ));
 
 

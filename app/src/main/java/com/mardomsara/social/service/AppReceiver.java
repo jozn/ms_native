@@ -10,7 +10,6 @@ import android.widget.Toast;
 
 import com.common.utils.Common;
 import com.mardomsara.social.R;
-import com.mardomsara.social.activities.MainAppActivity;
 
 import java.util.Date;
 

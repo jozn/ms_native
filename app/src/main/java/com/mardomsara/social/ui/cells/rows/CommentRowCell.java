@@ -3,7 +3,7 @@ package com.mardomsara.social.ui.cells.rows;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.mardomsara.social.Nav_DEP;
+import com.mardomsara.social.app.Router;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.DialogHelper;
 import com.mardomsara.social.helpers.FormaterUtil;
@@ -13,7 +13,6 @@ import com.mardomsara.social.models_old.Comment;
 import com.mardomsara.social.models_old.tables.Session;
 import com.mardomsara.social.ui.X;
 import com.mardomsara.social.ui.cells.lists.CommentsListCell;
-import com.mardomsara.social.ui.presenter.pages.ProfilePage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,7 +35,7 @@ public class CommentRowCell {
     };
 
     View.OnClickListener gotoProfile = (v)->{
-        Nav_DEP.push(new ProfilePage(comment.UserId));
+        Router.goToProfile(comment.UserId);
     };
 
     int i =0;

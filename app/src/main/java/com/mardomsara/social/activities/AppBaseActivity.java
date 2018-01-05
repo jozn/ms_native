@@ -13,13 +13,13 @@ import android.view.KeyEvent;
 import android.view.MenuItem;
 
 import com.mardomsara.social.App;
-
 import com.mardomsara.social.app.Config;
 import com.mardomsara.social.app.ConfigRealmBrowser;
 import com.mardomsara.social.app.LifeCycle;
 import com.mardomsara.social.app.memory.TrimMemory;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.Helper;
+import com.mardomsara.social.nav.Nav;
 import com.mardomsara.social.play.Play_TestsPresenter;
 
 import pl.tajchert.nammu.Nammu;
@@ -201,7 +201,7 @@ public abstract class AppBaseActivity extends AppCompatActivity {
 		AppUtil.log("called onKeyDown: " + keyCode);
 		if (Config.IS_DEBUG) {
 			if (keyCode == KeyEvent.KEYCODE_VOLUME_DOWN) {
-//				Nav_DEP.push(new Play_TestsPresenter());
+				Nav.push(new Play_TestsPresenter());
 				return true;
 			}
 

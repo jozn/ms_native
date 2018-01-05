@@ -1,5 +1,6 @@
 package com.mardomsara.social.play.presenters;
 
+import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -12,7 +13,7 @@ import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.helpers.TimeUtil;
 import com.mardomsara.social.json.HttpJsonList;
 import com.mardomsara.social.json.social.rows.TagRowJson;
-import com.mardomsara.social.ui.BasePresenter;
+import com.mardomsara.social.nav.FragmentPage;
 import com.mardomsara.social.ui.cells.Cells;
 
 import java.io.File;
@@ -21,9 +22,9 @@ import java.util.ArrayList;
 /**
  * Created by Hamid on 10/1/2016.
  */
-public class Play_Http2TestPresenter extends BasePresenter {
+public class Play_Http2TestPresenter extends FragmentPage {
     @Override
-    public View buildView() {
+    public View getView(Bundle savedInstanceState) {
         Cells.Scroller cell =new Cells.Scroller();
         ViewGroup rootView =cell.rootView;
         ViewGroup layout =cell.layout;

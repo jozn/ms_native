@@ -4,9 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.support.v4.app.FragmentManager;
 
-import com.mardomsara.social.activities.MainAppActivity;
 import com.mardomsara.social.activities.MainNewAppActivity;
-import com.mardomsara.social.app.LifeCycle;
 
 import org.greenrobot.eventbus.EventBus;
 

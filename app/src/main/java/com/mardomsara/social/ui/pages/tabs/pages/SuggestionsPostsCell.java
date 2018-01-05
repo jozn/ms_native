@@ -5,7 +5,6 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-import com.mardomsara.social.Nav_DEP;
 import com.mardomsara.social.base.Http.Http;
 import com.mardomsara.social.base.Http.Result;
 import com.mardomsara.social.helpers.AndroidUtil;
@@ -14,10 +13,9 @@ import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.json.HttpJsonList;
 import com.mardomsara.social.json.JV;
 import com.mardomsara.social.lib.AppHeaderFooterRecyclerViewAdapter;
-import com.mardomsara.social.ui.BasePresenter;
+import com.mardomsara.social.nav.Nav;
 import com.mardomsara.social.ui.adaptors.PostsGridAdaptor;
 import com.mardomsara.social.ui.cells.Cells;
-import com.mardomsara.social.ui.presenter.pages.LastPostsPage;
 import com.mardomsara.social.ui.views.helpers.ViewHelper;
 
 /**
@@ -55,7 +53,7 @@ public class SuggestionsPostsCell implements AppHeaderFooterRecyclerViewAdapter.
         topTitle.setText("پست های داغ");
 
         recent.rootView.setOnClickListener((v)->{
-            Nav_DEP.push(new LastPostsPage());
+            Nav.push(new LastPostsPageFragment());
         });
         adaptor.appendViewToHeader(recent.rootView);
         adaptor.appendViewToHeader(topTitle.rootView);

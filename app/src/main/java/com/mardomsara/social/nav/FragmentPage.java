@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 
 import com.mardomsara.social.ui.X;
 
-public abstract class PageFragment extends Fragment {
+public abstract class FragmentPage extends Fragment {
 	private static final String TAG = "PageFragment";
 	static int counter = 0;
 
@@ -21,28 +21,28 @@ public abstract class PageFragment extends Fragment {
 	View genView;
 	String tagId = "";
 
-	public abstract View getView(Bundle savedInstanceState);
-
-	public PageFragment() {
+	public FragmentPage() {
 		tagId = "tagId_" + counter;
 		counter++;
 	}
 
+	public abstract View getView(Bundle savedInstanceState);
+
 	@Override
 	public void onAttach(Context context) {
 		super.onAttach(context);
-		Log.d(TAG,"onAttach");
+		log("onAttach");
 	}
 
 	@Override
 	public void onDetach() {
 		super.onDetach();
-		Log.d(TAG,"onDetach");
+		log("onDetach");
 	}
 
 	public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 //		return new X.FragmentPages_DefaultParent(getActivity(),null).rootHolder;
-		if(xFramelayout == null){
+		if (xFramelayout == null) {
 			xFramelayout = new X.Framelayout();
 			rootHolder = xFramelayout.root;
 		}
@@ -52,18 +52,18 @@ public abstract class PageFragment extends Fragment {
 	@Override
 	public void onActivityCreated(@Nullable Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
-		Log.d(TAG, "onActivityCreated:");
-		if(genView == null){
+		log("onActivityCreated:");
+		if (genView == null) {
 			genView = getView(savedInstanceState);
-			if(genView!= null){
+			if (genView != null) {
 				rootHolder.addView(genView);
 			}
 		}
 	}
 
 
-	boolean onBackPressed(){
-		Log.d(TAG, "onBackPressed");
+	boolean onBackPressed() {
+		log("onBackPressed");
 		return false;
 	}
 
@@ -76,19 +76,19 @@ public abstract class PageFragment extends Fragment {
 	@Override
 	public void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		Log.d(TAG, "onCreate");
+		log("onCreate");
 	}
 
 	@Override
 	public void onStart() {
 		super.onStart();
-		Log.d(TAG, "onStart");
+		log("onStart");
 	}
 
 	@Override
 	public void onPause() {
 		super.onPause();
-		Log.d(TAG, "onPause");
+		log("onPause");
 
 
 	}
@@ -97,56 +97,60 @@ public abstract class PageFragment extends Fragment {
 	public void onSaveInstanceState(Bundle outState) {
 		super.onSaveInstanceState(outState);
 
-		Log.d(TAG, "onSaveInstanceState:");
+		log("onSaveInstanceState:");
 
 	}
 
 	@Override
 	public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
 		super.onViewCreated(view, savedInstanceState);
-		Log.d(TAG, "onViewCreated:");
+		log("onViewCreated:");
 	}
 
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
-		Log.d(TAG, "onActivityResult:");
+		log("onActivityResult:");
 	}
 
 	@Override
 	public void onAttachFragment(Fragment childFragment) {
 		super.onAttachFragment(childFragment);
-		Log.d(TAG, "onAttachFragment:");
+		log("onAttachFragment:");
 	}
 
 	@Override
 	public void onResume() {
 		super.onResume();
-		Log.d(TAG, "onResume:");
+		log("onResume:");
 	}
 
 	@Override
 	public void onStop() {
 		super.onStop();
-		Log.d(TAG, "onStop:");
+		log("onStop:");
 	}
 
 	@Override
 	public void onLowMemory() {
 		super.onLowMemory();
-		Log.d(TAG, "onLowMemory:");
+		log("onLowMemory:");
 	}
 
 	@Override
 	public void onDestroyView() {
 		super.onDestroyView();
-		Log.d(TAG, "onDestroyView:");
+		log("onDestroyView:");
 	}
 
 	@Override
 	public void onDestroy() {
 		super.onDestroy();
-		Log.d(TAG, "onDestroy:");
+		log("onDestroy:");
+	}
+
+	void log(String m) {
+		Log.d(TAG, "" + m + " " + tagId);
 	}
 
 	//just called during Nav changes pages

@@ -1,4 +1,4 @@
-package com.mardomsara.social.ui.presenter.pages.add_post;
+package com.mardomsara.social.ui.pages.tabs.pages.add_post;
 
 import android.Manifest;
 import android.content.Context;

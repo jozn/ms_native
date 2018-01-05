@@ -6,7 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.mardomsara.social.R;
-import com.mardomsara.social.app.Router_DEP;
+//import com.mardomsara.social.app.Router_DEP;
+import com.mardomsara.social.app.Router;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.Helper;
@@ -210,7 +211,7 @@ public class UserAndContactsCell {
 				//click listeners in here to not do a lot of object creation
 				x.root.setOnClickListener((vv)-> {
 					if(user != null){
-						Router_DEP.goToUserChatEntry(user.UserId);
+						Router.goToUserChatEntry(user.UserId);
 					}
 				});
 

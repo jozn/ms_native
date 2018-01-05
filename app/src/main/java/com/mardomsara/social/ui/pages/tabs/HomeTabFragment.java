@@ -1,18 +1,12 @@
 package com.mardomsara.social.ui.pages.tabs;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
 
-import com.mardomsara.social.R;
 import com.mardomsara.social.app.API;
 import com.mardomsara.social.nav.BranchHolderFragment;
 import com.mardomsara.social.ui.X;
-import com.mardomsara.social.ui.cells.lists.PostsHomeCell;
+import com.mardomsara.social.ui.pages.tabs.pages.PostsHomeCell;
 
 /**
  * Created by Hamid on 1/4/2018.

@@ -2,15 +2,13 @@ package com.mardomsara.social.ui.pages.tabs.pages;
 
 import android.view.View;
 
-import com.mardomsara.social.Nav_DEP;
-import com.mardomsara.social.app.Router_DEP;
+import com.mardomsara.social.app.Router;
 import com.mardomsara.social.base.Http.Http;
 import com.mardomsara.social.base.Http.Result;
 import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.json.HttpJson;
 import com.mardomsara.social.json.JV;
 import com.mardomsara.social.models_old.tables.Session;
-import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.X;
 import com.mardomsara.social.ui.adaptors.PostGeneralListCell;
 
@@ -105,13 +103,13 @@ public class ProfileCell {
 
     public static View.OnClickListener getFollowings_click(int Userid) {
         return (v)->{
-            Nav_DEP.push(Router_DEP.getFollowingsPage(Userid));
+			Router.goToFollowingsPage(Userid);
         };
     }
 
     public static View.OnClickListener getFollowers_click(int Userid) {
         return (v)->{
-            Nav_DEP.push(Router_DEP.getFollowersPage(Userid));
+			Router.goToFollowersPage(Userid);
         };
     }
 

@@ -6,11 +6,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.mardomsara.social.Nav_DEP;
 import com.mardomsara.social.R;
 import com.mardomsara.social.app.Constants;
 import com.mardomsara.social.app.Events;
-import com.mardomsara.social.app.Router_DEP;
+import com.mardomsara.social.app.Router;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.DialogHelper;
@@ -25,7 +24,6 @@ import com.mardomsara.social.models_old.memory_store.MemoryStore_Rooms;
 import com.mardomsara.social.models_old.tables.Message;
 import com.mardomsara.social.models_old.tables.Room;
 import com.mardomsara.social.models_realm.pb_realm.RealmChatView;
-//import com.mardomsara.social.models_realm.realm_local.RealmChatViewFields;
 import com.mardomsara.social.play.DividerItemDecoration;
 import com.mardomsara.social.ui.X;
 
@@ -37,6 +35,10 @@ import java.util.List;
 
 import io.realm.Realm;
 import io.realm.Sort;
+
+//import com.mardomsara.social.app.Router_DEP;
+
+//import com.mardomsara.social.models_realm.realm_local.RealmChatViewFields;
 
 /**
  * Created by Hamid on 9/7/2016.
@@ -145,7 +147,9 @@ public class RoomsListCell {
             this.adaptor = adaptor;
 
             x.root.setOnClickListener((vv)->{
-                if (room!= null) Nav_DEP.push(Router_DEP.getRoomEntry(room));
+                if (room!= null){
+//                	Nav_DEP.push(Router_DEP.getRoomEntry(room));
+				}
             });
 
             x.root.setOnLongClickListener((vv)->{
@@ -229,7 +233,7 @@ public class RoomsListCell {
             }));
 
             items.add(new DialogHelper.MenuItem("رفتن به پروفایل",(v)->{
-                Router_DEP.goToProfile(room.getUserId());
+                Router.goToProfile(room.getUserId());
             }));
 
             DialogHelper.simpleMenu(items);

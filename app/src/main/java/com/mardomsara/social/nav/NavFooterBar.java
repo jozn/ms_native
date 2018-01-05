@@ -86,7 +86,7 @@ public class NavFooterBar extends Fragment {
 		getFooterBarCell().activateBranch(activeBranchEnum);
 	}
 
-	public void push(final PageFragment page) {
+	public void push(final FragmentPage page) {
 		try {
 			Fragment activeBranch = getFragmentManager().findFragmentByTag(activeBranchEnum.fragmentBranchTagId);
 			if (activeBranch == null) {
@@ -114,7 +114,7 @@ public class NavFooterBar extends Fragment {
 		}
 	}
 
-	public void replace(PageFragment page) {
+	public void replace(FragmentPage page) {
 
 	}
 

@@ -5,13 +5,11 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 
-import com.mardomsara.social.Nav_DEP;
 import com.mardomsara.social.R;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.nav.BranchHolderFragment;
 import com.mardomsara.social.ui.pages.tabs.pages.ActivityCell;
 import com.mardomsara.social.ui.pages.tabs.pages.NotifyCell;
-import com.mardomsara.social.ui.presenter.social.search.SearchUserAndTagPage;
 import com.mardomsara.social.ui.ui.AppTabPagerAdaptor;
 
 /**

@@ -1,7 +1,9 @@
-package com.mardomsara.social.ui.presenter.pages.add_post;
+package com.mardomsara.social.ui.pages.tabs.pages.add_post;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -13,7 +15,7 @@ import com.mardomsara.social.App;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.Helper;
-import com.mardomsara.social.ui.BasePresenter;
+import com.mardomsara.social.nav.FragmentPage;
 import com.mardomsara.social.ui.X;
 import com.squareup.picasso.Picasso;
 
@@ -25,7 +27,8 @@ import java.util.WeakHashMap;
 import pl.tajchert.nammu.Nammu;
 import pl.tajchert.nammu.PermissionCallback;
 
-public class PostAddGalleryChooserPresenter extends BasePresenter {
+//@SuppressLint("ValidFragment")
+public class PostAddGalleryChooserPresenter extends FragmentPage {
 	int maxSelection = 10;
 	onImageClicked listener;
 	List<String> selected = new ArrayList<>();
@@ -36,7 +39,7 @@ public class PostAddGalleryChooserPresenter extends BasePresenter {
 	public AddPostPage addPostPage;
 
     @Override
-    public View buildView() {
+    public View getView(Bundle savedInstanceState) {
 		x = new X.AddPostGallery_Container();
 		x.top_nav.setTitle("انتخاب عکس");
 		askPermissions();

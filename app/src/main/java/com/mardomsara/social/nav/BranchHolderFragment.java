@@ -16,7 +16,7 @@ import java.util.List;
  * Created by Hamid on 1/1/2018.
  */
 
-public abstract class BranchHolderFragment extends PageFragment {
+public abstract class BranchHolderFragment extends FragmentPage {
 
 	X.BranchHolder branchHolder;
 
@@ -29,7 +29,7 @@ public abstract class BranchHolderFragment extends PageFragment {
 		return rootHolder;
 	}
 
-	public void push(PageFragment page) {
+	public void push(FragmentPage page) {
 		getChildFragmentManager()
 			.beginTransaction()
 			.replace(R.id.child_frame_deep, page, page.getTagId())
@@ -40,14 +40,14 @@ public abstract class BranchHolderFragment extends PageFragment {
 
 	}
 
-	public void replace(PageFragment page) {
+	public void replace(FragmentPage page) {
 
 	}
 
 	public boolean pop() {
 		List<Fragment> list = getChildFragmentManager().getFragments();
 		if (list.size() > 0) {
-			boolean handled = ((PageFragment) list.get(list.size() - 1)).onBackPressed();
+			boolean handled = ((FragmentPage) list.get(list.size() - 1)).onBackPressed();
 			if (handled) {
 				return true;
 			} else {

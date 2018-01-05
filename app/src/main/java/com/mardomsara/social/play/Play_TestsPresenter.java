@@ -1,9 +1,11 @@
 package com.mardomsara.social.play;
 
+import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.mardomsara.social.Nav_DEP;
+import com.mardomsara.social.nav.FragmentPage;
+import com.mardomsara.social.nav.Nav;
 import com.mardomsara.social.play.presenters.Play_DiaolgPresenter;
 import com.mardomsara.social.play.presenters.Play_FormsPresenter;
 import com.mardomsara.social.play.presenters.Play_Http2TestPresenter;
@@ -13,61 +15,61 @@ import com.mardomsara.social.play.presenters.Play_WSCallPresenter;
 import com.mardomsara.social.play.presenters.Play_XIconPresneter;
 import com.mardomsara.social.play.presenters.Play_XTextColorsViews;
 import com.mardomsara.social.play.presenters.Play_XTextViews;
-import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.social.ui.X;
 import com.mardomsara.social.ui.cells.Cells;
-import com.mardomsara.social.ui.presenter.HelloPresenter;
+import com.mardomsara.social.ui.presenter.HelloPage;
 
 /**
  * Created by Hamid on 10/1/2016.
  */
-public class Play_TestsPresenter extends BasePresenter {
-    @Override
-    public View buildView() {
+public class Play_TestsPresenter extends FragmentPage {
+
+	@Override
+    public View getView(Bundle savedInstanceState) {
         Cells.Scroller cell =new Cells.Scroller();
         ViewGroup rootView =cell.rootView;
         ViewGroup layout =cell.layout;
 
         layout.addView(newTitle("همه حذف",()->{
-            Nav_DEP.push(new HelloPresenter());
+			Nav.push(new HelloPage());
         }));
 
         layout.addView(newTitle("Http2 play test",()->{
-            Nav_DEP.push(new Play_Http2TestPresenter());
+            Nav.push(new Play_Http2TestPresenter());
         }));
 
 		layout.addView(newTitle("Ws Call tsest",()->{
-			Nav_DEP.push(new Play_WSCallPresenter());
+			Nav.push(new Play_WSCallPresenter());
 		}));
 
 		layout.addView(newTitle("Dialogs ",()->{
-			Nav_DEP.push(new Play_DiaolgPresenter());
+			Nav.push(new Play_DiaolgPresenter());
 		}));
 
 		layout.addView(newTitle("Edits ",()->{
-			Nav_DEP.push(new Play_FormsPresenter());
+			Nav.push(new Play_FormsPresenter());
 		}));
 
 		layout.addView(newTitle("Recipies ",()->{
-			Nav_DEP.push(new Play_RecipiesPresenter());
+			Nav.push(new Play_RecipiesPresenter());
 		}));
 
 		layout.addView(newTitle("XIcons ",()->{
-			Nav_DEP.push(new Play_XIconPresneter());
+			Nav.push(new Play_XIconPresneter());
 		}));
 
 		layout.addView(newTitle("XLinkerTextView ",()->{
-			Nav_DEP.push(new Play_XTextViews());
+			Nav.push(new Play_XTextViews());
 		}));
 
 
 		layout.addView(newTitle("Colores ",()->{
-			Nav_DEP.push(new Play_XTextColorsViews());
+			Nav.push(new Play_XTextColorsViews());
 		}));
 
 
 		layout.addView(newTitle("Realm",()->{
-			Nav_DEP.push(new Play_Realm());
+			Nav.push(new Play_Realm());
 		}));
 
 /*

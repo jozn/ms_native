@@ -13,7 +13,6 @@ import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.backends.pipeline.PipelineDraweeControllerBuilder;
 import com.facebook.drawee.controller.BaseControllerListener;
 import com.facebook.imagepipeline.image.ImageInfo;
-import com.mardomsara.social.Nav_DEP;
 import com.mardomsara.social.R;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
@@ -41,11 +40,11 @@ public class FullScreenImage_Fresco {
     public String imageUrlPath;
     public File imageFile;
 
-    Nav_DEP.OnBackPressHandler backHandler = ()->{
+    /*Nav_DEP.OnBackPressHandler backHandler = ()->{
         close();
         return true;
     };
-
+*/
     int cliked = 0;
 
     public FullScreenImage_Fresco() {
@@ -60,7 +59,7 @@ public class FullScreenImage_Fresco {
         text_view = (TextView) popupView.findViewById(R.id.text_view);
 
 
-        Nav_DEP.addCustomOnBackPressHandler(backHandler);
+//        Nav_DEP.addCustomOnBackPressHandler(backHandler);
 
         back_btn.setOnClickListener((v)->{
             close();
@@ -95,7 +94,7 @@ public class FullScreenImage_Fresco {
     }
 
     private void close() {
-        Nav_DEP.removeCustomOnBackPressHandler(backHandler);
+//        Nav_DEP.removeCustomOnBackPressHandler(backHandler);
         attachWindow.dismiss();
     }
 

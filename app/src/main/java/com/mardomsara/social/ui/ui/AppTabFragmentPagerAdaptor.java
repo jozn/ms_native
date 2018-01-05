@@ -5,14 +5,12 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.PagerAdapter;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.mardomsara.social.R;
 import com.mardomsara.social.helpers.AppUtil;
-import com.mardomsara.social.ui.BasePresenter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -100,11 +98,6 @@ public class AppTabFragmentPagerAdaptor extends FragmentPagerAdapter {
 		public Tab(@NonNull String title,@NonNull GetView getViewRunner) {
 			this.title = title;
 			this.getViewRunner = getViewRunner;
-		}
-
-		public Tab(@NonNull String title, @NonNull BasePresenter presenter) {
-			this.title = title;
-			this.getViewRunner = () -> presenter.buildView();
 		}
 
 		public View getView(){

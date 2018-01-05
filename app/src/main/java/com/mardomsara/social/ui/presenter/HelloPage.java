@@ -1,25 +1,24 @@
 package com.mardomsara.social.ui.presenter;
 
+import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.mardomsara.social.Nav_DEP;
 import com.mardomsara.social.R;
-import com.mardomsara.social.app.Router_DEP;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.LangUtil;
-import com.mardomsara.social.ui.BasePresenter;
+import com.mardomsara.social.nav.FragmentPage;
 
 //import ;
 
 /**
  * Created by Hamid on 5/2/2016.
  */
-public class HelloPresenter extends BasePresenter {
+public class HelloPage extends FragmentPage {
     Integer count = 0;
     @Override
-    public View buildView() {
+    public View getView(Bundle savedInstanceState) {
        ViewGroup v = (ViewGroup) AppUtil.inflate(R.layout.hello_world_row,null);
         View btn = v.findViewById(R.id.btn);
         View btn2 = v.findViewById(R.id.btn2);
@@ -29,11 +28,11 @@ public class HelloPresenter extends BasePresenter {
         View anvil_view2 = v.findViewById(R.id.anvil2);
         txt.setText("Hello Wold + id:" + LangUtil.getRandomString(5));
         btn.setOnClickListener((vv)->{
-            Nav_DEP.push(Router_DEP.getHelloWolrdPage());
+            //Nav_DEP.push(Router_DEP.getHelloWolrdPage());
         });
 
         btn2.setOnClickListener((vv)->{
-            Nav_DEP.push(Router_DEP.getGalleryChooserPage());
+           // Nav_DEP.push(Router_DEP.getGalleryChooserPage());
         });
 
         btn3.setOnClickListener((vv)->{

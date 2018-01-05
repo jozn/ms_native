@@ -21,7 +21,6 @@ import com.mardomsara.social.models_old.syncer.UserSyncer;
 import com.mardomsara.social.models_old.tables.Session;
 import com.mardomsara.social.play.Play_RunOnStart;
 import com.mardomsara.social.service.BackgroundService;
-import com.mardomsara.social.ui.BasePresenter;
 import com.mardomsara.x.iconify.XIconify;
 import com.squareup.picasso.LruCache;
 import com.squareup.picasso.Picasso;
@@ -113,7 +112,7 @@ public class LifeCycle {
 			FLog.setMinimumLoggingLevel(FLog.VERBOSE);
 //         LeakCanary.install(ctx);
 
-			BasePresenter.context = ctx;
+//			BasePresenter.context = ctx;
 //            BasePresenter.inflater = LayoutInflater.from(ctx);
 
 //			DB.init();

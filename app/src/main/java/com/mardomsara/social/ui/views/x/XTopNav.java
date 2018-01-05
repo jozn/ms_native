@@ -9,10 +9,12 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.RelativeLayout;
 
-import com.mardomsara.social.Nav_DEP;
 import com.mardomsara.social.R;
+import com.mardomsara.social.nav.Nav;
 import com.mardomsara.social.ui.X;
 import com.mardomsara.social.ui.views.buttons.ButtonPostMultiWayView;
+
+//import com.mardomsara.social.Nav_DEP;
 
 /**
  * Created by Hamid on 3/19/2017.
@@ -79,7 +81,7 @@ public class XTopNav extends RelativeLayout {
 				return;
 			}
 		}
-		Nav_DEP.pop();
+		Nav.pop();
 	}
 
 	void leftClikcImple(View v){

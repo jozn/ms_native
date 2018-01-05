@@ -18,8 +18,7 @@ import com.mardomsara.social.helpers.Helper;
 import com.mardomsara.social.json.HttpJsonList;
 import com.mardomsara.social.json.social.rows.TagRowJson;
 import com.mardomsara.social.json.social.rows.UserInfoJson;
-import com.mardomsara.social.nav.PageFragment;
-import com.mardomsara.social.ui.BasePresenter;
+import com.mardomsara.social.nav.FragmentPage;
 import com.mardomsara.social.ui.ui.AppTabPagerAdaptor;
 import com.mardomsara.social.ui.ui.UserListUI;
 import com.mardomsara.social.ui.views.helpers.ViewHelper;
@@ -28,7 +27,7 @@ import com.mardomsara.social.ui.views.helpers.ViewHelper;
  * Created by Hamid on 8/23/2016.
  */
 //keep this for sample of Sectioned
-public class SearchUserAndTagPageFragment extends PageFragment {
+public class SearchUserAndTagPageFragment extends FragmentPage {
 	final static String TRY_SEARCH = "جستجو کنید...";
 	final static String NO_RESULT = "یافت نشد";
 
@@ -83,12 +82,11 @@ public class SearchUserAndTagPageFragment extends PageFragment {
 		}
     }
 
-	public static class SearchTagPagerPresenter extends BasePresenter {
+	public static class SearchTagPagerPresenter  {
 		RecyclerView recyclerView;
 		LinearLayoutManager layoutManager = new LinearLayoutManager(AppUtil.getContext(),LinearLayoutManager.VERTICAL,false);
 		SearchResultTagsListCell.TagsAdaptor adapter;
 
-		@Override
 		public View buildView() {
 			recyclerView = ViewHelper.newRecyclerViewMatch();
 			adapter = new SearchResultTagsListCell.TagsAdaptor();
@@ -139,13 +137,13 @@ public class SearchUserAndTagPageFragment extends PageFragment {
 
 	}
 
-	public static class SearchUserPresenter extends BasePresenter {
+	public static class SearchUserPresenter  {
 
 		RecyclerView recyclerView;
 		LinearLayoutManager layoutManager = new LinearLayoutManager(AppUtil.getContext(),LinearLayoutManager.VERTICAL,false);
 
 		UserListUI.Adapter adapter;
-		@Override
+
 		public View buildView() {
 			recyclerView = ViewHelper.newRecyclerViewMatch();
 			adapter = new UserListUI.Adapter();

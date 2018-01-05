@@ -3,21 +3,21 @@ package com.mardomsara.social.play.presenters;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.content.Context;
+import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
-import android.webkit.WebView;
 
 import com.mardomsara.social.R;
 import com.mardomsara.social.helpers.Helper;
-import com.mardomsara.social.ui.BasePresenter;
+import com.mardomsara.social.nav.FragmentPage;
 import com.mardomsara.social.ui.X;
 
 /**
  * Created by Hamid on 10/1/2016.
  */
-public class Play_RecipiesPresenter extends BasePresenter {
+public class Play_RecipiesPresenter extends FragmentPage {
     @Override
-    public View buildView() {
+    public View getView(Bundle savedInstanceState) {
 		X.PlayRecipies rootView =  new X.PlayRecipies();
 		rootView._status_bar.setOnClickListener((v)->{
 			int currentVis = v.getSystemUiVisibility();

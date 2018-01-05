@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 import com.mardomsara.social.R;
 import com.mardomsara.social.app.Constants;
-import com.mardomsara.social.app.Router_DEP;
+import com.mardomsara.social.app.Router;
 import com.mardomsara.social.helpers.AndroidUtil;
 import com.mardomsara.social.helpers.AppUtil;
 import com.mardomsara.social.helpers.FormaterUtil;
@@ -28,6 +28,8 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
+
+//import com.mardomsara.social.app.Router_DEP;
 
 /**
  * Created by Hamid on 8/26/2016.
@@ -159,7 +161,7 @@ public class ActivityListCell {
 				spanny.append(tp);
 
 				x.text_main.setText(spanny);
-				x.root.setOnClickListener((v)-> Router_DEP.goToPost(nf.Load.Post));
+				x.root.setOnClickListener((v)-> Router.goToPostEntryPage(nf.Load.Post));
 
 			}else {//others
 				spanny.append(" بر روی پست ");
@@ -174,7 +176,7 @@ public class ActivityListCell {
 				spanny.append(tp);
 
 				x.text_main.setText(spanny);
-				x.root.setOnClickListener((v)-> Router_DEP.goToPost(nf.Load.Post));
+				x.root.setOnClickListener((v)-> Router.goToPostEntryPage(nf.Load.Post));
 			}
 
         }
@@ -198,7 +200,7 @@ public class ActivityListCell {
 				spanny.append(tp);
 
 				x.text_main.setText(spanny);
-				x.root.setOnClickListener((v)-> Router_DEP.goToPost(nf.Load.Post));
+				x.root.setOnClickListener((v)-> Router.goToPostEntryPage(nf.Load.Post));
 				return;
 
 			}else {//others
@@ -213,7 +215,7 @@ public class ActivityListCell {
 				spanny.append(tp);
 
 				x.text_main.setText(spanny);
-				x.root.setOnClickListener((v)-> Router_DEP.goToPost(nf.Load.Post));
+				x.root.setOnClickListener((v)-> Router.goToPostEntryPage(nf.Load.Post));
 			}
 
         }
@@ -236,7 +238,7 @@ public class ActivityListCell {
 
 			_showExtraFollowing(nf.Load.Followed);
 
-            x.root.setOnClickListener((v)-> Router_DEP.goToProfile(nf.Load.Followed.UserId));
+            x.root.setOnClickListener((v)-> Router.goToProfile(nf.Load.Followed.UserId));
 			x.text_main.setText(spanny);
         }
 
@@ -267,9 +269,9 @@ public class ActivityListCell {
         }
 
         void _setAvatar(JV.UserInlineWithMeView Actor){
-			x.avatar_image.setOnClickListener((v)-> Router_DEP.goToProfile(Actor.UserId));
+			x.avatar_image.setOnClickListener((v)-> Router.goToProfile(Actor.UserId));
             Helper.SetAvatar(x.avatar_image, Actor.AvatarUrl);
-			x.avatar_image.setOnClickListener((v)-> Router_DEP.goToProfile(Actor.UserId));
+			x.avatar_image.setOnClickListener((v)-> Router.goToProfile(Actor.UserId));
         }
 
         void _hideExtra(){
@@ -319,7 +321,7 @@ public class ActivityListCell {
             AppClickableSpan clickableSpan = new AppClickableSpan() {
                 @Override
                 public void onClick(View view) {
-                    Router_DEP.goToProfile(s);
+                    Router.goToProfile(s);
                 }
             };
             return clickableSpan;
@@ -361,7 +363,7 @@ public class ActivityListCell {
 			AppClickableSpan clickableSpan = new AppClickableSpan() {
 				@Override
 				public void onClick(View view) {
-					Router_DEP.goToProfile(s);
+					Router.goToProfile(s);
 				}
 			};
 			return clickableSpan;

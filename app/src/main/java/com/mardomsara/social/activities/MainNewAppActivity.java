@@ -6,7 +6,6 @@ import android.view.ViewGroup;
 
 import com.mardomsara.emojicon.EmojiconsPopup;
 import com.mardomsara.social.App;
-import com.mardomsara.social.Nav_DEP;
 import com.mardomsara.social.R;
 import com.mardomsara.social.app.LifeCycle;
 import com.mardomsara.social.helpers.AppUtil;

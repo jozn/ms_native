@@ -19,11 +19,11 @@ public class Nav {
 	}
 
 	///////////////// Statics /////////////
-	public static void push(PageFragment page) {
+	public static void push(FragmentPage page) {
 		getDefaultFooter().push(page);
 	}
 
-	public static void replace(PageFragment page) {
+	public static void replace(FragmentPage page) {
 		getDefaultFooter().replace(page);
 	}
 
