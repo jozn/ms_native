@@ -356,12 +356,14 @@ public class X {
     }
 
     public static class BranchHolder {
-        public FrameLayout root;
-        public FrameLayout child_frame_deep;
+        public LinearLayout root;
+        public LinearLayout child_frame_deep;
+        public FrameLayout default_frame;
 
         public BranchHolder(Context context,ViewGroup parent) {
-            root = (FrameLayout) LayoutInflater.from(context).inflate(R.layout.branch_holder,parent ,false);
-            child_frame_deep = (FrameLayout) root.findViewById( R.id.child_frame_deep);
+            root = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.branch_holder,parent ,false);
+            child_frame_deep = (LinearLayout) root.findViewById( R.id.child_frame_deep);
+            default_frame = (FrameLayout) root.findViewById( R.id.default_frame);
         }
         public BranchHolder() {
             this(AppUtil.getContext(),null);
@@ -378,6 +380,7 @@ public class X {
         public static class IDS {
             public static int LAYOUT = R.layout.branch_holder;
             public static int child_frame_deep = R.id.child_frame_deep;
+            public static int default_frame = R.id.default_frame;
         }
     }
 

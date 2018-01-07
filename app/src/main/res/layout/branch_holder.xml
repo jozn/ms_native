@@ -1,27 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/child_frame_deep"
+
     android:background="#fff"
+    android:orientation="vertical"
     >
 
-    <!--<FrameLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-      <!---->
 
-        <!--&gt;-->
+    <LinearLayout
+        android:id="@+id/child_frame_deep"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#fff"
+        android:orientation="vertical"
+        android:visibility="gone"
+        >
 
-        <!--<TextView-->
-            <!--android:id="@+id/button3"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text="Button"-->
-            <!--android:textSize="24dp"-->
-            <!--android:layout_margin="20dp"-->
-            <!--android:background="#fff"-->
-            <!--/>-->
-    <!--</FrameLayout>-->
-</FrameLayout>
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/default_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#fff"
+
+        ></FrameLayout>
+
+</LinearLayout>

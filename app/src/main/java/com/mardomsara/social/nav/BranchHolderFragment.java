@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.mardomsara.social.R;
-import com.mardomsara.social.ui.X;
 
 import java.util.List;
 
@@ -18,15 +17,29 @@ import java.util.List;
 
 public abstract class BranchHolderFragment extends FragmentPage {
 
-	X.BranchHolder branchHolder;
+//	X.BranchHolder branchHolder;
+	BranchTreeAutoVisibilityView holderView;
 
 	@Override
-	public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-		if (branchHolder == null) {
-			branchHolder = new X.BranchHolder();
-			rootHolder = branchHolder.root;
+	public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
+							 @Nullable Bundle savedInstanceState) {
+		if (holderView == null) {
+			holderView = new BranchTreeAutoVisibilityView(getContext());
+			rootHolder = holderView;
 		}
 		return rootHolder;
+	}
+
+	@Override
+	public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+		log("onActivityCreated:");
+		if (genView == null) {
+			genView = getView(savedInstanceState);
+			if (genView != null) {
+				holderView.branchHolder.default_frame.addView(genView);
+			}
+		}
+		super.onActivityCreated(savedInstanceState);
 	}
 
 	public void push(FragmentPage page) {
@@ -36,6 +49,8 @@ public abstract class BranchHolderFragment extends FragmentPage {
 //			.add(R.id.fg1, page, page.getTagId())
 			.addToBackStack(null)
 			.commit();
+//		branchHolder.default_frame.setVisibility(View.GONE);
+//		branchHolder.child_frame_deep.setVisibility(View.VISIBLE);
 		Nav.alert("chil" + getChildFragmentManager().getFragments().size());
 
 	}
