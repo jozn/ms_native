@@ -15,7 +15,7 @@ very good notification system.
 ## Technology used:
 + Custom [RPC genrator](https://github.com/jozn/pb_walker) from `.proto` files. 
 + Fully remove of `.findViewById` with our custm [xml2java tool](https://github.com/jozn/xml2java). [X file](https://github.com/jozn/ms_native/blob/master/app/src/main/java/com/mardomsara/social/ui/X.java)
-+Single Activity, MVP, Web socket ( duplex ), realm, SQLite, RPC, Protocol Buffer, advanced TextView, custom views, fonts.
++ Single Activity, MVP, Web socket ( duplex ), realm, SQLite, RPC, Protocol Buffer, advanced TextView, custom views, fonts.
 
 ## Some random in the app:
 Gallery browser, photo and video.
