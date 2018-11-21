@@ -1,6 +1,8 @@
 # An android social network
 This a social network like Instagram with more advanced features: a chat section that is more like WhatsApp but it's cloud based, means texts, photo, video, files,... can be accessed across multi device.
 
+![Main chat Page, like Whatsapp](https://i.imgur.com/KC4wQlq.png)
+
 This app is +70% complete.
 This project is evolutionary, some technology adapted then dropped in favor of better technologies, Dropped: RESR, JSON, some SQLite tables to realm,  
 At start this app was using REST with JSON , but then it rewrite with an custom RPC (like gRPC), with Protocol Buffer. 
