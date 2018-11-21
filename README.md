@@ -19,7 +19,7 @@ very good notification system.
 + Fully remove of `.findViewById` with our custm [xml2java tool](https://github.com/jozn/xml2java). [X file](https://github.com/jozn/ms_native/blob/master/app/src/main/java/com/mardomsara/social/ui/X.java)
 + Single Activity, MVP, Web socket ( duplex ), realm, SQLite, RPC, Protocol Buffer, advanced TextView, custom views, fonts.
 
-## Some random in the app:
+## Some random features in the app:
 Gallery browser, photo and video.
 File browser.
 3 times bigger emoji in 'just emoji text chat'
