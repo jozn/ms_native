@@ -7,6 +7,8 @@ This app is +70% complete.
 This project is evolutionary, some technology adapted then dropped in favor of better technologies, Dropped: RESR, JSON, some SQLite tables to realm,  
 At start this app was using REST with JSON , but then it rewrite with an custom RPC (like gRPC), with Protocol Buffer. 
 
+*note: there is just one developer in this project and this project was never meant to be shared so git's commit comments are not as thorough as it should be!*
+
 ## features:
 Like Instagram.
 A full chat section.
